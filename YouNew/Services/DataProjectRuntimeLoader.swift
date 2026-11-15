@@ -1,15 +1,24 @@
 import Foundation
 import OSLog
 
+struct ApprovedPlaceCollection: Decodable, Identifiable {
+    let id: String
+    let cityId: String
+    let title: [String: String]
+    let entityIDs: [String]
+}
+
 struct DataProjectRuntimeLoadResult {
     let entities: [NetherlandsKnowledgeEntity]
     let migrationRegistry: [String: DataProjectMigration]
     let withheldEntityIDs: Set<String>
+    let collections: [ApprovedPlaceCollection]
 
-    init(entities: [NetherlandsKnowledgeEntity], migrationRegistry: [String: DataProjectMigration], withheldEntityIDs: Set<String> = []) {
+    init(entities: [NetherlandsKnowledgeEntity], migrationRegistry: [String: DataProjectMigration], withheldEntityIDs: Set<String> = [], collections: [ApprovedPlaceCollection] = []) {
         self.entities = entities
         self.migrationRegistry = migrationRegistry
         self.withheldEntityIDs = withheldEntityIDs
+        self.collections = collections
     }
 
     static let empty = DataProjectRuntimeLoadResult(entities: [], migrationRegistry: [:])
@@ -46,13 +55,21 @@ enum DataProjectRuntimeLoader {
     /// Kept separate from the canonical city export so regenerating that export
     /// cannot silently remove the editorial projection.
     static func loadApprovedPlaces(bundle: Bundle = .main) -> DataProjectRuntimeLoadResult {
+        #if DEBUG
+        let candidateURL = bundle.url(forResource: "younew-approved-local-test", withExtension: "json", subdirectory: "Resources/Data")
+            ?? bundle.url(forResource: "younew-approved-local-test", withExtension: "json")
+        if let candidateURL, let data = try? Data(contentsOf: candidateURL) {
+            let candidate = load(data: data, allowLocalTest: true)
+            if !candidate.entities.isEmpty { return candidate }
+        }
+        #endif
         let url = bundle.url(forResource: "younew-approved-places", withExtension: "json", subdirectory: "Resources/Data")
             ?? bundle.url(forResource: "younew-approved-places", withExtension: "json")
         guard let url, let data = try? Data(contentsOf: url) else { return .empty }
         return load(data: data)
     }
 
-    static func load(data artifactData: Data) -> DataProjectRuntimeLoadResult {
+    static func load(data artifactData: Data, allowLocalTest: Bool = false) -> DataProjectRuntimeLoadResult {
         do {
             let decoder = JSONDecoder()
             decoder.dateDecodingStrategy = .custom { decoder in
@@ -67,7 +84,15 @@ enum DataProjectRuntimeLoader {
                 return date
             }
             let artifact = try decoder.decode(RuntimeArtifact.self, from: artifactData)
-            guard artifact.schemaVersion == 1, artifact.mode == "production" else {
+            var acceptedMode = artifact.mode == "production"
+            #if DEBUG
+            if allowLocalTest, artifact.mode == "local-test",
+               artifact.travelApproval?.environment == "local-test",
+               artifact.travelApproval?.selectionSha256 == "d00afc1621010eba612be3dc397c08a3b0f3a2633538fbe825697b00b8e0dca7" {
+                acceptedMode = true
+            }
+            #endif
+            guard artifact.schemaVersion == 1, acceptedMode else {
                 logger.error("Canonical runtime artifact has an unsupported schema or non-production mode; using legacy fallback")
                 return .empty
             }
@@ -87,7 +112,7 @@ enum DataProjectRuntimeLoader {
                 return record.entity
             }
             logger.info("Loaded \(entities.count, privacy: .public) canonical Data Project entities")
-            return DataProjectRuntimeLoadResult(entities: entities, migrationRegistry: artifact.migrationRegistry, withheldEntityIDs: withheldIDs)
+            return DataProjectRuntimeLoadResult(entities: entities, migrationRegistry: artifact.migrationRegistry, withheldEntityIDs: withheldIDs, collections: artifact.collections ?? [])
         } catch {
             logger.error("Canonical runtime artifact failed to decode: \(error.localizedDescription, privacy: .public); using legacy fallback")
             return .empty
@@ -100,12 +125,19 @@ enum DataProjectRuntimeLoader {
     }
 }
 
+private struct RuntimeTravelApproval: Decodable {
+    let environment: String
+    let selectionSha256: String
+}
+
 private struct RuntimeArtifact: Decodable {
     let schemaVersion: Int
     let mode: String
     let migrationRegistry: [String: DataProjectMigration]
     let withheldEntityIDs: [String]?
     let entities: [RuntimeEntity]
+    let collections: [ApprovedPlaceCollection]?
+    let travelApproval: RuntimeTravelApproval?
 }
 
 private struct RuntimeEntity: Decodable {
@@ -217,7 +249,7 @@ private struct RuntimeMedia: Decodable {
     func asset(title: String) -> AppImageAsset? {
         guard verified else { return nil }
         let localURL = bundledFileName.flatMap { fileName -> URL? in
-            guard fileName.hasPrefix("approved-leiden-"),
+            guard (fileName.hasPrefix("approved-leiden-") || fileName.hasPrefix("approved-travel-")),
                   fileName.hasSuffix(".webp"), !fileName.contains("/"), !fileName.contains("..") else { return nil }
             return Bundle.main.url(forResource: fileName, withExtension: nil, subdirectory: "Resources/Data/ApprovedLeidenMedia")
                 ?? Bundle.main.url(forResource: fileName, withExtension: nil)

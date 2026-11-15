@@ -126,6 +126,14 @@ struct PlaceItemDetailView: View {
             if let address = place.address {
                 infoRow(icon: "mappin.and.ellipse", title: addressLabel, value: address)
             }
+            if CanonicalPlaceCatalog.approvedContent(for: place.id)?.attributes["iosCoordinateAccuracy"] == "bag-address-centroid" {
+                Text(lang == .dutch
+                     ? "Kaartpunt: BAG-adreslocatie (Kadaster/PDOK), niet de gecontroleerde ingang."
+                     : "Map point: BAG address location (Kadaster/PDOK), not a surveyed entrance.")
+                    .font(.footnote)
+                    .foregroundStyle(AppColors.textSecondary)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
             if place.goodForRain == true {
                 infoRow(icon: "cloud.rain.fill", title: goodToKnowLabel, value: rainyDayLabel)
             }
@@ -675,5 +683,68 @@ struct CalendarEventRow: View {
         formatter.locale = Locale(identifier: language == .dutch ? "nl_NL" : language == .russian ? "ru_RU" : "en_US")
         formatter.dateFormat = "MMM"
         return formatter.string(from: event.date)
+    }
+}
+
+
+/// Collections reference the same canonical PlaceItem details, Save actions and media.
+struct ApprovedPlaceCollectionsSection: View {
+    let language: AppLanguage
+
+    var body: some View {
+        if !CanonicalPlaceCatalog.collections.isEmpty {
+            VStack(alignment: .leading, spacing: 12) {
+                Text(language == .dutch ? "Collecties" : "Collections")
+                    .font(.title2.weight(.semibold))
+                ForEach(CanonicalPlaceCatalog.collections) { collection in
+                    NavigationLink {
+                        ApprovedPlaceCollectionView(collection: collection, language: language)
+                    } label: {
+                        Label(collection.title[language == .dutch ? "nl" : "en"] ?? collection.id,
+                              systemImage: "square.stack")
+                            .font(.headline)
+                            .frame(maxWidth: .infinity, minHeight: 44, alignment: .leading)
+                    }
+                }
+            }
+            .homeReadableBand()
+        }
+    }
+}
+
+private struct ApprovedPlaceCollectionView: View {
+    let collection: ApprovedPlaceCollection
+    let language: AppLanguage
+
+    private var places: [PlaceItem] {
+        collection.entityIDs.compactMap { CanonicalPlaceCatalog.detailPlace(id: $0) }
+    }
+
+    var body: some View {
+        ScrollView {
+            LazyVStack(spacing: 16) {
+                ForEach(places) { place in
+                    NavigationLink(value: place.destination) {
+                        PremiumImageCard(
+                            title: place.title,
+                            subtitle: place.localizedDescription(language),
+                            asset: CanonicalPlaceImageResolver.imageAsset(for: place),
+                            language: language,
+                            symbol: place.primaryCategory.symbol,
+                            accent: place.primaryCategory.accent,
+                            imageHeight: 160,
+                            minHeight: 240,
+                            fallbackCategory: .place
+                        ) {
+                            Text(place.primaryCategory.title(language))
+                                .font(.caption)
+                        }
+                    }
+                    .buttonStyle(NLTileButtonStyle())
+                }
+            }
+            .padding()
+        }
+        .navigationTitle(collection.title[language == .dutch ? "nl" : "en"] ?? collection.id)
     }
 }

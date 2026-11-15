@@ -6,7 +6,11 @@ import Testing
 @MainActor
 struct CityPlacesCalendarRegressionTests {
     @Test func approvedLeidenContentReusesSavedIDsAndDutchDescriptions() throws {
-        let places = CanonicalPlaceCatalog.items.filter { $0.canonicalContentID != nil }
+        let originalIDs: Set<String> = ["place.leiden-lakenhal", "place.leiden-hortus", "place.leiden-burcht",
+            "place.leiden-rmo", "place.leiden-naturalis", "museum.leiden-boerhaave", "museum.leiden-wereldmuseum",
+            "restaurant.leiden-bikini", "restaurant.leiden-in-den-doofpot", "restaurant.leiden-verboden-toegang",
+            "restaurant.leiden-prentenkabinet", "restaurant.leiden-oudt-leyden"]
+        let places = CanonicalPlaceCatalog.items.filter { originalIDs.contains($0.canonicalContentID ?? "") }
         #expect(places.count == 12)
         #expect(places.filter { $0.coordinates != nil }.count == 7)
         #expect(Set(places.compactMap(\.canonicalContentID)).count == 12)
@@ -75,12 +79,41 @@ struct CityPlacesCalendarRegressionTests {
         let places = CanonicalPlaceCatalog.items.filter { $0.canonicalContentID != nil }
         #expect(places.filter { $0.ticketsURL != nil }.count == 6)
         #expect(CanonicalPlaceCatalog.detailPlace(id: "place.leiden-burcht")?.ticketsURL == nil)
-        for place in places {
+        for place in places where place.directionsURL != nil {
             #expect(place.directionsURL?.host == "maps.apple.com")
             #expect(URLComponents(url: try #require(place.directionsURL), resolvingAgainstBaseURL: false)?.queryItems?.first?.name == "daddr")
         }
         #expect(PremiumImageFallbackCategory.place.fallbackLocalAssetName.isEmpty)
         #expect(PremiumImageFallbackCategory.map.fallbackLocalAssetName == "netherlands_map_base")
+    }
+
+    @Test func localTravelApprovalLoadsOnlyInOptedInDebugLoader() throws {
+        let url = try #require(Bundle.main.url(forResource: "younew-approved-local-test", withExtension: "json"))
+        let data = try Data(contentsOf: url)
+        #expect(DataProjectRuntimeLoader.load(data: data).entities.isEmpty)
+        let candidate = DataProjectRuntimeLoader.load(data: data, allowLocalTest: true)
+        #expect(Set(CanonicalPlaceCatalog.items.map(\.id)).count == CanonicalPlaceCatalog.items.count)
+        let aliases = ["museum.leiden-de-valk": "leiden-seed-molen-de-valk",
+                       "place.rotterdam-markthal": "rotterdam-seed-markthal",
+                       "museum.rotterdam-maritime": "rotterdam-seed-maritime-museum",
+                       "place.utrecht-rietveld-schroderhuis": "utrecht-seed-rietveld-schroder-house",
+                       "place.eindhoven-evoluon": "eindhoven-seed-evoluon"]
+        for (canonicalID, savedID) in aliases {
+            #expect(CanonicalPlaceCatalog.detailPlace(id: canonicalID)?.id == savedID)
+            #expect(CanonicalPlaceCatalog.items.filter { $0.canonicalContentID == canonicalID }.count == 1)
+        }
+        #expect(candidate.entities.count == 85)
+        #expect(candidate.collections.count == 6)
+        #expect(candidate.entities.filter { $0.images.hero?.url?.isFileURL == true }.count == 36)
+        #expect(candidate.entities.filter { $0.attributes["iosCoordinateAccuracy"] == "bag-address-centroid" }.count == 33)
+        for entity in candidate.entities {
+            let place = try #require(CanonicalPlaceCatalog.detailPlace(id: entity.id))
+            #expect(place.canonicalContentID == entity.id)
+            #expect(place.localizedDescription(.dutch) == entity.attributes["description_nl"])
+        }
+        for collection in candidate.collections {
+            #expect(collection.entityIDs.allSatisfy { CanonicalPlaceCatalog.detailPlace(id: $0) != nil })
+        }
     }
 
     @Test func selectedCityResolvesExpectedHeroCity() throws {

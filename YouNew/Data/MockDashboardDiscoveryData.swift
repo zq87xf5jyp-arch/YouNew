@@ -4,19 +4,25 @@ import CoreLocation
 /// The single canonical collection of discoverable places.
 /// Feature-specific APIs below are adapters over this collection, not copies.
 enum CanonicalPlaceCatalog {
+    private static let approvedRuntime = DataProjectRuntimeLoader.loadApprovedPlaces()
+    static var collections: [ApprovedPlaceCollection] { approvedRuntime.collections }
+
     private static let approvedPlaces: [String: NetherlandsKnowledgeEntity] = {
-        let runtime = DataProjectRuntimeLoader.loadApprovedPlaces()
+        let runtime = approvedRuntime
         let withheldIDs = DataProjectRuntimeLoader.load().withheldEntityIDs
         return runtime.entities.reduce(into: [:]) { result, entity in
-            guard let legacyID = entity.attributes["iosLegacyPlaceID"],
-                  entity.cityId == "leiden", result[legacyID] == nil,
+            let legacyID = entity.attributes["iosLegacyPlaceID"] ?? entity.id
+            guard result[legacyID] == nil,
                   !withheldIDs.contains(entity.id), !withheldIDs.contains(legacyID) else { return }
             result[legacyID] = entity
         }
     }()
 
     static func approvedContent(for legacyID: String) -> NetherlandsKnowledgeEntity? {
-        approvedPlaces[legacyID]
+        if let entity = approvedPlaces[legacyID] { return entity }
+        return approvedPlaces.values.first { entity in
+            legacyID == entity.id || legacyID == matchedLegacyID(for: entity)
+        }
     }
 
     static let items: [PlaceItem] = buildPlaces()
@@ -92,7 +98,48 @@ enum CanonicalPlaceCatalog {
             .filter { CityId.resolve($0) != nil && !cityNamesWithTourismData.contains($0) }
             .map { fallbackPlace(cityId: $0) }
 
-        return seededPlaces + cityPlaces + fallbackPlaces
+        let legacy = seededPlaces + cityPlaces + fallbackPlaces
+        guard !collections.isEmpty else { return legacy }
+        var remaining = legacy
+        let approved = approvedPlaces.values.sorted { $0.id < $1.id }.map { entity in
+            let city = CityId.resolve(entity.cityId ?? "").map { CityDashboardContentData.city(for: $0).name } ?? entity.cityId ?? ""
+            let matchID = matchedLegacyID(for: entity)
+            let previous = legacy.first { $0.id == entity.attributes["iosLegacyPlaceID"] || $0.id == matchID || key(cityId: $0.cityId, title: $0.title) == key(cityId: city, title: entity.title) }
+            remaining.removeAll { $0.id == previous?.id || key(cityId: $0.cityId, title: $0.title) == key(cityId: city, title: entity.title) }
+            let category: VisitPlaceCategory = entity.kind == .museum ? .museum : entity.kind == .park ? .park : (entity.kind == .restaurant || entity.kind == .cafe) ? .food : .landmark
+            let id = previous?.id ?? entity.id
+            return PlaceItem(id: id, cityId: city, section: IASection.infer(from: category),
+                title: entity.title, shortTitle: nil, description: entity.summary, category: [category],
+                audience: [.tourist, .universal, .student, .family, .worker, .refugee, .entrepreneur, .eu, .nonEU, .highlySkilledMigrant, .lgbt],
+                address: entity.attributes["address"], coordinates: entity.coordinate.map { PlaceCoordinate(lat: $0.latitude, lng: $0.longitude) },
+                image: nil, estimatedVisitTime: nil, priceHint: nil, indoor: nil, goodForRain: nil, familyFriendly: nil,
+                priority: previous?.priority ?? 10, source: entity.source, lastChecked: entity.lastChecked,
+                route: "place:\(id)", externalUrl: URL(string: entity.attributes["website"] ?? ""),
+                action: "openPlaceDetail", hidden: false, draft: false)
+        }
+        return approved + remaining
+    }
+
+    private static func matchedLegacyID(for entity: NetherlandsKnowledgeEntity) -> String? {
+        guard let city = CityId.resolve(entity.cityId ?? "") else { return nil }
+        // Known name variants preserve Saved IDs; distinct venues (e.g. Depot and Museumpark) stay separate.
+        let legacyTitles = [
+            "museum.leiden-de-valk": "Molen de Valk",
+            "place.rotterdam-markthal": "Markthal",
+            "museum.rotterdam-maritime": "Maritime Museum",
+            "place.utrecht-rietveld-schroderhuis": "Rietveld Schroder House",
+            "place.eindhoven-evoluon": "Evoluon"
+        ]
+        let normalizedTitle = key(cityId: "", title: legacyTitles[entity.id] ?? entity.title)
+        if let seed = seedPlaces(for: city).first(where: { key(cityId: "", title: $0.title) == normalizedTitle }) {
+            return "\(city.rawValue)-seed-\(slug(seed.title))"
+        }
+        let cityName = CityDashboardContentData.city(for: city).name
+        if let cityModel = NLCity.all.first(where: { $0.name == cityName }),
+           let attraction = cityModel.attractions.first(where: { key(cityId: "", title: $0.name) == normalizedTitle }) {
+            return "\(cityModel.id)-\(attraction.id)"
+        }
+        return nil
     }
 
     private static func dashboardSeedPlaces() -> [PlaceItem] {
@@ -367,7 +414,10 @@ enum CanonicalPlaceCatalog {
     }
 
     private static func key(cityId: String, title: String) -> String {
-        "\(slug(cityId))::\(slug(title))"
+        let normalizedTitle = title.folding(options: [.caseInsensitive, .diacriticInsensitive], locale: Locale(identifier: "en_US_POSIX"))
+            .unicodeScalars.filter { CharacterSet.alphanumerics.contains($0) }
+            .map(String.init).joined()
+        return "\(slug(cityId))::\(normalizedTitle)"
     }
 }
 
