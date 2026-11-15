@@ -15,7 +15,12 @@ export const aliases = {
   'place.leiden-rmo': 'leiden-seed-rijksmuseum-van-oudheden',
   'place.leiden-naturalis': 'leiden-seed-naturalis-biodiversity-center',
   'museum.leiden-boerhaave': 'leiden-seed-rijksmuseum-boerhaave',
-  'museum.leiden-wereldmuseum': 'leiden-seed-wereldmuseum-leiden'
+  'museum.leiden-wereldmuseum': 'leiden-seed-wereldmuseum-leiden',
+  'restaurant.leiden-bikini': 'leiden-seed-bikini-bikini',
+  'restaurant.leiden-in-den-doofpot': 'leiden-seed-restaurant-in-den-doofpot',
+  'restaurant.leiden-verboden-toegang': 'leiden-seed-restaurant-verboden-toegang',
+  'restaurant.leiden-prentenkabinet': 'leiden-seed-het-prentenkabinet',
+  'restaurant.leiden-oudt-leyden': 'leiden-seed-oudt-leyden'
 };
 const root = fileURLToPath(new URL('../', import.meta.url));
 export async function projectApprovedPlaces(repositoryRoot = root) {
@@ -46,5 +51,5 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
   }
   if (process.argv.includes('--check')) assert.equal(await readFile(output, 'utf8'), content, 'Regenerate approved iOS projection');
   else await writeFile(output, content);
-  console.log('Approved iOS projection: 7 existing Leiden places; exactly 4 photos, 5 coordinates, 6 ticket links approved.');
+  console.log('Approved iOS projection: 12 approved Leiden places; exactly 4 photos, 5 coordinates, 6 ticket links approved.');
 }

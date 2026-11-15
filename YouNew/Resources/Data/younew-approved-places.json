@@ -765,6 +765,485 @@
         "reviewer": "Ivan",
         "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
       }
+    },
+    {
+      "id": "restaurant.leiden-bikini",
+      "kind": "restaurant",
+      "title": "Bikini Bikini",
+      "summary": "A café-restaurant at Haven 1. Check its current menu and opening information before choosing a meal by the harbour.",
+      "cityId": "leiden",
+      "provinceId": "zuid-holland",
+      "category": "restaurant",
+      "coordinate": null,
+      "source": {
+        "title": "Official visitor information",
+        "publisher": "Bikini Bikini",
+        "url": "https://caferestaurantbikini.nl/contact/",
+        "checkedAt": "2026-11-09",
+        "status": "verified_opened",
+        "isOfficial": true
+      },
+      "lastChecked": "2026-11-09",
+      "images": [],
+      "aiSummary": "A café-restaurant at Haven 1. Check its current menu and opening information before choosing a meal by the harbour.",
+      "relatedEntityIDs": [],
+      "attributes": {
+        "slug": "bikini",
+        "description_nl": "Een café-restaurant aan Haven 1. Bekijk de actuele kaart en openingstijden voor je maaltijd bij de haven.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "media_status": "neutral_existing_placeholder",
+        "catalog_review_batch": "leiden-20261109",
+        "field_review_status": "Sources checked; human editorial approval pending",
+        "title_source_url": "https://caferestaurantbikini.nl/contact/",
+        "title_checked_at": "2026-11-09",
+        "description_source_url": "https://caferestaurantbikini.nl/contact/",
+        "description_checked_at": "2026-11-09",
+        "description_nl_source_url": "https://caferestaurantbikini.nl/contact/",
+        "description_nl_checked_at": "2026-11-09",
+        "category_source_url": "https://caferestaurantbikini.nl/contact/",
+        "category_checked_at": "2026-11-09",
+        "city_id_source_url": "https://caferestaurantbikini.nl/contact/",
+        "city_id_checked_at": "2026-11-09",
+        "website_source_url": "https://caferestaurantbikini.nl/contact/",
+        "website_checked_at": "2026-11-09",
+        "address": "Haven 1, 2312 MG Leiden",
+        "address_source_url": "https://caferestaurantbikini.nl/contact/",
+        "address_checked_at": "2026-11-09",
+        "contact_email": "info@caferestaurantbikini.nl",
+        "contact_email_source_url": "https://caferestaurantbikini.nl/contact/",
+        "contact_email_checked_at": "2026-11-09",
+        "contact_phone": "+31 71 7630383",
+        "contact_phone_source_url": "https://caferestaurantbikini.nl/contact/",
+        "contact_phone_checked_at": "2026-11-09",
+        "opening_hours": "",
+        "opening_hours_nl": "",
+        "website": "https://caferestaurantbikini.nl/contact/",
+        "lifecycleStatus": "published",
+        "verificationStatus": "verified",
+        "dataProjectRelease": "editorial-leiden-20261110",
+        "iosLegacyPlaceID": "leiden-seed-bikini-bikini"
+      },
+      "keywords": [
+        "Bikini Bikini",
+        "restaurant",
+        "leiden"
+      ],
+      "publicationStatus": "published",
+      "verificationStatus": "verified",
+      "editorial": {
+        "schemaVersion": 1,
+        "section": "EXPLORE",
+        "locales": {
+          "en": {
+            "title": "Bikini Bikini",
+            "summary": "A café-restaurant at Haven 1. Check its current menu and opening information before choosing a meal by the harbour.",
+            "guide": null
+          },
+          "nl": {
+            "title": "Bikini Bikini",
+            "summary": "Een café-restaurant aan Haven 1. Bekijk de actuele kaart en openingstijden voor je maaltijd bij de haven.",
+            "guide": null
+          }
+        },
+        "sources": [
+          {
+            "id": "source.primary",
+            "title": "Official visitor information",
+            "publisher": "Bikini Bikini",
+            "url": "https://caferestaurantbikini.nl/contact/",
+            "checkedAt": "2026-11-09"
+          }
+        ],
+        "reviewedAt": "2026-11-10",
+        "reviewer": "Ivan",
+        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+      }
+    },
+    {
+      "id": "restaurant.leiden-in-den-doofpot",
+      "kind": "restaurant",
+      "title": "Restaurant In den Doofpot",
+      "summary": "A restaurant on Turfmarkt with lunch and dinner on selected days. Use the official page to check service times.",
+      "cityId": "leiden",
+      "provinceId": "zuid-holland",
+      "category": "restaurant",
+      "coordinate": null,
+      "source": {
+        "title": "Official visitor information",
+        "publisher": "Restaurant In den Doofpot",
+        "url": "https://www.indendoofpot.nl/contact",
+        "checkedAt": "2026-11-09",
+        "status": "verified_opened",
+        "isOfficial": true
+      },
+      "lastChecked": "2026-11-09",
+      "images": [],
+      "aiSummary": "A restaurant on Turfmarkt with lunch and dinner on selected days. Use the official page to check service times.",
+      "relatedEntityIDs": [],
+      "attributes": {
+        "slug": "in-den-doofpot",
+        "description_nl": "Een restaurant aan de Turfmarkt met lunch en diner op geselecteerde dagen. Bekijk de officiële pagina voor de tijden.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "media_status": "neutral_existing_placeholder",
+        "catalog_review_batch": "leiden-20261109",
+        "field_review_status": "Sources checked; human editorial approval pending",
+        "title_source_url": "https://www.indendoofpot.nl/contact",
+        "title_checked_at": "2026-11-09",
+        "description_source_url": "https://www.indendoofpot.nl/contact",
+        "description_checked_at": "2026-11-09",
+        "description_nl_source_url": "https://www.indendoofpot.nl/contact",
+        "description_nl_checked_at": "2026-11-09",
+        "category_source_url": "https://www.indendoofpot.nl/contact",
+        "category_checked_at": "2026-11-09",
+        "city_id_source_url": "https://www.indendoofpot.nl/contact",
+        "city_id_checked_at": "2026-11-09",
+        "website_source_url": "https://www.indendoofpot.nl/contact",
+        "website_checked_at": "2026-11-09",
+        "address": "Turfmarkt 9, 2312 CE Leiden",
+        "address_source_url": "https://www.indendoofpot.nl/contact",
+        "address_checked_at": "2026-11-09",
+        "contact_email": "info@indendoofpot.nl",
+        "contact_email_source_url": "https://www.indendoofpot.nl/contact",
+        "contact_email_checked_at": "2026-11-09",
+        "contact_phone": "+31 71 5122434",
+        "contact_phone_source_url": "https://www.indendoofpot.nl/contact",
+        "contact_phone_checked_at": "2026-11-09",
+        "opening_hours": "",
+        "opening_hours_nl": "",
+        "review_notes": "Sunday/Monday: main text says closed, footer says on request. Hours omitted pending clarification.",
+        "website": "https://www.indendoofpot.nl/contact",
+        "lifecycleStatus": "published",
+        "verificationStatus": "verified",
+        "dataProjectRelease": "editorial-leiden-20261110",
+        "iosLegacyPlaceID": "leiden-seed-restaurant-in-den-doofpot"
+      },
+      "keywords": [
+        "Restaurant In den Doofpot",
+        "restaurant",
+        "leiden"
+      ],
+      "publicationStatus": "published",
+      "verificationStatus": "verified",
+      "editorial": {
+        "schemaVersion": 1,
+        "section": "EXPLORE",
+        "locales": {
+          "en": {
+            "title": "Restaurant In den Doofpot",
+            "summary": "A restaurant on Turfmarkt with lunch and dinner on selected days. Use the official page to check service times.",
+            "guide": null
+          },
+          "nl": {
+            "title": "Restaurant In den Doofpot",
+            "summary": "Een restaurant aan de Turfmarkt met lunch en diner op geselecteerde dagen. Bekijk de officiële pagina voor de tijden.",
+            "guide": null
+          }
+        },
+        "sources": [
+          {
+            "id": "source.primary",
+            "title": "Official visitor information",
+            "publisher": "Restaurant In den Doofpot",
+            "url": "https://www.indendoofpot.nl/contact",
+            "checkedAt": "2026-11-09"
+          }
+        ],
+        "reviewedAt": "2026-11-10",
+        "reviewer": "Ivan",
+        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+      }
+    },
+    {
+      "id": "restaurant.leiden-verboden-toegang",
+      "kind": "restaurant",
+      "title": "Restaurant Verboden Toegang",
+      "summary": "A restaurant on Kaiserstraat with a changing seasonal menu. It serves dinner daily; the kitchen has an earlier closing time than the restaurant.",
+      "cityId": "leiden",
+      "provinceId": "zuid-holland",
+      "category": "restaurant",
+      "coordinate": null,
+      "source": {
+        "title": "Official visitor information",
+        "publisher": "Restaurant Verboden Toegang",
+        "url": "https://www.verbodentoegang.nl/",
+        "checkedAt": "2026-11-09",
+        "status": "verified_opened",
+        "isOfficial": true
+      },
+      "lastChecked": "2026-11-09",
+      "images": [],
+      "aiSummary": "A restaurant on Kaiserstraat with a changing seasonal menu. It serves dinner daily; the kitchen has an earlier closing time than the restaurant.",
+      "relatedEntityIDs": [],
+      "attributes": {
+        "slug": "verboden-toegang",
+        "description_nl": "Een restaurant aan de Kaiserstraat met een wisselende seizoenskaart. Dagelijks diner; de keuken sluit eerder dan het restaurant.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "media_status": "neutral_existing_placeholder",
+        "catalog_review_batch": "leiden-20261109",
+        "field_review_status": "Sources checked; human editorial approval pending",
+        "title_source_url": "https://www.verbodentoegang.nl/",
+        "title_checked_at": "2026-11-09",
+        "description_source_url": "https://www.verbodentoegang.nl/",
+        "description_checked_at": "2026-11-09",
+        "description_nl_source_url": "https://www.verbodentoegang.nl/",
+        "description_nl_checked_at": "2026-11-09",
+        "category_source_url": "https://www.verbodentoegang.nl/",
+        "category_checked_at": "2026-11-09",
+        "city_id_source_url": "https://www.verbodentoegang.nl/",
+        "city_id_checked_at": "2026-11-09",
+        "website_source_url": "https://www.verbodentoegang.nl/",
+        "website_checked_at": "2026-11-09",
+        "address": "Kaiserstraat 7, 2311 GN Leiden",
+        "address_source_url": "https://www.verbodentoegang.nl/",
+        "address_checked_at": "2026-11-09",
+        "contact_email": "reserveren@verbodentoegang.nl",
+        "contact_email_source_url": "https://www.verbodentoegang.nl/",
+        "contact_email_checked_at": "2026-11-09",
+        "contact_phone": "+31 71 5143388",
+        "contact_phone_source_url": "https://www.verbodentoegang.nl/",
+        "contact_phone_checked_at": "2026-11-09",
+        "opening_hours": "Daily 17:00–00:00; kitchen until 21:00.",
+        "opening_hours_source_url": "https://www.verbodentoegang.nl/",
+        "opening_hours_checked_at": "2026-11-09",
+        "opening_hours_nl": "Dagelijks 17:00–00:00; keuken tot 21:00.",
+        "opening_hours_nl_source_url": "https://www.verbodentoegang.nl/",
+        "opening_hours_nl_checked_at": "2026-11-09",
+        "website": "https://www.verbodentoegang.nl/",
+        "lifecycleStatus": "published",
+        "verificationStatus": "verified",
+        "dataProjectRelease": "editorial-leiden-20261110",
+        "iosLegacyPlaceID": "leiden-seed-restaurant-verboden-toegang"
+      },
+      "keywords": [
+        "Restaurant Verboden Toegang",
+        "restaurant",
+        "leiden"
+      ],
+      "publicationStatus": "published",
+      "verificationStatus": "verified",
+      "editorial": {
+        "schemaVersion": 1,
+        "section": "EXPLORE",
+        "locales": {
+          "en": {
+            "title": "Restaurant Verboden Toegang",
+            "summary": "A restaurant on Kaiserstraat with a changing seasonal menu. It serves dinner daily; the kitchen has an earlier closing time than the restaurant.",
+            "guide": null
+          },
+          "nl": {
+            "title": "Restaurant Verboden Toegang",
+            "summary": "Een restaurant aan de Kaiserstraat met een wisselende seizoenskaart. Dagelijks diner; de keuken sluit eerder dan het restaurant.",
+            "guide": null
+          }
+        },
+        "sources": [
+          {
+            "id": "source.primary",
+            "title": "Official visitor information",
+            "publisher": "Restaurant Verboden Toegang",
+            "url": "https://www.verbodentoegang.nl/",
+            "checkedAt": "2026-11-09"
+          }
+        ],
+        "reviewedAt": "2026-11-10",
+        "reviewer": "Ivan",
+        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+      }
+    },
+    {
+      "id": "restaurant.leiden-prentenkabinet",
+      "kind": "restaurant",
+      "title": "Het Prentenkabinet",
+      "summary": "A restaurant on Kloksteeg offering lunch and dinner on selected days. Check the official menu and arrival times before visiting.",
+      "cityId": "leiden",
+      "provinceId": "zuid-holland",
+      "category": "restaurant",
+      "coordinate": null,
+      "source": {
+        "title": "Official visitor information",
+        "publisher": "Het Prentenkabinet",
+        "url": "https://www.prentenkabinet.nl/reserveren/",
+        "checkedAt": "2026-11-09",
+        "status": "verified_opened",
+        "isOfficial": true
+      },
+      "lastChecked": "2026-11-09",
+      "images": [],
+      "aiSummary": "A restaurant on Kloksteeg offering lunch and dinner on selected days. Check the official menu and arrival times before visiting.",
+      "relatedEntityIDs": [],
+      "attributes": {
+        "slug": "prentenkabinet",
+        "description_nl": "Een restaurant aan de Kloksteeg met lunch en diner op geselecteerde dagen. Bekijk de eigen kaart en aankomsttijden voor je bezoek.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "media_status": "neutral_existing_placeholder",
+        "catalog_review_batch": "leiden-20261109",
+        "field_review_status": "Sources checked; human editorial approval pending",
+        "title_source_url": "https://www.prentenkabinet.nl/reserveren/",
+        "title_checked_at": "2026-11-09",
+        "description_source_url": "https://www.prentenkabinet.nl/reserveren/",
+        "description_checked_at": "2026-11-09",
+        "description_nl_source_url": "https://www.prentenkabinet.nl/reserveren/",
+        "description_nl_checked_at": "2026-11-09",
+        "category_source_url": "https://www.prentenkabinet.nl/reserveren/",
+        "category_checked_at": "2026-11-09",
+        "city_id_source_url": "https://www.prentenkabinet.nl/reserveren/",
+        "city_id_checked_at": "2026-11-09",
+        "website_source_url": "https://www.prentenkabinet.nl/reserveren/",
+        "website_checked_at": "2026-11-09",
+        "address": "Kloksteeg 25, 2311 SK Leiden",
+        "address_source_url": "https://www.prentenkabinet.nl/reserveren/",
+        "address_checked_at": "2026-11-09",
+        "contact_email": "info@prentenkabinet.nl",
+        "contact_email_source_url": "https://www.prentenkabinet.nl/reserveren/",
+        "contact_email_checked_at": "2026-11-09",
+        "contact_phone": "+31 71 5126666",
+        "contact_phone_source_url": "https://www.prentenkabinet.nl/reserveren/",
+        "contact_phone_checked_at": "2026-11-09",
+        "opening_hours": "",
+        "opening_hours_nl": "",
+        "website": "https://www.prentenkabinet.nl/reserveren/",
+        "lifecycleStatus": "published",
+        "verificationStatus": "verified",
+        "dataProjectRelease": "editorial-leiden-20261110",
+        "iosLegacyPlaceID": "leiden-seed-het-prentenkabinet"
+      },
+      "keywords": [
+        "Het Prentenkabinet",
+        "restaurant",
+        "leiden"
+      ],
+      "publicationStatus": "published",
+      "verificationStatus": "verified",
+      "editorial": {
+        "schemaVersion": 1,
+        "section": "EXPLORE",
+        "locales": {
+          "en": {
+            "title": "Het Prentenkabinet",
+            "summary": "A restaurant on Kloksteeg offering lunch and dinner on selected days. Check the official menu and arrival times before visiting.",
+            "guide": null
+          },
+          "nl": {
+            "title": "Het Prentenkabinet",
+            "summary": "Een restaurant aan de Kloksteeg met lunch en diner op geselecteerde dagen. Bekijk de eigen kaart en aankomsttijden voor je bezoek.",
+            "guide": null
+          }
+        },
+        "sources": [
+          {
+            "id": "source.primary",
+            "title": "Official visitor information",
+            "publisher": "Het Prentenkabinet",
+            "url": "https://www.prentenkabinet.nl/reserveren/",
+            "checkedAt": "2026-11-09"
+          }
+        ],
+        "reviewedAt": "2026-11-10",
+        "reviewer": "Ivan",
+        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+      }
+    },
+    {
+      "id": "restaurant.leiden-oudt-leyden",
+      "kind": "restaurant",
+      "title": "Oudt Leyden",
+      "summary": "A pancake restaurant on Steenstraat with traditional and other pancake choices on its own menu.",
+      "cityId": "leiden",
+      "provinceId": "zuid-holland",
+      "category": "restaurant",
+      "coordinate": null,
+      "source": {
+        "title": "Official visitor information",
+        "publisher": "Oudt Leyden",
+        "url": "https://oudtleyden.nl/",
+        "checkedAt": "2026-11-09",
+        "status": "verified_opened",
+        "isOfficial": true
+      },
+      "lastChecked": "2026-11-09",
+      "images": [],
+      "aiSummary": "A pancake restaurant on Steenstraat with traditional and other pancake choices on its own menu.",
+      "relatedEntityIDs": [],
+      "attributes": {
+        "slug": "oudt-leyden",
+        "description_nl": "Een pannenkoekenrestaurant aan de Steenstraat met traditionele en andere varianten op de eigen kaart.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "media_status": "neutral_existing_placeholder",
+        "catalog_review_batch": "leiden-20261109",
+        "field_review_status": "Sources checked; human editorial approval pending",
+        "title_source_url": "https://oudtleyden.nl/",
+        "title_checked_at": "2026-11-09",
+        "description_source_url": "https://oudtleyden.nl/",
+        "description_checked_at": "2026-11-09",
+        "description_nl_source_url": "https://oudtleyden.nl/",
+        "description_nl_checked_at": "2026-11-09",
+        "category_source_url": "https://oudtleyden.nl/",
+        "category_checked_at": "2026-11-09",
+        "city_id_source_url": "https://oudtleyden.nl/",
+        "city_id_checked_at": "2026-11-09",
+        "website_source_url": "https://oudtleyden.nl/",
+        "website_checked_at": "2026-11-09",
+        "address": "Steenstraat 49, 2312 BV Leiden",
+        "address_source_url": "https://oudtleyden.nl/contact/",
+        "address_checked_at": "2026-11-09",
+        "contact_email": "info@oudtleyden.nl",
+        "contact_phone": "+31 71 5133144",
+        "opening_hours": "Daily 11:30–21:30.",
+        "opening_hours_source_url": "https://oudtleyden.nl/",
+        "opening_hours_checked_at": "2026-11-09",
+        "opening_hours_nl": "Dagelijks 11:30–21:30.",
+        "opening_hours_nl_source_url": "https://oudtleyden.nl/",
+        "opening_hours_nl_checked_at": "2026-11-09",
+        "contact_email_source_url": "https://oudtleyden.nl/contact/",
+        "contact_email_checked_at": "2026-11-09",
+        "contact_phone_source_url": "https://oudtleyden.nl/contact/",
+        "contact_phone_checked_at": "2026-11-09",
+        "website": "https://oudtleyden.nl/",
+        "lifecycleStatus": "published",
+        "verificationStatus": "verified",
+        "dataProjectRelease": "editorial-leiden-20261110",
+        "iosLegacyPlaceID": "leiden-seed-oudt-leyden"
+      },
+      "keywords": [
+        "Oudt Leyden",
+        "restaurant",
+        "leiden"
+      ],
+      "publicationStatus": "published",
+      "verificationStatus": "verified",
+      "editorial": {
+        "schemaVersion": 1,
+        "section": "EXPLORE",
+        "locales": {
+          "en": {
+            "title": "Oudt Leyden",
+            "summary": "A pancake restaurant on Steenstraat with traditional and other pancake choices on its own menu.",
+            "guide": null
+          },
+          "nl": {
+            "title": "Oudt Leyden",
+            "summary": "Een pannenkoekenrestaurant aan de Steenstraat met traditionele en andere varianten op de eigen kaart.",
+            "guide": null
+          }
+        },
+        "sources": [
+          {
+            "id": "source.primary",
+            "title": "Official visitor information",
+            "publisher": "Oudt Leyden",
+            "url": "https://oudtleyden.nl/",
+            "checkedAt": "2026-11-09"
+          }
+        ],
+        "reviewedAt": "2026-11-10",
+        "reviewer": "Ivan",
+        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+      }
     }
   ],
   "mediaFiles": [

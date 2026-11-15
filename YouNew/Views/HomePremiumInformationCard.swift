@@ -21,12 +21,14 @@ struct HomeInformationPreview: Identifiable {
     let localAssetName: String?
     let remoteURL: URL?
     let accessibilityLabel: String
+    let destination: AppDestination?
 
-    init(id: String, localAssetName: String? = nil, remoteURL: URL? = nil, accessibilityLabel: String) {
+    init(id: String, localAssetName: String? = nil, remoteURL: URL? = nil, accessibilityLabel: String, destination: AppDestination? = nil) {
         self.id = id
         self.localAssetName = localAssetName
         self.remoteURL = remoteURL
         self.accessibilityLabel = accessibilityLabel
+        self.destination = destination
     }
 }
 
@@ -87,6 +89,10 @@ struct HomePremiumInformationCard: View {
         VStack(alignment: .leading, spacing: 13) {
             primaryHeader
 
+            if !previews.isEmpty {
+                previewStrip
+            }
+
             if !features.isEmpty {
                 featureGrid
             }
@@ -139,10 +145,6 @@ struct HomePremiumInformationCard: View {
     private var primaryHeaderContent: some View {
         VStack(alignment: .leading, spacing: 13) {
             header
-
-            if !previews.isEmpty {
-                previewStrip
-            }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
     }
@@ -177,16 +179,34 @@ struct HomePremiumInformationCard: View {
     }
 
     private var previewStrip: some View {
-        HStack(spacing: 8) {
+        HStack(alignment: .top, spacing: 8) {
             ForEach(previews.prefix(3)) { preview in
-                previewImage(preview)
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 62)
-                    .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
-                    .overlay(RoundedRectangle(cornerRadius: 12, style: .continuous).stroke(.white.opacity(0.13)))
-                    .accessibilityLabel(preview.accessibilityLabel)
+                if let destination = preview.destination ?? primaryDestination {
+                    NavigationLink(value: destination) {
+                        previewTile(preview)
+                    }
+                    .buttonStyle(.plain)
+                    .accessibilityIdentifier("home.placePreview.\(preview.id)")
+                } else {
+                    previewTile(preview)
+                }
             }
         }
+    }
+
+    private func previewTile(_ preview: HomeInformationPreview) -> some View {
+        VStack(alignment: .leading, spacing: 6) {
+            previewImage(preview)
+                .frame(height: 88)
+                .clipped()
+                .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+            Text(preview.accessibilityLabel)
+                .font(.caption.weight(.semibold))
+                .foregroundStyle(AppColors.textPrimary)
+                .fixedSize(horizontal: false, vertical: true)
+        }
+        .frame(maxWidth: .infinity, alignment: .topLeading)
+        .accessibilityElement(children: .combine)
     }
 
     @ViewBuilder
@@ -198,7 +218,7 @@ struct HomePremiumInformationCard: View {
         } else if let remoteURL = preview.remoteURL {
             CityImageView(
                 urlString: remoteURL.absoluteString,
-                height: 62,
+                height: 88,
                 fallbackColor: personality.accent.opacity(0.42),
                 renderRole: .thumbnail,
                 targetPixelWidth: 360,
@@ -229,8 +249,7 @@ struct HomePremiumInformationCard: View {
                         .font(AppTypography.metadata)
                         .foregroundStyle(AppColors.textPrimary)
                         .lineLimit(2)
-                        .minimumScaleFactor(0.78)
-                        .frame(maxWidth: .infinity, minHeight: 31, alignment: .leading)
+                        .frame(maxWidth: .infinity, minHeight: 44, alignment: .leading)
                         .padding(.horizontal, 9)
                         .background(personality.accent.opacity(0.10), in: RoundedRectangle(cornerRadius: 9, style: .continuous))
                 }
@@ -278,9 +297,8 @@ struct HomePremiumInformationCard: View {
     private var cardBackground: some ShapeStyle {
         LinearGradient(
             colors: [
-                AppColors.cardElevated.opacity(0.96),
-                personality.secondary.opacity(0.14),
-                AppColors.navyDeep.opacity(0.90)
+                AppColors.cardElevated,
+                AppColors.card
             ],
             startPoint: .topLeading,
             endPoint: .bottomTrailing

@@ -9,9 +9,9 @@ test('bundle is an exact approved projection, preserving every field outside the
   const bundled = JSON.parse(await readFile(new URL('../../YouNew/Resources/Data/younew-approved-places.json', import.meta.url)));
   assert.deepEqual(bundled, artifact);
   const release = await loadEditorialRelease();
-  assert.equal(artifact.entities.length, 7);
+  assert.equal(artifact.entities.length, 12);
   assert.equal(artifact.entities.filter(entity => entity.coordinate !== null).length, 7);
-  assert.equal(new Set(Object.values(aliases)).size, 7);
+  assert.equal(new Set(Object.values(aliases)).size, 12);
   assert.equal(artifact.entities.filter(entity => entity.images.length === 1).length, 4);
   assert.equal(artifact.entities.filter(entity => entity.attributes.iosTicketURL).length, 6);
   const selection = JSON.parse(await readFile(new URL('../../docs/younew-upgrade/LEIDEN_COMPLETION_SELECTION_2026-11-15.json', import.meta.url)));

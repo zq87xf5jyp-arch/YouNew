@@ -122,12 +122,17 @@ struct RootHomeView: View {
     }
     @MainActor private var placePreviews: [HomeInformationPreview] {
         if selectedCityID == .leiden {
-            return allPlacesToVisit.compactMap { place in
+            return allPlacesToVisit.sorted { lhs, rhs in
+                let leftIsLocal = CanonicalPlaceImageResolver.imageAsset(for: lhs)?.url?.isFileURL == true
+                let rightIsLocal = CanonicalPlaceImageResolver.imageAsset(for: rhs)?.url?.isFileURL == true
+                return leftIsLocal != rightIsLocal ? leftIsLocal : lhs.priority < rhs.priority
+            }.compactMap { place in
                 guard let asset = CanonicalPlaceImageResolver.imageAsset(for: place) else { return nil }
                 return HomeInformationPreview(
                     id: place.id,
                     remoteURL: asset.url,
-                    accessibilityLabel: place.title
+                    accessibilityLabel: place.title,
+                    destination: place.destination
                 )
             }
             .prefix(3)

@@ -7,9 +7,9 @@ import Testing
 struct CityPlacesCalendarRegressionTests {
     @Test func approvedLeidenContentReusesSavedIDsAndDutchDescriptions() throws {
         let places = CanonicalPlaceCatalog.items.filter { $0.canonicalContentID != nil }
-        #expect(places.count == 7)
+        #expect(places.count == 12)
         #expect(places.filter { $0.coordinates != nil }.count == 7)
-        #expect(Set(places.compactMap(\.canonicalContentID)).count == 7)
+        #expect(Set(places.compactMap(\.canonicalContentID)).count == 12)
         for place in places {
             let canonicalID = try #require(place.canonicalContentID)
             #expect(CanonicalPlaceCatalog.detailPlace(id: canonicalID)?.id == place.id)
@@ -21,6 +21,20 @@ struct CityPlacesCalendarRegressionTests {
             #expect(query?.first(where: { $0.name == "daddr" })?.value == expectedDestination)
             #expect(place.externalUrl?.scheme == "https")
             #expect(place.lastChecked == "2026-11-09")
+        }
+    }
+
+    @Test func approvedRestaurantsReuseDetailsWithoutInventedCoordinatesOrTickets() throws {
+        let places = CanonicalPlaceCatalog.items.filter { $0.canonicalContentID?.hasPrefix("restaurant.") == true }
+        #expect(places.count == 5)
+        let food = CityDashboardContentData.foodGuideItems(for: "Leiden", audience: .tourist, limit: nil)
+        for place in places {
+            #expect(food.filter { $0.id == place.id }.count == 1)
+            #expect(place.coordinates == nil)
+            #expect(place.ticketsURL == nil)
+            #expect(CanonicalPlaceImageResolver.imageAsset(for: place) == nil)
+            #expect(place.category.contains(.food))
+            #expect(place.directionsURL?.host == "maps.apple.com")
         }
     }
 

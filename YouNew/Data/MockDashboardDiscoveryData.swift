@@ -97,7 +97,7 @@ enum CanonicalPlaceCatalog {
 
     private static func dashboardSeedPlaces() -> [PlaceItem] {
         CityDashboardContentData.supportedCityIds.flatMap { cityId in
-            seedPlaces(for: cityId).enumerated().map { index, seed in
+            (seedPlaces(for: cityId) + approvedFoodSeeds(for: cityId)).enumerated().map { index, seed in
                 let city = CityDashboardContentData.city(for: cityId)
                 let center = CityNewcomerPlacesData.cityCenter(for: city.name)
                 let placeID = "\(cityId.rawValue)-seed-\(slug(seed.title))"
@@ -130,6 +130,18 @@ enum CanonicalPlaceCatalog {
                 )
             }
         }
+    }
+
+    // Read the shared approved projection; do not maintain a second restaurant catalog.
+    private static func approvedFoodSeeds(for cityId: CityId) -> [PlaceSeed] {
+        guard cityId == .leiden else { return [] }
+        return approvedPlaces.values
+            .filter { $0.id.hasPrefix("restaurant.leiden-") }
+            .sorted { $0.id < $1.id }
+            .map { entity in
+                seed(entity.title, entity.summary, [.food], address: entity.attributes["address"],
+                     externalURL: entity.attributes["website"])
+            }
     }
 
     private struct PlaceSeed {
@@ -606,7 +618,17 @@ enum CityDashboardContentData {
     }
 
     static func foodGuideItems(for city: DashboardCity, audience: UserContentCategory?, limit: Int? = nil) -> [FoodGuideItem] {
-        let items = foodGuideSeed(for: city)
+        let approvedFood = CanonicalPlaceCatalog.items
+            .filter { $0.cityId == city.name && $0.canonicalContentID?.hasPrefix("restaurant.") == true }
+            .map { place in
+                FoodGuideItem(id: place.id, cityId: city.id, title: place.title,
+                              shortTitle: place.shortTitle, description: place.description,
+                              category: .restaurant, audience: [.tourist, .general, .student, .business, .local],
+                              route: place.route, externalUrl: place.externalUrl, query: nil,
+                              icon: "fork.knife", priority: place.priority, source: place.source,
+                              lastChecked: place.lastChecked, hidden: false, draft: false)
+            }
+        let items = (approvedFood + foodGuideSeed(for: city))
             .filter { item in
                 foodGuideItemIsVisible(item)
                     && item.audience.contains { category in
