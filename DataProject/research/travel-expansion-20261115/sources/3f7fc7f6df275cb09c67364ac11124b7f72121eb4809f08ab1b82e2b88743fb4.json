@@ -1,0 +1,18 @@
+{
+  "url": "https://www.dynamo-eindhoven.nl/",
+  "checkedAt": "2026-11-15",
+  "status": "opened",
+  "contentReviewed": false,
+  "robotsSHA256": "bac0cdcfcd3fc7772318a6dc413651e5264ca109da80bde8fb92e874fab9e295",
+  "robotsStatus": "fetched",
+  "httpStatus": 200,
+  "finalURL": "https://www.dynamo-eindhoven.nl/",
+  "sha256": "349ca06c3cc846bd68e9ff9c38146d3b4aa83d28aa1d98df563dd6507686d73c",
+  "title": "Homepage - Dynamo Eindhoven Homepage - Dynamo Eindhoven",
+  "excerpt": "Homepage - Dynamo Eindhoven Homepage - Dynamo Eindhoven Ga naar de inhoud Evenementen Verhuur Search for: Agenda Ga terug Evenementen",
+  "actionCandidates": [
+    "https://www.ticketmaster.nl/event/976074711",
+    "https://www.ticketmaster.nl/event/803873539",
+    "https://www.ticketmaster.nl/event/1237143298"
+  ]
+}

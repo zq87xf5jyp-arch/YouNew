@@ -1,0 +1,17 @@
+{
+  "url": "https://www.uu.nl/en/utrecht-botanic-gardens",
+  "checkedAt": "2026-11-15",
+  "status": "opened",
+  "contentReviewed": false,
+  "robotsSHA256": "5e7ed79d6cce66cd9eed07cd547997c02ce33f320ffa3cc85a2bb5895310ab53",
+  "robotsStatus": "fetched",
+  "httpStatus": 200,
+  "finalURL": "https://www.uu.nl/en/botanic-gardens",
+  "sha256": "ea58fe1cf1744e96f64bfda87202e4a80859e9c49ad2000583a0582b275e9af5",
+  "title": "Botanic Gardens - Utrecht University",
+  "excerpt": "Botanic Gardens - Utrecht University Skip to main content Menu Search uu.nl Search scope Subject Staff member Search Select language",
+  "actionCandidates": [
+    "https://www.uu.nl/en/botanic-gardens/plan-your-visit/tickets-and-opening-hours",
+    "https://botanischetuinenutrecht.globalticket.nl/en/tickets"
+  ]
+}

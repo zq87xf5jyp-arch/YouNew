@@ -1,0 +1,16 @@
+{
+  "url": "https://allardpierson.nl/en/",
+  "checkedAt": "2026-11-15",
+  "status": "opened",
+  "contentReviewed": false,
+  "robotsSHA256": "49eee031c60a8b39c80d253a17a1d9cb7a637cf38c833600378c9a54da974074",
+  "robotsStatus": "fetched",
+  "httpStatus": 200,
+  "finalURL": "https://www.allardpierson.nl/en/",
+  "sha256": "c461d507ca1e6ae08ab78448806510fcbbd17deb0b1c37f9e19b7add848bcde6",
+  "title": "Allard Pierson | Home",
+  "excerpt": "Allard Pierson | Home Jump to main content Jump to footer ALLARDPIERSON Museum Hours, location & ticket prices What's on",
+  "actionCandidates": [
+    "https://tickets.allardpierson.nl/en-GB/Event?eventid=329"
+  ]
+}

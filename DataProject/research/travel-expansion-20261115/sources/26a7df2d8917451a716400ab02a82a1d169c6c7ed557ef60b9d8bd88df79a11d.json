@@ -1,0 +1,16 @@
+{
+  "url": "https://www.centraalmuseum.nl/en",
+  "checkedAt": "2026-11-15",
+  "status": "opened",
+  "contentReviewed": false,
+  "robotsSHA256": "77d41133fc933a348226593324f6d56c3213a1e8fefad959f1813f6550bbc175",
+  "robotsStatus": "fetched",
+  "httpStatus": 200,
+  "finalURL": "https://www.centraalmuseum.nl/en",
+  "sha256": "819bb5ab739179fc3d5f15d276af5b00e19b0bc273579fd5731789b443ee143a",
+  "title": "Centraal Museum Utrecht",
+  "excerpt": "Centraal Museum Utrecht Go to main content Centraal Museum Utrecht, to home Open again on Tuesday at 11am Plan your",
+  "actionCandidates": [
+    "https://tickets.centraalmuseum.nl/en/tickets"
+  ]
+}

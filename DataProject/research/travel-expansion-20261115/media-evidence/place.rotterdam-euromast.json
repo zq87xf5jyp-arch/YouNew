@@ -1,0 +1,49 @@
+{
+  "id": "place.rotterdam-euromast",
+  "url": "https://commons.wikimedia.org/wiki/File:Euromast%20%40%20Rotterdam%20%2829972520534%29.jpg",
+  "origin": "Commons file search",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "visualIdentityChecked": true,
+  "files": [
+    {
+      "path": "DataProject/research/travel-expansion-20261115/media/place.rotterdam-euromast-480.webp",
+      "width": 480,
+      "sha256": "72991943df83de0b51b2722919ef85a8be6d63c5f8d5e038f214d766a1d7477b",
+      "bytes": 27396
+    },
+    {
+      "path": "DataProject/research/travel-expansion-20261115/media/place.rotterdam-euromast-800.webp",
+      "width": 800,
+      "sha256": "7e5ec8692ad398a9e0e929ee466f11123d380ecc0c0d0815ed049816881c2dbf",
+      "bytes": 71228
+    },
+    {
+      "path": "DataProject/research/travel-expansion-20261115/media/place.rotterdam-euromast-1200.webp",
+      "width": 1200,
+      "sha256": "d6beec790513a3c77e64f7bf7b185ee3cb6f41557f6a152fb692d37994f4c07a",
+      "bytes": 144344
+    }
+  ],
+  "previousAttempts": [
+    {
+      "checkedAt": "2026-11-15",
+      "limitation": "No supported commercial CC license in Licensing section"
+    }
+  ],
+  "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+  "sourcePageSHA256": "828f2c9aa59c2f112ad8ec115293b130cfa4fc70a4fa5869235ee024e32ccbea",
+  "author": "Guilhem Vellut from Annecy, France",
+  "license": "CC BY 2.0",
+  "licenseURL": "https://creativecommons.org/licenses/by/2.0/",
+  "shareAlike": false,
+  "changes": "Resized and re-encoded as WebP; no crop or generated content.",
+  "attribution": "Euromast @ Rotterdam (29972520534).jpg — Guilhem Vellut from Annecy, France — CC BY 2.0",
+  "originalURL": "https://upload.wikimedia.org/wikipedia/commons/8/87/Euromast_%40_Rotterdam_%2829972520534%29.jpg",
+  "downloadURL": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/Euromast_%40_Rotterdam_%2829972520534%29.jpg/1280px-Euromast_%40_Rotterdam_%2829972520534%29.jpg",
+  "downloadSHA256": "ab79eea82ae7b9b9ac66d93ce7772e843af23bb2ffdb7b60c263c35722e98afb",
+  "rightsEvidenceChecked": false,
+  "licenseMetadataExtracted": true,
+  "reviewNote": "License template extracted; human licensing and attribution review required before activation."
+}

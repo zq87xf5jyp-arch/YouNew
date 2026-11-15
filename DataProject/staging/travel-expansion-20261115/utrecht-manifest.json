@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "batchId": "travel-utrecht-20261115",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "approvedAt": null,
+  "reviewerId": null,
+  "recordsSHA256": "328d9574d71b8df965222b14eb4a4bfbdc8a3fe4d43a9f7cdfd815d5f8b0dfd3",
+  "ids": [
+    "museum.utrecht-centraal",
+    "museum.utrecht-spoorwegmuseum",
+    "museum.utrecht-speelklok",
+    "museum.utrecht-catharijneconvent",
+    "place.utrecht-domtoren",
+    "museum.utrecht-domunder",
+    "museum.utrecht-nijntje",
+    "place.utrecht-rietveld-schroderhuis",
+    "museum.utrecht-university-museum",
+    "nature.utrecht-botanic-gardens"
+  ],
+  "evidence": [
+    {
+      "id": "museum.utrecht-centraal",
+      "sourceEvidenceSHA256": "22cc8600374943e5c09dbde3966c7c99247d6967ffebf009ae3a3ada4fb500dc",
+      "contentChecked": true,
+      "missing": [
+        "photo",
+        "confirmed_coordinates"
+      ]
+    },
+    {
+      "id": "museum.utrecht-spoorwegmuseum",
+      "sourceEvidenceSHA256": "da6691eda6675149a093b1066a3ecc75cebe42fcb0454f462a7596283f736e72",
+      "contentChecked": true,
+      "missing": [
+        "photo",
+        "confirmed_coordinates"
+      ]
+    },
+    {
+      "id": "museum.utrecht-speelklok",
+      "sourceEvidenceSHA256": "42957ea362eced8f2caf17ecc526bf7b3b96dcb7a038b355e4a60a78d69fcce7",
+      "contentChecked": true,
+      "missing": [
+        "photo",
+        "confirmed_coordinates"
+      ]
+    },
+    {
+      "id": "museum.utrecht-catharijneconvent",
+      "sourceEvidenceSHA256": "17ce074034d9b2cf35c00a71a71f17c324715da0d1183eaecef27933863e840c",
+      "contentChecked": true,
+      "missing": [
+        "photo",
+        "confirmed_coordinates"
+      ]
+    },
+    {
+      "id": "place.utrecht-domtoren",
+      "sourceEvidenceSHA256": "55632c59d31a389f41625c4299cae5f1650cecfcd57bddda1306ee1abf51f60b",
+      "contentChecked": true,
+      "missing": [
+        "photo",
+        "confirmed_coordinates"
+      ]
+    },
+    {
+      "id": "museum.utrecht-domunder",
+      "sourceEvidenceSHA256": "246a9bc7a8e46361c0df75ae769f5acfb6228d925403127f9c718463944c6c81",
+      "contentChecked": true,
+      "missing": [
+        "photo",
+        "confirmed_coordinates"
+      ]
+    },
+    {
+      "id": "museum.utrecht-nijntje",
+      "sourceEvidenceSHA256": "a91edea607fd083e55c002fae905a3af1f53f68cf2020bf73e6ecacd89b0638c",
+      "contentChecked": true,
+      "missing": [
+        "photo",
+        "confirmed_coordinates"
+      ]
+    },
+    {
+      "id": "place.utrecht-rietveld-schroderhuis",
+      "sourceEvidenceSHA256": "d53b634b3b1e2737205f17690bcd05c60bae68e2418d5cc9dac5ee3b44b95a50",
+      "contentChecked": true,
+      "missing": [
+        "photo",
+        "confirmed_coordinates"
+      ]
+    },
+    {
+      "id": "museum.utrecht-university-museum",
+      "sourceEvidenceSHA256": "8988b4fce912b3046bb6ebe30443182d544073f69401e67d0eba1fe6a8739b15",
+      "contentChecked": true,
+      "missing": [
+        "photo",
+        "confirmed_coordinates"
+      ]
+    },
+    {
+      "id": "nature.utrecht-botanic-gardens",
+      "sourceEvidenceSHA256": "01391be9dc2a55c6aa0b1e7562ba6073e19a5eb7601003fd75f7d4c905caf0c0",
+      "contentChecked": true,
+      "missing": [
+        "photo",
+        "confirmed_coordinates"
+      ]
+    }
+  ]
+}

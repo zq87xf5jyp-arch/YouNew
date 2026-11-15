@@ -1,0 +1,22 @@
+{
+  "url": "https://euromast.nl/en/",
+  "checkedAt": "2026-11-15",
+  "status": "opened",
+  "contentReviewed": false,
+  "robotsSHA256": "5dd7ac4500599d61b44a6f033f0a584cb82c9a8715d8e202fdb52678677dc6df",
+  "robotsStatus": "fetched",
+  "httpStatus": 200,
+  "finalURL": "https://euromast.nl/en/",
+  "sha256": "b1e0b4202a9f33bfb965fbe825c3d8bdd4449b543d21d1f2154440dbf120d76b",
+  "title": "Home - Euromast Rotterdam",
+  "excerpt": "Home - Euromast Rotterdam Skip to content Christmas & NYE Euroscoop Restaurant Brunch Lunch Diner High Tea High wine Meetings",
+  "actionCandidates": [
+    "https://euromast.nl/en/#tickets",
+    "https://euromast.nl/en/tickets/",
+    "https://euromast.nl/en/combitickets/",
+    "https://euromast.nl/en/ticket/euromast-x-splashtours/",
+    "https://euromast.nl/en/ticket/euromast-x-the-ss-rotterdam/",
+    "https://euromast.nl/en/ticket/euromast-spido/",
+    "https://euromast.nl/en/manage-my-booking/"
+  ]
+}

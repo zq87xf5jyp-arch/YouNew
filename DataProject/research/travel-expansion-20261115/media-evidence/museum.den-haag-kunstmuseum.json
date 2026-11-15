@@ -1,0 +1,43 @@
+{
+  "id": "museum.den-haag-kunstmuseum",
+  "url": "https://commons.wikimedia.org/wiki/File:Den_Haag-Scheveningen,_het_Kunstmuseum_(noordelijke_deel)_IMG_6089_2024-11-04_14.35.jpg",
+  "origin": "https://commons.wikimedia.org/wiki/Category:Kunstmuseum_Den_Haag",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "visualIdentityChecked": false,
+  "files": [
+    {
+      "path": "DataProject/research/travel-expansion-20261115/media/museum.den-haag-kunstmuseum-480.webp",
+      "width": 480,
+      "sha256": "c5e38ce368e612062143eb8d69320df862c67d40e6c2e11b6da6d5758717e71b",
+      "bytes": 19282
+    },
+    {
+      "path": "DataProject/research/travel-expansion-20261115/media/museum.den-haag-kunstmuseum-800.webp",
+      "width": 800,
+      "sha256": "65dcc4b6217e1580cc5de4496fc820e5697c969f40604d823bbaa8db466ead3a",
+      "bytes": 46630
+    },
+    {
+      "path": "DataProject/research/travel-expansion-20261115/media/museum.den-haag-kunstmuseum-1200.webp",
+      "width": 1200,
+      "sha256": "63d13e152e277ee8b684f219f90e4bd1be50a2854c510460bab51f4f9aca3f40",
+      "bytes": 89282
+    }
+  ],
+  "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+  "sourcePageSHA256": "58fe756f4c12068c4fbf27c957fd697427e1e91eb8e4aaa99674f3e418317a0a",
+  "author": "Michielverbeek",
+  "license": "CC BY 4.0",
+  "licenseURL": "https://creativecommons.org/licenses/by/4.0/",
+  "shareAlike": false,
+  "changes": "Resized and re-encoded as WebP; no crop or generated content.",
+  "attribution": "Den_Haag-Scheveningen,_het_Kunstmuseum_(noordelijke_deel)_IMG_6089_2024-11-04_14.35.jpg — Michielverbeek — CC BY 4.0",
+  "originalURL": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Den_Haag-Scheveningen%2C_het_Kunstmuseum_%28noordelijke_deel%29_IMG_6089_2024-11-04_14.35.jpg",
+  "downloadURL": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Den_Haag-Scheveningen%2C_het_Kunstmuseum_%28noordelijke_deel%29_IMG_6089_2024-11-04_14.35.jpg/1280px-Den_Haag-Scheveningen%2C_het_Kunstmuseum_%28noordelijke_deel%29_IMG_6089_2024-11-04_14.35.jpg",
+  "downloadSHA256": "7f5af52860ec5c9fe5b89a18bb5b147477a4ce5417d02c1ce751f1afb4559852",
+  "rightsEvidenceChecked": false,
+  "licenseMetadataExtracted": true,
+  "reviewNote": "License template extracted; human licensing and attribution review required before activation."
+}

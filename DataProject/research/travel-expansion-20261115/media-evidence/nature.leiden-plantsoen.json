@@ -1,0 +1,43 @@
+{
+  "id": "nature.leiden-plantsoen",
+  "url": "https://commons.wikimedia.org/wiki/File:20210806_Leiden_-_Plantsoen_Park_%27Plantsoen%27.jpg",
+  "origin": "DataProject/editorial/leiden-nature-culture-20261115/media-evidence.json",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "visualIdentityChecked": false,
+  "files": [
+    {
+      "path": "DataProject/research/travel-expansion-20261115/media/nature.leiden-plantsoen-480.webp",
+      "width": 480,
+      "sha256": "dc621f2d8ed32219ea21af72fe479206d57456bbfcd3626e38b24628be6f7332",
+      "bytes": 47732
+    },
+    {
+      "path": "DataProject/research/travel-expansion-20261115/media/nature.leiden-plantsoen-800.webp",
+      "width": 800,
+      "sha256": "6dc231c2ab8700d637d9deb8d4da90c56e46efb4464050aff792e2c90a3a5564",
+      "bytes": 138278
+    },
+    {
+      "path": "DataProject/research/travel-expansion-20261115/media/nature.leiden-plantsoen-1200.webp",
+      "width": 1200,
+      "sha256": "acdaf31e4d80891bd89466b076be7dd2823dbcb84a30a8d403d68803402a4640",
+      "bytes": 302340
+    }
+  ],
+  "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+  "sourcePageSHA256": "9f8b5e5b0544167f4aa9b75d34ee397c7fab4443466d33c4ac33b0492ac21090",
+  "author": "Rudolphous",
+  "license": "CC BY-SA 4.0",
+  "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "shareAlike": true,
+  "changes": "Resized and re-encoded as WebP; no crop or generated content.",
+  "attribution": "20210806_Leiden_-_Plantsoen_Park_'Plantsoen'.jpg — Rudolphous — CC BY-SA 4.0",
+  "originalURL": "https://upload.wikimedia.org/wikipedia/commons/4/44/20210806_Leiden_-_Plantsoen_Park_%27Plantsoen%27.jpg",
+  "downloadURL": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/20210806_Leiden_-_Plantsoen_Park_%27Plantsoen%27.jpg/1280px-20210806_Leiden_-_Plantsoen_Park_%27Plantsoen%27.jpg",
+  "downloadSHA256": "00a1d4f50c7375710b66b2ec33c2ba2051d892acc393c6a764e09f8f4ac69297",
+  "rightsEvidenceChecked": false,
+  "licenseMetadataExtracted": true,
+  "reviewNote": "License template extracted; human licensing and attribution review required before activation."
+}

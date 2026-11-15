@@ -1,0 +1,17 @@
+{
+  "id": "museum.den-haag-beelden-aan-zee",
+  "url": "https://commons.wikimedia.org/wiki/File:BeeldenaanZee.JPG",
+  "origin": "https://commons.wikimedia.org/wiki/Category:Museum_Beelden_aan_Zee",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "visualIdentityChecked": false,
+  "files": [],
+  "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+  "sourcePageSHA256": "40cb54477f118f852110320ae9d761344b233af2eb2721692f5be25da4b33e5f",
+  "author": "CvandenHil at Dutch Wikipedia",
+  "limitation": "No supported commercial CC license in Licensing section",
+  "licenseMetadataExtracted": false,
+  "rightsEvidenceChecked": false,
+  "reviewNote": "License template extracted; human licensing and attribution review required before activation."
+}

@@ -1,0 +1,16 @@
+{
+  "url": "https://www.gevangenpoort.nl/en",
+  "checkedAt": "2026-11-15",
+  "status": "opened",
+  "contentReviewed": false,
+  "robotsSHA256": "cfbe65e330bf7c57c43dbdde406d6a4a99b9999d57e104c6d3db9ed211c8c4e0",
+  "robotsStatus": "fetched",
+  "httpStatus": 200,
+  "finalURL": "https://gevangenpoort.nl/en/",
+  "sha256": "597ae53c349615f65fe7205570b458e7078afc161bfcd42cad72fa3181f70cf3",
+  "title": "Home - Gevangenpoort",
+  "excerpt": "Home - Gevangenpoort Skip to main content Tickets Visit See and Experience Practical information Museum Quarter The Hague School visits",
+  "actionCandidates": [
+    "https://ticketshop.gevangenpoort.nl/"
+  ]
+}

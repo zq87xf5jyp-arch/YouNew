@@ -1,0 +1,16 @@
+{
+  "url": "https://www.nederlandsfotomuseum.nl/en/",
+  "checkedAt": "2026-11-15",
+  "status": "opened",
+  "contentReviewed": false,
+  "robotsSHA256": "27223ee28e56d4fedf15ac0f44ddd22c8524d09617769dc3723ae2844c25bcd2",
+  "robotsStatus": "fetched",
+  "httpStatus": 200,
+  "finalURL": "https://nederlandsfotomuseum.nl/en/",
+  "sha256": "7df2b9908d222cacc8076890fd693891cb46576f2692c9df7ce9cc84ad8df216",
+  "title": "Home – Nederlands Fotomuseum",
+  "excerpt": "Home – Nederlands Fotomuseum Tickets Plan your visit Activities What’s on Support the museum Collection Education Restaurant / Event venue",
+  "actionCandidates": [
+    "https://tickets.nederlandsfotomuseum.nl/en/tickets"
+  ]
+}

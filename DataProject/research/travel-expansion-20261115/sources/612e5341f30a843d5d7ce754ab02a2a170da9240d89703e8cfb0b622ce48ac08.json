@@ -1,0 +1,9 @@
+{
+  "url": "https://umu.nl/en/",
+  "checkedAt": "2026-11-15",
+  "status": "unavailable",
+  "contentReviewed": false,
+  "robotsSHA256": "2bee0f22acab8046d7af722ae992f8d53dbec4bd221929d2fdb78b82c6913744",
+  "robotsStatus": "fetched",
+  "error": "HTTP Error 404: Not Found"
+}

@@ -1,0 +1,14 @@
+{
+  "url": "https://www.dafmuseum.nl/en",
+  "checkedAt": "2026-11-15",
+  "status": "opened",
+  "contentReviewed": false,
+  "robotsSHA256": "2f4d9ce86fec2771fc508a532f40c497ca705de6e681cff6df34169d07e310f2",
+  "robotsStatus": "fetched",
+  "httpStatus": 200,
+  "finalURL": "https://www.dafmuseum.nl/en",
+  "sha256": "47842901ac35d8974571bb94007bd314cf21268ed40c52075ea50af0285e1b70",
+  "title": "Welcome to the DAF Museum website - DAF Museum",
+  "excerpt": "Welcome to the DAF Museum website - DAF Museum Booking meeting rooms Contact English English Nederlands (Nederland) Home (current) About",
+  "actionCandidates": []
+}

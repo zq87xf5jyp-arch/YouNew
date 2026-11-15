@@ -1,0 +1,18 @@
+{
+  "url": "https://www.domunder.nl/en",
+  "checkedAt": "2026-11-15",
+  "status": "opened",
+  "contentReviewed": false,
+  "robotsSHA256": "7598c8d5144fdab8e525701a231e6843f1a94698a4529be1bb44ba80189c1608",
+  "robotsStatus": "fetched",
+  "httpStatus": 200,
+  "finalURL": "https://www.domunder.nl/en/",
+  "sha256": "762bd644f0c1da1c9ba3be8dc90b749a4604d8be057c51408489a8bd2cde7b86",
+  "title": "Discover 2000 Years of Utrecht History | DOMunder",
+  "excerpt": "Discover 2000 Years of Utrecht History | DOMunder To main content To navigation DOMunder EN PLAN YOUR VISIT A lot",
+  "actionCandidates": [
+    "https://www.domunder.nl/en/#menus",
+    "https://www.domunder.nl/en/tickets/",
+    "https://www.domunder.nl/en/ticketsdomunder/"
+  ]
+}

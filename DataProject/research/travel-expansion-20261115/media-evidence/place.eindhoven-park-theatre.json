@@ -1,0 +1,43 @@
+{
+  "id": "place.eindhoven-park-theatre",
+  "url": "https://commons.wikimedia.org/wiki/File:Parktheater_Eindhoven,_backstage_1.jpg",
+  "origin": "https://commons.wikimedia.org/wiki/Category:Parktheater_Eindhoven",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "visualIdentityChecked": false,
+  "files": [
+    {
+      "path": "DataProject/research/travel-expansion-20261115/media/place.eindhoven-park-theatre-480.webp",
+      "width": 480,
+      "sha256": "8d17cd0670f5e4cfb4bfe3d964d54d3ce7a6355a8c1ef3403e32b19c752e7a9d",
+      "bytes": 14964
+    },
+    {
+      "path": "DataProject/research/travel-expansion-20261115/media/place.eindhoven-park-theatre-800.webp",
+      "width": 800,
+      "sha256": "fb644c1365a57fbbef665906c066919dddeaf4c1e7eb86d41951adb49851d695",
+      "bytes": 33686
+    },
+    {
+      "path": "DataProject/research/travel-expansion-20261115/media/place.eindhoven-park-theatre-1200.webp",
+      "width": 1200,
+      "sha256": "9e17452aadda179f857464c8fc6a5047b8e1868fd2d274649322fb55d39ab5f0",
+      "bytes": 60042
+    }
+  ],
+  "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+  "sourcePageSHA256": "7032ba195d39c1d9793deca98bfc4976b99e019e82b9c341f9336450dc524982",
+  "author": "Alex P. Kok",
+  "license": "CC BY-SA 4.0",
+  "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "shareAlike": true,
+  "changes": "Resized and re-encoded as WebP; no crop or generated content.",
+  "attribution": "Parktheater_Eindhoven,_backstage_1.jpg — Alex P. Kok — CC BY-SA 4.0",
+  "originalURL": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Parktheater_Eindhoven%2C_backstage_1.jpg",
+  "downloadURL": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/Parktheater_Eindhoven%2C_backstage_1.jpg/1280px-Parktheater_Eindhoven%2C_backstage_1.jpg",
+  "downloadSHA256": "2e573171f91aac007d4b7d3ccb00489804f568f07b86ef6096cd5c5963d4120f",
+  "rightsEvidenceChecked": false,
+  "licenseMetadataExtracted": true,
+  "reviewNote": "License template extracted; human licensing and attribution review required before activation."
+}

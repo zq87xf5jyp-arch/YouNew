@@ -1,0 +1,30 @@
+{
+  "id": "museum.huis-marseille",
+  "url": "https://commons.wikimedia.org/wiki/File:HuisMarseille-Amsterdam-SjoerdMartens.png",
+  "origin": "DataProject/batches/WP-06/M2-amsterdam-001.json",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "visualIdentityChecked": false,
+  "files": [],
+  "previousAttempts": [
+    {
+      "checkedAt": "2026-11-15",
+      "limitation": "No supported commercial CC license in Licensing section"
+    }
+  ],
+  "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+  "sourcePageSHA256": "741d383a4829b45bed569345a7879decb85781536d0759dc82081bb1d52daaa0",
+  "author": "Kaasverhuur",
+  "license": "CC BY-SA 4.0",
+  "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "shareAlike": true,
+  "changes": "Resized and re-encoded as WebP; no crop or generated content.",
+  "attribution": "HuisMarseille-Amsterdam-SjoerdMartens.png — Kaasverhuur — CC BY-SA 4.0",
+  "originalURL": "https://upload.wikimedia.org/wikipedia/commons/f/f6/HuisMarseille-Amsterdam-SjoerdMartens.png",
+  "downloadURL": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/HuisMarseille-Amsterdam-SjoerdMartens.png/1280px-HuisMarseille-Amsterdam-SjoerdMartens.png",
+  "limitation": "Response over 3 MB cap",
+  "licenseMetadataExtracted": true,
+  "rightsEvidenceChecked": false,
+  "reviewNote": "License template extracted; human licensing and attribution review required before activation."
+}

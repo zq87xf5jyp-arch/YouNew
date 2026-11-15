@@ -1,0 +1,16 @@
+{
+  "url": "https://www.pieterskerk.com/en/",
+  "checkedAt": "2026-11-15",
+  "status": "opened",
+  "contentReviewed": false,
+  "robotsSHA256": "7813294d30fe892b2e7695d6b9370fc5dd38bff5dbe0a6c5f9e2cd2b3a438087",
+  "robotsStatus": "fetched",
+  "httpStatus": 200,
+  "finalURL": "https://pieterskerk.com/en/",
+  "sha256": "aac84a69f22062edf7daaad0b59335f76cb79a8d0163fc1fa5e86b62c4ce27c4",
+  "title": "Homepage - PIETERSKERK",
+  "excerpt": "Homepage - PIETERSKERK Tickets Menu Your visit Calendar Tickets Practical information Contact Plan your event Support the Pieterskerk Leiden Monument",
+  "actionCandidates": [
+    "https://pieterskerk.com/en/tickets/"
+  ]
+}

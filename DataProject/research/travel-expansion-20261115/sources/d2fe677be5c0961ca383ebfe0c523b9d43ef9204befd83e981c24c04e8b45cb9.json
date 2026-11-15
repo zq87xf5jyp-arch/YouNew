@@ -1,0 +1,16 @@
+{
+  "url": "https://www.rembrandthuis.nl/en/",
+  "checkedAt": "2026-11-15",
+  "status": "opened",
+  "contentReviewed": false,
+  "robotsSHA256": "f21c6b8900f16aedcd6da87174b8a452c2013ad264082ab7244ce4bd7ac4d2ce",
+  "robotsStatus": "fetched",
+  "httpStatus": 200,
+  "finalURL": "https://www.rembrandthuis.nl/en/",
+  "sha256": "41f6302cd9409d08b44704bc43196c87173d8db8f2b8f4e6a701c169eaf354f8",
+  "title": "Rembrandt House Museum Amsterdam | Atelier & Tickets Toegankelijkheid gereedschappen Grijstint Hoog contrast Negatief contrast Lichte achtergrond Links onderstrepen Leesbaar lettertype Reset Sitemap",
+  "excerpt": "Rembrandt House Museum Amsterdam | Atelier & Tickets plan your visit visitor information accessibility families with children education group visits",
+  "actionCandidates": [
+    "https://tickets.rembrandthuis.nl/en/tickets"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "url": "https://panorama-mesdag.nl/en/",
+  "checkedAt": "2026-11-15",
+  "status": "opened",
+  "contentReviewed": false,
+  "robotsSHA256": "533c6a9840ddce8b75d92c9381f484a168357290ba10449673b84f8a1bc10832",
+  "robotsStatus": "fetched",
+  "httpStatus": 200,
+  "finalURL": "https://panorama-mesdag.nl/en/",
+  "sha256": "1e36cd7c5baf2af1e3c286754c5f4f0b3fc5a77c81f221ff8c9f1f7c3d1367bf",
+  "title": "Museum Panorama Mesdag - The Panorama of Scheveningen in The Hague Menu",
+  "excerpt": "Museum Panorama Mesdag - The Panorama of Scheveningen in The Hague Back to Home Close Next step Play Pause Close",
+  "actionCandidates": [
+    "https://tickets.panorama-mesdag.nl/en/tickets"
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "id": "museum.den-haag-mauritshuis",
+  "url": "https://commons.wikimedia.org/wiki/File:Mauritshuis%20Den%20Haag.jpg",
+  "origin": "Commons file search",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "visualIdentityChecked": true,
+  "files": [
+    {
+      "path": "DataProject/research/travel-expansion-20261115/media/museum.den-haag-mauritshuis-480.webp",
+      "width": 480,
+      "sha256": "5bb73a5122268a40b6cedefcd6c43515b2afbaf779920c1151870c501983c5a5",
+      "bytes": 36262
+    },
+    {
+      "path": "DataProject/research/travel-expansion-20261115/media/museum.den-haag-mauritshuis-800.webp",
+      "width": 800,
+      "sha256": "9a16d3bc77d55a03e579f807e00ef192f3c948fef965456918f1e0d3dcd01f85",
+      "bytes": 79738
+    },
+    {
+      "path": "DataProject/research/travel-expansion-20261115/media/museum.den-haag-mauritshuis-1200.webp",
+      "width": 1200,
+      "sha256": "bc7313043c601823d4d1e0cd17cf9348b7cacd0c444d0e40e23a53361d0e2056",
+      "bytes": 138314
+    }
+  ],
+  "previousAttempts": [
+    {
+      "checkedAt": "2026-11-15",
+      "limitation": "substring not found"
+    }
+  ],
+  "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+  "sourcePageSHA256": "87bff9759bda271ed2e2f30fb269c0a50a165bd97b1ea9f0df6e20ac46fa4c51",
+  "author": "FaceMePLS",
+  "license": "CC BY 2.0",
+  "licenseURL": "https://creativecommons.org/licenses/by/2.0/",
+  "shareAlike": false,
+  "changes": "Resized and re-encoded as WebP; no crop or generated content.",
+  "attribution": "Mauritshuis Den Haag.jpg — FaceMePLS — CC BY 2.0",
+  "originalURL": "https://upload.wikimedia.org/wikipedia/commons/6/64/Mauritshuis_Den_Haag.jpg",
+  "downloadURL": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/Mauritshuis_Den_Haag.jpg/1280px-Mauritshuis_Den_Haag.jpg",
+  "downloadSHA256": "82d38298b3264209889d2bd714f95f5efcba0d6f2fae09356ae58171b3b6e97e",
+  "rightsEvidenceChecked": false,
+  "licenseMetadataExtracted": true,
+  "reviewNote": "License template extracted; human licensing and attribution review required before activation."
+}

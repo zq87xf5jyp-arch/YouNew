@@ -1,0 +1,431 @@
+{
+  "schema_version": 1,
+  "batch_id": "travel-eindhoven-20261115",
+  "work_package": "WP-06",
+  "milestone": "travel-content-review",
+  "target_release": "travel-review-20261115",
+  "publication_status": "draft",
+  "qa": {
+    "build": "pending",
+    "static": "pending",
+    "duplicate": "pending",
+    "source": "pending",
+    "media": "pending",
+    "search": "pending",
+    "ai": "pending"
+  },
+  "records": [
+    {
+      "id": "museum.eindhoven-van-abbe",
+      "entity_type": "museum",
+      "category": "museum",
+      "city_id": "eindhoven",
+      "province_id": "noord-brabant",
+      "coordinates": null,
+      "title": "Van Abbemuseum",
+      "description": "Explore modern and contemporary art through the Van Abbemuseum's collection and exhibitions in Eindhoven.",
+      "images": [],
+      "official_source": {
+        "title": "Van Abbemuseum — official information",
+        "publisher": "Van Abbemuseum",
+        "url": "https://vanabbemuseum.nl/en/",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://vanabbemuseum.nl/en/",
+      "related_entity_ids": [],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Explore modern and contemporary art through the Van Abbemuseum's collection and exhibitions in Eindhoven.",
+      "search_keywords": [
+        "Van Abbemuseum",
+        "eindhoven",
+        "culture"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "description_nl": "Ontdek moderne en hedendaagse kunst via de collectie en tentoonstellingen van het Van Abbemuseum in Eindhoven.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "research_source_status": "opened",
+        "source_evidence_file": "DataProject/research/travel-expansion-20261115/sources/08a9fa188f502a932005aaa99a6c9e216b22b3795de8cb8ef048b48876283232.json",
+        "content_verification": "source_read_proposed_text_checked",
+        "media_status": "no_new_runtime_photo",
+        "coordinate_status": "not_verified_no_marker"
+      }
+    },
+    {
+      "id": "museum.eindhoven-philips",
+      "entity_type": "museum",
+      "category": "museum",
+      "city_id": "eindhoven",
+      "province_id": "noord-brabant",
+      "coordinates": null,
+      "title": "Philips Museum",
+      "description": "Discover the history of Philips and the development of its technology through the museum's displays and stories.",
+      "images": [],
+      "official_source": {
+        "title": "Philips Museum — official information",
+        "publisher": "Philips Museum",
+        "url": "https://www.philips-museum.com/en",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.philips-museum.com/en",
+      "related_entity_ids": [],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Discover the history of Philips and the development of its technology through the museum's displays and stories.",
+      "search_keywords": [
+        "Philips Museum",
+        "eindhoven",
+        "culture"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "description_nl": "Ontdek de geschiedenis van Philips en de ontwikkeling van zijn technologie via de presentaties en verhalen van het museum.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "research_source_status": "opened",
+        "source_evidence_file": "DataProject/research/travel-expansion-20261115/sources/8a5a33cb0e765798b1f01d352d6f45fcf88989e4265d9d2ca3b73b1912ca9eec.json",
+        "content_verification": "source_read_proposed_text_checked",
+        "media_status": "no_new_runtime_photo",
+        "coordinate_status": "not_verified_no_marker"
+      }
+    },
+    {
+      "id": "museum.eindhoven-daf",
+      "entity_type": "museum",
+      "category": "museum",
+      "city_id": "eindhoven",
+      "province_id": "noord-brabant",
+      "coordinates": null,
+      "title": "DAF Museum",
+      "description": "Explore DAF's vehicle history through its collection of cars, trucks and engineering stories.",
+      "images": [],
+      "official_source": {
+        "title": "DAF Museum — official information",
+        "publisher": "DAF Museum",
+        "url": "https://www.dafmuseum.nl/en",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.dafmuseum.nl/en",
+      "related_entity_ids": [],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Explore DAF's vehicle history through its collection of cars, trucks and engineering stories.",
+      "search_keywords": [
+        "DAF Museum",
+        "eindhoven",
+        "culture"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "description_nl": "Ontdek de voertuiggeschiedenis van DAF via de collectie auto's, vrachtwagens en verhalen over techniek.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "research_source_status": "opened",
+        "source_evidence_file": "DataProject/research/travel-expansion-20261115/sources/d862bcbea53da8835224fa000a88d156938c9a230be323b6848879611ca307fa.json",
+        "content_verification": "source_read_proposed_text_checked",
+        "media_status": "no_new_runtime_photo",
+        "coordinate_status": "not_verified_no_marker"
+      }
+    },
+    {
+      "id": "museum.eindhoven-prehistorisch-dorp",
+      "entity_type": "museum",
+      "category": "museum",
+      "city_id": "eindhoven",
+      "province_id": "noord-brabant",
+      "coordinates": null,
+      "title": "Museumpark VONK",
+      "description": "Explore history through hands-on activities and historic buildings at Museumpark VONK, the continuation of preHistorisch Dorp and Eindhoven Museum.",
+      "images": [],
+      "official_source": {
+        "title": "Museumpark VONK — official information",
+        "publisher": "Museumpark VONK",
+        "url": "https://prehistorischdorp.nl/en",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://prehistorischdorp.nl/en",
+      "related_entity_ids": [],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Explore history through hands-on activities and historic buildings at Museumpark VONK, the continuation of preHistorisch Dorp and Eindhoven Museum.",
+      "search_keywords": [
+        "Museumpark VONK",
+        "eindhoven",
+        "culture"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "description_nl": "Ontdek geschiedenis met praktische activiteiten en historische gebouwen in Museumpark VONK, de voortzetting van preHistorisch Dorp en Eindhoven Museum.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "research_source_status": "opened",
+        "source_evidence_file": "DataProject/research/travel-expansion-20261115/sources/b75bbb93ab4bd99084ad14b1cec83a9ccbbfc33938edd592952313d4ff12f57b.json",
+        "content_verification": "source_read_proposed_text_checked",
+        "media_status": "no_new_runtime_photo",
+        "coordinate_status": "not_verified_no_marker",
+        "former_names": "preHistorisch Dorp; Eindhoven Museum",
+        "identity_note": "Same historic venue lineage; new public name confirmed on official redirected page. Preserve ID."
+      }
+    },
+    {
+      "id": "place.eindhoven-evoluon",
+      "entity_type": "place",
+      "category": "attraction",
+      "city_id": "eindhoven",
+      "province_id": "noord-brabant",
+      "coordinates": null,
+      "title": "Evoluon / Next Nature Museum",
+      "description": "Explore exhibitions about technology and the future at the Evoluon, home to the Next Nature Museum.",
+      "images": [],
+      "official_source": {
+        "title": "Evoluon / Next Nature Museum — official information",
+        "publisher": "Evoluon / Next Nature Museum",
+        "url": "https://nextnature.net/museum",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://nextnature.net/museum",
+      "related_entity_ids": [],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Explore exhibitions about technology and the future at the Evoluon, home to the Next Nature Museum.",
+      "search_keywords": [
+        "Evoluon / Next Nature Museum",
+        "eindhoven",
+        "visitor information"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "description_nl": "Ontdek tentoonstellingen over technologie en de toekomst in het Evoluon, de thuisbasis van het Next Nature Museum.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "research_source_status": "opened",
+        "source_evidence_file": "DataProject/research/travel-expansion-20261115/sources/d1143c69670441636c81946167f77016803ac4c80d85604ebdd1b1ea0fb591fb.json",
+        "content_verification": "source_read_proposed_text_checked",
+        "media_status": "no_new_runtime_photo",
+        "coordinate_status": "not_verified_no_marker"
+      }
+    },
+    {
+      "id": "place.eindhoven-strijp-s",
+      "entity_type": "place",
+      "category": "attraction",
+      "city_id": "eindhoven",
+      "province_id": "noord-brabant",
+      "coordinates": null,
+      "title": "Strijp-S",
+      "description": "Explore Eindhoven's former industrial district and its mix of creative businesses, culture and public spaces.",
+      "images": [],
+      "official_source": {
+        "title": "Strijp-S — official information",
+        "publisher": "Strijp-S",
+        "url": "https://strijp-s.nl/",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "access_restricted"
+      },
+      "website": null,
+      "related_entity_ids": [],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Explore Eindhoven's former industrial district and its mix of creative businesses, culture and public spaces.",
+      "search_keywords": [
+        "Strijp-S",
+        "eindhoven",
+        "visitor information"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "description_nl": "Ontdek het voormalige industriegebied Strijp-S en de mix van creatieve bedrijven, cultuur en openbare ruimtes.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "research_source_status": "robots_disallowed_or_unavailable",
+        "source_evidence_file": "DataProject/research/travel-expansion-20261115/sources/cf1133ede9e61814d1ba0ca415e0ae45c92dc0670ae2e022a777dc24534fa92f.json",
+        "content_verification": "not_fact_checked_do_not_release",
+        "media_status": "no_new_runtime_photo",
+        "coordinate_status": "not_verified_no_marker"
+      }
+    },
+    {
+      "id": "place.eindhoven-muziekgebouw",
+      "entity_type": "place",
+      "category": "attraction",
+      "city_id": "eindhoven",
+      "province_id": "noord-brabant",
+      "coordinates": null,
+      "title": "Muziekgebouw Eindhoven",
+      "description": "Explore the concert programme at Muziekgebouw Eindhoven, with performances across different musical traditions.",
+      "images": [],
+      "official_source": {
+        "title": "Muziekgebouw Eindhoven — official information",
+        "publisher": "Muziekgebouw Eindhoven",
+        "url": "https://www.muziekgebouweindhoven.nl/en",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.muziekgebouweindhoven.nl/en",
+      "related_entity_ids": [],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Explore the concert programme at Muziekgebouw Eindhoven, with performances across different musical traditions.",
+      "search_keywords": [
+        "Muziekgebouw Eindhoven",
+        "eindhoven",
+        "visitor information"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "description_nl": "Ontdek het concertprogramma van Muziekgebouw Eindhoven, met uitvoeringen uit verschillende muzikale tradities.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "research_source_status": "opened",
+        "source_evidence_file": "DataProject/research/travel-expansion-20261115/sources/9cb73f92e220a4cbd9a653e6c3b42f2c9765b315ec2bd107faa34994ebda090d.json",
+        "content_verification": "source_read_proposed_text_checked",
+        "media_status": "no_new_runtime_photo",
+        "coordinate_status": "not_verified_no_marker"
+      }
+    },
+    {
+      "id": "place.eindhoven-park-theatre",
+      "entity_type": "place",
+      "category": "attraction",
+      "city_id": "eindhoven",
+      "province_id": "noord-brabant",
+      "coordinates": null,
+      "title": "Parktheater Eindhoven",
+      "description": "Discover theatre, dance and live performance through Parktheater Eindhoven's current programme.",
+      "images": [],
+      "official_source": {
+        "title": "Parktheater Eindhoven — official information",
+        "publisher": "Parktheater Eindhoven",
+        "url": "https://www.parktheater.nl/en",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "pending"
+      },
+      "website": null,
+      "related_entity_ids": [],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Discover theatre, dance and live performance through Parktheater Eindhoven's current programme.",
+      "search_keywords": [
+        "Parktheater Eindhoven",
+        "eindhoven",
+        "visitor information"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "description_nl": "Ontdek theater, dans en livevoorstellingen via het actuele programma van Parktheater Eindhoven.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "research_source_status": "unavailable",
+        "source_evidence_file": "DataProject/research/travel-expansion-20261115/sources/7f4982de4937dc3d8024d094f2f60e5d885f74f1dcf5200bcdacb42d85399801.json",
+        "content_verification": "not_fact_checked_do_not_release",
+        "media_status": "no_new_runtime_photo",
+        "coordinate_status": "not_verified_no_marker"
+      }
+    },
+    {
+      "id": "place.eindhoven-dynamo",
+      "entity_type": "place",
+      "category": "attraction",
+      "city_id": "eindhoven",
+      "province_id": "noord-brabant",
+      "coordinates": null,
+      "title": "Dynamo Eindhoven",
+      "description": "Explore live music and cultural activities at Dynamo in Eindhoven. Check the current venue programme before visiting.",
+      "images": [],
+      "official_source": {
+        "title": "Dynamo Eindhoven — official information",
+        "publisher": "Dynamo Eindhoven",
+        "url": "https://www.dynamo-eindhoven.nl/",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.dynamo-eindhoven.nl/",
+      "related_entity_ids": [],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Explore live music and cultural activities at Dynamo in Eindhoven. Check the current venue programme before visiting.",
+      "search_keywords": [
+        "Dynamo Eindhoven",
+        "eindhoven",
+        "visitor information"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "description_nl": "Ontdek livemuziek en culturele activiteiten bij Dynamo in Eindhoven. Bekijk vooraf het actuele programma van de locatie.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "research_source_status": "opened",
+        "source_evidence_file": "DataProject/research/travel-expansion-20261115/sources/3f7fc7f6df275cb09c67364ac11124b7f72121eb4809f08ab1b82e2b88743fb4.json",
+        "content_verification": "source_read_proposed_text_checked",
+        "media_status": "no_new_runtime_photo",
+        "coordinate_status": "not_verified_no_marker"
+      }
+    },
+    {
+      "id": "place.eindhoven-piet-hein-eek",
+      "entity_type": "place",
+      "category": "attraction",
+      "city_id": "eindhoven",
+      "province_id": "noord-brabant",
+      "coordinates": null,
+      "title": "Piet Hein Eek",
+      "description": "Explore Piet Hein Eek's design world in Eindhoven through the site's current exhibitions, shop and visitor activities.",
+      "images": [],
+      "official_source": {
+        "title": "Piet Hein Eek — official information",
+        "publisher": "Piet Hein Eek",
+        "url": "https://pietheineek.nl/en",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://pietheineek.nl/en",
+      "related_entity_ids": [],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Explore Piet Hein Eek's design world in Eindhoven through the site's current exhibitions, shop and visitor activities.",
+      "search_keywords": [
+        "Piet Hein Eek",
+        "eindhoven",
+        "visitor information"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "description_nl": "Ontdek de designwereld van Piet Hein Eek in Eindhoven via de actuele tentoonstellingen, winkel en bezoekersactiviteiten.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "research_source_status": "opened",
+        "source_evidence_file": "DataProject/research/travel-expansion-20261115/sources/e0c0839fdc5b358cb487776b073cb1f90a553a86fd308284edb65140de770ba7.json",
+        "content_verification": "source_read_proposed_text_checked",
+        "media_status": "no_new_runtime_photo",
+        "coordinate_status": "not_verified_no_marker"
+      }
+    }
+  ]
+}

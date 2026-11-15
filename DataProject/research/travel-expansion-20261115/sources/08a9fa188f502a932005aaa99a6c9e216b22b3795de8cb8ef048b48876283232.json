@@ -1,0 +1,38 @@
+{
+  "url": "https://vanabbemuseum.nl/en/",
+  "checkedAt": "2026-11-15",
+  "status": "opened",
+  "contentReviewed": false,
+  "robotsSHA256": "59edfd239461295e26dc07bc4a652566f6f56742260e65f3896397836072e352",
+  "robotsStatus": "fetched",
+  "httpStatus": 200,
+  "finalURL": "https://vanabbemuseum.nl/en",
+  "sha256": "86a99d5722ec0c92fe62e64f0e5223fba7332275968e522dda1bde7692250807",
+  "title": "Van Abbemuseum - Museum for Contemporary Art - Eindhoven",
+  "excerpt": "Van Abbemuseum - Museum for Contemporary Art - Eindhoven Skip to main content Welcome View exhibition Practical information Opening hours",
+  "actionCandidates": [
+    "https://ticketshop.vanabbemuseum.nl/Exhibitions/Overview?language=EN"
+  ],
+  "previousAttempts": [
+    {
+      "url": "https://vanabbemuseum.nl/en/",
+      "checkedAt": "2026-11-15",
+      "status": "unavailable",
+      "contentReviewed": false,
+      "robotsSHA256": "59edfd239461295e26dc07bc4a652566f6f56742260e65f3896397836072e352",
+      "robotsStatus": "fetched",
+      "error": "HTTP Error 308: Permanent Redirect",
+      "previousAttempts": [
+        {
+          "url": "https://vanabbemuseum.nl/en/",
+          "checkedAt": "2026-11-15",
+          "status": "unavailable",
+          "contentReviewed": false,
+          "robotsSHA256": "59edfd239461295e26dc07bc4a652566f6f56742260e65f3896397836072e352",
+          "robotsStatus": "fetched",
+          "error": "HTTP Error 308: Permanent Redirect"
+        }
+      ]
+    }
+  ]
+}

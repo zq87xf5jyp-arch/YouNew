@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "batchId": "travel-leiden-20261115",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "approvedAt": null,
+  "reviewerId": null,
+  "recordsSHA256": "cfa708c887889735dbadc389ba99e0387952ec56fefebf9f5dd88872c64cf4dc",
+  "ids": [
+    "museum.leiden-de-valk",
+    "museum.leiden-sieboldhuis",
+    "place.leiden-pieterskerk",
+    "place.leiden-oude-sterrewacht",
+    "place.leiden-young-rembrandt-studio",
+    "place.leiden-schouwburg"
+  ],
+  "evidence": [
+    {
+      "id": "museum.leiden-de-valk",
+      "sourceEvidenceSHA256": "e3502a8b12ed52215cacd77191d1ea56cdcfcec181ac02a77c3725a447945123",
+      "contentChecked": true,
+      "missing": [
+        "photo",
+        "confirmed_coordinates"
+      ]
+    },
+    {
+      "id": "museum.leiden-sieboldhuis",
+      "sourceEvidenceSHA256": "890c6726219324f4fefe90b33446bea950dbe6920546bc31d1cb8107d121ae1f",
+      "contentChecked": true,
+      "missing": [
+        "photo",
+        "confirmed_coordinates"
+      ]
+    },
+    {
+      "id": "place.leiden-pieterskerk",
+      "sourceEvidenceSHA256": "5a78784b79ec3e65806331452878e3c802159f249d75263b89d7c43f03de4c56",
+      "contentChecked": true,
+      "missing": [
+        "photo",
+        "confirmed_coordinates"
+      ]
+    },
+    {
+      "id": "place.leiden-oude-sterrewacht",
+      "sourceEvidenceSHA256": "be8ecdaef0b7dec8fb4349476aa1b5667a2c33697cbaf23febd82860c5273bc4",
+      "contentChecked": false,
+      "missing": [
+        "photo",
+        "confirmed_coordinates",
+        "verified_primary_content"
+      ]
+    },
+    {
+      "id": "place.leiden-young-rembrandt-studio",
+      "sourceEvidenceSHA256": "2c2b0f77e10de1092f7da28b568ddc837e569c96275ae7ffff2910707e6695a6",
+      "contentChecked": true,
+      "missing": [
+        "photo",
+        "confirmed_coordinates"
+      ]
+    },
+    {
+      "id": "place.leiden-schouwburg",
+      "sourceEvidenceSHA256": "b7a857ad90a60adb90885d7d65434bb9b7fe4e2556f0de0592d81260ae816199",
+      "contentChecked": true,
+      "missing": [
+        "photo",
+        "confirmed_coordinates"
+      ]
+    }
+  ]
+}

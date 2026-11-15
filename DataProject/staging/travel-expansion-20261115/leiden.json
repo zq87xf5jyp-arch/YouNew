@@ -1,0 +1,265 @@
+{
+  "schema_version": 1,
+  "batch_id": "travel-leiden-20261115",
+  "work_package": "WP-06",
+  "milestone": "travel-content-review",
+  "target_release": "travel-review-20261115",
+  "publication_status": "draft",
+  "qa": {
+    "build": "pending",
+    "static": "pending",
+    "duplicate": "pending",
+    "source": "pending",
+    "media": "pending",
+    "search": "pending",
+    "ai": "pending"
+  },
+  "records": [
+    {
+      "id": "museum.leiden-de-valk",
+      "entity_type": "museum",
+      "category": "museum",
+      "city_id": "leiden",
+      "province_id": "zuid-holland",
+      "coordinates": null,
+      "title": "Molenmuseum De Valk",
+      "description": "Explore Leiden's windmill museum and the history of milling inside De Valk.",
+      "images": [],
+      "official_source": {
+        "title": "Molenmuseum De Valk — official information",
+        "publisher": "Molenmuseum De Valk",
+        "url": "https://molenmuseumdevalk.nl/",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://molenmuseumdevalk.nl/",
+      "related_entity_ids": [],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Explore Leiden's windmill museum and the history of milling inside De Valk.",
+      "search_keywords": [
+        "Molenmuseum De Valk",
+        "leiden",
+        "culture"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "description_nl": "Ontdek het Leidse molenmuseum en de geschiedenis van het malen in De Valk.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "research_source_status": "opened",
+        "source_evidence_file": "DataProject/research/travel-expansion-20261115/sources/cc470196e4a6468269ec34a42e2e973b45814d2adffba4edb2736643f73517d7.json",
+        "content_verification": "source_read_proposed_text_checked",
+        "media_status": "no_new_runtime_photo",
+        "coordinate_status": "not_verified_no_marker"
+      }
+    },
+    {
+      "id": "museum.leiden-sieboldhuis",
+      "entity_type": "museum",
+      "category": "museum",
+      "city_id": "leiden",
+      "province_id": "zuid-holland",
+      "coordinates": null,
+      "title": "Japanmuseum SieboldHuis",
+      "description": "Explore Japanese art and culture through the collections and exhibitions of SieboldHuis.",
+      "images": [],
+      "official_source": {
+        "title": "Japanmuseum SieboldHuis — official information",
+        "publisher": "Japanmuseum SieboldHuis",
+        "url": "https://www.sieboldhuis.org/en/",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.sieboldhuis.org/en/",
+      "related_entity_ids": [],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Explore Japanese art and culture through the collections and exhibitions of SieboldHuis.",
+      "search_keywords": [
+        "Japanmuseum SieboldHuis",
+        "leiden",
+        "culture"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "description_nl": "Ontdek Japanse kunst en cultuur via de collecties en tentoonstellingen van SieboldHuis.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "research_source_status": "opened",
+        "source_evidence_file": "DataProject/research/travel-expansion-20261115/sources/3c78171dc410734bc7797a5705929c438a947c46e9d43e2f12bccf0541b449e8.json",
+        "content_verification": "source_read_proposed_text_checked",
+        "media_status": "no_new_runtime_photo",
+        "coordinate_status": "not_verified_no_marker"
+      }
+    },
+    {
+      "id": "place.leiden-pieterskerk",
+      "entity_type": "place",
+      "category": "attraction",
+      "city_id": "leiden",
+      "province_id": "zuid-holland",
+      "coordinates": null,
+      "title": "Pieterskerk Leiden",
+      "description": "Discover Pieterskerk, a historic Leiden church that now hosts cultural programmes and events.",
+      "images": [],
+      "official_source": {
+        "title": "Pieterskerk Leiden — official information",
+        "publisher": "Pieterskerk Leiden",
+        "url": "https://www.pieterskerk.com/en/",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.pieterskerk.com/en/",
+      "related_entity_ids": [],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Discover Pieterskerk, a historic Leiden church that now hosts cultural programmes and events.",
+      "search_keywords": [
+        "Pieterskerk Leiden",
+        "leiden",
+        "visitor information"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "description_nl": "Ontdek de Pieterskerk, een historische Leidse kerk met culturele programma's en evenementen.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "research_source_status": "opened",
+        "source_evidence_file": "DataProject/research/travel-expansion-20261115/sources/14f50bdcce911799142aa754e348b68911031d2f5188023ae58fe89875e7c79e.json",
+        "content_verification": "source_read_proposed_text_checked",
+        "media_status": "no_new_runtime_photo",
+        "coordinate_status": "not_verified_no_marker"
+      }
+    },
+    {
+      "id": "place.leiden-oude-sterrewacht",
+      "entity_type": "place",
+      "category": "attraction",
+      "city_id": "leiden",
+      "province_id": "zuid-holland",
+      "coordinates": null,
+      "title": "Oude Sterrewacht Leiden",
+      "description": "Discover Leiden's historic observatory and its public astronomy activities. Consult the programme before visiting.",
+      "images": [],
+      "official_source": {
+        "title": "Oude Sterrewacht Leiden — official information",
+        "publisher": "Oude Sterrewacht Leiden",
+        "url": "https://www.universiteitleiden.nl/oudesterrewacht",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "access_restricted"
+      },
+      "website": null,
+      "related_entity_ids": [],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Discover Leiden's historic observatory and its public astronomy activities. Consult the programme before visiting.",
+      "search_keywords": [
+        "Oude Sterrewacht Leiden",
+        "leiden",
+        "visitor information"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "description_nl": "Ontdek de historische Leidse sterrenwacht en haar publieksactiviteiten over sterrenkunde. Bekijk vooraf het programma.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "research_source_status": "robots_disallowed_or_unavailable",
+        "source_evidence_file": "DataProject/research/travel-expansion-20261115/sources/ec78a219ace0c1236bd34cd3d8fd2c22005b28d037370b6cd11744a588441ca2.json",
+        "content_verification": "not_fact_checked_do_not_release",
+        "media_status": "no_new_runtime_photo",
+        "coordinate_status": "not_verified_no_marker"
+      }
+    },
+    {
+      "id": "place.leiden-young-rembrandt-studio",
+      "entity_type": "place",
+      "category": "attraction",
+      "city_id": "leiden",
+      "province_id": "zuid-holland",
+      "coordinates": null,
+      "title": "Young Rembrandt Studio",
+      "description": "Discover the early Leiden years of Rembrandt through the Young Rembrandt Studio presentation.",
+      "images": [],
+      "official_source": {
+        "title": "Young Rembrandt Studio — official information",
+        "publisher": "Young Rembrandt Studio",
+        "url": "https://www.visitleiden.nl/nl/cultuur/jonge-rembrandt/young-rembrandt-studio",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.visitleiden.nl/nl/cultuur/jonge-rembrandt/young-rembrandt-studio",
+      "related_entity_ids": [],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Discover the early Leiden years of Rembrandt through the Young Rembrandt Studio presentation.",
+      "search_keywords": [
+        "Young Rembrandt Studio",
+        "leiden",
+        "visitor information"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "description_nl": "Maak via de presentatie van de Young Rembrandt Studio kennis met Rembrandts vroege Leidse jaren.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "research_source_status": "opened",
+        "source_evidence_file": "DataProject/research/travel-expansion-20261115/sources/64e454f9338e7c0ae07d8e957e6611075bbfcee7cdad2e39014af160fa50dc2c.json",
+        "content_verification": "source_read_proposed_text_checked",
+        "media_status": "no_new_runtime_photo",
+        "coordinate_status": "not_verified_no_marker"
+      }
+    },
+    {
+      "id": "place.leiden-schouwburg",
+      "entity_type": "place",
+      "category": "attraction",
+      "city_id": "leiden",
+      "province_id": "zuid-holland",
+      "coordinates": null,
+      "title": "Leidse Schouwburg",
+      "description": "Explore theatre and live performance at the Leidse Schouwburg. Choose a performance from the venue's current programme.",
+      "images": [],
+      "official_source": {
+        "title": "Leidse Schouwburg — official information",
+        "publisher": "Leidse Schouwburg",
+        "url": "https://leidseschouwburg-stadsgehoorzaal.nl/",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://leidseschouwburg-stadsgehoorzaal.nl/",
+      "related_entity_ids": [],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Explore theatre and live performance at the Leidse Schouwburg. Choose a performance from the venue's current programme.",
+      "search_keywords": [
+        "Leidse Schouwburg",
+        "leiden",
+        "visitor information"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "description_nl": "Ontdek theater en livevoorstellingen in de Leidse Schouwburg. Kies een voorstelling uit het actuele programma.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "research_source_status": "opened",
+        "source_evidence_file": "DataProject/research/travel-expansion-20261115/sources/adade56780e8562d459f8c96893006e1fceb72aedbf0da2312452343714f321c.json",
+        "content_verification": "source_read_proposed_text_checked",
+        "media_status": "no_new_runtime_photo",
+        "coordinate_status": "not_verified_no_marker"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1023 @@
+{
+  "publicationAuthorized": false,
+  "attempts": [
+    {
+      "id": "place.utrecht-neude",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Bibliotheek_Neude",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "place.leiden-vvv",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:VVV_Leiden",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "place.leiden-burcht",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:De_Burcht",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "museum.rotterdam-chabot",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Chabot_Museum",
+      "status": "candidate_found",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "sourceSHA256": "0f5d192467fa16cf35e653bdf8a212dbd6b28831667abaa4780fd871660ec68d",
+      "candidateURL": "https://commons.wikimedia.org/wiki/File:Chabot_Museum.jpg"
+    },
+    {
+      "id": "museum.utrecht-sonnenborgh",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Sonnenborgh_museum_%26_sterrenwacht",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "museum.den-haag-fotomuseum",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Fotomuseum_Den_Haag",
+      "status": "candidate_found",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "sourceSHA256": "b48929283f74dcd37522c650d73f79d8bf4dccf219c5c866db1b2c95f5963718",
+      "candidateURL": "https://commons.wikimedia.org/wiki/File:Wim_van_Sinderen_-_Livetour_Fotomuseum,_Helena_van_der_Kraan,_2020.jpg"
+    },
+    {
+      "id": "museum.eindhoven-inkijkmuseum",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Inkijkmuseum",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "restaurant.eindhoven-kazerne",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Kazerne_BarBistro",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "restaurant.leiden-bikini",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Bikini_Bikini",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "restaurant.leiden-in-den-doofpot",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Restaurant_In_den_Doofpot",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "restaurant.leiden-verboden-toegang",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Restaurant_Verboden_Toegang",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "restaurant.leiden-prentenkabinet",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Het_Prentenkabinet",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "restaurant.leiden-waag",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Waag_Leiden",
+      "status": "no_jpeg_candidate_on_category",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "sourceSHA256": "93d9d62d3eac44e76783c0c2a9112e80a8ed00682bba3d73ebdc8dbc79b0fa48"
+    },
+    {
+      "id": "restaurant.leiden-oudt-leyden",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Oudt_Leyden",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "restaurant.leiden-dende",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Restaurant_Dende",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "restaurant.leiden-grand-cafe-burcht",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Grand_Caf%C3%A9_De_Burcht",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "restaurant.leiden-tabu",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Tab%C3%BA",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "cafe.utrecht-koffie-leute",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Koffie_Leute",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "cafe.den-haag-kaafi",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Kaafi",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "place.leiden-cafe-laken",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Caf%C3%A9_Laken",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "cafe.leiden-barista",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Barista_Cafe_Leiden",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "cafe.leiden-annemax",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Anne%26Max_Leiden",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "cafe.leiden-roos",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:ROOS_Leiden",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "cafe.leiden-borgman",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Borgman_Borgman",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "cafe.leiden-brownies",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Brownies%26downieS_Leiden",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "cafe.leiden-30ml",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:30ML_Leiden",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "cafe.leiden-paco-ciao",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Paco_Ciao",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "hotel.rotterdam-supernova",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Supernova_Hotel",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "hotel.utrecht-nox",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:The_Nox_Hotel_Utrecht",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "hotel.den-haag-collector",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:The_Collector",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "hotel.leiden-huys-van-leyden",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Huys_van_Leyden",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "hotel.leiden-steenhof",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Steenhof_Suites",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "hotel.leiden-rembrandt-hotel",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:City_Hotel_Rembrandt",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "hotel.leiden-ibis",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:ibis_Leiden_Centre",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "hotel.leiden-oude-morsch",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Boutique_Hotel_d%E2%80%99Oude_Morsch",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "hotel.leiden-golden-tulip",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Golden_Tulip_Leiden_Centre",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "nature.rotterdam-trompenburg",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Trompenburg_Tuinen_%26_Arboretum",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "nature.utrecht-oog-in-al",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Park_Oog_in_Al",
+      "status": "candidate_found",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "sourceSHA256": "68c6e5c3bdf5451d06f019a3f758cef848cb2eda25398439d53fd8610f0a8acd",
+      "candidateURL": "https://commons.wikimedia.org/wiki/File:Bruggetje_-_panoramio_-_Marcel030NL.jpg"
+    },
+    {
+      "id": "nature.den-haag-westbroekpark",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Westbroekpark",
+      "status": "candidate_found",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "sourceSHA256": "d795dbf9291316e29d21ec5bc618c841fd503263080f6e64ea8295be0b3e090d",
+      "candidateURL": "https://commons.wikimedia.org/wiki/File:Westbroekpark_rozenbedden.JPG"
+    },
+    {
+      "id": "nature.leiden-cronesteyn",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Polderpark_Cronesteyn",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "nature.leiden-leidse-hout",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Leidse_Hout",
+      "status": "candidate_found",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "sourceSHA256": "f5d72b342e0547847c931c87819df3cd73e3448180038f3eb3a6383c4171ddea",
+      "candidateURL": "https://commons.wikimedia.org/wiki/File:Leiden-Leidse_Hout-div_functies-01.jpg"
+    },
+    {
+      "id": "nature.leiden-plantsoen",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Het_Plantsoen",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "nature.leiden-rembrandtpark",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Rembrandtpark",
+      "status": "candidate_found",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "sourceSHA256": "2495d80ae8d5297606f93972275a98e5e4bdcae6f73c8275f1c159d09e2f6606",
+      "candidateURL": "https://commons.wikimedia.org/wiki/File:Rembrandtpark1.jpg"
+    },
+    {
+      "id": "nature.leiden-huigpark",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Huigpark",
+      "status": "candidate_found",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "sourceSHA256": "afe64b60c324fa74ee34dff3e852fba3334fcda7847051a5c7acdf3f87589289",
+      "candidateURL": "https://commons.wikimedia.org/wiki/File:Huigpark_Leiden.jpg"
+    },
+    {
+      "id": "nature.leiden-ankerpark",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Ankerpark",
+      "status": "candidate_found",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "sourceSHA256": "31d2e523992e3bb42074911440c6974958f0a9ed71df8ef7f8acfcdbd2ded75f",
+      "candidateURL": "https://commons.wikimedia.org/wiki/File:Kanon_Ankerpark_Leiden.jpg"
+    },
+    {
+      "id": "nature.leiden-blekerspark",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Blekerspark",
+      "status": "candidate_found",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "sourceSHA256": "9e22d62e9de4d5cea9dbbbed72d382c15980bce6d7cec5e31dfcdda61cb26d24",
+      "candidateURL": "https://commons.wikimedia.org/wiki/File:Bleekerspark_Leiden.jpg"
+    },
+    {
+      "id": "nature.leiden-park-de-put",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Park_de_Put",
+      "status": "candidate_found",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "sourceSHA256": "c106e9b0bad6f6ef53e930c5e49649b13bbb4fc7584ffe254e588042aaada76b",
+      "candidateURL": "https://commons.wikimedia.org/wiki/File:Park_de_put_(1).JPG"
+    },
+    {
+      "id": "museum.leiden-sieboldhuis",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Japanmuseum_SieboldHuis",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "place.leiden-pieterskerk",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Pieterskerk_Leiden",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "place.leiden-oude-sterrewacht",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Oude_Sterrewacht_Leiden",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "place.leiden-young-rembrandt-studio",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Young_Rembrandt_Studio",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "place.leiden-schouwburg",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Leidse_Schouwburg",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "museum.rijksmuseum",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Rijksmuseum",
+      "status": "no_jpeg_candidate_on_category",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "sourceSHA256": "916ced96ae8d520059976e30c4c00f58759276065fcce6dfba3a7876fad84b91"
+    },
+    {
+      "id": "museum.stedelijk-museum-amsterdam",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Stedelijk_Museum_Amsterdam",
+      "status": "candidate_found",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "sourceSHA256": "84bad30dbe5a565a0c01815cad4b542f4d93468681ca6aeba981dba0cc7c06e8",
+      "candidateURL": "https://commons.wikimedia.org/wiki/File:De_nieuwe_vleugel_van_het_Stedelijk_Museum_Amsterdam.jpg"
+    },
+    {
+      "id": "museum.nemo-science-museum",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:NEMO_Science_Museum",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "museum.hart-museum",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:H%27ART_Museum",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "museum.jewish-museum",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Jewish_Museum",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "museum.dutch-resistance-museum",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Dutch_Resistance_Museum",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "museum.eye-filmmuseum",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Eye_Filmmuseum",
+      "status": "candidate_found",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "sourceSHA256": "5eaecb5e52bb167e868c2a1b6f6418e23de37b3657c317c67083406f8b6ebcc0",
+      "candidateURL": "https://commons.wikimedia.org/wiki/File:EYE_Filmmuseum.jpg"
+    },
+    {
+      "id": "museum.museum-of-the-canals",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Museum_of_the_Canals",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "museum.foam",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Foam",
+      "status": "candidate_found",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "sourceSHA256": "cebc0a7a70e96ec05d78036be88a8234fef8063a734de7311fdccb6adc253bc4",
+      "candidateURL": "https://commons.wikimedia.org/wiki/File:Foam_-_big.jpg"
+    },
+    {
+      "id": "museum.artis-micropia",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:ARTIS-Micropia",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "place.royal-palace-amsterdam",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Royal_Palace_Amsterdam",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "museum.rotterdam-boijmans",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Depot_Boijmans_Van_Beuningen",
+      "status": "candidate_found",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "sourceSHA256": "58e631b1873212035c18166f0010bbbaefa757e5c41b1c41638c732f718fd9ed",
+      "candidateURL": "https://commons.wikimedia.org/wiki/File:Depot_Boijmans_van_Beuningen_2025_(Osten).jpg"
+    },
+    {
+      "id": "museum.rotterdam-kunsthal",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Kunsthal_Rotterdam",
+      "status": "candidate_found",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "sourceSHA256": "fbf394d2e3f1ad02a0831f6d77a2ee62054d91d0825b12faea3e5d2a4e63ee25",
+      "candidateURL": "https://commons.wikimedia.org/wiki/File:Rotterdam_kunsthal_achterzijde.jpg"
+    },
+    {
+      "id": "museum.rotterdam-maritime",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Maritime_Museum_Rotterdam",
+      "status": "no_jpeg_candidate_on_category",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "sourceSHA256": "04dc99fd69cbae65f489a93257ad3df55d364b4259cb57e5180ab3cf1f91fd54"
+    },
+    {
+      "id": "place.rotterdam-kijk-kubus",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Kijk-Kubus",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "place.rotterdam-markthal",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Markthal_Rotterdam",
+      "status": "candidate_found",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "sourceSHA256": "730d8a0a50427286cd7dd7ecf61d8a4f0768cc1c96d5f6b3210a14a8c6cbd628",
+      "candidateURL": "https://commons.wikimedia.org/wiki/File:Rotterdam_(21).jpg"
+    },
+    {
+      "id": "museum.rotterdam-natuurhistorisch",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Natuurhistorisch_Museum_Rotterdam",
+      "status": "candidate_found",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "sourceSHA256": "820c1114aedf0eab3b056698e7a977e74e798e2b50bfb0d8c5843e634e5eb72e",
+      "candidateURL": "https://commons.wikimedia.org/wiki/File:Natuurhistorisch_Museum_@_Rotterdam_(29949323453).jpg"
+    },
+    {
+      "id": "museum.rotterdam-foto",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Nederlands_Fotomuseum",
+      "status": "candidate_found",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "sourceSHA256": "7de9ae674d0f47465a1e8aa935e6de115e8f89c124f49118b945029dce03669d",
+      "candidateURL": "https://commons.wikimedia.org/wiki/File:Entree_Nederlands_Fotomuseum.jpg"
+    },
+    {
+      "id": "place.rotterdam-blijdorp",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Diergaarde_Blijdorp",
+      "status": "candidate_found",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "sourceSHA256": "7fbe239d44451320a7d7829cfc6786d13621c59eb0a0f7609d3971ec639c29b1",
+      "candidateURL": "https://commons.wikimedia.org/wiki/File:1956_Werkplaats_van_Werkgemeenschap_Grafische_Kunst_aan_de_Van_Aerssenlaan_bij_Diergaarde_Blijdorp_01.jpg"
+    },
+    {
+      "id": "place.rotterdam-laurenskerk",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Laurenskerk_Rotterdam",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "museum.den-haag-kunstmuseum",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Kunstmuseum_Den_Haag",
+      "status": "candidate_found",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "sourceSHA256": "d68b5d1586839c0879b09b0b86465cdd3d5e5d40fb2458c2afbae98804e8da8a",
+      "candidateURL": "https://commons.wikimedia.org/wiki/File:Den_Haag-Scheveningen,_het_Kunstmuseum_(noordelijke_deel)_IMG_6089_2024-11-04_14.35.jpg"
+    },
+    {
+      "id": "museum.den-haag-escher",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Escher_in_Het_Paleis",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "place.den-haag-madurodam",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Madurodam",
+      "status": "candidate_found",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "sourceSHA256": "e0d76c7a603ce03168fdaf1fa6ee7520f8250ad977bc3195f4914d9fd16357fd",
+      "candidateURL": "https://commons.wikimedia.org/wiki/File:Madurodam_pays_bas.JPG"
+    },
+    {
+      "id": "museum.den-haag-panorama-mesdag",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Panorama_Mesdag",
+      "status": "candidate_found",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "sourceSHA256": "e598175cb4c661c25a99e0c4a5d4ca02760b71205a59a8c301f4c0a288e76136",
+      "candidateURL": "https://commons.wikimedia.org/wiki/File:Panorama_Mesdag_08.jpg"
+    },
+    {
+      "id": "museum.den-haag-museon-omniversum",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Museon-Omniversum",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "place.den-haag-peace-palace",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Peace_Palace",
+      "status": "candidate_found",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "sourceSHA256": "ddf78eca396179e9b82716284077f4107a6f06831ad3c6cf50324c44e9cf031d",
+      "candidateURL": "https://commons.wikimedia.org/wiki/File:Peace_Palace_by_Night.jpg"
+    },
+    {
+      "id": "museum.den-haag-gevangenpoort",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Rijksmuseum_de_Gevangenpoort",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "museum.den-haag-beelden-aan-zee",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Museum_Beelden_aan_Zee",
+      "status": "candidate_found",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "sourceSHA256": "728e0510ca3810704cff36041b2592b736468ae52861e1635d8430150084663d",
+      "candidateURL": "https://commons.wikimedia.org/wiki/File:BeeldenaanZee.JPG"
+    },
+    {
+      "id": "museum.den-haag-louwman",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Louwman_Museum",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "museum.utrecht-centraal",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Centraal_Museum",
+      "status": "candidate_found",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "sourceSHA256": "663c6f1cfb56198b00fe2fd3d38aa3252e5f3989eecd67168c5083edf24156e9",
+      "candidateURL": "https://commons.wikimedia.org/wiki/File:Exterieur_Centraal_Museum.jpg"
+    },
+    {
+      "id": "museum.utrecht-spoorwegmuseum",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Spoorwegmuseum",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "museum.utrecht-speelklok",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Museum_Speelklok",
+      "status": "candidate_found",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "sourceSHA256": "b60635eaa8e02392df3b6e923e6b7f1ae4db90d1418c34a871b2d023b98a071f",
+      "candidateURL": "https://commons.wikimedia.org/wiki/File:Inside_the_Museum_Speelklok.jpg"
+    },
+    {
+      "id": "museum.utrecht-catharijneconvent",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Museum_Catharijneconvent",
+      "status": "candidate_found",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "sourceSHA256": "e6d484cb5255e2ceb32acb833532bcd0bedec22aefadcf8eb7be8fa2966a1844",
+      "candidateURL": "https://commons.wikimedia.org/wiki/File:Catharijneconvent_Utrecht.jpg"
+    },
+    {
+      "id": "museum.utrecht-domunder",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:DOMunder",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "museum.utrecht-nijntje",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Nijntje_Museum",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "place.utrecht-rietveld-schroderhuis",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Rietveld_Schr%C3%B6der_House",
+      "status": "candidate_found",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "sourceSHA256": "0dada3f6f28b208592c7e771336dfb31dcf96e3c4969c6a14e15be87c324105a",
+      "candidateURL": "https://commons.wikimedia.org/wiki/File:P5050049_-_Rietveld_Schr%C3%B6der_House_01.JPG"
+    },
+    {
+      "id": "museum.utrecht-university-museum",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Universiteitsmuseum_Utrecht",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "nature.utrecht-botanic-gardens",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Botanische_Tuinen_Utrecht",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "museum.eindhoven-van-abbe",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Van_Abbemuseum",
+      "status": "candidate_found",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "sourceSHA256": "55fe694b344e7253d27135127d5a25e3b5ae28f4ca45567d40f90aa5353e562a",
+      "candidateURL": "https://commons.wikimedia.org/wiki/File:A_Boy_Playing_Marbles_by_Theo_van_Doesburg_Van_Abbemuseum_AB4712-A.jpg"
+    },
+    {
+      "id": "museum.eindhoven-philips",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Philips_Museum",
+      "status": "candidate_found",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "sourceSHA256": "f044245bd5b06aec20a3d7cb6ab17e8da9977d27d332476be7d895025a2b0333",
+      "candidateURL": "https://commons.wikimedia.org/wiki/File:Philipsfabriekje.jpg"
+    },
+    {
+      "id": "museum.eindhoven-daf",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:DAF_Museum",
+      "status": "candidate_found",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "sourceSHA256": "cf7da1cb601ee2b610dc4ba426c502eb94083afe26b56f26c9370f9a6bebb940",
+      "candidateURL": "https://commons.wikimedia.org/wiki/File:DAF_Museum_(2024).jpg"
+    },
+    {
+      "id": "museum.eindhoven-prehistorisch-dorp",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Museumpark_VONK",
+      "status": "candidate_found",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "sourceSHA256": "171aa2b23699503f2db5e1decaabf892dedab0807d26acaa10a656fdbabdacba",
+      "candidateURL": "https://commons.wikimedia.org/wiki/File:Gebouw_Museumpark_VONK_(2026)_(4).jpg"
+    },
+    {
+      "id": "place.eindhoven-evoluon",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Evoluon_/_Next_Nature_Museum",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "place.eindhoven-strijp-s",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Strijp-S",
+      "status": "candidate_found",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "sourceSHA256": "9be10697666e89991e596cf7fe0b63b7aaaafdbd9ca3cc9318b73cbf6e9f2a53",
+      "candidateURL": "https://commons.wikimedia.org/wiki/File:Philips_Strijp_works_Eindhoven.jpg"
+    },
+    {
+      "id": "place.eindhoven-muziekgebouw",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Muziekgebouw_Eindhoven",
+      "status": "candidate_found",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "sourceSHA256": "3568697fd8fe4093e2cf82456da2f654e23f58e2fbbebbc38d323459f89e3808",
+      "candidateURL": "https://commons.wikimedia.org/wiki/File:1992_0917_Requiem_Verdi_Muziekgebouw_Eindhoven.jpg"
+    },
+    {
+      "id": "place.eindhoven-park-theatre",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Parktheater_Eindhoven",
+      "status": "candidate_found",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "sourceSHA256": "3ff09e1278d9a9365ee30717c02c62b09a823065fd6365e06d3d7d08af284428",
+      "candidateURL": "https://commons.wikimedia.org/wiki/File:Parktheater_Eindhoven,_backstage_1.jpg"
+    },
+    {
+      "id": "place.eindhoven-dynamo",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Dynamo_Eindhoven",
+      "status": "unresolved",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "limitation": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "place.eindhoven-piet-hein-eek",
+      "categoryURL": "https://commons.wikimedia.org/wiki/Category:Piet_Hein_Eek",
+      "status": "candidate_found",
+      "checkedAt": "2026-11-15",
+      "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+      "sourceSHA256": "b6c84da594ff992d7f32866e40cdf6549b7793847fcf69bd15a2f15bc7d54b3a",
+      "candidateURL": "https://commons.wikimedia.org/wiki/File:Piet_Hein_Eek.jpg"
+    }
+  ],
+  "candidates": [
+    {
+      "id": "museum.rotterdam-chabot",
+      "url": "https://commons.wikimedia.org/wiki/File:Chabot_Museum.jpg",
+      "origin": "https://commons.wikimedia.org/wiki/Category:Chabot_Museum"
+    },
+    {
+      "id": "museum.den-haag-fotomuseum",
+      "url": "https://commons.wikimedia.org/wiki/File:Wim_van_Sinderen_-_Livetour_Fotomuseum,_Helena_van_der_Kraan,_2020.jpg",
+      "origin": "https://commons.wikimedia.org/wiki/Category:Fotomuseum_Den_Haag"
+    },
+    {
+      "id": "nature.utrecht-oog-in-al",
+      "url": "https://commons.wikimedia.org/wiki/File:Bruggetje_-_panoramio_-_Marcel030NL.jpg",
+      "origin": "https://commons.wikimedia.org/wiki/Category:Park_Oog_in_Al"
+    },
+    {
+      "id": "nature.den-haag-westbroekpark",
+      "url": "https://commons.wikimedia.org/wiki/File:Westbroekpark_rozenbedden.JPG",
+      "origin": "https://commons.wikimedia.org/wiki/Category:Westbroekpark"
+    },
+    {
+      "id": "nature.leiden-leidse-hout",
+      "url": "https://commons.wikimedia.org/wiki/File:Leiden-Leidse_Hout-div_functies-01.jpg",
+      "origin": "https://commons.wikimedia.org/wiki/Category:Leidse_Hout"
+    },
+    {
+      "id": "nature.leiden-rembrandtpark",
+      "url": "https://commons.wikimedia.org/wiki/File:Rembrandtpark1.jpg",
+      "origin": "https://commons.wikimedia.org/wiki/Category:Rembrandtpark"
+    },
+    {
+      "id": "nature.leiden-huigpark",
+      "url": "https://commons.wikimedia.org/wiki/File:Huigpark_Leiden.jpg",
+      "origin": "https://commons.wikimedia.org/wiki/Category:Huigpark"
+    },
+    {
+      "id": "nature.leiden-ankerpark",
+      "url": "https://commons.wikimedia.org/wiki/File:Kanon_Ankerpark_Leiden.jpg",
+      "origin": "https://commons.wikimedia.org/wiki/Category:Ankerpark"
+    },
+    {
+      "id": "nature.leiden-blekerspark",
+      "url": "https://commons.wikimedia.org/wiki/File:Bleekerspark_Leiden.jpg",
+      "origin": "https://commons.wikimedia.org/wiki/Category:Blekerspark"
+    },
+    {
+      "id": "nature.leiden-park-de-put",
+      "url": "https://commons.wikimedia.org/wiki/File:Park_de_put_(1).JPG",
+      "origin": "https://commons.wikimedia.org/wiki/Category:Park_de_Put"
+    },
+    {
+      "id": "museum.stedelijk-museum-amsterdam",
+      "url": "https://commons.wikimedia.org/wiki/File:De_nieuwe_vleugel_van_het_Stedelijk_Museum_Amsterdam.jpg",
+      "origin": "https://commons.wikimedia.org/wiki/Category:Stedelijk_Museum_Amsterdam"
+    },
+    {
+      "id": "museum.eye-filmmuseum",
+      "url": "https://commons.wikimedia.org/wiki/File:EYE_Filmmuseum.jpg",
+      "origin": "https://commons.wikimedia.org/wiki/Category:Eye_Filmmuseum"
+    },
+    {
+      "id": "museum.foam",
+      "url": "https://commons.wikimedia.org/wiki/File:Foam_-_big.jpg",
+      "origin": "https://commons.wikimedia.org/wiki/Category:Foam"
+    },
+    {
+      "id": "museum.rotterdam-boijmans",
+      "url": "https://commons.wikimedia.org/wiki/File:Depot_Boijmans_van_Beuningen_2025_(Osten).jpg",
+      "origin": "https://commons.wikimedia.org/wiki/Category:Depot_Boijmans_Van_Beuningen"
+    },
+    {
+      "id": "museum.rotterdam-kunsthal",
+      "url": "https://commons.wikimedia.org/wiki/File:Rotterdam_kunsthal_achterzijde.jpg",
+      "origin": "https://commons.wikimedia.org/wiki/Category:Kunsthal_Rotterdam"
+    },
+    {
+      "id": "place.rotterdam-markthal",
+      "url": "https://commons.wikimedia.org/wiki/File:Rotterdam_(21).jpg",
+      "origin": "https://commons.wikimedia.org/wiki/Category:Markthal_Rotterdam"
+    },
+    {
+      "id": "museum.rotterdam-natuurhistorisch",
+      "url": "https://commons.wikimedia.org/wiki/File:Natuurhistorisch_Museum_@_Rotterdam_(29949323453).jpg",
+      "origin": "https://commons.wikimedia.org/wiki/Category:Natuurhistorisch_Museum_Rotterdam"
+    },
+    {
+      "id": "museum.rotterdam-foto",
+      "url": "https://commons.wikimedia.org/wiki/File:Entree_Nederlands_Fotomuseum.jpg",
+      "origin": "https://commons.wikimedia.org/wiki/Category:Nederlands_Fotomuseum"
+    },
+    {
+      "id": "place.rotterdam-blijdorp",
+      "url": "https://commons.wikimedia.org/wiki/File:1956_Werkplaats_van_Werkgemeenschap_Grafische_Kunst_aan_de_Van_Aerssenlaan_bij_Diergaarde_Blijdorp_01.jpg",
+      "origin": "https://commons.wikimedia.org/wiki/Category:Diergaarde_Blijdorp"
+    },
+    {
+      "id": "museum.den-haag-kunstmuseum",
+      "url": "https://commons.wikimedia.org/wiki/File:Den_Haag-Scheveningen,_het_Kunstmuseum_(noordelijke_deel)_IMG_6089_2024-11-04_14.35.jpg",
+      "origin": "https://commons.wikimedia.org/wiki/Category:Kunstmuseum_Den_Haag"
+    },
+    {
+      "id": "place.den-haag-madurodam",
+      "url": "https://commons.wikimedia.org/wiki/File:Madurodam_pays_bas.JPG",
+      "origin": "https://commons.wikimedia.org/wiki/Category:Madurodam"
+    },
+    {
+      "id": "museum.den-haag-panorama-mesdag",
+      "url": "https://commons.wikimedia.org/wiki/File:Panorama_Mesdag_08.jpg",
+      "origin": "https://commons.wikimedia.org/wiki/Category:Panorama_Mesdag"
+    },
+    {
+      "id": "place.den-haag-peace-palace",
+      "url": "https://commons.wikimedia.org/wiki/File:Peace_Palace_by_Night.jpg",
+      "origin": "https://commons.wikimedia.org/wiki/Category:Peace_Palace"
+    },
+    {
+      "id": "museum.den-haag-beelden-aan-zee",
+      "url": "https://commons.wikimedia.org/wiki/File:BeeldenaanZee.JPG",
+      "origin": "https://commons.wikimedia.org/wiki/Category:Museum_Beelden_aan_Zee"
+    },
+    {
+      "id": "museum.utrecht-centraal",
+      "url": "https://commons.wikimedia.org/wiki/File:Exterieur_Centraal_Museum.jpg",
+      "origin": "https://commons.wikimedia.org/wiki/Category:Centraal_Museum"
+    },
+    {
+      "id": "museum.utrecht-speelklok",
+      "url": "https://commons.wikimedia.org/wiki/File:Inside_the_Museum_Speelklok.jpg",
+      "origin": "https://commons.wikimedia.org/wiki/Category:Museum_Speelklok"
+    },
+    {
+      "id": "museum.utrecht-catharijneconvent",
+      "url": "https://commons.wikimedia.org/wiki/File:Catharijneconvent_Utrecht.jpg",
+      "origin": "https://commons.wikimedia.org/wiki/Category:Museum_Catharijneconvent"
+    },
+    {
+      "id": "place.utrecht-rietveld-schroderhuis",
+      "url": "https://commons.wikimedia.org/wiki/File:P5050049_-_Rietveld_Schr%C3%B6der_House_01.JPG",
+      "origin": "https://commons.wikimedia.org/wiki/Category:Rietveld_Schr%C3%B6der_House"
+    },
+    {
+      "id": "museum.eindhoven-van-abbe",
+      "url": "https://commons.wikimedia.org/wiki/File:A_Boy_Playing_Marbles_by_Theo_van_Doesburg_Van_Abbemuseum_AB4712-A.jpg",
+      "origin": "https://commons.wikimedia.org/wiki/Category:Van_Abbemuseum"
+    },
+    {
+      "id": "museum.eindhoven-philips",
+      "url": "https://commons.wikimedia.org/wiki/File:Philipsfabriekje.jpg",
+      "origin": "https://commons.wikimedia.org/wiki/Category:Philips_Museum"
+    },
+    {
+      "id": "museum.eindhoven-daf",
+      "url": "https://commons.wikimedia.org/wiki/File:DAF_Museum_(2024).jpg",
+      "origin": "https://commons.wikimedia.org/wiki/Category:DAF_Museum"
+    },
+    {
+      "id": "museum.eindhoven-prehistorisch-dorp",
+      "url": "https://commons.wikimedia.org/wiki/File:Gebouw_Museumpark_VONK_(2026)_(4).jpg",
+      "origin": "https://commons.wikimedia.org/wiki/Category:Museumpark_VONK"
+    },
+    {
+      "id": "place.eindhoven-strijp-s",
+      "url": "https://commons.wikimedia.org/wiki/File:Philips_Strijp_works_Eindhoven.jpg",
+      "origin": "https://commons.wikimedia.org/wiki/Category:Strijp-S"
+    },
+    {
+      "id": "place.eindhoven-muziekgebouw",
+      "url": "https://commons.wikimedia.org/wiki/File:1992_0917_Requiem_Verdi_Muziekgebouw_Eindhoven.jpg",
+      "origin": "https://commons.wikimedia.org/wiki/Category:Muziekgebouw_Eindhoven"
+    },
+    {
+      "id": "place.eindhoven-park-theatre",
+      "url": "https://commons.wikimedia.org/wiki/File:Parktheater_Eindhoven,_backstage_1.jpg",
+      "origin": "https://commons.wikimedia.org/wiki/Category:Parktheater_Eindhoven"
+    },
+    {
+      "id": "place.eindhoven-piet-hein-eek",
+      "url": "https://commons.wikimedia.org/wiki/File:Piet_Hein_Eek.jpg",
+      "origin": "https://commons.wikimedia.org/wiki/Category:Piet_Hein_Eek"
+    }
+  ]
+}

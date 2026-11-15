@@ -1,0 +1,16 @@
+{
+  "url": "https://amsterdam.wereldmuseum.nl/en",
+  "checkedAt": "2026-11-15",
+  "status": "opened",
+  "contentReviewed": false,
+  "robotsSHA256": "a1229668ae896bf32a0b67170e6f5850a2ce6dd810e6d6c74803eefc97c93136",
+  "robotsStatus": "fetched",
+  "httpStatus": 200,
+  "finalURL": "https://amsterdam.wereldmuseum.nl/en",
+  "sha256": "3bf3cd1c2ff96f8005f1dc7a21285e4274cc9594a770f871308015b19204ed4d",
+  "title": "Wereldmuseum Amsterdam | A museum about world cultures",
+  "excerpt": "Wereldmuseum Amsterdam | A museum about world cultures Tropenmuseum nav links What's on Visit Collection stories Education Tickets Want to",
+  "actionCandidates": [
+    "https://amsterdam.wereldmuseum.nl/en/tickets"
+  ]
+}

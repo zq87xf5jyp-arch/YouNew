@@ -1,0 +1,20 @@
+{
+  "url": "https://www.parktheater.nl/en",
+  "checkedAt": "2026-11-15",
+  "status": "unavailable",
+  "contentReviewed": false,
+  "robotsSHA256": "76be0785d320f77a0275bd57fb907f6aec4d7304932aa226168bf3ce64b59cb7",
+  "robotsStatus": "fetched",
+  "error": "HTTP Error 412: Precondition Failed",
+  "previousAttempts": [
+    {
+      "url": "https://www.parktheater.nl/en",
+      "checkedAt": "2026-11-15",
+      "status": "unavailable",
+      "contentReviewed": false,
+      "robotsSHA256": "76be0785d320f77a0275bd57fb907f6aec4d7304932aa226168bf3ce64b59cb7",
+      "robotsStatus": "fetched",
+      "error": "HTTP Error 308: Permanent Redirect"
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 1,
+  "publicationAuthorized": false,
+  "collections": [
+    {
+      "id": "collection.leiden-culture-review-20261115",
+      "city": "leiden",
+      "title": {
+        "en": "Museums & Culture — Leiden",
+        "nl": "Musea & Cultuur — Leiden"
+      },
+      "entityIDs": [
+        "place.leiden-vvv",
+        "place.leiden-burcht",
+        "place.leiden-hortus",
+        "place.leiden-rmo",
+        "place.leiden-lakenhal",
+        "place.leiden-naturalis",
+        "museum.leiden-boerhaave",
+        "museum.leiden-wereldmuseum",
+        "place.leiden-cafe-laken",
+        "museum.leiden-de-valk",
+        "museum.leiden-sieboldhuis",
+        "place.leiden-pieterskerk",
+        "place.leiden-young-rembrandt-studio",
+        "place.leiden-schouwburg"
+      ],
+      "status": "needs_review",
+      "publicationAuthorized": false
+    },
+    {
+      "id": "collection.amsterdam-culture-review-20261115",
+      "city": "amsterdam",
+      "title": {
+        "en": "Museums & Culture — Amsterdam",
+        "nl": "Musea & Cultuur — Amsterdam"
+      },
+      "entityIDs": [
+        "museum.rijksmuseum",
+        "museum.van-gogh-museum",
+        "museum.stedelijk-museum-amsterdam",
+        "museum.anne-frank-house",
+        "museum.nemo-science-museum",
+        "museum.het-scheepvaartmuseum",
+        "museum.museum-rembrandthuis",
+        "museum.museum-ons-lieve-heer-op-solder",
+        "museum.hart-museum",
+        "museum.jewish-museum",
+        "museum.dutch-resistance-museum",
+        "museum.eye-filmmuseum",
+        "museum.museum-of-the-canals",
+        "museum.huis-marseille",
+        "museum.allard-pierson",
+        "museum.wereldmuseum-amsterdam",
+        "place.royal-palace-amsterdam"
+      ],
+      "status": "needs_review",
+      "publicationAuthorized": false
+    },
+    {
+      "id": "collection.rotterdam-culture-review-20261115",
+      "city": "rotterdam",
+      "title": {
+        "en": "Museums & Culture — Rotterdam",
+        "nl": "Musea & Cultuur — Rotterdam"
+      },
+      "entityIDs": [
+        "museum.rotterdam-chabot",
+        "museum.rotterdam-boijmans",
+        "museum.rotterdam-kunsthal",
+        "museum.rotterdam-maritime",
+        "place.rotterdam-euromast",
+        "place.rotterdam-kijk-kubus",
+        "place.rotterdam-markthal",
+        "museum.rotterdam-natuurhistorisch",
+        "museum.rotterdam-foto",
+        "place.rotterdam-blijdorp",
+        "place.rotterdam-laurenskerk"
+      ],
+      "status": "needs_review",
+      "publicationAuthorized": false
+    },
+    {
+      "id": "collection.den-haag-culture-review-20261115",
+      "city": "den-haag",
+      "title": {
+        "en": "Museums & Culture — Den Haag",
+        "nl": "Musea & Cultuur — Den Haag"
+      },
+      "entityIDs": [
+        "museum.den-haag-fotomuseum",
+        "museum.den-haag-escher",
+        "museum.den-haag-panorama-mesdag",
+        "museum.den-haag-museon-omniversum",
+        "place.den-haag-peace-palace",
+        "museum.den-haag-gevangenpoort",
+        "museum.den-haag-beelden-aan-zee",
+        "museum.den-haag-louwman"
+      ],
+      "status": "needs_review",
+      "publicationAuthorized": false
+    },
+    {
+      "id": "collection.utrecht-culture-review-20261115",
+      "city": "utrecht",
+      "title": {
+        "en": "Museums & Culture — Utrecht",
+        "nl": "Musea & Cultuur — Utrecht"
+      },
+      "entityIDs": [
+        "place.utrecht-neude",
+        "museum.utrecht-sonnenborgh",
+        "museum.utrecht-centraal",
+        "museum.utrecht-spoorwegmuseum",
+        "museum.utrecht-speelklok",
+        "museum.utrecht-catharijneconvent",
+        "place.utrecht-domtoren",
+        "museum.utrecht-domunder",
+        "museum.utrecht-nijntje",
+        "place.utrecht-rietveld-schroderhuis",
+        "museum.utrecht-university-museum"
+      ],
+      "status": "needs_review",
+      "publicationAuthorized": false
+    },
+    {
+      "id": "collection.eindhoven-culture-review-20261115",
+      "city": "eindhoven",
+      "title": {
+        "en": "Museums & Culture — Eindhoven",
+        "nl": "Musea & Cultuur — Eindhoven"
+      },
+      "entityIDs": [
+        "museum.eindhoven-inkijkmuseum",
+        "museum.eindhoven-van-abbe",
+        "museum.eindhoven-philips",
+        "museum.eindhoven-daf",
+        "museum.eindhoven-prehistorisch-dorp",
+        "place.eindhoven-evoluon",
+        "place.eindhoven-muziekgebouw",
+        "place.eindhoven-dynamo",
+        "place.eindhoven-piet-hein-eek"
+      ],
+      "status": "needs_review",
+      "publicationAuthorized": false
+    }
+  ]
+}

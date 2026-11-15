@@ -1,0 +1,17 @@
+{
+  "url": "https://www.annefrank.org/en/museum/",
+  "checkedAt": "2026-11-15",
+  "status": "opened",
+  "contentReviewed": false,
+  "robotsSHA256": null,
+  "robotsStatus": "absent",
+  "httpStatus": 200,
+  "finalURL": "https://www.annefrank.org/en/museum/",
+  "sha256": "51bc4ee3daab5823d6e31cf8d7c81a9e89510311f5bd67e0777edbe8fd34e153",
+  "title": "Museum | Anne Frank House",
+  "excerpt": "Museum | Anne Frank House Go to main content 100th birthday of Margot Frank, Anne’s sister. Discover her story. Museum",
+  "actionCandidates": [
+    "https://www.annefrank.org/en/museum/tickets/",
+    "https://www.annefrank.org/en/museum/tickets/choose-your-ticket/"
+  ]
+}

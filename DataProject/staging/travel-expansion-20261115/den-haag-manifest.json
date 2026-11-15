@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "batchId": "travel-den-haag-20261115",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "approvedAt": null,
+  "reviewerId": null,
+  "recordsSHA256": "8df44df46a2878c6d63f952aba01bbc94113bdc00ddeebad60d9831fdd603601",
+  "ids": [
+    "museum.den-haag-mauritshuis",
+    "museum.den-haag-kunstmuseum",
+    "museum.den-haag-escher",
+    "place.den-haag-madurodam",
+    "museum.den-haag-panorama-mesdag",
+    "museum.den-haag-museon-omniversum",
+    "place.den-haag-peace-palace",
+    "museum.den-haag-gevangenpoort",
+    "museum.den-haag-beelden-aan-zee",
+    "museum.den-haag-louwman"
+  ],
+  "evidence": [
+    {
+      "id": "museum.den-haag-mauritshuis",
+      "sourceEvidenceSHA256": "e1060957cedd6c75421ba920c53b6e2b380dfc4eacdb7780cf6a00d849719349",
+      "contentChecked": false,
+      "missing": [
+        "photo",
+        "confirmed_coordinates",
+        "verified_primary_content"
+      ]
+    },
+    {
+      "id": "museum.den-haag-kunstmuseum",
+      "sourceEvidenceSHA256": "310637d096770c3bd165faac8af27c7aa43815c56d672657d65a5994c5af8e1c",
+      "contentChecked": false,
+      "missing": [
+        "photo",
+        "confirmed_coordinates",
+        "verified_primary_content"
+      ]
+    },
+    {
+      "id": "museum.den-haag-escher",
+      "sourceEvidenceSHA256": "bf6f29d34beae3577c2727427cda73100f09998061dd69e854e3755fffc4fabd",
+      "contentChecked": true,
+      "missing": [
+        "photo",
+        "confirmed_coordinates"
+      ]
+    },
+    {
+      "id": "place.den-haag-madurodam",
+      "sourceEvidenceSHA256": "5241d29560e616836087cd3295d5766ab888ba7329141c31df674a76622cf347",
+      "contentChecked": false,
+      "missing": [
+        "photo",
+        "confirmed_coordinates",
+        "verified_primary_content"
+      ]
+    },
+    {
+      "id": "museum.den-haag-panorama-mesdag",
+      "sourceEvidenceSHA256": "01b7a5b676530ed16ecd5e31782c0bd5b04ccdf96845baf30cd0d2f56e8eb14d",
+      "contentChecked": true,
+      "missing": [
+        "photo",
+        "confirmed_coordinates"
+      ]
+    },
+    {
+      "id": "museum.den-haag-museon-omniversum",
+      "sourceEvidenceSHA256": "b34597cacffcbde394d77b9fe833952fdc898549cbc2a7e212647b5f5a45894a",
+      "contentChecked": true,
+      "missing": [
+        "photo",
+        "confirmed_coordinates"
+      ]
+    },
+    {
+      "id": "place.den-haag-peace-palace",
+      "sourceEvidenceSHA256": "098b958282a8e131bb4071dbcecb674c52da578748cb6c8427ed7ff8b9333a9e",
+      "contentChecked": true,
+      "missing": [
+        "photo",
+        "confirmed_coordinates"
+      ]
+    },
+    {
+      "id": "museum.den-haag-gevangenpoort",
+      "sourceEvidenceSHA256": "0c19cfc71a7bfffde38b5739f0b6409eefbc25a634969c9549933bbb0138bb1a",
+      "contentChecked": true,
+      "missing": [
+        "photo",
+        "confirmed_coordinates"
+      ]
+    },
+    {
+      "id": "museum.den-haag-beelden-aan-zee",
+      "sourceEvidenceSHA256": "512e36d21e3be1ad3b053b77daacb52effc59cec174ffc602f347711632c2ad4",
+      "contentChecked": true,
+      "missing": [
+        "photo",
+        "confirmed_coordinates"
+      ]
+    },
+    {
+      "id": "museum.den-haag-louwman",
+      "sourceEvidenceSHA256": "88db09cca8ce421aea5b8bd3c04f7ba08a3dd10a8062954c2b3f37c32526485d",
+      "contentChecked": true,
+      "missing": [
+        "photo",
+        "confirmed_coordinates"
+      ]
+    }
+  ]
+}

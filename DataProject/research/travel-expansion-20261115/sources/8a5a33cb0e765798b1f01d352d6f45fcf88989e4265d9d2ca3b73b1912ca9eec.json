@@ -1,0 +1,14 @@
+{
+  "url": "https://www.philips-museum.com/en",
+  "checkedAt": "2026-11-15",
+  "status": "opened",
+  "contentReviewed": false,
+  "robotsSHA256": "857d626e8b2fe6167d8f361a8e082b7493891a8a7c00f3aae0f01de57de88317",
+  "robotsStatus": "fetched",
+  "httpStatus": 200,
+  "finalURL": "https://www.philips.nl/a-w/philips-museum.html",
+  "sha256": "b0955ede13b85ab4bd75a0c65d591c17b5eed8f1f4bdfb8c1d4c4dc716443d79",
+  "title": "Philips Museum | Philips",
+  "excerpt": "Philips Museum | Philips Klik hier om Tickets voor het Philips museum te kopen Bezoek onze webshop voor leuke Philips-souvenirs",
+  "actionCandidates": []
+}

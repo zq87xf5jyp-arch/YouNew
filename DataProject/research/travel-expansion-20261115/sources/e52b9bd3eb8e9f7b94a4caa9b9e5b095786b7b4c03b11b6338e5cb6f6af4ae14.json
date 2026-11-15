@@ -1,0 +1,17 @@
+{
+  "url": "https://opsolder.nl/en/",
+  "checkedAt": "2026-11-15",
+  "status": "opened",
+  "contentReviewed": false,
+  "robotsSHA256": "2dcdb7abe0a736ecb866d41070d39f0b500b61b90d86bd0f3aaa61c93e63ab10",
+  "robotsStatus": "fetched",
+  "httpStatus": 200,
+  "finalURL": "https://opsolder.nl/en/",
+  "sha256": "e38013dea0a10fafe3305f3a61eda6a6bb76bed574435c1f89b5039dc8170a92",
+  "title": "Home - EN - Museum Ons' Lieve Heer op Solder",
+  "excerpt": "Home - EN - Museum Ons' Lieve Heer op Solder Skip to content Museum Ons' Lieve Heer op Solder Museum",
+  "actionCandidates": [
+    "https://opsolder.nl/en/tickets-and-prices/",
+    "https://tickets.opsolder.nl/en/tickets"
+  ]
+}

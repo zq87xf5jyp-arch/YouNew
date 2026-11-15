@@ -1,0 +1,20 @@
+{
+  "url": "https://leidseschouwburg-stadsgehoorzaal.nl/",
+  "checkedAt": "2026-11-15",
+  "status": "opened",
+  "contentReviewed": false,
+  "robotsSHA256": "eb92e4c5ccb1a158f78100d63e80f16be6cb73d6af6fcfb721a6eae148a849d1",
+  "robotsStatus": "fetched",
+  "httpStatus": 200,
+  "finalURL": "https://leidseschouwburg-stadsgehoorzaal.nl/",
+  "sha256": "149f5c7754af402c8931fc574c8284884544985948f8081d2be4cae461bb634f",
+  "title": "Verhalen samen brengen! Leidse Schouwburg - Stadsgehoorzaal",
+  "excerpt": "Verhalen samen brengen! Leidse Schouwburg - Stadsgehoorzaal Skip navigatie Home Agenda Favorieten 0 Bestellen Inloggen Zoeken Menu Toegankelijkheid English Agenda",
+  "actionCandidates": [
+    "https://apps.ticketmatic.com/widgets/leidse_schouwburg_stadsgehoorzaal/basket?returnurl=https%3A%2F%2Fseries.direct-control.nl%2Fbundle%2Fleidse_schouwburg_stadsgehoorzaal%2Freturn&flow=return&edit=yes&accesskey=2f861fb0359f98032ced9933&signature=f985f10e0720a1aafb095e836bea10b760d36f7dd3c51c4bba99ffb34eb15788",
+    "https://selfservice.ticketmatic.com/flow/leidse_schouwburg_stadsgehoorzaal",
+    "https://apps.ticketmatic.com/widgets/leidse_schouwburg_stadsgehoorzaal/flow/selfservice",
+    "https://leidseschouwburg-stadsgehoorzaal.nl/vacature-coordinator-ticketing-functioneel-beheer-x-v-m/",
+    "https://leidseschouwburg-stadsgehoorzaal.nl/vacature-medewerker-ticketing-functioneel-beheer/"
+  ]
+}

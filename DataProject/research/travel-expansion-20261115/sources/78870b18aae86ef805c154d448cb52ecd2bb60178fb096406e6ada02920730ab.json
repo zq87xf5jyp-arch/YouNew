@@ -1,0 +1,17 @@
+{
+  "url": "https://www.vangoghmuseum.nl/en",
+  "checkedAt": "2026-11-15",
+  "status": "opened",
+  "contentReviewed": false,
+  "robotsSHA256": "1cbdbc6504be7abe1267d01d7f565bfcfe5851ba3f6a3754d1d61c8f8a2c6aa3",
+  "robotsStatus": "fetched",
+  "httpStatus": 200,
+  "finalURL": "https://www.vangoghmuseum.nl/en",
+  "sha256": "222510d847843dc82649d36e62d6e81046b67b6ebe1f874e7509b7d80e75ec77",
+  "title": "The Museum about Vincent van Gogh in Amsterdam - Van Gogh Museum",
+  "excerpt": "The Museum about Vincent van Gogh in Amsterdam - Van Gogh Museum {{pageTransitionStateText}} Language Menu Home Tickets & Visit Art",
+  "actionCandidates": [
+    "https://www.vangoghmuseum.nl/en/visit/tickets-and-ticket-prices",
+    "https://tickets.vangoghmuseum.com/?promo_creative=button&promo_pos=www-vgm&promo_name=tickets&promo_id=www-vgm-tickets-button"
+  ]
+}

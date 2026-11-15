@@ -1,0 +1,53 @@
+{
+  "id": "museum.van-gogh-museum",
+  "url": "https://commons.wikimedia.org/wiki/File:WLANL_-_Minke_Wagenaar_-_Van_Gogh_Museum_Amsterdam_159.jpg",
+  "origin": "DataProject/batches/WP-06/M2-amsterdam-001.json",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "visualIdentityChecked": false,
+  "files": [
+    {
+      "path": "DataProject/research/travel-expansion-20261115/media/museum.van-gogh-museum-480.webp",
+      "width": 480,
+      "sha256": "c6cf30034bb90dcc658213829b8df13f8fe65d89a9a6320de7f4df77e62b20da",
+      "bytes": 17848
+    },
+    {
+      "path": "DataProject/research/travel-expansion-20261115/media/museum.van-gogh-museum-800.webp",
+      "width": 800,
+      "sha256": "7eb1b5d42b00fef5edd1475036c2c6b1c3510d7b22a00c99f426eb5bbfd39c34",
+      "bytes": 39114
+    },
+    {
+      "path": "DataProject/research/travel-expansion-20261115/media/museum.van-gogh-museum-1200.webp",
+      "width": 1200,
+      "sha256": "af5a6be0ec719b5f63a0111ce16ec90510608d109fc930320603d37389027684",
+      "bytes": 67866
+    }
+  ],
+  "previousAttempts": [
+    {
+      "checkedAt": "2026-11-15",
+      "limitation": "No supported commercial CC license in Licensing section"
+    }
+  ],
+  "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+  "sourcePageSHA256": "319974da6458351a3db4a95257072b624aa7612516f7c545cba3678a7130e4d4",
+  "author": null,
+  "license": "CC BY-SA 2.0",
+  "licenseURL": "https://creativecommons.org/licenses/by-sa/2.0/",
+  "shareAlike": true,
+  "changes": "Resized and re-encoded as WebP; no crop or generated content.",
+  "attribution": null,
+  "originalURL": "https://upload.wikimedia.org/wikipedia/commons/0/09/WLANL_-_Minke_Wagenaar_-_Van_Gogh_Museum_Amsterdam_159.jpg",
+  "downloadURL": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/09/WLANL_-_Minke_Wagenaar_-_Van_Gogh_Museum_Amsterdam_159.jpg/1280px-WLANL_-_Minke_Wagenaar_-_Van_Gogh_Museum_Amsterdam_159.jpg",
+  "downloadSHA256": "e3c4c8fd0507d0e80ac9d57ed2032be288f72d461d599527beb90bbbffbe7758",
+  "rightsEvidenceChecked": false,
+  "licenseMetadataExtracted": true,
+  "reviewNote": "Author parser selected an ambiguous table field; attribution MUST be corrected against source before approval.",
+  "rejectedAuthorExtraction": "Vincent van Gogh (1853–1890)",
+  "blockingIssues": [
+    "author_and_attribution_not_confirmed"
+  ]
+}

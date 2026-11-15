@@ -1,0 +1,216 @@
+{
+  "schemaVersion": 1,
+  "batchId": "travel-amsterdam-20261115",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "approvedAt": null,
+  "reviewerId": null,
+  "recordsSHA256": "657498ae354832634e4b7a5adbef2fa290a85e4929ab1c64801f21fa0df382ae",
+  "ids": [
+    "museum.rijksmuseum",
+    "museum.van-gogh-museum",
+    "museum.stedelijk-museum-amsterdam",
+    "museum.anne-frank-house",
+    "museum.nemo-science-museum",
+    "museum.het-scheepvaartmuseum",
+    "museum.museum-rembrandthuis",
+    "museum.museum-ons-lieve-heer-op-solder",
+    "museum.hart-museum",
+    "museum.jewish-museum",
+    "museum.dutch-resistance-museum",
+    "museum.eye-filmmuseum",
+    "museum.museum-of-the-canals",
+    "museum.foam",
+    "museum.huis-marseille",
+    "museum.allard-pierson",
+    "museum.artis-micropia",
+    "museum.wereldmuseum-amsterdam",
+    "museum.museum-van-loon",
+    "place.royal-palace-amsterdam"
+  ],
+  "evidence": [
+    {
+      "id": "museum.rijksmuseum",
+      "sourceEvidenceSHA256": "bddc85e6791f277180fbbdecb934fd8c935b6cce9c68fcd890d022acb8bc45c6",
+      "contentChecked": true,
+      "missing": [
+        "photo",
+        "confirmed_coordinates"
+      ]
+    },
+    {
+      "id": "museum.van-gogh-museum",
+      "sourceEvidenceSHA256": "c2278308132211e7dbee192c8e819dc0ed57f53cc18788ae553d4bb7db56ffe4",
+      "contentChecked": true,
+      "missing": [
+        "photo",
+        "confirmed_coordinates"
+      ]
+    },
+    {
+      "id": "museum.stedelijk-museum-amsterdam",
+      "sourceEvidenceSHA256": "7220b0a5fb7f4d89c6533f8942fd200ee62c95273ea18d17bd152135cbdf930d",
+      "contentChecked": true,
+      "missing": [
+        "photo",
+        "confirmed_coordinates"
+      ]
+    },
+    {
+      "id": "museum.anne-frank-house",
+      "sourceEvidenceSHA256": "55c1cf730c1e133fba58ed47123f6650a3a6d6f1b4a673447bfa407c6756cb43",
+      "contentChecked": true,
+      "missing": [
+        "photo",
+        "confirmed_coordinates"
+      ]
+    },
+    {
+      "id": "museum.nemo-science-museum",
+      "sourceEvidenceSHA256": "efe753b3e94ede7984e83400d58c3400458890341dc2b5db657672399811ab20",
+      "contentChecked": true,
+      "missing": [
+        "photo",
+        "confirmed_coordinates"
+      ]
+    },
+    {
+      "id": "museum.het-scheepvaartmuseum",
+      "sourceEvidenceSHA256": "aa6aac25ca95686bc1290acfe1f68980c069a9e31c4200e7f81739f45003b767",
+      "contentChecked": true,
+      "missing": [
+        "photo",
+        "confirmed_coordinates"
+      ]
+    },
+    {
+      "id": "museum.museum-rembrandthuis",
+      "sourceEvidenceSHA256": "f9e7a2053f30920848c4d5b9f197d8090ff8bd60015d90013df24d01f9985fd5",
+      "contentChecked": true,
+      "missing": [
+        "photo",
+        "confirmed_coordinates"
+      ]
+    },
+    {
+      "id": "museum.museum-ons-lieve-heer-op-solder",
+      "sourceEvidenceSHA256": "a4607549a408dbf52f13d1879b747c5f8dd2e7b909a8f76cbd215d6a05d0e0ca",
+      "contentChecked": true,
+      "missing": [
+        "photo",
+        "confirmed_coordinates"
+      ]
+    },
+    {
+      "id": "museum.hart-museum",
+      "sourceEvidenceSHA256": "a45361a4d4e394c9c3748a094b2a22df379275b3a15b17686bf4b96f23343055",
+      "contentChecked": true,
+      "missing": [
+        "photo",
+        "confirmed_coordinates"
+      ]
+    },
+    {
+      "id": "museum.jewish-museum",
+      "sourceEvidenceSHA256": "09b579d9794b1df6f070f4a65901cfa9e280b773b910be87c5376ba8aaaf0f88",
+      "contentChecked": true,
+      "missing": [
+        "photo",
+        "confirmed_coordinates"
+      ]
+    },
+    {
+      "id": "museum.dutch-resistance-museum",
+      "sourceEvidenceSHA256": "e24d9b3c97ccb6155c6adb6b776d071bef5653af5184230392d75f246a50b70d",
+      "contentChecked": true,
+      "missing": [
+        "photo",
+        "confirmed_coordinates"
+      ]
+    },
+    {
+      "id": "museum.eye-filmmuseum",
+      "sourceEvidenceSHA256": "6def35e20f24dec0440bc36a5e5131d15e71e8ceb138d2c5fb4caa500d39002d",
+      "contentChecked": true,
+      "missing": [
+        "photo",
+        "confirmed_coordinates"
+      ]
+    },
+    {
+      "id": "museum.museum-of-the-canals",
+      "sourceEvidenceSHA256": "7739f9a582eef97e3779bdee6eb10823ba0f3d981d88a21668e2fd88c57d66e9",
+      "contentChecked": true,
+      "missing": [
+        "photo",
+        "confirmed_coordinates"
+      ]
+    },
+    {
+      "id": "museum.foam",
+      "sourceEvidenceSHA256": "1bd2b8102b8046d761f1fb6b2f25293ce2827ea4c0fd4b7eb17c86fedf4ae591",
+      "contentChecked": false,
+      "missing": [
+        "photo",
+        "confirmed_coordinates",
+        "verified_primary_content"
+      ]
+    },
+    {
+      "id": "museum.huis-marseille",
+      "sourceEvidenceSHA256": "3359d7d5bba0dc37d73202adddd2640ba3a422bc4fb485f63bc8e6b4c79cce88",
+      "contentChecked": true,
+      "missing": [
+        "photo",
+        "confirmed_coordinates"
+      ]
+    },
+    {
+      "id": "museum.allard-pierson",
+      "sourceEvidenceSHA256": "643682f85ed25a5cc934962f6fcf41b0cd7251254c9b8e7a9f77eef694164e9c",
+      "contentChecked": true,
+      "missing": [
+        "photo",
+        "confirmed_coordinates"
+      ]
+    },
+    {
+      "id": "museum.artis-micropia",
+      "sourceEvidenceSHA256": "ccba54807ca718520b4ab22475d785ab7bbaf052381b23600b00e1fdcaad8eb5",
+      "contentChecked": false,
+      "missing": [
+        "photo",
+        "confirmed_coordinates",
+        "verified_primary_content"
+      ]
+    },
+    {
+      "id": "museum.wereldmuseum-amsterdam",
+      "sourceEvidenceSHA256": "3fcf804ad36e6b5e1e689e5ed680240787ff7b9f78a99bb49651a8487ae4f287",
+      "contentChecked": true,
+      "missing": [
+        "photo",
+        "confirmed_coordinates"
+      ]
+    },
+    {
+      "id": "museum.museum-van-loon",
+      "sourceEvidenceSHA256": "a801e1e928698e0fa5c6e096ad15a2d378073f47831e156d8cec90cd7900c1f9",
+      "contentChecked": false,
+      "missing": [
+        "photo",
+        "confirmed_coordinates",
+        "verified_primary_content"
+      ]
+    },
+    {
+      "id": "place.royal-palace-amsterdam",
+      "sourceEvidenceSHA256": "302a97e0ede4108e871a7adb4f6a43fcb57fe3624f40fe1f745e7c94677acd62",
+      "contentChecked": true,
+      "missing": [
+        "photo",
+        "confirmed_coordinates"
+      ]
+    }
+  ]
+}

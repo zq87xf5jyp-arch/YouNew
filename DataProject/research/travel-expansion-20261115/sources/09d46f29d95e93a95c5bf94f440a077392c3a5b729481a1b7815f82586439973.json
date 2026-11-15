@@ -1,0 +1,20 @@
+{
+  "url": "https://www.verzetsmuseum.org/en",
+  "checkedAt": "2026-11-15",
+  "status": "opened",
+  "contentReviewed": false,
+  "robotsSHA256": "e80719fbcc582fa7f37cd56c5ecd8ca8a0f77d84f33d8885069cdbcda74d4a82",
+  "robotsStatus": "fetched",
+  "httpStatus": 200,
+  "finalURL": "https://www.verzetsmuseum.org/en/world-war-ii-in-the-netherlands",
+  "sha256": "8870ef14d6431be8940ba0edfb077d68d8936e7273209d57a3962a81cd903231",
+  "title": "            The Netherlands in World War II – Verzetsmuseum\n     Brand logo Menu icon Arrow down Close cross icon Arrow down Arrow down Arrow down Magnifying glass icons.arrow--right.title Brand logo icons.arrow--right.title Close cross icon icons.arrow--right.title Close cross icon icons.arrow--right.title Close cross icon Magnifying glass Arrow down Magnifying glass Close cross icon icons.arrow--right.title Arrow right icons.arrow--right.title Arrow right icons.arrow--right.title icons.arrow--right.title icons.arrow--right.title Arrow right icons.arrow--right.title Arrow right Arrow right Arrow right Arrow right Logo Resistance Museum Logo Resistance Museum Logo Algemeen Nut Beogende Instelling ANBI",
+  "excerpt": "The Netherlands in World War II – Verzetsmuseum Directly to the main navigation Go to the main content Directly to",
+  "actionCandidates": [
+    "https://www.verzetsmuseum.org/en/tickets",
+    "https://www.verzetsmuseum.org/en/ticket",
+    "https://tickets.verzetsmuseum.org/en/tickets",
+    "https://tickets.verzetsmuseum.org/donation",
+    "https://www.verzetsmuseum.org/en/buy-your-tickets-online"
+  ]
+}

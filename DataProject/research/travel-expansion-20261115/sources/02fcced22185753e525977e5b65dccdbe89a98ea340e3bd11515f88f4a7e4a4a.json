@@ -1,0 +1,17 @@
+{
+  "url": "https://www.museon-omniversum.nl/en",
+  "checkedAt": "2026-11-15",
+  "status": "opened",
+  "contentReviewed": false,
+  "robotsSHA256": "9f1958157adc796be51baafb1d2fd98a9d4175e69a2db3251cf8eb284d7f7e0a",
+  "robotsStatus": "fetched",
+  "httpStatus": 200,
+  "finalURL": "https://www.museon-omniversum.nl/en",
+  "sha256": "d74053c54e58fa8e2b864e9cde188b6e818b9b761e9f77329311d34d2bfff6ce",
+  "title": "Homepage | Website EN",
+  "excerpt": "Homepage | Website EN Ga naar main Ga naar header Ga naar footer Agenda Films & Live events New this",
+  "actionCandidates": [
+    "https://www.museon-omniversum.nl/en/buy-tickets/",
+    "https://www.museon-omniversum.nl/en/prepare-your-visit/tickets-and-prices/"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "url": "https://www.kunsthal.nl/en/",
+  "checkedAt": "2026-11-15",
+  "status": "opened",
+  "contentReviewed": false,
+  "robotsSHA256": "3710ece5dc0c8045ec7cb6c7e4454ed0ccbeabb3d9395b1dd9ddc5804370bad7",
+  "robotsStatus": "fetched",
+  "httpStatus": 200,
+  "finalURL": "https://kunsthal.nl/en/",
+  "sha256": "c6a904bdb746d408347f947f24ad449b5ae852e84cdb656709f15040fa752a29",
+  "title": "Nu te zien | Kunsthal",
+  "excerpt": "Nu te zien | Kunsthal Skip menu Open menu Plan your visit Practical information Exhibitions Activities Education About us About",
+  "actionCandidates": [
+    "https://kunsthal.nl/en/plan-your-visit/tickets/"
+  ]
+}

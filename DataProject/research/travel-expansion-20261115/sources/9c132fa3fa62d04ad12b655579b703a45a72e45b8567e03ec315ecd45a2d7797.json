@@ -1,0 +1,16 @@
+{
+  "url": "https://www.domtoren.nl/en/",
+  "checkedAt": "2026-11-15",
+  "status": "opened",
+  "contentReviewed": false,
+  "robotsSHA256": "5ed9384da57ca3ea71900ed1df51323f534f1897da0f5722b302291fe4e4477c",
+  "robotsStatus": "fetched",
+  "httpStatus": 200,
+  "finalURL": "https://www.domtoren.nl/en/",
+  "sha256": "f87f67f48c3d9ff04e053ecfa0cc420fa62772fdd673b6e018e40e4e759cd70b",
+  "title": "Dom Tower, Utrecht’s icon | Book your tickets online | Dom Tower",
+  "excerpt": "Dom Tower, Utrecht’s icon | Book your tickets online | Dom Tower To main content To navigation Domtoren EN Plan",
+  "actionCandidates": [
+    "https://www.domtoren.nl/en/#menus"
+  ]
+}

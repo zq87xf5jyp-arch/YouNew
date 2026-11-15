@@ -1,0 +1,38 @@
+{
+  "url": "https://www.escherinhetpaleis.nl/?lang=en",
+  "checkedAt": "2026-11-15",
+  "status": "opened",
+  "contentReviewed": false,
+  "robotsSHA256": "2f0c0f9c1892d3017d861e289fcc8157b7b714113eb995d53e85911c1bb19c96",
+  "robotsStatus": "fetched",
+  "httpStatus": 200,
+  "finalURL": "https://www.escherinhetpaleis.nl/en?lang=en",
+  "sha256": "e2614246acff49a250b8eca6c763ca9c84f2f6d649f3a0bc193638c9cde6c134",
+  "title": "Home | Museum Escher in The Palace",
+  "excerpt": "Home | Museum Escher in The Palace This website uses cookies We use cookies and similar technologies on this website",
+  "actionCandidates": [
+    "https://tickets.escherinhetpaleis.nl/en/tickets"
+  ],
+  "previousAttempts": [
+    {
+      "url": "https://www.escherinhetpaleis.nl/?lang=en",
+      "checkedAt": "2026-11-15",
+      "status": "unavailable",
+      "contentReviewed": false,
+      "robotsSHA256": "2f0c0f9c1892d3017d861e289fcc8157b7b714113eb995d53e85911c1bb19c96",
+      "robotsStatus": "fetched",
+      "error": "HTTP Error 308: Permanent Redirect",
+      "previousAttempts": [
+        {
+          "url": "https://www.escherinhetpaleis.nl/?lang=en",
+          "checkedAt": "2026-11-15",
+          "status": "unavailable",
+          "contentReviewed": false,
+          "robotsSHA256": "2f0c0f9c1892d3017d861e289fcc8157b7b714113eb995d53e85911c1bb19c96",
+          "robotsStatus": "fetched",
+          "error": "HTTP Error 308: Permanent Redirect"
+        }
+      ]
+    }
+  ]
+}

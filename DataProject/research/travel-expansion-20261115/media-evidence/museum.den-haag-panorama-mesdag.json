@@ -1,0 +1,43 @@
+{
+  "id": "museum.den-haag-panorama-mesdag",
+  "url": "https://commons.wikimedia.org/wiki/File:Panorama_Mesdag_08.jpg",
+  "origin": "https://commons.wikimedia.org/wiki/Category:Panorama_Mesdag",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "visualIdentityChecked": false,
+  "files": [
+    {
+      "path": "DataProject/research/travel-expansion-20261115/media/museum.den-haag-panorama-mesdag-480.webp",
+      "width": 480,
+      "sha256": "101c0cb85686360c6427cc565cf31b196988b2e28da41c2c54050414a793502a",
+      "bytes": 39744
+    },
+    {
+      "path": "DataProject/research/travel-expansion-20261115/media/museum.den-haag-panorama-mesdag-800.webp",
+      "width": 800,
+      "sha256": "6d535a5d122593a3e659ce8daeb49a6ac1e6b6046b321837b5c9452cec5cdf9f",
+      "bytes": 97218
+    },
+    {
+      "path": "DataProject/research/travel-expansion-20261115/media/museum.den-haag-panorama-mesdag-1200.webp",
+      "width": 1200,
+      "sha256": "dedae1e28be8587d9aea3d54013e0cc8d75340cdd295c870d50a8d11e671f52b",
+      "bytes": 177942
+    }
+  ],
+  "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+  "sourcePageSHA256": "df91be7d311415bfe4f6a73154be7529b552adee30ed4f7bcbbbd4a18cc294de",
+  "author": "Marion Golsteijn",
+  "license": "CC BY-SA 3.0",
+  "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/",
+  "shareAlike": true,
+  "changes": "Resized and re-encoded as WebP; no crop or generated content.",
+  "attribution": "Panorama_Mesdag_08.jpg — Marion Golsteijn — CC BY-SA 3.0",
+  "originalURL": "https://upload.wikimedia.org/wikipedia/commons/1/10/Panorama_Mesdag_08.jpg",
+  "downloadURL": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Panorama_Mesdag_08.jpg/1280px-Panorama_Mesdag_08.jpg",
+  "downloadSHA256": "b41d1f0abfcb118bfe96073e6bb55566d73207bf21292c89a37e46c1d268b102",
+  "rightsEvidenceChecked": false,
+  "licenseMetadataExtracted": true,
+  "reviewNote": "License template extracted; human licensing and attribution review required before activation."
+}

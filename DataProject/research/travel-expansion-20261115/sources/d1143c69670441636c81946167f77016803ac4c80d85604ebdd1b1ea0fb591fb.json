@@ -1,0 +1,17 @@
+{
+  "url": "https://nextnature.net/museum",
+  "checkedAt": "2026-11-15",
+  "status": "opened",
+  "contentReviewed": false,
+  "robotsSHA256": "064b8894c1ee4b22e2cf528bc01b28111b4f313b85e0cfa2fd6535b8a6c1b42b",
+  "robotsStatus": "fetched",
+  "httpStatus": 200,
+  "finalURL": "https://nextnature.org/en/museum/on-show",
+  "sha256": "ad9df008da54acac146ce4716a8a06f5cda673c7857d4c1bda187065de7f29a5",
+  "title": "Now on Show: Exhibitions & Events | Next Nature Museum | Next Nature",
+  "excerpt": "Now on Show: Exhibitions & Events | Next Nature Museum | Next Nature EN NL Tickets Mission Magazine Museum Meetings",
+  "actionCandidates": [
+    "https://tickets.nextnature.org/",
+    "https://tickets.nextnature.org"
+  ]
+}
