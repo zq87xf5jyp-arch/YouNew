@@ -232,7 +232,7 @@ export interface ContentEntity {
   readonly sourceKind: string;
   readonly route: string;
   readonly language: "en";
-  readonly status: PublishedStatus;
+  readonly status: PublishedStatus | "draft";
   readonly title: string;
   readonly summary: string;
   readonly contentDepth: "summary" | "practical";
@@ -269,7 +269,7 @@ export interface EditorialContent {
   readonly schemaVersion: 1;
   readonly section: "EXPLORE" | "LIVE" | "COLLECTIONS" | "BUSINESS";
   readonly locales: Readonly<Record<"en" | "nl", {readonly title:string; readonly summary:string; readonly guide:EditorialGuide|null}>>;
-  readonly sources: readonly EditorialSource[]; readonly reviewedAt:string; readonly reviewer:string; readonly batchSha256:string;
+  readonly sources: readonly EditorialSource[]; readonly reviewedAt:string|null; readonly reviewer:string|null; readonly batchSha256:string;
 }
 
 export interface PublicSourcedValue {

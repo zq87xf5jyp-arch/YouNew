@@ -1,0 +1,419 @@
+{
+  "schemaVersion": 1,
+  "batchId": "amsterdam-museums-20261115",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "approvedAt": null,
+  "reviewerId": null,
+  "preparedAt": "2026-11-15",
+  "ids": [
+    "museum.rijksmuseum",
+    "museum.van-gogh-museum",
+    "museum.stedelijk-museum-amsterdam",
+    "museum.anne-frank-house",
+    "museum.nemo-science-museum",
+    "museum.het-scheepvaartmuseum",
+    "museum.museum-rembrandthuis",
+    "museum.museum-ons-lieve-heer-op-solder",
+    "museum.hart-museum",
+    "museum.jewish-museum",
+    "museum.dutch-resistance-museum",
+    "museum.eye-filmmuseum",
+    "museum.museum-of-the-canals",
+    "museum.foam",
+    "museum.huis-marseille",
+    "museum.allard-pierson",
+    "museum.artis-micropia",
+    "museum.wereldmuseum-amsterdam",
+    "museum.museum-van-loon",
+    "place.royal-palace-amsterdam"
+  ],
+  "baseFiles": {
+    "museum.rijksmuseum": {
+      "file": "DataProject/batches/WP-06/M2-amsterdam-001.json",
+      "sha256": "a24f464c86e1880a542b23f1606f8622218cc0c7aa75464a9a19402847813b07"
+    },
+    "museum.van-gogh-museum": {
+      "file": "DataProject/batches/WP-06/M2-amsterdam-001.json",
+      "sha256": "a24f464c86e1880a542b23f1606f8622218cc0c7aa75464a9a19402847813b07"
+    },
+    "museum.stedelijk-museum-amsterdam": {
+      "file": "DataProject/batches/WP-06/M2-amsterdam-001.json",
+      "sha256": "a24f464c86e1880a542b23f1606f8622218cc0c7aa75464a9a19402847813b07"
+    },
+    "museum.anne-frank-house": {
+      "file": "DataProject/batches/WP-06/M2-amsterdam-001.json",
+      "sha256": "a24f464c86e1880a542b23f1606f8622218cc0c7aa75464a9a19402847813b07"
+    },
+    "museum.nemo-science-museum": {
+      "file": "DataProject/batches/WP-06/M2-amsterdam-001.json",
+      "sha256": "a24f464c86e1880a542b23f1606f8622218cc0c7aa75464a9a19402847813b07"
+    },
+    "museum.het-scheepvaartmuseum": {
+      "file": "DataProject/batches/WP-06/M2-amsterdam-001.json",
+      "sha256": "a24f464c86e1880a542b23f1606f8622218cc0c7aa75464a9a19402847813b07"
+    },
+    "museum.museum-rembrandthuis": {
+      "file": "DataProject/batches/WP-06/M2-amsterdam-001.json",
+      "sha256": "a24f464c86e1880a542b23f1606f8622218cc0c7aa75464a9a19402847813b07"
+    },
+    "museum.museum-ons-lieve-heer-op-solder": {
+      "file": "DataProject/batches/WP-06/M2-amsterdam-001.json",
+      "sha256": "a24f464c86e1880a542b23f1606f8622218cc0c7aa75464a9a19402847813b07"
+    },
+    "museum.hart-museum": {
+      "file": "DataProject/batches/WP-06/M2-amsterdam-001.json",
+      "sha256": "a24f464c86e1880a542b23f1606f8622218cc0c7aa75464a9a19402847813b07"
+    },
+    "museum.jewish-museum": {
+      "file": "DataProject/batches/WP-06/M2-amsterdam-001.json",
+      "sha256": "a24f464c86e1880a542b23f1606f8622218cc0c7aa75464a9a19402847813b07"
+    },
+    "museum.dutch-resistance-museum": {
+      "file": "DataProject/batches/WP-06/M2-amsterdam-001.json",
+      "sha256": "a24f464c86e1880a542b23f1606f8622218cc0c7aa75464a9a19402847813b07"
+    },
+    "museum.eye-filmmuseum": {
+      "file": "DataProject/batches/WP-06/M2-amsterdam-001.json",
+      "sha256": "a24f464c86e1880a542b23f1606f8622218cc0c7aa75464a9a19402847813b07"
+    },
+    "museum.museum-of-the-canals": {
+      "file": "DataProject/batches/WP-06/M2-amsterdam-001.json",
+      "sha256": "a24f464c86e1880a542b23f1606f8622218cc0c7aa75464a9a19402847813b07"
+    },
+    "museum.foam": {
+      "file": "DataProject/batches/WP-06/M2-amsterdam-001.json",
+      "sha256": "a24f464c86e1880a542b23f1606f8622218cc0c7aa75464a9a19402847813b07"
+    },
+    "museum.huis-marseille": {
+      "file": "DataProject/batches/WP-06/M2-amsterdam-001.json",
+      "sha256": "a24f464c86e1880a542b23f1606f8622218cc0c7aa75464a9a19402847813b07"
+    },
+    "museum.allard-pierson": {
+      "file": "DataProject/batches/WP-06/M2-amsterdam-001.json",
+      "sha256": "a24f464c86e1880a542b23f1606f8622218cc0c7aa75464a9a19402847813b07"
+    },
+    "museum.artis-micropia": {
+      "file": "DataProject/batches/WP-06/M2-amsterdam-001.json",
+      "sha256": "a24f464c86e1880a542b23f1606f8622218cc0c7aa75464a9a19402847813b07"
+    },
+    "museum.wereldmuseum-amsterdam": {
+      "file": "DataProject/batches/WP-06/M2-amsterdam-001.json",
+      "sha256": "a24f464c86e1880a542b23f1606f8622218cc0c7aa75464a9a19402847813b07"
+    },
+    "museum.museum-van-loon": {
+      "file": "DataProject/batches/WP-06/M2-amsterdam-001.json",
+      "sha256": "a24f464c86e1880a542b23f1606f8622218cc0c7aa75464a9a19402847813b07"
+    },
+    "place.royal-palace-amsterdam": {
+      "file": "DataProject/batches/WP-06/M2-amsterdam-001.json",
+      "sha256": "a24f464c86e1880a542b23f1606f8622218cc0c7aa75464a9a19402847813b07"
+    }
+  },
+  "recordsSha256": "74cf38c113dcb969296809ab27e87a2839f4be083f688b9e24ae170b09d8b34a",
+  "media": {
+    "exprijksmuseum-480.webp": {
+      "width": 480,
+      "bytes": 45360,
+      "sha256": "31601ecb682b1b93c6cddcb9ee6c14154d1c6a14b007fac12d3829a1e40abd4d"
+    },
+    "exprijksmuseum-800.webp": {
+      "width": 800,
+      "bytes": 119256,
+      "sha256": "2030fc6850c0cc1f4467efb71ffaa3996e7f2b059595c3f24f3fcfad448e404b"
+    },
+    "exprijksmuseum-1200.webp": {
+      "width": 1200,
+      "bytes": 248770,
+      "sha256": "ae3a97e11b260ec3e52b588123360014e0a047213b49d596e115eeb39ce30d09"
+    },
+    "expvangoghmuseum-480.webp": {
+      "width": 480,
+      "bytes": 18614,
+      "sha256": "43c93df92fdf69ccc4f3f49f3b2f155498576a689346a98ea5aa5606c92de115"
+    },
+    "expvangoghmuseum-800.webp": {
+      "width": 800,
+      "bytes": 60156,
+      "sha256": "f0c64ab52cdcb3bafa1604199596b4a91f1239a6dac570cf59275c52981dfa08"
+    },
+    "expvangoghmuseum-1200.webp": {
+      "width": 1200,
+      "bytes": 155542,
+      "sha256": "e1f1e17ecd040947c8c58de6075f0ffb8fbd66b4774b1b256f025424a1861484"
+    },
+    "expstedelijkmuseumamsterdam-480.webp": {
+      "width": 480,
+      "bytes": 16304,
+      "sha256": "47c0f8150e9f876ca4414e74604029873e3cc91147aa53fb53495d8f318bd611"
+    },
+    "expstedelijkmuseumamsterdam-800.webp": {
+      "width": 800,
+      "bytes": 41420,
+      "sha256": "9b8ad382cbf7d5b6bb0ae35cb27003566f226561fd113e3100efa891c000a903"
+    },
+    "expstedelijkmuseumamsterdam-1200.webp": {
+      "width": 1200,
+      "bytes": 85100,
+      "sha256": "c1257546bbc1836ed2400d600979a5365ce2e204cee3a300b165e49593af0ad2"
+    },
+    "expannefrankhouse-480.webp": {
+      "width": 480,
+      "bytes": 69358,
+      "sha256": "483016e91a6fdf0445c31bdd3120b2638fcbac3f572bc438a8d6dc9c90d1bcc8"
+    },
+    "expannefrankhouse-800.webp": {
+      "width": 800,
+      "bytes": 186004,
+      "sha256": "a6bf159a02348a3a7e45749a20f3685b3071368553c3287ee77387929c94f7db"
+    },
+    "expannefrankhouse-1200.webp": {
+      "width": 1200,
+      "bytes": 392090,
+      "sha256": "3459d686fe6e7a58920127a09acab8a2b3773f6468bd0f360ff16ace7fd21495"
+    },
+    "expnemosciencemuseum-480.webp": {
+      "width": 480,
+      "bytes": 28840,
+      "sha256": "65d4bc73b3ba31552b8be26fb581e455e8c92c5ba3cf3c63f55a7b091f8e4fb7"
+    },
+    "expnemosciencemuseum-800.webp": {
+      "width": 800,
+      "bytes": 74450,
+      "sha256": "9f84f4e0655e4c80a39494470d5c133997bbce8d883221e5fda76762075869c5"
+    },
+    "expnemosciencemuseum-1200.webp": {
+      "width": 1200,
+      "bytes": 166014,
+      "sha256": "9f24d263cc70aa22fb02edf5580fb3017df9703654f73c3766bad2faf89809f0"
+    },
+    "exphetscheepvaartmuseum-480.webp": {
+      "width": 480,
+      "bytes": 22388,
+      "sha256": "013d643c88d6c6cf5f69dd8422e0c374eb3f6d0a7cf4bff970da0c99822d7938"
+    },
+    "exphetscheepvaartmuseum-800.webp": {
+      "width": 800,
+      "bytes": 64686,
+      "sha256": "2e8bba890a4967fb6e5e11bc0a7eb5e841ad6a97f4d97771d196092cdd865d42"
+    },
+    "exphetscheepvaartmuseum-1200.webp": {
+      "width": 1200,
+      "bytes": 143694,
+      "sha256": "59226ce8766957ec7fe043209a306b05be93f95488174da5bc9c28882fffb20f"
+    },
+    "expmuseumrembrandthuis-480.webp": {
+      "width": 480,
+      "bytes": 42222,
+      "sha256": "68a5e652a5988ba1196928b23c9441959e4a6819cfee40e06430c044fcdfd1d4"
+    },
+    "expmuseumrembrandthuis-800.webp": {
+      "width": 800,
+      "bytes": 110486,
+      "sha256": "3d6d10d5d56da225e890fb163463419ae833be6ef4f3af633d9a6ac53ee5818b"
+    },
+    "expmuseumrembrandthuis-1200.webp": {
+      "width": 1200,
+      "bytes": 240646,
+      "sha256": "c3519e3a50439569e58342c0b69ce280d81e0de000d55bf1d65328668627d67e"
+    },
+    "expmuseumonslieveheeropsolder-480.webp": {
+      "width": 480,
+      "bytes": 57112,
+      "sha256": "438e53923ccb276f72abaa16c641d7ee1a608a30b3ea3d98a7a5721868a4763d"
+    },
+    "expmuseumonslieveheeropsolder-800.webp": {
+      "width": 800,
+      "bytes": 135682,
+      "sha256": "c2535d0366d7877433d28b4aa64611f7f18410494a483bf4542b60032c8e823f"
+    },
+    "expmuseumonslieveheeropsolder-1200.webp": {
+      "width": 1200,
+      "bytes": 328714,
+      "sha256": "755289c684e442bb5faec0e6a187008188c73fc5940baae2ec0c05d4fdfcbf78"
+    },
+    "exphartmuseum-480.webp": {
+      "width": 480,
+      "bytes": 33534,
+      "sha256": "c3a650b4ce583cd7445289f4c019a4329a5bbec1644daaa4a5c58033c54cedb1"
+    },
+    "exphartmuseum-800.webp": {
+      "width": 800,
+      "bytes": 102160,
+      "sha256": "bb5d2eef0a3ed1af8c16b0fa205e6612db355d1c7bf34abcb0b0b03e1f129d66"
+    },
+    "exphartmuseum-1200.webp": {
+      "width": 1200,
+      "bytes": 224306,
+      "sha256": "b420318b0025a52ee3c34d6ee28bfd0c73d53d34aa56e42108042a08d6398dd8"
+    },
+    "expjewishmuseum-480.webp": {
+      "width": 480,
+      "bytes": 27520,
+      "sha256": "6b7652cbd682a5a4c8d4dd5fc5aeac66bd7af3d4f293edec3d7e2ef14a4b7751"
+    },
+    "expjewishmuseum-800.webp": {
+      "width": 800,
+      "bytes": 62062,
+      "sha256": "73c00701470a53fc0360e159573c5cfb253418250b11d68972c18feff92b410e"
+    },
+    "expjewishmuseum-1200.webp": {
+      "width": 1200,
+      "bytes": 112538,
+      "sha256": "a0a9f268570375f753f70491282ddcf4c40016609edad71ef812f7c7c0d92621"
+    },
+    "expdutchresistancemuseum-480.webp": {
+      "width": 480,
+      "bytes": 38428,
+      "sha256": "cd1b60324363aa84912972c996c389031a51bf7dba4ebbda22067c9191b755ea"
+    },
+    "expdutchresistancemuseum-800.webp": {
+      "width": 800,
+      "bytes": 89564,
+      "sha256": "a516f8ebbd9ce93ffcf2a20de4c67a76e16d5ad46d235da2a542284f7a41a379"
+    },
+    "expdutchresistancemuseum-1200.webp": {
+      "width": 1200,
+      "bytes": 157880,
+      "sha256": "4ea939f0a910afa87e94ef86a34f6e243d4fa3af474f6a07c085ed4a0674d103"
+    },
+    "expeyefilmmuseum-480.webp": {
+      "width": 480,
+      "bytes": 25338,
+      "sha256": "a45a0a7702251e6bcba2ff8381a57f7cdabd3adc30f4828666bc23b6bd113030"
+    },
+    "expeyefilmmuseum-800.webp": {
+      "width": 800,
+      "bytes": 68398,
+      "sha256": "f49d04b05368f64962c829a3b2f61adad11bb29d38be1cc9bc7128cf8932be4d"
+    },
+    "expeyefilmmuseum-1200.webp": {
+      "width": 1200,
+      "bytes": 145094,
+      "sha256": "3b0010be857d9851b5605888914dd7848339bf16dcb2cd90cde1d4106b6472c6"
+    },
+    "expmuseumofthecanals-480.webp": {
+      "width": 480,
+      "bytes": 72662,
+      "sha256": "cadd37bb4244cd05087c06766f2bb9c3be6721384ec26f3a544b8533b8c41b59"
+    },
+    "expmuseumofthecanals-800.webp": {
+      "width": 800,
+      "bytes": 195350,
+      "sha256": "ed4c54540f245992c7ab56bccd7fe520441ab838474b06152daec554e24e9710"
+    },
+    "expmuseumofthecanals-1200.webp": {
+      "width": 1200,
+      "bytes": 384318,
+      "sha256": "417e3eb7d983697482a269aa8b8e43240972d9207ed4ff113999c8d7976b3918"
+    },
+    "expfoam-480.webp": {
+      "width": 480,
+      "bytes": 87578,
+      "sha256": "ce8b1d71d706af524c30c4aadedf30dba8b0e3d1de9d24038a4bb88a4b2878b1"
+    },
+    "expfoam-800.webp": {
+      "width": 800,
+      "bytes": 156614,
+      "sha256": "3aa5d02aab95ab7c5520f3d6c5d8e4f58971cf73b86fd445310b7286ef17cb96"
+    },
+    "expfoam-1200.webp": {
+      "width": 1200,
+      "bytes": 245784,
+      "sha256": "a51fbee64a92ea80c091c4d72b67331a556d15ff44412cd38cfc7c50d16d9a50"
+    },
+    "exphuismarseille-480.webp": {
+      "width": 480,
+      "bytes": 55134,
+      "sha256": "4b76247e4abce9500266826bc0a13b371f4b2834dd6f1f1e0e923d9e17365b3d"
+    },
+    "exphuismarseille-800.webp": {
+      "width": 800,
+      "bytes": 123902,
+      "sha256": "01409aba6229a267e330a9891c1d4e6eddd578e04d1ed03db56dfee3afd935b4"
+    },
+    "exphuismarseille-1200.webp": {
+      "width": 1200,
+      "bytes": 183628,
+      "sha256": "1c6dcc3feb3d8e303992550f37081cc04741b92bd67308d9eec5c53feaf55c81"
+    },
+    "expallardpierson-480.webp": {
+      "width": 480,
+      "bytes": 50158,
+      "sha256": "337b30b81e79beaed3ab217615f58cc419c15a77f139c6d8c7e3bab36abde131"
+    },
+    "expallardpierson-800.webp": {
+      "width": 800,
+      "bytes": 136058,
+      "sha256": "4bd3e69012fedff4fa3f970cd1e68337c6878ba0eda0a9cc542f4d39b0dbb125"
+    },
+    "expallardpierson-1200.webp": {
+      "width": 1200,
+      "bytes": 290848,
+      "sha256": "a6f7c65a7a3d3cee2d2e80ef4eab9c33c8f194d67dc9a93ec884c7f0911489a1"
+    },
+    "expartismicropia-480.webp": {
+      "width": 480,
+      "bytes": 31874,
+      "sha256": "bf9391ef3a5b2e0abfa383f50cb1359dd201473a97b3c966adda1b5045b5958d"
+    },
+    "expartismicropia-800.webp": {
+      "width": 800,
+      "bytes": 91876,
+      "sha256": "2090c99c14c019956a12286490d92a07c1430ea1415671dd1eab1e2e8ad51523"
+    },
+    "expartismicropia-1200.webp": {
+      "width": 1200,
+      "bytes": 211288,
+      "sha256": "0f78caf28441d45977b6dff96781a4456d6d2e1ca463450105e11c55d7dfe9b0"
+    },
+    "expwereldmuseumamsterdam-480.webp": {
+      "width": 480,
+      "bytes": 38468,
+      "sha256": "23023064f1c6616ab919ae227dba884f0a3bc7d393e02f3da822e643356de007"
+    },
+    "expwereldmuseumamsterdam-800.webp": {
+      "width": 800,
+      "bytes": 109312,
+      "sha256": "3bddf423c0b4c18ce58715f45545daa77ff0548c215bed43aa1b3d4b4f43a7f3"
+    },
+    "expwereldmuseumamsterdam-1200.webp": {
+      "width": 1200,
+      "bytes": 248548,
+      "sha256": "2aef37c5f2cbc9ff2935c2e4d2f9c92a9bd7cde4a96c78c3e59b077b368fa995"
+    },
+    "expmuseumvanloon-480.webp": {
+      "width": 480,
+      "bytes": 30834,
+      "sha256": "d9d232c39db3c159d2012588778763614f940cd81a3df14c39574682a6094a61"
+    },
+    "expmuseumvanloon-800.webp": {
+      "width": 800,
+      "bytes": 94718,
+      "sha256": "504e63b70b1c3d6a1afcf417d3caf0bcbac27a6b5d6af27e4f4342795dd8d69d"
+    },
+    "expmuseumvanloon-1200.webp": {
+      "width": 1200,
+      "bytes": 219888,
+      "sha256": "b6ddcf22020642a954925c7dd3b2ed8064e82fb3f9d2228def0f54e17ed1f6cb"
+    },
+    "exproyalpalaceamsterdam-480.webp": {
+      "width": 480,
+      "bytes": 19344,
+      "sha256": "1defb609b44ee0a3ab59a9a6b3c68583403ef8355a3f3bc9909610abeb840480"
+    },
+    "exproyalpalaceamsterdam-800.webp": {
+      "width": 800,
+      "bytes": 49880,
+      "sha256": "de39943fd39de9f915fe7fdb25c6248ae247cf3e9601bf2484e92a9cb30bbb35"
+    },
+    "exproyalpalaceamsterdam-1200.webp": {
+      "width": 1200,
+      "bytes": 100036,
+      "sha256": "150358f0c28a02509d22edf2925b3eeed01cfaec93d0827d3b399c09c7a2abc4"
+    }
+  },
+  "privateOnly": true,
+  "sourceChecksSha256": "6852d46c64115a3dfb48541cae8a9d4ccc1ce93dbf51eaa36cc709ff8d758fcd",
+  "mediaSourcesSha256": "3d81e21748c1daf411b8dd6e37a4d2ca9163e23e272fc9ca31162ba18d481758"
+}

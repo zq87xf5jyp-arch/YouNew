@@ -1,0 +1,847 @@
+{
+  "schema_version": 1,
+  "batch_id": "priority-cities-20261115",
+  "publication_status": "draft",
+  "records": [
+    {
+      "id": "place.utrecht-neude",
+      "entity_type": "place",
+      "category": "public-library",
+      "city_id": "utrecht",
+      "province_id": "utrecht",
+      "coordinates": {
+        "latitude": 52.0931279,
+        "longitude": 5.1181787
+      },
+      "title": "Bibliotheek Neude",
+      "description": "Explore Utrecht’s former post office as a working public library, with a monumental hall, reading spaces and a cultural programme.",
+      "images": [
+        {
+          "id": "media.place.utrecht-neude.expansion-20261115",
+          "role": "hero",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:Grote_Hal,_Openbare_Bibliotheek_Neude,_Utrecht,_24_oktober_2023_01.jpg",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/0/06/Grote_Hal%2C_Openbare_Bibliotheek_Neude%2C_Utrecht%2C_24_oktober_2023_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "public_asset_path": "/images/place-review/exputrechtneude-1200.webp",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "attribution": "Hansmuller · 2023-10-24 11:10:47 · Archive photograph / Archieffoto · resized WebP; no content edits",
+          "verified": true,
+          "retrieved_at": "2026-11-15",
+          "alt": "The monumental hall inside Bibliotheek Neude — photograph 2023"
+        }
+      ],
+      "official_source": {
+        "title": "Bibliotheek Neude",
+        "publisher": "www.bibliotheekutrecht.nl",
+        "url": "https://www.bibliotheekutrecht.nl/bibliotheken/bibliotheek-neude.html",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.bibliotheekutrecht.nl/bibliotheken/bibliotheek-neude.html",
+      "related_entity_ids": [
+        "museum.utrecht-sonnenborgh",
+        "cafe.utrecht-koffie-leute"
+      ],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 7,
+      "verification_status": "needs_review",
+      "ai_summary": "Explore Utrecht’s former post office as a working public library, with a monumental hall, reading spaces and a cultural programme.",
+      "search_keywords": [
+        "Bibliotheek Neude",
+        "utrecht",
+        "public-library",
+        "utrechtneude"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "slug": "utrecht-neude",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "description_nl": "Ontdek het voormalige Utrechtse postkantoor als actieve openbare bibliotheek, met een monumentale hal, leesplekken en een cultureel programma.",
+        "title_nl": "Bibliotheek Neude",
+        "field_review_status": "Source verification complete; human editorial approval pending",
+        "catalog_review_batch": "priority-cities-20261115",
+        "address": "Neude 11, 3512 AE Utrecht",
+        "address_source_url": "https://www.bibliotheekutrecht.nl/bibliotheken/bibliotheek-neude.html",
+        "address_checked_at": "2026-11-15",
+        "media_status": "licensed archive photograph visually checked; publication approval pending",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-15\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.neudevisit\",\"title\":\"Bibliotheek Neude\",\"publisher\":\"www.bibliotheekutrecht.nl\",\"url\":\"https://www.bibliotheekutrecht.nl/bibliotheken/bibliotheek-neude.html\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.neudehours\",\"title\":\"Bibliotheek Neude\",\"publisher\":\"www.bibliotheekutrecht.nl\",\"url\":\"https://www.bibliotheekutrecht.nl/klantenservice/vestigingen-openingstijden/vestiging.696013.html/bibliotheek-neude/\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.utrechtneude\",\"title\":\"Bereikbaarheid Neude\",\"publisher\":\"www.bibliotheekutrecht.nl\",\"url\":\"https://www.bibliotheekutrecht.nl/bereikbaarheid-neude.html\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.pdok\",\"title\":\"BAG address coordinate: Neude 11, 3512AE Utrecht\",\"publisher\":\"PDOK / Kadaster\",\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Neude+11+Utrecht&fq=type%3Aadres&rows=3\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Neude+11+Utrecht&fq=type%3Aadres&rows=3\",\"method\":\"BAG address point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.0931279,5.1181787\"},\"tickets\":null,\"locales\":{\"en\":{\"alt\":\"The monumental hall inside Bibliotheek Neude — photograph 2023\",\"blocks\":[{\"id\":\"setting\",\"title\":\"About this place\",\"text\":\"The library offers tours of the former post office and displays contemporary art alongside its collections.\",\"source_ids\":[\"source.neudevisit\"]},{\"id\":\"hours\",\"title\":\"Opening hours\",\"text\":\"Monday–Saturday 09:00–21:00; Sunday 10:00–18:00. Check the branch page for exceptions.\",\"source_ids\":[\"source.neudehours\"]},{\"id\":\"facilities\",\"title\":\"Facilities\",\"text\":\"Reading and study spaces, Wi-Fi, computers and printing facilities are listed. Separate services or activities may have their own conditions.\",\"source_ids\":[\"source.neudevisit\"]},{\"id\":\"access\",\"title\":\"Accessibility\",\"text\":\"The branch lists wheelchair access, an accessible toilet and a lift. Contact the library about specific access needs.\",\"source_ids\":[\"source.neudehours\"]},{\"id\":\"arrival\",\"title\":\"Arrival\",\"text\":\"The address is Neude 11. The official directions page describes access by public transport and bicycle.\",\"source_ids\":[\"source.utrechtneude\"]}]},\"nl\":{\"alt\":\"De monumentale hal in Bibliotheek Neude — foto 2023\",\"blocks\":[{\"id\":\"setting\",\"title\":\"Over deze plek\",\"text\":\"De bibliotheek organiseert rondleidingen door het voormalige postkantoor en toont hedendaagse kunst naast de collectie.\",\"source_ids\":[\"source.neudevisit\"]},{\"id\":\"hours\",\"title\":\"Openingstijden\",\"text\":\"Maandag–zaterdag 09.00–21.00 uur; zondag 10.00–18.00 uur. Bekijk de vestigingspagina voor uitzonderingen.\",\"source_ids\":[\"source.neudehours\"]},{\"id\":\"facilities\",\"title\":\"Voorzieningen\",\"text\":\"Er zijn lees- en studieplekken, wifi, computers en printvoorzieningen. Afzonderlijke diensten of activiteiten kunnen eigen voorwaarden hebben.\",\"source_ids\":[\"source.neudevisit\"]},{\"id\":\"access\",\"title\":\"Toegankelijkheid\",\"text\":\"De vestiging vermeldt rolstoeltoegang, aangepast sanitair en een lift. Bespreek specifieke toegankelijkheidsvragen met de bibliotheek.\",\"source_ids\":[\"source.neudehours\"]},{\"id\":\"arrival\",\"title\":\"Aankomst\",\"text\":\"Het adres is Neude 11. De officiële routepagina beschrijft de bereikbaarheid met openbaar vervoer en fiets.\",\"source_ids\":[\"source.utrechtneude\"]}]}}}"
+      }
+    },
+    {
+      "id": "museum.rotterdam-chabot",
+      "entity_type": "museum",
+      "category": "art",
+      "city_id": "rotterdam",
+      "province_id": "zuid-holland",
+      "coordinates": {
+        "latitude": 51.9146896,
+        "longitude": 4.4723822
+      },
+      "title": "Chabot Museum",
+      "description": "A museum in a white modernist villa beside Rotterdam’s Museumpark. Plan around its changing exhibitions and compact historic building.",
+      "images": [
+        {
+          "id": "media.museum.rotterdam-chabot.expansion-20261115",
+          "role": "hero",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:Chabot_Museum.jpg",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/8/80/Chabot_Museum.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "public_asset_path": "/images/place-review/exprotterdamchabot-1200.webp",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "attribution": "Szilas · 2009-02-15 12:02:02 · Archive photograph / Archieffoto · resized WebP; no content edits",
+          "verified": true,
+          "retrieved_at": "2026-11-15",
+          "alt": "Chabot Museum exterior — photograph 2009"
+        }
+      ],
+      "official_source": {
+        "title": "Bezoek : Chabot Museum Rotterdam",
+        "publisher": "chabotmuseum.nl",
+        "url": "https://chabotmuseum.nl/bezoekers/",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://chabotmuseum.nl/bezoekers/",
+      "related_entity_ids": [
+        "hotel.rotterdam-supernova",
+        "nature.rotterdam-trompenburg"
+      ],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 7,
+      "verification_status": "needs_review",
+      "ai_summary": "A museum in a white modernist villa beside Rotterdam’s Museumpark. Plan around its changing exhibitions and compact historic building.",
+      "search_keywords": [
+        "Chabot Museum",
+        "rotterdam",
+        "art",
+        "rotterdamchabot"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "slug": "rotterdam-chabot",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "description_nl": "Een museum in een witte modernistische villa aan het Rotterdamse Museumpark. Houd rekening met wisselende tentoonstellingen en het compacte historische gebouw.",
+        "title_nl": "Chabot Museum",
+        "field_review_status": "Source verification complete; human editorial approval pending",
+        "catalog_review_batch": "priority-cities-20261115",
+        "address": "Museumpark 11, 3015 CB Rotterdam",
+        "address_source_url": "https://chabotmuseum.nl/bezoekers/",
+        "address_checked_at": "2026-11-15",
+        "media_status": "licensed archive photograph visually checked; publication approval pending",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-15\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.rotterdamchabot\",\"title\":\"Bezoek : Chabot Museum Rotterdam\",\"publisher\":\"chabotmuseum.nl\",\"url\":\"https://chabotmuseum.nl/bezoekers/\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.pdok\",\"title\":\"BAG address coordinate: Museumpark 11, 3015CB Rotterdam\",\"publisher\":\"PDOK / Kadaster\",\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Museumpark+11+Rotterdam&fq=type%3Aadres&rows=3\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Museumpark+11+Rotterdam&fq=type%3Aadres&rows=3\",\"method\":\"BAG address point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=51.9146896,4.4723822\"},\"tickets\":{\"url\":\"https://chabotmuseum.nl/bezoekers/\",\"sourceId\":\"source.rotterdamchabot\"},\"locales\":{\"en\":{\"alt\":\"Chabot Museum exterior — photograph 2009\",\"blocks\":[{\"id\":\"setting\",\"title\":\"About this place\",\"text\":\"The museum occupies a villa at Museumpark 11. Consult the current exhibition programme before visiting.\",\"source_ids\":[\"source.rotterdamchabot\"]},{\"id\":\"hours\",\"title\":\"Opening hours\",\"text\":\"Tuesday–Saturday 11:00–17:00; Sunday 12:00–17:00. Closed on Mondays and public holidays.\",\"source_ids\":[\"source.rotterdamchabot\"]},{\"id\":\"prices\",\"title\":\"Tickets and prices\",\"text\":\"Adults: €12; students/CJP: €6; under 18: free. Consult the official page for pass and combination-ticket conditions.\",\"source_ids\":[\"source.rotterdamchabot\"]},{\"id\":\"access\",\"title\":\"Accessibility\",\"text\":\"There are steps at the entrance and a small lift. Ask the museum whether it suits your mobility needs.\",\"source_ids\":[\"source.rotterdamchabot\"]},{\"id\":\"restrictions\",\"title\":\"Check before travelling\",\"text\":\"Large bags go in the cloakroom; pushchairs are not allowed in the exhibition rooms. Purchased tickets cannot be exchanged or refunded.\",\"source_ids\":[\"source.rotterdamchabot\"]}]},\"nl\":{\"alt\":\"Chabot Museum van buiten — foto 2009\",\"blocks\":[{\"id\":\"setting\",\"title\":\"Over deze plek\",\"text\":\"Het museum is gevestigd in een villa aan Museumpark 11. Bekijk vóór je bezoek het actuele tentoonstellingsprogramma.\",\"source_ids\":[\"source.rotterdamchabot\"]},{\"id\":\"hours\",\"title\":\"Openingstijden\",\"text\":\"Dinsdag–zaterdag 11.00–17.00 uur; zondag 12.00–17.00 uur. Gesloten op maandag en feestdagen.\",\"source_ids\":[\"source.rotterdamchabot\"]},{\"id\":\"prices\",\"title\":\"Tickets en prijzen\",\"text\":\"Volwassenen: €12; studenten/CJP: €6; jonger dan 18: gratis. Bekijk de officiële pas- en combinaticketvoorwaarden.\",\"source_ids\":[\"source.rotterdamchabot\"]},{\"id\":\"access\",\"title\":\"Toegankelijkheid\",\"text\":\"Bij de ingang zijn treden en er is een kleine lift. Vraag het museum of deze bij jouw mobiliteitsbehoeften past.\",\"source_ids\":[\"source.rotterdamchabot\"]},{\"id\":\"restrictions\",\"title\":\"Controleer voor vertrek\",\"text\":\"Grote tassen moeten in de garderobe; kinderwagens mogen niet in de tentoonstellingsruimten. Gekochte tickets worden niet omgeruild of terugbetaald.\",\"source_ids\":[\"source.rotterdamchabot\"]}]}}}"
+      }
+    },
+    {
+      "id": "museum.den-haag-fotomuseum",
+      "entity_type": "museum",
+      "category": "photography",
+      "city_id": "den-haag",
+      "province_id": "zuid-holland",
+      "coordinates": {
+        "latitude": 52.0901313,
+        "longitude": 4.2794094
+      },
+      "title": "Fotomuseum Den Haag",
+      "description": "A photography museum at Stadhouderslaan with changing exhibitions. Check the current exhibition surcharge as well as the standard admission price.",
+      "images": [
+        {
+          "id": "media.museum.den-haag-fotomuseum.expansion-20261115",
+          "role": "hero",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:Fotomuseum_Den_Haag_DSCF3383.jpg",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/3/39/Fotomuseum_Den_Haag_DSCF3383.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "public_asset_path": "/images/place-review/expdenhaagfotomuseum-1200.webp",
+          "license": "CC BY 4.0",
+          "license_url": "https://creativecommons.org/licenses/by/4.0",
+          "attribution": "G.Lanting · 2017-09-20 03:19:01 · Archive photograph / Archieffoto · resized WebP; no content edits",
+          "verified": true,
+          "retrieved_at": "2026-11-15",
+          "alt": "Fotomuseum Den Haag exterior — photograph 2017"
+        }
+      ],
+      "official_source": {
+        "title": "Plan your visit | Fotomuseum Den Haag",
+        "publisher": "www.fotomuseumdenhaag.nl",
+        "url": "https://www.fotomuseumdenhaag.nl/en/plan-your-visit",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.fotomuseumdenhaag.nl/en/plan-your-visit",
+      "related_entity_ids": [
+        "nature.den-haag-westbroekpark",
+        "cafe.den-haag-kaafi"
+      ],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 7,
+      "verification_status": "needs_review",
+      "ai_summary": "A photography museum at Stadhouderslaan with changing exhibitions. Check the current exhibition surcharge as well as the standard admission price.",
+      "search_keywords": [
+        "Fotomuseum Den Haag",
+        "den-haag",
+        "photography",
+        "denhaagfotomuseum"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "slug": "den-haag-fotomuseum",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "description_nl": "Een fotografiemuseum aan de Stadhouderslaan met wisselende tentoonstellingen. Controleer naast de basisentree ook de actuele tentoonstellingstoeslag.",
+        "title_nl": "Fotomuseum Den Haag",
+        "field_review_status": "Source verification complete; human editorial approval pending",
+        "catalog_review_batch": "priority-cities-20261115",
+        "address": "Stadhouderslaan 43, 2517 HV Den Haag",
+        "address_source_url": "https://www.fotomuseumdenhaag.nl/en/plan-your-visit",
+        "address_checked_at": "2026-11-15",
+        "media_status": "licensed archive photograph visually checked; publication approval pending",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-15\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.fotomuseumvisit\",\"title\":\"Plan your visit | Fotomuseum Den Haag\",\"publisher\":\"www.fotomuseumdenhaag.nl\",\"url\":\"https://www.fotomuseumdenhaag.nl/en/plan-your-visit\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.denhaagfotomuseum\",\"title\":\"Contact | Fotomuseum Den Haag\",\"publisher\":\"www.fotomuseumdenhaag.nl\",\"url\":\"https://www.fotomuseumdenhaag.nl/en/contact\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://www.fotomuseumdenhaag.nl/en/contact\",\"method\":\"Official tourism location map point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.0901313,4.2794094\"},\"tickets\":{\"url\":\"https://www.fotomuseumdenhaag.nl/en/plan-your-visit\",\"sourceId\":\"source.fotomuseumvisit\"},\"locales\":{\"en\":{\"alt\":\"Fotomuseum Den Haag exterior — photograph 2017\",\"blocks\":[{\"id\":\"setting\",\"title\":\"About this place\",\"text\":\"Choose your visit from the current photography programme; exhibition dates and admission conditions are linked on the museum website.\",\"source_ids\":[\"source.fotomuseumvisit\"]},{\"id\":\"hours\",\"title\":\"Opening hours\",\"text\":\"Tuesday–Sunday 11:00–17:00; normally closed Monday. Holiday exceptions are listed separately.\",\"source_ids\":[\"source.fotomuseumvisit\"]},{\"id\":\"prices\",\"title\":\"Tickets and prices\",\"text\":\"Standard adult admission is €16, plus a €2.50 surcharge for Eva Besnyö through 31 January 2027: €18.50 in total for this category.\",\"source_ids\":[\"source.fotomuseumvisit\"]},{\"id\":\"tickets\",\"title\":\"Tickets\",\"text\":\"Discount and pass categories have different surcharges. Select your own category; free base admission does not always waive the exhibition surcharge.\",\"source_ids\":[\"source.fotomuseumvisit\"]},{\"id\":\"arrival\",\"title\":\"Arrival\",\"text\":\"Use Stadhouderslaan 43 for the museum. Check current transport information rather than relying on dated roadworks notices.\",\"source_ids\":[\"source.denhaagfotomuseum\"]}]},\"nl\":{\"alt\":\"Fotomuseum Den Haag van buiten — foto 2017\",\"blocks\":[{\"id\":\"setting\",\"title\":\"Over deze plek\",\"text\":\"Kies je bezoek aan de hand van het actuele fotografieprogramma; de museumsite verwijst naar tentoonstellingsdata en toegangsvoorwaarden.\",\"source_ids\":[\"source.fotomuseumvisit\"]},{\"id\":\"hours\",\"title\":\"Openingstijden\",\"text\":\"Dinsdag–zondag 11.00–17.00 uur; normaal gesloten op maandag. Feestdaguitzonderingen worden apart vermeld.\",\"source_ids\":[\"source.fotomuseumvisit\"]},{\"id\":\"prices\",\"title\":\"Tickets en prijzen\",\"text\":\"De gewone volwassenentree is €16, met tot en met 31 januari 2027 €2,50 toeslag voor Eva Besnyö: voor deze categorie totaal €18,50.\",\"source_ids\":[\"source.fotomuseumvisit\"]},{\"id\":\"tickets\",\"title\":\"Tickets\",\"text\":\"Kortings- en pashouderscategorieën hebben verschillende toeslagen. Kies je eigen categorie; gratis basisentree betekent niet altijd vrijstelling van de tentoonstellingstoeslag.\",\"source_ids\":[\"source.fotomuseumvisit\"]},{\"id\":\"arrival\",\"title\":\"Aankomst\",\"text\":\"Gebruik Stadhouderslaan 43 voor het museum. Raadpleeg actuele vervoersinformatie in plaats van gedateerde berichten over wegwerkzaamheden.\",\"source_ids\":[\"source.denhaagfotomuseum\"]}]}}}"
+      }
+    },
+    {
+      "id": "museum.eindhoven-inkijkmuseum",
+      "entity_type": "museum",
+      "category": "art",
+      "city_id": "eindhoven",
+      "province_id": "noord-brabant",
+      "coordinates": {
+        "latitude": 51.4415907,
+        "longitude": 5.4844886999999
+      },
+      "title": "Inkijkmuseum",
+      "description": "A tiny museum beside the Dommel that invites you to look through its windows. Window viewing and organised visits are different experiences.",
+      "images": [
+        {
+          "id": "media.museum.eindhoven-inkijkmuseum.expansion-20261115",
+          "role": "hero",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:Inkijkmuseum_-_Eindhoven_(2026-09-18).jpg",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/d/db/Inkijkmuseum_-_Eindhoven_%282026-09-18%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "public_asset_path": "/images/place-review/expeindhoveninkijkmuseum-1200.webp",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "attribution": "Sneeuwvlakte · 2026-09-18 11:25:21 · Archive photograph / Archieffoto · resized WebP; no content edits",
+          "verified": true,
+          "retrieved_at": "2026-11-15",
+          "alt": "Inkijkmuseum exterior — photograph 2026"
+        }
+      ],
+      "official_source": {
+        "title": "Inkijkmuseum Eindhoven | This is Eindhoven",
+        "publisher": "www.thisiseindhoven.com",
+        "url": "https://www.thisiseindhoven.com/nl/locaties/inkijkmuseum",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.thisiseindhoven.com/nl/locaties/inkijkmuseum",
+      "related_entity_ids": [
+        "restaurant.eindhoven-kazerne",
+        "city.eindhoven"
+      ],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 7,
+      "verification_status": "needs_review",
+      "ai_summary": "A tiny museum beside the Dommel that invites you to look through its windows. Window viewing and organised visits are different experiences.",
+      "search_keywords": [
+        "Inkijkmuseum",
+        "eindhoven",
+        "art",
+        "eindhoveninkijkmuseum"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "slug": "eindhoven-inkijkmuseum",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "description_nl": "Een klein museum aan de Dommel waar je door de ramen naar binnen kijkt. Kijken vanaf buiten en een georganiseerd bezoek zijn verschillende ervaringen.",
+        "title_nl": "Inkijkmuseum",
+        "field_review_status": "Source verification complete; human editorial approval pending",
+        "catalog_review_batch": "priority-cities-20261115",
+        "address": "Dommelstraat 2A, 5611 CK Eindhoven",
+        "address_source_url": "https://www.thisiseindhoven.com/nl/locaties/inkijkmuseum",
+        "address_checked_at": "2026-11-15",
+        "media_status": "licensed archive photograph visually checked; publication approval pending",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-15\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.eindhoveninkijkmuseum\",\"title\":\"Inkijkmuseum Eindhoven | This is Eindhoven\",\"publisher\":\"www.thisiseindhoven.com\",\"url\":\"https://www.thisiseindhoven.com/nl/locaties/inkijkmuseum\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://www.thisiseindhoven.com/nl/locaties/inkijkmuseum\",\"method\":\"Official tourism location map point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=51.4415907,5.4844886999999\"},\"tickets\":null,\"locales\":{\"en\":{\"alt\":\"Inkijkmuseum exterior — photograph 2026\",\"blocks\":[{\"id\":\"setting\",\"title\":\"About this place\",\"text\":\"The small building presents art through its windows; it is a distinctive stop near Eindhoven’s centre.\",\"source_ids\":[\"source.eindhoveninkijkmuseum\"]},{\"id\":\"hours\",\"title\":\"Opening hours\",\"text\":\"The tourism office describes window viewing as available 24 hours a day. This does not mean the interior is always open.\",\"source_ids\":[\"source.eindhoveninkijkmuseum\"]},{\"id\":\"visit\",\"title\":\"Plan your visit\",\"text\":\"For an organised visit or activity, follow the museum link on the official tourism page and check the arrangements.\",\"source_ids\":[\"source.eindhoveninkijkmuseum\"]},{\"id\":\"address\",\"title\":\"Location\",\"text\":\"Find the museum at Dommelstraat 2A, beside the river. The map point is for orientation, not a surveyed accessible entrance.\",\"source_ids\":[\"source.eindhoveninkijkmuseum\"]},{\"id\":\"plan\",\"title\":\"Before you go\",\"text\":\"Expect a small-scale stop. Check current activities before making a special journey for an indoor visit.\",\"source_ids\":[\"source.eindhoveninkijkmuseum\"]}]},\"nl\":{\"alt\":\"Inkijkmuseum van buiten — foto 2026\",\"blocks\":[{\"id\":\"setting\",\"title\":\"Over deze plek\",\"text\":\"Het kleine gebouw toont kunst door de ramen; een bijzondere halte bij het centrum van Eindhoven.\",\"source_ids\":[\"source.eindhoveninkijkmuseum\"]},{\"id\":\"hours\",\"title\":\"Openingstijden\",\"text\":\"Het toeristenbureau beschrijft kijken door de ramen als 24 uur per dag mogelijk. Dat betekent niet dat het interieur altijd open is.\",\"source_ids\":[\"source.eindhoveninkijkmuseum\"]},{\"id\":\"visit\",\"title\":\"Plan je bezoek\",\"text\":\"Volg voor een georganiseerd bezoek of activiteit de museumlink op de officiële toerismepagina en controleer de afspraken.\",\"source_ids\":[\"source.eindhoveninkijkmuseum\"]},{\"id\":\"address\",\"title\":\"Locatie\",\"text\":\"Het museum ligt aan Dommelstraat 2A, naast de rivier. De kaartmarkering is voor oriëntatie, niet voor een ingemeten toegankelijke ingang.\",\"source_ids\":[\"source.eindhoveninkijkmuseum\"]},{\"id\":\"plan\",\"title\":\"Voor vertrek\",\"text\":\"Verwacht een kleinschalige halte. Controleer actuele activiteiten voordat je speciaal voor een binnenbezoek reist.\",\"source_ids\":[\"source.eindhoveninkijkmuseum\"]}]}}}"
+      }
+    },
+    {
+      "id": "cafe.den-haag-kaafi",
+      "entity_type": "cafe",
+      "category": "cafe",
+      "city_id": "den-haag",
+      "province_id": "zuid-holland",
+      "coordinates": {
+        "latitude": 52.0787054,
+        "longitude": 4.3061901
+      },
+      "title": "Kaafi",
+      "description": "A daytime café on Prinsestraat serving coffee and brunch dishes. The kitchen closes an hour before the café.",
+      "images": [],
+      "official_source": {
+        "title": "Find Us / Get In Touch — Kaafi",
+        "publisher": "kaafi.nl",
+        "url": "https://kaafi.nl/contact-us",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://kaafi.nl/contact-us",
+      "related_entity_ids": [
+        "hotel.den-haag-collector",
+        "museum.den-haag-fotomuseum"
+      ],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 7,
+      "verification_status": "needs_review",
+      "ai_summary": "A daytime café on Prinsestraat serving coffee and brunch dishes. The kitchen closes an hour before the café.",
+      "search_keywords": [
+        "Kaafi",
+        "den-haag",
+        "cafe",
+        "denhaagkaafi"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "slug": "den-haag-kaafi",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "description_nl": "Een dagcafé aan de Prinsestraat met koffie en brunchgerechten. De keuken sluit een uur eerder dan het café.",
+        "title_nl": "Kaafi",
+        "field_review_status": "Source verification complete; human editorial approval pending",
+        "catalog_review_batch": "priority-cities-20261115",
+        "address": "Prinsestraat 25, 2513 CA Den Haag",
+        "address_source_url": "https://kaafi.nl/contact-us",
+        "address_checked_at": "2026-11-15",
+        "media_status": "No suitable licensed photograph confirmed; no substitute image used",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-15\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.denhaagkaafi\",\"title\":\"Find Us / Get In Touch — Kaafi\",\"publisher\":\"kaafi.nl\",\"url\":\"https://kaafi.nl/contact-us\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.kaafikitchen\",\"title\":\"Brunch in The Hague — Kaafi\",\"publisher\":\"kaafi.nl\",\"url\":\"https://kaafi.nl/breakfast-brunch-and-lunch-in-the-hague\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.pdok\",\"title\":\"BAG address coordinate: Prinsestraat 25, 2513CA 's-Gravenhage\",\"publisher\":\"PDOK / Kadaster\",\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Prinsestraat+25+Den+Haag&fq=type%3Aadres&rows=3\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Prinsestraat+25+Den+Haag&fq=type%3Aadres&rows=3\",\"method\":\"BAG address point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.0787054,4.3061901\"},\"tickets\":null,\"locales\":{\"en\":{\"alt\":\"\",\"blocks\":[{\"id\":\"setting\",\"title\":\"About this place\",\"text\":\"The menu combines brunch dishes such as Turkish eggs, pancakes and chicken with waffles.\",\"source_ids\":[\"source.kaafikitchen\"]},{\"id\":\"hours\",\"title\":\"Opening hours\",\"text\":\"Open seven days a week 10:00–16:00; the kitchen closes at 15:00.\",\"source_ids\":[\"source.denhaagkaafi\"]},{\"id\":\"prices\",\"title\":\"Tickets and prices\",\"text\":\"The opened kitchen page lists dishes without prices. Check the current menu with the café before ordering.\",\"source_ids\":[\"source.kaafikitchen\"]},{\"id\":\"restrictions\",\"title\":\"Check before travelling\",\"text\":\"Falafel and samosas are marked vegan on the menu. Ask staff about allergens and any changes; this is not an allergy-free guarantee.\",\"source_ids\":[\"source.kaafikitchen\"]},{\"id\":\"address\",\"title\":\"Location\",\"text\":\"The public business address is Prinsestraat 25. Use the official contact page for visit questions.\",\"source_ids\":[\"source.denhaagkaafi\"]}]},\"nl\":{\"alt\":\"\",\"blocks\":[{\"id\":\"setting\",\"title\":\"Over deze plek\",\"text\":\"De kaart combineert brunchgerechten zoals Turkse eieren, pannenkoeken en kip met wafels.\",\"source_ids\":[\"source.kaafikitchen\"]},{\"id\":\"hours\",\"title\":\"Openingstijden\",\"text\":\"Zeven dagen per week open van 10.00–16.00 uur; de keuken sluit om 15.00 uur.\",\"source_ids\":[\"source.denhaagkaafi\"]},{\"id\":\"prices\",\"title\":\"Tickets en prijzen\",\"text\":\"De geopende keukenpagina noemt gerechten zonder prijzen. Controleer vóór bestellen de actuele kaart bij het café.\",\"source_ids\":[\"source.kaafikitchen\"]},{\"id\":\"restrictions\",\"title\":\"Controleer voor vertrek\",\"text\":\"Falafel en samosa’s staan als vegan op de kaart. Vraag naar allergenen en wijzigingen; dit is geen garantie voor allergeenvrije bereiding.\",\"source_ids\":[\"source.kaafikitchen\"]},{\"id\":\"address\",\"title\":\"Locatie\",\"text\":\"Het openbare bedrijfsadres is Prinsestraat 25. Gebruik de officiële contactpagina voor bezoekvragen.\",\"source_ids\":[\"source.denhaagkaafi\"]}]}}}"
+      }
+    },
+    {
+      "id": "restaurant.eindhoven-kazerne",
+      "entity_type": "restaurant",
+      "category": "restaurant",
+      "city_id": "eindhoven",
+      "province_id": "noord-brabant",
+      "coordinates": {
+        "latitude": 51.4360392,
+        "longitude": 5.4773741
+      },
+      "title": "Kazerne BarBistro",
+      "description": "A bar-bistro within Eindhoven’s Kazerne design setting. Evening dining and the daytime offering have different schedules.",
+      "images": [],
+      "official_source": {
+        "title": "Food & Drinks bij Kazerne | ByDay café & BarBistro Eindhoven",
+        "publisher": "www.kazerne.com",
+        "url": "https://www.kazerne.com/bar-bistro-kazerne",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.kazerne.com/bar-bistro-kazerne",
+      "related_entity_ids": [
+        "museum.eindhoven-inkijkmuseum",
+        "city.eindhoven"
+      ],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 7,
+      "verification_status": "needs_review",
+      "ai_summary": "A bar-bistro within Eindhoven’s Kazerne design setting. Evening dining and the daytime offering have different schedules.",
+      "search_keywords": [
+        "Kazerne BarBistro",
+        "eindhoven",
+        "restaurant",
+        "eindhovenkazerne"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "slug": "eindhoven-kazerne",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "description_nl": "Een bar-bistro in de designomgeving van Kazerne in Eindhoven. Avondeten en het dagaanbod hebben verschillende openingstijden.",
+        "title_nl": "Kazerne BarBistro",
+        "field_review_status": "Source verification complete; human editorial approval pending",
+        "catalog_review_batch": "priority-cities-20261115",
+        "address": "Paradijslaan 2–8, 5611 KN Eindhoven",
+        "address_source_url": "https://www.kazerne.com/bar-bistro-kazerne",
+        "address_checked_at": "2026-11-15",
+        "media_status": "No suitable licensed photograph confirmed; no substitute image used",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-15\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.eindhovenkazerne\",\"title\":\"Food & Drinks bij Kazerne | ByDay café & BarBistro Eindhoven\",\"publisher\":\"www.kazerne.com\",\"url\":\"https://www.kazerne.com/bar-bistro-kazerne\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.pdok\",\"title\":\"BAG address coordinate: Paradijslaan 2, 5611KN Eindhoven\",\"publisher\":\"PDOK / Kadaster\",\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Paradijslaan+2+Eindhoven&fq=type%3Aadres&rows=3\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Paradijslaan+2+Eindhoven&fq=type%3Aadres&rows=3\",\"method\":\"BAG address point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=51.4360392,5.4773741\"},\"tickets\":null,\"locales\":{\"en\":{\"alt\":\"\",\"blocks\":[{\"id\":\"setting\",\"title\":\"About this place\",\"text\":\"Kazerne combines dining with a design environment. Check the current programme and menu for your visit.\",\"source_ids\":[\"source.eindhovenkazerne\"]},{\"id\":\"hours\",\"title\":\"Opening hours\",\"text\":\"BarBistro is listed Monday–Saturday from 17:00. ByDay is listed daily 07:30–17:00; it is a separate daytime offering.\",\"source_ids\":[\"source.eindhovenkazerne\"]},{\"id\":\"prices\",\"title\":\"Tickets and prices\",\"text\":\"Follow the menu link on the official BarBistro page for dishes and current prices; no fixed meal budget is promised here.\",\"source_ids\":[\"source.eindhovenkazerne\"]},{\"id\":\"book\",\"title\":\"Booking\",\"text\":\"Use the reservation route on the official page and confirm the venue, date and arrival time.\",\"source_ids\":[\"source.eindhovenkazerne\"]},{\"id\":\"restrictions\",\"title\":\"Check before travelling\",\"text\":\"Discuss dietary requirements with the restaurant before booking. The daytime and evening menus should not be treated as interchangeable.\",\"source_ids\":[\"source.eindhovenkazerne\"]}]},\"nl\":{\"alt\":\"\",\"blocks\":[{\"id\":\"setting\",\"title\":\"Over deze plek\",\"text\":\"Kazerne combineert eten met een designomgeving. Bekijk het actuele programma en menu voor je bezoek.\",\"source_ids\":[\"source.eindhovenkazerne\"]},{\"id\":\"hours\",\"title\":\"Openingstijden\",\"text\":\"BarBistro staat vermeld voor maandag–zaterdag vanaf 17.00 uur. ByDay is dagelijks 07.30–17.00 uur open en is een afzonderlijk dagaanbod.\",\"source_ids\":[\"source.eindhovenkazerne\"]},{\"id\":\"prices\",\"title\":\"Tickets en prijzen\",\"text\":\"Volg de menulink op de officiële BarBistro-pagina voor gerechten en actuele prijzen; hier wordt geen vast maaltijdtarief beloofd.\",\"source_ids\":[\"source.eindhovenkazerne\"]},{\"id\":\"book\",\"title\":\"Boeken\",\"text\":\"Gebruik de reserveringsroute op de officiële pagina en bevestig locatie, datum en aankomsttijd.\",\"source_ids\":[\"source.eindhovenkazerne\"]},{\"id\":\"restrictions\",\"title\":\"Controleer voor vertrek\",\"text\":\"Bespreek dieetwensen vóór reserveren met het restaurant. De dag- en avondkaart zijn niet zonder meer uitwisselbaar.\",\"source_ids\":[\"source.eindhovenkazerne\"]}]}}}"
+      }
+    },
+    {
+      "id": "cafe.utrecht-koffie-leute",
+      "entity_type": "cafe",
+      "category": "coffee",
+      "city_id": "utrecht",
+      "province_id": "utrecht",
+      "coordinates": {
+        "latitude": 52.0794752,
+        "longitude": 5.1225502
+      },
+      "title": "Koffie Leute",
+      "description": "Coffee, all-day brunch and homemade cakes on Westerkade, alongside a small record shop. Drop in: the café does not take reservations.",
+      "images": [],
+      "official_source": {
+        "title": "Koffie Leute - Een warm welkom en altijd chill.",
+        "publisher": "www.koffieleute.nl",
+        "url": "https://www.koffieleute.nl/",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.koffieleute.nl/",
+      "related_entity_ids": [
+        "museum.utrecht-sonnenborgh",
+        "place.utrecht-neude"
+      ],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 7,
+      "verification_status": "needs_review",
+      "ai_summary": "Coffee, all-day brunch and homemade cakes on Westerkade, alongside a small record shop. Drop in: the café does not take reservations.",
+      "search_keywords": [
+        "Koffie Leute",
+        "utrecht",
+        "coffee",
+        "utrechtkoffieleute"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "slug": "utrecht-koffie-leute",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "description_nl": "Koffie, brunch de hele dag en huisgemaakt gebak aan de Westerkade, naast een kleine platenwinkel. Loop binnen: het café neemt geen reserveringen aan.",
+        "title_nl": "Koffie Leute",
+        "field_review_status": "Source verification complete; human editorial approval pending",
+        "catalog_review_batch": "priority-cities-20261115",
+        "address": "Westerkade 30, 3511 HC Utrecht",
+        "address_source_url": "https://www.koffieleute.nl/",
+        "address_checked_at": "2026-11-15",
+        "media_status": "No suitable licensed photograph confirmed; no substitute image used",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-15\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.utrechtkoffieleute\",\"title\":\"Koffie Leute - Een warm welkom en altijd chill.\",\"publisher\":\"www.koffieleute.nl\",\"url\":\"https://www.koffieleute.nl/\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://www.koffieleute.nl/\",\"method\":\"Official tourism location map point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.0794752,5.1225502\"},\"tickets\":null,\"locales\":{\"en\":{\"alt\":\"\",\"blocks\":[{\"id\":\"setting\",\"title\":\"About this place\",\"text\":\"The café combines coffee and food with records, cassettes and a shop.\",\"source_ids\":[\"source.utrechtkoffieleute\"]},{\"id\":\"hours\",\"title\":\"Opening hours\",\"text\":\"Monday–Friday 08:00–17:00; Saturday–Sunday 10:00–17:00.\",\"source_ids\":[\"source.utrechtkoffieleute\"]},{\"id\":\"book\",\"title\":\"Booking\",\"text\":\"The official site says no reservations. A place at a table is therefore not guaranteed.\",\"source_ids\":[\"source.utrechtkoffieleute\"]},{\"id\":\"prices\",\"title\":\"Tickets and prices\",\"text\":\"The online menu lists dishes but no prices. Check the current café menu before ordering.\",\"source_ids\":[\"source.utrechtkoffieleute\"]},{\"id\":\"restrictions\",\"title\":\"Check before travelling\",\"text\":\"Vegan options are marked on the menu. Tell staff about allergies so they can discuss what is suitable.\",\"source_ids\":[\"source.utrechtkoffieleute\"]}]},\"nl\":{\"alt\":\"\",\"blocks\":[{\"id\":\"setting\",\"title\":\"Over deze plek\",\"text\":\"Het café combineert koffie en eten met platen, cassettes en een winkel.\",\"source_ids\":[\"source.utrechtkoffieleute\"]},{\"id\":\"hours\",\"title\":\"Openingstijden\",\"text\":\"Maandag–vrijdag 08.00–17.00 uur; zaterdag–zondag 10.00–17.00 uur.\",\"source_ids\":[\"source.utrechtkoffieleute\"]},{\"id\":\"book\",\"title\":\"Boeken\",\"text\":\"De officiële site vermeldt geen reserveringen. Een plek aan tafel is dus niet gegarandeerd.\",\"source_ids\":[\"source.utrechtkoffieleute\"]},{\"id\":\"prices\",\"title\":\"Tickets en prijzen\",\"text\":\"De online kaart noemt gerechten maar geen prijzen. Bekijk vóór bestellen de actuele kaart in het café.\",\"source_ids\":[\"source.utrechtkoffieleute\"]},{\"id\":\"restrictions\",\"title\":\"Controleer voor vertrek\",\"text\":\"Vegan opties zijn gemarkeerd op de kaart. Meld allergieën zodat medewerkers kunnen bespreken wat geschikt is.\",\"source_ids\":[\"source.utrechtkoffieleute\"]}]}}}"
+      }
+    },
+    {
+      "id": "nature.utrecht-oog-in-al",
+      "entity_type": "nature",
+      "category": "city-park",
+      "city_id": "utrecht",
+      "province_id": "utrecht",
+      "coordinates": {
+        "latitude": 52.086849,
+        "longitude": 5.09231
+      },
+      "title": "Park Oog in Al",
+      "description": "A former country estate turned public park in western Utrecht, with water, a historic pavilion and a playground.",
+      "images": [
+        {
+          "id": "media.nature.utrecht-oog-in-al.expansion-20261115",
+          "role": "hero",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:Bruggetje_-_panoramio_-_Marcel030NL.jpg",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Bruggetje_-_panoramio_-_Marcel030NL.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "public_asset_path": "/images/place-review/exputrechtooginal-1200.webp",
+          "license": "CC BY-SA 3.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+          "attribution": "Marcel030NL · Taken on 8 November 2003 · Archive photograph / Archieffoto · resized WebP; no content edits",
+          "verified": true,
+          "retrieved_at": "2026-11-15",
+          "alt": "A bridge in Park Oog in Al — photograph 2003"
+        }
+      ],
+      "official_source": {
+        "title": "Park Oog in Al | Ontdek Utrecht",
+        "publisher": "www.ontdek-utrecht.nl",
+        "url": "https://www.ontdek-utrecht.nl/locatie/park-oog-in-al/",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.ontdek-utrecht.nl/locatie/park-oog-in-al/",
+      "related_entity_ids": [
+        "place.utrecht-neude",
+        "hotel.utrecht-nox"
+      ],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "A former country estate turned public park in western Utrecht, with water, a historic pavilion and a playground.",
+      "search_keywords": [
+        "Park Oog in Al",
+        "utrecht",
+        "city-park",
+        "utrechtooginal"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "slug": "utrecht-oog-in-al",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "description_nl": "Een voormalig landgoed dat veranderde in een openbaar park in Utrecht-West, met water, een historisch paviljoen en een speeltuin.",
+        "title_nl": "Park Oog in Al",
+        "field_review_status": "Source verification complete; human editorial approval pending",
+        "catalog_review_batch": "priority-cities-20261115",
+        "address": "Park Oog in Al, Utrecht",
+        "address_source_url": "https://www.ontdek-utrecht.nl/locatie/park-oog-in-al/",
+        "address_checked_at": "2026-11-15",
+        "media_status": "licensed archive photograph visually checked; publication approval pending",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-15\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.utrechtooginal\",\"title\":\"Park Oog in Al | Ontdek Utrecht\",\"publisher\":\"www.ontdek-utrecht.nl\",\"url\":\"https://www.ontdek-utrecht.nl/locatie/park-oog-in-al/\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://www.ontdek-utrecht.nl/locatie/park-oog-in-al/\",\"method\":\"Official tourism location map point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.086849,5.09231\"},\"tickets\":null,\"locales\":{\"en\":{\"alt\":\"A bridge in Park Oog in Al — photograph 2003\",\"blocks\":[{\"id\":\"history\",\"title\":\"Background\",\"text\":\"The estate became a city park in 1920. Historic features remain among its lawns and paths.\",\"source_ids\":[\"source.utrechtooginal\"]},{\"id\":\"features\",\"title\":\"What to look for\",\"text\":\"The tourism page highlights the tea pavilion, animal enclosure and traces of a Second World War bunker.\",\"source_ids\":[\"source.utrechtooginal\"]},{\"id\":\"family\",\"title\":\"With children\",\"text\":\"There is a playground and sandpit. Check the condition of play equipment and local signs when you arrive.\",\"source_ids\":[\"source.utrechtooginal\"]},{\"id\":\"hours\",\"title\":\"Opening hours\",\"text\":\"The location page does not publish precise park opening hours. Check signs locally and confirm any planned café visit separately.\",\"source_ids\":[\"source.utrechtooginal\"]},{\"id\":\"visit\",\"title\":\"Plan your visit\",\"text\":\"Use the official map point to approach the park; it does not certify a step-free route or entrance.\",\"source_ids\":[\"source.utrechtooginal\"]}]},\"nl\":{\"alt\":\"Een bruggetje in Park Oog in Al — foto 2003\",\"blocks\":[{\"id\":\"history\",\"title\":\"Achtergrond\",\"text\":\"Het landgoed werd in 1920 een stadspark. Tussen gazons en paden zijn historische elementen bewaard.\",\"source_ids\":[\"source.utrechtooginal\"]},{\"id\":\"features\",\"title\":\"Wat je kunt bekijken\",\"text\":\"De toerismepagina noemt het theepaviljoen, de dierenweide en resten van een bunker uit de Tweede Wereldoorlog.\",\"source_ids\":[\"source.utrechtooginal\"]},{\"id\":\"family\",\"title\":\"Met kinderen\",\"text\":\"Er zijn een speeltuin en zandbak. Controleer bij aankomst de staat van speeltoestellen en plaatselijke aanwijzingen.\",\"source_ids\":[\"source.utrechtooginal\"]},{\"id\":\"hours\",\"title\":\"Openingstijden\",\"text\":\"De locatiepagina publiceert geen exacte parkopeningstijden. Bekijk de borden ter plaatse en controleer een gepland cafébezoek apart.\",\"source_ids\":[\"source.utrechtooginal\"]},{\"id\":\"visit\",\"title\":\"Plan je bezoek\",\"text\":\"Gebruik de officiële kaartmarkering om het park te benaderen; die bevestigt geen drempelvrije route of ingang.\",\"source_ids\":[\"source.utrechtooginal\"]}]}}}"
+      }
+    },
+    {
+      "id": "museum.utrecht-sonnenborgh",
+      "entity_type": "museum",
+      "category": "science",
+      "city_id": "utrecht",
+      "province_id": "utrecht",
+      "coordinates": {
+        "latitude": 52.0854154,
+        "longitude": 5.1292829
+      },
+      "title": "Sonnenborgh museum & sterrenwacht",
+      "description": "Explore astronomy at Utrecht’s museum and observatory on a historic bastion. Daytime museum tickets and stargazing evenings have separate arrangements.",
+      "images": [
+        {
+          "id": "media.museum.utrecht-sonnenborgh.expansion-20261115",
+          "role": "hero",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:Sonnenborgh_Museum_%26_Sterrenwacht.jpg",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/2/22/Sonnenborgh_Museum_%26_Sterrenwacht.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "public_asset_path": "/images/place-review/exputrechtsonnenborgh-1200.webp",
+          "license": "CC BY-SA 3.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+          "attribution": "MPhernambucq · 11 September 2021 (according to Exif data) · Archive photograph / Archieffoto · resized WebP; no content edits",
+          "verified": true,
+          "retrieved_at": "2026-11-15",
+          "alt": "Brick vaults in the historic Sonnenborgh bastion — photograph 2021"
+        }
+      ],
+      "official_source": {
+        "title": "Sonnenborgh museum & sterrenwacht",
+        "publisher": "www.sonnenborgh.nl",
+        "url": "https://www.sonnenborgh.nl/english/address-contact-and-route",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.sonnenborgh.nl/english/address-contact-and-route",
+      "related_entity_ids": [
+        "place.utrecht-neude",
+        "cafe.utrecht-koffie-leute"
+      ],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 7,
+      "verification_status": "needs_review",
+      "ai_summary": "Explore astronomy at Utrecht’s museum and observatory on a historic bastion. Daytime museum tickets and stargazing evenings have separate arrangements.",
+      "search_keywords": [
+        "Sonnenborgh museum & sterrenwacht",
+        "utrecht",
+        "science",
+        "utrechtsonnenborgh"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "slug": "utrecht-sonnenborgh",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "description_nl": "Ontdek sterrenkunde in het Utrechtse museum en de sterrenwacht op een historisch bastion. Museumbezoek overdag en sterrenkijkavonden hebben aparte voorwaarden.",
+        "title_nl": "Sonnenborgh museum & sterrenwacht",
+        "field_review_status": "Source verification complete; human editorial approval pending",
+        "catalog_review_batch": "priority-cities-20261115",
+        "address": "Zonnenburg 2, 3512 NL Utrecht",
+        "address_source_url": "https://www.sonnenborgh.nl/english/address-contact-and-route",
+        "address_checked_at": "2026-11-15",
+        "media_status": "licensed archive photograph visually checked; publication approval pending",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-15\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.utrechtsonnenborgh\",\"title\":\"Sonnenborgh museum & sterrenwacht\",\"publisher\":\"www.sonnenborgh.nl\",\"url\":\"https://www.sonnenborgh.nl/english/address-contact-and-route\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.sonnenborghvisit\",\"title\":\"Bezoekersinformatie - Sonnenborgh museum & sterrenwacht\",\"publisher\":\"www.sonnenborgh.nl\",\"url\":\"https://www.sonnenborgh.nl/bezoekersinformatie\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.sonnenborghprices\",\"title\":\"Sonnenborgh museum & sterrenwacht\",\"publisher\":\"www.sonnenborgh.nl\",\"url\":\"https://www.sonnenborgh.nl/bezoekersinformatie/prijzen\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.pdok\",\"title\":\"BAG address coordinate: Zonnenburg 2, 3512NL Utrecht\",\"publisher\":\"PDOK / Kadaster\",\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Zonnenburg+2+Utrecht&fq=type%3Aadres&rows=3\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Zonnenburg+2+Utrecht&fq=type%3Aadres&rows=3\",\"method\":\"BAG address point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.0854154,5.1292829\"},\"tickets\":{\"url\":\"https://www.sonnenborgh.nl/bezoekersinformatie/prijzen\",\"sourceId\":\"source.sonnenborghprices\"},\"locales\":{\"en\":{\"alt\":\"Brick vaults in the historic Sonnenborgh bastion — photograph 2021\",\"blocks\":[{\"id\":\"setting\",\"title\":\"About this place\",\"text\":\"The entrance is reached from Zocherplantsoen, at the white building on the hill.\",\"source_ids\":[\"source.utrechtsonnenborgh\"]},{\"id\":\"hours\",\"title\":\"Opening hours\",\"text\":\"Tuesday–Friday 11:00–17:00; Saturday–Sunday 13:00–17:00. Check the separate holiday-closure list.\",\"source_ids\":[\"source.sonnenborghvisit\"]},{\"id\":\"prices\",\"title\":\"Tickets and prices\",\"text\":\"2026 museum entry: adults €13, ages 4–17 €8.50, students €10. A planetarium visit has a €5 supplement.\",\"source_ids\":[\"source.sonnenborghprices\"]},{\"id\":\"tickets\",\"title\":\"Tickets\",\"text\":\"Stargazing evenings require a separate online ticket. Museum discount cards are not valid for those evenings.\",\"source_ids\":[\"source.sonnenborghprices\"]},{\"id\":\"arrival\",\"title\":\"Arrival\",\"text\":\"Use Zonnenburg 2 for the museum address and the official directions for the approach through the park.\",\"source_ids\":[\"source.utrechtsonnenborgh\"]}]},\"nl\":{\"alt\":\"Bakstenen gewelven in het historische bastion Sonnenborgh — foto 2021\",\"blocks\":[{\"id\":\"setting\",\"title\":\"Over deze plek\",\"text\":\"De ingang is bereikbaar vanuit het Zocherplantsoen, bij het witte gebouw op de heuvel.\",\"source_ids\":[\"source.utrechtsonnenborgh\"]},{\"id\":\"hours\",\"title\":\"Openingstijden\",\"text\":\"Dinsdag–vrijdag 11.00–17.00 uur; zaterdag–zondag 13.00–17.00 uur. Bekijk de aparte lijst met feestdagensluitingen.\",\"source_ids\":[\"source.sonnenborghvisit\"]},{\"id\":\"prices\",\"title\":\"Tickets en prijzen\",\"text\":\"Museumentree 2026: volwassenen €13, 4–17 jaar €8,50, studenten €10. Voor het planetarium geldt €5 toeslag.\",\"source_ids\":[\"source.sonnenborghprices\"]},{\"id\":\"tickets\",\"title\":\"Tickets\",\"text\":\"Voor sterrenkijkavonden is een apart online ticket nodig. Museumkortingskaarten zijn op die avonden niet geldig.\",\"source_ids\":[\"source.sonnenborghprices\"]},{\"id\":\"arrival\",\"title\":\"Aankomst\",\"text\":\"Gebruik Zonnenburg 2 als museumadres en de officiële aanwijzingen voor de route door het park.\",\"source_ids\":[\"source.utrechtsonnenborgh\"]}]}}}"
+      }
+    },
+    {
+      "id": "hotel.rotterdam-supernova",
+      "entity_type": "hotel",
+      "category": "hotel",
+      "city_id": "rotterdam",
+      "province_id": "zuid-holland",
+      "coordinates": {
+        "latitude": 51.9164928,
+        "longitude": 4.4631285
+      },
+      "title": "Supernova Hotel",
+      "description": "A Rotterdam hotel with individually arranged rooms, a library lounge and local recommendations. Select the room type that matches your stay.",
+      "images": [],
+      "official_source": {
+        "title": "Supernova Hotel",
+        "publisher": "supernovahotel.nl",
+        "url": "https://supernovahotel.nl/en",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://supernovahotel.nl/en",
+      "related_entity_ids": [
+        "museum.rotterdam-chabot",
+        "city.rotterdam"
+      ],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 7,
+      "verification_status": "needs_review",
+      "ai_summary": "A Rotterdam hotel with individually arranged rooms, a library lounge and local recommendations. Select the room type that matches your stay.",
+      "search_keywords": [
+        "Supernova Hotel",
+        "rotterdam",
+        "hotel",
+        "rotterdamsupernova"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "slug": "rotterdam-supernova",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "description_nl": "Een Rotterdams hotel met verschillend ingerichte kamers, een bibliotheeklounge en lokale tips. Kies het kamertype dat bij je verblijf past.",
+        "title_nl": "Supernova Hotel",
+        "field_review_status": "Source verification complete; human editorial approval pending",
+        "catalog_review_batch": "priority-cities-20261115",
+        "address": "’s-Gravendijkwal 68, 3014 EG Rotterdam",
+        "address_source_url": "https://supernovahotel.nl/en",
+        "address_checked_at": "2026-11-15",
+        "media_status": "No suitable licensed photograph confirmed; no substitute image used",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-15\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.rotterdamsupernova\",\"title\":\"Supernova Hotel\",\"publisher\":\"supernovahotel.nl\",\"url\":\"https://supernovahotel.nl/en\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://supernovahotel.nl/en\",\"method\":\"Official tourism location map point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=51.9164928,4.4631285\"},\"tickets\":null,\"locales\":{\"en\":{\"alt\":\"\",\"blocks\":[{\"id\":\"rooms\",\"title\":\"Rooms\",\"text\":\"Room features vary: some categories offer a balcony, garden access or a record player. These are not universal room amenities.\",\"source_ids\":[\"source.rotterdamsupernova\"]},{\"id\":\"breakfast\",\"title\":\"Breakfast\",\"text\":\"The hotel offers a breakfast buffet with local products. Check whether breakfast is included in your selected rate.\",\"source_ids\":[\"source.rotterdamsupernova\"]},{\"id\":\"parking\",\"title\":\"Parking\",\"text\":\"The hotel explicitly states that it has no private parking. Check the current conditions of nearby public parking options.\",\"source_ids\":[\"source.rotterdamsupernova\"]},{\"id\":\"book\",\"title\":\"Booking\",\"text\":\"Use the hotel’s own booking link for dates, room capacity and cancellation conditions; no live room price is displayed here.\",\"source_ids\":[\"source.rotterdamsupernova\"]},{\"id\":\"address\",\"title\":\"Location\",\"text\":\"The hotel is at ’s-Gravendijkwal 68. Follow its official route information for arrival.\",\"source_ids\":[\"source.rotterdamsupernova\"]}]},\"nl\":{\"alt\":\"\",\"blocks\":[{\"id\":\"rooms\",\"title\":\"Kamers\",\"text\":\"Kamervoorzieningen verschillen: sommige categorieën hebben een balkon, tuintoegang of platenspeler. Dit geldt niet voor elke kamer.\",\"source_ids\":[\"source.rotterdamsupernova\"]},{\"id\":\"breakfast\",\"title\":\"Ontbijt\",\"text\":\"Het hotel biedt een ontbijtbuffet met lokale producten. Controleer of ontbijt bij je gekozen tarief is inbegrepen.\",\"source_ids\":[\"source.rotterdamsupernova\"]},{\"id\":\"parking\",\"title\":\"Parkeren\",\"text\":\"Het hotel vermeldt uitdrukkelijk dat het geen eigen parkeerplaats heeft. Controleer de actuele voorwaarden van openbare parkeermogelijkheden in de buurt.\",\"source_ids\":[\"source.rotterdamsupernova\"]},{\"id\":\"book\",\"title\":\"Boeken\",\"text\":\"Gebruik de eigen boekingslink van het hotel voor data, kamercapaciteit en annuleringsvoorwaarden; hier staat geen live kamerprijs.\",\"source_ids\":[\"source.rotterdamsupernova\"]},{\"id\":\"address\",\"title\":\"Locatie\",\"text\":\"Het hotel ligt aan de ’s-Gravendijkwal 68. Volg de officiële route-informatie voor je aankomst.\",\"source_ids\":[\"source.rotterdamsupernova\"]}]}}}"
+      }
+    },
+    {
+      "id": "hotel.den-haag-collector",
+      "entity_type": "hotel",
+      "category": "hotel",
+      "city_id": "den-haag",
+      "province_id": "zuid-holland",
+      "coordinates": {
+        "latitude": 52.0770521,
+        "longitude": 4.3095204
+      },
+      "title": "The Collector",
+      "description": "A boutique hotel in Haagsche Bluf with named room categories, including an accessible-room category. Confirm the details of your chosen room before booking.",
+      "images": [],
+      "official_source": {
+        "title": "Contact | The Collector Hotel The Hague",
+        "publisher": "www.thecollectorhotel.com",
+        "url": "https://www.thecollectorhotel.com/contact",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.thecollectorhotel.com/contact",
+      "related_entity_ids": [
+        "cafe.den-haag-kaafi",
+        "museum.den-haag-fotomuseum"
+      ],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 7,
+      "verification_status": "needs_review",
+      "ai_summary": "A boutique hotel in Haagsche Bluf with named room categories, including an accessible-room category. Confirm the details of your chosen room before booking.",
+      "search_keywords": [
+        "The Collector",
+        "den-haag",
+        "hotel",
+        "denhaagcollector"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "slug": "den-haag-collector",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "description_nl": "Een boetiekhotel in de Haagsche Bluf met benoemde kamertypen, waaronder een toegankelijke kamercategorie. Bevestig vóór boeken de details van je gekozen kamer.",
+        "title_nl": "The Collector",
+        "field_review_status": "Source verification complete; human editorial approval pending",
+        "catalog_review_batch": "priority-cities-20261115",
+        "address": "Haagsche Bluf 52, 2511 CP Den Haag",
+        "address_source_url": "https://www.thecollectorhotel.com/contact",
+        "address_checked_at": "2026-11-15",
+        "media_status": "No suitable licensed photograph confirmed; no substitute image used",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-15\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.denhaagcollector\",\"title\":\"Contact | The Collector Hotel The Hague\",\"publisher\":\"www.thecollectorhotel.com\",\"url\":\"https://www.thecollectorhotel.com/contact\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.collectorrooms\",\"title\":\"Our Unique Rooms | The Collector Hotel The Hague\",\"publisher\":\"www.thecollectorhotel.com\",\"url\":\"https://www.thecollectorhotel.com/rooms\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.collectorfaq\",\"title\":\"FAQ | The Collector The Hague | Good to Know\",\"publisher\":\"www.thecollectorhotel.com\",\"url\":\"https://www.thecollectorhotel.com/faq\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.pdok\",\"title\":\"BAG address coordinate: Haagsche Bluf 52, 2511CP 's-Gravenhage\",\"publisher\":\"PDOK / Kadaster\",\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Haagsche+Bluf+52+Den+Haag&fq=type%3Aadres&rows=3\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Haagsche+Bluf+52+Den+Haag&fq=type%3Aadres&rows=3\",\"method\":\"BAG address point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.0770521,4.3095204\"},\"tickets\":null,\"locales\":{\"en\":{\"alt\":\"\",\"blocks\":[{\"id\":\"rooms\",\"title\":\"Rooms\",\"text\":\"The room catalogue distinguishes compact doubles, twins, larger rooms and a two-floor loft. Layout and capacity depend on the category.\",\"source_ids\":[\"source.collectorrooms\"]},{\"id\":\"access\",\"title\":\"Accessibility\",\"text\":\"The Gallery Disability Access is listed as a separate room type. Ask the hotel about measurements and features that matter for your stay.\",\"source_ids\":[\"source.collectorrooms\"]},{\"id\":\"arrival\",\"title\":\"Arrival\",\"text\":\"Confirm check-in and check-out arrangements with the hotel before arrival; this card does not give an unverified arrival time.\",\"source_ids\":[\"source.collectorfaq\"]},{\"id\":\"book\",\"title\":\"Booking\",\"text\":\"Choose dates and a room through the official booking route, then check the rate’s payment and cancellation terms.\",\"source_ids\":[\"source.collectorrooms\"]},{\"id\":\"address\",\"title\":\"Location\",\"text\":\"The hotel’s public address is Haagsche Bluf 52. Use the contact page for arrival questions.\",\"source_ids\":[\"source.denhaagcollector\"]}]},\"nl\":{\"alt\":\"\",\"blocks\":[{\"id\":\"rooms\",\"title\":\"Kamers\",\"text\":\"Het kameraanbod onderscheidt compacte tweepersoonskamers, twin-kamers, grotere kamers en een loft met twee verdiepingen. Indeling en capaciteit hangen af van het type.\",\"source_ids\":[\"source.collectorrooms\"]},{\"id\":\"access\",\"title\":\"Toegankelijkheid\",\"text\":\"The Gallery Disability Access staat als apart kamertype vermeld. Vraag het hotel naar de afmetingen en voorzieningen die voor jouw verblijf belangrijk zijn.\",\"source_ids\":[\"source.collectorrooms\"]},{\"id\":\"arrival\",\"title\":\"Aankomst\",\"text\":\"Bevestig de in- en uitcheckafspraken vóór aankomst met het hotel; deze kaart noemt geen onbevestigde aankomsttijd.\",\"source_ids\":[\"source.collectorfaq\"]},{\"id\":\"book\",\"title\":\"Boeken\",\"text\":\"Kies data en een kamer via de officiële boekingsroute en controleer daarna de betaal- en annuleringsvoorwaarden van het tarief.\",\"source_ids\":[\"source.collectorrooms\"]},{\"id\":\"address\",\"title\":\"Locatie\",\"text\":\"Het openbare hoteladres is Haagsche Bluf 52. Gebruik de contactpagina voor vragen over aankomst.\",\"source_ids\":[\"source.denhaagcollector\"]}]}}}"
+      }
+    },
+    {
+      "id": "hotel.utrecht-nox",
+      "entity_type": "hotel",
+      "category": "hotel",
+      "city_id": "utrecht",
+      "province_id": "utrecht",
+      "coordinates": {
+        "latitude": 52.0922931,
+        "longitude": 5.1229616
+      },
+      "title": "The Nox Hotel Utrecht",
+      "description": "A hotel on Keistraat in central Utrecht, with limited bookable parking and clearly stated arrival arrangements. Room prices depend on dates and rate conditions.",
+      "images": [],
+      "official_source": {
+        "title": "Contact | The Nox Hotel Utrecht",
+        "publisher": "www.thenoxhotel.com",
+        "url": "https://www.thenoxhotel.com/en/contact",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.thenoxhotel.com/en/contact",
+      "related_entity_ids": [
+        "place.utrecht-neude",
+        "museum.utrecht-sonnenborgh"
+      ],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 7,
+      "verification_status": "needs_review",
+      "ai_summary": "A hotel on Keistraat in central Utrecht, with limited bookable parking and clearly stated arrival arrangements. Room prices depend on dates and rate conditions.",
+      "search_keywords": [
+        "The Nox Hotel Utrecht",
+        "utrecht",
+        "hotel",
+        "utrechtnox"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "slug": "utrecht-nox",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "description_nl": "Een hotel aan de Keistraat in de Utrechtse binnenstad, met beperkt reserveerbaar parkeren en duidelijke aankomstafspraken. Kamerprijzen hangen af van data en tariefvoorwaarden.",
+        "title_nl": "The Nox Hotel Utrecht",
+        "field_review_status": "Source verification complete; human editorial approval pending",
+        "catalog_review_batch": "priority-cities-20261115",
+        "address": "Keistraat 8, 3512 HV Utrecht",
+        "address_source_url": "https://www.thenoxhotel.com/en/contact",
+        "address_checked_at": "2026-11-15",
+        "media_status": "No suitable licensed photograph confirmed; no substitute image used",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-15\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.utrechtnox\",\"title\":\"Contact | The Nox Hotel Utrecht\",\"publisher\":\"www.thenoxhotel.com\",\"url\":\"https://www.thenoxhotel.com/en/contact\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.noxfaq\",\"title\":\"FAQ | The Nox Hotel Utrecht\",\"publisher\":\"www.thenoxhotel.com\",\"url\":\"https://www.thenoxhotel.com/en/faq\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.pdok\",\"title\":\"BAG address coordinate: Keistraat 8, 3512HV Utrecht\",\"publisher\":\"PDOK / Kadaster\",\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Keistraat+8+Utrecht&fq=type%3Aadres&rows=3\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Keistraat+8+Utrecht&fq=type%3Aadres&rows=3\",\"method\":\"BAG address point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.0922931,5.1229616\"},\"tickets\":null,\"locales\":{\"en\":{\"alt\":\"\",\"blocks\":[{\"id\":\"arrival\",\"title\":\"Arrival\",\"text\":\"Check-in is from 15:00 and check-out by 11:00. Earlier arrival and late departure require separate arrangements and may cost extra.\",\"source_ids\":[\"source.noxfaq\"]},{\"id\":\"parking\",\"title\":\"Parking\",\"text\":\"Limited spaces at Jansdam 1 must be reserved: €40 from 15:00 check-in to 11:00 check-out. Extra hours depend on availability and are charged separately.\",\"source_ids\":[\"source.noxfaq\"]},{\"id\":\"breakfast\",\"title\":\"Breakfast\",\"text\":\"Breakfast is served Monday–Friday 08:00–10:30 and weekends 08:30–10:30. Confirm whether it is included in your booking.\",\"source_ids\":[\"source.noxfaq\"]},{\"id\":\"restrictions\",\"title\":\"Check before travelling\",\"text\":\"The hotel is cashless and does not allow pets. Non-refundable rates have different cancellation conditions from flexible rates.\",\"source_ids\":[\"source.noxfaq\"]},{\"id\":\"address\",\"title\":\"Location\",\"text\":\"The hotel entrance address is Keistraat 8; parking uses a different address at Jansdam 1.\",\"source_ids\":[\"source.utrechtnox\"]}]},\"nl\":{\"alt\":\"\",\"blocks\":[{\"id\":\"arrival\",\"title\":\"Aankomst\",\"text\":\"Inchecken kan vanaf 15.00 uur; uitchecken vóór 11.00 uur. Eerder aankomen en later vertrekken vragen aparte afspraken en kunnen extra kosten.\",\"source_ids\":[\"source.noxfaq\"]},{\"id\":\"parking\",\"title\":\"Parkeren\",\"text\":\"Beperkte plaatsen aan Jansdam 1 moeten worden gereserveerd: €40 van inchecken om 15.00 tot uitchecken om 11.00 uur. Extra uren hangen af van beschikbaarheid en kosten apart.\",\"source_ids\":[\"source.noxfaq\"]},{\"id\":\"breakfast\",\"title\":\"Ontbijt\",\"text\":\"Ontbijt wordt geserveerd maandag–vrijdag 08.00–10.30 uur en in het weekend 08.30–10.30 uur. Controleer of het bij je boeking inbegrepen is.\",\"source_ids\":[\"source.noxfaq\"]},{\"id\":\"restrictions\",\"title\":\"Controleer voor vertrek\",\"text\":\"Het hotel is cashless en laat geen huisdieren toe. Niet-restitueerbare tarieven hebben andere annuleringsvoorwaarden dan flexibele tarieven.\",\"source_ids\":[\"source.noxfaq\"]},{\"id\":\"address\",\"title\":\"Locatie\",\"text\":\"Het hoteladres is Keistraat 8; voor parkeren geldt het andere adres Jansdam 1.\",\"source_ids\":[\"source.utrechtnox\"]}]}}}"
+      }
+    },
+    {
+      "id": "nature.rotterdam-trompenburg",
+      "entity_type": "nature",
+      "category": "botanical-garden",
+      "city_id": "rotterdam",
+      "province_id": "zuid-holland",
+      "coordinates": {
+        "latitude": 51.9182717,
+        "longitude": 4.5177961
+      },
+      "title": "Trompenburg Tuinen & Arboretum",
+      "description": "A botanical garden in Kralingen with trees, ponds and seasonal planting. Winter visiting hours are shorter than summer hours.",
+      "images": [
+        {
+          "id": "media.nature.rotterdam-trompenburg.expansion-20261115",
+          "role": "hero",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:Arboretum_Trompenburg_PICT0340.jpg",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Arboretum_Trompenburg_PICT0340.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "public_asset_path": "/images/place-review/exprotterdamtrompenburg-1200.webp",
+          "license": "CC BY-SA 3.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "attribution": "Opuntia · 2007-07-22 · Archive photograph / Archieffoto · resized WebP; no content edits",
+          "verified": true,
+          "retrieved_at": "2026-11-15",
+          "alt": "Garden planting and water at Trompenburg — photograph 2007"
+        }
+      ],
+      "official_source": {
+        "title": "Plan your visit - Trompenburg",
+        "publisher": "trompenburg.nl",
+        "url": "https://trompenburg.nl/plan-your-visit/",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://trompenburg.nl/plan-your-visit/",
+      "related_entity_ids": [
+        "museum.rotterdam-chabot",
+        "city.rotterdam"
+      ],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "A botanical garden in Kralingen with trees, ponds and seasonal planting. Winter visiting hours are shorter than summer hours.",
+      "search_keywords": [
+        "Trompenburg Tuinen & Arboretum",
+        "rotterdam",
+        "botanical-garden",
+        "rotterdamtrompenburg"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "slug": "rotterdam-trompenburg",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "description_nl": "Een botanische tuin in Kralingen met bomen, vijvers en seizoensbeplanting. In de winter zijn de openingstijden korter.",
+        "title_nl": "Trompenburg Tuinen & Arboretum",
+        "field_review_status": "Source verification complete; human editorial approval pending",
+        "catalog_review_batch": "priority-cities-20261115",
+        "address": "Honingerdijk 86, 3062 NX Rotterdam",
+        "address_source_url": "https://trompenburg.nl/plan-your-visit/",
+        "address_checked_at": "2026-11-15",
+        "media_status": "licensed archive photograph visually checked; publication approval pending",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-15\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.rotterdamtrompenburg\",\"title\":\"Plan your visit - Trompenburg\",\"publisher\":\"trompenburg.nl\",\"url\":\"https://trompenburg.nl/plan-your-visit/\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.pdok\",\"title\":\"BAG address coordinate: Honingerdijk 86, 3062NX Rotterdam\",\"publisher\":\"PDOK / Kadaster\",\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Honingerdijk+86+Rotterdam&fq=type%3Aadres&rows=3\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Honingerdijk+86+Rotterdam&fq=type%3Aadres&rows=3\",\"method\":\"BAG address point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=51.9182717,4.5177961\"},\"tickets\":{\"url\":\"https://trompenburg.nl/plan-your-visit/\",\"sourceId\":\"source.rotterdamtrompenburg\"},\"locales\":{\"en\":{\"alt\":\"Garden planting and water at Trompenburg — photograph 2007\",\"blocks\":[{\"id\":\"setting\",\"title\":\"About this place\",\"text\":\"Explore the connected gardens and collections of trees and plants.\",\"source_ids\":[\"source.rotterdamtrompenburg\"]},{\"id\":\"hours\",\"title\":\"Opening hours\",\"text\":\"November–February: Monday 12:00–16:00, Tuesday–Sunday 10:00–16:00. Check seasonal closures before travel.\",\"source_ids\":[\"source.rotterdamtrompenburg\"]},{\"id\":\"prices\",\"title\":\"Tickets and prices\",\"text\":\"Adults €12.50; ages 13–25 €6.50; ages 5–12 €2.50; under 5 free. Card payments only.\",\"source_ids\":[\"source.rotterdamtrompenburg\"]},{\"id\":\"access\",\"title\":\"Accessibility\",\"text\":\"The garden describes itself as wheelchair friendly. Ask about your particular needs.\",\"source_ids\":[\"source.rotterdamtrompenburg\"]},{\"id\":\"restrictions\",\"title\":\"Check before travelling\",\"text\":\"Pets are not allowed; the garden lists an exception for guide dogs. Confirm other assistance-dog arrangements directly.\",\"source_ids\":[\"source.rotterdamtrompenburg\"]}]},\"nl\":{\"alt\":\"Beplanting en water in Trompenburg — foto 2007\",\"blocks\":[{\"id\":\"setting\",\"title\":\"Over deze plek\",\"text\":\"Ontdek de verbonden tuinen en collecties bomen en planten.\",\"source_ids\":[\"source.rotterdamtrompenburg\"]},{\"id\":\"hours\",\"title\":\"Openingstijden\",\"text\":\"November–februari: maandag 12.00–16.00 uur, dinsdag–zondag 10.00–16.00 uur. Controleer seizoenssluitingen voor vertrek.\",\"source_ids\":[\"source.rotterdamtrompenburg\"]},{\"id\":\"prices\",\"title\":\"Tickets en prijzen\",\"text\":\"Volwassenen €12,50; 13–25 jaar €6,50; 5–12 jaar €2,50; jonger dan 5 gratis. Alleen kaartbetaling.\",\"source_ids\":[\"source.rotterdamtrompenburg\"]},{\"id\":\"access\",\"title\":\"Toegankelijkheid\",\"text\":\"De tuin noemt zich rolstoelvriendelijk. Vraag naar jouw specifieke behoeften.\",\"source_ids\":[\"source.rotterdamtrompenburg\"]},{\"id\":\"restrictions\",\"title\":\"Controleer voor vertrek\",\"text\":\"Huisdieren zijn niet toegestaan; de tuin vermeldt een uitzondering voor blindengeleidehonden. Bespreek andere assistentiehonden rechtstreeks.\",\"source_ids\":[\"source.rotterdamtrompenburg\"]}]}}}"
+      }
+    },
+    {
+      "id": "nature.den-haag-westbroekpark",
+      "entity_type": "nature",
+      "category": "city-park",
+      "city_id": "den-haag",
+      "province_id": "zuid-holland",
+      "coordinates": {
+        "latitude": 52.1043161,
+        "longitude": 4.2917841
+      },
+      "title": "Westbroekpark",
+      "description": "A park in Scheveningen with lawns, ponds and an international rose garden. The rosarium gates follow seasonal hours; the wider park has a separate access route.",
+      "images": [
+        {
+          "id": "media.nature.den-haag-westbroekpark.expansion-20261115",
+          "role": "hero",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:Westbroekpark_rozenbedden.JPG",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Westbroekpark_rozenbedden.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "public_asset_path": "/images/place-review/expdenhaagwestbroekpark-1200.webp",
+          "license": "CC BY-SA 3.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "attribution": "P.L. van Till at nl.wikipedia · 2008-06-29 · Archive photograph / Archieffoto · resized WebP; no content edits",
+          "verified": true,
+          "retrieved_at": "2026-11-15",
+          "alt": "Seasonal rose beds in Westbroekpark — photograph 2008"
+        }
+      ],
+      "official_source": {
+        "title": "Westbroekpark | DenHaag.com",
+        "publisher": "denhaag.com",
+        "url": "https://denhaag.com/en/westbroekpark",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://denhaag.com/en/westbroekpark",
+      "related_entity_ids": [
+        "museum.den-haag-fotomuseum",
+        "city.den-haag"
+      ],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "A park in Scheveningen with lawns, ponds and an international rose garden. The rosarium gates follow seasonal hours; the wider park has a separate access route.",
+      "search_keywords": [
+        "Westbroekpark",
+        "den-haag",
+        "city-park",
+        "denhaagwestbroekpark"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "slug": "den-haag-westbroekpark",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "description_nl": "Een park in Scheveningen met gazons, vijvers en een internationaal rosarium. De rozentuinpoorten hebben seizoenstijden; het overige park heeft een aparte toegangsroute.",
+        "title_nl": "Westbroekpark",
+        "field_review_status": "Source verification complete; human editorial approval pending",
+        "catalog_review_batch": "priority-cities-20261115",
+        "address": "Kapelweg 35, 2587 BK Den Haag",
+        "address_source_url": "https://denhaag.com/en/westbroekpark",
+        "address_checked_at": "2026-11-15",
+        "media_status": "licensed archive photograph visually checked; publication approval pending",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-15\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.denhaagwestbroekpark\",\"title\":\"Westbroekpark | DenHaag.com\",\"publisher\":\"denhaag.com\",\"url\":\"https://denhaag.com/en/westbroekpark\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://denhaag.com/en/westbroekpark\",\"method\":\"Official tourism location map point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.1043161,4.2917841\"},\"tickets\":null,\"locales\":{\"en\":{\"alt\":\"Seasonal rose beds in Westbroekpark — photograph 2008\",\"blocks\":[{\"id\":\"setting\",\"title\":\"About this place\",\"text\":\"The rose garden is a seasonal highlight. An archive photograph of flowers does not promise that roses will be in bloom on your visit.\",\"source_ids\":[\"source.denhaagwestbroekpark\"]},{\"id\":\"hours\",\"title\":\"Opening hours\",\"text\":\"Rosarium gates: 1 October–1 April 07:45–16:15; 1 April–1 October 07:45–22:00. These are not blanket opening hours for the whole park.\",\"source_ids\":[\"source.denhaagwestbroekpark\"]},{\"id\":\"arrival\",\"title\":\"Arrival\",\"text\":\"The tourism page names Kapelweg as the main entrance, with another at Cremerweg. Outside rosarium hours it describes park access via the white bridge by the restaurant.\",\"source_ids\":[\"source.denhaagwestbroekpark\"]},{\"id\":\"facilities\",\"title\":\"Facilities\",\"text\":\"The tearoom and rowing-boat hire are separate services. Check their current opening and prices with the operator.\",\"source_ids\":[\"source.denhaagwestbroekpark\"]},{\"id\":\"access\",\"title\":\"Accessibility\",\"text\":\"The official tourism listing has no verified accessibility assessment. Confirm a suitable route before travelling if needed.\",\"source_ids\":[\"source.denhaagwestbroekpark\"]}]},\"nl\":{\"alt\":\"Seizoensgebonden rozenperken in het Westbroekpark — foto 2008\",\"blocks\":[{\"id\":\"setting\",\"title\":\"Over deze plek\",\"text\":\"De rozentuin is een seizoensgebonden trekpleister. Een archieffoto met bloemen belooft niet dat de rozen tijdens jouw bezoek bloeien.\",\"source_ids\":[\"source.denhaagwestbroekpark\"]},{\"id\":\"hours\",\"title\":\"Openingstijden\",\"text\":\"Rosariumpoorten: 1 oktober–1 april 07.45–16.15 uur; 1 april–1 oktober 07.45–22.00 uur. Dit zijn geen algemene openingstijden voor het hele park.\",\"source_ids\":[\"source.denhaagwestbroekpark\"]},{\"id\":\"arrival\",\"title\":\"Aankomst\",\"text\":\"De toerismepagina noemt Kapelweg als hoofdingang, met een tweede aan Cremerweg. Buiten de rosariumtijden beschrijft zij parktoegang via de witte brug bij het restaurant.\",\"source_ids\":[\"source.denhaagwestbroekpark\"]},{\"id\":\"facilities\",\"title\":\"Voorzieningen\",\"text\":\"De theeschenkerij en roeibootverhuur zijn afzonderlijke diensten. Vraag de aanbieder naar actuele openingstijden en prijzen.\",\"source_ids\":[\"source.denhaagwestbroekpark\"]},{\"id\":\"access\",\"title\":\"Toegankelijkheid\",\"text\":\"De officiële toeristische vermelding heeft geen geverifieerde toegankelijkheidsbeoordeling. Bevestig zo nodig vóór vertrek een geschikte route.\",\"source_ids\":[\"source.denhaagwestbroekpark\"]}]}}}"
+      }
+    }
+  ]
+}

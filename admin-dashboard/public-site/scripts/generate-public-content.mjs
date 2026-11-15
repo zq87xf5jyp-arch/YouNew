@@ -646,7 +646,7 @@ function governanceInputFor(entity) {
   return confirmation.governance;
 }
 
-function sanitizeEntity(entity, slug) {
+function sanitizeEntity(entity, slug, privateDraft=false) {
   const id = cleanIdentifier(entity.id);
   const sourceKind = cleanIdentifier(entity.kind);
   const type = entityTypeFor(sourceKind);
@@ -658,7 +658,7 @@ function sanitizeEntity(entity, slug) {
   const provinceId = slugify(entity.provinceId);
   const isLocalPartner = sourceKind === "localPartner";
   const sourceUrl = cleanURL(entity.source?.url);
-  const governance = sanitizeGovernanceEnvelope(governanceInputFor(entity), id);
+  const governance = privateDraft?null:sanitizeGovernanceEnvelope(governanceInputFor(entity), id);
   const legacyDisposition = legacyGovernanceConfirmationById.get(id);
   const verifiedAt = cleanDate(governance?.lastVerifiedAt) ?? cleanDate(entity.source?.checkedAt) ?? cleanDate(entity.lastChecked);
 
@@ -711,7 +711,7 @@ function sanitizeEntity(entity, slug) {
     sourceKind,
     route,
     language: "en",
-    status: "published",
+    status: privateDraft?"draft":"published",
     title,
     summary,
     contentDepth: practicalGuide ? "practical" : "summary",
@@ -731,7 +731,7 @@ function sanitizeEntity(entity, slug) {
       officialSource: !isLocalPartner && entity.source?.isOfficial === true
     },
     governance,
-    indexable: legacyDisposition?.indexing_strategy !== "noindex",
+    indexable: !privateDraft&&legacyDisposition?.indexing_strategy !== "noindex",
     verifiedAt,
     updatedAt: cleanDate(entity.lastChecked) ?? verifiedAt,
     releaseId: cleanIdentifier(entity.attributes?.dataProjectRelease),
@@ -815,9 +815,9 @@ function buildProvinces(entities) {
     .sort((left, right) => left.title.localeCompare(right.title));
 }
 
-export function buildSearchIndex(entities, categories, citiesById, provincesById, generatedAt, datasetFingerprint) {
+export function buildSearchIndex(entities, categories, citiesById, provincesById, generatedAt, datasetFingerprint, privateDraftIds=new Set()) {
   // Legacy pages remain addressable, but discovery uses the same eligibility gate as the sitemap.
-  const entityDocuments = entities.filter((entity) => entity.status === "published" && entity.indexable === true).map((entity) => {
+  const entityDocuments = entities.filter((entity) => (entity.status === "published" && entity.indexable === true)||privateDraftIds.has(entity.id)).map((entity) => {
     const practical = entity.practicalGuide ?? null;
     const legacy = legacySearchMetadataById[entity.id] ?? {};
     const officialOrganizationNames = [
@@ -1098,7 +1098,9 @@ export function buildSearchIndex(entities, categories, citiesById, provincesById
   };
 }
 
-export function buildPublicDataset(runtime, { verifyChecksum = true, editorialRelease = null } = {}) {
+export function buildPublicDataset(runtime, { verifyChecksum = true, editorialRelease = null, privateReview = false } = {}) {
+  if(privateReview&&(!editorialRelease?.privateReview||process.env.YOUNEW_PRIVATE_REVIEW_BUILD!=='1'))throw new Error('Explicit private review build required');
+  const privateDraftIds=new Set(privateReview?editorialRelease.entities.filter(e=>e.publicationStatus==='draft'&&e.attributes?.lifecycleStatus==='draft'&&e.verificationStatus==='needs_review'&&e.editorial?.placeReview?.approvedAt===null&&e.source?.status==='verified_opened').map(e=>e.id):[]);
   if (!runtime || runtime.mode !== "production") {
     throw new Error("Public content generation requires a canonical dataset with mode=production.");
   }
@@ -1116,10 +1118,10 @@ export function buildPublicDataset(runtime, { verifyChecksum = true, editorialRe
   const sourceEntities = [...(Array.isArray(runtime.entities) ? runtime.entities : []), ...(editorialRelease?.entities ?? [])];
   if (new Set(sourceEntities.map(e=>e.id)).size!==sourceEntities.length) throw new Error("Editorial release duplicates an existing entity ID.");
   const withheldIds = new Set(runtime.withheldEntityIDs ?? []);
-  if (sourceEntities.some((entity) => withheldIds.has(entity.id))) {
+  if (sourceEntities.some((entity) => withheldIds.has(entity.id)&&!privateDraftIds.has(entity.id))) {
     throw new Error("Canonical runtime attempts to republish a withheld entity.");
   }
-  const accepted = sourceEntities.filter((entity) => isPublishableEntity(entity, publishedReleaseIds));
+  const accepted = sourceEntities.filter((entity) => isPublishableEntity(entity, publishedReleaseIds)||privateDraftIds.has(entity.id));
 
   const rawByType = new Map();
   for (const entity of accepted) {
@@ -1139,7 +1141,7 @@ export function buildPublicDataset(runtime, { verifyChecksum = true, editorialRe
   }
 
   const entities = accepted
-    .map((entity) => sanitizeEntity(entity, slugById.get(entity.id)))
+    .map((entity) => sanitizeEntity(entity, slugById.get(entity.id),privateDraftIds.has(entity.id)))
     .sort((left, right) => left.title.localeCompare(right.title) || left.id.localeCompare(right.id));
   const guideIds = new Set(entities.filter((entity) => entity.type === "guide").map((entity) => entity.id));
   for (const entity of entities) {
@@ -1153,7 +1155,7 @@ export function buildPublicDataset(runtime, { verifyChecksum = true, editorialRe
   const guides = entities.filter((entity) => entity.type === "guide");
   const organizations = entities.filter((entity) => entity.type === "organization");
   const places = entities.filter((entity) => entity.type === "place");
-  const indexableEntities = entities.filter((entity) => entity.indexable);
+  const indexableEntities = entities.filter((entity) => entity.indexable||privateDraftIds.has(entity.id));
   const categories = buildCategories(indexableEntities.filter((entity) => entity.type !== "city"));
   const provinces = buildProvinces(indexableEntities);
   const citiesById = new Map(cities.map((city) => [city.cityId, city]));
@@ -1164,6 +1166,7 @@ export function buildPublicDataset(runtime, { verifyChecksum = true, editorialRe
 
   const content = {
     schemaVersion: 1,
+    ...(privateReview?{privateReview:{publicationAuthorized:false,draftIds:[...privateDraftIds].sort()}}:{}),
     generatedAt,
     datasetFingerprint: editorialRelease ? createHash('sha256').update(`${runtime.datasetFingerprint}:${editorialRelease.batchSha256}`).digest('hex') : cleanText(runtime.datasetFingerprint, 160),
     language: "en",
@@ -1194,10 +1197,12 @@ export function buildPublicDataset(runtime, { verifyChecksum = true, editorialRe
     citiesById,
     provincesById,
     generatedAt,
-    content.datasetFingerprint
+    content.datasetFingerprint,
+    privateDraftIds
   );
   const provenance = {
     schemaVersion: 1,
+    ...(privateReview?{privateReview:{publicationAuthorized:false,draftIds:[...privateDraftIds].sort()}}:{}),
     generatedAt,
     generatorVersion: 1,
     source: "../../YouNew/Resources/Data/younew-runtime-data.json",
@@ -1237,7 +1242,7 @@ export async function generatePublicContent(sourcePath = process.env.YOUNEW_LOCA
   const runtime = JSON.parse(await readFile(sourcePath, "utf8"));
   // The old synthetic rehearsal keeps its explicitly synthetic-only boundary.
   const editorialRelease = process.env.YOUNEW_LOCAL_CATALOG_API || process.env.YOUNEW_LOCAL_APPROVED_RUNTIME ? null : await loadEditorialRelease();
-  const outputs = buildPublicDataset(runtime, {editorialRelease});
+  const outputs = buildPublicDataset(runtime, {editorialRelease,privateReview:process.env.YOUNEW_PRIVATE_REVIEW_BUILD==='1'&&Boolean(process.env.YOUNEW_PLACE_REVIEW)});
   await Promise.all([
     writeJSON(paths.content, outputs.content),
     writeJSON(paths.editorialRoutes, outputs.content.entities.filter(e=>e.editorial).map(e=>({en:e.route,nl:`/nl/${e.type==='place'?'plaatsen':'gidsen'}/${e.slug}`}))),
