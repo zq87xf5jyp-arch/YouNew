@@ -9,6 +9,7 @@ export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const content = getPublicContent();
+  if(content.privateReview?.publicationAuthorized===false)return [];
   const updated = new Date(content.generatedAt);
   const staticPaths = ["/leiden",
     "", "/start", "/discover", "/guides", "/journeys", "/map", "/categories", "/cities", "/municipalities", "/provinces", "/places", "/updates",

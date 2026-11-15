@@ -315,6 +315,7 @@ export interface ContentProvince {
 
 export interface PublicContentDataset {
   readonly schemaVersion: 1;
+  readonly privateReview?: {readonly publicationAuthorized:false; readonly draftIds:readonly string[]};
   readonly generatedAt: string;
   readonly datasetFingerprint: string;
   readonly language: "en";

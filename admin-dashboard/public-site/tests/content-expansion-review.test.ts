@@ -7,9 +7,20 @@ import {readPlaceReview,applyPlaceReview,expansionReviews,selectedPlaceReviews,v
 import type {PlaceRevision} from '../scripts/place-review.mjs';
 import {loadEditorialRelease} from '../scripts/editorial-release.mjs';
 import {buildPublicDataset,paths} from '../scripts/generate-public-content.mjs';
+import {isDiscoverableContent} from '../src/lib/content/presentation.ts';
 const root=fileURLToPath(new URL('../../../',import.meta.url));
 const batches=Object.keys(expansionReviews);
 const proofs=await Promise.all(batches.map(b=>readPlaceReview(root,b)));
+
+test('private discovery needs an explicit draft ID and never makes an ordinary draft discoverable',()=>{
+ const draft={id:'museum.rijksmuseum',status:'draft',indexable:false} as const;
+ assert.equal(isDiscoverableContent(draft),false);
+ assert.equal(isDiscoverableContent({...draft,indexable:true}),false);
+ assert.equal(isDiscoverableContent(draft,{publicationAuthorized:false,draftIds:[]}),false);
+ assert.equal(isDiscoverableContent(draft,{publicationAuthorized:false,draftIds:[draft.id]}),true);
+ assert.equal(isDiscoverableContent({...draft,status:'published'}),false);
+ assert.equal(isDiscoverableContent({...draft,status:'published',indexable:true}),true);
+});
 
 test('expansion keeps ordinary content byte-equivalent and requires an explicit private build',async()=>{
  const runtime=JSON.parse(await readFile(paths.source,'utf8'));
@@ -31,7 +42,12 @@ test('expansion keeps ordinary content byte-equivalent and requires an explicit 
   const newIds=new Set(proofs.filter(p=>p.manifest.batchId==='amsterdam-museums-20261115').flatMap(p=>p.manifest.ids));
   assert.equal(data.entities.filter(e=>newIds.has(e.id)).length,20);
   for(const e of data.entities.filter(e=>newIds.has(e.id))){assert.equal(e.status,'draft');assert.equal(e.indexable,false);assert.equal(e.governance,null);assert.equal(e.editorial?.reviewedAt,null);assert.equal(e.editorial?.reviewer,null);}
-  for(const p of proofs)for(const id of p.manifest.ids){const e=data.entities.find(e=>e.id===id);assert.ok(e?.editorial?.placeReview);assert.ok(e.relatedEntityIds.every(r=>data.entities.some(d=>d.id===r)));}
+  for(const p of proofs)for(const r of p.records){const e=data.entities.find(e=>e.id===r.id);assert.ok(e?.editorial?.placeReview);assert.ok(e.relatedEntityIds.every(r=>data.entities.some(d=>d.id===r)));
+   const source=JSON.parse(r.attributes.place_enrichment).sources[0];
+   assert.equal(e.placeDetails?.website?.value,new URL(source.url).href,'verified Website action missing');
+   assert.equal(e.placeDetails?.website?.checkedAt,r.attributes.website_checked_at);
+   assert.equal(e.editorial.reviewedAt,null);assert.equal(e.editorial.reviewer,null);
+  }
  }finally{if(old===undefined)delete process.env.YOUNEW_PRIVATE_REVIEW_BUILD;else process.env.YOUNEW_PRIVATE_REVIEW_BUILD=old;}
 });
 
