@@ -1,0 +1,665 @@
+{
+  "schema_version": 1,
+  "batch_id": "leiden-stay-parks-20261115",
+  "publication_status": "draft",
+  "records": [
+    {
+      "id": "nature.leiden-ankerpark",
+      "entity_type": "nature",
+      "category": "parks-walks",
+      "city_id": "leiden",
+      "province_id": "zuid-holland",
+      "coordinates": {
+        "latitude": 52.160529,
+        "longitude": 4.504212
+      },
+      "title": "Ankerpark",
+      "description": "A waterside peninsula in Leiden’s Singelpark, with chestnut trees and views towards the Zijlpoort. Approach it over the footbridges from the city side.",
+      "images": [
+        {
+          "id": "media.nature.leiden-ankerpark.expansion-20261115",
+          "role": "hero",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:Ankerpark_Leiden_anker.jpg",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/8/88/Ankerpark_Leiden_anker.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "public_asset_path": "/images/place-review/expankerpark-1200.webp",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "attribution": "Bic · 2014-07-16 16:33:04 · Archive photograph / Archieffoto · resized WebP; no content edits",
+          "verified": true,
+          "retrieved_at": "2026-11-15",
+          "alt": "Anchor on the lawn at Ankerpark — photograph 2014"
+        }
+      ],
+      "official_source": {
+        "title": "Het Ankerpark | Visit Leiden",
+        "publisher": "www.visitleiden.nl",
+        "url": "https://www.visitleiden.nl/nl/locaties/540000812/het-ankerpark",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.visitleiden.nl/nl/locaties/540000812/het-ankerpark",
+      "related_entity_ids": [
+        "nature.leiden-blekerspark",
+        "nature.leiden-huigpark"
+      ],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "A waterside peninsula in Leiden’s Singelpark, with chestnut trees and views towards the Zijlpoort. Approach it over the footbridges from the city side.",
+      "search_keywords": [
+        "Ankerpark",
+        "leiden",
+        "parks-walks",
+        "ankerpark"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "slug": "ankerpark",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "description_nl": "Een schiereiland aan het water in het Leidse Singelpark, met kastanjebomen en uitzicht op de Zijlpoort. Je bereikt het via de voetbruggen aan de stadszijde.",
+        "title_nl": "Ankerpark",
+        "field_review_status": "Source verification complete; human editorial approval pending",
+        "catalog_review_batch": "leiden-stay-parks-20261115",
+        "address": "Ankerpark, 2312 MN Leiden",
+        "address_source_url": "https://www.visitleiden.nl/nl/locaties/540000812/het-ankerpark",
+        "address_checked_at": "2026-11-15",
+        "website": "https://www.visitleiden.nl/nl/locaties/540000812/het-ankerpark",
+        "website_source_url": "https://www.visitleiden.nl/nl/locaties/540000812/het-ankerpark",
+        "website_checked_at": "2026-11-15",
+        "address_note": "",
+        "media_status": "licensed archive photograph visually checked; publication approval pending",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-15\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.ankerparktourism\",\"title\":\"Het Ankerpark | Visit Leiden\",\"publisher\":\"www.visitleiden.nl\",\"url\":\"https://www.visitleiden.nl/nl/locaties/540000812/het-ankerpark\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://www.visitleiden.nl/nl/locaties/540000812/het-ankerpark\",\"method\":\"Official tourism location map point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.160529,4.504212\"},\"tickets\":null,\"locales\":{\"en\":{\"alt\":\"Anchor on the lawn at Ankerpark — photograph 2014\",\"blocks\":[{\"id\":\"setting\",\"title\":\"About this place\",\"text\":\"The park occupies former industrial ground used by the Grofsmederij. Its name recalls the anchors made there.\",\"source_ids\":[\"source.ankerparktourism\"]},{\"id\":\"visit\",\"title\":\"Plan your visit\",\"text\":\"Use the bridges towards the peninsula; the waterfront is part of the visit, so supervise young children.\",\"source_ids\":[\"source.ankerparktourism\"]},{\"id\":\"hours\",\"title\":\"Opening hours\",\"text\":\"Visit Leiden lists the park as open every day, without specifying daily opening or closing times.\",\"source_ids\":[\"source.ankerparktourism\"]},{\"id\":\"features\",\"title\":\"What to look for\",\"text\":\"Look for the anchor, waterside planting and the view of the Zijlpoort. The photograph is an archive view, not a live condition report.\",\"source_ids\":[\"source.ankerparktourism\"]},{\"id\":\"plan\",\"title\":\"Before you go\",\"text\":\"Check the official location page before setting out. Temporary restrictions and step-free access have not been independently confirmed.\",\"source_ids\":[\"source.ankerparktourism\"]}]},\"nl\":{\"alt\":\"Anker op het gras in het Ankerpark — foto 2014\",\"blocks\":[{\"id\":\"setting\",\"title\":\"Over deze plek\",\"text\":\"Het park ligt op het voormalige terrein van de Grofsmederij. De naam verwijst naar de ankers die hier werden gemaakt.\",\"source_ids\":[\"source.ankerparktourism\"]},{\"id\":\"visit\",\"title\":\"Plan je bezoek\",\"text\":\"Neem de bruggen naar het schiereiland; het water ligt dichtbij, dus houd jonge kinderen in het oog.\",\"source_ids\":[\"source.ankerparktourism\"]},{\"id\":\"hours\",\"title\":\"Openingstijden\",\"text\":\"Visit Leiden vermeldt dat het park iedere dag open is, zonder exacte openingstijden.\",\"source_ids\":[\"source.ankerparktourism\"]},{\"id\":\"features\",\"title\":\"Wat je kunt bekijken\",\"text\":\"Bekijk het anker, de beplanting langs het water en het uitzicht op de Zijlpoort. De foto is een archiefbeeld, geen actuele terreininspectie.\",\"source_ids\":[\"source.ankerparktourism\"]},{\"id\":\"plan\",\"title\":\"Voor vertrek\",\"text\":\"Bekijk de officiële locatiepagina voor vertrek. Tijdelijke beperkingen en drempelvrije toegang zijn niet afzonderlijk bevestigd.\",\"source_ids\":[\"source.ankerparktourism\"]}]}}}"
+      }
+    },
+    {
+      "id": "nature.leiden-blekerspark",
+      "entity_type": "nature",
+      "category": "parks-walks",
+      "city_id": "leiden",
+      "province_id": "zuid-holland",
+      "coordinates": {
+        "latitude": 52.162805,
+        "longitude": 4.502845
+      },
+      "title": "Blekerspark",
+      "description": "A green stop beside the Herensingel on the former municipal yard site. Add it to a walk through the northern section of Leiden’s Singelpark.",
+      "images": [
+        {
+          "id": "media.nature.leiden-blekerspark.expansion-20261115",
+          "role": "hero",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:Bleekerspark_Leiden.jpg",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Bleekerspark_Leiden.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "public_asset_path": "/images/place-review/expblekerspark-1200.webp",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "attribution": "Bic · 2014-07-16 15:42:02 · Archive photograph / Archieffoto · resized WebP; no content edits",
+          "verified": true,
+          "retrieved_at": "2026-11-15",
+          "alt": "Trees and waterfront path in Blekerspark — photograph 2014"
+        }
+      ],
+      "official_source": {
+        "title": "Blekerspark | Visit Leiden",
+        "publisher": "www.visitleiden.nl",
+        "url": "https://www.visitleiden.nl/nl/locaties/482052751/blekerspark",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.visitleiden.nl/nl/locaties/482052751/blekerspark",
+      "related_entity_ids": [
+        "nature.leiden-ankerpark",
+        "nature.leiden-huigpark"
+      ],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "A green stop beside the Herensingel on the former municipal yard site. Add it to a walk through the northern section of Leiden’s Singelpark.",
+      "search_keywords": [
+        "Blekerspark",
+        "leiden",
+        "parks-walks",
+        "blekerspark"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "slug": "blekerspark",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "description_nl": "Een groene halte aan de Herensingel op het terrein van de vroegere Gemeentewerf. Combineer het park met een wandeling langs het noordelijke Singelpark.",
+        "title_nl": "Blekerspark",
+        "field_review_status": "Source verification complete; human editorial approval pending",
+        "catalog_review_batch": "leiden-stay-parks-20261115",
+        "address": "Blekerspark, 2312 LT Leiden",
+        "address_source_url": "https://www.visitleiden.nl/nl/locaties/482052751/blekerspark",
+        "address_checked_at": "2026-11-15",
+        "website": "https://www.visitleiden.nl/nl/locaties/482052751/blekerspark",
+        "website_source_url": "https://www.visitleiden.nl/nl/locaties/482052751/blekerspark",
+        "website_checked_at": "2026-11-15",
+        "address_note": "",
+        "media_status": "licensed archive photograph visually checked; publication approval pending",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-15\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.blekersparktourism\",\"title\":\"Blekerspark | Visit Leiden\",\"publisher\":\"www.visitleiden.nl\",\"url\":\"https://www.visitleiden.nl/nl/locaties/482052751/blekerspark\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://www.visitleiden.nl/nl/locaties/482052751/blekerspark\",\"method\":\"Official tourism location map point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.162805,4.502845\"},\"tickets\":null,\"locales\":{\"en\":{\"alt\":\"Trees and waterfront path in Blekerspark — photograph 2014\",\"blocks\":[{\"id\":\"setting\",\"title\":\"About this place\",\"text\":\"The park was laid out in the 1980s. Its raised bank marks an earlier shoreline.\",\"source_ids\":[\"source.blekersparktourism\"]},{\"id\":\"visit\",\"title\":\"Plan your visit\",\"text\":\"A footbridge connects the planted bank with the old city. Use the location map to plan your approach.\",\"source_ids\":[\"source.blekersparktourism\"]},{\"id\":\"hours\",\"title\":\"Opening hours\",\"text\":\"The tourism page lists daily opening, but gives no exact hours.\",\"source_ids\":[\"source.blekersparktourism\"]},{\"id\":\"family\",\"title\":\"With children\",\"text\":\"The official description mentions a climbing play structure. Check its condition and local signs on arrival.\",\"source_ids\":[\"source.blekersparktourism\"]},{\"id\":\"plan\",\"title\":\"Before you go\",\"text\":\"Continue towards Ankerpark or Huigpark using the Singelpark route. No walking duration or fully accessible route is guaranteed.\",\"source_ids\":[\"source.blekersparktourism\"]}]},\"nl\":{\"alt\":\"Bomen en pad langs het water in het Blekerspark — foto 2014\",\"blocks\":[{\"id\":\"setting\",\"title\":\"Over deze plek\",\"text\":\"Het park werd in de jaren tachtig aangelegd. Een verhoogde wal markeert de vroegere oeverlijn.\",\"source_ids\":[\"source.blekersparktourism\"]},{\"id\":\"visit\",\"title\":\"Plan je bezoek\",\"text\":\"Een voetbrug verbindt de beplante wal met de oude stad. Gebruik de locatiekaart om je aanlooproute te bepalen.\",\"source_ids\":[\"source.blekersparktourism\"]},{\"id\":\"hours\",\"title\":\"Openingstijden\",\"text\":\"De toeristische pagina vermeldt dagelijkse opening, maar geen exacte tijden.\",\"source_ids\":[\"source.blekersparktourism\"]},{\"id\":\"family\",\"title\":\"Met kinderen\",\"text\":\"De officiële beschrijving noemt een klimtoestel. Controleer bij aankomst de staat en de plaatselijke aanwijzingen.\",\"source_ids\":[\"source.blekersparktourism\"]},{\"id\":\"plan\",\"title\":\"Voor vertrek\",\"text\":\"Loop via de Singelparkroute verder naar Ankerpark of Huigpark. Er wordt geen looptijd of volledig toegankelijke route gegarandeerd.\",\"source_ids\":[\"source.blekersparktourism\"]}]}}}"
+      }
+    },
+    {
+      "id": "nature.leiden-huigpark",
+      "entity_type": "nature",
+      "category": "parks-walks",
+      "city_id": "leiden",
+      "province_id": "zuid-holland",
+      "coordinates": {
+        "latitude": 52.163645,
+        "longitude": 4.497981
+      },
+      "title": "Huigpark",
+      "description": "A small park along the Maresingel with grass, planted beds and a connection to the Energiepark area. It offers an outdoor pause north of Leiden’s centre.",
+      "images": [
+        {
+          "id": "media.nature.leiden-huigpark.expansion-20261115",
+          "role": "hero",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:Huigpark_Leiden.jpg",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Huigpark_Leiden.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "public_asset_path": "/images/place-review/exphuigpark-1200.webp",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "attribution": "Bic · 2014-07-16 15:38:14 · Archive photograph / Archieffoto · resized WebP; no content edits",
+          "verified": true,
+          "retrieved_at": "2026-11-15",
+          "alt": "Huigpark beside the canal — photograph 2014"
+        }
+      ],
+      "official_source": {
+        "title": "Huigpark | Visit Leiden",
+        "publisher": "www.visitleiden.nl",
+        "url": "https://www.visitleiden.nl/nl/locaties/801920722/huigpark",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.visitleiden.nl/nl/locaties/801920722/huigpark",
+      "related_entity_ids": [
+        "nature.leiden-blekerspark",
+        "nature.leiden-ankerpark"
+      ],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "A small park along the Maresingel with grass, planted beds and a connection to the Energiepark area. It offers an outdoor pause north of Leiden’s centre.",
+      "search_keywords": [
+        "Huigpark",
+        "leiden",
+        "parks-walks",
+        "huigpark"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "slug": "huigpark",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "description_nl": "Een klein park langs de Maresingel met gras, beplanting en een verbinding met het Energiepark. Een plek voor een buitenpauze ten noorden van de binnenstad.",
+        "title_nl": "Huigpark",
+        "field_review_status": "Source verification complete; human editorial approval pending",
+        "catalog_review_batch": "leiden-stay-parks-20261115",
+        "address": "Huigpark, 2312 NH Leiden",
+        "address_source_url": "https://www.visitleiden.nl/nl/locaties/801920722/huigpark",
+        "address_checked_at": "2026-11-15",
+        "website": "https://www.visitleiden.nl/nl/locaties/801920722/huigpark",
+        "website_source_url": "https://www.visitleiden.nl/nl/locaties/801920722/huigpark",
+        "website_checked_at": "2026-11-15",
+        "address_note": "",
+        "media_status": "licensed archive photograph visually checked; publication approval pending",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-15\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.huigparktourism\",\"title\":\"Huigpark | Visit Leiden\",\"publisher\":\"www.visitleiden.nl\",\"url\":\"https://www.visitleiden.nl/nl/locaties/801920722/huigpark\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://www.visitleiden.nl/nl/locaties/801920722/huigpark\",\"method\":\"Official tourism location map point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.163645,4.497981\"},\"tickets\":null,\"locales\":{\"en\":{\"alt\":\"Huigpark beside the canal — photograph 2014\",\"blocks\":[{\"id\":\"setting\",\"title\":\"About this place\",\"text\":\"Residents, the municipality and Singelpark volunteers have helped improve the park’s planting.\",\"source_ids\":[\"source.huigparktourism\"]},{\"id\":\"features\",\"title\":\"What to look for\",\"text\":\"The official description includes planted beds, edible plants and bird boxes; sport and play are part of the park’s theme.\",\"source_ids\":[\"source.huigparktourism\"]},{\"id\":\"hours\",\"title\":\"Opening hours\",\"text\":\"Listed as open every day. Exact hours and temporary work restrictions are not specified on the location page.\",\"source_ids\":[\"source.huigparktourism\"]},{\"id\":\"visit\",\"title\":\"Plan your visit\",\"text\":\"The park connects with the Energiepark. Check signs locally rather than assuming every onward path is open.\",\"source_ids\":[\"source.huigparktourism\"]},{\"id\":\"plan\",\"title\":\"Before you go\",\"text\":\"Use the official map marker for orientation and combine the visit with nearby Blekerspark.\",\"source_ids\":[\"source.huigparktourism\"]}]},\"nl\":{\"alt\":\"Huigpark naast de singel — foto 2014\",\"blocks\":[{\"id\":\"setting\",\"title\":\"Over deze plek\",\"text\":\"Bewoners, de gemeente en Singelparkvrijwilligers hebben bijgedragen aan de beplanting van het park.\",\"source_ids\":[\"source.huigparktourism\"]},{\"id\":\"features\",\"title\":\"Wat je kunt bekijken\",\"text\":\"De officiële beschrijving noemt plantenperken, eetbare planten en vogelhuisjes; sport en spel horen bij het karakter van het park.\",\"source_ids\":[\"source.huigparktourism\"]},{\"id\":\"hours\",\"title\":\"Openingstijden\",\"text\":\"Volgens de locatiepagina iedere dag open. Exacte tijden en tijdelijke beperkingen door werkzaamheden zijn niet vermeld.\",\"source_ids\":[\"source.huigparktourism\"]},{\"id\":\"visit\",\"title\":\"Plan je bezoek\",\"text\":\"Het park sluit aan op het Energiepark. Controleer de aanwijzingen ter plaatse; niet ieder vervolgpad hoeft open te zijn.\",\"source_ids\":[\"source.huigparktourism\"]},{\"id\":\"plan\",\"title\":\"Voor vertrek\",\"text\":\"Gebruik de officiële kaartmarkering voor oriëntatie en combineer je bezoek met het nabijgelegen Blekerspark.\",\"source_ids\":[\"source.huigparktourism\"]}]}}}"
+      }
+    },
+    {
+      "id": "nature.leiden-park-de-put",
+      "entity_type": "nature",
+      "category": "parks-walks",
+      "city_id": "leiden",
+      "province_id": "zuid-holland",
+      "coordinates": {
+        "latitude": 52.161877,
+        "longitude": 4.48224
+      },
+      "title": "Park de Put",
+      "description": "A compact park by the Morspoort and Molen de Put, on former military barracks ground. It brings a windmill view and a small play area into a city walk.",
+      "images": [
+        {
+          "id": "media.nature.leiden-park-de-put.expansion-20261115",
+          "role": "hero",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:Park_de_put.JPG",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Park_de_put.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "public_asset_path": "/images/place-review/expparkdeput-1200.webp",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "attribution": "Xsandriel · 2015-06-25 12:02:29 · Archive photograph / Archieffoto · resized WebP; no content edits",
+          "verified": true,
+          "retrieved_at": "2026-11-15",
+          "alt": "Park de Put and the former guard building — photograph 2015"
+        }
+      ],
+      "official_source": {
+        "title": "Park de Put | Visit Leiden",
+        "publisher": "www.visitleiden.nl",
+        "url": "https://www.visitleiden.nl/nl/locaties/1077715464/park-de-put",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.visitleiden.nl/nl/locaties/1077715464/park-de-put",
+      "related_entity_ids": [
+        "hotel.leiden-oude-morsch",
+        "nature.leiden-rembrandtpark"
+      ],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "A compact park by the Morspoort and Molen de Put, on former military barracks ground. It brings a windmill view and a small play area into a city walk.",
+      "search_keywords": [
+        "Park de Put",
+        "leiden",
+        "parks-walks",
+        "parkdeput"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "slug": "park-de-put",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "description_nl": "Een compact park bij de Morspoort en Molen de Put, op voormalig kazerneterrein. Je vindt er uitzicht op de molen en een kleine speelplek tijdens een stadswandeling.",
+        "title_nl": "Park de Put",
+        "field_review_status": "Source verification complete; human editorial approval pending",
+        "catalog_review_batch": "leiden-stay-parks-20261115",
+        "address": "Park de Put, 2312 BB Leiden",
+        "address_source_url": "https://www.visitleiden.nl/nl/locaties/1077715464/park-de-put",
+        "address_checked_at": "2026-11-15",
+        "website": "https://www.visitleiden.nl/nl/locaties/1077715464/park-de-put",
+        "website_source_url": "https://www.visitleiden.nl/nl/locaties/1077715464/park-de-put",
+        "website_checked_at": "2026-11-15",
+        "address_note": "",
+        "media_status": "licensed archive photograph visually checked; publication approval pending",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-15\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.parkdeputtourism\",\"title\":\"Park de Put | Visit Leiden\",\"publisher\":\"www.visitleiden.nl\",\"url\":\"https://www.visitleiden.nl/nl/locaties/1077715464/park-de-put\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.oudemorschtourism\",\"title\":\"Boutique Hotel d’Oude Morsch | Visit Leiden\",\"publisher\":\"www.visitleiden.nl\",\"url\":\"https://www.visitleiden.nl/nl/locaties/3944718715/boutique-hotel-doude-morsch\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://www.visitleiden.nl/nl/locaties/1077715464/park-de-put\",\"method\":\"Official tourism location map point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.161877,4.48224\"},\"tickets\":null,\"locales\":{\"en\":{\"alt\":\"Park de Put and the former guard building — photograph 2015\",\"blocks\":[{\"id\":\"setting\",\"title\":\"About this place\",\"text\":\"The park takes its name from the wooden windmill reconstructed in 1987 after a seventeenth-century example.\",\"source_ids\":[\"source.parkdeputtourism\"]},{\"id\":\"features\",\"title\":\"What to look for\",\"text\":\"The grounds include a small play area and the Indië monument.\",\"source_ids\":[\"source.parkdeputtourism\"]},{\"id\":\"hours\",\"title\":\"Opening hours\",\"text\":\"Visit Leiden lists daily opening, without exact hours. The mill is a separate attraction with its own access arrangements.\",\"source_ids\":[\"source.parkdeputtourism\"]},{\"id\":\"visit\",\"title\":\"Plan your visit\",\"text\":\"Approach the park near the Morspoort. Follow local signs around paths, water and the memorial.\",\"source_ids\":[\"source.parkdeputtourism\"]},{\"id\":\"plan\",\"title\":\"Before you go\",\"text\":\"The nearby d’Oude Morsch hotel occupies the surviving guard building; hotel services are separate from the park.\",\"source_ids\":[\"source.oudemorschtourism\"]}]},\"nl\":{\"alt\":\"Park de Put en het voormalige wachtgebouw — foto 2015\",\"blocks\":[{\"id\":\"setting\",\"title\":\"Over deze plek\",\"text\":\"Het park is genoemd naar de houten molen die in 1987 naar zeventiende-eeuws voorbeeld werd herbouwd.\",\"source_ids\":[\"source.parkdeputtourism\"]},{\"id\":\"features\",\"title\":\"Wat je kunt bekijken\",\"text\":\"Op het terrein staan een kleine speelplek en het Indië-monument.\",\"source_ids\":[\"source.parkdeputtourism\"]},{\"id\":\"hours\",\"title\":\"Openingstijden\",\"text\":\"Visit Leiden vermeldt dagelijkse opening, zonder exacte tijden. De molen is een afzonderlijke attractie met eigen bezoekvoorwaarden.\",\"source_ids\":[\"source.parkdeputtourism\"]},{\"id\":\"visit\",\"title\":\"Plan je bezoek\",\"text\":\"Benader het park bij de Morspoort. Volg de plaatselijke aanwijzingen bij paden, water en het monument.\",\"source_ids\":[\"source.parkdeputtourism\"]},{\"id\":\"plan\",\"title\":\"Voor vertrek\",\"text\":\"Hotel d’Oude Morsch ligt in het bewaard gebleven wachtgebouw; de hoteldiensten staan los van het park.\",\"source_ids\":[\"source.oudemorschtourism\"]}]}}}"
+      }
+    },
+    {
+      "id": "nature.leiden-rembrandtpark",
+      "entity_type": "nature",
+      "category": "parks-walks",
+      "city_id": "leiden",
+      "province_id": "zuid-holland",
+      "coordinates": {
+        "latitude": 52.160299,
+        "longitude": 4.481362
+      },
+      "title": "Rembrandtpark",
+      "description": "A park in two parts around Noordeinde, close to the Witte Singel and the Weddesteeg. The northern and southern sections have different planting and layouts.",
+      "images": [],
+      "official_source": {
+        "title": "Het Rembrandtpark | Visit Leiden",
+        "publisher": "www.visitleiden.nl",
+        "url": "https://www.visitleiden.nl/nl/locaties/1706027937/rembrandtpark",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.visitleiden.nl/nl/locaties/1706027937/rembrandtpark",
+      "related_entity_ids": [
+        "nature.leiden-park-de-put",
+        "place.leiden-hortus"
+      ],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "A park in two parts around Noordeinde, close to the Witte Singel and the Weddesteeg. The northern and southern sections have different planting and layouts.",
+      "search_keywords": [
+        "Rembrandtpark",
+        "leiden",
+        "parks-walks",
+        "rembrandtpark"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "slug": "rembrandtpark",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "description_nl": "Een park in twee delen rond het Noordeinde, bij de Witte Singel en de Weddesteeg. Het noordelijke en zuidelijke deel verschillen in beplanting en opzet.",
+        "title_nl": "Rembrandtpark",
+        "field_review_status": "Source verification complete; human editorial approval pending",
+        "catalog_review_batch": "leiden-stay-parks-20261115",
+        "address": "Rembrandtpark, 2311 WX Leiden",
+        "address_source_url": "https://www.visitleiden.nl/nl/locaties/1706027937/rembrandtpark",
+        "address_checked_at": "2026-11-15",
+        "website": "https://www.visitleiden.nl/nl/locaties/1706027937/rembrandtpark",
+        "website_source_url": "https://www.visitleiden.nl/nl/locaties/1706027937/rembrandtpark",
+        "website_checked_at": "2026-11-15",
+        "address_note": "",
+        "media_status": "No suitable licensed photograph confirmed; no substitute image used",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-15\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.rembrandtpark\",\"title\":\"Het Rembrandtpark | Visit Leiden\",\"publisher\":\"www.visitleiden.nl\",\"url\":\"https://www.visitleiden.nl/nl/locaties/1706027937/rembrandtpark\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://www.visitleiden.nl/nl/locaties/1706027937/rembrandtpark\",\"method\":\"Official tourism location map point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.160299,4.481362\"},\"tickets\":null,\"locales\":{\"en\":{\"alt\":\"\",\"blocks\":[{\"id\":\"setting\",\"title\":\"About this place\",\"text\":\"Noordeinde divides the park. Fruit trees, beeches and chestnuts are described in the southern section.\",\"source_ids\":[\"source.rembrandtpark\"]},{\"id\":\"history\",\"title\":\"Background\",\"text\":\"The northern section is near the former nautical school and the memorial at Rembrandt’s birthplace in the Weddesteeg.\",\"source_ids\":[\"source.rembrandtpark\"]},{\"id\":\"hours\",\"title\":\"Opening hours\",\"text\":\"The location page lists the park as open every day, without precise hours.\",\"source_ids\":[\"source.rembrandtpark\"]},{\"id\":\"visit\",\"title\":\"Plan your visit\",\"text\":\"The park can be approached from Noordeinde or Arsenaalplein. The map point is for orientation, not a verified accessible entrance.\",\"source_ids\":[\"source.rembrandtpark\"]},{\"id\":\"plan\",\"title\":\"Before you go\",\"text\":\"Check the official location map before visiting: the Rembrandtpark includes separate sections along the water.\",\"source_ids\":[\"source.rembrandtpark\"]}]},\"nl\":{\"alt\":\"\",\"blocks\":[{\"id\":\"setting\",\"title\":\"Over deze plek\",\"text\":\"Het Noordeinde verdeelt het park. In het zuidelijke deel worden fruitbomen, beuken en kastanjes beschreven.\",\"source_ids\":[\"source.rembrandtpark\"]},{\"id\":\"history\",\"title\":\"Achtergrond\",\"text\":\"Het noordelijke deel ligt bij de voormalige zeevaartschool en de gedenksteen bij Rembrandts geboorteplaats in de Weddesteeg.\",\"source_ids\":[\"source.rembrandtpark\"]},{\"id\":\"hours\",\"title\":\"Openingstijden\",\"text\":\"De locatiepagina vermeldt dat het park iedere dag open is, zonder precieze tijden.\",\"source_ids\":[\"source.rembrandtpark\"]},{\"id\":\"visit\",\"title\":\"Plan je bezoek\",\"text\":\"Je kunt het park bereiken vanaf het Noordeinde of Arsenaalplein. Het kaartpunt dient voor oriëntatie, niet als bevestigde toegankelijke ingang.\",\"source_ids\":[\"source.rembrandtpark\"]},{\"id\":\"plan\",\"title\":\"Voor vertrek\",\"text\":\"Bekijk vóór je bezoek de officiële locatiekaart: het Rembrandtpark bestaat uit afzonderlijke delen langs het water.\",\"source_ids\":[\"source.rembrandtpark\"]}]}}}"
+      }
+    },
+    {
+      "id": "hotel.leiden-oude-morsch",
+      "entity_type": "hotel",
+      "category": "hotel",
+      "city_id": "leiden",
+      "province_id": "zuid-holland",
+      "coordinates": {
+        "latitude": 52.161964,
+        "longitude": 4.484313
+      },
+      "title": "Boutique Hotel d’Oude Morsch",
+      "description": "A boutique hotel in the former guard building of the Morspoort barracks, beside Park de Put. Its location connects a stay with Leiden’s western city centre.",
+      "images": [
+        {
+          "id": "media.hotel.leiden-oude-morsch.expansion-20261115",
+          "role": "hero",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:Leiden_-_Boutiqie_Hotel_D%27Oude_Morsch.jpg",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Leiden_-_Boutiqie_Hotel_D%27Oude_Morsch.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "public_asset_path": "/images/place-review/expoudemorsch-1200.webp",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "attribution": "Rudolphous · 2017-09-16 16:03:15 · Archive photograph / Archieffoto · resized WebP; no content edits",
+          "verified": true,
+          "retrieved_at": "2026-11-15",
+          "alt": "Exterior of hotel d’Oude Morsch — photograph 2017"
+        }
+      ],
+      "official_source": {
+        "title": "Contact | Boutique Hotel d’Oude Morsch - Leiden",
+        "publisher": "www.boutiquehoteldeoudemorsch.nl",
+        "url": "https://www.boutiquehoteldeoudemorsch.nl/contact/",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.boutiquehoteldeoudemorsch.nl/contact/",
+      "related_entity_ids": [
+        "nature.leiden-park-de-put",
+        "museum.leiden-wereldmuseum"
+      ],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 7,
+      "verification_status": "needs_review",
+      "ai_summary": "A boutique hotel in the former guard building of the Morspoort barracks, beside Park de Put. Its location connects a stay with Leiden’s western city centre.",
+      "search_keywords": [
+        "Boutique Hotel d’Oude Morsch",
+        "leiden",
+        "hotel",
+        "oudemorsch"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "slug": "oude-morsch",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "description_nl": "Een boetiekhotel in het voormalige wachtgebouw van de Morspoortkazerne, naast Park de Put. De ligging sluit aan op het westelijke deel van de Leidse binnenstad.",
+        "title_nl": "Boutique Hotel d’Oude Morsch",
+        "field_review_status": "Source verification complete; human editorial approval pending",
+        "catalog_review_batch": "leiden-stay-parks-20261115",
+        "address": "Park de Put 1, 2312 BM Leiden",
+        "address_source_url": "https://www.boutiquehoteldeoudemorsch.nl/contact/",
+        "address_checked_at": "2026-11-15",
+        "website": "https://www.boutiquehoteldeoudemorsch.nl/contact/",
+        "website_source_url": "https://www.boutiquehoteldeoudemorsch.nl/contact/",
+        "website_checked_at": "2026-11-15",
+        "address_note": "",
+        "media_status": "licensed archive photograph visually checked; publication approval pending",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-15\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.oudemorsch\",\"title\":\"Contact | Boutique Hotel d’Oude Morsch - Leiden\",\"publisher\":\"www.boutiquehoteldeoudemorsch.nl\",\"url\":\"https://www.boutiquehoteldeoudemorsch.nl/contact/\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.oudemorschtourism\",\"title\":\"Boutique Hotel d’Oude Morsch | Visit Leiden\",\"publisher\":\"www.visitleiden.nl\",\"url\":\"https://www.visitleiden.nl/nl/locaties/3944718715/boutique-hotel-doude-morsch\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.oudemorschfacilities\",\"title\":\"Faciliteiten | Boutique Hotel d’Oude Morsch - Leiden\",\"publisher\":\"www.boutiquehoteldeoudemorsch.nl\",\"url\":\"https://www.boutiquehoteldeoudemorsch.nl/faciliteiten/\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.oudemorschholiday\",\"title\":\"Openingstijden feestdagen | Boutique Hotel d’Oude Morsch - Leiden\",\"publisher\":\"www.boutiquehoteldeoudemorsch.nl\",\"url\":\"https://www.boutiquehoteldeoudemorsch.nl/openingstijden-feestdagen/\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://www.visitleiden.nl/nl/locaties/3944718715/boutique-hotel-doude-morsch\",\"method\":\"Official tourism location map point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.161964,4.484313\"},\"tickets\":null,\"locales\":{\"en\":{\"alt\":\"Exterior of hotel d’Oude Morsch — photograph 2017\",\"blocks\":[{\"id\":\"setting\",\"title\":\"About this place\",\"text\":\"The guard building dates from 1817; the hotel has individually arranged rooms rather than a uniform room layout.\",\"source_ids\":[\"source.oudemorschtourism\"]},{\"id\":\"address\",\"title\":\"Location\",\"text\":\"Park de Put 1, 2312 BM Leiden. The hotel points drivers to the public Morspoortgarage.\",\"source_ids\":[\"source.oudemorsch\"]},{\"id\":\"hours\",\"title\":\"Opening hours\",\"text\":\"Regular reception hours are 07:00–21:00. A separate holiday notice lists changes; contact the hotel about late arrival.\",\"source_ids\":[\"source.oudemorsch\"]},{\"id\":\"facilities\",\"title\":\"Facilities\",\"text\":\"Wi-Fi, luggage storage and in-room coffee/tea facilities are listed. Breakfast, a cot and room service carry an extra charge.\",\"source_ids\":[\"source.oudemorschfacilities\"]},{\"id\":\"book\",\"title\":\"Booking\",\"text\":\"Use the hotel’s official site for room options and a date-specific quotation. No live room rate or availability is shown here.\",\"source_ids\":[\"source.oudemorschtourism\"]}]},\"nl\":{\"alt\":\"Buitenkant van hotel d’Oude Morsch — foto 2017\",\"blocks\":[{\"id\":\"setting\",\"title\":\"Over deze plek\",\"text\":\"Het wachtgebouw dateert uit 1817; de hotelkamers hebben verschillende indelingen.\",\"source_ids\":[\"source.oudemorschtourism\"]},{\"id\":\"address\",\"title\":\"Locatie\",\"text\":\"Park de Put 1, 2312 BM Leiden. Het hotel verwijst automobilisten naar de openbare Morspoortgarage.\",\"source_ids\":[\"source.oudemorsch\"]},{\"id\":\"hours\",\"title\":\"Openingstijden\",\"text\":\"De reguliere receptietijden zijn 07.00–21.00 uur. Een aparte feestdagenpagina vermeldt afwijkingen; overleg met het hotel over late aankomst.\",\"source_ids\":[\"source.oudemorsch\"]},{\"id\":\"facilities\",\"title\":\"Voorzieningen\",\"text\":\"Wifi, bagageopslag en koffie- en theefaciliteiten op de kamer worden vermeld. Ontbijt, een babybedje en roomservice kosten extra.\",\"source_ids\":[\"source.oudemorschfacilities\"]},{\"id\":\"book\",\"title\":\"Boeken\",\"text\":\"Gebruik de officiële hotelsite voor kamertypes en een prijs voor jouw data. Hier staan geen actuele kamerprijzen of beschikbaarheid.\",\"source_ids\":[\"source.oudemorschtourism\"]}]}}}"
+      }
+    },
+    {
+      "id": "hotel.leiden-huys-van-leyden",
+      "entity_type": "hotel",
+      "category": "hotel",
+      "city_id": "leiden",
+      "province_id": "zuid-holland",
+      "coordinates": {
+        "latitude": 52.162088,
+        "longitude": 4.4971
+      },
+      "title": "Huys van Leyden",
+      "description": "A small canal-side hotel on the Oude Singel, with rooms in historic buildings and separate apartment options. Check the exact accommodation before reserving.",
+      "images": [
+        {
+          "id": "media.hotel.leiden-huys-van-leyden.expansion-20261115",
+          "role": "hero",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:Leiden_-_Oude_Singel_212.jpg",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Leiden_-_Oude_Singel_212.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "public_asset_path": "/images/place-review/exphuys-1200.webp",
+          "license": "CC BY 3.0",
+          "license_url": "https://creativecommons.org/licenses/by/3.0",
+          "attribution": "Rudolphous · 2010-02-07 · Archive photograph / Archieffoto · resized WebP; no content edits",
+          "verified": true,
+          "retrieved_at": "2026-11-15",
+          "alt": "Historic façade at Oude Singel 212, before the current hotel presentation — photograph 2010"
+        }
+      ],
+      "official_source": {
+        "title": "Contact | Boutique hotels van Leyden",
+        "publisher": "www.boutiquehotelsvanleyden.nl",
+        "url": "https://www.boutiquehotelsvanleyden.nl/nl/contact.html",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.boutiquehotelsvanleyden.nl/nl/contact.html",
+      "related_entity_ids": [
+        "nature.leiden-huigpark",
+        "nature.leiden-blekerspark"
+      ],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 7,
+      "verification_status": "needs_review",
+      "ai_summary": "A small canal-side hotel on the Oude Singel, with rooms in historic buildings and separate apartment options. Check the exact accommodation before reserving.",
+      "search_keywords": [
+        "Huys van Leyden",
+        "leiden",
+        "hotel",
+        "huys"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "slug": "huys-van-leyden",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "description_nl": "Een kleinschalig hotel aan de Oude Singel, met kamers in historische panden en afzonderlijke appartementen. Controleer vóór reservering welke accommodatie je boekt.",
+        "title_nl": "Huys van Leyden",
+        "field_review_status": "Source verification complete; human editorial approval pending",
+        "catalog_review_batch": "leiden-stay-parks-20261115",
+        "address": "Oude Singel 212, 2312 RJ Leiden",
+        "address_source_url": "https://www.boutiquehotelsvanleyden.nl/nl/contact.html",
+        "address_checked_at": "2026-11-15",
+        "website": "https://www.boutiquehotelsvanleyden.nl/nl/contact.html",
+        "website_source_url": "https://www.boutiquehotelsvanleyden.nl/nl/contact.html",
+        "website_checked_at": "2026-11-15",
+        "address_note": "",
+        "media_status": "licensed archive photograph visually checked; publication approval pending",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-15\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.huys\",\"title\":\"Contact | Boutique hotels van Leyden\",\"publisher\":\"www.boutiquehotelsvanleyden.nl\",\"url\":\"https://www.boutiquehotelsvanleyden.nl/nl/contact.html\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.huyssuite\",\"title\":\"Suite met grachtzicht | Boutique hotels van Leyden\",\"publisher\":\"www.boutiquehotelsvanleyden.nl\",\"url\":\"https://www.boutiquehotelsvanleyden.nl/nl/huys-van-leyden/accommodaties/suite-met-grachtzicht.html\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.huystourism\",\"title\":\"Boutique Hotel Huys van Leyden | Visit Leiden\",\"publisher\":\"www.visitleiden.nl\",\"url\":\"https://www.visitleiden.nl/nl/locaties/2048619726/boutique-hotel-huys-van-leyden\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://www.visitleiden.nl/nl/locaties/2048619726/boutique-hotel-huys-van-leyden\",\"method\":\"Official tourism location map point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.162088,4.4971\"},\"tickets\":null,\"locales\":{\"en\":{\"alt\":\"Historic façade at Oude Singel 212, before the current hotel presentation — photograph 2010\",\"blocks\":[{\"id\":\"address\",\"title\":\"Location\",\"text\":\"Oude Singel 212, 2312 RJ Leiden. Use the hotel’s contact page for arrival arrangements.\",\"source_ids\":[\"source.huys\"]},{\"id\":\"arrival\",\"title\":\"Arrival\",\"text\":\"The contact page lists reception hours of 09:00–19:00; a room page mentions arrival from 08:30. Confirm early arrival directly.\",\"source_ids\":[\"source.huyssuite\"]},{\"id\":\"rooms\",\"title\":\"Rooms\",\"text\":\"The canal-view suite page lists room access from 15:00 and checkout before 11:00. Confirm the terms for your own room type.\",\"source_ids\":[\"source.huyssuite\"]},{\"id\":\"parking\",\"title\":\"Parking\",\"text\":\"The hotel has limited private parking. Reserve a space separately and verify the applicable charge.\",\"source_ids\":[\"source.huystourism\"]},{\"id\":\"book\",\"title\":\"Booking\",\"text\":\"The hotel also advertises apartments outside the main building. Select the location and room type deliberately in its booking service.\",\"source_ids\":[\"source.huyssuite\"]}]},\"nl\":{\"alt\":\"Historische gevel aan Oude Singel 212, vóór de huidige hotelinrichting — foto 2010\",\"blocks\":[{\"id\":\"address\",\"title\":\"Locatie\",\"text\":\"Oude Singel 212, 2312 RJ Leiden. Gebruik de contactpagina van het hotel voor afspraken over aankomst.\",\"source_ids\":[\"source.huys\"]},{\"id\":\"arrival\",\"title\":\"Aankomst\",\"text\":\"De contactpagina noemt receptietijden van 09.00–19.00 uur; een kamerpagina noemt aankomst vanaf 08.30 uur. Bevestig vroege aankomst rechtstreeks.\",\"source_ids\":[\"source.huyssuite\"]},{\"id\":\"rooms\",\"title\":\"Kamers\",\"text\":\"De pagina van de suite met grachtzicht vermeldt toegang vanaf 15.00 uur en uitchecken vóór 11.00 uur. Controleer de voorwaarden van jouw kamertype.\",\"source_ids\":[\"source.huyssuite\"]},{\"id\":\"parking\",\"title\":\"Parkeren\",\"text\":\"Het hotel heeft een beperkt aantal eigen parkeerplaatsen. Reserveer een plek afzonderlijk en controleer het geldende tarief.\",\"source_ids\":[\"source.huystourism\"]},{\"id\":\"book\",\"title\":\"Boeken\",\"text\":\"Het hotel biedt ook appartementen buiten het hoofdgebouw aan. Kies in de boekingsmodule bewust de locatie en het kamertype.\",\"source_ids\":[\"source.huyssuite\"]}]}}}"
+      }
+    },
+    {
+      "id": "hotel.leiden-steenhof",
+      "entity_type": "hotel",
+      "category": "hotel",
+      "city_id": "leiden",
+      "province_id": "zuid-holland",
+      "coordinates": {
+        "latitude": 52.156082,
+        "longitude": 4.492075
+      },
+      "title": "Steenhof Suites",
+      "description": "A suite hotel in historic buildings on the Steenschuur. It is adults-only and has no lift, making room access an important part of planning a stay.",
+      "images": [
+        {
+          "id": "media.hotel.leiden-steenhof.expansion-20261115",
+          "role": "hero",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:Leiden_-_Steenschuur_11.JPG",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Leiden_-_Steenschuur_11.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "public_asset_path": "/images/place-review/expsteenhof-1200.webp",
+          "license": "CC BY 3.0",
+          "license_url": "https://creativecommons.org/licenses/by/3.0",
+          "attribution": "Rudolphous · 2010-02-03 · Archive photograph / Archieffoto · resized WebP; no content edits",
+          "verified": true,
+          "retrieved_at": "2026-11-15",
+          "alt": "Historic façade of Steenschuur 11 — photograph 2010"
+        }
+      ],
+      "official_source": {
+        "title": "Contact | Steenhof Suites – Boutique Hotel in Leiden",
+        "publisher": "steenhofsuites.nl",
+        "url": "https://steenhofsuites.nl/contact/",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://steenhofsuites.nl/contact/",
+      "related_entity_ids": [
+        "place.leiden-rmo",
+        "place.leiden-hortus"
+      ],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 7,
+      "verification_status": "needs_review",
+      "ai_summary": "A suite hotel in historic buildings on the Steenschuur. It is adults-only and has no lift, making room access an important part of planning a stay.",
+      "search_keywords": [
+        "Steenhof Suites",
+        "leiden",
+        "hotel",
+        "steenhof"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "slug": "steenhof",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "description_nl": "Een suitehotel in historische panden aan de Steenschuur. Het hotel is adults-only en heeft geen lift; controleer daarom vooraf hoe je de kamer bereikt.",
+        "title_nl": "Steenhof Suites",
+        "field_review_status": "Source verification complete; human editorial approval pending",
+        "catalog_review_batch": "leiden-stay-parks-20261115",
+        "address": "Steenschuur 11, 2311 ES Leiden",
+        "address_source_url": "https://steenhofsuites.nl/contact/",
+        "address_checked_at": "2026-11-15",
+        "website": "https://steenhofsuites.nl/contact/",
+        "website_source_url": "https://steenhofsuites.nl/contact/",
+        "website_checked_at": "2026-11-15",
+        "address_note": "",
+        "media_status": "licensed archive photograph visually checked; publication approval pending",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-15\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.steenhof\",\"title\":\"Contact | Steenhof Suites – Boutique Hotel in Leiden\",\"publisher\":\"steenhofsuites.nl\",\"url\":\"https://steenhofsuites.nl/contact/\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.steenhoffacilities\",\"title\":\"Faciliteiten & Arrangementen | Steenhof Suites Leiden\",\"publisher\":\"steenhofsuites.nl\",\"url\":\"https://steenhofsuites.nl/faciliteiten-arrangement/\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.steenhoftourism\",\"title\":\"Steenhof Suites | Visit Leiden\",\"publisher\":\"www.visitleiden.nl\",\"url\":\"https://www.visitleiden.nl/nl/locaties/4129642951/steenhof-suites\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://www.visitleiden.nl/nl/locaties/4129642951/steenhof-suites\",\"method\":\"Official tourism location map point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.156082,4.492075\"},\"tickets\":null,\"locales\":{\"en\":{\"alt\":\"Historic façade of Steenschuur 11 — photograph 2010\",\"blocks\":[{\"id\":\"address\",\"title\":\"Location\",\"text\":\"The contact address is Steenschuur 11, 2311 ES Leiden; the site also refers to the combined buildings at 11–13.\",\"source_ids\":[\"source.steenhof\"]},{\"id\":\"access\",\"title\":\"Accessibility\",\"text\":\"There are no lifts. Tell the hotel well in advance if stairs are difficult for you.\",\"source_ids\":[\"source.steenhof\"]},{\"id\":\"rooms\",\"title\":\"Rooms\",\"text\":\"The hotel describes itself as adults-only, with two-person rooms and no extra beds.\",\"source_ids\":[\"source.steenhof\"]},{\"id\":\"breakfast\",\"title\":\"Breakfast\",\"text\":\"Breakfast is offered from 08:00–11:00 and should be requested at check-in. Confirm inclusion and any charge with the hotel.\",\"source_ids\":[\"source.steenhoffacilities\"]},{\"id\":\"book\",\"title\":\"Booking\",\"text\":\"Use the official reservation link for availability and prices. Check-in hours are not confirmed by the contact page.\",\"source_ids\":[\"source.steenhof\"]}]},\"nl\":{\"alt\":\"Historische gevel van Steenschuur 11 — foto 2010\",\"blocks\":[{\"id\":\"address\",\"title\":\"Locatie\",\"text\":\"Het contactadres is Steenschuur 11, 2311 ES Leiden; de site noemt ook de gecombineerde panden 11–13.\",\"source_ids\":[\"source.steenhof\"]},{\"id\":\"access\",\"title\":\"Toegankelijkheid\",\"text\":\"Er zijn geen liften. Meld ruim vooraf aan het hotel als traplopen lastig is.\",\"source_ids\":[\"source.steenhof\"]},{\"id\":\"rooms\",\"title\":\"Kamers\",\"text\":\"Het hotel omschrijft zichzelf als adults-only, met tweepersoonskamers en zonder extra bedden.\",\"source_ids\":[\"source.steenhof\"]},{\"id\":\"breakfast\",\"title\":\"Ontbijt\",\"text\":\"Ontbijt wordt aangeboden van 08.00–11.00 uur; geef je wens bij het inchecken door. Controleer of het is inbegrepen en wat het kost.\",\"source_ids\":[\"source.steenhoffacilities\"]},{\"id\":\"book\",\"title\":\"Boeken\",\"text\":\"Gebruik de officiële reserveringslink voor beschikbaarheid en prijzen. De contactpagina bevestigt geen inchecktijden.\",\"source_ids\":[\"source.steenhof\"]}]}}}"
+      }
+    },
+    {
+      "id": "hotel.leiden-ibis",
+      "entity_type": "hotel",
+      "category": "hotel",
+      "city_id": "leiden",
+      "province_id": "zuid-holland",
+      "coordinates": {
+        "latitude": 52.164199,
+        "longitude": 4.481492
+      },
+      "title": "ibis Leiden Centre",
+      "description": "A hotel opposite Leiden Centraal for visitors arriving by train. Accor’s official page lists room categories, breakfast arrangements and on-site facilities.",
+      "images": [],
+      "official_source": {
+        "title": "IBIS LEIDEN CENTRE - Ibis hotel - Accor - ALL - ALL",
+        "publisher": "all.accor.com",
+        "url": "https://all.accor.com/hotel/8087/index.en.shtml",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://all.accor.com/hotel/8087/index.en.shtml",
+      "related_entity_ids": [
+        "museum.leiden-wereldmuseum",
+        "place.leiden-naturalis"
+      ],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 7,
+      "verification_status": "needs_review",
+      "ai_summary": "A hotel opposite Leiden Centraal for visitors arriving by train. Accor’s official page lists room categories, breakfast arrangements and on-site facilities.",
+      "search_keywords": [
+        "ibis Leiden Centre",
+        "leiden",
+        "hotel",
+        "ibis"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "slug": "ibis",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "description_nl": "Een hotel tegenover Leiden Centraal voor bezoekers die met de trein aankomen. De officiële Accor-pagina vermeldt kamertypes, ontbijt en voorzieningen.",
+        "title_nl": "ibis Leiden Centre",
+        "field_review_status": "Source verification complete; human editorial approval pending",
+        "catalog_review_batch": "leiden-stay-parks-20261115",
+        "address": "Stationsplein 240–242, 2312 AR Leiden",
+        "address_source_url": "https://all.accor.com/hotel/8087/index.en.shtml",
+        "address_checked_at": "2026-11-15",
+        "website": "https://all.accor.com/hotel/8087/index.en.shtml",
+        "website_source_url": "https://all.accor.com/hotel/8087/index.en.shtml",
+        "website_checked_at": "2026-11-15",
+        "address_note": "",
+        "media_status": "No suitable licensed photograph confirmed; no substitute image used",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-15\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.ibis\",\"title\":\"IBIS LEIDEN CENTRE - Ibis hotel - Accor - ALL - ALL\",\"publisher\":\"all.accor.com\",\"url\":\"https://all.accor.com/hotel/8087/index.en.shtml\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.ibistourism\",\"title\":\"Hotel Ibis | Visit Leiden\",\"publisher\":\"www.visitleiden.nl\",\"url\":\"https://www.visitleiden.nl/nl/locaties/3858932145/ibis-leiden-centre\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://www.visitleiden.nl/nl/locaties/3858932145/ibis-leiden-centre\",\"method\":\"Official tourism location map point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.164199,4.481492\"},\"tickets\":null,\"locales\":{\"en\":{\"alt\":\"\",\"blocks\":[{\"id\":\"address\",\"title\":\"Location\",\"text\":\"Stationsplein 240–242, 2312 AR Leiden, opposite the central station.\",\"source_ids\":[\"source.ibis\"]},{\"id\":\"rooms\",\"title\":\"Rooms\",\"text\":\"The operator lists double, twin, single and triple options. Check the capacity and bedding of the selected room.\",\"source_ids\":[\"source.ibis\"]},{\"id\":\"breakfast\",\"title\":\"Breakfast\",\"text\":\"Breakfast is listed as 06:30–10:00 on weekdays and 06:30–11:00 at weekends. Check whether your rate includes it.\",\"source_ids\":[\"source.ibis\"]},{\"id\":\"facilities\",\"title\":\"Facilities\",\"text\":\"Free Wi-Fi and bicycle rental are listed; confirm rental availability and any fee directly.\",\"source_ids\":[\"source.ibis\"]},{\"id\":\"book\",\"title\":\"Booking\",\"text\":\"Use Accor’s official hotel page to choose dates and review cancellation terms. No review rating or live price is reproduced here.\",\"source_ids\":[\"source.ibis\"]}]},\"nl\":{\"alt\":\"\",\"blocks\":[{\"id\":\"address\",\"title\":\"Locatie\",\"text\":\"Stationsplein 240–242, 2312 AR Leiden, tegenover het centraal station.\",\"source_ids\":[\"source.ibis\"]},{\"id\":\"rooms\",\"title\":\"Kamers\",\"text\":\"De aanbieder vermeldt double-, twin-, single- en triple-opties. Controleer de capaciteit en bedden van de gekozen kamer.\",\"source_ids\":[\"source.ibis\"]},{\"id\":\"breakfast\",\"title\":\"Ontbijt\",\"text\":\"Ontbijt wordt vermeld van 06.30–10.00 uur op werkdagen en 06.30–11.00 uur in het weekend. Controleer of jouw tarief ontbijt omvat.\",\"source_ids\":[\"source.ibis\"]},{\"id\":\"facilities\",\"title\":\"Voorzieningen\",\"text\":\"Gratis wifi en fietsverhuur worden vermeld; vraag rechtstreeks naar beschikbaarheid en de eventuele huurprijs.\",\"source_ids\":[\"source.ibis\"]},{\"id\":\"book\",\"title\":\"Boeken\",\"text\":\"Kies data via de officiële Accor-hotelsite en bekijk de annuleringsvoorwaarden. Hier worden geen beoordelingsscore of actuele prijs overgenomen.\",\"source_ids\":[\"source.ibis\"]}]}}}"
+      }
+    },
+    {
+      "id": "hotel.leiden-rembrandt-hotel",
+      "entity_type": "hotel",
+      "category": "hotel",
+      "city_id": "leiden",
+      "province_id": "zuid-holland",
+      "coordinates": {
+        "latitude": 52.163219,
+        "longitude": 4.485801
+      },
+      "title": "City Hotel Rembrandt",
+      "description": "A city hotel on Nieuwe Beestenmarkt, close to Leiden’s museum quarter. The official website distinguishes hotel rooms from hotel studios.",
+      "images": [],
+      "official_source": {
+        "title": "Contact hotel | City Hotel Rembrandt | Leiden",
+        "publisher": "www.rembrandthotel.nl",
+        "url": "https://www.rembrandthotel.nl/contact",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.rembrandthotel.nl/contact",
+      "related_entity_ids": [
+        "place.leiden-lakenhal",
+        "museum.leiden-boerhaave"
+      ],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 7,
+      "verification_status": "needs_review",
+      "ai_summary": "A city hotel on Nieuwe Beestenmarkt, close to Leiden’s museum quarter. The official website distinguishes hotel rooms from hotel studios.",
+      "search_keywords": [
+        "City Hotel Rembrandt",
+        "leiden",
+        "hotel",
+        "rembrandthotel"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "slug": "rembrandt-hotel",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "description_nl": "Een stadshotel aan de Nieuwe Beestenmarkt, bij het Leidse museumgebied. De officiële website maakt onderscheid tussen hotelkamers en hotelstudio’s.",
+        "title_nl": "City Hotel Rembrandt",
+        "field_review_status": "Source verification complete; human editorial approval pending",
+        "catalog_review_batch": "leiden-stay-parks-20261115",
+        "address": "Nieuwe Beestenmarkt 10, 2312 CH Leiden",
+        "address_source_url": "https://www.rembrandthotel.nl/contact",
+        "address_checked_at": "2026-11-15",
+        "website": "https://www.rembrandthotel.nl/contact",
+        "website_source_url": "https://www.rembrandthotel.nl/contact",
+        "website_checked_at": "2026-11-15",
+        "address_note": "",
+        "media_status": "No suitable licensed photograph confirmed; no substitute image used",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-15\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.rembrandthotel\",\"title\":\"Contact hotel | City Hotel Rembrandt | Leiden\",\"publisher\":\"www.rembrandthotel.nl\",\"url\":\"https://www.rembrandthotel.nl/contact\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.rembrandthotelhome\",\"title\":\"Hotel in Leiden | City Hotel Rembrandt | Leiden\",\"publisher\":\"www.rembrandthotel.nl\",\"url\":\"https://www.rembrandthotel.nl/\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.rembrandthoteltourism\",\"title\":\"Rembrandt Hotel Leiden | Visit Leiden\",\"publisher\":\"www.visitleiden.nl\",\"url\":\"https://www.visitleiden.nl/nl/locaties/976921119/rembrandt-hotel-leiden\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://www.visitleiden.nl/nl/locaties/976921119/rembrandt-hotel-leiden\",\"method\":\"Official tourism location map point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.163219,4.485801\"},\"tickets\":null,\"locales\":{\"en\":{\"alt\":\"\",\"blocks\":[{\"id\":\"address\",\"title\":\"Location\",\"text\":\"Nieuwe Beestenmarkt 10, 2312 CH Leiden. Use the official contact details for arrival questions.\",\"source_ids\":[\"source.rembrandthotel\"]},{\"id\":\"rooms\",\"title\":\"Rooms\",\"text\":\"The hotel advertises rooms and studios. Check the room description rather than assuming each option has the same facilities.\",\"source_ids\":[\"source.rembrandthotelhome\"]},{\"id\":\"parking\",\"title\":\"Parking\",\"text\":\"Five private parking spaces are advertised, subject to availability. The contact page lists €16.50 per day; reserve and reconfirm.\",\"source_ids\":[\"source.rembrandthotel\"]},{\"id\":\"breakfast\",\"title\":\"Breakfast\",\"text\":\"The hotel directs guests to its booking module to check whether breakfast is included.\",\"source_ids\":[\"source.rembrandthotelhome\"]},{\"id\":\"arrival\",\"title\":\"Arrival\",\"text\":\"Exact check-in and checkout times are not given in the homepage FAQ; arrange arrival directly before travel.\",\"source_ids\":[\"source.rembrandthotelhome\"]}]},\"nl\":{\"alt\":\"\",\"blocks\":[{\"id\":\"address\",\"title\":\"Locatie\",\"text\":\"Nieuwe Beestenmarkt 10, 2312 CH Leiden. Gebruik de officiële contactgegevens voor vragen over aankomst.\",\"source_ids\":[\"source.rembrandthotel\"]},{\"id\":\"rooms\",\"title\":\"Kamers\",\"text\":\"Het hotel biedt kamers en studio’s aan. Bekijk de kameromschrijving; niet iedere optie heeft dezelfde voorzieningen.\",\"source_ids\":[\"source.rembrandthotelhome\"]},{\"id\":\"parking\",\"title\":\"Parkeren\",\"text\":\"Er worden vijf eigen parkeerplaatsen aangeboden, afhankelijk van beschikbaarheid. De contactpagina noemt €16,50 per dag; reserveer en bevestig het tarief.\",\"source_ids\":[\"source.rembrandthotel\"]},{\"id\":\"breakfast\",\"title\":\"Ontbijt\",\"text\":\"Het hotel verwijst gasten naar de boekingsmodule om te controleren of ontbijt is inbegrepen.\",\"source_ids\":[\"source.rembrandthotelhome\"]},{\"id\":\"arrival\",\"title\":\"Aankomst\",\"text\":\"De FAQ op de homepage geeft geen exacte in- en uitchecktijden; stem je aankomst vooraf rechtstreeks af.\",\"source_ids\":[\"source.rembrandthotelhome\"]}]}}}"
+      }
+    }
+  ]
+}

@@ -1,0 +1,625 @@
+{
+  "rijksmuseum": {
+    "url": "https://www.rijksmuseum.nl/en",
+    "finalUrl": "https://www.rijksmuseum.nl/en",
+    "httpStatus": 200,
+    "sha256": "967e460b88ba253821c355fd2fd7eeaf08e6f5c3cb46dcea009e10545f3f8294",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=utf-8"
+  },
+  "rijksvisit": {
+    "url": "https://www.rijksmuseum.nl/en/visit/practical-info",
+    "finalUrl": "https://www.rijksmuseum.nl/en/visit/practical-info",
+    "httpStatus": 200,
+    "sha256": "535f0e418de9e38857a67222e29a8febf0e7ff671c07dfad1fd6d1af9376e8ac",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=utf-8"
+  },
+  "rijksprices": {
+    "url": "https://www.rijksmuseum.nl/en/visit/practical-info/opening-hours-and-prices",
+    "finalUrl": "https://www.rijksmuseum.nl/en/visit/practical-info/opening-hours-and-prices",
+    "httpStatus": 200,
+    "sha256": "c1ebf5f678640f27b313837c43ca32dd9445215773405abe6bbc08ced6e18378",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=utf-8"
+  },
+  "rijksmuseum-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Museumstraat+1+Amsterdam&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Museumstraat+1+Amsterdam&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-15",
+    "sha256": "c929bf69cb945068a5c5ae17fff4b4c9e553f6312faba477af57889b8e22b15e",
+    "selectedAddress": {
+      "id": "adr-05d9f079a1e8e66f30122d9ca3b0acd3",
+      "weergavenaam": "Museumstraat 1, 1071XX Amsterdam",
+      "centroide_ll": "POINT(4.88538628 52.35994229)",
+      "nummeraanduiding_id": "0363200012073684",
+      "woonplaatsnaam": "Amsterdam"
+    },
+    "method": "official address geocoder; not an entrance survey"
+  },
+  "vangoghmuseum": {
+    "url": "https://www.vangoghmuseum.nl/en",
+    "finalUrl": "https://www.vangoghmuseum.nl/en",
+    "httpStatus": 200,
+    "sha256": "222510d847843dc82649d36e62d6e81046b67b6ebe1f874e7509b7d80e75ec77",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=utf-8"
+  },
+  "goghvisit": {
+    "url": "https://www.vangoghmuseum.nl/en/visit/address-and-opening-hours",
+    "finalUrl": "https://www.vangoghmuseum.nl/en/visit/address-and-opening-hours",
+    "httpStatus": 200,
+    "sha256": "eee8558b38c946c35b37ab7b7b74171c5cffd1e08a38bad38287e09a6f5962a8",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=utf-8"
+  },
+  "goghprices": {
+    "url": "https://www.vangoghmuseum.nl/en/visit/tickets-and-ticket-prices",
+    "finalUrl": "https://www.vangoghmuseum.nl/en/visit/tickets-and-ticket-prices",
+    "httpStatus": 200,
+    "sha256": "aafe95139fe9137caf2e261ce39fe5eb51b1855c875b146dad429bc3a4c348ef",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=utf-8"
+  },
+  "vangoghmuseum-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Museumplein+6+Amsterdam&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Museumplein+6+Amsterdam&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-15",
+    "sha256": "5a210c2fed4e15ba55800586cbe5fc1dfc6db3526fe76127ad72218db0d26d0f",
+    "selectedAddress": {
+      "id": "adr-5d321944a8c8933095cd301ed476ab14",
+      "weergavenaam": "Museumplein 6, 1071DJ Amsterdam",
+      "centroide_ll": "POINT(4.88132267 52.35792475)",
+      "nummeraanduiding_id": "0363200012086033",
+      "woonplaatsnaam": "Amsterdam"
+    },
+    "method": "official address geocoder; not an entrance survey"
+  },
+  "stedelijkmuseumamsterdam": {
+    "url": "https://www.stedelijk.nl/en",
+    "finalUrl": "https://www.stedelijk.nl/en",
+    "httpStatus": 200,
+    "sha256": "6697e36828059de095312fbaa5da2ff12d533d301a8cc09f767376e3ae5388ec",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  "stedelijkmuseumamsterdam-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Museumplein+10+Amsterdam&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Museumplein+10+Amsterdam&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-15",
+    "sha256": "9a11c4af0f4ba93e74d1cdacd69a68755c35a5f207b5c33b75530e865916bdd3",
+    "selectedAddress": {
+      "id": "adr-7642bca9102ef52ec44ef2d83130ab97",
+      "weergavenaam": "Museumplein 10, 1071DJ Amsterdam",
+      "centroide_ll": "POINT(4.87985492 52.35790993)",
+      "nummeraanduiding_id": "0363200011324089",
+      "woonplaatsnaam": "Amsterdam"
+    },
+    "method": "official address geocoder; not an entrance survey"
+  },
+  "annefrankhouse": {
+    "url": "https://www.annefrank.org/en/museum/",
+    "finalUrl": "https://www.annefrank.org/en/museum/",
+    "httpStatus": 200,
+    "sha256": "bef0b5380a46646e43ce11fa15856d6f55ad4fec75f3e6d1a5b1bcf8657713af",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=utf-8"
+  },
+  "annevisit": {
+    "url": "https://www.annefrank.org/en/museum/tickets/",
+    "finalUrl": "https://www.annefrank.org/en/museum/tickets/",
+    "httpStatus": 200,
+    "sha256": "79f62c01291dcaa43331ff61e5e6239fa69f7d60f9b7297a061e79f5ef4c93ac",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=utf-8"
+  },
+  "anneaccess": {
+    "url": "https://www.annefrank.org/en/museum/accessibility-museum/",
+    "finalUrl": "https://www.annefrank.org/en/museum/accessibility-museum/",
+    "httpStatus": 200,
+    "sha256": "058885dd4b324e2d6b46274b23ecb2e8672c5bd36a33772350f08501717e057f",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=utf-8"
+  },
+  "annefrankhouse-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Westermarkt+20+Amsterdam&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Westermarkt+20+Amsterdam&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-15",
+    "sha256": "b46a096afc034e98cfc084bb6c9b95e78b67c4131846846ac5db55d4db5708b6",
+    "selectedAddress": {
+      "id": "adr-b1d77a0e2deb3cc60f6d7ce1f0ba50dd",
+      "weergavenaam": "Westermarkt 20, 1016DK Amsterdam",
+      "centroide_ll": "POINT(4.88431719 52.37493637)",
+      "nummeraanduiding_id": "0363200012151122",
+      "woonplaatsnaam": "Amsterdam"
+    },
+    "method": "official address geocoder; not an entrance survey"
+  },
+  "nemovisit": {
+    "url": "https://www.nemosciencemuseum.nl/en/plan-your-visit",
+    "finalUrl": "https://www.nemosciencemuseum.nl/en/plan-your-visit",
+    "httpStatus": 200,
+    "sha256": "a1dd814c24ec2da19434542f42f6d57b84784e0860516dc4b31a45b877cb6c41",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=utf-8"
+  },
+  "nemosciencemuseum-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Oosterdok+2+Amsterdam&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Oosterdok+2+Amsterdam&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-15",
+    "sha256": "b402fe284cb8cd92c8ce47f813f1f7ca5df635f093e5e3d899787f5571b51a56",
+    "selectedAddress": {
+      "id": "adr-9d5933b972be23610546f17ed7dcf229",
+      "weergavenaam": "Oosterdok 2, 1011VX Amsterdam",
+      "centroide_ll": "POINT(4.91211135 52.37385316)",
+      "nummeraanduiding_id": "0363200000478214",
+      "woonplaatsnaam": "Amsterdam"
+    },
+    "method": "official address geocoder; not an entrance survey"
+  },
+  "hetscheepvaartmuseum": {
+    "url": "https://www.hetscheepvaartmuseum.com/",
+    "finalUrl": "https://www.hetscheepvaartmuseum.com/",
+    "httpStatus": 200,
+    "sha256": "1634f12616825f95eeacd34bc5bb25bc7858a65d934c937041993b178b2a8e9f",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=utf-8"
+  },
+  "maritimevisit": {
+    "url": "https://www.hetscheepvaartmuseum.com/visit/opening-hours-and-admission",
+    "finalUrl": "https://www.hetscheepvaartmuseum.com/visit/opening-hours-and-admission",
+    "httpStatus": 200,
+    "sha256": "cd360ed7ffca02000aa76a64dc03034276e4b0c52cdd27bb17a02bc10ff2e575",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=utf-8"
+  },
+  "hetscheepvaartmuseum-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Kattenburgerplein+1+Amsterdam&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Kattenburgerplein+1+Amsterdam&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-15",
+    "sha256": "18ed534c1c3079c6b4ea256640b00aabd3ecb0d07ca0047572c8296baad80de6",
+    "selectedAddress": {
+      "id": "adr-57557e871f17e421b5f21181ae8afdec",
+      "weergavenaam": "Kattenburgerplein 1, 1018KK Amsterdam",
+      "centroide_ll": "POINT(4.91500002 52.37149196)",
+      "nummeraanduiding_id": "0363200000161444",
+      "woonplaatsnaam": "Amsterdam"
+    },
+    "method": "official address geocoder; not an entrance survey"
+  },
+  "museumrembrandthuis": {
+    "url": "https://www.rembrandthuis.nl/en/",
+    "finalUrl": "https://www.rembrandthuis.nl/en/",
+    "httpStatus": 200,
+    "sha256": "41f6302cd9409d08b44704bc43196c87173d8db8f2b8f4e6a701c169eaf354f8",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  "rembrandthuisvisit": {
+    "url": "https://www.rembrandthuis.nl/en/plan-your-visit/visitor-information/opening-hours-fees/",
+    "finalUrl": "https://www.rembrandthuis.nl/en/plan-your-visit/visitor-information/opening-hours-fees/",
+    "httpStatus": 200,
+    "sha256": "7721c77c2389a875612c8f7e94d6e11799ed69b5a6670d327c6a9314fc470f72",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  "museumrembrandthuis-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Jodenbreestraat+4+Amsterdam&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Jodenbreestraat+4+Amsterdam&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-15",
+    "sha256": "823c73218907f0c3ffc9b716be65a2edeeabc8995eca2fa6af794952f27f4b46",
+    "selectedAddress": {
+      "id": "adr-2c7c3e519cc066fc5679043754ebc4f2",
+      "weergavenaam": "Jodenbreestraat 4, 1011NK Amsterdam",
+      "centroide_ll": "POINT(4.90124965 52.36936916)",
+      "nummeraanduiding_id": "0363200000455840",
+      "woonplaatsnaam": "Amsterdam"
+    },
+    "method": "official address geocoder; not an entrance survey"
+  },
+  "solderstory": {
+    "url": "https://opsolder.nl/en/museum-visit/",
+    "finalUrl": "https://opsolder.nl/en/museum-visit/",
+    "httpStatus": 200,
+    "sha256": "06f6a5c9e7cd483034f9643163a2f15cde537b3e0f07034582ef5d68796824c4",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  "soldervisit": {
+    "url": "https://opsolder.nl/en/practical-information/",
+    "finalUrl": "https://opsolder.nl/en/practical-information/",
+    "httpStatus": 200,
+    "sha256": "dced2b396d61ed04564a172aa7ba29e02e873da537b4e9c3a4b2e3392ae070cb",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  "solderhours": {
+    "url": "https://opsolder.nl/en/opening-hours/",
+    "finalUrl": "https://opsolder.nl/en/opening-hours/",
+    "httpStatus": 200,
+    "sha256": "c28fd0289de90d676902ec77662cb5ab6fd7ba68a26832454c4b46f77e28c79f",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  "solderprices": {
+    "url": "https://opsolder.nl/en/tickets-and-prices/",
+    "finalUrl": "https://opsolder.nl/en/tickets-and-prices/",
+    "httpStatus": 200,
+    "sha256": "ebb6dba470e1cb892024311d3abb729dc3859cc7c00ac4d91652396f0da135b2",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  "museumonslieveheeropsolder-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Oudezijds+Voorburgwal+38+Amsterdam&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Oudezijds+Voorburgwal+38+Amsterdam&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-15",
+    "sha256": "759d0f5aae7f568c2b28bc6864c9192c8a2681f8820c7aa855d8a7d2a1954172",
+    "selectedAddress": {
+      "id": "adr-0bbe73a4024136808a2f262bdf42dc74",
+      "weergavenaam": "Oudezijds Voorburgwal 38, 1012GD Amsterdam",
+      "centroide_ll": "POINT(4.89936624 52.3750686)",
+      "nummeraanduiding_id": "0363200012088125",
+      "woonplaatsnaam": "Amsterdam"
+    },
+    "method": "official address geocoder; not an entrance survey"
+  },
+  "hartmuseum": {
+    "url": "https://www.hartmuseum.nl/en/",
+    "finalUrl": "https://www.hartmuseum.nl/en/",
+    "httpStatus": 200,
+    "sha256": "1041160ad23cc50cbb894ec21f42cdd0d30d6fecd33680c487f1073d9cab0d5f",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  "hartvisit": {
+    "url": "https://www.hartmuseum.nl/en/plan-your-visit/",
+    "finalUrl": "https://www.hartmuseum.nl/en/plan-your-visit/",
+    "httpStatus": 200,
+    "sha256": "966d92c987ddf53921eae680cd69a801ea1559c25ae760bfcfbb90f54a24f498",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  "hartmuseum-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Amstel+51+Amsterdam&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Amstel+51+Amsterdam&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-15",
+    "sha256": "2bd6de21086718ac2c420a7f183665fd4dbe4d69a6cded5a920e30be511b9b3c",
+    "selectedAddress": {
+      "id": "adr-d52cf5a78fa1ba46ceb008b0d375ecfb",
+      "weergavenaam": "Amstel 51, 1018EJ Amsterdam",
+      "centroide_ll": "POINT(4.90222598 52.36563495)",
+      "nummeraanduiding_id": "0363200012121273",
+      "woonplaatsnaam": "Amsterdam"
+    },
+    "method": "official address geocoder; not an entrance survey"
+  },
+  "jewishmuseum": {
+    "url": "https://jck.nl/en/location/jewish-museum",
+    "finalUrl": "https://jck.nl/en/location/jewish-museum",
+    "httpStatus": 200,
+    "sha256": "f67d6d948a320fba6184330a652257c5439c1c79327cb0d2d7285e3f8affcc12",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html;charset=utf-8"
+  },
+  "jewishvisit": {
+    "url": "https://jck.nl/en/plan-your-visit",
+    "finalUrl": "https://jck.nl/en/plan-your-visit",
+    "httpStatus": 200,
+    "sha256": "2ad6fcc8473892120bdc8e45633d422caf430558082269933cdcf60024dc8673",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html;charset=utf-8"
+  },
+  "jewishmuseum-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Nieuwe+Amstelstraat+1+Amsterdam&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Nieuwe+Amstelstraat+1+Amsterdam&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-15",
+    "sha256": "4837916f0ecaff8485781bd53bf9ddc1a3bc5512822afd5605300d493c414663",
+    "selectedAddress": {
+      "id": "adr-9c6d4e52aebd0a7693014568ac04d5ad",
+      "weergavenaam": "Nieuwe Amstelstraat 1, 1011PL Amsterdam",
+      "centroide_ll": "POINT(4.90391447 52.36736682)",
+      "nummeraanduiding_id": "0363200003695188",
+      "woonplaatsnaam": "Amsterdam"
+    },
+    "method": "official address geocoder; not an entrance survey"
+  },
+  "dutchresistancemuseum": {
+    "url": "https://www.verzetsmuseum.org/en",
+    "finalUrl": "https://www.verzetsmuseum.org/en/world-war-ii-in-the-netherlands",
+    "httpStatus": 200,
+    "sha256": "8870ef14d6431be8940ba0edfb077d68d8936e7273209d57a3962a81cd903231",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  "verzetvisit": {
+    "url": "https://www.verzetsmuseum.org/en/address-and-opening-hours",
+    "finalUrl": "https://www.verzetsmuseum.org/en/address-and-opening-hours",
+    "httpStatus": 200,
+    "sha256": "5361c6bf917c006150751821d0efd4a8e6a4cb61e7eaff2dba4cd8e6dc0746dc",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  "verzetprices": {
+    "url": "https://www.verzetsmuseum.org/en/tickets",
+    "finalUrl": "https://www.verzetsmuseum.org/en/tickets",
+    "httpStatus": 200,
+    "sha256": "df0deed6b4ced6842cb1cf26eba661e35a2ef712d8dd392b87a3ad1a12ff42c2",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  "eyefilmmuseum": {
+    "url": "https://www.eyefilm.nl/en",
+    "finalUrl": "https://www.eyefilm.nl/en",
+    "httpStatus": 200,
+    "sha256": "67589556445ff3a9f74b31ddbacb7e8915e9bfcd38a50def0dd7cdd4b3606a67",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=utf-8"
+  },
+  "eyev isit": {
+    "url": "https://www.eyefilm.nl/en/plan-your-visit",
+    "finalUrl": "https://www.eyefilm.nl/en/plan-your-visit",
+    "httpStatus": 200,
+    "sha256": "bad9b6a1f03995b7d0fb7e8cd64e416b25b1a78380cc8e748e56bf5a11115b33",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  "eyefilmmuseum-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=IJpromenade+1+Amsterdam&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=IJpromenade+1+Amsterdam&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-15",
+    "sha256": "663924b37ae1b494f35f150d26906f2152ef38b9550c99400d1041ca2b5a2973",
+    "selectedAddress": {
+      "id": "adr-0f1dc5eb7f138bb42f49c5bb4553a06a",
+      "weergavenaam": "IJpromenade 1, 1031KT Amsterdam",
+      "centroide_ll": "POINT(4.90129346 52.38413612)",
+      "nummeraanduiding_id": "0363200011210975",
+      "woonplaatsnaam": "Amsterdam"
+    },
+    "method": "official address geocoder; not an entrance survey"
+  },
+  "museumofthecanals": {
+    "url": "https://grachten.museum/en/",
+    "finalUrl": "https://grachten.museum/en/",
+    "httpStatus": 200,
+    "sha256": "a6e1add86f48ebdd18b0318ce6b5cb9638e32260bb992036fbbcf3145640b7ff",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  "canalsvisit": {
+    "url": "https://grachten.museum/en/times-tickets/",
+    "finalUrl": "https://grachten.museum/en/times-tickets/",
+    "httpStatus": 200,
+    "sha256": "26f8dab1006366957151187f65a45eb1e9be178f1a838df616b4d887271a7779",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  "museumofthecanals-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Herengracht+386+Amsterdam&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Herengracht+386+Amsterdam&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-15",
+    "sha256": "96265252b75d1a327b3cbd649089683628a8765e824b3381a94b5914cddbb3db",
+    "selectedAddress": {
+      "id": "adr-5f7a038e301ae7e0a53ad623cba24a7a",
+      "weergavenaam": "Herengracht 386, 1016CJ Amsterdam",
+      "centroide_ll": "POINT(4.8862747 52.36788669)",
+      "nummeraanduiding_id": "0363200001992823",
+      "woonplaatsnaam": "Amsterdam"
+    },
+    "method": "official address geocoder; not an entrance survey"
+  },
+  "foamvisit": {
+    "url": "https://www.foam.org/visit",
+    "finalUrl": "https://www.foam.org/visit",
+    "httpStatus": null,
+    "checkedAt": "2026-11-15",
+    "method": "web.run",
+    "note": "Read via web.run on 2026-11-15; independent local fetch returned 429 and was not retried or bypassed. No body checksum is claimed."
+  },
+  "foam-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Keizersgracht+609+Amsterdam&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Keizersgracht+609+Amsterdam&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-15",
+    "sha256": "63c1069e02852c5ded7697789e6b5dff1e13e5d8e09f12133d19ac53deaa9db0",
+    "selectedAddress": {
+      "id": "adr-c23b9b4fc206d990d756b0e9b95d3c2c",
+      "weergavenaam": "Keizersgracht 609, 1017DS Amsterdam",
+      "centroide_ll": "POINT(4.89326309 52.36398841)",
+      "nummeraanduiding_id": "0363200003691503",
+      "woonplaatsnaam": "Amsterdam"
+    },
+    "method": "official address geocoder; not an entrance survey"
+  },
+  "huismarseille": {
+    "url": "https://huismarseille.nl/en/",
+    "finalUrl": "https://huismarseille.nl/en/",
+    "httpStatus": 200,
+    "sha256": "e3640195d3201295ab842185f3c099435668bb72b281c153b75fb665faed6b00",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  "marseillevisit": {
+    "url": "https://huismarseille.nl/en/visitor-information/",
+    "finalUrl": "https://huismarseille.nl/en/visitor-information/",
+    "httpStatus": 200,
+    "sha256": "a918a703669abcc39700f9fdedd8a3d5a3dda177fc7be03d6e643bc322c73610",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  "huismarseille-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Keizersgracht+401+Amsterdam&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Keizersgracht+401+Amsterdam&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-15",
+    "sha256": "a82f2c3c130efbfe0395ed82646569f31324e4c9ff8a5ae317126f54be60e70b",
+    "selectedAddress": {
+      "id": "adr-67d12ee7c6f2503181068d2a8e337040",
+      "weergavenaam": "Keizersgracht 401, 1016EK Amsterdam",
+      "centroide_ll": "POINT(4.88480923 52.36763781)",
+      "nummeraanduiding_id": "0363200012087149",
+      "woonplaatsnaam": "Amsterdam"
+    },
+    "method": "official address geocoder; not an entrance survey"
+  },
+  "allardpierson": {
+    "url": "https://allardpierson.nl/en/",
+    "finalUrl": "https://www.allardpierson.nl/en/",
+    "httpStatus": 200,
+    "sha256": "c461d507ca1e6ae08ab78448806510fcbbd17deb0b1c37f9e19b7add848bcde6",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html;charset=utf-8"
+  },
+  "allardvisit": {
+    "url": "https://www.allardpierson.nl/en/visit",
+    "finalUrl": "https://www.allardpierson.nl/en/visit",
+    "httpStatus": 200,
+    "sha256": "7952a4ceed12ab1aa2ca6eb50fef80da1fb42161bcc095af90d7090178e463fe",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html;charset=utf-8"
+  },
+  "allardpierson-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Oude+Turfmarkt+127+Amsterdam&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Oude+Turfmarkt+127+Amsterdam&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-15",
+    "sha256": "fc3c782129c001055a449c56385a19d772d1aae82ec18ddb517875c0c743b4d0",
+    "selectedAddress": {
+      "id": "adr-253ca93f7caee8f88d89fe885990daa8",
+      "weergavenaam": "Oude Turfmarkt 127, 1012GC Amsterdam",
+      "centroide_ll": "POINT(4.89294497 52.36882248)",
+      "nummeraanduiding_id": "0363200000227334",
+      "woonplaatsnaam": "Amsterdam"
+    },
+    "method": "official address geocoder; not an entrance survey"
+  },
+  "artismicropia": {
+    "url": "https://www.micropia.nl/en/",
+    "finalUrl": "https://www.artis.nl/en/artis-micropia",
+    "httpStatus": 200,
+    "sha256": "aadf8d8b55666f0685d9195e2309afbb0e801329fbb1cc58d8ce35caa876ede2",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=utf-8"
+  },
+  "micropiahours": {
+    "url": "https://www.artis.nl/en/plan-your-visit/opening-hours",
+    "finalUrl": "https://www.artis.nl/en/plan-your-visit/opening-hours",
+    "httpStatus": 200,
+    "sha256": "88a525a1fc9360cc210e7619e24ce90529755ee97d6471174721c2a76990095b",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=utf-8"
+  },
+  "micropiaprices": {
+    "url": "https://www.artis.nl/en/plan-your-visit/ticket-prices",
+    "finalUrl": "https://www.artis.nl/en/plan-your-visit/ticket-prices",
+    "httpStatus": 200,
+    "sha256": "1351e5018c68519e4f1db1d1f01be1dfdc7b223d5a73c2d9367ab6f8334cc212",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=utf-8"
+  },
+  "artismicropia-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Plantage+Kerklaan+38+Amsterdam&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Plantage+Kerklaan+38+Amsterdam&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-15",
+    "sha256": "b9c74d66f0d52447d71ca034c16e035bc22ea33e9b51d007b1bb93d324155ea0",
+    "selectedAddress": {
+      "id": "adr-0e4782784553697a455b062082094ceb",
+      "weergavenaam": "Plantage Kerklaan 38, 1018CZ Amsterdam",
+      "centroide_ll": "POINT(4.91258158 52.36696148)",
+      "nummeraanduiding_id": "0363200000390027",
+      "woonplaatsnaam": "Amsterdam"
+    },
+    "method": "official address geocoder; not an entrance survey"
+  },
+  "wereldmuseumamsterdam": {
+    "url": "https://amsterdam.wereldmuseum.nl/en",
+    "finalUrl": "https://amsterdam.wereldmuseum.nl/en",
+    "httpStatus": 200,
+    "sha256": "3bf3cd1c2ff96f8005f1dc7a21285e4274cc9594a770f871308015b19204ed4d",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  "wereldaddress": {
+    "url": "https://amsterdam.wereldmuseum.nl/en/plan-your-visit/address-and-route",
+    "finalUrl": "https://amsterdam.wereldmuseum.nl/en/plan-your-visit/address-and-route",
+    "httpStatus": 200,
+    "sha256": "96cc4230dbb9533d3b807211427a7dd241b2a21d92bf1fb64b7d193689b85772",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  "wereldprices": {
+    "url": "https://amsterdam.wereldmuseum.nl/en/plan-your-visit/hours-and-admission",
+    "finalUrl": "https://amsterdam.wereldmuseum.nl/en/plan-your-visit/hours-and-admission",
+    "httpStatus": 200,
+    "sha256": "e0b55d9573f0b760e115cd11e70afc540f49512b6fee372ee5d48466b0c05d46",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  "museumvanloon": {
+    "url": "https://www.museumvanloon.nl/en",
+    "finalUrl": "https://www.museumvanloon.nl/en",
+    "httpStatus": 200,
+    "sha256": "af517d94b21a259c5f4babde95578ad2588bfb3135e3a82b24df25281d6a75e0",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  "loonprices": {
+    "url": "https://www.museumvanloon.nl/bezoek",
+    "finalUrl": "https://www.museumvanloon.nl/bezoek",
+    "httpStatus": 200,
+    "sha256": "73b98430f02e8aaca9c1651641f0ee4f42cf7f37a42de1e7bd272aa1cabc646a",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  "museumvanloon-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Keizersgracht+672+Amsterdam&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Keizersgracht+672+Amsterdam&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-15",
+    "sha256": "8fe79f9bf6368928e21f3f1bab6507c8696e69b05a418aa4b0c12d3e063ff7a4",
+    "selectedAddress": {
+      "id": "adr-c5800d8a784e243ebdbff679d20f3163",
+      "weergavenaam": "Keizersgracht 672, 1017ET Amsterdam",
+      "centroide_ll": "POINT(4.89337156 52.36347657)",
+      "nummeraanduiding_id": "0363200000162656",
+      "woonplaatsnaam": "Amsterdam"
+    },
+    "method": "official address geocoder; not an entrance survey"
+  },
+  "royalpalaceamsterdam": {
+    "url": "https://www.paleisamsterdam.nl/en/",
+    "finalUrl": "https://www.paleisamsterdam.nl/en/",
+    "httpStatus": 200,
+    "sha256": "d4f46996aa5a12293908ecdf08509facd39007276483a2138c6a9f439642322a",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=utf-8"
+  },
+  "palaceaddress": {
+    "url": "https://www.paleisamsterdam.nl/en/contact/",
+    "finalUrl": "https://www.paleisamsterdam.nl/en/contact/",
+    "httpStatus": 200,
+    "sha256": "80217fe30c5b5c640c49520b4203ab647bd57d71a790cef2a79f127695c963d8",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=utf-8"
+  },
+  "palacevisit": {
+    "url": "https://www.paleisamsterdam.nl/en/visit/",
+    "finalUrl": "https://www.paleisamsterdam.nl/en/visit/",
+    "httpStatus": 200,
+    "sha256": "fbe22643d9a961c0e5702cdfcd7edebafdd0a7a95bbfe4620cab2490cb0e595f",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=utf-8"
+  }
+}

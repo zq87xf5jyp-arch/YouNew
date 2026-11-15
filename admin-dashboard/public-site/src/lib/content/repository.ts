@@ -1,4 +1,5 @@
 import generatedContent from "@/generated/public-content.json";
+import {isDiscoverableContent} from './presentation';
 
 import type {
   ContentCategory,
@@ -15,7 +16,7 @@ export function getPublicContent(): PublicContentDataset {
 }
 
 export function getContentEntities(type?: ContentEntityType): readonly ContentEntity[] {
-  const indexable = dataset.entities.filter((entity) => entity.indexable);
+  const indexable = dataset.entities.filter((entity) => isDiscoverableContent(entity,dataset.privateReview));
   return type ? indexable.filter((entity) => entity.type === type) : indexable;
 }
 
@@ -36,11 +37,11 @@ export function getProvince(slug: string): ContentProvince | undefined {
 }
 
 export function getEntitiesForCategory(slug: string): readonly ContentEntity[] {
-  return dataset.entities.filter((entity) => entity.indexable && entity.categorySlugs.includes(slug));
+  return dataset.entities.filter((entity) => isDiscoverableContent(entity,dataset.privateReview) && entity.categorySlugs.includes(slug));
 }
 
 export function getEntitiesForProvince(slug: string): readonly ContentEntity[] {
-  return dataset.entities.filter((entity) => entity.indexable && entity.provinceId === slug);
+  return dataset.entities.filter((entity) => isDiscoverableContent(entity,dataset.privateReview) && entity.provinceId === slug);
 }
 
 export function getStaticEntityParams(type: ContentEntityType): Array<{ slug: string }> {

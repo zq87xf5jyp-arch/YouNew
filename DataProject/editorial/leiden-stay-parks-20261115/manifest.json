@@ -1,0 +1,189 @@
+{
+  "schemaVersion": 1,
+  "batchId": "leiden-stay-parks-20261115",
+  "status": "approved",
+  "publicationAuthorized": true,
+  "approvedAt": "2026-11-15",
+  "reviewerId": "owner.ivan",
+  "preparedAt": "2026-11-15",
+  "ids": [
+    "nature.leiden-ankerpark",
+    "nature.leiden-blekerspark",
+    "nature.leiden-huigpark",
+    "nature.leiden-park-de-put",
+    "nature.leiden-rembrandtpark",
+    "hotel.leiden-oude-morsch",
+    "hotel.leiden-huys-van-leyden",
+    "hotel.leiden-steenhof",
+    "hotel.leiden-ibis",
+    "hotel.leiden-rembrandt-hotel"
+  ],
+  "baseFiles": {
+    "nature.leiden-ankerpark": {
+      "file": "DataProject/staging/content-20261109/WP-12-M1-leiden-20261109.json",
+      "sha256": "6e4667db1accf8149e97342dff5eeb1463738c48ef1dd901ab22a733ce938830"
+    },
+    "nature.leiden-blekerspark": {
+      "file": "DataProject/staging/content-20261109/WP-12-M1-leiden-20261109.json",
+      "sha256": "6e4667db1accf8149e97342dff5eeb1463738c48ef1dd901ab22a733ce938830"
+    },
+    "nature.leiden-huigpark": {
+      "file": "DataProject/staging/content-20261109/WP-12-M1-leiden-20261109.json",
+      "sha256": "6e4667db1accf8149e97342dff5eeb1463738c48ef1dd901ab22a733ce938830"
+    },
+    "nature.leiden-park-de-put": {
+      "file": "DataProject/staging/content-20261109/WP-12-M1-leiden-20261109.json",
+      "sha256": "6e4667db1accf8149e97342dff5eeb1463738c48ef1dd901ab22a733ce938830"
+    },
+    "nature.leiden-rembrandtpark": {
+      "file": "DataProject/staging/content-20261109/WP-12-M1-leiden-20261109.json",
+      "sha256": "6e4667db1accf8149e97342dff5eeb1463738c48ef1dd901ab22a733ce938830"
+    },
+    "hotel.leiden-oude-morsch": {
+      "file": "DataProject/staging/content-20261109/WP-10-M1-leiden-20261109.json",
+      "sha256": "36624d0c8c6338a8cbbb1b58020f93e7d00b345cda56b5ee2df22e79d0c588be"
+    },
+    "hotel.leiden-huys-van-leyden": {
+      "file": "DataProject/staging/content-20261109/WP-10-M1-leiden-20261109.json",
+      "sha256": "36624d0c8c6338a8cbbb1b58020f93e7d00b345cda56b5ee2df22e79d0c588be"
+    },
+    "hotel.leiden-steenhof": {
+      "file": "DataProject/staging/content-20261109/WP-10-M1-leiden-20261109.json",
+      "sha256": "36624d0c8c6338a8cbbb1b58020f93e7d00b345cda56b5ee2df22e79d0c588be"
+    },
+    "hotel.leiden-ibis": {
+      "file": "DataProject/staging/content-20261109/WP-10-M1-leiden-20261109.json",
+      "sha256": "36624d0c8c6338a8cbbb1b58020f93e7d00b345cda56b5ee2df22e79d0c588be"
+    },
+    "hotel.leiden-rembrandt-hotel": {
+      "file": "DataProject/staging/content-20261109/WP-10-M1-leiden-20261109.json",
+      "sha256": "36624d0c8c6338a8cbbb1b58020f93e7d00b345cda56b5ee2df22e79d0c588be"
+    }
+  },
+  "recordsSha256": "32fb30b21b90e5a9419bc2482384946c9acccd8f77997b0791d8679b29132864",
+  "media": {
+    "expankerpark-480.webp": {
+      "width": 480,
+      "bytes": 52522,
+      "sha256": "d49fd0797062a27ad60dfd92c342cc330911a0d08e888f4c624e4f969f7773be"
+    },
+    "expankerpark-800.webp": {
+      "width": 800,
+      "bytes": 148200,
+      "sha256": "6c012be5c74c355367ec66d2278da27040c1eb1c58a6d0c6ae2b36f0dace039f"
+    },
+    "expankerpark-1200.webp": {
+      "width": 1200,
+      "bytes": 316334,
+      "sha256": "4d65e00bc4440d8c473a974de38a359a36344d2dac7e55838a5eadec2a49ec78"
+    },
+    "expblekerspark-480.webp": {
+      "width": 480,
+      "bytes": 43832,
+      "sha256": "8fc199d46b9e87c26b0d7d0808d2dd06743d5e0a6aa0e6533312fb9afb6b577c"
+    },
+    "expblekerspark-800.webp": {
+      "width": 800,
+      "bytes": 126262,
+      "sha256": "4af5f80770569e0f5d011be4490496ff9152aeb453ae5bf613b7c3a5204dbefc"
+    },
+    "expblekerspark-1200.webp": {
+      "width": 1200,
+      "bytes": 285510,
+      "sha256": "d495ca78d335c909fb3601fff4f064822bbacdb868cef5ff21dfdd91f8e4eeba"
+    },
+    "exphuigpark-480.webp": {
+      "width": 480,
+      "bytes": 37080,
+      "sha256": "eec9992f8b7ed1ed49e12c9c52c91e656a6d03bd9c20514c76d1e7f89401a04c"
+    },
+    "exphuigpark-800.webp": {
+      "width": 800,
+      "bytes": 113642,
+      "sha256": "e17b9020d712820e224fb4b174bf9b6b273cf81dd6acbfdc3210b62ec2b22349"
+    },
+    "exphuigpark-1200.webp": {
+      "width": 1200,
+      "bytes": 262826,
+      "sha256": "af3a2e795cd6c2c25c96f38fe64df5643f34b3ad55787fa8c19318245c091602"
+    },
+    "expparkdeput-480.webp": {
+      "width": 480,
+      "bytes": 29904,
+      "sha256": "d421f35a41570ee4c43822f9f9b1f9de3a25b5a3044a8013c99bd56ffe78b8d3"
+    },
+    "expparkdeput-800.webp": {
+      "width": 800,
+      "bytes": 83020,
+      "sha256": "01a667ca2cfedb715ce8d758564929352e20fbe9bfa89c10c63a4a76d6fc718f"
+    },
+    "expparkdeput-1200.webp": {
+      "width": 1200,
+      "bytes": 178474,
+      "sha256": "0db9aaa300d88c4040e4c59b5175ec4731fd93b1839676f001fef01fdb2fb795"
+    },
+    "expoudemorsch-480.webp": {
+      "width": 480,
+      "bytes": 34184,
+      "sha256": "aa26110b9f816b0a19b30cdee74942cd1a17f4172dbbc813b65b45d976b0b6c8"
+    },
+    "expoudemorsch-800.webp": {
+      "width": 800,
+      "bytes": 98056,
+      "sha256": "419589c1e0a35137a5665802095eda3652bbc0dd25389228699149275c03fc9b"
+    },
+    "expoudemorsch-1200.webp": {
+      "width": 1200,
+      "bytes": 214226,
+      "sha256": "477fbfdff938650cb5859c3973b9346003a98a56b531cf486d0aa63907b339f7"
+    },
+    "exphuys-480.webp": {
+      "width": 480,
+      "bytes": 54644,
+      "sha256": "b517a15f7924703f913533aea95425e233322934b0cc066f191255d7ecde79bb"
+    },
+    "exphuys-800.webp": {
+      "width": 800,
+      "bytes": 141654,
+      "sha256": "86f7094a7d59afb0043295d0cbcf2ed2606f6afa2cac51d9093909073b5d8587"
+    },
+    "exphuys-1200.webp": {
+      "width": 1200,
+      "bytes": 301968,
+      "sha256": "0fd898fed7a12fe6caa547bafe0cf5050ee38dd4b6a46379e5b5f2598b8e7753"
+    },
+    "expsteenhof-480.webp": {
+      "width": 480,
+      "bytes": 56378,
+      "sha256": "41f8098086200f1ffb34eb6aaddd68b2eeb920608052cac1526da1ceb4d3df2e"
+    },
+    "expsteenhof-800.webp": {
+      "width": 800,
+      "bytes": 165550,
+      "sha256": "fd37c8998c0e06d2336690de0e83a018224720b8a3d0df2bae7c5a19b4087ce3"
+    },
+    "expsteenhof-1200.webp": {
+      "width": 1200,
+      "bytes": 358050,
+      "sha256": "4932feff39e7b7ddd63111885dc1e048971107c9f3af6fcefe2ef22395b52927"
+    }
+  },
+  "privateOnly": false,
+  "sourceChecksSha256": "10cdea0c55fdc1e26ef06a05e902d8fa2643bc4af45c1202b237aaf90a491b2e",
+  "mediaSourcesSha256": "f86d182fbf302d3149105856ed70a1d35f0c6d053f9dfece670d9b9588308aa2",
+  "approvalReference": "Owner explicitly approved all 49 EN/NL cards and PR #68/#72 in this Codex conversation on 2026-11-15, authorizing merge and production after official-source recheck and Hostinger QA.",
+  "approvedPullRequest": "https://github.com/zq87xf5jyp-arch/YouNew/pull/72",
+  "approvedReviewCommit": "06cd2e915597600f32de62d63f315f6d41a9ab7e",
+  "prepublicationCheck": {
+    "file": "DataProject/editorial/expansion-prepublication-20261115.json",
+    "sha256": "1e101882df9c77ad9459d391377650c65754b3497c71400b74d63dc301587c45",
+    "checkedAt": "2026-11-15T20:10:59.862Z",
+    "result": "135 official URLs rechecked: 133 HTTP 200, 2 official pages verified via web.run. Of HTTP responses, 78 exact bytes and 52 exact visible texts match prior evidence. The remaining changes are unrelated hotel review counts, a social label and related-place ordering. Approved prices, hours and restrictions unchanged."
+  },
+  "publicationScope": {
+    "type": "owner-approved-existing-ids",
+    "addedIds": [],
+    "supersedesHistoricalWithholding": false
+  },
+  "approvalSha256": "dc8093b8a497802c4a34744f403580e0d012332fd9b53d392b17554b53ab97ca"
+}

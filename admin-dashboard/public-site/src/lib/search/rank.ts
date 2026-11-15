@@ -448,6 +448,8 @@ export function rankSearchDocuments(
   return results
     .sort(
       (left, right) =>
+        Number(normalizeSearchText(right.document.title) === queryText && right.document.type !== "category") -
+        Number(normalizeSearchText(left.document.title) === queryText && left.document.type !== "category") ||
         right.score - left.score ||
         left.document.title.localeCompare(right.document.title) ||
         left.document.id.localeCompare(right.document.id)

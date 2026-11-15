@@ -1,4 +1,11 @@
-import type { ContentEntity, ContentEntityType } from "./types";
+import type { ContentEntity, ContentEntityType, PublicContentDataset } from "./types";
+
+// Private discovery does not grant publication or indexability. The generator
+// emits this explicit ID list only after validating the private review batches.
+export function isDiscoverableContent(entity: Pick<ContentEntity,'id'|'status'|'indexable'>, review?: PublicContentDataset['privateReview']): boolean {
+  return (entity.status==='published'&&entity.indexable) ||
+    (review?.publicationAuthorized===false&&entity.status==='draft'&&review.draftIds.includes(entity.id));
+}
 
 const INTERNAL_GOVERNANCE_SUFFIX = /\s*This governed entry stores a verified city location and direct web route without copying mutable prices, ratings, reviews or opening hours\.\s*$/;
 

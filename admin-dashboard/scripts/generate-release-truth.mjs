@@ -145,7 +145,17 @@ async function buildSnapshot() {
 
   const metadataAttested = productionMetadataMatch(productionObservation, provenanceInput, runtime);
   const { candidateCommit, sourceTreeState, sourceTreeExclusions } = candidateSourceIdentity();
-  const inventoryCount = dataProject.summary.records + editorialCount;
+  // Historical DataProject IDs promoted by an editorial revision already belong
+  // to this inventory. Count the union so publication does not inflate coverage.
+  const batchRoot=resolve(repositoryRoot,'DataProject/batches');
+  const inventoryIDs=new Set();
+  for(const file of await readdir(batchRoot,{recursive:true})) {
+    if(!file.endsWith('.json'))continue;
+    const batch=JSON.parse(await readFile(resolve(batchRoot,file),'utf8'));
+    for(const record of batch.records??[])inventoryIDs.add(record.id);
+  }
+  if(inventoryIDs.size!==dataProject.summary.records)throw new Error('Source inventory ID count mismatch');
+  const inventoryCount = new Set([...inventoryIDs,...(editorial?.entities??[]).map(e=>e.id)]).size;
   const coverage = inventoryCount > 0 ? Number(((packagedCount / inventoryCount) * 100).toFixed(1)) : null;
   const generatedAt = maxTimestamp([
     dataProject.generated_at,

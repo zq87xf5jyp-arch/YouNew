@@ -1,6 +1,6 @@
-# Leiden cafés and restaurants — pending batch 3, 15 November 2026
+# Leiden cafés and restaurants — approved batch 3, 15 November 2026
 
-**Prepared: 5 existing places / 10 EN/NL pages. Approved: 0. Published: 0. New IDs: 0.** This is an editorial Draft PR, not publication authorization. It starts from main `ec00b59f64603b6c3fb71a04c4c7e412c6c623d5`; PR #59/#60 and the owner's active iOS work are separate.
+**Prepared: 5 existing places / 10 EN/NL pages. Approved: 5. New IDs: 0.** The owner approved these five cards together with the 44-card expansion and PR #68/#72 on 15 November 2026. The exact records SHA `28fc12087c3226f81f890a0899c8ffc2722b5593742ad45fac1b9dd008989827` and photos remain unchanged. All 21 sources were rechecked; prices/hours/restrictions match. The manifest now records the registered human owner and approval digest. Deployment follows combined Hostinger QA; final publication evidence is `/Users/ivan/YouNew-Expansion-Publish-Evidence-2026-11-15/RELEASE_REPORT_RU.md`. PR #59/#60 remain separate.
 
 ## Review scope
 
@@ -36,6 +36,6 @@ Reproduce ordinary checks from `admin-dashboard/public-site` with Node 24 and `b
 
 Validation results and screenshots are recorded in `/Users/ivan/YouNew-Food-Evidence-2026-11-15/`. The owner review document is `CONTENT_REVIEW.html`. The Draft PR description records the final CI result on the exact submitted commit; local evidence is not a claim of Hostinger QA, production deployment, field Web Vitals or iOS/App Store validation.
 
-## Publication boundary
+## Publication boundary (original Draft before approval)
 
 This PR must remain a draft pending review of this exact batch. Approval would require rechecking volatile menu prices, hours and exceptional dates; then binding owner approval to records/media hashes through the existing mechanism. A later authorized release must snapshot current Hostinger configuration and static files, verify restoration, test an isolated candidate and retain a static-only rollback. No production, DNS, mail, database, iOS or paid-service action is included here.

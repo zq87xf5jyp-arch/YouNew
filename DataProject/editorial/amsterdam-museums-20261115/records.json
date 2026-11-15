@@ -1,0 +1,1379 @@
+{
+  "schema_version": 1,
+  "batch_id": "amsterdam-museums-20261115",
+  "publication_status": "draft",
+  "records": [
+    {
+      "id": "museum.rijksmuseum",
+      "entity_type": "museum",
+      "category": "art-history",
+      "city_id": "amsterdam",
+      "province_id": "noord-holland",
+      "coordinates": {
+        "latitude": 52.3599423,
+        "longitude": 4.8853863
+      },
+      "title": "Rijksmuseum",
+      "description": "Explore Dutch art and history at the Rijksmuseum, with works by Rembrandt, Vermeer and Van Gogh.",
+      "images": [
+        {
+          "id": "media.museum.rijksmuseum.expansion-20261115",
+          "role": "hero",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:The_Rijksmuseum,_13_July_2026.jpg",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/2/2a/The_Rijksmuseum%2C_13_July_2026.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "public_asset_path": "/images/place-review/exprijksmuseum-1200.webp",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "attribution": "Danny William Wilson · 2026-07-13 15:20:53 · Archive photograph / Archieffoto · resized WebP; no content edits",
+          "verified": true,
+          "retrieved_at": "2026-11-15",
+          "alt": "Rijksmuseum exterior — photograph 2026"
+        }
+      ],
+      "official_source": {
+        "title": "Rijksmuseum Amsterdam, home of Dutch master pieces",
+        "publisher": "www.rijksmuseum.nl",
+        "url": "https://www.rijksmuseum.nl/en",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.rijksmuseum.nl/en",
+      "related_entity_ids": [
+        "museum.van-gogh-museum",
+        "museum.stedelijk-museum-amsterdam",
+        "city.amsterdam"
+      ],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 7,
+      "verification_status": "needs_review",
+      "ai_summary": "Explore Dutch art and history at the Rijksmuseum, with works by Rembrandt, Vermeer and Van Gogh.",
+      "search_keywords": [
+        "Rijksmuseum",
+        "amsterdam",
+        "art-history",
+        "rijksmuseum"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "content_section": "EXPLORE",
+        "content_language": "en",
+        "description_nl": "Ontdek Nederlandse kunst en geschiedenis in het Rijksmuseum, met werk van Rembrandt, Vermeer en Van Gogh.",
+        "title_nl": "Rijksmuseum",
+        "field_review_status": "Source verification complete; human editorial approval pending",
+        "catalog_review_batch": "amsterdam-museums-20261115",
+        "address": "Museumstraat 1, Amsterdam",
+        "address_source_url": "https://www.rijksmuseum.nl/en/visit/practical-info",
+        "address_checked_at": "2026-11-15",
+        "website": "https://www.rijksmuseum.nl/en",
+        "website_source_url": "https://www.rijksmuseum.nl/en",
+        "website_checked_at": "2026-11-15",
+        "address_note": "",
+        "media_status": "licensed archive photograph visually checked; publication approval pending",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-15\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.rijksmuseum\",\"title\":\"Rijksmuseum Amsterdam, home of Dutch master pieces\",\"publisher\":\"www.rijksmuseum.nl\",\"url\":\"https://www.rijksmuseum.nl/en\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.rijksvisit\",\"title\":\"Practical info - Rijksmuseum\",\"publisher\":\"www.rijksmuseum.nl\",\"url\":\"https://www.rijksmuseum.nl/en/visit/practical-info\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.rijksprices\",\"title\":\"Opening hours and prices - Rijksmuseum\",\"publisher\":\"www.rijksmuseum.nl\",\"url\":\"https://www.rijksmuseum.nl/en/visit/practical-info/opening-hours-and-prices\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.pdok\",\"title\":\"BAG address coordinate: Museumstraat 1, 1071XX Amsterdam\",\"publisher\":\"PDOK / Kadaster\",\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Museumstraat+1+Amsterdam&fq=type%3Aadres&rows=3\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Museumstraat+1+Amsterdam&fq=type%3Aadres&rows=3\",\"method\":\"BAG address point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.3599423,4.8853863\"},\"tickets\":{\"url\":\"https://www.rijksmuseum.nl/en/visit/practical-info/opening-hours-and-prices\",\"sourceId\":\"source.rijksprices\"},\"locales\":{\"en\":{\"alt\":\"Rijksmuseum exterior — photograph 2026\",\"blocks\":[{\"id\":\"address\",\"title\":\"Location\",\"text\":\"Museumstraat 1, Amsterdam. Use the official arrival information before travelling.\",\"source_ids\":[\"source.rijksvisit\"]},{\"id\":\"setting\",\"title\":\"About this place\",\"text\":\"A museum of Dutch art and history, with work by Rembrandt, Vermeer and Van Gogh.\",\"source_ids\":[\"source.rijksmuseum\"]},{\"id\":\"hours\",\"title\":\"Opening hours\",\"text\":\"Open daily 09:00–17:00. Café, shop and restaurant hours are separate.\",\"source_ids\":[\"source.rijksprices\"]},{\"id\":\"prices\",\"title\":\"Tickets and prices\",\"text\":\"Adult admission: €25 in 2026; the published 2027 rate is €26.50. Visitors aged 18 and under enter free.\",\"source_ids\":[\"source.rijksprices\"]},{\"id\":\"tickets\",\"title\":\"Tickets\",\"text\":\"Book through the official museum site and check the conditions for your pass or age group.\",\"source_ids\":[\"source.rijksprices\"]}]},\"nl\":{\"alt\":\"Rijksmuseum van buiten — foto 2026\",\"blocks\":[{\"id\":\"address\",\"title\":\"Locatie\",\"text\":\"Museumstraat 1, Amsterdam. Bekijk vóór vertrek de officiële informatie over bereikbaarheid.\",\"source_ids\":[\"source.rijksvisit\"]},{\"id\":\"setting\",\"title\":\"Over deze plek\",\"text\":\"Een museum voor Nederlandse kunst en geschiedenis, met werk van Rembrandt, Vermeer en Van Gogh.\",\"source_ids\":[\"source.rijksmuseum\"]},{\"id\":\"hours\",\"title\":\"Openingstijden\",\"text\":\"Dagelijks open van 09.00–17.00 uur. Café, winkel en restaurant hebben eigen tijden.\",\"source_ids\":[\"source.rijksprices\"]},{\"id\":\"prices\",\"title\":\"Tickets en prijzen\",\"text\":\"Volwassenen: €25 in 2026; het gepubliceerde tarief voor 2027 is €26,50. Bezoekers tot en met 18 jaar hebben gratis toegang.\",\"source_ids\":[\"source.rijksprices\"]},{\"id\":\"tickets\",\"title\":\"Tickets\",\"text\":\"Boek via de officiële museumsite en controleer de voorwaarden voor je pas of leeftijdsgroep.\",\"source_ids\":[\"source.rijksprices\"]}]}}}"
+      }
+    },
+    {
+      "id": "museum.van-gogh-museum",
+      "entity_type": "museum",
+      "category": "art",
+      "city_id": "amsterdam",
+      "province_id": "noord-holland",
+      "coordinates": {
+        "latitude": 52.3579248,
+        "longitude": 4.8813227
+      },
+      "title": "Van Gogh Museum",
+      "description": "Follow Vincent van Gogh's artistic development through his paintings and drawings, alongside the work of his contemporaries.",
+      "images": [
+        {
+          "id": "media.museum.van-gogh-museum.expansion-20261115",
+          "role": "hero",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:Van_Gogh_Museum_2537.jpg",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Van_Gogh_Museum_2537.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "public_asset_path": "/images/place-review/expvangoghmuseum-1200.webp",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "attribution": "C messier · 2016-09-02 11:38:10 · Archive photograph / Archieffoto · resized WebP; no content edits",
+          "verified": true,
+          "retrieved_at": "2026-11-15",
+          "alt": "Van Gogh Museum exterior — photograph 2016"
+        }
+      ],
+      "official_source": {
+        "title": "The Museum about Vincent van Gogh in Amsterdam - Van Gogh Museum",
+        "publisher": "www.vangoghmuseum.nl",
+        "url": "https://www.vangoghmuseum.nl/en",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.vangoghmuseum.nl/en",
+      "related_entity_ids": [
+        "museum.rijksmuseum",
+        "museum.stedelijk-museum-amsterdam"
+      ],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 7,
+      "verification_status": "needs_review",
+      "ai_summary": "Follow Vincent van Gogh's artistic development through his paintings and drawings, alongside the work of his contemporaries.",
+      "search_keywords": [
+        "Van Gogh Museum",
+        "amsterdam",
+        "art",
+        "vangoghmuseum"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "content_section": "EXPLORE",
+        "content_language": "en",
+        "description_nl": "Volg de artistieke ontwikkeling van Vincent van Gogh via zijn schilderijen en tekeningen, naast werk van tijdgenoten.",
+        "title_nl": "Van Gogh Museum",
+        "field_review_status": "Source verification complete; human editorial approval pending",
+        "catalog_review_batch": "amsterdam-museums-20261115",
+        "address": "Museumplein 6, Amsterdam",
+        "address_source_url": "https://www.vangoghmuseum.nl/en/visit/address-and-opening-hours",
+        "address_checked_at": "2026-11-15",
+        "website": "https://www.vangoghmuseum.nl/en",
+        "website_source_url": "https://www.vangoghmuseum.nl/en",
+        "website_checked_at": "2026-11-15",
+        "address_note": "",
+        "media_status": "licensed archive photograph visually checked; publication approval pending",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-15\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.vangoghmuseum\",\"title\":\"The Museum about Vincent van Gogh in Amsterdam - Van Gogh Museum\",\"publisher\":\"www.vangoghmuseum.nl\",\"url\":\"https://www.vangoghmuseum.nl/en\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.goghvisit\",\"title\":\"Address and Opening Hours - Van Gogh Museum\",\"publisher\":\"www.vangoghmuseum.nl\",\"url\":\"https://www.vangoghmuseum.nl/en/visit/address-and-opening-hours\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.goghprices\",\"title\":\"Tickets and Ticket Prices - Van Gogh Museum\",\"publisher\":\"www.vangoghmuseum.nl\",\"url\":\"https://www.vangoghmuseum.nl/en/visit/tickets-and-ticket-prices\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.pdok\",\"title\":\"BAG address coordinate: Museumplein 6, 1071DJ Amsterdam\",\"publisher\":\"PDOK / Kadaster\",\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Museumplein+6+Amsterdam&fq=type%3Aadres&rows=3\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Museumplein+6+Amsterdam&fq=type%3Aadres&rows=3\",\"method\":\"BAG address point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.3579248,4.8813227\"},\"tickets\":{\"url\":\"https://www.vangoghmuseum.nl/en/visit/tickets-and-ticket-prices\",\"sourceId\":\"source.goghprices\"},\"locales\":{\"en\":{\"alt\":\"Van Gogh Museum exterior — photograph 2016\",\"blocks\":[{\"id\":\"address\",\"title\":\"Location\",\"text\":\"Museumplein 6, Amsterdam. Use the official arrival information before travelling.\",\"source_ids\":[\"source.goghvisit\"]},{\"id\":\"setting\",\"title\":\"About this place\",\"text\":\"Explore Van Gogh’s work and the current temporary exhibition; the standard ticket covers both.\",\"source_ids\":[\"source.goghprices\"]},{\"id\":\"hours\",\"title\":\"Opening hours\",\"text\":\"Open daily, with seasonal hours and date-specific Friday exceptions. Select your date on the official calendar.\",\"source_ids\":[\"source.goghvisit\"]},{\"id\":\"prices\",\"title\":\"Tickets and prices\",\"text\":\"Adults: €25 in 2026, €26 from 1 January 2027; under 18: free.\",\"source_ids\":[\"source.goghprices\"]},{\"id\":\"tickets\",\"title\":\"Tickets\",\"text\":\"Tickets are online-only. Every visitor, including those with free admission, needs a ticket with a start time.\",\"source_ids\":[\"source.goghprices\"]}]},\"nl\":{\"alt\":\"Van Gogh Museum van buiten — foto 2016\",\"blocks\":[{\"id\":\"address\",\"title\":\"Locatie\",\"text\":\"Museumplein 6, Amsterdam. Bekijk vóór vertrek de officiële informatie over bereikbaarheid.\",\"source_ids\":[\"source.goghvisit\"]},{\"id\":\"setting\",\"title\":\"Over deze plek\",\"text\":\"Bekijk Van Goghs werk en de actuele tijdelijke tentoonstelling; het standaardticket geeft toegang tot beide.\",\"source_ids\":[\"source.goghprices\"]},{\"id\":\"hours\",\"title\":\"Openingstijden\",\"text\":\"Dagelijks open, met seizoensgebonden tijden en uitzonderingen op bepaalde vrijdagen. Kies je datum in de officiële kalender.\",\"source_ids\":[\"source.goghvisit\"]},{\"id\":\"prices\",\"title\":\"Tickets en prijzen\",\"text\":\"Volwassenen: €25 in 2026, €26 vanaf 1 januari 2027; onder 18 jaar: gratis.\",\"source_ids\":[\"source.goghprices\"]},{\"id\":\"tickets\",\"title\":\"Tickets\",\"text\":\"Tickets zijn alleen online verkrijgbaar. Iedere bezoeker, ook met gratis toegang, heeft een ticket met starttijd nodig.\",\"source_ids\":[\"source.goghprices\"]}]}}}"
+      }
+    },
+    {
+      "id": "museum.stedelijk-museum-amsterdam",
+      "entity_type": "museum",
+      "category": "modern-art-design",
+      "city_id": "amsterdam",
+      "province_id": "noord-holland",
+      "coordinates": {
+        "latitude": 52.3579099,
+        "longitude": 4.8798549
+      },
+      "title": "Stedelijk Museum Amsterdam",
+      "description": "Discover modern and contemporary art and design through the Stedelijk's collection and changing exhibitions.",
+      "images": [
+        {
+          "id": "media.museum.stedelijk-museum-amsterdam.expansion-20261115",
+          "role": "hero",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:De_nieuwe_vleugel_van_het_Stedelijk_Museum_Amsterdam.jpg",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/6/61/De_nieuwe_vleugel_van_het_Stedelijk_Museum_Amsterdam.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "public_asset_path": "/images/place-review/expstedelijkmuseumamsterdam-1200.webp",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "attribution": "John Lewis Marshall · 2013-09-06 21:47:14 · Archive photograph / Archieffoto · resized WebP; no content edits",
+          "verified": true,
+          "retrieved_at": "2026-11-15",
+          "alt": "Stedelijk Museum Amsterdam exterior — photograph 2013"
+        }
+      ],
+      "official_source": {
+        "title": "Stedelijk Museum Amsterdam",
+        "publisher": "www.stedelijk.nl",
+        "url": "https://www.stedelijk.nl/en",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.stedelijk.nl/en",
+      "related_entity_ids": [
+        "museum.rijksmuseum",
+        "museum.van-gogh-museum"
+      ],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 7,
+      "verification_status": "needs_review",
+      "ai_summary": "Discover modern and contemporary art and design through the Stedelijk's collection and changing exhibitions.",
+      "search_keywords": [
+        "Stedelijk Museum Amsterdam",
+        "amsterdam",
+        "modern-art-design",
+        "stedelijkmuseumamsterdam"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "content_section": "EXPLORE",
+        "content_language": "en",
+        "description_nl": "Ontdek moderne en hedendaagse kunst en vormgeving via de collectie en wisselende tentoonstellingen van het Stedelijk.",
+        "title_nl": "Stedelijk Museum Amsterdam",
+        "field_review_status": "Source verification complete; human editorial approval pending",
+        "catalog_review_batch": "amsterdam-museums-20261115",
+        "address": "Museumplein 10, 1071 DJ Amsterdam",
+        "address_source_url": "https://www.stedelijk.nl/en",
+        "address_checked_at": "2026-11-15",
+        "website": "https://www.stedelijk.nl/en",
+        "website_source_url": "https://www.stedelijk.nl/en",
+        "website_checked_at": "2026-11-15",
+        "address_note": "",
+        "media_status": "licensed archive photograph visually checked; publication approval pending",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-15\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.stedelijkmuseumamsterdam\",\"title\":\"Stedelijk Museum Amsterdam\",\"publisher\":\"www.stedelijk.nl\",\"url\":\"https://www.stedelijk.nl/en\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.pdok\",\"title\":\"BAG address coordinate: Museumplein 10, 1071DJ Amsterdam\",\"publisher\":\"PDOK / Kadaster\",\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Museumplein+10+Amsterdam&fq=type%3Aadres&rows=3\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Museumplein+10+Amsterdam&fq=type%3Aadres&rows=3\",\"method\":\"BAG address point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.3579099,4.8798549\"},\"tickets\":{\"url\":\"https://www.stedelijk.nl/en\",\"sourceId\":\"source.stedelijkmuseumamsterdam\"},\"locales\":{\"en\":{\"alt\":\"Stedelijk Museum Amsterdam exterior — photograph 2013\",\"blocks\":[{\"id\":\"address\",\"title\":\"Location\",\"text\":\"Museumplein 10, 1071 DJ Amsterdam. Use the official arrival information before travelling.\",\"source_ids\":[\"source.stedelijkmuseumamsterdam\"]},{\"id\":\"setting\",\"title\":\"About this place\",\"text\":\"The collection and changing exhibitions focus on modern and contemporary art and design.\",\"source_ids\":[\"source.stedelijkmuseumamsterdam\"]},{\"id\":\"hours\",\"title\":\"Opening hours\",\"text\":\"The official page lists Monday–Sunday, 10:00–18:00. Recheck exceptions before travel.\",\"source_ids\":[\"source.stedelijkmuseumamsterdam\"]},{\"id\":\"prices\",\"title\":\"Tickets and prices\",\"text\":\"Adult admission is listed at €22.50; students €12.50. Admission under 19 is free.\",\"source_ids\":[\"source.stedelijkmuseumamsterdam\"]},{\"id\":\"tickets\",\"title\":\"Tickets\",\"text\":\"Choose the official Visit or Book ticket route for the applicable admission category.\",\"source_ids\":[\"source.stedelijkmuseumamsterdam\"]}]},\"nl\":{\"alt\":\"Stedelijk Museum Amsterdam van buiten — foto 2013\",\"blocks\":[{\"id\":\"address\",\"title\":\"Locatie\",\"text\":\"Museumplein 10, 1071 DJ Amsterdam. Bekijk vóór vertrek de officiële informatie over bereikbaarheid.\",\"source_ids\":[\"source.stedelijkmuseumamsterdam\"]},{\"id\":\"setting\",\"title\":\"Over deze plek\",\"text\":\"De collectie en wisselende tentoonstellingen richten zich op moderne en hedendaagse kunst en vormgeving.\",\"source_ids\":[\"source.stedelijkmuseumamsterdam\"]},{\"id\":\"hours\",\"title\":\"Openingstijden\",\"text\":\"De officiële pagina vermeldt maandag–zondag, 10.00–18.00 uur. Controleer uitzonderingen voor vertrek.\",\"source_ids\":[\"source.stedelijkmuseumamsterdam\"]},{\"id\":\"prices\",\"title\":\"Tickets en prijzen\",\"text\":\"Toegang voor volwassenen staat vermeld als €22,50; studenten €12,50. Onder 19 jaar is toegang gratis.\",\"source_ids\":[\"source.stedelijkmuseumamsterdam\"]},{\"id\":\"tickets\",\"title\":\"Tickets\",\"text\":\"Kies de officiële route Visit of Book ticket voor de juiste toegangscategorie.\",\"source_ids\":[\"source.stedelijkmuseumamsterdam\"]}]}}}"
+      }
+    },
+    {
+      "id": "museum.anne-frank-house",
+      "entity_type": "museum",
+      "category": "history-memorial",
+      "city_id": "amsterdam",
+      "province_id": "noord-holland",
+      "coordinates": {
+        "latitude": 52.3749364,
+        "longitude": 4.8843172
+      },
+      "title": "Anne Frank House",
+      "description": "Learn about Anne Frank, her diary and the people who hid in the Secret Annex. Plan entry through the museum's official ticket information.",
+      "images": [
+        {
+          "id": "media.museum.anne-frank-house.expansion-20261115",
+          "role": "hero",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:Anne_Frank_House_(Museum),_Amsterdam_02.jpg",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/4/46/Anne_Frank_House_%28Museum%29%2C_Amsterdam_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "public_asset_path": "/images/place-review/expannefrankhouse-1200.webp",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "attribution": "Ank Kumar · 2015-03-06 14:57:59 · Archive photograph / Archieffoto · resized WebP; no content edits",
+          "verified": true,
+          "retrieved_at": "2026-11-15",
+          "alt": "Anne Frank House exterior — photograph 2015"
+        }
+      ],
+      "official_source": {
+        "title": "Museum | Anne Frank House",
+        "publisher": "www.annefrank.org",
+        "url": "https://www.annefrank.org/en/museum/",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.annefrank.org/en/museum/",
+      "related_entity_ids": [
+        "museum.jewish-museum",
+        "museum.dutch-resistance-museum"
+      ],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 7,
+      "verification_status": "needs_review",
+      "ai_summary": "Learn about Anne Frank, her diary and the people who hid in the Secret Annex. Plan entry through the museum's official ticket information.",
+      "search_keywords": [
+        "Anne Frank House",
+        "amsterdam",
+        "history-memorial",
+        "annefrankhouse"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "content_section": "EXPLORE",
+        "content_language": "en",
+        "description_nl": "Leer over Anne Frank, haar dagboek en de mensen die in het Achterhuis onderdoken. Plan je bezoek via de officiële ticketinformatie van het museum.",
+        "title_nl": "Anne Frank House",
+        "field_review_status": "Source verification complete; human editorial approval pending",
+        "catalog_review_batch": "amsterdam-museums-20261115",
+        "address": "Westermarkt 20, 1016 DK Amsterdam — visitor entrance / bezoekersingang",
+        "address_source_url": "https://www.annefrank.org/en/museum/tickets/",
+        "address_checked_at": "2026-11-15",
+        "website": "https://www.annefrank.org/en/museum/",
+        "website_source_url": "https://www.annefrank.org/en/museum/",
+        "website_checked_at": "2026-11-15",
+        "address_note": "",
+        "media_status": "licensed archive photograph visually checked; publication approval pending",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-15\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.annefrankhouse\",\"title\":\"Museum | Anne Frank House\",\"publisher\":\"www.annefrank.org\",\"url\":\"https://www.annefrank.org/en/museum/\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.annevisit\",\"title\":\"Tickets | Anne Frank House\",\"publisher\":\"www.annefrank.org\",\"url\":\"https://www.annefrank.org/en/museum/tickets/\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.anneaccess\",\"title\":\"Accessibility | Anne Frank House\",\"publisher\":\"www.annefrank.org\",\"url\":\"https://www.annefrank.org/en/museum/accessibility-museum/\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.pdok\",\"title\":\"BAG address coordinate: Westermarkt 20, 1016DK Amsterdam\",\"publisher\":\"PDOK / Kadaster\",\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Westermarkt+20+Amsterdam&fq=type%3Aadres&rows=3\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Westermarkt+20+Amsterdam&fq=type%3Aadres&rows=3\",\"method\":\"BAG address point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.3749364,4.8843172\"},\"tickets\":{\"url\":\"https://www.annefrank.org/en/museum/tickets/\",\"sourceId\":\"source.annevisit\"},\"locales\":{\"en\":{\"alt\":\"Anne Frank House exterior — photograph 2015\",\"blocks\":[{\"id\":\"address\",\"title\":\"Location\",\"text\":\"Westermarkt 20, 1016 DK Amsterdam — visitor entrance / bezoekersingang. Use the official arrival information before travelling.\",\"source_ids\":[\"source.annevisit\"]},{\"id\":\"setting\",\"title\":\"About this place\",\"text\":\"The museum tells the story of Anne Frank and the people in hiding through original objects, quotations and images.\",\"source_ids\":[\"source.annefrankhouse\"]},{\"id\":\"hours\",\"title\":\"Opening hours\",\"text\":\"Regular hours are 09:00–22:00; holiday exceptions are listed separately. Entry is tied to the booked date and time.\",\"source_ids\":[\"source.annevisit\"]},{\"id\":\"prices\",\"title\":\"Tickets and prices\",\"text\":\"Adult admission is €16.50 including the booking fee; the official page lists €17 from 2027.\",\"source_ids\":[\"source.annevisit\"]},{\"id\":\"tickets\",\"title\":\"Tickets\",\"text\":\"Buy only through the official museum website. Tickets are released on Tuesdays for visits six weeks later.\",\"source_ids\":[\"source.annevisit\"]},{\"id\":\"access\",\"title\":\"Accessibility\",\"text\":\"The historic house has steep stairs and small rooms. Read the dedicated accessibility information before reserving.\",\"source_ids\":[\"source.anneaccess\"]}]},\"nl\":{\"alt\":\"Anne Frank House van buiten — foto 2015\",\"blocks\":[{\"id\":\"address\",\"title\":\"Locatie\",\"text\":\"Westermarkt 20, 1016 DK Amsterdam — visitor entrance / bezoekersingang. Bekijk vóór vertrek de officiële informatie over bereikbaarheid.\",\"source_ids\":[\"source.annevisit\"]},{\"id\":\"setting\",\"title\":\"Over deze plek\",\"text\":\"Het museum vertelt het verhaal van Anne Frank en de onderduikers met originele voorwerpen, citaten en beelden.\",\"source_ids\":[\"source.annefrankhouse\"]},{\"id\":\"hours\",\"title\":\"Openingstijden\",\"text\":\"Reguliere tijden zijn 09.00–22.00 uur; feestdagen kennen aparte uitzonderingen. Toegang is gekoppeld aan de geboekte datum en tijd.\",\"source_ids\":[\"source.annevisit\"]},{\"id\":\"prices\",\"title\":\"Tickets en prijzen\",\"text\":\"Toegang voor volwassenen kost €16,50 inclusief reserveringskosten; de officiële pagina vermeldt €17 vanaf 2027.\",\"source_ids\":[\"source.annevisit\"]},{\"id\":\"tickets\",\"title\":\"Tickets\",\"text\":\"Koop uitsluitend via de officiële museumwebsite. Op dinsdag komen tickets beschikbaar voor bezoeken zes weken later.\",\"source_ids\":[\"source.annevisit\"]},{\"id\":\"access\",\"title\":\"Toegankelijkheid\",\"text\":\"Het historische huis heeft steile trappen en kleine kamers. Lees de toegankelijkheidsinformatie vóór reservering.\",\"source_ids\":[\"source.anneaccess\"]}]}}}"
+      }
+    },
+    {
+      "id": "museum.nemo-science-museum",
+      "entity_type": "museum",
+      "category": "science",
+      "city_id": "amsterdam",
+      "province_id": "noord-holland",
+      "coordinates": {
+        "latitude": 52.3738532,
+        "longitude": 4.9121113
+      },
+      "title": "NEMO Science Museum",
+      "description": "Investigate science through hands-on experiments and demonstrations. NEMO also presents activities about the human body and everyday phenomena.",
+      "images": [
+        {
+          "id": "media.museum.nemo-science-museum.expansion-20261115",
+          "role": "hero",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:2018_-_NEMO_Science_Museum,_Amsterdam,_Netherlands_(_Ank_Kumar_)_01.jpg",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/9/91/2018_-_NEMO_Science_Museum%2C_Amsterdam%2C_Netherlands_%28_Ank_Kumar_%29_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "public_asset_path": "/images/place-review/expnemosciencemuseum-1200.webp",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "attribution": "Ank Kumar · 2018-01-01 · Archive photograph / Archieffoto · resized WebP; no content edits",
+          "verified": true,
+          "retrieved_at": "2026-11-15",
+          "alt": "NEMO Science Museum exterior — photograph 2018"
+        }
+      ],
+      "official_source": {
+        "title": "Plan your visit - NEMO Science Museum",
+        "publisher": "www.nemosciencemuseum.nl",
+        "url": "https://www.nemosciencemuseum.nl/en/plan-your-visit",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.nemosciencemuseum.nl/en/plan-your-visit",
+      "related_entity_ids": [
+        "museum.het-scheepvaartmuseum",
+        "museum.artis-micropia"
+      ],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 7,
+      "verification_status": "needs_review",
+      "ai_summary": "Investigate science through hands-on experiments and demonstrations. NEMO also presents activities about the human body and everyday phenomena.",
+      "search_keywords": [
+        "NEMO Science Museum",
+        "amsterdam",
+        "science",
+        "nemosciencemuseum"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "content_section": "EXPLORE",
+        "content_language": "en",
+        "description_nl": "Onderzoek wetenschap met interactieve experimenten en demonstraties. NEMO biedt ook activiteiten over het menselijk lichaam en alledaagse verschijnselen.",
+        "title_nl": "NEMO Science Museum",
+        "field_review_status": "Source verification complete; human editorial approval pending",
+        "catalog_review_batch": "amsterdam-museums-20261115",
+        "address": "Oosterdok 2, 1011 VX Amsterdam",
+        "address_source_url": "https://www.nemosciencemuseum.nl/en/plan-your-visit",
+        "address_checked_at": "2026-11-15",
+        "website": "https://www.nemosciencemuseum.nl/en/plan-your-visit",
+        "website_source_url": "https://www.nemosciencemuseum.nl/en/plan-your-visit",
+        "website_checked_at": "2026-11-15",
+        "address_note": "",
+        "media_status": "licensed archive photograph visually checked; publication approval pending",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-15\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.nemovisit\",\"title\":\"Plan your visit - NEMO Science Museum\",\"publisher\":\"www.nemosciencemuseum.nl\",\"url\":\"https://www.nemosciencemuseum.nl/en/plan-your-visit\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.pdok\",\"title\":\"BAG address coordinate: Oosterdok 2, 1011VX Amsterdam\",\"publisher\":\"PDOK / Kadaster\",\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Oosterdok+2+Amsterdam&fq=type%3Aadres&rows=3\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Oosterdok+2+Amsterdam&fq=type%3Aadres&rows=3\",\"method\":\"BAG address point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.3738532,4.9121113\"},\"tickets\":{\"url\":\"https://www.nemosciencemuseum.nl/en/plan-your-visit\",\"sourceId\":\"source.nemovisit\"},\"locales\":{\"en\":{\"alt\":\"NEMO Science Museum exterior — photograph 2018\",\"blocks\":[{\"id\":\"address\",\"title\":\"Location\",\"text\":\"Oosterdok 2, 1011 VX Amsterdam. Use the official arrival information before travelling.\",\"source_ids\":[\"source.nemovisit\"]},{\"id\":\"setting\",\"title\":\"About this place\",\"text\":\"Plan a hands-on science visit and choose activities from the museum’s current programme.\",\"source_ids\":[\"source.nemovisit\"]},{\"id\":\"hours\",\"title\":\"Opening hours\",\"text\":\"Monday opening varies by season and school holidays; check the listed dates instead of assuming a seven-day schedule.\",\"source_ids\":[\"source.nemovisit\"]},{\"id\":\"tickets\",\"title\":\"Tickets\",\"text\":\"Tickets have a start time. Museumkaart and I amsterdam City Card visitors also need a timed reservation.\",\"source_ids\":[\"source.nemovisit\"]},{\"id\":\"prices\",\"title\":\"Tickets and prices\",\"text\":\"A current ordinary admission price could not be confirmed in the readable page. Check the official ticket calendar; pass purchase prices are not museum admission prices.\",\"source_ids\":[\"source.nemovisit\"]}]},\"nl\":{\"alt\":\"NEMO Science Museum van buiten — foto 2018\",\"blocks\":[{\"id\":\"address\",\"title\":\"Locatie\",\"text\":\"Oosterdok 2, 1011 VX Amsterdam. Bekijk vóór vertrek de officiële informatie over bereikbaarheid.\",\"source_ids\":[\"source.nemovisit\"]},{\"id\":\"setting\",\"title\":\"Over deze plek\",\"text\":\"Plan een interactief wetenschapsbezoek en kies activiteiten uit het actuele museumprogramma.\",\"source_ids\":[\"source.nemovisit\"]},{\"id\":\"hours\",\"title\":\"Openingstijden\",\"text\":\"Maandagopenstelling verschilt per seizoen en schoolvakantie; controleer de vermelde data en ga niet uit van zeven dagen per week.\",\"source_ids\":[\"source.nemovisit\"]},{\"id\":\"tickets\",\"title\":\"Tickets\",\"text\":\"Tickets hebben een starttijd. Ook met Museumkaart of I amsterdam City Card is een reservering met starttijd nodig.\",\"source_ids\":[\"source.nemovisit\"]},{\"id\":\"prices\",\"title\":\"Tickets en prijzen\",\"text\":\"Een actuele gewone entreeprijs kon niet worden bevestigd in de leesbare pagina. Bekijk de officiële ticketkalender; aanschafprijzen van passen zijn geen museumentreeprijzen.\",\"source_ids\":[\"source.nemovisit\"]}]}}}"
+      }
+    },
+    {
+      "id": "museum.het-scheepvaartmuseum",
+      "entity_type": "museum",
+      "category": "maritime-history",
+      "city_id": "amsterdam",
+      "province_id": "noord-holland",
+      "coordinates": {
+        "latitude": 52.371492,
+        "longitude": 4.915
+      },
+      "title": "Het Scheepvaartmuseum",
+      "description": "Explore maritime history and the relationship between the Netherlands and water through ships, objects and exhibitions.",
+      "images": [
+        {
+          "id": "media.museum.het-scheepvaartmuseum.expansion-20261115",
+          "role": "hero",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:Nederlands_Scheepvaartmuseum_and_Amsterdam_02.jpg",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Nederlands_Scheepvaartmuseum_and_Amsterdam_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "public_asset_path": "/images/place-review/exphetscheepvaartmuseum-1200.webp",
+          "license": "CC BY 4.0",
+          "license_url": "https://creativecommons.org/licenses/by/4.0",
+          "attribution": "Ibex73 · 2024-09-20 17:03:45 · Archive photograph / Archieffoto · resized WebP; no content edits",
+          "verified": true,
+          "retrieved_at": "2026-11-15",
+          "alt": "Het Scheepvaartmuseum exterior — photograph 2024"
+        }
+      ],
+      "official_source": {
+        "title": "Home | Het Scheepvaartmuseum | The National Maritime Museum",
+        "publisher": "www.hetscheepvaartmuseum.com",
+        "url": "https://www.hetscheepvaartmuseum.com/",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.hetscheepvaartmuseum.com/",
+      "related_entity_ids": [
+        "museum.nemo-science-museum",
+        "museum.dutch-resistance-museum"
+      ],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 7,
+      "verification_status": "needs_review",
+      "ai_summary": "Explore maritime history and the relationship between the Netherlands and water through ships, objects and exhibitions.",
+      "search_keywords": [
+        "Het Scheepvaartmuseum",
+        "amsterdam",
+        "maritime-history",
+        "hetscheepvaartmuseum"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "content_section": "EXPLORE",
+        "content_language": "en",
+        "description_nl": "Ontdek maritieme geschiedenis en de relatie tussen Nederland en water via schepen, voorwerpen en tentoonstellingen.",
+        "title_nl": "Het Scheepvaartmuseum",
+        "field_review_status": "Source verification complete; human editorial approval pending",
+        "catalog_review_batch": "amsterdam-museums-20261115",
+        "address": "Kattenburgerplein 1, 1018 KK Amsterdam",
+        "address_source_url": "https://www.hetscheepvaartmuseum.com/",
+        "address_checked_at": "2026-11-15",
+        "website": "https://www.hetscheepvaartmuseum.com/",
+        "website_source_url": "https://www.hetscheepvaartmuseum.com/",
+        "website_checked_at": "2026-11-15",
+        "address_note": "",
+        "media_status": "licensed archive photograph visually checked; publication approval pending",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-15\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.hetscheepvaartmuseum\",\"title\":\"Home | Het Scheepvaartmuseum | The National Maritime Museum\",\"publisher\":\"www.hetscheepvaartmuseum.com\",\"url\":\"https://www.hetscheepvaartmuseum.com/\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.maritimevisit\",\"title\":\"Visit - Opening hours & admission | Het Scheepvaartmuseum\",\"publisher\":\"www.hetscheepvaartmuseum.com\",\"url\":\"https://www.hetscheepvaartmuseum.com/visit/opening-hours-and-admission\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.pdok\",\"title\":\"BAG address coordinate: Kattenburgerplein 1, 1018KK Amsterdam\",\"publisher\":\"PDOK / Kadaster\",\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Kattenburgerplein+1+Amsterdam&fq=type%3Aadres&rows=3\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Kattenburgerplein+1+Amsterdam&fq=type%3Aadres&rows=3\",\"method\":\"BAG address point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.371492,4.915\"},\"tickets\":{\"url\":\"https://www.hetscheepvaartmuseum.com/visit/opening-hours-and-admission\",\"sourceId\":\"source.maritimevisit\"},\"locales\":{\"en\":{\"alt\":\"Het Scheepvaartmuseum exterior — photograph 2024\",\"blocks\":[{\"id\":\"address\",\"title\":\"Location\",\"text\":\"Kattenburgerplein 1, 1018 KK Amsterdam. Use the official arrival information before travelling.\",\"source_ids\":[\"source.hetscheepvaartmuseum\"]},{\"id\":\"setting\",\"title\":\"About this place\",\"text\":\"Ships, objects and exhibitions connect Dutch maritime history with present-day questions about water and trade.\",\"source_ids\":[\"source.hetscheepvaartmuseum\"]},{\"id\":\"hours\",\"title\":\"Opening hours\",\"text\":\"Open Monday–Sunday 10:00–17:00; closed on King’s Day, Christmas Day and New Year’s Day.\",\"source_ids\":[\"source.maritimevisit\"]},{\"id\":\"prices\",\"title\":\"Tickets and prices\",\"text\":\"Adults 18+: €20; ages 5–17: €8.50; ages 4 and under: free. The museum accepts card payments, not cash.\",\"source_ids\":[\"source.maritimevisit\"]},{\"id\":\"access\",\"title\":\"Accessibility\",\"text\":\"Exhibitions are reachable by lift. The replica East Indiaman is only partly accessible; check the detailed guidance.\",\"source_ids\":[\"source.maritimevisit\"]}]},\"nl\":{\"alt\":\"Het Scheepvaartmuseum van buiten — foto 2024\",\"blocks\":[{\"id\":\"address\",\"title\":\"Locatie\",\"text\":\"Kattenburgerplein 1, 1018 KK Amsterdam. Bekijk vóór vertrek de officiële informatie over bereikbaarheid.\",\"source_ids\":[\"source.hetscheepvaartmuseum\"]},{\"id\":\"setting\",\"title\":\"Over deze plek\",\"text\":\"Schepen, voorwerpen en tentoonstellingen verbinden Nederlandse maritieme geschiedenis met hedendaagse vragen over water en handel.\",\"source_ids\":[\"source.hetscheepvaartmuseum\"]},{\"id\":\"hours\",\"title\":\"Openingstijden\",\"text\":\"Open maandag–zondag 10.00–17.00 uur; gesloten op Koningsdag, eerste kerstdag en nieuwjaarsdag.\",\"source_ids\":[\"source.maritimevisit\"]},{\"id\":\"prices\",\"title\":\"Tickets en prijzen\",\"text\":\"Volwassenen vanaf 18 jaar: €20; 5–17 jaar: €8,50; tot en met 4 jaar: gratis. Het museum accepteert kaartbetalingen, geen contant geld.\",\"source_ids\":[\"source.maritimevisit\"]},{\"id\":\"access\",\"title\":\"Toegankelijkheid\",\"text\":\"Tentoonstellingen zijn per lift bereikbaar. De replica van de Oost-Indiëvaarder is slechts deels toegankelijk; bekijk de nadere uitleg.\",\"source_ids\":[\"source.maritimevisit\"]}]}}}"
+      }
+    },
+    {
+      "id": "museum.museum-rembrandthuis",
+      "entity_type": "museum",
+      "category": "art-history",
+      "city_id": "amsterdam",
+      "province_id": "noord-holland",
+      "coordinates": {
+        "latitude": 52.3693692,
+        "longitude": 4.9012496
+      },
+      "title": "Museum Rembrandthuis",
+      "description": "Visit the house where Rembrandt lived and worked, and explore the surroundings of an artist's daily life and practice.",
+      "images": [
+        {
+          "id": "media.museum.museum-rembrandthuis.expansion-20261115",
+          "role": "hero",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:Rembrandthuis,_Amsterdam,_2015-04-25a.jpg",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Rembrandthuis%2C_Amsterdam%2C_2015-04-25a.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "public_asset_path": "/images/place-review/expmuseumrembrandthuis-1200.webp",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "attribution": "Bysmon · 2015-04-25 · Archive photograph / Archieffoto · resized WebP; no content edits",
+          "verified": true,
+          "retrieved_at": "2026-11-15",
+          "alt": "Museum Rembrandthuis exterior — photograph 2015"
+        }
+      ],
+      "official_source": {
+        "title": "Rembrandt House Museum Amsterdam | Atelier & Tickets",
+        "publisher": "www.rembrandthuis.nl",
+        "url": "https://www.rembrandthuis.nl/en/",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.rembrandthuis.nl/en/",
+      "related_entity_ids": [
+        "museum.rijksmuseum",
+        "museum.jewish-museum"
+      ],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 7,
+      "verification_status": "needs_review",
+      "ai_summary": "Visit the house where Rembrandt lived and worked, and explore the surroundings of an artist's daily life and practice.",
+      "search_keywords": [
+        "Museum Rembrandthuis",
+        "amsterdam",
+        "art-history",
+        "museumrembrandthuis"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "content_section": "EXPLORE",
+        "content_language": "en",
+        "description_nl": "Bezoek het huis waar Rembrandt woonde en werkte en ontdek de omgeving van zijn dagelijks leven en kunstenaarspraktijk.",
+        "title_nl": "Museum Rembrandthuis",
+        "field_review_status": "Source verification complete; human editorial approval pending",
+        "catalog_review_batch": "amsterdam-museums-20261115",
+        "address": "Jodenbreestraat 4, Amsterdam",
+        "address_source_url": "https://www.rembrandthuis.nl/en/plan-your-visit/visitor-information/opening-hours-fees/",
+        "address_checked_at": "2026-11-15",
+        "website": "https://www.rembrandthuis.nl/en/",
+        "website_source_url": "https://www.rembrandthuis.nl/en/",
+        "website_checked_at": "2026-11-15",
+        "address_note": "",
+        "media_status": "licensed archive photograph visually checked; publication approval pending",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-15\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.museumrembrandthuis\",\"title\":\"Rembrandt House Museum Amsterdam | Atelier & Tickets\",\"publisher\":\"www.rembrandthuis.nl\",\"url\":\"https://www.rembrandthuis.nl/en/\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.rembrandthuisvisit\",\"title\":\"Opening Hours & Tickets | Rembrandt House Museum\",\"publisher\":\"www.rembrandthuis.nl\",\"url\":\"https://www.rembrandthuis.nl/en/plan-your-visit/visitor-information/opening-hours-fees/\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.pdok\",\"title\":\"BAG address coordinate: Jodenbreestraat 4, 1011NK Amsterdam\",\"publisher\":\"PDOK / Kadaster\",\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Jodenbreestraat+4+Amsterdam&fq=type%3Aadres&rows=3\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Jodenbreestraat+4+Amsterdam&fq=type%3Aadres&rows=3\",\"method\":\"BAG address point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.3693692,4.9012496\"},\"tickets\":{\"url\":\"https://www.rembrandthuis.nl/en/plan-your-visit/visitor-information/opening-hours-fees/\",\"sourceId\":\"source.rembrandthuisvisit\"},\"locales\":{\"en\":{\"alt\":\"Museum Rembrandthuis exterior — photograph 2015\",\"blocks\":[{\"id\":\"address\",\"title\":\"Location\",\"text\":\"Jodenbreestraat 4, Amsterdam. Use the official arrival information before travelling.\",\"source_ids\":[\"source.rembrandthuisvisit\"]},{\"id\":\"setting\",\"title\":\"About this place\",\"text\":\"Visit the house where Rembrandt lived and worked; check which demonstrations are offered on your chosen day.\",\"source_ids\":[\"source.museumrembrandthuis\"]},{\"id\":\"hours\",\"title\":\"Opening hours\",\"text\":\"From 2 November to 18 December 2026 the published schedule is 10:00–17:00. Other seasons and holidays have different hours.\",\"source_ids\":[\"source.rembrandthuisvisit\"]},{\"id\":\"prices\",\"title\":\"Tickets and prices\",\"text\":\"Standard adult admission in 2026: €23.50; children 6–17: €8; under 6: free. Check eligibility before selecting a reduced ticket.\",\"source_ids\":[\"source.rembrandthuisvisit\"]},{\"id\":\"tickets\",\"title\":\"Tickets\",\"text\":\"Paid tickets cannot be cancelled according to the current visitor page; rebooking is possible through the ticket partner.\",\"source_ids\":[\"source.rembrandthuisvisit\"]}]},\"nl\":{\"alt\":\"Museum Rembrandthuis van buiten — foto 2015\",\"blocks\":[{\"id\":\"address\",\"title\":\"Locatie\",\"text\":\"Jodenbreestraat 4, Amsterdam. Bekijk vóór vertrek de officiële informatie over bereikbaarheid.\",\"source_ids\":[\"source.rembrandthuisvisit\"]},{\"id\":\"setting\",\"title\":\"Over deze plek\",\"text\":\"Bezoek het huis waar Rembrandt woonde en werkte; controleer welke demonstraties op jouw dag worden aangeboden.\",\"source_ids\":[\"source.museumrembrandthuis\"]},{\"id\":\"hours\",\"title\":\"Openingstijden\",\"text\":\"Van 2 november tot 18 december 2026 is het gepubliceerde schema 10.00–17.00 uur. Andere seizoenen en feestdagen hebben afwijkende tijden.\",\"source_ids\":[\"source.rembrandthuisvisit\"]},{\"id\":\"prices\",\"title\":\"Tickets en prijzen\",\"text\":\"Reguliere volwassenentoegang in 2026: €23,50; kinderen 6–17 jaar: €8; onder 6 jaar: gratis. Controleer de voorwaarden van een kortingsticket.\",\"source_ids\":[\"source.rembrandthuisvisit\"]},{\"id\":\"tickets\",\"title\":\"Tickets\",\"text\":\"Volgens de huidige bezoekerspagina kunnen betaalde tickets niet worden geannuleerd; omboeken kan via de ticketpartner.\",\"source_ids\":[\"source.rembrandthuisvisit\"]}]}}}"
+      }
+    },
+    {
+      "id": "museum.museum-ons-lieve-heer-op-solder",
+      "entity_type": "museum",
+      "category": "religious-history",
+      "city_id": "amsterdam",
+      "province_id": "noord-holland",
+      "coordinates": {
+        "latitude": 52.3750686,
+        "longitude": 4.8993662
+      },
+      "title": "Museum Ons' Lieve Heer op Solder",
+      "description": "Explore a historic canal house with a church concealed in its upper floors. The museum connects domestic interiors with religious history.",
+      "images": [
+        {
+          "id": "media.museum.museum-ons-lieve-heer-op-solder.expansion-20261115",
+          "role": "hero",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:Amsterdam_-_Museum_Ons%27_Lieve_Heer_op_Solder_-_hidden_church.JPG",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Amsterdam_-_Museum_Ons%27_Lieve_Heer_op_Solder_-_hidden_church.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "public_asset_path": "/images/place-review/expmuseumonslieveheeropsolder-1200.webp",
+          "license": "CC BY-SA 3.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+          "attribution": "Remi Mathis · 2012-03-10 · Archive photograph / Archieffoto · resized WebP; no content edits",
+          "verified": true,
+          "retrieved_at": "2026-11-15",
+          "alt": "Historic attic church in Ons’ Lieve Heer op Solder — photograph 2012"
+        }
+      ],
+      "official_source": {
+        "title": "Museum visit - Museum Ons' Lieve Heer op Solder",
+        "publisher": "opsolder.nl",
+        "url": "https://opsolder.nl/en/museum-visit/",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://opsolder.nl/en/museum-visit/",
+      "related_entity_ids": [
+        "museum.museum-of-the-canals",
+        "museum.museum-van-loon"
+      ],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 7,
+      "verification_status": "needs_review",
+      "ai_summary": "Explore a historic canal house with a church concealed in its upper floors. The museum connects domestic interiors with religious history.",
+      "search_keywords": [
+        "Museum Ons' Lieve Heer op Solder",
+        "amsterdam",
+        "religious-history",
+        "museumonslieveheeropsolder"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "content_section": "EXPLORE",
+        "content_language": "en",
+        "description_nl": "Verken een historisch grachtenhuis met een kerk op de bovenverdiepingen. Het museum verbindt wooninterieurs met religieuze geschiedenis.",
+        "title_nl": "Museum Ons' Lieve Heer op Solder",
+        "field_review_status": "Source verification complete; human editorial approval pending",
+        "catalog_review_batch": "amsterdam-museums-20261115",
+        "address": "Oudezijds Voorburgwal 38–40, 1012 GD Amsterdam",
+        "address_source_url": "https://opsolder.nl/en/practical-information/",
+        "address_checked_at": "2026-11-15",
+        "website": "https://opsolder.nl/en/museum-visit/",
+        "website_source_url": "https://opsolder.nl/en/museum-visit/",
+        "website_checked_at": "2026-11-15",
+        "address_note": "",
+        "media_status": "licensed archive photograph visually checked; publication approval pending",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-15\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.solderstory\",\"title\":\"Museum visit - Museum Ons' Lieve Heer op Solder\",\"publisher\":\"opsolder.nl\",\"url\":\"https://opsolder.nl/en/museum-visit/\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.soldervisit\",\"title\":\"Practical information - Museum Ons' Lieve Heer op Solder\",\"publisher\":\"opsolder.nl\",\"url\":\"https://opsolder.nl/en/practical-information/\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.solderhours\",\"title\":\"Opening hours - Museum Ons' Lieve Heer op Solder\",\"publisher\":\"opsolder.nl\",\"url\":\"https://opsolder.nl/en/opening-hours/\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.solderprices\",\"title\":\"Tickets and prices - Museum Ons' Lieve Heer op Solder\",\"publisher\":\"opsolder.nl\",\"url\":\"https://opsolder.nl/en/tickets-and-prices/\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.pdok\",\"title\":\"BAG address coordinate: Oudezijds Voorburgwal 38, 1012GD Amsterdam\",\"publisher\":\"PDOK / Kadaster\",\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Oudezijds+Voorburgwal+38+Amsterdam&fq=type%3Aadres&rows=3\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Oudezijds+Voorburgwal+38+Amsterdam&fq=type%3Aadres&rows=3\",\"method\":\"BAG address point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.3750686,4.8993662\"},\"tickets\":{\"url\":\"https://opsolder.nl/en/tickets-and-prices/\",\"sourceId\":\"source.solderprices\"},\"locales\":{\"en\":{\"alt\":\"Historic attic church in Ons’ Lieve Heer op Solder — photograph 2012\",\"blocks\":[{\"id\":\"address\",\"title\":\"Location\",\"text\":\"Oudezijds Voorburgwal 38–40, 1012 GD Amsterdam. Use the official arrival information before travelling.\",\"source_ids\":[\"source.soldervisit\"]},{\"id\":\"setting\",\"title\":\"About this place\",\"text\":\"Walk through a historic home and the church concealed on its upper floors.\",\"source_ids\":[\"source.solderstory\"]},{\"id\":\"hours\",\"title\":\"Opening hours\",\"text\":\"Normally 10:00–18:00. On the first Sunday of each month from September to June, visitor opening begins at 11:00.\",\"source_ids\":[\"source.solderhours\"]},{\"id\":\"prices\",\"title\":\"Tickets and prices\",\"text\":\"Adults: €18; ages 5–17: €7.50; ages 4 and under: free. Check accepted passes and identification requirements.\",\"source_ids\":[\"source.solderprices\"]},{\"id\":\"restrictions\",\"title\":\"Check before travelling\",\"text\":\"Christmas Day is listed as a closure. Consult the accessibility page before booking if stairs are a concern.\",\"source_ids\":[\"source.solderhours\"]}]},\"nl\":{\"alt\":\"Historische zolderkerk in Ons’ Lieve Heer op Solder — foto 2012\",\"blocks\":[{\"id\":\"address\",\"title\":\"Locatie\",\"text\":\"Oudezijds Voorburgwal 38–40, 1012 GD Amsterdam. Bekijk vóór vertrek de officiële informatie over bereikbaarheid.\",\"source_ids\":[\"source.soldervisit\"]},{\"id\":\"setting\",\"title\":\"Over deze plek\",\"text\":\"Loop door een historisch woonhuis en de kerk op de bovenverdiepingen.\",\"source_ids\":[\"source.solderstory\"]},{\"id\":\"hours\",\"title\":\"Openingstijden\",\"text\":\"Normaal 10.00–18.00 uur. Op de eerste zondag van iedere maand van september tot juni begint het museumbezoek om 11.00 uur.\",\"source_ids\":[\"source.solderhours\"]},{\"id\":\"prices\",\"title\":\"Tickets en prijzen\",\"text\":\"Volwassenen: €18; 5–17 jaar: €7,50; tot en met 4 jaar: gratis. Controleer geaccepteerde passen en legitimatievoorwaarden.\",\"source_ids\":[\"source.solderprices\"]},{\"id\":\"restrictions\",\"title\":\"Controleer voor vertrek\",\"text\":\"Eerste kerstdag wordt als sluitingsdag vermeld. Bekijk de toegankelijkheidspagina vóór boeken als traplopen een aandachtspunt is.\",\"source_ids\":[\"source.solderhours\"]}]}}}"
+      }
+    },
+    {
+      "id": "museum.hart-museum",
+      "entity_type": "museum",
+      "category": "art",
+      "city_id": "amsterdam",
+      "province_id": "noord-holland",
+      "coordinates": {
+        "latitude": 52.365635,
+        "longitude": 4.902226
+      },
+      "title": "H'ART Museum",
+      "description": "Discover changing art exhibitions at H'ART Museum. Check the current programme to see which collections are on display.",
+      "images": [
+        {
+          "id": "media.museum.hart-museum.expansion-20261115",
+          "role": "hero",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:Hermitage_Amsterdam_-_Ingang.JPG",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Hermitage_Amsterdam_-_Ingang.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "public_asset_path": "/images/place-review/exphartmuseum-1200.webp",
+          "license": "CC BY-SA 3.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+          "attribution": "Fentener van Vlissingen · 2009-06-24 · Archive photograph / Archieffoto · resized WebP; no content edits",
+          "verified": true,
+          "retrieved_at": "2026-11-15",
+          "alt": "Entrance to the Amstelhof, with the former Hermitage name — photograph 2009"
+        }
+      ],
+      "official_source": {
+        "title": "Museum H'ART Amsterdam",
+        "publisher": "www.hartmuseum.nl",
+        "url": "https://www.hartmuseum.nl/en/",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.hartmuseum.nl/en/",
+      "related_entity_ids": [
+        "museum.jewish-museum",
+        "museum.museum-rembrandthuis"
+      ],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 7,
+      "verification_status": "needs_review",
+      "ai_summary": "Discover changing art exhibitions at H'ART Museum. Check the current programme to see which collections are on display.",
+      "search_keywords": [
+        "H'ART Museum",
+        "amsterdam",
+        "art",
+        "hartmuseum"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "content_section": "EXPLORE",
+        "content_language": "en",
+        "description_nl": "Ontdek wisselende kunsttentoonstellingen in H'ART Museum. Bekijk het actuele programma om te zien welke collecties te zien zijn.",
+        "title_nl": "H'ART Museum",
+        "field_review_status": "Source verification complete; human editorial approval pending",
+        "catalog_review_batch": "amsterdam-museums-20261115",
+        "address": "Amstel 51, 1018 EJ Amsterdam",
+        "address_source_url": "https://www.hartmuseum.nl/en/",
+        "address_checked_at": "2026-11-15",
+        "website": "https://www.hartmuseum.nl/en/",
+        "website_source_url": "https://www.hartmuseum.nl/en/",
+        "website_checked_at": "2026-11-15",
+        "address_note": "",
+        "media_status": "licensed archive photograph visually checked; publication approval pending",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-15\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.hartmuseum\",\"title\":\"Museum H'ART Amsterdam\",\"publisher\":\"www.hartmuseum.nl\",\"url\":\"https://www.hartmuseum.nl/en/\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.hartvisit\",\"title\":\"Plan your visit - H’ART Museum\",\"publisher\":\"www.hartmuseum.nl\",\"url\":\"https://www.hartmuseum.nl/en/plan-your-visit/\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.pdok\",\"title\":\"BAG address coordinate: Amstel 51, 1018EJ Amsterdam\",\"publisher\":\"PDOK / Kadaster\",\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Amstel+51+Amsterdam&fq=type%3Aadres&rows=3\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Amstel+51+Amsterdam&fq=type%3Aadres&rows=3\",\"method\":\"BAG address point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.365635,4.902226\"},\"tickets\":{\"url\":\"https://www.hartmuseum.nl/en/plan-your-visit/\",\"sourceId\":\"source.hartvisit\"},\"locales\":{\"en\":{\"alt\":\"Entrance to the Amstelhof, with the former Hermitage name — photograph 2009\",\"blocks\":[{\"id\":\"address\",\"title\":\"Location\",\"text\":\"Amstel 51, 1018 EJ Amsterdam. Use the official arrival information before travelling.\",\"source_ids\":[\"source.hartmuseum\"]},{\"id\":\"setting\",\"title\":\"About this place\",\"text\":\"H’ART presents changing international art exhibitions in the historic Amstelhof. Archive photographs can show the former Hermitage name.\",\"source_ids\":[\"source.hartmuseum\"]},{\"id\":\"hours\",\"title\":\"Opening hours\",\"text\":\"Daily 10:00–17:00, last entry 16:30. On 25 December and 1 January: 12:00–17:00; closed on 27 April.\",\"source_ids\":[\"source.hartvisit\"]},{\"id\":\"prices\",\"title\":\"Tickets and prices\",\"text\":\"The current admission page lists adults at €29.50 and a €7 Museumkaart supplement. Recheck the selected exhibition and ticket type.\",\"source_ids\":[\"source.hartvisit\"]},{\"id\":\"arrival\",\"title\":\"Arrival\",\"text\":\"Cars and taxis cannot stop at the Amstel entrance. The museum directs drop-offs to Nieuwe Keizersgracht 1.\",\"source_ids\":[\"source.hartvisit\"]}]},\"nl\":{\"alt\":\"Ingang van het Amstelhof, met de vroegere naam Hermitage — foto 2009\",\"blocks\":[{\"id\":\"address\",\"title\":\"Locatie\",\"text\":\"Amstel 51, 1018 EJ Amsterdam. Bekijk vóór vertrek de officiële informatie over bereikbaarheid.\",\"source_ids\":[\"source.hartmuseum\"]},{\"id\":\"setting\",\"title\":\"Over deze plek\",\"text\":\"H’ART toont wisselende internationale kunsttentoonstellingen in het historische Amstelhof. Archiefbeelden kunnen de vroegere naam Hermitage tonen.\",\"source_ids\":[\"source.hartmuseum\"]},{\"id\":\"hours\",\"title\":\"Openingstijden\",\"text\":\"Dagelijks 10.00–17.00 uur, laatste toegang 16.30 uur. Op 25 december en 1 januari: 12.00–17.00 uur; gesloten op 27 april.\",\"source_ids\":[\"source.hartvisit\"]},{\"id\":\"prices\",\"title\":\"Tickets en prijzen\",\"text\":\"De huidige toegangspagina vermeldt €29,50 voor volwassenen en €7 toeslag met Museumkaart. Controleer de gekozen tentoonstelling en ticketsoort.\",\"source_ids\":[\"source.hartvisit\"]},{\"id\":\"arrival\",\"title\":\"Aankomst\",\"text\":\"Auto’s en taxi’s kunnen niet bij de Amstelingang stoppen. Het museum verwijst voor uitstappen naar Nieuwe Keizersgracht 1.\",\"source_ids\":[\"source.hartvisit\"]}]}}}"
+      }
+    },
+    {
+      "id": "museum.jewish-museum",
+      "entity_type": "museum",
+      "category": "cultural-history",
+      "city_id": "amsterdam",
+      "province_id": "noord-holland",
+      "coordinates": {
+        "latitude": 52.3673668,
+        "longitude": 4.9039145
+      },
+      "title": "Jewish Museum",
+      "description": "Explore Jewish history, culture and life in the Netherlands through the museum's collections and exhibitions.",
+      "images": [
+        {
+          "id": "media.museum.jewish-museum.expansion-20261115",
+          "role": "hero",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:Joods_Historisch_Museum_-_4.jpg",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Joods_Historisch_Museum_-_4.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "public_asset_path": "/images/place-review/expjewishmuseum-1200.webp",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "attribution": "Oleg Yunakov · 2011-04-24 07:58:24 · Archive photograph / Archieffoto · resized WebP; no content edits",
+          "verified": true,
+          "retrieved_at": "2026-11-15",
+          "alt": "Archive view of the Jewish Museum interior — photograph 2011"
+        }
+      ],
+      "official_source": {
+        "title": "Jewish Museum + junior | Jewish Cultural Quarter",
+        "publisher": "jck.nl",
+        "url": "https://jck.nl/en/location/jewish-museum",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://jck.nl/en/location/jewish-museum",
+      "related_entity_ids": [
+        "museum.anne-frank-house",
+        "museum.dutch-resistance-museum"
+      ],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 7,
+      "verification_status": "needs_review",
+      "ai_summary": "Explore Jewish history, culture and life in the Netherlands through the museum's collections and exhibitions.",
+      "search_keywords": [
+        "Jewish Museum",
+        "amsterdam",
+        "cultural-history",
+        "jewishmuseum"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "content_section": "EXPLORE",
+        "content_language": "en",
+        "description_nl": "Ontdek Joodse geschiedenis, cultuur en leven in Nederland via de collecties en tentoonstellingen van het museum.",
+        "title_nl": "Jewish Museum",
+        "field_review_status": "Source verification complete; human editorial approval pending",
+        "catalog_review_batch": "amsterdam-museums-20261115",
+        "address": "Nieuwe Amstelstraat 1, Amsterdam",
+        "address_source_url": "https://jck.nl/en/location/jewish-museum",
+        "address_checked_at": "2026-11-15",
+        "website": "https://jck.nl/en/location/jewish-museum",
+        "website_source_url": "https://jck.nl/en/location/jewish-museum",
+        "website_checked_at": "2026-11-15",
+        "address_note": "",
+        "media_status": "licensed archive photograph visually checked; publication approval pending",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-15\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.jewishmuseum\",\"title\":\"Jewish Museum + junior | Jewish Cultural Quarter\",\"publisher\":\"jck.nl\",\"url\":\"https://jck.nl/en/location/jewish-museum\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.jewishvisit\",\"title\":\"Plan your visit | Jewish Cultural Quarter\",\"publisher\":\"jck.nl\",\"url\":\"https://jck.nl/en/plan-your-visit\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.pdok\",\"title\":\"BAG address coordinate: Nieuwe Amstelstraat 1, 1011PL Amsterdam\",\"publisher\":\"PDOK / Kadaster\",\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Nieuwe+Amstelstraat+1+Amsterdam&fq=type%3Aadres&rows=3\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Nieuwe+Amstelstraat+1+Amsterdam&fq=type%3Aadres&rows=3\",\"method\":\"BAG address point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.3673668,4.9039145\"},\"tickets\":{\"url\":\"https://jck.nl/en/plan-your-visit\",\"sourceId\":\"source.jewishvisit\"},\"locales\":{\"en\":{\"alt\":\"Archive view of the Jewish Museum interior — photograph 2011\",\"blocks\":[{\"id\":\"address\",\"title\":\"Location\",\"text\":\"Nieuwe Amstelstraat 1, Amsterdam. Use the official arrival information before travelling.\",\"source_ids\":[\"source.jewishmuseum\"]},{\"id\":\"setting\",\"title\":\"About this place\",\"text\":\"Discover Jewish history and living traditions; the junior museum offers a separate family experience for children.\",\"source_ids\":[\"source.jewishmuseum\"]},{\"id\":\"hours\",\"title\":\"Opening hours\",\"text\":\"Jewish Museum + junior: normally 11:00–17:00 daily. Holidays and the other Cultural Quarter locations have separate schedules.\",\"source_ids\":[\"source.jewishvisit\"]},{\"id\":\"prices\",\"title\":\"Tickets and prices\",\"text\":\"The online adult duo ticket for the Jewish Museum + junior and Portuguese Synagogue is €20; the page lists a €2 ticket-desk surcharge.\",\"source_ids\":[\"source.jewishvisit\"]},{\"id\":\"tickets\",\"title\":\"Tickets\",\"text\":\"Check which locations your ticket includes and their opening days. A museum ticket is not a promise that every location is open that day.\",\"source_ids\":[\"source.jewishvisit\"]}]},\"nl\":{\"alt\":\"Archiefbeeld van het interieur van het Joods Museum — foto 2011\",\"blocks\":[{\"id\":\"address\",\"title\":\"Locatie\",\"text\":\"Nieuwe Amstelstraat 1, Amsterdam. Bekijk vóór vertrek de officiële informatie over bereikbaarheid.\",\"source_ids\":[\"source.jewishmuseum\"]},{\"id\":\"setting\",\"title\":\"Over deze plek\",\"text\":\"Ontdek Joodse geschiedenis en levende tradities; het junior museum biedt een aparte gezinsbeleving voor kinderen.\",\"source_ids\":[\"source.jewishmuseum\"]},{\"id\":\"hours\",\"title\":\"Openingstijden\",\"text\":\"Joods Museum + junior: normaal dagelijks 11.00–17.00 uur. Feestdagen en andere locaties van het Joods Cultureel Kwartier hebben eigen schema’s.\",\"source_ids\":[\"source.jewishvisit\"]},{\"id\":\"prices\",\"title\":\"Tickets en prijzen\",\"text\":\"Het online duoticket voor volwassenen voor Joods Museum + junior en Portugese Synagoge kost €20; de pagina vermeldt €2 kassatoeslag.\",\"source_ids\":[\"source.jewishvisit\"]},{\"id\":\"tickets\",\"title\":\"Tickets\",\"text\":\"Controleer welke locaties je ticket omvat en op welke dagen ze open zijn. Een museumticket garandeert niet dat iedere locatie die dag open is.\",\"source_ids\":[\"source.jewishvisit\"]}]}}}"
+      }
+    },
+    {
+      "id": "museum.dutch-resistance-museum",
+      "entity_type": "museum",
+      "category": "war-history",
+      "city_id": "amsterdam",
+      "province_id": "noord-holland",
+      "coordinates": null,
+      "title": "Dutch Resistance Museum",
+      "description": "Explore personal stories about the Netherlands during the Second World War and the choices people faced under occupation.",
+      "images": [
+        {
+          "id": "media.museum.dutch-resistance-museum.expansion-20261115",
+          "role": "hero",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:Plantage_Kerklaan_Amsterdam_Gebouw_Plancius.jpg",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Plantage_Kerklaan_Amsterdam_Gebouw_Plancius.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "public_asset_path": "/images/place-review/expdutchresistancemuseum-1200.webp",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "attribution": "Anne-Marie Steenbergen · 2019-10-21 13:11:56 · Archive photograph / Archieffoto · resized WebP; no content edits",
+          "verified": true,
+          "retrieved_at": "2026-11-15",
+          "alt": "Dutch Resistance Museum exterior — photograph 2019"
+        }
+      ],
+      "official_source": {
+        "title": "The Netherlands in World War II – Verzetsmuseum",
+        "publisher": "www.verzetsmuseum.org",
+        "url": "https://www.verzetsmuseum.org/en/world-war-ii-in-the-netherlands",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.verzetsmuseum.org/en/world-war-ii-in-the-netherlands",
+      "related_entity_ids": [
+        "museum.jewish-museum",
+        "museum.artis-micropia"
+      ],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 7,
+      "verification_status": "needs_review",
+      "ai_summary": "Explore personal stories about the Netherlands during the Second World War and the choices people faced under occupation.",
+      "search_keywords": [
+        "Dutch Resistance Museum",
+        "amsterdam",
+        "war-history",
+        "dutchresistancemuseum"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "content_section": "EXPLORE",
+        "content_language": "en",
+        "description_nl": "Ontdek persoonlijke verhalen over Nederland tijdens de Tweede Wereldoorlog en de keuzes waarmee mensen tijdens de bezetting werden geconfronteerd.",
+        "title_nl": "Dutch Resistance Museum",
+        "field_review_status": "Source verification complete; human editorial approval pending",
+        "catalog_review_batch": "amsterdam-museums-20261115",
+        "address": "Plantage Kerklaan 61, 1018 CX Amsterdam",
+        "address_source_url": "https://www.verzetsmuseum.org/en/address-and-opening-hours",
+        "address_checked_at": "2026-11-15",
+        "website": "https://www.verzetsmuseum.org/en/world-war-ii-in-the-netherlands",
+        "website_source_url": "https://www.verzetsmuseum.org/en/world-war-ii-in-the-netherlands",
+        "website_checked_at": "2026-11-15",
+        "address_note": "",
+        "media_status": "licensed archive photograph visually checked; publication approval pending",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-15\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.dutchresistancemuseum\",\"title\":\"The Netherlands in World War II – Verzetsmuseum\",\"publisher\":\"www.verzetsmuseum.org\",\"url\":\"https://www.verzetsmuseum.org/en/world-war-ii-in-the-netherlands\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.verzetvisit\",\"title\":\"Address and opening hours – Verzetsmuseum\",\"publisher\":\"www.verzetsmuseum.org\",\"url\":\"https://www.verzetsmuseum.org/en/address-and-opening-hours\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.verzetprices\",\"title\":\"Tickets voor Verzetsmuseum en Verzetsmuseum Junior\",\"publisher\":\"www.verzetsmuseum.org\",\"url\":\"https://www.verzetsmuseum.org/en/tickets\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":null,\"tickets\":{\"url\":\"https://www.verzetsmuseum.org/en/tickets\",\"sourceId\":\"source.verzetprices\"},\"locales\":{\"en\":{\"alt\":\"Dutch Resistance Museum exterior — photograph 2019\",\"blocks\":[{\"id\":\"address\",\"title\":\"Location\",\"text\":\"Plantage Kerklaan 61, 1018 CX Amsterdam. Use the official arrival information before travelling.\",\"source_ids\":[\"source.verzetvisit\"]},{\"id\":\"setting\",\"title\":\"About this place\",\"text\":\"Personal stories explore occupation, persecution, resistance and choices during the Second World War.\",\"source_ids\":[\"source.dutchresistancemuseum\"]},{\"id\":\"hours\",\"title\":\"Opening hours\",\"text\":\"The official page lists daily opening from 10:00–17:00, with holiday exceptions.\",\"source_ids\":[\"source.verzetvisit\"]},{\"id\":\"prices\",\"title\":\"Tickets and prices\",\"text\":\"Adults: €17.50; children 7–17: €9.50. An audio tour is included.\",\"source_ids\":[\"source.verzetprices\"]},{\"id\":\"tickets\",\"title\":\"Tickets\",\"text\":\"Tickets can be bought online or at the museum. Read the official discount and companion conditions before selecting a ticket.\",\"source_ids\":[\"source.verzetprices\"]}]},\"nl\":{\"alt\":\"Dutch Resistance Museum van buiten — foto 2019\",\"blocks\":[{\"id\":\"address\",\"title\":\"Locatie\",\"text\":\"Plantage Kerklaan 61, 1018 CX Amsterdam. Bekijk vóór vertrek de officiële informatie over bereikbaarheid.\",\"source_ids\":[\"source.verzetvisit\"]},{\"id\":\"setting\",\"title\":\"Over deze plek\",\"text\":\"Persoonlijke verhalen belichten bezetting, vervolging, verzet en keuzes tijdens de Tweede Wereldoorlog.\",\"source_ids\":[\"source.dutchresistancemuseum\"]},{\"id\":\"hours\",\"title\":\"Openingstijden\",\"text\":\"De officiële pagina vermeldt dagelijkse opening van 10.00–17.00 uur, met uitzonderingen op feestdagen.\",\"source_ids\":[\"source.verzetvisit\"]},{\"id\":\"prices\",\"title\":\"Tickets en prijzen\",\"text\":\"Volwassenen: €17,50; kinderen 7–17 jaar: €9,50. Een audiotour is inbegrepen.\",\"source_ids\":[\"source.verzetprices\"]},{\"id\":\"tickets\",\"title\":\"Tickets\",\"text\":\"Tickets zijn online of in het museum verkrijgbaar. Lees de officiële kortings- en begeleidersvoorwaarden vóór je een ticket kiest.\",\"source_ids\":[\"source.verzetprices\"]}]}}}"
+      }
+    },
+    {
+      "id": "museum.eye-filmmuseum",
+      "entity_type": "museum",
+      "category": "film",
+      "city_id": "amsterdam",
+      "province_id": "noord-holland",
+      "coordinates": {
+        "latitude": 52.3841361,
+        "longitude": 4.9012935
+      },
+      "title": "Eye Filmmuseum",
+      "description": "Explore film through exhibitions and cinema screenings at Eye. Consult the programme for current films and events.",
+      "images": [
+        {
+          "id": "media.museum.eye-filmmuseum.expansion-20261115",
+          "role": "hero",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:EYE_Filmmuseum.jpg",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/7/71/EYE_Filmmuseum.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "public_asset_path": "/images/place-review/expeyefilmmuseum-1200.webp",
+          "license": "CC BY-SA 3.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+          "attribution": "Jvhertum · 2012-02-25 · Archive photograph / Archieffoto · resized WebP; no content edits",
+          "verified": true,
+          "retrieved_at": "2026-11-15",
+          "alt": "Eye Filmmuseum exterior — photograph 2012"
+        }
+      ],
+      "official_source": {
+        "title": "Eye Filmmuseum - Amsterdam",
+        "publisher": "www.eyefilm.nl",
+        "url": "https://www.eyefilm.nl/en",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.eyefilm.nl/en",
+      "related_entity_ids": [
+        "city.amsterdam",
+        "museum.nemo-science-museum"
+      ],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 7,
+      "verification_status": "needs_review",
+      "ai_summary": "Explore film through exhibitions and cinema screenings at Eye. Consult the programme for current films and events.",
+      "search_keywords": [
+        "Eye Filmmuseum",
+        "amsterdam",
+        "film",
+        "eyefilmmuseum"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "content_section": "EXPLORE",
+        "content_language": "en",
+        "description_nl": "Ontdek film via tentoonstellingen en bioscoopvertoningen bij Eye. Bekijk het programma voor actuele films en evenementen.",
+        "title_nl": "Eye Filmmuseum",
+        "field_review_status": "Source verification complete; human editorial approval pending",
+        "catalog_review_batch": "amsterdam-museums-20261115",
+        "address": "IJpromenade 1, Amsterdam",
+        "address_source_url": "https://www.eyefilm.nl/en/plan-your-visit",
+        "address_checked_at": "2026-11-15",
+        "website": "https://www.eyefilm.nl/en",
+        "website_source_url": "https://www.eyefilm.nl/en",
+        "website_checked_at": "2026-11-15",
+        "address_note": "",
+        "media_status": "licensed archive photograph visually checked; publication approval pending",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-15\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.eyefilmmuseum\",\"title\":\"Eye Filmmuseum - Amsterdam\",\"publisher\":\"www.eyefilm.nl\",\"url\":\"https://www.eyefilm.nl/en\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.eyev isit\",\"title\":\"Plan your visit | Eye Filmmuseum\",\"publisher\":\"www.eyefilm.nl\",\"url\":\"https://www.eyefilm.nl/en/plan-your-visit\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.pdok\",\"title\":\"BAG address coordinate: IJpromenade 1, 1031KT Amsterdam\",\"publisher\":\"PDOK / Kadaster\",\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=IJpromenade+1+Amsterdam&fq=type%3Aadres&rows=3\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=IJpromenade+1+Amsterdam&fq=type%3Aadres&rows=3\",\"method\":\"BAG address point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.3841361,4.9012935\"},\"tickets\":{\"url\":\"https://www.eyefilm.nl/en/plan-your-visit\",\"sourceId\":\"source.eyev isit\"},\"locales\":{\"en\":{\"alt\":\"Eye Filmmuseum exterior — photograph 2012\",\"blocks\":[{\"id\":\"address\",\"title\":\"Location\",\"text\":\"IJpromenade 1, Amsterdam. Use the official arrival information before travelling.\",\"source_ids\":[\"source.eyev isit\"]},{\"id\":\"setting\",\"title\":\"About this place\",\"text\":\"Eye combines a film museum, temporary exhibitions and cinema screenings on the north bank of the IJ.\",\"source_ids\":[\"source.eyefilmmuseum\"]},{\"id\":\"hours\",\"title\":\"Opening hours\",\"text\":\"Exhibitions normally run Tuesday–Sunday 10:00–19:00. Monday rules and festival exceptions differ; use the current programme.\",\"source_ids\":[\"source.eyev isit\"]},{\"id\":\"prices\",\"title\":\"Tickets and prices\",\"text\":\"Standard exhibition admission is listed at €16.50. Film screenings have separate prices and possible duration supplements.\",\"source_ids\":[\"source.eyev isit\"]},{\"id\":\"tickets\",\"title\":\"Tickets\",\"text\":\"Choose a film or exhibition deliberately: opening hours for the restaurant and box office do not guarantee exhibition access.\",\"source_ids\":[\"source.eyev isit\"]}]},\"nl\":{\"alt\":\"Eye Filmmuseum van buiten — foto 2012\",\"blocks\":[{\"id\":\"address\",\"title\":\"Locatie\",\"text\":\"IJpromenade 1, Amsterdam. Bekijk vóór vertrek de officiële informatie over bereikbaarheid.\",\"source_ids\":[\"source.eyev isit\"]},{\"id\":\"setting\",\"title\":\"Over deze plek\",\"text\":\"Eye combineert een filmmuseum, tijdelijke tentoonstellingen en filmvertoningen aan de noordelijke IJ-oever.\",\"source_ids\":[\"source.eyefilmmuseum\"]},{\"id\":\"hours\",\"title\":\"Openingstijden\",\"text\":\"Tentoonstellingen zijn normaal dinsdag–zondag 10.00–19.00 uur open. Maandagregels en festivaluitzonderingen wijken af; bekijk het actuele programma.\",\"source_ids\":[\"source.eyev isit\"]},{\"id\":\"prices\",\"title\":\"Tickets en prijzen\",\"text\":\"Reguliere tentoonstellingstoegang staat vermeld als €16,50. Filmvertoningen hebben aparte prijzen en mogelijke duurtoeslagen.\",\"source_ids\":[\"source.eyev isit\"]},{\"id\":\"tickets\",\"title\":\"Tickets\",\"text\":\"Kies bewust een film of tentoonstelling: openingstijden van restaurant en kassa garanderen geen toegang tot de tentoonstelling.\",\"source_ids\":[\"source.eyev isit\"]}]}}}"
+      }
+    },
+    {
+      "id": "museum.museum-of-the-canals",
+      "entity_type": "museum",
+      "category": "urban-history",
+      "city_id": "amsterdam",
+      "province_id": "noord-holland",
+      "coordinates": {
+        "latitude": 52.3678867,
+        "longitude": 4.8862747
+      },
+      "title": "Museum of the Canals",
+      "description": "Discover the story of Amsterdam's canals and the development of the canal district through the museum's presentation.",
+      "images": [
+        {
+          "id": "media.museum.museum-of-the-canals.expansion-20261115",
+          "role": "hero",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:Amsterdam_-_Herengracht_386.JPG",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/2/25/Amsterdam_-_Herengracht_386.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "public_asset_path": "/images/place-review/expmuseumofthecanals-1200.webp",
+          "license": "CC BY-SA 3.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+          "attribution": "Rudolphous · 2011-09-10 16:21:59 · Archive photograph / Archieffoto · resized WebP; no content edits",
+          "verified": true,
+          "retrieved_at": "2026-11-15",
+          "alt": "Museum of the Canals exterior — photograph 2011"
+        }
+      ],
+      "official_source": {
+        "title": "The museum about the Amsterdam canal district",
+        "publisher": "grachten.museum",
+        "url": "https://grachten.museum/en/",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://grachten.museum/en/",
+      "related_entity_ids": [
+        "museum.museum-van-loon",
+        "museum.huis-marseille"
+      ],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 7,
+      "verification_status": "needs_review",
+      "ai_summary": "Discover the story of Amsterdam's canals and the development of the canal district through the museum's presentation.",
+      "search_keywords": [
+        "Museum of the Canals",
+        "amsterdam",
+        "urban-history",
+        "museumofthecanals"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "content_section": "EXPLORE",
+        "content_language": "en",
+        "description_nl": "Ontdek het verhaal van de Amsterdamse grachten en de ontwikkeling van de grachtengordel via de museumpresentatie.",
+        "title_nl": "Museum of the Canals",
+        "field_review_status": "Source verification complete; human editorial approval pending",
+        "catalog_review_batch": "amsterdam-museums-20261115",
+        "address": "Herengracht 386, 1016 CJ Amsterdam",
+        "address_source_url": "https://grachten.museum/en/",
+        "address_checked_at": "2026-11-15",
+        "website": "https://grachten.museum/en/",
+        "website_source_url": "https://grachten.museum/en/",
+        "website_checked_at": "2026-11-15",
+        "address_note": "",
+        "media_status": "licensed archive photograph visually checked; publication approval pending",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-15\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.museumofthecanals\",\"title\":\"The museum about the Amsterdam canal district\",\"publisher\":\"grachten.museum\",\"url\":\"https://grachten.museum/en/\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.canalsvisit\",\"title\":\"Plan your visit | Museum of the Canals Amsterdam\",\"publisher\":\"grachten.museum\",\"url\":\"https://grachten.museum/en/times-tickets/\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.pdok\",\"title\":\"BAG address coordinate: Herengracht 386, 1016CJ Amsterdam\",\"publisher\":\"PDOK / Kadaster\",\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Herengracht+386+Amsterdam&fq=type%3Aadres&rows=3\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Herengracht+386+Amsterdam&fq=type%3Aadres&rows=3\",\"method\":\"BAG address point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.3678867,4.8862747\"},\"tickets\":{\"url\":\"https://grachten.museum/en/times-tickets/\",\"sourceId\":\"source.canalsvisit\"},\"locales\":{\"en\":{\"alt\":\"Museum of the Canals exterior — photograph 2011\",\"blocks\":[{\"id\":\"address\",\"title\":\"Location\",\"text\":\"Herengracht 386, 1016 CJ Amsterdam. Use the official arrival information before travelling.\",\"source_ids\":[\"source.museumofthecanals\"]},{\"id\":\"setting\",\"title\":\"About this place\",\"text\":\"The museum explains how Amsterdam’s canal district developed, alongside historic rooms in the canal house.\",\"source_ids\":[\"source.museumofthecanals\"]},{\"id\":\"hours\",\"title\":\"Opening hours\",\"text\":\"Monday 12:00–17:00; Tuesday–Sunday 10:00–17:00. Last entry is 16:30.\",\"source_ids\":[\"source.canalsvisit\"]},{\"id\":\"prices\",\"title\":\"Tickets and prices\",\"text\":\"Adults: €18.50; ages 6–17: €9.50. The audio guide is included; consult the official page for pass conditions.\",\"source_ids\":[\"source.canalsvisit\"]},{\"id\":\"restrictions\",\"title\":\"Check before travelling\",\"text\":\"A maintenance closure is announced for 7 December 2026. The museum also lists annual holiday closures.\",\"source_ids\":[\"source.canalsvisit\"]}]},\"nl\":{\"alt\":\"Museum of the Canals van buiten — foto 2011\",\"blocks\":[{\"id\":\"address\",\"title\":\"Locatie\",\"text\":\"Herengracht 386, 1016 CJ Amsterdam. Bekijk vóór vertrek de officiële informatie over bereikbaarheid.\",\"source_ids\":[\"source.museumofthecanals\"]},{\"id\":\"setting\",\"title\":\"Over deze plek\",\"text\":\"Het museum laat zien hoe de Amsterdamse grachtengordel ontstond, naast historische vertrekken in het grachtenhuis.\",\"source_ids\":[\"source.museumofthecanals\"]},{\"id\":\"hours\",\"title\":\"Openingstijden\",\"text\":\"Maandag 12.00–17.00 uur; dinsdag–zondag 10.00–17.00 uur. Laatste toegang is om 16.30 uur.\",\"source_ids\":[\"source.canalsvisit\"]},{\"id\":\"prices\",\"title\":\"Tickets en prijzen\",\"text\":\"Volwassenen: €18,50; 6–17 jaar: €9,50. De audiogids is inbegrepen; bekijk de officiële pasvoorwaarden.\",\"source_ids\":[\"source.canalsvisit\"]},{\"id\":\"restrictions\",\"title\":\"Controleer voor vertrek\",\"text\":\"Voor 7 december 2026 is een onderhoudssluiting aangekondigd. Het museum vermeldt daarnaast jaarlijkse feestdagensluitingen.\",\"source_ids\":[\"source.canalsvisit\"]}]}}}"
+      }
+    },
+    {
+      "id": "museum.foam",
+      "entity_type": "museum",
+      "category": "photography",
+      "city_id": "amsterdam",
+      "province_id": "noord-holland",
+      "coordinates": {
+        "latitude": 52.3639884,
+        "longitude": 4.8932631
+      },
+      "title": "Foam",
+      "description": "Explore photography through exhibitions featuring different approaches, established photographers and emerging talent.",
+      "images": [
+        {
+          "id": "media.museum.foam.expansion-20261115",
+          "role": "hero",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:Amsterdam_Keizersgracht_0609_001.JPG",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Amsterdam_Keizersgracht_0609_001.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "public_asset_path": "/images/place-review/expfoam-1200.webp",
+          "license": "CC BY 3.0",
+          "license_url": "https://creativecommons.org/licenses/by/3.0",
+          "attribution": "Janericloebe · 2011-04 · Archive photograph / Archieffoto · resized WebP; no content edits",
+          "verified": true,
+          "retrieved_at": "2026-11-15",
+          "alt": "Foam exterior — photograph 2011"
+        }
+      ],
+      "official_source": {
+        "title": "Plan your visit | Foam in Amsterdam",
+        "publisher": "www.foam.org",
+        "url": "https://www.foam.org/visit",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.foam.org/visit",
+      "related_entity_ids": [
+        "museum.huis-marseille",
+        "museum.museum-van-loon"
+      ],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 7,
+      "verification_status": "needs_review",
+      "ai_summary": "Explore photography through exhibitions featuring different approaches, established photographers and emerging talent.",
+      "search_keywords": [
+        "Foam",
+        "amsterdam",
+        "photography",
+        "foam"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "content_section": "EXPLORE",
+        "content_language": "en",
+        "description_nl": "Ontdek fotografie via tentoonstellingen met uiteenlopende benaderingen, gevestigde fotografen en nieuw talent.",
+        "title_nl": "Foam",
+        "field_review_status": "Source verification complete; human editorial approval pending",
+        "catalog_review_batch": "amsterdam-museums-20261115",
+        "address": "Keizersgracht 609, 1017 DS Amsterdam",
+        "address_source_url": "https://www.foam.org/visit",
+        "address_checked_at": "2026-11-15",
+        "website": "https://www.foam.org/visit",
+        "website_source_url": "https://www.foam.org/visit",
+        "website_checked_at": "2026-11-15",
+        "address_note": "",
+        "media_status": "licensed archive photograph visually checked; publication approval pending",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-15\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.foamvisit\",\"title\":\"Plan your visit | Foam in Amsterdam\",\"publisher\":\"www.foam.org\",\"url\":\"https://www.foam.org/visit\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.pdok\",\"title\":\"BAG address coordinate: Keizersgracht 609, 1017DS Amsterdam\",\"publisher\":\"PDOK / Kadaster\",\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Keizersgracht+609+Amsterdam&fq=type%3Aadres&rows=3\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Keizersgracht+609+Amsterdam&fq=type%3Aadres&rows=3\",\"method\":\"BAG address point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.3639884,4.8932631\"},\"tickets\":{\"url\":\"https://www.foam.org/visit\",\"sourceId\":\"source.foamvisit\"},\"locales\":{\"en\":{\"alt\":\"Foam exterior — photograph 2011\",\"blocks\":[{\"id\":\"address\",\"title\":\"Location\",\"text\":\"Keizersgracht 609, 1017 DS Amsterdam. Use the official arrival information before travelling.\",\"source_ids\":[\"source.foamvisit\"]},{\"id\":\"setting\",\"title\":\"About this place\",\"text\":\"Foam is a photography museum in a historic canal-side building. Check the current exhibition programme before visiting.\",\"source_ids\":[\"source.foamvisit\"]},{\"id\":\"prices\",\"title\":\"Tickets and prices\",\"text\":\"Adults: €16; students: €12.80. Payments in the museum are by card only.\",\"source_ids\":[\"source.foamvisit\"]},{\"id\":\"access\",\"title\":\"Accessibility\",\"text\":\"The historic building is not fully wheelchair accessible. Contact the museum to discuss the possibilities before booking.\",\"source_ids\":[\"source.foamvisit\"]},{\"id\":\"restrictions\",\"title\":\"Check before travelling\",\"text\":\"On 15 November 2026 the official page reported the lift out of service, without a repair date. Recheck this notice before travel.\",\"source_ids\":[\"source.foamvisit\"]}]},\"nl\":{\"alt\":\"Foam van buiten — foto 2011\",\"blocks\":[{\"id\":\"address\",\"title\":\"Locatie\",\"text\":\"Keizersgracht 609, 1017 DS Amsterdam. Bekijk vóór vertrek de officiële informatie over bereikbaarheid.\",\"source_ids\":[\"source.foamvisit\"]},{\"id\":\"setting\",\"title\":\"Over deze plek\",\"text\":\"Foam is een fotografiemuseum in een historisch grachtenpand. Bekijk het actuele tentoonstellingsprogramma vóór je bezoek.\",\"source_ids\":[\"source.foamvisit\"]},{\"id\":\"prices\",\"title\":\"Tickets en prijzen\",\"text\":\"Volwassenen: €16; studenten: €12,80. In het museum kun je alleen met een betaalkaart betalen.\",\"source_ids\":[\"source.foamvisit\"]},{\"id\":\"access\",\"title\":\"Toegankelijkheid\",\"text\":\"Het historische pand is niet volledig rolstoeltoegankelijk. Neem vóór boeken contact op om de mogelijkheden te bespreken.\",\"source_ids\":[\"source.foamvisit\"]},{\"id\":\"restrictions\",\"title\":\"Controleer voor vertrek\",\"text\":\"Op 15 november 2026 meldde de officiële pagina dat de lift buiten gebruik was, zonder hersteldatum. Controleer deze melding voor vertrek.\",\"source_ids\":[\"source.foamvisit\"]}]}}}"
+      }
+    },
+    {
+      "id": "museum.huis-marseille",
+      "entity_type": "museum",
+      "category": "photography",
+      "city_id": "amsterdam",
+      "province_id": "noord-holland",
+      "coordinates": {
+        "latitude": 52.3676378,
+        "longitude": 4.8848092
+      },
+      "title": "Huis Marseille",
+      "description": "Discover photographic exhibitions at Huis Marseille, a museum dedicated to photography in Amsterdam.",
+      "images": [
+        {
+          "id": "media.museum.huis-marseille.expansion-20261115",
+          "role": "hero",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:Huismarseille.jpg",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Huismarseille.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "public_asset_path": "/images/place-review/exphuismarseille-1200.webp",
+          "license": "CC BY 3.0",
+          "license_url": "https://creativecommons.org/licenses/by/3.0",
+          "attribution": "J.M. Luijt · 2011-08-08 · Archive photograph / Archieffoto · resized WebP; no content edits",
+          "verified": true,
+          "retrieved_at": "2026-11-15",
+          "alt": "Huis Marseille exterior — photograph 2011"
+        }
+      ],
+      "official_source": {
+        "title": "Huis Marseille, Museum for Photography",
+        "publisher": "huismarseille.nl",
+        "url": "https://huismarseille.nl/en/",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://huismarseille.nl/en/",
+      "related_entity_ids": [
+        "museum.foam",
+        "museum.museum-of-the-canals"
+      ],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 7,
+      "verification_status": "needs_review",
+      "ai_summary": "Discover photographic exhibitions at Huis Marseille, a museum dedicated to photography in Amsterdam.",
+      "search_keywords": [
+        "Huis Marseille",
+        "amsterdam",
+        "photography",
+        "huismarseille"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "content_section": "EXPLORE",
+        "content_language": "en",
+        "description_nl": "Ontdek fotografietentoonstellingen in Huis Marseille, een Amsterdams museum gewijd aan fotografie.",
+        "title_nl": "Huis Marseille",
+        "field_review_status": "Source verification complete; human editorial approval pending",
+        "catalog_review_batch": "amsterdam-museums-20261115",
+        "address": "Keizersgracht 401, 1016 EK Amsterdam",
+        "address_source_url": "https://huismarseille.nl/en/visitor-information/",
+        "address_checked_at": "2026-11-15",
+        "website": "https://huismarseille.nl/en/",
+        "website_source_url": "https://huismarseille.nl/en/",
+        "website_checked_at": "2026-11-15",
+        "address_note": "",
+        "media_status": "licensed archive photograph visually checked; publication approval pending",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-15\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.huismarseille\",\"title\":\"Huis Marseille, Museum for Photography\",\"publisher\":\"huismarseille.nl\",\"url\":\"https://huismarseille.nl/en/\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.marseillevisit\",\"title\":\"Amsterdam's the first Museum for Art Photography - Huis Marseille\",\"publisher\":\"huismarseille.nl\",\"url\":\"https://huismarseille.nl/en/visitor-information/\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.pdok\",\"title\":\"BAG address coordinate: Keizersgracht 401, 1016EK Amsterdam\",\"publisher\":\"PDOK / Kadaster\",\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Keizersgracht+401+Amsterdam&fq=type%3Aadres&rows=3\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Keizersgracht+401+Amsterdam&fq=type%3Aadres&rows=3\",\"method\":\"BAG address point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.3676378,4.8848092\"},\"tickets\":{\"url\":\"https://huismarseille.nl/en/visitor-information/\",\"sourceId\":\"source.marseillevisit\"},\"locales\":{\"en\":{\"alt\":\"Huis Marseille exterior — photograph 2011\",\"blocks\":[{\"id\":\"address\",\"title\":\"Location\",\"text\":\"Keizersgracht 401, 1016 EK Amsterdam. Use the official arrival information before travelling.\",\"source_ids\":[\"source.marseillevisit\"]},{\"id\":\"setting\",\"title\":\"About this place\",\"text\":\"Photography exhibitions occupy two historic canal houses; consult the programme for the exhibitions on your date.\",\"source_ids\":[\"source.marseillevisit\"]},{\"id\":\"hours\",\"title\":\"Opening hours\",\"text\":\"Daily 10:00–18:00, Thursdays until 21:00. Exhibition changeovers and selected holidays bring closures.\",\"source_ids\":[\"source.marseillevisit\"]},{\"id\":\"prices\",\"title\":\"Tickets and prices\",\"text\":\"Standard admission: €12.50; students/CJP: €6.50; ages 17 and under: free.\",\"source_ids\":[\"source.marseillevisit\"]},{\"id\":\"access\",\"title\":\"Accessibility\",\"text\":\"Many stairs make the galleries difficult to access with a wheelchair or walker. Ask the museum about assistance before visiting.\",\"source_ids\":[\"source.marseillevisit\"]}]},\"nl\":{\"alt\":\"Huis Marseille van buiten — foto 2011\",\"blocks\":[{\"id\":\"address\",\"title\":\"Locatie\",\"text\":\"Keizersgracht 401, 1016 EK Amsterdam. Bekijk vóór vertrek de officiële informatie over bereikbaarheid.\",\"source_ids\":[\"source.marseillevisit\"]},{\"id\":\"setting\",\"title\":\"Over deze plek\",\"text\":\"Fotografietentoonstellingen vullen twee historische grachtenpanden; bekijk het programma voor jouw datum.\",\"source_ids\":[\"source.marseillevisit\"]},{\"id\":\"hours\",\"title\":\"Openingstijden\",\"text\":\"Dagelijks 10.00–18.00 uur, op donderdag tot 21.00 uur. Tijdens tentoonstellingswisselingen en bepaalde feestdagen is het museum gesloten.\",\"source_ids\":[\"source.marseillevisit\"]},{\"id\":\"prices\",\"title\":\"Tickets en prijzen\",\"text\":\"Reguliere toegang: €12,50; studenten/CJP: €6,50; tot en met 17 jaar: gratis.\",\"source_ids\":[\"source.marseillevisit\"]},{\"id\":\"access\",\"title\":\"Toegankelijkheid\",\"text\":\"Door de vele trappen zijn de zalen moeilijk bereikbaar met een rolstoel of rollator. Vraag het museum vooraf naar begeleiding.\",\"source_ids\":[\"source.marseillevisit\"]}]}}}"
+      }
+    },
+    {
+      "id": "museum.allard-pierson",
+      "entity_type": "museum",
+      "category": "heritage-collections",
+      "city_id": "amsterdam",
+      "province_id": "noord-holland",
+      "coordinates": {
+        "latitude": 52.3688225,
+        "longitude": 4.892945
+      },
+      "title": "Allard Pierson",
+      "description": "Explore the collections of the University of Amsterdam at Allard Pierson through exhibitions and heritage research.",
+      "images": [
+        {
+          "id": "media.museum.allard-pierson.expansion-20261115",
+          "role": "hero",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:Allard_Pierson_Museum_entrance_2024-11-26.jpg",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/7/70/Allard_Pierson_Museum_entrance_2024-11-26.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "public_asset_path": "/images/place-review/expallardpierson-1200.webp",
+          "license": "CC0",
+          "license_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "attribution": "Andy Li · 2024-11-26 15:12:43 · Archive photograph / Archieffoto · resized WebP; no content edits",
+          "verified": true,
+          "retrieved_at": "2026-11-15",
+          "alt": "Allard Pierson exterior — photograph 2024"
+        }
+      ],
+      "official_source": {
+        "title": "Allard Pierson | Home",
+        "publisher": "www.allardpierson.nl",
+        "url": "https://www.allardpierson.nl/en/",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.allardpierson.nl/en/",
+      "related_entity_ids": [
+        "museum.museum-rembrandthuis",
+        "museum.museum-of-the-canals"
+      ],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 7,
+      "verification_status": "needs_review",
+      "ai_summary": "Explore the collections of the University of Amsterdam at Allard Pierson through exhibitions and heritage research.",
+      "search_keywords": [
+        "Allard Pierson",
+        "amsterdam",
+        "heritage-collections",
+        "allardpierson"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "content_section": "EXPLORE",
+        "content_language": "en",
+        "description_nl": "Ontdek de collecties van de Universiteit van Amsterdam in het Allard Pierson via tentoonstellingen en erfgoedonderzoek.",
+        "title_nl": "Allard Pierson",
+        "field_review_status": "Source verification complete; human editorial approval pending",
+        "catalog_review_batch": "amsterdam-museums-20261115",
+        "address": "Oude Turfmarkt 127–129, 1012 GC Amsterdam",
+        "address_source_url": "https://www.allardpierson.nl/en/visit",
+        "address_checked_at": "2026-11-15",
+        "website": "https://www.allardpierson.nl/en/",
+        "website_source_url": "https://www.allardpierson.nl/en/",
+        "website_checked_at": "2026-11-15",
+        "address_note": "",
+        "media_status": "licensed archive photograph visually checked; publication approval pending",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-15\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.allardpierson\",\"title\":\"Allard Pierson | Home\",\"publisher\":\"www.allardpierson.nl\",\"url\":\"https://www.allardpierson.nl/en/\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.allardvisit\",\"title\":\"Allard Pierson | Opening hours, location & ticket prices\",\"publisher\":\"www.allardpierson.nl\",\"url\":\"https://www.allardpierson.nl/en/visit\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.pdok\",\"title\":\"BAG address coordinate: Oude Turfmarkt 127, 1012GC Amsterdam\",\"publisher\":\"PDOK / Kadaster\",\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Oude+Turfmarkt+127+Amsterdam&fq=type%3Aadres&rows=3\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Oude+Turfmarkt+127+Amsterdam&fq=type%3Aadres&rows=3\",\"method\":\"BAG address point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.3688225,4.892945\"},\"tickets\":{\"url\":\"https://www.allardpierson.nl/en/visit\",\"sourceId\":\"source.allardvisit\"},\"locales\":{\"en\":{\"alt\":\"Allard Pierson exterior — photograph 2024\",\"blocks\":[{\"id\":\"address\",\"title\":\"Location\",\"text\":\"Oude Turfmarkt 127–129, 1012 GC Amsterdam. Use the official arrival information before travelling.\",\"source_ids\":[\"source.allardvisit\"]},{\"id\":\"setting\",\"title\":\"About this place\",\"text\":\"Explore the University of Amsterdam’s heritage collections. The public museum and reading room serve different purposes.\",\"source_ids\":[\"source.allardpierson\"]},{\"id\":\"hours\",\"title\":\"Opening hours\",\"text\":\"Museum: Tuesday–Sunday 10:00–17:00. Reading room: Monday–Friday 09:30–17:00, with its own holiday closures.\",\"source_ids\":[\"source.allardvisit\"]},{\"id\":\"prices\",\"title\":\"Tickets and prices\",\"text\":\"Adults: €15.50; ages 5–18: €3.50; ages 4 and under: free. Check the official page for student and pass conditions.\",\"source_ids\":[\"source.allardvisit\"]},{\"id\":\"restrictions\",\"title\":\"Check before travelling\",\"text\":\"The museum is closed on King’s Day, 25 December and 1 January. Some holiday Mondays are specifically open.\",\"source_ids\":[\"source.allardvisit\"]}]},\"nl\":{\"alt\":\"Allard Pierson van buiten — foto 2024\",\"blocks\":[{\"id\":\"address\",\"title\":\"Locatie\",\"text\":\"Oude Turfmarkt 127–129, 1012 GC Amsterdam. Bekijk vóór vertrek de officiële informatie over bereikbaarheid.\",\"source_ids\":[\"source.allardvisit\"]},{\"id\":\"setting\",\"title\":\"Over deze plek\",\"text\":\"Ontdek de erfgoedcollecties van de Universiteit van Amsterdam. Het publieksmuseum en de onderzoekzaal hebben verschillende functies.\",\"source_ids\":[\"source.allardpierson\"]},{\"id\":\"hours\",\"title\":\"Openingstijden\",\"text\":\"Museum: dinsdag–zondag 10.00–17.00 uur. Onderzoekzaal: maandag–vrijdag 09.30–17.00 uur, met eigen feestdagensluitingen.\",\"source_ids\":[\"source.allardvisit\"]},{\"id\":\"prices\",\"title\":\"Tickets en prijzen\",\"text\":\"Volwassenen: €15,50; 5–18 jaar: €3,50; tot en met 4 jaar: gratis. Bekijk de officiële studenten- en pasvoorwaarden.\",\"source_ids\":[\"source.allardvisit\"]},{\"id\":\"restrictions\",\"title\":\"Controleer voor vertrek\",\"text\":\"Het museum is gesloten op Koningsdag, 25 december en 1 januari. Enkele feestdagmaandagen zijn juist wel open.\",\"source_ids\":[\"source.allardvisit\"]}]}}}"
+      }
+    },
+    {
+      "id": "museum.artis-micropia",
+      "entity_type": "museum",
+      "category": "microbiology",
+      "city_id": "amsterdam",
+      "province_id": "noord-holland",
+      "coordinates": {
+        "latitude": 52.3669615,
+        "longitude": 4.9125816
+      },
+      "title": "ARTIS-Micropia",
+      "description": "Explore the world of microbes and their role in daily life through Micropia's displays and scientific perspective.",
+      "images": [
+        {
+          "id": "media.museum.artis-micropia.expansion-20261115",
+          "role": "hero",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:Museum_Micropia.jpg",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Museum_Micropia.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "public_asset_path": "/images/place-review/expartismicropia-1200.webp",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "attribution": "Agaath · 2022-04-13 13:39:13 · Archive photograph / Archieffoto · resized WebP; no content edits",
+          "verified": true,
+          "retrieved_at": "2026-11-15",
+          "alt": "ARTIS-Micropia exterior — photograph 2022"
+        }
+      ],
+      "official_source": {
+        "title": "ARTIS-Micropia | Microbe Museum in Amsterdam | ARTIS",
+        "publisher": "www.artis.nl",
+        "url": "https://www.artis.nl/en/artis-micropia",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.artis.nl/en/artis-micropia",
+      "related_entity_ids": [
+        "museum.dutch-resistance-museum",
+        "museum.nemo-science-museum"
+      ],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 7,
+      "verification_status": "needs_review",
+      "ai_summary": "Explore the world of microbes and their role in daily life through Micropia's displays and scientific perspective.",
+      "search_keywords": [
+        "ARTIS-Micropia",
+        "amsterdam",
+        "microbiology",
+        "artismicropia"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "content_section": "EXPLORE",
+        "content_language": "en",
+        "description_nl": "Ontdek de wereld van microben en hun rol in het dagelijks leven via de presentaties en wetenschappelijke blik van Micropia.",
+        "title_nl": "ARTIS-Micropia",
+        "field_review_status": "Source verification complete; human editorial approval pending",
+        "catalog_review_batch": "amsterdam-museums-20261115",
+        "address": "Plantage Kerklaan 38–40, Amsterdam",
+        "address_source_url": "https://www.artis.nl/en/artis-micropia",
+        "address_checked_at": "2026-11-15",
+        "website": "https://www.artis.nl/en/artis-micropia",
+        "website_source_url": "https://www.artis.nl/en/artis-micropia",
+        "website_checked_at": "2026-11-15",
+        "address_note": "",
+        "media_status": "licensed archive photograph visually checked; publication approval pending",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-15\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.artismicropia\",\"title\":\"ARTIS-Micropia | Microbe Museum in Amsterdam | ARTIS\",\"publisher\":\"www.artis.nl\",\"url\":\"https://www.artis.nl/en/artis-micropia\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.micropiahours\",\"title\":\"Opening hours | ARTIS\",\"publisher\":\"www.artis.nl\",\"url\":\"https://www.artis.nl/en/plan-your-visit/opening-hours\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.micropiaprices\",\"title\":\"Ticket prices ARTIS | ARTIS\",\"publisher\":\"www.artis.nl\",\"url\":\"https://www.artis.nl/en/plan-your-visit/ticket-prices\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.pdok\",\"title\":\"BAG address coordinate: Plantage Kerklaan 38, 1018CZ Amsterdam\",\"publisher\":\"PDOK / Kadaster\",\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Plantage+Kerklaan+38+Amsterdam&fq=type%3Aadres&rows=3\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Plantage+Kerklaan+38+Amsterdam&fq=type%3Aadres&rows=3\",\"method\":\"BAG address point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.3669615,4.9125816\"},\"tickets\":{\"url\":\"https://www.artis.nl/en/plan-your-visit/ticket-prices\",\"sourceId\":\"source.micropiaprices\"},\"locales\":{\"en\":{\"alt\":\"ARTIS-Micropia exterior — photograph 2022\",\"blocks\":[{\"id\":\"address\",\"title\":\"Location\",\"text\":\"Plantage Kerklaan 38–40, Amsterdam. Use the official arrival information before travelling.\",\"source_ids\":[\"source.artismicropia\"]},{\"id\":\"setting\",\"title\":\"About this place\",\"text\":\"Micropia focuses on microorganisms and their role in everyday life. It is a separate ARTIS visitor experience.\",\"source_ids\":[\"source.artismicropia\"]},{\"id\":\"hours\",\"title\":\"Opening hours\",\"text\":\"The ARTIS opening-hours page lists Micropia separately from the zoo and Groote Museum. Check the Micropia tab for your day.\",\"source_ids\":[\"source.micropiahours\"]},{\"id\":\"prices\",\"title\":\"Tickets and prices\",\"text\":\"Micropia’s online price varies by day. Use its own ticket calendar rather than the zoo’s displayed admission price.\",\"source_ids\":[\"source.micropiaprices\"]},{\"id\":\"tickets\",\"title\":\"Tickets\",\"text\":\"Check whether you are choosing a Micropia-only or combination ticket; entry to one venue does not imply entry to every ARTIS venue.\",\"source_ids\":[\"source.micropiaprices\"]}]},\"nl\":{\"alt\":\"ARTIS-Micropia van buiten — foto 2022\",\"blocks\":[{\"id\":\"address\",\"title\":\"Locatie\",\"text\":\"Plantage Kerklaan 38–40, Amsterdam. Bekijk vóór vertrek de officiële informatie over bereikbaarheid.\",\"source_ids\":[\"source.artismicropia\"]},{\"id\":\"setting\",\"title\":\"Over deze plek\",\"text\":\"Micropia richt zich op micro-organismen en hun rol in het dagelijks leven. Het is een afzonderlijke bezoekerservaring binnen ARTIS.\",\"source_ids\":[\"source.artismicropia\"]},{\"id\":\"hours\",\"title\":\"Openingstijden\",\"text\":\"De ARTIS-openingstijdenpagina vermeldt Micropia apart van het dierenpark en het Groote Museum. Bekijk het Micropia-tabblad voor jouw dag.\",\"source_ids\":[\"source.micropiahours\"]},{\"id\":\"prices\",\"title\":\"Tickets en prijzen\",\"text\":\"De online prijs voor Micropia verschilt per dag. Gebruik de eigen ticketkalender en niet de vermelde entreeprijs van het dierenpark.\",\"source_ids\":[\"source.micropiaprices\"]},{\"id\":\"tickets\",\"title\":\"Tickets\",\"text\":\"Controleer of je een Micropia-ticket of combinatieticket kiest; toegang tot één locatie betekent niet automatisch toegang tot alle ARTIS-locaties.\",\"source_ids\":[\"source.micropiaprices\"]}]}}}"
+      }
+    },
+    {
+      "id": "museum.wereldmuseum-amsterdam",
+      "entity_type": "museum",
+      "category": "world-cultures",
+      "city_id": "amsterdam",
+      "province_id": "noord-holland",
+      "coordinates": null,
+      "title": "Wereldmuseum Amsterdam",
+      "description": "Explore exhibitions about people, culture and connections across the world at Wereldmuseum Amsterdam.",
+      "images": [
+        {
+          "id": "media.museum.wereldmuseum-amsterdam.expansion-20261115",
+          "role": "hero",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:Wereldmuseum_Amsterdam_(2024).jpg",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/8/86/Wereldmuseum_Amsterdam_%282024%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "public_asset_path": "/images/place-review/expwereldmuseumamsterdam-1200.webp",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "attribution": "Sneeuwvlakte · 2024-04-21 15:26:25 · Archive photograph / Archieffoto · resized WebP; no content edits",
+          "verified": true,
+          "retrieved_at": "2026-11-15",
+          "alt": "Wereldmuseum Amsterdam exterior — photograph 2024"
+        }
+      ],
+      "official_source": {
+        "title": "Wereldmuseum Amsterdam | A museum about world cultures",
+        "publisher": "amsterdam.wereldmuseum.nl",
+        "url": "https://amsterdam.wereldmuseum.nl/en",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://amsterdam.wereldmuseum.nl/en",
+      "related_entity_ids": [
+        "museum.artis-micropia",
+        "museum.dutch-resistance-museum"
+      ],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 7,
+      "verification_status": "needs_review",
+      "ai_summary": "Explore exhibitions about people, culture and connections across the world at Wereldmuseum Amsterdam.",
+      "search_keywords": [
+        "Wereldmuseum Amsterdam",
+        "amsterdam",
+        "world-cultures",
+        "wereldmuseumamsterdam"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "content_section": "EXPLORE",
+        "content_language": "en",
+        "description_nl": "Ontdek tentoonstellingen over mensen, cultuur en wereldwijde verbindingen in Wereldmuseum Amsterdam.",
+        "title_nl": "Wereldmuseum Amsterdam",
+        "field_review_status": "Source verification complete; human editorial approval pending",
+        "catalog_review_batch": "amsterdam-museums-20261115",
+        "address": "Linnaeusstraat 2, 1092 CK Amsterdam",
+        "address_source_url": "https://amsterdam.wereldmuseum.nl/en/plan-your-visit/address-and-route",
+        "address_checked_at": "2026-11-15",
+        "website": "https://amsterdam.wereldmuseum.nl/en",
+        "website_source_url": "https://amsterdam.wereldmuseum.nl/en",
+        "website_checked_at": "2026-11-15",
+        "address_note": "",
+        "media_status": "licensed archive photograph visually checked; publication approval pending",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-15\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.wereldmuseumamsterdam\",\"title\":\"Wereldmuseum Amsterdam | A museum about world cultures\",\"publisher\":\"amsterdam.wereldmuseum.nl\",\"url\":\"https://amsterdam.wereldmuseum.nl/en\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.wereldaddress\",\"title\":\"Address and route | Wereldmuseum Amsterdam\",\"publisher\":\"amsterdam.wereldmuseum.nl\",\"url\":\"https://amsterdam.wereldmuseum.nl/en/plan-your-visit/address-and-route\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.wereldprices\",\"title\":\"Hours and admission | Wereldmuseum Amsterdam\",\"publisher\":\"amsterdam.wereldmuseum.nl\",\"url\":\"https://amsterdam.wereldmuseum.nl/en/plan-your-visit/hours-and-admission\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":null,\"tickets\":{\"url\":\"https://amsterdam.wereldmuseum.nl/en/plan-your-visit/hours-and-admission\",\"sourceId\":\"source.wereldprices\"},\"locales\":{\"en\":{\"alt\":\"Wereldmuseum Amsterdam exterior — photograph 2024\",\"blocks\":[{\"id\":\"address\",\"title\":\"Location\",\"text\":\"Linnaeusstraat 2, 1092 CK Amsterdam. Use the official arrival information before travelling.\",\"source_ids\":[\"source.wereldaddress\"]},{\"id\":\"setting\",\"title\":\"About this place\",\"text\":\"Exhibitions explore cultures, colonial histories and connections between people across the world.\",\"source_ids\":[\"source.wereldmuseumamsterdam\"]},{\"id\":\"hours\",\"title\":\"Opening hours\",\"text\":\"Normally Tuesday–Sunday 10:00–17:00. Selected school-holiday Mondays are open; check the official calendar.\",\"source_ids\":[\"source.wereldprices\"]},{\"id\":\"tickets\",\"title\":\"Tickets\",\"text\":\"Admission differs between online and ticket-desk purchases and by age or pass. Select the applicable category on the official page.\",\"source_ids\":[\"source.wereldprices\"]},{\"id\":\"arrival\",\"title\":\"Arrival\",\"text\":\"The museum warns about works and changed transport routes nearby. Plan the journey with current operator information.\",\"source_ids\":[\"source.wereldaddress\"]}]},\"nl\":{\"alt\":\"Wereldmuseum Amsterdam van buiten — foto 2024\",\"blocks\":[{\"id\":\"address\",\"title\":\"Locatie\",\"text\":\"Linnaeusstraat 2, 1092 CK Amsterdam. Bekijk vóór vertrek de officiële informatie over bereikbaarheid.\",\"source_ids\":[\"source.wereldaddress\"]},{\"id\":\"setting\",\"title\":\"Over deze plek\",\"text\":\"Tentoonstellingen onderzoeken culturen, koloniale geschiedenis en verbindingen tussen mensen wereldwijd.\",\"source_ids\":[\"source.wereldmuseumamsterdam\"]},{\"id\":\"hours\",\"title\":\"Openingstijden\",\"text\":\"Normaal dinsdag–zondag 10.00–17.00 uur. Op bepaalde schoolvakantiemaandagen is het museum open; bekijk de officiële kalender.\",\"source_ids\":[\"source.wereldprices\"]},{\"id\":\"tickets\",\"title\":\"Tickets\",\"text\":\"De toegang verschilt tussen online- en kassakaartjes en naar leeftijd of pas. Kies de passende categorie op de officiële pagina.\",\"source_ids\":[\"source.wereldprices\"]},{\"id\":\"arrival\",\"title\":\"Aankomst\",\"text\":\"Het museum waarschuwt voor werkzaamheden en gewijzigde vervoersroutes in de omgeving. Plan je reis met actuele vervoerdersinformatie.\",\"source_ids\":[\"source.wereldaddress\"]}]}}}"
+      }
+    },
+    {
+      "id": "museum.museum-van-loon",
+      "entity_type": "museum",
+      "category": "canal-house-history",
+      "city_id": "amsterdam",
+      "province_id": "noord-holland",
+      "coordinates": {
+        "latitude": 52.3634766,
+        "longitude": 4.8933716
+      },
+      "title": "Museum Van Loon",
+      "description": "Explore a historic Amsterdam canal house, its interiors and garden through Museum Van Loon's presentation.",
+      "images": [
+        {
+          "id": "media.museum.museum-van-loon.expansion-20261115",
+          "role": "hero",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:Overzicht_zandstenen_voorgevel_met_ingangspartij_-_Amsterdam_-_20408943_-_RCE.jpg",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Overzicht_zandstenen_voorgevel_met_ingangspartij_-_Amsterdam_-_20408943_-_RCE.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "public_asset_path": "/images/place-review/expmuseumvanloon-1200.webp",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "attribution": "Sergé Technau · 2005-06 · Archive photograph / Archieffoto · resized WebP; no content edits",
+          "verified": true,
+          "retrieved_at": "2026-11-15",
+          "alt": "Archive view of canal-house façades including Museum Van Loon — photograph 2005"
+        }
+      ],
+      "official_source": {
+        "title": "Museum Van Loon | historisch grachtenhuis in Amsterdam",
+        "publisher": "www.museumvanloon.nl",
+        "url": "https://www.museumvanloon.nl/en",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.museumvanloon.nl/en",
+      "related_entity_ids": [
+        "museum.foam",
+        "museum.museum-of-the-canals"
+      ],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 7,
+      "verification_status": "needs_review",
+      "ai_summary": "Explore a historic Amsterdam canal house, its interiors and garden through Museum Van Loon's presentation.",
+      "search_keywords": [
+        "Museum Van Loon",
+        "amsterdam",
+        "canal-house-history",
+        "museumvanloon"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "content_section": "EXPLORE",
+        "content_language": "en",
+        "description_nl": "Verken een historisch Amsterdams grachtenhuis, de interieurs en de tuin via de presentatie van Museum Van Loon.",
+        "title_nl": "Museum Van Loon",
+        "field_review_status": "Source verification complete; human editorial approval pending",
+        "catalog_review_batch": "amsterdam-museums-20261115",
+        "address": "Keizersgracht 672, 1017 ET Amsterdam",
+        "address_source_url": "https://www.museumvanloon.nl/bezoek",
+        "address_checked_at": "2026-11-15",
+        "website": "https://www.museumvanloon.nl/en",
+        "website_source_url": "https://www.museumvanloon.nl/en",
+        "website_checked_at": "2026-11-15",
+        "address_note": "",
+        "media_status": "licensed archive photograph visually checked; publication approval pending",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-15\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.museumvanloon\",\"title\":\"Museum Van Loon | historisch grachtenhuis in Amsterdam\",\"publisher\":\"www.museumvanloon.nl\",\"url\":\"https://www.museumvanloon.nl/en\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.loonprices\",\"title\":\"Museum Van Loon | Bezoekersinformatie, openingstijden en meer\",\"publisher\":\"www.museumvanloon.nl\",\"url\":\"https://www.museumvanloon.nl/bezoek\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.pdok\",\"title\":\"BAG address coordinate: Keizersgracht 672, 1017ET Amsterdam\",\"publisher\":\"PDOK / Kadaster\",\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Keizersgracht+672+Amsterdam&fq=type%3Aadres&rows=3\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Keizersgracht+672+Amsterdam&fq=type%3Aadres&rows=3\",\"method\":\"BAG address point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.3634766,4.8933716\"},\"tickets\":{\"url\":\"https://www.museumvanloon.nl/bezoek\",\"sourceId\":\"source.loonprices\"},\"locales\":{\"en\":{\"alt\":\"Archive view of canal-house façades including Museum Van Loon — photograph 2005\",\"blocks\":[{\"id\":\"address\",\"title\":\"Location\",\"text\":\"Keizersgracht 672, 1017 ET Amsterdam. Use the official arrival information before travelling.\",\"source_ids\":[\"source.loonprices\"]},{\"id\":\"setting\",\"title\":\"About this place\",\"text\":\"Visit a historic canal house, its rooms, garden and coach house to explore the lives of its residents.\",\"source_ids\":[\"source.loonprices\"]},{\"id\":\"hours\",\"title\":\"Opening hours\",\"text\":\"Daily 10:00–17:00; 24 and 31 December close at 15:00. Closed on King’s Day, Christmas Day and New Year’s Day.\",\"source_ids\":[\"source.loonprices\"]},{\"id\":\"prices\",\"title\":\"Tickets and prices\",\"text\":\"Adults: €17.50; students/CJP: €13.50. Payment at the museum is by card only.\",\"source_ids\":[\"source.loonprices\"]},{\"id\":\"access\",\"title\":\"Accessibility\",\"text\":\"Steps, stairs and thresholds limit wheelchair and mobility access. Contact the museum about assistance before travel.\",\"source_ids\":[\"source.loonprices\"]}]},\"nl\":{\"alt\":\"Archiefbeeld van grachtengevels met Museum Van Loon — foto 2005\",\"blocks\":[{\"id\":\"address\",\"title\":\"Locatie\",\"text\":\"Keizersgracht 672, 1017 ET Amsterdam. Bekijk vóór vertrek de officiële informatie over bereikbaarheid.\",\"source_ids\":[\"source.loonprices\"]},{\"id\":\"setting\",\"title\":\"Over deze plek\",\"text\":\"Bezoek een historisch grachtenhuis, de vertrekken, tuin en het koetshuis om het leven van de bewoners te ontdekken.\",\"source_ids\":[\"source.loonprices\"]},{\"id\":\"hours\",\"title\":\"Openingstijden\",\"text\":\"Dagelijks 10.00–17.00 uur; op 24 en 31 december sluit het museum om 15.00 uur. Gesloten op Koningsdag, eerste kerstdag en nieuwjaarsdag.\",\"source_ids\":[\"source.loonprices\"]},{\"id\":\"prices\",\"title\":\"Tickets en prijzen\",\"text\":\"Volwassenen: €17,50; studenten/CJP: €13,50. In het museum kun je alleen met een betaalkaart betalen.\",\"source_ids\":[\"source.loonprices\"]},{\"id\":\"access\",\"title\":\"Toegankelijkheid\",\"text\":\"Treden, trappen en drempels beperken de toegankelijkheid met een rolstoel of mobiliteitsbeperking. Neem vóór vertrek contact op over begeleiding.\",\"source_ids\":[\"source.loonprices\"]}]}}}"
+      }
+    },
+    {
+      "id": "place.royal-palace-amsterdam",
+      "entity_type": "place",
+      "category": "historic-attraction",
+      "city_id": "amsterdam",
+      "province_id": "noord-holland",
+      "coordinates": null,
+      "title": "Royal Palace Amsterdam",
+      "description": "Discover the Royal Palace on Dam Square during public opening periods. Check official visitor information because royal use can affect access.",
+      "images": [
+        {
+          "id": "media.place.royal-palace-amsterdam.expansion-20261115",
+          "role": "hero",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:Royal_Palace,_Amsterdam_(26211361911).jpg",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Royal_Palace%2C_Amsterdam_%2826211361911%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "public_asset_path": "/images/place-review/exproyalpalaceamsterdam-1200.webp",
+          "license": "CC BY 2.0",
+          "license_url": "https://creativecommons.org/licenses/by/2.0",
+          "attribution": "Tobias Niepel · 2016-03-11 17:14 · Archive photograph / Archieffoto · resized WebP; no content edits",
+          "verified": true,
+          "retrieved_at": "2026-11-15",
+          "alt": "Royal Palace Amsterdam exterior — photograph 2016"
+        }
+      ],
+      "official_source": {
+        "title": "Royal Palace Amsterdam - Paleis Amsterdam",
+        "publisher": "www.paleisamsterdam.nl",
+        "url": "https://www.paleisamsterdam.nl/en/",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.paleisamsterdam.nl/en/",
+      "related_entity_ids": [
+        "museum.museum-of-the-canals",
+        "museum.allard-pierson"
+      ],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 7,
+      "verification_status": "needs_review",
+      "ai_summary": "Discover the Royal Palace on Dam Square during public opening periods. Check official visitor information because royal use can affect access.",
+      "search_keywords": [
+        "Royal Palace Amsterdam",
+        "amsterdam",
+        "historic-attraction",
+        "royalpalaceamsterdam"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "content_section": "EXPLORE",
+        "content_language": "en",
+        "description_nl": "Ontdek het Koninklijk Paleis op de Dam tijdens publieksopenstellingen. Controleer de officiële bezoekersinformatie omdat koninklijk gebruik de toegang kan beïnvloeden.",
+        "title_nl": "Royal Palace Amsterdam",
+        "field_review_status": "Source verification complete; human editorial approval pending",
+        "catalog_review_batch": "amsterdam-museums-20261115",
+        "address": "Dam, Amsterdam — public visitor approach / route voor bezoekers",
+        "address_source_url": "https://www.paleisamsterdam.nl/en/contact/",
+        "address_checked_at": "2026-11-15",
+        "website": "https://www.paleisamsterdam.nl/en/",
+        "website_source_url": "https://www.paleisamsterdam.nl/en/",
+        "website_checked_at": "2026-11-15",
+        "address_note": "",
+        "media_status": "licensed archive photograph visually checked; publication approval pending",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-15\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.royalpalaceamsterdam\",\"title\":\"Royal Palace Amsterdam - Paleis Amsterdam\",\"publisher\":\"www.paleisamsterdam.nl\",\"url\":\"https://www.paleisamsterdam.nl/en/\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.palaceaddress\",\"title\":\"Contact - Paleis Amsterdam\",\"publisher\":\"www.paleisamsterdam.nl\",\"url\":\"https://www.paleisamsterdam.nl/en/contact/\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.palacevisit\",\"title\":\"Visit the Palace - Paleis Amsterdam\",\"publisher\":\"www.paleisamsterdam.nl\",\"url\":\"https://www.paleisamsterdam.nl/en/visit/\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":null,\"tickets\":{\"url\":\"https://www.paleisamsterdam.nl/en/visit/\",\"sourceId\":\"source.palacevisit\"},\"locales\":{\"en\":{\"alt\":\"Royal Palace Amsterdam exterior — photograph 2016\",\"blocks\":[{\"id\":\"address\",\"title\":\"Location\",\"text\":\"Dam, Amsterdam — public visitor approach / route voor bezoekers. Use the official arrival information before travelling.\",\"source_ids\":[\"source.palaceaddress\"]},{\"id\":\"setting\",\"title\":\"About this place\",\"text\":\"The palace is an official royal reception building and opens to visitors during public visiting periods.\",\"source_ids\":[\"source.royalpalaceamsterdam\"]},{\"id\":\"hours\",\"title\":\"Opening hours\",\"text\":\"Use the date-specific opening calendar. On 15 November 2026 the site announced the next opening period as 2 December–3 January.\",\"source_ids\":[\"source.royalpalaceamsterdam\"]},{\"id\":\"prices\",\"title\":\"Tickets and prices\",\"text\":\"Adults: €13.50; students: €9; ages 17 and under: free. Recheck the ticket conditions for your visit.\",\"source_ids\":[\"source.palacevisit\"]},{\"id\":\"tickets\",\"title\":\"Tickets\",\"text\":\"Royal use can affect access. An exterior visit to Dam Square is separate from admission to the palace rooms.\",\"source_ids\":[\"source.palacevisit\"]}]},\"nl\":{\"alt\":\"Royal Palace Amsterdam van buiten — foto 2016\",\"blocks\":[{\"id\":\"address\",\"title\":\"Locatie\",\"text\":\"Dam, Amsterdam — public visitor approach / route voor bezoekers. Bekijk vóór vertrek de officiële informatie over bereikbaarheid.\",\"source_ids\":[\"source.palaceaddress\"]},{\"id\":\"setting\",\"title\":\"Over deze plek\",\"text\":\"Het paleis is een officieel koninklijk ontvangstgebouw en is tijdens publieksopenstellingen te bezoeken.\",\"source_ids\":[\"source.royalpalaceamsterdam\"]},{\"id\":\"hours\",\"title\":\"Openingstijden\",\"text\":\"Gebruik de openingskalender per datum. Op 15 november 2026 kondigde de site de volgende openstelling aan van 2 december tot 3 januari.\",\"source_ids\":[\"source.royalpalaceamsterdam\"]},{\"id\":\"prices\",\"title\":\"Tickets en prijzen\",\"text\":\"Volwassenen: €13,50; studenten: €9; tot en met 17 jaar: gratis. Controleer de ticketvoorwaarden voor jouw bezoek.\",\"source_ids\":[\"source.palacevisit\"]},{\"id\":\"tickets\",\"title\":\"Tickets\",\"text\":\"Koninklijk gebruik kan invloed hebben op de toegang. Een buitenbezoek aan de Dam staat los van toegang tot de paleiszalen.\",\"source_ids\":[\"source.palacevisit\"]}]}}}"
+      }
+    }
+  ]
+}

@@ -16,7 +16,9 @@ export const metadata = metadataForPage("Published coverage map", description, "
 
 function getPublishedMapItems(): CoverageMapItem[] {
   return getContentEntities().flatMap((entity) => {
-    if (entity.status !== "published" || !supportedTypes.has(entity.type as CoverageMapEntityType) || !entity.coordinate) return [];
+    // getContentEntities applies ordinary publication eligibility or the
+    // explicit private-review ID list; draft status is retained in the latter.
+    if (!supportedTypes.has(entity.type as CoverageMapEntityType) || !entity.coordinate) return [];
     return [{
       id: entity.id,
       title: entity.title,
@@ -54,7 +56,7 @@ function getMunicipalityMapItems(): CoverageMapItem[] {
 
 export default function MapPage() {
   const publishedItems = getPublishedMapItems();
-  const withoutCoordinates = getContentEntities().filter(entity => entity.status === "published" && entity.type === "place" && !entity.coordinate);
+  const withoutCoordinates = getContentEntities().filter(entity => entity.type === "place" && !entity.coordinate);
   const municipalityItems = getMunicipalityMapItems();
   const items = [...publishedItems, ...municipalityItems];
   return (

@@ -1,0 +1,162 @@
+{
+  "ankerparktourism": {
+    "url": "https://www.visitleiden.nl/nl/locaties/540000812/het-ankerpark",
+    "finalUrl": "https://www.visitleiden.nl/nl/locaties/540000812/het-ankerpark",
+    "httpStatus": 200,
+    "sha256": "6e0d6cfd5eea291b08fd0b6649d5ce7bf2eff2670f18b3d6b7a70cf37de8f272",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  "blekersparktourism": {
+    "url": "https://www.visitleiden.nl/nl/locaties/482052751/blekerspark",
+    "finalUrl": "https://www.visitleiden.nl/nl/locaties/482052751/blekerspark",
+    "httpStatus": 200,
+    "sha256": "915f1f905fa1ba1ca74bb87bfd53a50d67efe27f58dafc5dd75089b5f14c7e0b",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  "huigparktourism": {
+    "url": "https://www.visitleiden.nl/nl/locaties/801920722/huigpark",
+    "finalUrl": "https://www.visitleiden.nl/nl/locaties/801920722/huigpark",
+    "httpStatus": 200,
+    "sha256": "8810c3fb58218fa3bdc7c4f46dabce377a707a8e56352cac76ef9d1ad10070a2",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  "parkdeputtourism": {
+    "url": "https://www.visitleiden.nl/nl/locaties/1077715464/park-de-put",
+    "finalUrl": "https://www.visitleiden.nl/nl/locaties/1077715464/park-de-put",
+    "httpStatus": 200,
+    "sha256": "187541c4ccecf00809bf88c3966d6fafe958b135c57e0825d80a320413926db7",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  "oudemorschtourism": {
+    "url": "https://www.visitleiden.nl/nl/locaties/3944718715/boutique-hotel-doude-morsch",
+    "finalUrl": "https://www.visitleiden.nl/nl/locaties/3944718715/boutique-hotel-doude-morsch",
+    "httpStatus": 200,
+    "sha256": "d2ad39587a25c314bc640b72b9a37f3342e892b6b14c0d04cddbc913fa305a96",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  "rembrandtpark": {
+    "url": "https://www.visitleiden.nl/nl/locaties/1706027937/rembrandtpark",
+    "finalUrl": "https://www.visitleiden.nl/nl/locaties/1706027937/rembrandtpark",
+    "httpStatus": 200,
+    "sha256": "5a8018caa37ffbc38e1080c0cb0b38e832994a00cc2e8dc06b3a237426f823be",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  "oudemorsch": {
+    "url": "https://www.boutiquehoteldeoudemorsch.nl/contact/",
+    "finalUrl": "https://www.boutiquehoteldeoudemorsch.nl/contact/",
+    "httpStatus": 200,
+    "sha256": "1e3ca1842f2126477a064b82d9d00774e8246afa0c9b8f177333ed20c49b076d",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  "oudemorschfacilities": {
+    "url": "https://www.boutiquehoteldeoudemorsch.nl/faciliteiten/",
+    "finalUrl": "https://www.boutiquehoteldeoudemorsch.nl/faciliteiten/",
+    "httpStatus": 200,
+    "sha256": "9cb6708c2f626ef63f8bc6b87329c52a7551d8aaf13b3841efb8a3caa83a2fa9",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  "oudemorschholiday": {
+    "url": "https://www.boutiquehoteldeoudemorsch.nl/openingstijden-feestdagen/",
+    "finalUrl": "https://www.boutiquehoteldeoudemorsch.nl/openingstijden-feestdagen/",
+    "httpStatus": 200,
+    "sha256": "ed08259c4d723870e041c66971b5d339e934e1ac8895796cbdae7965dd3fbf06",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  "huys": {
+    "url": "https://www.boutiquehotelsvanleyden.nl/nl/contact.html",
+    "finalUrl": "https://www.boutiquehotelsvanleyden.nl/nl/contact.html",
+    "httpStatus": 200,
+    "sha256": "0bcff659234d75b1712ad2d17a541bab2b73d4e7cf7bbdfef9af70813e9df459",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html"
+  },
+  "huyssuite": {
+    "url": "https://www.boutiquehotelsvanleyden.nl/nl/huys-van-leyden/accommodaties/suite-met-grachtzicht.html",
+    "finalUrl": "https://www.boutiquehotelsvanleyden.nl/nl/huys-van-leyden/accommodaties/suite-met-grachtzicht.html",
+    "httpStatus": 200,
+    "sha256": "08466de40ca82ea17eebd698110e87a2bce79c20f1226cc50814ecd4b20e3711",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html"
+  },
+  "huystourism": {
+    "url": "https://www.visitleiden.nl/nl/locaties/2048619726/boutique-hotel-huys-van-leyden",
+    "finalUrl": "https://www.visitleiden.nl/nl/locaties/2048619726/boutique-hotel-huys-van-leyden",
+    "httpStatus": 200,
+    "sha256": "8e9fef61db163acceb1d82cf70afec2a054696c8a3a5f25f6893739339c07166",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  "steenhof": {
+    "url": "https://steenhofsuites.nl/contact/",
+    "finalUrl": "https://steenhofsuites.nl/contact/",
+    "httpStatus": 200,
+    "sha256": "ad47d8f2f85ac2f363b6393672b275b953a3cbc83a4c32691928bde4c629d56d",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  "steenhoffacilities": {
+    "url": "https://steenhofsuites.nl/faciliteiten-arrangement/",
+    "finalUrl": "https://steenhofsuites.nl/faciliteiten-arrangement/",
+    "httpStatus": 200,
+    "sha256": "d23bbe977c6cc012bfea9be706e43624501db22ceb7cf0ed26a2a9b933913310",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  "steenhoftourism": {
+    "url": "https://www.visitleiden.nl/nl/locaties/4129642951/steenhof-suites",
+    "finalUrl": "https://www.visitleiden.nl/nl/locaties/4129642951/steenhof-suites",
+    "httpStatus": 200,
+    "sha256": "5659f9fbac416c6f4e2b4b52c8fb51088ded1cbe12b910a28bb39b4b3a46b89c",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  "ibis": {
+    "url": "https://all.accor.com/hotel/8087/index.en.shtml",
+    "finalUrl": "https://all.accor.com/hotel/8087/index.en.shtml",
+    "httpStatus": 200,
+    "sha256": "77e5fd852dc110735995be033775ab850c459f2f956395b897f46ee22513ff5b",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html;charset=UTF-8"
+  },
+  "ibistourism": {
+    "url": "https://www.visitleiden.nl/nl/locaties/3858932145/ibis-leiden-centre",
+    "finalUrl": "https://www.visitleiden.nl/nl/locaties/3858932145/ibis-leiden-centre",
+    "httpStatus": 200,
+    "sha256": "a8061a9edb54b3922cf1b3bd5404bfd179487f8b24d7649e7b77ad58e9e6f4c5",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  "rembrandthotel": {
+    "url": "https://www.rembrandthotel.nl/contact",
+    "finalUrl": "https://www.rembrandthotel.nl/contact",
+    "httpStatus": 200,
+    "sha256": "a4b7c987303933828f1a607f46ebbe2ce49c702f1fdde809dd2f66de3b07443c",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html;charset=utf-8"
+  },
+  "rembrandthotelhome": {
+    "url": "https://www.rembrandthotel.nl/",
+    "finalUrl": "https://www.rembrandthotel.nl/",
+    "httpStatus": 200,
+    "sha256": "59406c3d99de32664e95dc4be7e58d3e7000c9176187657b9d06fad784345e0e",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html;charset=utf-8"
+  },
+  "rembrandthoteltourism": {
+    "url": "https://www.visitleiden.nl/nl/locaties/976921119/rembrandt-hotel-leiden",
+    "finalUrl": "https://www.visitleiden.nl/nl/locaties/976921119/rembrandt-hotel-leiden",
+    "httpStatus": 200,
+    "sha256": "a7ed7ea85bb67060a8214335b4c3d3f93195f695862096fae02e77d121434017",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8"
+  }
+}

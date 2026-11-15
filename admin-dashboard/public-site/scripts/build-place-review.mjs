@@ -1,11 +1,11 @@
 import {spawnSync} from 'node:child_process';
 import {readdir,readFile,writeFile,rm} from 'node:fs/promises';
 import {fileURLToPath} from 'node:url';
-import {placeReviewBatch,reviewPath} from './place-review.mjs';
+import {placeReviewBatch,selectedPlaceReviews} from './place-review.mjs';
 const site=fileURLToPath(new URL('../',import.meta.url));
 const batchId=process.env.YOUNEW_PLACE_REVIEW||placeReviewBatch;
-reviewPath(batchId);
 const env={...process.env,YOUNEW_PLACE_REVIEW:batchId,YOUNEW_PRIVATE_REVIEW_BUILD:'1',YOUNEW_ATOMIC_BUILD:'1'};
+selectedPlaceReviews(env);
 try {
   const build=spawnSync('bash',['scripts/build.sh'],{cwd:site,env,stdio:'inherit'});
   if(build.status!==0)throw Error(`Review build failed (${build.status})`);

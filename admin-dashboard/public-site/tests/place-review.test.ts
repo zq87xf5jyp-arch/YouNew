@@ -12,9 +12,9 @@ const read=async(path:string)=>JSON.parse(await readFile(path,'utf8'));
 const {manifest,records}=await readPlaceReview(root);
 const bases=new Map(await Promise.all(Object.entries(manifest.baseFiles).map(async([id,b])=>[id,(await read(`${root}/${b.file}`)).records.find((r:PlaceRevision)=>r.id===id) as PlaceRevision] as const)));
 const env={YOUNEW_PLACE_REVIEW:placeReviewBatch,YOUNEW_PRIVATE_REVIEW_BUILD:'1'};
-test('ordinary release publishes exactly the five explicitly approved revisions within the same 71 records',async()=>{
+test('ordinary release publishes exactly the five explicitly approved revisions within the explicitly approved editorial release',async()=>{
   const release=await loadEditorialRelease();
-  assert.equal(release.entities.length,71);assert.ok(release.entities.every((e)=>!e.editorial.placeReview&&e.editorial.batchSha256===release.batchSha256));
+  assert.equal(release.entities.length,91);assert.ok(release.entities.every((e)=>!e.editorial.placeReview&&e.editorial.batchSha256===release.batchSha256));
   const published=release.entities.filter(e=>manifest.ids.includes(e.id));
   assert.deepEqual(published.map(e=>e.id).sort(),[...manifest.ids].sort());
   for(const e of published) {assert.equal(e.editorial.reviewedAt,'2026-11-15');assert.equal(e.editorial.reviewer,'Ivan');assert.ok(e.editorial.place);}
@@ -29,12 +29,12 @@ test('review is opt-in, existing IDs and URLs survive, and both languages share 
   const runtime=await read(paths.source);
   const normal=buildPublicDataset(runtime,{editorialRelease:release}).content;
   const preview=buildPublicDataset(runtime,{editorialRelease:review}).content;
-  assert.equal(normal.entities.length,76);assert.equal(preview.entities.length,76);
+  assert.equal(normal.entities.length,96);assert.equal(preview.entities.length,96);
   assert.deepEqual(preview.entities.map((e)=>[e.id,e.route]),normal.entities.map((e)=>[e.id,e.route]));
   const changed=preview.entities.filter((e)=>e.editorial?.placeReview);
   assert.equal(changed.length,5);assert.equal(changed.filter((e)=>e.images.length===1&&e.coordinate&&e.placeDetails?.address).length,5);
   for(const e of changed){assert.equal(e.editorial!.placeReview!.approvedAt,null);assert.ok(e.relatedEntityIds.every((id:string)=>preview.entities.some((other)=>other.id===id)));for(const l of ['en','nl'] as const)assert.ok(e.editorial!.place!.locales[l].blocks.length>=5);}
-  assert.equal(normal.entities.filter((e)=>e.type==='place'&&e.images.length).length,10);
+  assert.equal(normal.entities.filter((e)=>e.type==='place'&&e.images.length).length,50);
 });
 test('duplicate IDs, changed URLs, unsafe URLs, unverified media and unsourced statements fail closed',()=>{
   const mutate=(fn:(r:typeof records)=>void)=>{const copy=structuredClone(records);fn(copy);assert.throws(()=>validatePlaceRecords(copy,manifest.ids,bases));};

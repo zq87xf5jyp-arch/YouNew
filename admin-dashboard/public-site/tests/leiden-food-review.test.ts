@@ -1,3 +1,4 @@
+import {pendingReviewRoot} from './place-review-fixture.ts';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
@@ -13,27 +14,18 @@ const {manifest,records}=await readPlaceReview(root,batch);
 const env={YOUNEW_PLACE_REVIEW:batch,YOUNEW_PRIVATE_REVIEW_BUILD:'1'};
 const bases=new Map(await Promise.all(Object.entries(manifest.baseFiles).map(async([id,b])=>[id,JSON.parse(await readFile(`${root}/${b.file}`,'utf8')).records.find((r:PlaceRevision)=>r.id===id)] as const)));
 
-test('pending food revisions do not enter ordinary content; private preview changes only the five approved IDs',async()=>{
- assert.equal(manifest.status,'needs_review');assert.equal(manifest.publicationAuthorized,false);
- assert.equal(manifest.approvedAt,null);assert.equal(manifest.reviewerId,null);
- const release=await loadEditorialRelease();const before=JSON.stringify(release);
- assert.strictEqual(await applyPlaceReview(release,root,{}),release);
- assert.ok(release.entities.filter(e=>manifest.ids.includes(e.id)).every(e=>!e.editorial?.place&&!e.images.length));
+test('approved food batch publishes exactly five revisions and pending approval still excludes them',async()=>{
+ assert.equal(manifest.status,'approved');assert.equal(manifest.publicationAuthorized,true);assert.equal(manifest.reviewerId,'owner.ivan');
+ const release=await loadEditorialRelease();
+ const revised=release.entities.filter(e=>manifest.ids.includes(e.id));assert.equal(revised.length,5);
+ assert.ok(revised.every(e=>e.images.length===1&&e.editorial?.place&&!e.editorial.placeReview&&!e.editorial.place.tickets));
+ const preview=await applyPlaceReview(release,root,env);assert.deepEqual(preview.entities.map(e=>e.id),release.entities.map(e=>e.id));
+ assert.ok(preview.entities.filter(e=>manifest.ids.includes(e.id)).every(e=>e.editorial.placeReview?.batchId===batch));
  await assert.rejects(applyPlaceReview(release,root,{YOUNEW_PLACE_REVIEW:batch}),/private review/);
- const preview=await applyPlaceReview(release,root,env);
- assert.equal(JSON.stringify(release),before);
- assert.deepEqual(preview.entities.map(e=>e.id),release.entities.map(e=>e.id));
- const revised=preview.entities.filter(e=>manifest.ids.includes(e.id));
- assert.equal(revised.length,5);assert.ok(revised.every(e=>e.coordinate&&e.images.length===1&&e.editorial?.placeReview?.batchId===batch));
- assert.ok(revised.every(e=>!e.editorial?.place?.tickets));
- assert.equal(preview.entities.filter(e=>e.images.length).length,15);
- for(const old of release.entities.filter(e=>!manifest.ids.includes(e.id))){
-  // The existing projector updates the shared batch digest, but no unrelated content.
-  const expected=old.editorial?{...old,editorial:{...old.editorial,batchSha256:preview.batchSha256}}:old;
-  assert.deepEqual(preview.entities.find(e=>e.id===old.id),expected);
- }
- const data=buildPublicDataset(JSON.parse(await readFile(paths.source,'utf8')),{editorialRelease:preview}).content;
- assert.equal(data.entities.length,76);
+ const fixture=await pendingReviewRoot(root,[batch]);
+ try {const withheld=await loadEditorialRelease(fixture.root);assert.ok(withheld.entities.filter(e=>manifest.ids.includes(e.id)).every(e=>!e.images.length&&!e.editorial.place));}
+ finally {await fixture.cleanup();}
+ const data=buildPublicDataset(JSON.parse(await readFile(paths.source,'utf8')),{editorialRelease:release}).content;assert.equal(data.entities.length,96);
  for(const e of data.entities.filter(e=>manifest.ids.includes(e.id)))assert.ok(e.relatedEntityIds.every(id=>data.entities.some(other=>other.id===id)));
 });
 

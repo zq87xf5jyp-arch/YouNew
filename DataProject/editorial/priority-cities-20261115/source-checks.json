@@ -1,0 +1,306 @@
+{
+  "neudevisit": {
+    "url": "https://www.bibliotheekutrecht.nl/bibliotheken/bibliotheek-neude.html",
+    "finalUrl": "https://www.bibliotheekutrecht.nl/bibliotheken/bibliotheek-neude.html",
+    "httpStatus": 200,
+    "sha256": "0aecd7c3f53cd76402b604c527833bb86298103172575a96642a2e87fceabd94",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  "neudehours": {
+    "url": "https://www.bibliotheekutrecht.nl/klantenservice/vestigingen-openingstijden/vestiging.696013.html/bibliotheek-neude/",
+    "finalUrl": "https://www.bibliotheekutrecht.nl/klantenservice/vestigingen-openingstijden/vestiging.696013.html/bibliotheek-neude/",
+    "httpStatus": 200,
+    "sha256": "524c2745b9ddddf7e2a29f59ee3db9c81f3a730d4cc0c21c75382392fb75c2a5",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  "utrechtneude": {
+    "url": "https://www.bibliotheekutrecht.nl/bereikbaarheid-neude.html",
+    "finalUrl": "https://www.bibliotheekutrecht.nl/bereikbaarheid-neude.html",
+    "httpStatus": 200,
+    "sha256": "a919f1329ff96d6b298e0f87d7d6538aaa5173fe8a69ddc71f8c44f9c09dc426",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  "utrechtneude-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Neude+11+Utrecht&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Neude+11+Utrecht&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-15",
+    "sha256": "64dbf298afb1b886b100c9c6c1409cd104e60f3c347fe463f266079cc5d4d968",
+    "selectedAddress": {
+      "id": "adr-980e3ae16c736e1b9d7a90181d4398c3",
+      "weergavenaam": "Neude 11, 3512AE Utrecht",
+      "centroide_ll": "POINT(5.11817873 52.09312792)",
+      "nummeraanduiding_id": "0344200000141392",
+      "woonplaatsnaam": "Utrecht"
+    },
+    "method": "official address geocoder; not an entrance survey"
+  },
+  "rotterdamchabot": {
+    "url": "https://chabotmuseum.nl/bezoekers/",
+    "finalUrl": "https://chabotmuseum.nl/bezoekers/",
+    "httpStatus": 200,
+    "sha256": "a7cc9d2d62dab5bb8d6e7d64de767cb5b326755e403a45079b10bc46151ce160",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  "rotterdamchabot-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Museumpark+11+Rotterdam&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Museumpark+11+Rotterdam&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-15",
+    "sha256": "8ebf867c7906723ff840d13c3dd2b3648d2158c1408ee475a268e52f10eed772",
+    "selectedAddress": {
+      "id": "adr-00958a8b4a095e57b4660bcc0d2ff6c4",
+      "weergavenaam": "Museumpark 11, 3015CB Rotterdam",
+      "centroide_ll": "POINT(4.47238222 51.91468964)",
+      "nummeraanduiding_id": "0599200000376141",
+      "woonplaatsnaam": "Rotterdam"
+    },
+    "method": "official address geocoder; not an entrance survey"
+  },
+  "fotomuseumvisit": {
+    "url": "https://www.fotomuseumdenhaag.nl/en/plan-your-visit",
+    "finalUrl": "https://www.fotomuseumdenhaag.nl/en/plan-your-visit",
+    "httpStatus": 200,
+    "sha256": "e30649a9250e5515e72bcfdd1f3e6d9dcdc855163a4dc7a50cf4834a3c716a19",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  "denhaagfotomuseum": {
+    "url": "https://www.fotomuseumdenhaag.nl/en/contact",
+    "finalUrl": "https://www.fotomuseumdenhaag.nl/en/contact",
+    "httpStatus": 200,
+    "sha256": "f508bae4daef2ab382184a96ce8d445572504fafaccd0fa845a6d5a9afd98b7d",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  "eindhoveninkijkmuseum": {
+    "url": "https://www.thisiseindhoven.com/nl/locaties/inkijkmuseum",
+    "finalUrl": "https://www.thisiseindhoven.com/nl/locaties/inkijkmuseum",
+    "httpStatus": 200,
+    "sha256": "7c8fddf14b71b00f386bf8054baf81bd2f56f9e6c8daec2eb6f5ce81d770ece9",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=utf-8"
+  },
+  "denhaagkaafi": {
+    "url": "https://kaafi.nl/contact-us",
+    "finalUrl": "https://kaafi.nl/contact-us",
+    "httpStatus": 200,
+    "sha256": "5f783429abc7d71a66394728722ddd5aac28469a863a191a7674f7c4bead1def",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html;charset=utf-8"
+  },
+  "kaafikitchen": {
+    "url": "https://kaafi.nl/breakfast-brunch-and-lunch-in-the-hague",
+    "finalUrl": "https://kaafi.nl/breakfast-brunch-and-lunch-in-the-hague",
+    "httpStatus": 200,
+    "sha256": "d2b2d68c2020792fc31346532c46772b50e53f1bcc42647c9153c4b418005337",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html;charset=utf-8"
+  },
+  "denhaagkaafi-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Prinsestraat+25+Den+Haag&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Prinsestraat+25+Den+Haag&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-15",
+    "sha256": "c3bc3058e33e2e1bea2f04ac33c49eca91e867c047d122202473711f1d8789b4",
+    "selectedAddress": {
+      "id": "adr-dae1d5db1588bdd35856dd01c39009d7",
+      "weergavenaam": "Prinsestraat 25, 2513CA 's-Gravenhage",
+      "centroide_ll": "POINT(4.30619013 52.07870536)",
+      "nummeraanduiding_id": "0518200000650706",
+      "woonplaatsnaam": "'s-Gravenhage"
+    },
+    "method": "official address geocoder; not an entrance survey"
+  },
+  "eindhovenkazerne": {
+    "url": "https://www.kazerne.com/bar-bistro-kazerne",
+    "finalUrl": "https://www.kazerne.com/bar-bistro-kazerne",
+    "httpStatus": 200,
+    "sha256": "0f57bf08b9f1612f8883c4e282cc4027b5095be67cd6da75bd81245a4ddfacc6",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=utf-8"
+  },
+  "eindhovenkazerne-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Paradijslaan+2+Eindhoven&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Paradijslaan+2+Eindhoven&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-15",
+    "sha256": "8be563e9ff04f101957fbe3f2a43c73b92d91919c70004915b6a57ad3f616082",
+    "selectedAddress": {
+      "id": "adr-e3230075a1bfa0920836bf387b7fce10",
+      "weergavenaam": "Paradijslaan 2, 5611KN Eindhoven",
+      "centroide_ll": "POINT(5.47737414 51.4360392)",
+      "nummeraanduiding_id": "0772200000098549",
+      "woonplaatsnaam": "Eindhoven"
+    },
+    "method": "official address geocoder; not an entrance survey"
+  },
+  "utrechtkoffieleute": {
+    "url": "https://www.koffieleute.nl/",
+    "finalUrl": "https://www.koffieleute.nl/",
+    "httpStatus": 200,
+    "sha256": "1c5acbeef15b4e610ed95af470198bdb4fdf1d1bf0e66784548d0672ab5abb9c",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  "utrechtooginal": {
+    "url": "https://www.ontdek-utrecht.nl/locatie/park-oog-in-al/",
+    "finalUrl": "https://www.ontdek-utrecht.nl/locatie/park-oog-in-al/",
+    "httpStatus": 200,
+    "sha256": "b15ee6298d44bd472b7f96923bf1ed5f639e11884cfbce9913e467416689d6ae",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=utf-8"
+  },
+  "utrechtsonnenborgh": {
+    "url": "https://www.sonnenborgh.nl/english/address-contact-and-route",
+    "finalUrl": "https://www.sonnenborgh.nl/english/address-contact-and-route",
+    "httpStatus": 200,
+    "sha256": "cbfc3900ccdb04b18475db3f6ae7e314861ce6b12883a7422c49bd6a5dd6c5bb",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  "sonnenborghvisit": {
+    "url": "https://www.sonnenborgh.nl/bezoekersinformatie",
+    "finalUrl": "https://www.sonnenborgh.nl/bezoekersinformatie",
+    "httpStatus": 200,
+    "sha256": "05fc6d758cfc1765c3281cd6afa90e3ecb66b1f1cc87196542e09996545acc1d",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  "sonnenborghprices": {
+    "url": "https://www.sonnenborgh.nl/bezoekersinformatie/prijzen",
+    "finalUrl": "https://www.sonnenborgh.nl/bezoekersinformatie/prijzen",
+    "httpStatus": 200,
+    "sha256": "c5defb06ce97e4e3a05f6ceff426ada8c04f8d787ab010441ae1fae17449a42c",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  "utrechtsonnenborgh-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Zonnenburg+2+Utrecht&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Zonnenburg+2+Utrecht&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-15",
+    "sha256": "a2f08e598d06482618a43dfe3488e4e4b7dd6b0e0381de6e708d561184e1a36f",
+    "selectedAddress": {
+      "id": "adr-c0d609198ddc3ae7e86764835ec23c7e",
+      "weergavenaam": "Zonnenburg 2, 3512NL Utrecht",
+      "centroide_ll": "POINT(5.12928285 52.08541538)",
+      "nummeraanduiding_id": "0344200000083585",
+      "woonplaatsnaam": "Utrecht"
+    },
+    "method": "official address geocoder; not an entrance survey"
+  },
+  "rotterdamsupernova": {
+    "url": "https://supernovahotel.nl/en",
+    "finalUrl": "https://supernovahotel.nl/en",
+    "httpStatus": 200,
+    "sha256": "10d4967c24635a4c71bec6b35bb8c303cf2d8947345ed9a4a8e010fe0974b643",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=utf-8"
+  },
+  "denhaagcollector": {
+    "url": "https://www.thecollectorhotel.com/contact",
+    "finalUrl": "https://www.thecollectorhotel.com/contact",
+    "httpStatus": 200,
+    "sha256": "5552d3151e96092a29c3ac88fc106014ce7de70eb0c4f90a19cfdad9b75300de",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html;charset=utf-8"
+  },
+  "collectorrooms": {
+    "url": "https://www.thecollectorhotel.com/rooms",
+    "finalUrl": "https://www.thecollectorhotel.com/rooms",
+    "httpStatus": 200,
+    "sha256": "d285599044cd5c624ddaaf7daf681ddb5e1bd28a775d297b9034ba1c4d7893d5",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html;charset=utf-8"
+  },
+  "collectorfaq": {
+    "url": "https://www.thecollectorhotel.com/faq",
+    "finalUrl": "https://www.thecollectorhotel.com/faq",
+    "httpStatus": 200,
+    "sha256": "fd3c7534f8a6ae309b250c699052a37846ae27ae784ad357c541f56c62311bcc",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html;charset=utf-8"
+  },
+  "denhaagcollector-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Haagsche+Bluf+52+Den+Haag&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Haagsche+Bluf+52+Den+Haag&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-15",
+    "sha256": "9be41f5dc46c1dafeabdd168e43b27186f4c699ceff3582f9b206c5524aa12e1",
+    "selectedAddress": {
+      "id": "adr-08556f4bf2818bc967541b845186858f",
+      "weergavenaam": "Haagsche Bluf 52, 2511CP 's-Gravenhage",
+      "centroide_ll": "POINT(4.30952044 52.0770521)",
+      "nummeraanduiding_id": "0518200000452157",
+      "woonplaatsnaam": "'s-Gravenhage"
+    },
+    "method": "official address geocoder; not an entrance survey"
+  },
+  "utrechtnox": {
+    "url": "https://www.thenoxhotel.com/en/contact",
+    "finalUrl": "https://www.thenoxhotel.com/en/contact",
+    "httpStatus": 200,
+    "sha256": "a18e03083f56af0972f6fb1b76544ccb6135ba194da6dd723bacfabbf2975376",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  "noxfaq": {
+    "url": "https://www.thenoxhotel.com/en/faq",
+    "finalUrl": "https://www.thenoxhotel.com/en/faq",
+    "httpStatus": 200,
+    "sha256": "6ddc1a86c2abfd106758c45e34209938bd8d51cf71026f3306badc0443c2c997",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  "utrechtnox-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Keistraat+8+Utrecht&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Keistraat+8+Utrecht&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-15",
+    "sha256": "b15c9a69f7396c20b2f7d81b5d056ae7ba7c23239123d25fd04d4a3198d7a036",
+    "selectedAddress": {
+      "id": "adr-2566b1f0fd8900e5489e685a5e239a89",
+      "weergavenaam": "Keistraat 8, 3512HV Utrecht",
+      "centroide_ll": "POINT(5.12296158 52.09229311)",
+      "nummeraanduiding_id": "0344200000196848",
+      "woonplaatsnaam": "Utrecht"
+    },
+    "method": "official address geocoder; not an entrance survey"
+  },
+  "rotterdamtrompenburg": {
+    "url": "https://trompenburg.nl/plan-your-visit/",
+    "finalUrl": "https://trompenburg.nl/plan-your-visit/",
+    "httpStatus": 200,
+    "sha256": "30f44d7388f4c4d2b5e77e01cd5b143db2f830fc1cd9b52a7a000f6738955e1d",
+    "checkedAt": "2026-11-15",
+    "method": "curl HTTPS; urllib TLS failed"
+  },
+  "rotterdamtrompenburg-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Honingerdijk+86+Rotterdam&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Honingerdijk+86+Rotterdam&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-15",
+    "sha256": "b26b97ccce86d043699ac32cf0114ee47a3da074a59359f067729ef740d69031",
+    "selectedAddress": {
+      "id": "adr-0cab836e7e76309e944f57a7ea678a3b",
+      "weergavenaam": "Honingerdijk 86, 3062NX Rotterdam",
+      "centroide_ll": "POINT(4.51779613 51.91827172)",
+      "nummeraanduiding_id": "0599200000306105",
+      "woonplaatsnaam": "Rotterdam"
+    },
+    "method": "official address geocoder; not an entrance survey"
+  },
+  "denhaagwestbroekpark": {
+    "url": "https://denhaag.com/en/westbroekpark",
+    "finalUrl": "https://denhaag.com/en/westbroekpark",
+    "httpStatus": 200,
+    "sha256": "2a1b6efcb4ba980b8cd88d6b047785fe164af9c7be84bcfcc5366e7c80dc1d25",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=utf-8"
+  }
+}
