@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
   "generatedAt": "2026-10-23T00:00:00Z",
-  "datasetFingerprint": "5ad1ce12ca2a73165b229eb592e33633f1244ffd284d5f7f73315a577edfe54c",
+  "datasetFingerprint": "c1f1f4fd7f7e47b2a64bfe068589412d3d11e9ff36d69440040a1ccc2e88856d",
   "locale": "en",
   "geographyEffectiveDate": "2026-01-01",
   "documents": [
@@ -1300,7 +1300,7 @@
       "slug": "leiden-burcht",
       "route": "/places/leiden-burcht",
       "title": "De Burcht",
-      "summary": "A historic ring fortification on a raised mound in the centre of Leiden, with views across the surrounding city.",
+      "summary": "A medieval ring fort on an artificial hill, with views over central Leiden.",
       "contentDepth": "summary",
       "keywords": [
         "De Burcht",
@@ -1327,12 +1327,12 @@
       ],
       "dutch": {
         "title": "De Burcht",
-        "summary": "Een historische ringburcht op een verhoogde heuvel in het centrum van Leiden, met uitzicht over de omliggende stad.",
+        "summary": "Een middeleeuwse ringburcht op een kunstmatige heuvel, met uitzicht over de Leidse binnenstad.",
         "route": "/nl/plaatsen/leiden-burcht"
       },
       "nationalFallback": false,
       "qualityScore": 70,
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
       "officialSourceUrls": [
         "https://www.visitleiden.nl/nl/locaties/2380897422/de-burcht"
       ],
@@ -1349,7 +1349,7 @@
       "tags": [],
       "synonyms": [
         "De Burcht",
-        "Een historische ringburcht op een verhoogde heuvel in het centrum van Leiden, met uitzicht over de omliggende stad."
+        "Een middeleeuwse ringburcht op een kunstmatige heuvel, met uitzicht over de Leidse binnenstad."
       ],
       "officialOrganizationNames": [
         "De Burcht"
@@ -1952,7 +1952,7 @@
       "slug": "leiden-plantsoen",
       "route": "/places/leiden-plantsoen",
       "title": "Het Plantsoen",
-      "summary": "A landscaped stretch of the Singelpark beside the Zoeterwoudsesingel, suitable for a pause along the walking route.",
+      "summary": "A landscaped waterside park on the Singelpark walking route, with a pond and aviary.",
       "contentDepth": "summary",
       "keywords": [
         "Het Plantsoen",
@@ -1979,14 +1979,14 @@
       ],
       "dutch": {
         "title": "Het Plantsoen",
-        "summary": "Een landschappelijk deel van het Singelpark langs de Zoeterwoudsesingel, als rustpunt tijdens de wandeling.",
+        "summary": "Een landschappelijk park aan het water op de Singelparkroute, met een vijver en volière.",
         "route": "/nl/plaatsen/leiden-plantsoen"
       },
       "nationalFallback": false,
       "qualityScore": 70,
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
       "officialSourceUrls": [
-        "https://www.singelpark.nl/wp-content/uploads/2025/04/DLH_FlyerA5_Singelparkroute_def2.pdf"
+        "https://www.singelpark.nl/wp-content/uploads/2024/10/Teksten-audiotour-Singelpark-Cultuur-en-Historie-5-2-2024.pdf"
       ],
       "relatedOrganizationIds": [],
       "narrowCategory": "parks-walks",
@@ -2001,7 +2001,7 @@
       "tags": [],
       "synonyms": [
         "Het Plantsoen",
-        "Een landschappelijk deel van het Singelpark langs de Zoeterwoudsesingel, als rustpunt tijdens de wandeling."
+        "Een landschappelijk park aan het water op de Singelparkroute, met een vijver en volière."
       ],
       "officialOrganizationNames": [
         "Stichting Vrienden van het Singelpark"
@@ -2592,7 +2592,7 @@
       "slug": "leiden-leidse-hout",
       "route": "/places/leiden-leidse-hout",
       "title": "Leidse Hout",
-      "summary": "A city park with trees, open lawns and a pond near the boundary with Oegstgeest.",
+      "summary": "A green city park near Oegstgeest, with lawns, a pond and a deer enclosure.",
       "contentDepth": "summary",
       "keywords": [
         "Leidse Hout",
@@ -2619,12 +2619,12 @@
       ],
       "dutch": {
         "title": "Leidse Hout",
-        "summary": "Een stadspark met bomen, grasvelden en een vijver bij de grens met Oegstgeest.",
+        "summary": "Een groen stadspark bij Oegstgeest, met grasvelden, een vijver en een hertenkamp.",
         "route": "/nl/plaatsen/leiden-leidse-hout"
       },
       "nationalFallback": false,
       "qualityScore": 70,
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
       "officialSourceUrls": [
         "https://www.visitleiden.nl/nl/locaties/2420997644/leidse-hout"
       ],
@@ -2641,7 +2641,7 @@
       "tags": [],
       "synonyms": [
         "Leidse Hout",
-        "Een stadspark met bomen, grasvelden en een vijver bij de grens met Oegstgeest."
+        "Een groen stadspark bij Oegstgeest, met grasvelden, een vijver en een hertenkamp."
       ],
       "officialOrganizationNames": [
         "Leidse Hout"
@@ -3176,7 +3176,7 @@
       "slug": "leiden-cronesteyn",
       "route": "/places/leiden-cronesteyn",
       "title": "Polderpark Cronesteyn",
-      "summary": "A large park with waterways, meadows and woodland areas. Follow the park paths and current access notices.",
+      "summary": "Explore woodland, meadows and wetland habitats in Leiden’s polder landscape; follow current access notices.",
       "contentDepth": "summary",
       "keywords": [
         "Polderpark Cronesteyn",
@@ -3203,12 +3203,12 @@
       ],
       "dutch": {
         "title": "Polderpark Cronesteyn",
-        "summary": "Een groot park met water, weilanden en bosgedeelten. Volg de parkpaden en actuele aanwijzingen.",
+        "summary": "Verken bos, weilanden en moerasnatuur in het Leidse polderlandschap; volg actuele toegangsinstructies.",
         "route": "/nl/plaatsen/leiden-cronesteyn"
       },
       "nationalFallback": false,
       "qualityScore": 70,
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
       "officialSourceUrls": [
         "https://www.visitleiden.nl/nl/locaties/3133044659/polderpark-cronesteyn"
       ],
@@ -3225,7 +3225,7 @@
       "tags": [],
       "synonyms": [
         "Polderpark Cronesteyn",
-        "Een groot park met water, weilanden en bosgedeelten. Volg de parkpaden en actuele aanwijzingen."
+        "Verken bos, weilanden en moerasnatuur in het Leidse polderlandschap; volg actuele toegangsinstructies."
       ],
       "officialOrganizationNames": [
         "Polderpark Cronesteyn"
@@ -4468,7 +4468,7 @@
       "slug": "leiden-wereldmuseum",
       "route": "/places/leiden-wereldmuseum",
       "title": "Wereldmuseum Leiden",
-      "summary": "A museum of world cultures on Steenstraat. Use the museum’s programme to choose an exhibition before visiting.",
+      "summary": "Explore world cultures at the museum on Steenstraat, with visitor planning and accessibility information.",
       "contentDepth": "summary",
       "keywords": [
         "Wereldmuseum Leiden",
@@ -4495,12 +4495,12 @@
       ],
       "dutch": {
         "title": "Wereldmuseum Leiden",
-        "summary": "Een museum van wereldculturen aan de Steenstraat. Bekijk het programma om vóór je bezoek een tentoonstelling te kiezen.",
+        "summary": "Ontdek wereldculturen in het museum aan de Steenstraat, met bezoekinformatie en informatie over toegankelijkheid.",
         "route": "/nl/plaatsen/leiden-wereldmuseum"
       },
       "nationalFallback": false,
       "qualityScore": 70,
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
       "officialSourceUrls": [
         "https://leiden.wereldmuseum.nl/nl/over-wereldmuseum-leiden/contact"
       ],
@@ -4517,7 +4517,7 @@
       "tags": [],
       "synonyms": [
         "Wereldmuseum Leiden",
-        "Een museum van wereldculturen aan de Steenstraat. Bekijk het programma om vóór je bezoek een tentoonstelling te kiezen."
+        "Ontdek wereldculturen in het museum aan de Steenstraat, met bezoekinformatie en informatie over toegankelijkheid."
       ],
       "officialOrganizationNames": [
         "Wereldmuseum Leiden"

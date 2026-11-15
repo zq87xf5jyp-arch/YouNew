@@ -9,7 +9,7 @@ export function EditorialPlaceContent({entity,locale}:{entity:ContentEntity;loca
     <div className="editorial-actions">
       {entity.coordinate?<a className="button button-secondary" href={`https://www.google.com/maps/dir/?api=1&destination=${entity.coordinate.latitude},${entity.coordinate.longitude}`} target="_blank" rel="noreferrer">{nl?'Route':'Directions'}</a>:null}
       {entity.placeDetails?.website?<a className="button button-secondary" href={entity.placeDetails.website.value} target="_blank" rel="noreferrer">Website</a>:null}
-      <a className="button button-primary" href={place.tickets.url} target="_blank" rel="noreferrer">Tickets</a>
+      {place.tickets?<a className="button button-primary" href={place.tickets.url} target="_blank" rel="noreferrer">Tickets</a>:null}
     </div>
     {copy.blocks.map(block=><section key={block.id} className={block.id==='warning'?'safety-note':undefined}>
       {block.title?<h2>{block.title}</h2>:null}<p>{block.text}</p>
