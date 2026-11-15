@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "batchId": "leiden-places-20261115",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "approvedAt": null,
+  "reviewerId": null,
+  "preparedAt": "2026-11-15",
+  "ids": [
+    "place.leiden-lakenhal",
+    "place.leiden-naturalis",
+    "place.leiden-hortus",
+    "place.leiden-rmo",
+    "museum.leiden-boerhaave"
+  ],
+  "baseFiles": {
+    "place.leiden-lakenhal": {
+      "file": "DataProject/staging/content-20261109/WP-07-M1-leiden-20261109.json",
+      "sha256": "06f54513fcc68ed81d4e270f61419438cb9fd212f2eaff0a2fee147fcb8ba3e0"
+    },
+    "place.leiden-naturalis": {
+      "file": "DataProject/staging/content-20261109/WP-07-M1-leiden-20261109.json",
+      "sha256": "06f54513fcc68ed81d4e270f61419438cb9fd212f2eaff0a2fee147fcb8ba3e0"
+    },
+    "place.leiden-hortus": {
+      "file": "DataProject/staging/content-20261109/WP-07-M1-leiden-20261109.json",
+      "sha256": "06f54513fcc68ed81d4e270f61419438cb9fd212f2eaff0a2fee147fcb8ba3e0"
+    },
+    "place.leiden-rmo": {
+      "file": "DataProject/staging/content-20261109/WP-07-M1-leiden-20261109.json",
+      "sha256": "06f54513fcc68ed81d4e270f61419438cb9fd212f2eaff0a2fee147fcb8ba3e0"
+    },
+    "museum.leiden-boerhaave": {
+      "file": "DataProject/staging/content-20261109/WP-07-M1-leiden-20261109.json",
+      "sha256": "06f54513fcc68ed81d4e270f61419438cb9fd212f2eaff0a2fee147fcb8ba3e0"
+    }
+  },
+  "recordsSha256": "8cab4092793ea9e02ea896c3c4f8b3c6740a5aa14fbc7e84cd155d276d0986f0",
+  "media": {
+    "lakenhal-480.webp": {
+      "sha256": "091558c7e7f921ed51fe30e7985d054ed51bee16773926c24131e961f3292f08",
+      "bytes": 29098,
+      "width": 480
+    },
+    "lakenhal-800.webp": {
+      "sha256": "5fff9f41c114c0200236cfd503f3865a6e0720be9e0071406ec54959f6b70810",
+      "bytes": 79584,
+      "width": 800
+    },
+    "lakenhal-1200.webp": {
+      "sha256": "e2c6d4dd2fb01bd773fdcccd69853d5d03c872037f839b7f5ec295c35c1d41e8",
+      "bytes": 166638,
+      "width": 1200
+    },
+    "naturalis-480.webp": {
+      "sha256": "a889a1ec024152ba3e704130d0b5dbcdbd2828d313ef6e90bfb3171357b97435",
+      "bytes": 29608,
+      "width": 480
+    },
+    "naturalis-800.webp": {
+      "sha256": "3e19a2813fdb82b2fc021158d2ccf4ed4693d3c253c201e097a2035ec7407ea2",
+      "bytes": 77466,
+      "width": 800
+    },
+    "naturalis-1200.webp": {
+      "sha256": "77c2de51b3fb018e4375459929b5857ef4702c04bdedb8d4a8d9a5acce6649a8",
+      "bytes": 163090,
+      "width": 1200
+    },
+    "hortus-480.webp": {
+      "sha256": "4767864168c9b4e4020c296179dffcdb124167495a3b21914ab36ad707360b91",
+      "bytes": 28408,
+      "width": 480
+    },
+    "hortus-800.webp": {
+      "sha256": "d999255fad9b6951aceb80f747114c14ab8daddc7428199507cb731551be4eff",
+      "bytes": 79534,
+      "width": 800
+    },
+    "hortus-1200.webp": {
+      "sha256": "aa5adb110d38aeb603639e87c00e9f9d6d553ab7934e38a1b8b856224d139c8a",
+      "bytes": 175822,
+      "width": 1200
+    },
+    "rmo-480.webp": {
+      "sha256": "b7d3485f7d2259b2d916f24fe6bad05ee222c9698aef0973affabad3b75bef9d",
+      "bytes": 30220,
+      "width": 480
+    },
+    "rmo-800.webp": {
+      "sha256": "1c73acc55d7bdd3b8c58be3e5b52af5eaec24f2ef4cfabc234a1cdaa1ab8201a",
+      "bytes": 83848,
+      "width": 800
+    },
+    "rmo-1200.webp": {
+      "sha256": "ee6e448c468f6871b126dda4d67c38cb44152b2a92729ca1bcc81b3cb602868b",
+      "bytes": 186578,
+      "width": 1200
+    },
+    "boerhaave-480.webp": {
+      "sha256": "7c1b656b3bac01161869307998f10308b572d7b9dd4b7d3f8b801d746fbbbfd1",
+      "bytes": 77112,
+      "width": 480
+    },
+    "boerhaave-800.webp": {
+      "sha256": "ecbb485b5a307a75d4ae52525ab1ed5ab8414f8c326418b89c8048cdaec9360a",
+      "bytes": 198368,
+      "width": 800
+    },
+    "boerhaave-1200.webp": {
+      "sha256": "020065927bec18268e835975edfb3785a8c88a47806243a61454a3ace1696891",
+      "bytes": 361424,
+      "width": 1200
+    }
+  }
+}

@@ -1,0 +1,67 @@
+[
+  {
+    "entityId": "place.leiden-lakenhal",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Leiden_-_Lakenhal_.jpg",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Leiden_-_Lakenhal_.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "commonsSha1": "c95acd575dea6569dac3aa134d09b51a017b9088",
+    "photographer": "Vera de Kok",
+    "photoDate": "2015-03-21",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "retrievedAt": "2026-11-15",
+    "visualInspection": "correct place; historical capture date disclosed; no AI content; uncropped resize",
+    "downloadSha256": "f991da8b93bf205d5bc59d9c873b32211c1bbec61559beb12b3d378f7e4dcc9b"
+  },
+  {
+    "entityId": "place.leiden-naturalis",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Naturalis_Biodiversity_centre.jpg",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/af/Naturalis_Biodiversity_centre.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "commonsSha1": "a3807e3ff26246a8738c8440c0a6f65ce7753ee1",
+    "photographer": "Schminnte",
+    "photoDate": "2019-10-22",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "retrievedAt": "2026-11-15",
+    "visualInspection": "correct place; historical capture date disclosed; no AI content; uncropped resize",
+    "downloadSha256": "223aaa465f01f7e668a0d11bc4438771746c999352c8246d114880f2e9f15389"
+  },
+  {
+    "entityId": "place.leiden-hortus",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Hortus_botanicus_Leiden.jpg",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Hortus_botanicus_Leiden.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "commonsSha1": "5443b15bbf8514e351fa2952607940f59c5de76c",
+    "photographer": "Roger Veringmeier",
+    "photoDate": "2024-08-07",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "retrievedAt": "2026-11-15",
+    "visualInspection": "correct place; historical capture date disclosed; no AI content; uncropped resize",
+    "downloadSha256": "567a46535f2cef976a007a5b39bf13ad8764e79a9e9052ab1c669d33dc916a65"
+  },
+  {
+    "entityId": "place.leiden-rmo",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Dutch_National_Museum_of_Antiquities_Leiden.jpg",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Dutch_National_Museum_of_Antiquities_Leiden.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "commonsSha1": "6e7533ae04e0beeb947de3934725165afb046d5f",
+    "photographer": "Steven Lek",
+    "photoDate": "2018-02-23",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "retrievedAt": "2026-11-15",
+    "visualInspection": "correct place; historical capture date disclosed; no AI content; uncropped resize",
+    "downloadSha256": "85c023461d8b8ebc5634234ae710cdac5432dd70b925d9f3d527ec95783b46ca"
+  },
+  {
+    "entityId": "museum.leiden-boerhaave",
+    "sourcePage": "https://commons.wikimedia.org/wiki/File:Exterior_of_the_Boerhaave_museum.jpg",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/08/Exterior_of_the_Boerhaave_museum.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "commonsSha1": "ae09a5ca4a30dcbd5a2b63a8bee6112c21bd7d77",
+    "photographer": "Goodness Shamrock",
+    "photoDate": "2009-04-19",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "retrievedAt": "2026-11-15",
+    "visualInspection": "correct place; historical capture date disclosed; no AI content; uncropped resize",
+    "downloadSha256": "ff79b39e9958f6a03d42027c3555df218d03c12f57b15d980301afbca433c4aa"
+  }
+]

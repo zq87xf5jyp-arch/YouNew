@@ -1,0 +1,146 @@
+[
+  {
+    "url": "https://hortusleiden.nl/bezoek-info",
+    "http": 200,
+    "finalUrl": "https://hortusleiden.nl/bezoek-info",
+    "sha256": "0f0b9dcb05203cbbe4226c9680f409e04e44ffba7dadad26ce4290bdd37ea922",
+    "checkedAt": "2026-11-15",
+    "result": "opened"
+  },
+  {
+    "url": "https://hortusleiden.nl/zien-en-doen/ontdek-de-botanische-tuin",
+    "http": 200,
+    "finalUrl": "https://hortusleiden.nl/zien-en-doen/ontdek-de-botanische-tuin",
+    "sha256": "447905a13b8db0835885c126a84a7817115f0869f5b5ae6f0080963830359173",
+    "checkedAt": "2026-11-15",
+    "result": "opened"
+  },
+  {
+    "url": "https://ticket.rmo.nl/en-EN/tickets",
+    "http": 200,
+    "finalUrl": "https://ticket.rmo.nl/en-US/tickets",
+    "sha256": "a8372170ced1462609f6606df6b84a688733c2c4d3473e22b4c16c39b6b30dfe",
+    "checkedAt": "2026-11-15",
+    "result": "opened"
+  },
+  {
+    "url": "https://tickets.hortusleiden.nl/nl/tickets",
+    "http": 200,
+    "finalUrl": "https://tickets.hortusleiden.nl/nl/tickets",
+    "sha256": "b305d24abbd039819d44d7ae12fde181ec2091d0d25a38e476ba8771734f25b8",
+    "checkedAt": "2026-11-15",
+    "result": "opened"
+  },
+  {
+    "url": "https://tickets.lakenhal.nl/en/tickets",
+    "http": 200,
+    "finalUrl": "https://tickets.lakenhal.nl/en/tickets",
+    "sha256": "de8fdff95579296c023cde5e9f1be9ba642e1ad880bcc62c1694f256eed43ab8",
+    "checkedAt": "2026-11-15",
+    "result": "opened"
+  },
+  {
+    "url": "https://tickets.rijksmuseumboerhaave.nl/",
+    "http": 200,
+    "finalUrl": "https://tickets.rijksmuseumboerhaave.nl/",
+    "sha256": "9cfb856b95b3ab76c7bc3362df73590524aa27d86935d0fb246a5c72a518baf1",
+    "checkedAt": "2026-11-15",
+    "result": "opened"
+  },
+  {
+    "url": "https://www.lakenhal.nl/en/story/visitor-information-pratical-information",
+    "http": 200,
+    "finalUrl": "https://www.lakenhal.nl/en/story/visitor-information-pratical-information",
+    "sha256": "f5a8922c424d7b46648a331f04ce01af138de555caed17adda1c5b034e4d1dac",
+    "checkedAt": "2026-11-15",
+    "result": "opened"
+  },
+  {
+    "url": "https://www.lakenhal.nl/nl/verhaal/bezoekersinformatie-toegankelijkheid",
+    "http": 200,
+    "finalUrl": "https://www.lakenhal.nl/nl/verhaal/bezoekersinformatie-toegankelijkheid",
+    "sha256": "208467a3332834eb068c5ecd81331b06f613691978dd331eff4f1d639d381430",
+    "checkedAt": "2026-11-15",
+    "result": "opened"
+  },
+  {
+    "url": "https://www.lakenhal.nl/nl/verhaal/het-gebouw",
+    "http": 200,
+    "finalUrl": "https://www.lakenhal.nl/nl/verhaal/het-gebouw",
+    "sha256": "268b3b7ea4aaf6e75a57619bd41b2ac07cf23f2c7fb474a6820ad62135a4d353",
+    "checkedAt": "2026-11-15",
+    "result": "opened"
+  },
+  {
+    "url": "https://www.naturalis.nl/en/museum/galleries",
+    "http": 200,
+    "finalUrl": "https://www.naturalis.nl/en/museum/galleries",
+    "sha256": "7b37a7e02e6a4c78b2491e621d580a07c63b8e204488a8019dc9466b722d5d86",
+    "checkedAt": "2026-11-15",
+    "result": "opened"
+  },
+  {
+    "url": "https://www.naturalis.nl/en/museum/practical-info",
+    "http": 200,
+    "finalUrl": "https://www.naturalis.nl/en/museum/practical-info",
+    "sha256": "a8e521ee985bec4d9e332e7822aeb906c710539df37c89237e36eec24fae84f6",
+    "checkedAt": "2026-11-15",
+    "result": "opened"
+  },
+  {
+    "url": "https://www.naturalis.nl/en/tickets-for-naturalis",
+    "http": 200,
+    "finalUrl": "https://www.naturalis.nl/en/tickets-for-naturalis",
+    "sha256": "e8bce34272c6c5138243d97850365edf72e22b760e81cbfdc780f977a5ecbe2b",
+    "checkedAt": "2026-11-15",
+    "result": "opened"
+  },
+  {
+    "url": "https://www.rijksmuseumboerhaave.nl/en/about-us",
+    "http": 200,
+    "finalUrl": "https://www.rijksmuseumboerhaave.nl/en/about-us",
+    "sha256": "355db5cb6b388017bd3e2256d51afbd65b87b92ebe71bfab4bafb23b115d9224",
+    "checkedAt": "2026-11-15",
+    "result": "opened"
+  },
+  {
+    "url": "https://www.rijksmuseumboerhaave.nl/en/plan-your-visit",
+    "http": 200,
+    "finalUrl": "https://www.rijksmuseumboerhaave.nl/en/plan-your-visit",
+    "sha256": "313356cfa542bfb2b450570a9b43aeea783ec57f0b302b7e9eb5e1a9044d2dfb",
+    "checkedAt": "2026-11-15",
+    "result": "opened"
+  },
+  {
+    "url": "https://www.rijksmuseumboerhaave.nl/en/plan-your-visit/accessibility",
+    "http": 200,
+    "finalUrl": "https://www.rijksmuseumboerhaave.nl/en/plan-your-visit/accessibility",
+    "sha256": "56d2379e337d746000ee9493bfa5ed9c6b4f2e4ad2d94dffda8c29b175c5bcec",
+    "checkedAt": "2026-11-15",
+    "result": "opened"
+  },
+  {
+    "url": "https://www.rmo.nl/en/organisation/who-are-we/",
+    "http": 200,
+    "finalUrl": "https://www.rmo.nl/en/organisation/who-are-we/",
+    "sha256": "092b404bd9197d609d2d4f9dd0efd81eeef511c449c3fabcb65dda4f8a4b4aaf",
+    "checkedAt": "2026-11-15",
+    "result": "opened"
+  },
+  {
+    "url": "https://www.rmo.nl/en/visit/opening-hours-fees-address/",
+    "http": 200,
+    "finalUrl": "https://www.rmo.nl/en/visit/opening-hours-fees-address/",
+    "sha256": "04183accc9c72ace8a25757cb4c9c5645efb57af1a8fa3a7cf92c60da7347bdd",
+    "checkedAt": "2026-11-15",
+    "result": "opened"
+  },
+  {
+    "url": "https://www.rmo.nl/uw%20-bezoek/openingstijden-prijzen-route/",
+    "http": 200,
+    "finalUrl": "https://www.rmo.nl/uw%20-bezoek/openingstijden-prijzen-route/",
+    "sha256": "e196189fa60cdef8dad2fe8fd9a5e7f06326f8778c0b0e025e309665c6f864ff",
+    "checkedAt": "2026-11-15",
+    "result": "opened"
+  }
+]

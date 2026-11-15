@@ -4,6 +4,7 @@ import {readFile} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {resolve, relative} from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {applyPlaceReview} from './place-review.mjs';
 
 const root = fileURLToPath(new URL('../../../', import.meta.url));
 export const approvalPath = 'DataProject/editorial/leiden-20261110-approval.json';
@@ -101,5 +102,5 @@ export async function loadEditorialRelease(repositoryRoot=root) {
     records.push(...batch.records);
   }
   const reviewers=JSON.parse(await readFile(resolve(repositoryRoot,'DataProject/operations/reviewer-registry.json'),'utf8'));
-  return projectEditorialRelease(approval,records,reviewers);
+  return applyPlaceReview(projectEditorialRelease(approval,records,reviewers),repositoryRoot);
 }

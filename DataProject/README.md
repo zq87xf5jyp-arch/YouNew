@@ -2,6 +2,10 @@
 
 Data Project is the data-development stream inside YouNew. It is not a separate app and it does not introduce screens, tabs, buttons, menus, or SwiftUI restructuring.
 
+## Current bounded content review
+
+The first Leiden place-enrichment batch (`editorial/leiden-places-20261115`) contains five **draft revisions of existing IDs**, not a release or a second catalogue. Owner approval remains absent. See the dated [postlaunch entry](../docs/postlaunch-2026-11-10/README_RU.md#2026-11-15--первая-партия-обогащения-leiden-только-review) for scope, licensed media, isolated preview and QA. Never import these revisions as approved records based on their research status.
+
 ## Mission
 
 Build the most complete, structured, verified, connected, and maintainable knowledge base about life in the Netherlands. New records are prepared in small JSON batches, pass the publication gates, and are then projected into the existing `NetherlandsKnowledgeDatabase`, `KnowledgeIndex`, Search, and AI context.

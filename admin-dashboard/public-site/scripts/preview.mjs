@@ -8,6 +8,8 @@ import { createGzip } from "node:zlib";
 const root = fileURLToPath(new URL("../out/", import.meta.url));
 const port = Number(process.env.PORT ?? 4173);
 const host = process.env.HOST ?? "127.0.0.1";
+const privateReview = await stat(join(root,'PRIVATE-REVIEW.json')).then(()=>true,()=>false);
+if (privateReview && !['127.0.0.1','::1','localhost'].includes(host)) throw new Error('Private review preview must bind to loopback');
 const types = { ".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".css": "text/css; charset=utf-8", ".json": "application/json; charset=utf-8", ".webmanifest": "application/manifest+json", ".xml": "application/xml; charset=utf-8", ".txt": "text/plain; charset=utf-8", ".pdf": "application/pdf", ".mp4": "video/mp4", ".png": "image/png", ".jpg": "image/jpeg", ".webp": "image/webp", ".svg": "image/svg+xml" };
 const legacyBusinessRedirects = Object.freeze({
   "/business": "/for-business/",
@@ -69,6 +71,10 @@ createServer(async (request, response) => {
     response.setHeader("Cache-Control", "public, max-age=86400, must-revalidate");
   }
 
+  if (privateReview) {
+    response.setHeader('X-Robots-Tag','noindex, nofollow, noarchive');
+    response.setHeader('Cache-Control','no-store');
+  }
   if (contentType === "video/mp4" || contentType === "application/pdf") {
     response.setHeader("Accept-Ranges", "bytes");
     const range = request.headers.range;

@@ -36,6 +36,7 @@ async function treeFingerprint(root) {
 }
 
 const outFiles = await files(outRoot);
+assert.ok(!outFiles.some(path => path.endsWith('/PRIVATE-REVIEW.json') || path.includes('/images/place-review/')), 'Private review cannot be deployed to production');
 const htmlFiles = outFiles.filter((path) => extname(path) === ".html");
 const sitemap = await readFile(join(outRoot, "sitemap.xml"), "utf8");
 const sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1].replaceAll("&amp;", "&"));

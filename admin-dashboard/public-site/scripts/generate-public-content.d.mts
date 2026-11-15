@@ -1,2 +1,3 @@
 import type {ContentEntity} from "../src/lib/content/types";
-export function buildPublicDataset(runtime: unknown, options?: {verifyChecksum?: boolean}): {content: {entities: ContentEntity[]}};
+export const paths:Readonly<Record<string,string>>;
+export function buildPublicDataset(runtime: unknown, options?: {verifyChecksum?: boolean;editorialRelease?:unknown}): {content: {entities: ContentEntity[]}};
