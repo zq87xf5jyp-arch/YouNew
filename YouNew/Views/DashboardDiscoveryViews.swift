@@ -20,6 +20,7 @@ struct PlaceItemDetailView: View {
                 VStack(alignment: .leading, spacing: 18) {
                     hero
                     details
+                    photoCredit
                     if let source = place.source {
                         sourceBlock(source)
                     }
@@ -56,13 +57,13 @@ struct PlaceItemDetailView: View {
         VStack(alignment: .leading, spacing: 14) {
             PremiumImageHeader(
                 title: place.shortTitle ?? place.title,
-                asset: placeHeroAsset,
+                asset: CanonicalPlaceImageResolver.imageAsset(for: place),
                 language: lang,
                 symbol: category.symbol,
                 accent: category.accent,
                 height: 190,
                 cornerRadius: 8,
-                fallbackCategory: fallbackCategory(for: category)
+                fallbackCategory: .place
             )
 
             HStack(spacing: 10) {
@@ -103,40 +104,18 @@ struct PlaceItemDetailView: View {
         .overlay(RoundedRectangle(cornerRadius: 8, style: .continuous).stroke(category.accent.opacity(0.20), lineWidth: 1))
     }
 
-    private var placeHeroAsset: AppImageAsset? {
-        guard let image = place.image?.trimmingCharacters(in: .whitespacesAndNewlines),
-              !image.isEmpty,
-              let url = URL(string: image)
-        else { return nil }
-
-        return AppImageAsset(
-            id: "place-detail-\(place.id)",
-            url: url,
-            imageURL: url,
-            thumbnailURL: url,
-            title: place.shortTitle ?? place.title,
-            description: place.description,
-            sourceName: place.source?.institution ?? place.source?.title ?? "City guide",
-            sourceURL: place.source?.url ?? place.externalUrl,
-            license: nil,
-            attribution: place.source?.title,
-            width: nil,
-            height: nil,
-            type: .cityHero,
-            verified: true
-        )
-    }
-
-    private func fallbackCategory(for category: VisitPlaceCategory) -> PremiumImageFallbackCategory {
-        switch category {
-        case .museum, .rainyDay:
-            return .city
-        case .park, .viewpoint, .free, .hiddenGem:
-            return .province
-        case .market, .food:
-            return .integration
-        case .landmark, .historic, .family:
-            return .city
+    @ViewBuilder
+    private var photoCredit: some View {
+        if let asset = CanonicalPlaceImageResolver.imageAsset(for: place),
+           let attribution = asset.attribution, let source = asset.sourcePageURL {
+            VStack(alignment: .leading, spacing: 8) {
+                Link(attribution, destination: source)
+                if let license = asset.licenseName, let url = asset.licenseURL {
+                    Link(license, destination: url)
+                }
+            }
+            .font(.footnote)
+            .fixedSize(horizontal: false, vertical: true)
         }
     }
 
@@ -165,6 +144,18 @@ struct PlaceItemDetailView: View {
                 .tint(category.accent)
             }
 
+            if let url = AppURL.validatedWebURL(place.externalUrl) {
+                Link(destination: url) {
+                    Label("Website", systemImage: "safari")
+                        .frame(maxWidth: .infinity, minHeight: 44)
+                }
+                .buttonStyle(.bordered)
+                ShareLink(item: url) {
+                    Label(lang == .dutch ? "Delen" : lang == .russian ? "Поделиться" : "Share", systemImage: "square.and.arrow.up")
+                        .frame(maxWidth: .infinity, minHeight: 44)
+                }
+                .buttonStyle(.bordered)
+            }
             touristInfo
         }
         .padding(16)

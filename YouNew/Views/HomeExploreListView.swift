@@ -625,7 +625,8 @@ private struct DiscoveryPlacePreviewSheet: View {
                                 asset: previewAsset,
                                 language: language,
                                 height: 190,
-                                cornerRadius: 16
+                                cornerRadius: 16,
+                                fallbackCategory: .place
                             )
                         } else {
                             RoundedRectangle(cornerRadius: 16).fill(AppColors.glassSurfaceElevated).frame(height: 190)
@@ -677,13 +678,9 @@ private struct DiscoveryPlacePreviewSheet: View {
     }
 
     private var previewAsset: AppImageAsset? {
-        switch place.primaryCategory {
-        case .museum, .rainyDay: return ContentMediaRegistry.museumsCultureImage ?? ContentMediaRegistry.dailyCultureImage
-        case .park, .viewpoint, .hiddenGem, .free: return ContentMediaRegistry.natureImage ?? ContentMediaRegistry.leidenCanalsHero
-        case .food, .market: return ContentMediaRegistry.foodImage ?? ContentMediaRegistry.marketsLocalLifeImage
-        case .historic, .landmark, .family: return ContentMediaRegistry.leidenCanalsHero ?? ContentMediaRegistry.canalHousesHero
-        }
+        CanonicalPlaceImageResolver.imageAsset(for: place)
     }
+
 }
 
 private struct ExploreListAction: Identifiable {

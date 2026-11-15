@@ -4,6 +4,32 @@ import Testing
 
 @MainActor
 struct CityPlacesCalendarRegressionTests {
+    @Test func leidenPlaceMediaPreservesExistingRightsAndIdentity() throws {
+        let pairs = [
+            ("leiden-seed-museum-de-lakenhal", "museum:leiden:lakenhal"),
+            ("leiden-seed-naturalis-biodiversity-center", "museum:leiden:naturalis"),
+            ("leiden-seed-burcht-van-leiden", "attraction:leiden:burcht")
+        ]
+        var imageIDs = Set<String>()
+        for (placeID, entityID) in pairs {
+            let place = try #require(CanonicalPlaceCatalog.detailPlace(id: placeID))
+            let image = try #require(CanonicalPlaceImageResolver.imageAsset(for: place))
+            #expect(image == NetherlandsKnowledgeDatabase.shared.entity(id: entityID)?.images.hero)
+            #expect(image.verified)
+            #expect(image.licenseURL?.scheme == "https")
+            #expect(image.sourcePageURL?.host == "commons.wikimedia.org")
+            #expect(image.attribution?.isEmpty == false)
+            #expect(imageIDs.insert(image.id).inserted)
+        }
+    }
+
+    @Test func leidenPendingEditorialMediaDoesNotBecomeReleasePhotography() throws {
+        let place = try #require(CanonicalPlaceCatalog.detailPlace(id: "leiden-seed-rijksmuseum-van-oudheden"))
+        #expect(CanonicalPlaceImageResolver.imageAsset(for: place) == nil)
+        #expect(PremiumImageFallbackCategory.place.fallbackLocalAssetName.isEmpty)
+        #expect(PremiumImageFallbackCategory.map.fallbackLocalAssetName == "netherlands_map_base")
+    }
+
     @Test func selectedCityResolvesExpectedHeroCity() throws {
         let expectations: [(input: String, expected: String)] = [
             ("Amsterdam", "Amsterdam"),

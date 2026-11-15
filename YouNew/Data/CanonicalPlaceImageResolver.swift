@@ -106,6 +106,34 @@ enum ImageDebugLogger {
 }
 
 enum CanonicalPlaceImageResolver {
+    /// Connects existing dashboard IDs to the governed knowledge graph without copying media.
+    /// Resolving through the database preserves migration and withholding rules.
+    static func imageAsset(for place: PlaceItem) -> AppImageAsset? {
+        let entityID: String?
+        switch place.id {
+        case "leiden-seed-museum-de-lakenhal": entityID = "museum:leiden:lakenhal"
+        case "leiden-seed-naturalis-biodiversity-center": entityID = "museum:leiden:naturalis"
+        case "leiden-seed-burcht-van-leiden": entityID = "attraction:leiden:burcht"
+        default: entityID = nil
+        }
+        if let entityID {
+            guard let asset = NetherlandsKnowledgeDatabase.shared.entity(id: entityID)?.images.hero,
+                  asset.verified, asset.licenseName != nil, asset.sourcePageURL != nil,
+                  asset.attribution != nil else { return nil }
+            return asset
+        }
+        // Leiden's remaining raw URLs have no attached rights evidence in this catalog.
+        // Pending editorial media must not leak into the release through a visual fallback.
+        guard place.cityId.caseInsensitiveCompare("Leiden") != .orderedSame,
+              let url = AppURL.validatedWebURL(URL(string: place.image ?? "")) else { return nil }
+        return AppImageAsset(
+            id: "place-\(place.id)", url: url, title: place.title,
+            sourceName: place.source?.title ?? "City guide", sourceURL: place.source?.url,
+            license: nil, attribution: nil, width: nil, height: nil,
+            type: .cardThumbnail, verified: true
+        )
+    }
+
     static func resolveCityHero(city: NLCity) -> ResolvedPlaceImage {
         resolveCity(
             placeId: city.placeId,
