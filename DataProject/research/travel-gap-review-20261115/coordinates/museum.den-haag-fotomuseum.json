@@ -1,0 +1,30 @@
+{
+  "id": "museum.den-haag-fotomuseum",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "reviewerId": null,
+  "checkedAt": "2026-11-15",
+  "coordinate": null,
+  "addressMatched": false,
+  "approvedAddress": "Stadhouderslaan 43, 2517 HV Den Haag",
+  "officialSourceURL": "https://www.fotomuseumdenhaag.nl/en/contact",
+  "addressCheckedAt": "2026-11-09",
+  "sourceArtifact": {
+    "path": "YouNew/Resources/Data/younew-approved-local-test.json",
+    "sha256": "84a0a46abb7ebad17f74a6aa058d2e4f7d9352fb728d251ff532711f0f32643a"
+  },
+  "method": "Existing approved official address matched exactly to BAG centroid; not a surveyed entrance",
+  "license": "CC0 1.0",
+  "licenseEvidence": "DataProject/research/travel-approval-20261115/coordinate-license.json",
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Stadhouderslaan+43%2C+2517+HV+Den+Haag&fq=type%3Aadres&rows=5",
+  "robotsSHA256": "852726886a24887ade58aec8312c9c622b4bd980c0729ebd008fc03b7679d84a",
+  "responseSHA256": "2dec8c54ad72dd9e7c3f59e7f7c4331432ddd71ae9801ca9827ac965e7bff951",
+  "candidateAddresses": [
+    "Stadhouderslaan 43, 2517HV 's-Gravenhage",
+    "Stadhouderslaan 1P, 2517HV 's-Gravenhage",
+    "Stadhouderslaan 1Q, 2517HV 's-Gravenhage",
+    "Stadhouderslaan 1R, 2517HV 's-Gravenhage",
+    "Stadhouderslaan 3A, 2517HV 's-Gravenhage"
+  ],
+  "limitation": "No unique exact BAG address; no approximate substitution"
+}

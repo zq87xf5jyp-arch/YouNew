@@ -1,0 +1,39 @@
+{
+  "id": "museum.huis-marseille",
+  "sourceURL": "https://commons.wikimedia.org/wiki/File:Huismarseille.jpg",
+  "checkedAt": "2026-11-15",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "reviewerId": null,
+  "visualIdentityChecked": false,
+  "rightsEvidenceChecked": false,
+  "files": [
+    {
+      "path": "DataProject/research/travel-gap-review-20261115/media/museum.huis-marseille.webp",
+      "sha256": "501077519f14487ff8134a4a42ec703aa7863c34426cc6731e12d309257ef36f",
+      "bytes": 91980
+    }
+  ],
+  "reviewNote": "Alternative to previous oversized response; facade photograph, visual review pending.",
+  "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+  "robotsStatus": "fetched",
+  "httpStatus": 200,
+  "finalURL": "https://commons.wikimedia.org/wiki/File:Huismarseille.jpg",
+  "sourcePageSHA256": "2771e03a1374e1a3fe779281e42ad6f80865f945bc1b84d681d84931d1369fb5",
+  "author": "J.M. Luijt",
+  "license": "CC BY 3.0",
+  "licenseURL": "https://creativecommons.org/licenses/by/3.0/",
+  "shareAlike": false,
+  "licenseMetadataExtracted": true,
+  "changes": "Commons display-size derivative re-encoded as WebP; no crop, upscale or generated content.",
+  "attribution": "Huismarseille.jpg — J.M. Luijt — CC BY 3.0",
+  "requiredAttribution": "Retain title, author, source and license links; identify future modifications; apply ShareAlike to derivatives when required.",
+  "previousEvidence": {
+    "path": "DataProject/research/travel-media-followup-20261115/museum.huis-marseille.json",
+    "sha256": "3d2d8194afd6a5d08da4e3cee9915455ac8a874180deaec24dde5c001f888086"
+  },
+  "currentSourcePageSHA256": "2771e03a1374e1a3fe779281e42ad6f80865f945bc1b84d681d84931d1369fb5",
+  "downloadURL": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/Huismarseille.jpg/500px-Huismarseille.jpg",
+  "originalURL": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Huismarseille.jpg",
+  "downloadSHA256": "6c3e16f83a5fb8224d2ca9c4c177ca5f72a944589cd433a24a39303530aed579"
+}

@@ -159,3 +159,59 @@ Prepared five new **source-metadata records only**, in `DataProject/research/tra
 | Parktheater Eindhoven | 13-06-29-eindhoven-50mm-52.jpg | Author/license preserved in JSON; visual identity and suitability pending |
 
 All five remain `needs_review`, `publicationAuthorized: false`, `reviewerId: null`, with empty image file arrays. The preparation is idempotent and its five records were checked for license/source metadata and review isolation. Disk space fell to approximately 190 MiB during compilation (later recovered to approximately 386 MiB); no large media fetch or Simulator installation was attempted. Continue visual/rights checks and source resolution after ensuring sufficient workspace capacity. Do not regenerate or reapprove the exact PR #71 subset.
+
+## Follow-up from PR #73: Release isolation and two review batches (2026-11-15)
+
+Branch `feature/travel-review-release-isolation-20261115`, based on `512abc1`. Existing approved selections, historical research, owner receipts and all `YouNew/` runtime bytes remain unchanged. No new approval, production deployment or store action.
+
+### Release safety
+
+Release target now excludes `younew-approved-local-test.json` and `approved-travel-*.webp` through `EXCLUDED_SOURCE_FILE_NAMES`. The device Release effective settings confirm these patterns. This applies to resource build phases per [Apple's build settings reference](https://developer.apple.com/documentation/xcode/build-settings-reference).
+
+An additional post-resource build phase runs `scripts/check-ios-release-resources.sh`. In Release it scans the physical product, rejects either forbidden filename pattern, and requires the bundled production JSON to match the governed source. It never silently deletes files. Debug retains the approved local candidate. Tests verify this is the only project configuration change besides adding the guard; Bundle ID, Team, signing and entitlements are unchanged.
+
+`build-for-testing` for the correct checkout succeeded, with no error/warning diagnostics in `/tmp/younew-release-isolation-debug-build.log`. The guard was also invoked against the **real existing Debug .app under Release rules** and correctly rejected it. Positive and negative resource-package fixtures passed. A full Release binary/archive was **not built or inspected**: available space is insufficient. An attempted Xcode dry-run failed because this Xcode no longer supports `-dry-run`; this is not presented as a successful Release check. Before distribution, a real Release build and package inspection remain mandatory. No runtime visual QA was performed.
+
+### Batch 1: eleven source/address follow-ups, five photo candidates
+
+The nine unresolved primary-source records and two ambiguous addresses were investigated using alternate official/operator pages. Five pages were accessible: three support existing EN/NL descriptions (Oude Sterrewacht via Hortus, ARTIS-Micropia via ARTIS, Strijp-S via district operator), and two clarify address evidence. Existing descriptions are referenced by immutable file/hash, not recreated.
+
+- Muziekgebouw: the property operator's venue directory explicitly identifies **Heuvel Galerie 140, 5611 DK Eindhoven**. Its exact BAG address yields a new review-only address centroid. The prior failed Heuvel match remains untouched. This is property-operator corroboration, not a surveyed entrance.
+- Verzetsmuseum: the official visitor page still says Plantage Kerklaan 61; BAG suffix ambiguity remains unresolved. No coordinate selected.
+- Six primary sources remain unresolved: Foam, Museum Van Loon, Mauritshuis, Kunstmuseum, Madurodam (robots disallowed/unavailable), and Parktheater (redirect loop). Search discovery alone did not override the fetch/publication gate.
+- Four new, small WebP review derivatives were prepared from the previously identified Commons alternatives, with original author/license/source metadata, download and derivative SHA-256. All four were actually viewed locally: Huis Marseille facade, Markthal facade, Parktheater facade/sign, Foam facade/sign. They are **not activated**. Foam is a narrow 250px image, suitable only for consideration as a gallery/detail image; its primary source remains blocked. Parktheater's primary source also remains unresolved. Huis Marseille and Markthal are image candidates for existing Debug cards, pending owner review and crop QA.
+- VONK was not downloaded or proposed: the Eindhoven Museum author field conflicts with EXIF credit to Freekje Groenemans Fotografie. No permission was inferred, and no contact was sent. Historical appearance also needs qualification. The contradiction remains unresolved.
+
+New evidence lives only in `DataProject/research/travel-gap-review-20261115/`. The earlier five metadata records and all approved photos are immutable.
+
+### Batch 2: ten missing coordinates using approved addresses
+
+Reused the current approved addresses and their original source-check dates. Nine exact BAG matches: Bikini Bikini, In den Doofpot, Verboden Toegang, Het Prentenkabinet, Oudt Leyden, Chabot Museum, Sonnenborgh, VVV Leiden and Café Laken. No restaurant address was fetched again unnecessarily.
+
+Fotomuseum Den Haag remains held: BAG uses `'s-Gravenhage`, while the approved address uses Den Haag. The strict matcher does not silently introduce locality aliases. This is an alias-validation task, not permission to choose an approximate point. Each accepted point preserves BAG identity, response hash, CC0 provenance, address evidence and the address-centroid accuracy label.
+
+| Layer | Records | Bundled/new photos | Coordinates | Collections |
+|---|---:|---:|---:|---:|
+| Approved local / Debug, unchanged | 85 | 36 | 40 | 6 |
+| Production artifact / intended Release, unchanged | 12 | 4 | 7 | 0 |
+| New review this iteration | 3 existing EN/NL pairs with resolved source evidence | 4 derivatives, 0 approved | 10 new exact matches, 0 approved | 0 |
+
+The review coordinate count is nine batch-2 matches plus Muziekgebouw. Approved coverage remains 36/85 photos (42.4%) and 40/85 coordinates (47.1%). Approval of all ten new coordinate candidates would yield 50/85 (58.8%); this is a projection, not runtime content. Area/park applicability needs separate entrance/geometry review. The 80% goals are not met.
+
+### Reproduction and limits
+
+```sh
+python3 scripts/prepare-travel-gap-review.py
+python3 scripts/finalize-travel-gap-review.py
+python3 scripts/prepare-travel-gap-coordinates.py
+python3 scripts/prepare-travel-gap-media.py
+python3 -m unittest scripts/tests/test_ios_release_resources.py scripts/tests/test_travel_gap_review.py scripts/tests/travel_selection_test.py scripts/tests/travel_expansion_review_test.py
+node scripts/export-approved-ios-places.mjs --check
+node scripts/export-approved-ios-places.mjs --local-test --check
+```
+
+Twenty-four Python checks and ten existing Node checks passed (34 total). New checks cover exact BAG address/point equality, media/source SHA-256, review isolation, EN/NL record bindings, unchanged runtime/approval bytes, Release configuration scope and actual guard behavior. Both exporter checks passed. Review-only files require no additional iOS build.
+
+Disk capacity is a real limit: approximately 298 MiB initially, then temporary-file writes failed with `ENOSPC`. Only known compiler intermediates from this task's `/tmp/younew-leiden-build/.../Objects-normal/arm64` were removed (about 346 MiB); the built app and logs were retained. No user files or unrelated caches were removed. Each image download checks a 200 MiB reserve; four small derivatives were prepared while above it. Space subsequently fell again to approximately 184 MiB, so further binary preparation is paused. Do not retry failed sources in loops or install Simulator runtimes on this nearly full volume.
+
+Next safe work: free workspace capacity through owner-controlled storage management, then Amsterdam's missing address evidence and licensed images for already prepared objects; validate the Den Haag locality alias, resolve six source gates and the VONK rights conflict. New data stays in review. Before release, build and inspect an actual Release package and complete runtime QA.

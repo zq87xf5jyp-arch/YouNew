@@ -1,0 +1,68 @@
+{
+  "id": "restaurant.leiden-in-den-doofpot",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "reviewerId": null,
+  "checkedAt": "2026-11-15",
+  "coordinate": {
+    "latitude": 52.16196422,
+    "longitude": 4.48582148
+  },
+  "addressMatched": true,
+  "approvedAddress": "Turfmarkt 9, 2312 CE Leiden",
+  "officialSourceURL": "https://www.indendoofpot.nl/contact",
+  "addressCheckedAt": "2026-11-09",
+  "sourceArtifact": {
+    "path": "YouNew/Resources/Data/younew-approved-local-test.json",
+    "sha256": "84a0a46abb7ebad17f74a6aa058d2e4f7d9352fb728d251ff532711f0f32643a"
+  },
+  "method": "Existing approved official address matched exactly to BAG centroid; not a surveyed entrance",
+  "license": "CC0 1.0",
+  "licenseEvidence": "DataProject/research/travel-approval-20261115/coordinate-license.json",
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Turfmarkt+9%2C+2312+CE+Leiden&fq=type%3Aadres&rows=5",
+  "robotsSHA256": "852726886a24887ade58aec8312c9c622b4bd980c0729ebd008fc03b7679d84a",
+  "responseSHA256": "2562f8bb28071a1d1a1b53b09a97bba4a3052da2a672e0caaa3ef9e2208420ab",
+  "candidateAddresses": [
+    "Turfmarkt 9A, 2312CE Leiden",
+    "Turfmarkt 9, 2312CE Leiden",
+    "Turfmarkt 7A, 2312CE Leiden",
+    "Turfmarkt 7B, 2312CE Leiden",
+    "Turfmarkt 7C, 2312CE Leiden"
+  ],
+  "bag": {
+    "bron": "BAG",
+    "woonplaatscode": "2088",
+    "type": "adres",
+    "woonplaatsnaam": "Leiden",
+    "wijkcode": "WK054601",
+    "huis_nlt": "9",
+    "openbareruimtetype": "Weg",
+    "buurtnaam": "De Camp",
+    "gemeentecode": "0546",
+    "rdf_seealso": "http://bag.basisregistraties.overheid.nl/bag/id/nummeraanduiding/0546200000012298",
+    "weergavenaam": "Turfmarkt 9, 2312CE Leiden",
+    "straatnaam_verkort": "Turfmarkt",
+    "id": "adr-b6d0c47966e1800022d59076be8007ac",
+    "gekoppeld_perceel": [
+      "LDN01-H-368"
+    ],
+    "gemeentenaam": "Leiden",
+    "buurtcode": "BU05460100",
+    "wijknaam": "Binnenstad-Noord",
+    "identificatie": "0546010000012298-0546200000012298",
+    "openbareruimte_id": "0546300000001423",
+    "waterschapsnaam": "Hoogheemraadschap van Rijnland",
+    "provinciecode": "PV28",
+    "postcode": "2312CE",
+    "provincienaam": "Zuid-Holland",
+    "centroide_ll": "POINT(4.48582148 52.16196422)",
+    "nummeraanduiding_id": "0546200000012298",
+    "waterschapscode": "13",
+    "adresseerbaarobject_id": "0546010000012298",
+    "huisnummer": 9,
+    "provincieafkorting": "ZH",
+    "centroide_rd": "POINT(93325.149 464138.662)",
+    "straatnaam": "Turfmarkt",
+    "score": 22.82248
+  }
+}

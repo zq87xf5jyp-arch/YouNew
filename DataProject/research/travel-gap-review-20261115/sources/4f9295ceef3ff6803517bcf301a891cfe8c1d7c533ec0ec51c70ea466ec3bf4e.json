@@ -1,0 +1,20 @@
+{
+  "url": "https://www.verzetsmuseum.org/en/address-and-opening-hours",
+  "checkedAt": "2026-11-15",
+  "status": "opened",
+  "contentReviewed": false,
+  "robotsSHA256": "e80719fbcc582fa7f37cd56c5ecd8ca8a0f77d84f33d8885069cdbcda74d4a82",
+  "robotsStatus": "fetched",
+  "httpStatus": 200,
+  "finalURL": "https://www.verzetsmuseum.org/en/address-and-opening-hours",
+  "sha256": "5361c6bf917c006150751821d0efd4a8e6a4cb61e7eaff2dba4cd8e6dc0746dc",
+  "title": "            Address and opening hours – Verzetsmuseum\n     Brand logo Menu icon Arrow down Close cross icon Arrow down Arrow down Arrow down Magnifying glass icons.arrow--right.title Brand logo icons.arrow--right.title Close cross icon icons.arrow--right.title Close cross icon icons.arrow--right.title Close cross icon Magnifying glass Arrow down Magnifying glass Close cross icon Arrow right Arrow right Arrow right Arrow right Logo Resistance Museum Logo Resistance Museum Logo Algemeen Nut Beogende Instelling ANBI",
+  "excerpt": "Address and opening hours – Verzetsmuseum Directly to the main navigation Go to the main content Directly to the main",
+  "actionCandidates": [
+    "https://www.verzetsmuseum.org/en/tickets",
+    "https://www.verzetsmuseum.org/en/ticket",
+    "https://tickets.verzetsmuseum.org/donation",
+    "https://tickets.verzetsmuseum.org/en/tickets",
+    "https://www.verzetsmuseum.org/en/buy-your-tickets-online"
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "id": "restaurant.leiden-prentenkabinet",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "reviewerId": null,
+  "checkedAt": "2026-11-15",
+  "coordinate": {
+    "latitude": 52.15725289,
+    "longitude": 4.48761367
+  },
+  "addressMatched": true,
+  "approvedAddress": "Kloksteeg 25, 2311 SK Leiden",
+  "officialSourceURL": "https://www.prentenkabinet.nl/reserveren/",
+  "addressCheckedAt": "2026-11-09",
+  "sourceArtifact": {
+    "path": "YouNew/Resources/Data/younew-approved-local-test.json",
+    "sha256": "84a0a46abb7ebad17f74a6aa058d2e4f7d9352fb728d251ff532711f0f32643a"
+  },
+  "method": "Existing approved official address matched exactly to BAG centroid; not a surveyed entrance",
+  "license": "CC0 1.0",
+  "licenseEvidence": "DataProject/research/travel-approval-20261115/coordinate-license.json",
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Kloksteeg+25%2C+2311+SK+Leiden&fq=type%3Aadres&rows=5",
+  "robotsSHA256": "852726886a24887ade58aec8312c9c622b4bd980c0729ebd008fc03b7679d84a",
+  "responseSHA256": "0101059e0bccbb2b7e638d15e8e7db4b2c10fa8c89f96cea55843e601ecea0b0",
+  "candidateAddresses": [
+    "Kloksteeg 25A, 2311SK Leiden",
+    "Kloksteeg 25B, 2311SK Leiden",
+    "Kloksteeg 25, 2311SK Leiden",
+    "Kloksteeg 7A, 2311SK Leiden",
+    "Kloksteeg 7B, 2311SK Leiden"
+  ],
+  "bag": {
+    "bron": "BAG",
+    "woonplaatscode": "2088",
+    "type": "adres",
+    "woonplaatsnaam": "Leiden",
+    "wijkcode": "WK054600",
+    "huis_nlt": "25",
+    "openbareruimtetype": "Weg",
+    "buurtnaam": "Pieterswijk",
+    "gemeentecode": "0546",
+    "rdf_seealso": "http://bag.basisregistraties.overheid.nl/bag/id/nummeraanduiding/0546200000067101",
+    "weergavenaam": "Kloksteeg 25, 2311SK Leiden",
+    "straatnaam_verkort": "Klokstg",
+    "id": "adr-4e2b3052e180146d8932e8eb7db031fb",
+    "gekoppeld_perceel": [
+      "LDN01-G-2211"
+    ],
+    "gemeentenaam": "Leiden",
+    "buurtcode": "BU05460000",
+    "wijknaam": "Binnenstad-Zuid",
+    "identificatie": "0546010000066926-0546200000067101",
+    "openbareruimte_id": "0546300000000691",
+    "waterschapsnaam": "Hoogheemraadschap van Rijnland",
+    "provinciecode": "PV28",
+    "postcode": "2311SK",
+    "provincienaam": "Zuid-Holland",
+    "centroide_ll": "POINT(4.48761367 52.15725289)",
+    "nummeraanduiding_id": "0546200000067101",
+    "waterschapscode": "13",
+    "adresseerbaarobject_id": "0546010000066926",
+    "huisnummer": 25,
+    "provincieafkorting": "ZH",
+    "centroide_rd": "POINT(93441.273 463612.984)",
+    "straatnaam": "Kloksteeg",
+    "gekoppeld_appartement": [
+      "LDN01-G-2290-A-1"
+    ],
+    "score": 24.786026
+  }
+}

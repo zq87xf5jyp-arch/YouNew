@@ -1,0 +1,39 @@
+{
+  "id": "museum.foam",
+  "sourceURL": "https://commons.wikimedia.org/wiki/File:Amsterdam%20Keizersgracht%200609%20001.JPG",
+  "checkedAt": "2026-11-15",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "reviewerId": null,
+  "visualIdentityChecked": false,
+  "rightsEvidenceChecked": false,
+  "files": [
+    {
+      "path": "DataProject/research/travel-gap-review-20261115/media/museum.foam.webp",
+      "sha256": "3c94eeb36cf70a4cd1cb51dafc1c380dda2c77255fd601c4ac1f3f8caedbbf94",
+      "bytes": 54432
+    }
+  ],
+  "reviewNote": "Replacement for rejected soap image; very narrow facade crop requires visual review. Entity source remains unresolved.",
+  "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+  "robotsStatus": "fetched",
+  "httpStatus": 200,
+  "finalURL": "https://commons.wikimedia.org/wiki/File:Amsterdam_Keizersgracht_0609_001.JPG",
+  "sourcePageSHA256": "a3f1ec77aea106973cbe8f5f1583e474ac61c21a32a8b8cf32c692bd534249dc",
+  "author": "Janericloebe",
+  "license": "CC BY 3.0",
+  "licenseURL": "https://creativecommons.org/licenses/by/3.0/",
+  "shareAlike": false,
+  "licenseMetadataExtracted": true,
+  "changes": "Commons display-size derivative re-encoded as WebP; no crop, upscale or generated content.",
+  "attribution": "Amsterdam Keizersgracht 0609 001.JPG — Janericloebe — CC BY 3.0",
+  "requiredAttribution": "Retain title, author, source and license links; identify future modifications; apply ShareAlike to derivatives when required.",
+  "previousEvidence": {
+    "path": "DataProject/research/travel-media-followup-20261115/museum.foam.json",
+    "sha256": "92b05dc29212e700a4e5052e3db9de0cb2e2096b2049b095ea06c52ae021f87f"
+  },
+  "currentSourcePageSHA256": "a3f1ec77aea106973cbe8f5f1583e474ac61c21a32a8b8cf32c692bd534249dc",
+  "downloadURL": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/Amsterdam_Keizersgracht_0609_001.JPG/250px-Amsterdam_Keizersgracht_0609_001.JPG",
+  "originalURL": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Amsterdam_Keizersgracht_0609_001.JPG",
+  "downloadSHA256": "7adb721246fa9c0cba2a7191ead9c95bbf5b52aa4bcd83234e69be1dbbdf9383"
+}

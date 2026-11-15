@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "publicationAuthorized": false,
+  "records": [
+    {
+      "id": "place.leiden-oude-sterrewacht",
+      "status": "needs_review",
+      "publicationAuthorized": false,
+      "reviewerId": null,
+      "contentChecked": true,
+      "checkedAt": "2026-11-15",
+      "reviewNote": "Hortus operator page supports historic observatory and visiting programme. Exhibition access via Hortus differs from private-tour entrance; do not substitute either entrance for all visits.",
+      "existingRecord": {
+        "path": "DataProject/staging/travel-expansion-20261115/leiden.json",
+        "sha256": "cfa708c887889735dbadc389ba99e0387952ec56fefebf9f5dd88872c64cf4dc"
+      },
+      "reusedFields": [
+        "id",
+        "title",
+        "description",
+        "attributes.description_nl"
+      ],
+      "proposedSource": "https://hortusleiden.nl/zien-en-doen/ontdek-de-oude-sterrewacht",
+      "sourceEvidence": {
+        "path": "DataProject/research/travel-gap-review-20261115/sources/1eb270bfb978ea16003f022cf4cc2f0c77fafee312b244179c8b33345b9e9345.json",
+        "sha256": "3192326fe1cfc5a094bf7b4ff095607f34d6c5241c1352ed4c30596a8564a1dd"
+      }
+    },
+    {
+      "id": "museum.artis-micropia",
+      "status": "needs_review",
+      "publicationAuthorized": false,
+      "reviewerId": null,
+      "contentChecked": true,
+      "checkedAt": "2026-11-15",
+      "reviewNote": "ARTIS operator page supports existing EN/NL microbe-museum description. No prices, opening hours or ticket URLs selected.",
+      "existingRecord": {
+        "path": "DataProject/staging/travel-expansion-20261115/amsterdam.json",
+        "sha256": "657498ae354832634e4b7a5adbef2fa290a85e4929ab1c64801f21fa0df382ae"
+      },
+      "reusedFields": [
+        "id",
+        "title",
+        "description",
+        "attributes.description_nl"
+      ],
+      "proposedSource": "https://www.artis.nl/nl/artis-micropia",
+      "sourceEvidence": {
+        "path": "DataProject/research/travel-gap-review-20261115/sources/bdffca9f163288f2a4f0d101527d906d119d37e2e9d5cc859890a79ec44ac7ae.json",
+        "sha256": "59ce7f48f85fe2178ac92858da7168c077c12f69899c80e00617b7a994317a88"
+      }
+    },
+    {
+      "id": "place.eindhoven-strijp-s",
+      "status": "needs_review",
+      "publicationAuthorized": false,
+      "reviewerId": null,
+      "contentChecked": true,
+      "checkedAt": "2026-11-15",
+      "reviewNote": "District operator history supports former Philips industry and current creative/cultural uses. A district is not a single building or entrance.",
+      "existingRecord": {
+        "path": "DataProject/staging/travel-expansion-20261115/eindhoven.json",
+        "sha256": "4d8db5570d34666a1b573667db7c507b594ca8042e41b2c87e287c0fc08b017e"
+      },
+      "reusedFields": [
+        "id",
+        "title",
+        "description",
+        "attributes.description_nl"
+      ],
+      "proposedSource": "https://www.strijp-s.nl/historie",
+      "sourceEvidence": {
+        "path": "DataProject/research/travel-gap-review-20261115/sources/a546d3c64d397d742d2901a0fcb6bd60b5ed271f8cd8f1c7a5ac5bc45870cc41.json",
+        "sha256": "58aa39db3da191272eed1830b90fbfae2f937203e0f10d6afbc2a52e4432a9e0"
+      }
+    }
+  ]
+}

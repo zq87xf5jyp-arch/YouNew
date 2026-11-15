@@ -1,0 +1,68 @@
+{
+  "id": "restaurant.leiden-bikini",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "reviewerId": null,
+  "checkedAt": "2026-11-15",
+  "coordinate": {
+    "latitude": 52.16140868,
+    "longitude": 4.50273988
+  },
+  "addressMatched": true,
+  "approvedAddress": "Haven 1, 2312 MG Leiden",
+  "officialSourceURL": "https://caferestaurantbikini.nl/contact/",
+  "addressCheckedAt": "2026-11-09",
+  "sourceArtifact": {
+    "path": "YouNew/Resources/Data/younew-approved-local-test.json",
+    "sha256": "84a0a46abb7ebad17f74a6aa058d2e4f7d9352fb728d251ff532711f0f32643a"
+  },
+  "method": "Existing approved official address matched exactly to BAG centroid; not a surveyed entrance",
+  "license": "CC0 1.0",
+  "licenseEvidence": "DataProject/research/travel-approval-20261115/coordinate-license.json",
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Haven+1%2C+2312+MG+Leiden&fq=type%3Aadres&rows=5",
+  "robotsSHA256": "852726886a24887ade58aec8312c9c622b4bd980c0729ebd008fc03b7679d84a",
+  "responseSHA256": "0a250d9014eb3230df2d7cde60d6c7919bb4923c484cc07e2758d3c16d3beffd",
+  "candidateAddresses": [
+    "Haven 1, 2312MG Leiden",
+    "Haven 3A, 2312MG Leiden",
+    "Haven 3B, 2312MG Leiden",
+    "Haven 3C, 2312MG Leiden",
+    "Haven 3D, 2312MG Leiden"
+  ],
+  "bag": {
+    "bron": "BAG",
+    "woonplaatscode": "2088",
+    "type": "adres",
+    "woonplaatsnaam": "Leiden",
+    "wijkcode": "WK054601",
+    "huis_nlt": "1",
+    "openbareruimtetype": "Weg",
+    "buurtnaam": "Havenwijk-Noord",
+    "gemeentecode": "0546",
+    "rdf_seealso": "http://bag.basisregistraties.overheid.nl/bag/id/nummeraanduiding/0546200000064384",
+    "weergavenaam": "Haven 1, 2312MG Leiden",
+    "straatnaam_verkort": "Haven",
+    "id": "adr-e0896e1114e281788405d7c416d54101",
+    "gekoppeld_perceel": [
+      "LDN01-C-1820"
+    ],
+    "gemeentenaam": "Leiden",
+    "buurtcode": "BU05460106",
+    "wijknaam": "Binnenstad-Noord",
+    "identificatie": "0546010000064302-0546200000064384",
+    "openbareruimte_id": "0546300000000504",
+    "waterschapsnaam": "Hoogheemraadschap van Rijnland",
+    "provinciecode": "PV28",
+    "postcode": "2312MG",
+    "provincienaam": "Zuid-Holland",
+    "centroide_ll": "POINT(4.50273988 52.16140868)",
+    "nummeraanduiding_id": "0546200000064384",
+    "waterschapscode": "13",
+    "adresseerbaarobject_id": "0546010000064302",
+    "huisnummer": 1,
+    "provincieafkorting": "ZH",
+    "centroide_rd": "POINT(94481.955 464062.611)",
+    "straatnaam": "Haven",
+    "score": 21.290756
+  }
+}
