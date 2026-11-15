@@ -1,0 +1,68 @@
+{
+  "id": "place.leiden-cafe-laken",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "reviewerId": null,
+  "checkedAt": "2026-11-15",
+  "coordinate": {
+    "latitude": 52.1628594,
+    "longitude": 4.48728587
+  },
+  "addressMatched": true,
+  "approvedAddress": "Oude Singel 30, 2312 RA Leiden",
+  "officialSourceURL": "https://www.cafelaken.nl/",
+  "addressCheckedAt": "2026-11-09",
+  "sourceArtifact": {
+    "path": "YouNew/Resources/Data/younew-approved-local-test.json",
+    "sha256": "84a0a46abb7ebad17f74a6aa058d2e4f7d9352fb728d251ff532711f0f32643a"
+  },
+  "method": "Existing approved official address matched exactly to BAG centroid; not a surveyed entrance",
+  "license": "CC0 1.0",
+  "licenseEvidence": "DataProject/research/travel-approval-20261115/coordinate-license.json",
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Oude+Singel+30%2C+2312+RA+Leiden&fq=type%3Aadres&rows=5",
+  "robotsSHA256": "852726886a24887ade58aec8312c9c622b4bd980c0729ebd008fc03b7679d84a",
+  "responseSHA256": "a941860b2afa0ec1bfebe1ae318da1b8ee7c189cf17ab0b9fab48bb2b155c2ae",
+  "candidateAddresses": [
+    "Oude Singel 30, 2312RA Leiden",
+    "Oude Singel 2A-1, 2312RA Leiden",
+    "Oude Singel 4A-1, 2312RA Leiden",
+    "Oude Singel 2A, 2312RA Leiden",
+    "Oude Singel 2B, 2312RA Leiden"
+  ],
+  "bag": {
+    "bron": "BAG",
+    "woonplaatscode": "2088",
+    "type": "adres",
+    "woonplaatsnaam": "Leiden",
+    "wijkcode": "WK054601",
+    "huis_nlt": "30",
+    "openbareruimtetype": "Weg",
+    "buurtnaam": "Molenbuurt",
+    "gemeentecode": "0546",
+    "rdf_seealso": "http://bag.basisregistraties.overheid.nl/bag/id/nummeraanduiding/0546200000069981",
+    "weergavenaam": "Oude Singel 30, 2312RA Leiden",
+    "straatnaam_verkort": "Oude Singel",
+    "id": "adr-40913233da6faeec90930649ac738c96",
+    "gekoppeld_perceel": [
+      "LDN01-B-3735"
+    ],
+    "gemeentenaam": "Leiden",
+    "buurtcode": "BU05460108",
+    "wijknaam": "Binnenstad-Noord",
+    "identificatie": "0546010000069723-0546200000069981",
+    "openbareruimte_id": "0546300000001032",
+    "waterschapsnaam": "Hoogheemraadschap van Rijnland",
+    "provinciecode": "PV28",
+    "postcode": "2312RA",
+    "provincienaam": "Zuid-Holland",
+    "centroide_ll": "POINT(4.48728587 52.1628594)",
+    "nummeraanduiding_id": "0546200000069981",
+    "waterschapscode": "13",
+    "adresseerbaarobject_id": "0546010000069723",
+    "huisnummer": 30,
+    "provincieafkorting": "ZH",
+    "centroide_rd": "POINT(93426.578 464237.012)",
+    "straatnaam": "Oude Singel",
+    "score": 24.295906
+  }
+}

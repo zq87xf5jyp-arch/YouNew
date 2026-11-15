@@ -111,6 +111,7 @@
 				D828331C2FBF2CC2007504D3 /* Sources */,
 				D828331D2FBF2CC2007504D3 /* Frameworks */,
 				D828331E2FBF2CC2007504D3 /* Resources */,
+				A73111500000000000000001 /* Verify Release content */,
 			);
 			buildRules = (
 			);
@@ -247,6 +248,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A73111500000000000000001 /* Verify Release content */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = ();
+			inputPaths = ("$(SRCROOT)/scripts/check-ios-release-resources.sh", "$(SRCROOT)/YouNew/Resources/Data/younew-approved-places.json", "$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)");
+			name = "Verify Release content";
+			outputPaths = ();
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/bin/sh \"$SRCROOT/scripts/check-ios-release-resources.sh\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D828331C2FBF2CC2007504D3 /* Sources */ = {
@@ -467,6 +483,7 @@
 		D82833452FBF2CC4007504D3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				EXCLUDED_SOURCE_FILE_NAMES = ("$(inherited)", "younew-approved-local-test.json", "approved-travel-*.webp");
 				APP_SHORTCUTS_ENABLE_FLEXIBLE_MATCHING = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

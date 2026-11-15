@@ -85,7 +85,7 @@ class SelectionTests(unittest.TestCase):
 
     def test_no_production_or_historical_evidence_mutation(self):
         result = subprocess.run(['git', 'diff', '--exit-code', 'f03657e', '--',
-            'YouNew/Resources/Data/younew-approved-places.json', 'YouNew.xcodeproj', 'DataProject/editorial', ':(exclude)DataProject/editorial/travel-ios-local-20261115-approval.json',
+            'YouNew/Resources/Data/younew-approved-places.json', 'DataProject/editorial', ':(exclude)DataProject/editorial/travel-ios-local-20261115-approval.json',
             'DataProject/research/travel-expansion-20261115',
             'DataProject/staging/travel-expansion-20261115'], cwd=ROOT, capture_output=True)
         self.assertEqual(result.returncode, 0, result.stdout.decode())

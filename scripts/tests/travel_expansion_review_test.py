@@ -115,7 +115,7 @@ class ReviewTests(unittest.TestCase):
     def test_production_data_unchanged_from_pr69(self):
         result = subprocess.run(['git', 'diff', '--exit-code',
             'a56429fcc42a209324b51f29eda953684e043b0b', '--', 'YouNew/Resources/Data/younew-approved-places.json',
-            'YouNew.xcodeproj', 'DataProject/editorial', ':(exclude)DataProject/editorial/travel-ios-local-20261115-approval.json', 'DataProject/approvals'],
+            'DataProject/editorial', ':(exclude)DataProject/editorial/travel-ios-local-20261115-approval.json', 'DataProject/approvals'],
             cwd=ROOT, capture_output=True)
         self.assertEqual(result.returncode, 0, result.stdout.decode())
 

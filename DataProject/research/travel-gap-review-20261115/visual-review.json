@@ -1,0 +1,45 @@
+{
+  "checkedAt": "2026-11-15",
+  "photos": [
+    {
+      "id": "museum.foam",
+      "visualIdentityChecked": true,
+      "visualDecision": "gallery_only",
+      "note": "Correct Foam facade and sign; narrow 250px preview unsuitable as a wide hero. Primary source remains blocked.",
+      "publicationAuthorized": false,
+      "reviewerId": null,
+      "status": "needs_review"
+    },
+    {
+      "id": "museum.huis-marseille",
+      "visualIdentityChecked": true,
+      "visualDecision": "candidate",
+      "note": "Facade includes building number 401; portrait image requires runtime crop review.",
+      "publicationAuthorized": false,
+      "reviewerId": null,
+      "status": "needs_review"
+    },
+    {
+      "id": "place.rotterdam-markthal",
+      "visualIdentityChecked": true,
+      "visualDecision": "candidate",
+      "note": "Full recognizable Markthal facade; replaces unrelated streetscape.",
+      "publicationAuthorized": false,
+      "reviewerId": null,
+      "status": "needs_review"
+    },
+    {
+      "id": "place.eindhoven-park-theatre",
+      "visualIdentityChecked": true,
+      "visualDecision": "candidate",
+      "note": "Recognizable Parktheater facade and sign; replaces backstage view.",
+      "publicationAuthorized": false,
+      "reviewerId": null,
+      "status": "needs_review"
+    }
+  ],
+  "held": {
+    "id": "museum.eindhoven-prehistorisch-dorp",
+    "reason": "Author/EXIF contradiction unresolved; no replacement prepared"
+  }
+}

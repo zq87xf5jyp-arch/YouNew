@@ -1,0 +1,16 @@
+{
+  "url": "https://hortusleiden.nl/zien-en-doen/ontdek-de-oude-sterrewacht",
+  "checkedAt": "2026-11-15",
+  "status": "opened",
+  "contentReviewed": false,
+  "robotsSHA256": "0a201f92c5e131a45a98633996f1110af1ee9af3d5f215e480b129ea1ac08723",
+  "robotsStatus": "fetched",
+  "httpStatus": 200,
+  "finalURL": "https://hortusleiden.nl/zien-en-doen/ontdek-de-oude-sterrewacht",
+  "sha256": "82a8990479a70defc39731ea1acda819d904888e7379ff81f611f8c32bb95cab",
+  "title": "Oude Sterrewacht Leiden en botanische tuinen in één bezoek",
+  "excerpt": "Oude Sterrewacht Leiden en botanische tuinen in één bezoek Door naar de hoofd inhoud Spring naar de voettekst Naar navigatie",
+  "actionCandidates": [
+    "https://hortusleiden.nl/tickets"
+  ]
+}

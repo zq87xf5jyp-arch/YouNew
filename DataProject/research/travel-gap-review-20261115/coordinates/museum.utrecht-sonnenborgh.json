@@ -1,0 +1,68 @@
+{
+  "id": "museum.utrecht-sonnenborgh",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "reviewerId": null,
+  "checkedAt": "2026-11-15",
+  "coordinate": {
+    "latitude": 52.08541538,
+    "longitude": 5.12928285
+  },
+  "addressMatched": true,
+  "approvedAddress": "Zonnenburg 2, 3512 NL Utrecht",
+  "officialSourceURL": "https://www.sonnenborgh.nl/english/address-contact-and-route",
+  "addressCheckedAt": "2026-11-09",
+  "sourceArtifact": {
+    "path": "YouNew/Resources/Data/younew-approved-local-test.json",
+    "sha256": "84a0a46abb7ebad17f74a6aa058d2e4f7d9352fb728d251ff532711f0f32643a"
+  },
+  "method": "Existing approved official address matched exactly to BAG centroid; not a surveyed entrance",
+  "license": "CC0 1.0",
+  "licenseEvidence": "DataProject/research/travel-approval-20261115/coordinate-license.json",
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Zonnenburg+2%2C+3512+NL+Utrecht&fq=type%3Aadres&rows=5",
+  "robotsSHA256": "852726886a24887ade58aec8312c9c622b4bd980c0729ebd008fc03b7679d84a",
+  "responseSHA256": "2aa6cb85c11c458b683fd81425b7a9d2e48b5939d1606653ff1671de61b34068",
+  "candidateAddresses": [
+    "Zonnenburg 2, 3512NL Utrecht",
+    "Zonnenburg 1, 3512NL Utrecht",
+    "Zonnenburg 3, 3512NL Utrecht",
+    "Zonnenburg 2, 2135BS Hoofddorp",
+    "Zonnenburg 4, 2135BS Hoofddorp"
+  ],
+  "bag": {
+    "bron": "BAG",
+    "woonplaatscode": "3295",
+    "type": "adres",
+    "woonplaatsnaam": "Utrecht",
+    "wijkcode": "WK034406",
+    "huis_nlt": "2",
+    "openbareruimtetype": "Weg",
+    "buurtnaam": "Nieuwegracht-Oost",
+    "gemeentecode": "0344",
+    "rdf_seealso": "http://bag.basisregistraties.overheid.nl/bag/id/nummeraanduiding/0344200000083585",
+    "weergavenaam": "Zonnenburg 2, 3512NL Utrecht",
+    "straatnaam_verkort": "Zonnenburg",
+    "id": "adr-c0d609198ddc3ae7e86764835ec23c7e",
+    "gekoppeld_perceel": [
+      "UTT00-B-5194"
+    ],
+    "gemeentenaam": "Utrecht",
+    "buurtcode": "BU03440626",
+    "wijknaam": "Wijk 06 Binnenstad",
+    "identificatie": "0344010000076034-0344200000083585",
+    "openbareruimte_id": "0344300000000751",
+    "waterschapsnaam": "Hoogheemraadschap De Stichtse Rijnlanden",
+    "provinciecode": "PV26",
+    "postcode": "3512NL",
+    "provincienaam": "Utrecht",
+    "centroide_ll": "POINT(5.12928285 52.08541538)",
+    "nummeraanduiding_id": "0344200000083585",
+    "waterschapscode": "14",
+    "adresseerbaarobject_id": "0344010000076034",
+    "huisnummer": 2,
+    "provincieafkorting": "UT",
+    "centroide_rd": "POINT(137321.871 455270.232)",
+    "straatnaam": "Zonnenburg",
+    "score": 25.658459
+  }
+}

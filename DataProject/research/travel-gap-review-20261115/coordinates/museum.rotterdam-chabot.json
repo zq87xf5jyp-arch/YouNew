@@ -1,0 +1,68 @@
+{
+  "id": "museum.rotterdam-chabot",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "reviewerId": null,
+  "checkedAt": "2026-11-15",
+  "coordinate": {
+    "latitude": 51.91468964,
+    "longitude": 4.47238222
+  },
+  "addressMatched": true,
+  "approvedAddress": "Museumpark 11, 3015 CB Rotterdam",
+  "officialSourceURL": "https://chabotmuseum.nl/bezoekers/",
+  "addressCheckedAt": "2026-11-09",
+  "sourceArtifact": {
+    "path": "YouNew/Resources/Data/younew-approved-local-test.json",
+    "sha256": "84a0a46abb7ebad17f74a6aa058d2e4f7d9352fb728d251ff532711f0f32643a"
+  },
+  "method": "Existing approved official address matched exactly to BAG centroid; not a surveyed entrance",
+  "license": "CC0 1.0",
+  "licenseEvidence": "DataProject/research/travel-approval-20261115/coordinate-license.json",
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Museumpark+11%2C+3015+CB+Rotterdam&fq=type%3Aadres&rows=5",
+  "robotsSHA256": "852726886a24887ade58aec8312c9c622b4bd980c0729ebd008fc03b7679d84a",
+  "responseSHA256": "4d5c7bee3513e9c09edde3e006de47293ffed3ec835d821fc6a486257edf5975",
+  "candidateAddresses": [
+    "Museumpark 11, 3015CB Rotterdam",
+    "Museumpark 3, 3015CB Rotterdam",
+    "Museumpark 7, 3015CB Rotterdam",
+    "Museumpark 9, 3015CB Rotterdam",
+    "Museumpark 25, 3015CB Rotterdam"
+  ],
+  "bag": {
+    "bron": "BAG",
+    "woonplaatscode": "3086",
+    "type": "adres",
+    "woonplaatsnaam": "Rotterdam",
+    "wijkcode": "WK059901",
+    "huis_nlt": "11",
+    "openbareruimtetype": "Weg",
+    "buurtnaam": "Dijkzigt",
+    "gemeentecode": "0599",
+    "rdf_seealso": "http://bag.basisregistraties.overheid.nl/bag/id/nummeraanduiding/0599200000376141",
+    "weergavenaam": "Museumpark 11, 3015CB Rotterdam",
+    "straatnaam_verkort": "Museumprk",
+    "id": "adr-00958a8b4a095e57b4660bcc0d2ff6c4",
+    "gekoppeld_perceel": [
+      "DHV00-E-1300"
+    ],
+    "gemeentenaam": "Rotterdam",
+    "buurtcode": "BU05990119",
+    "wijknaam": "Rotterdam Centrum",
+    "identificatie": "0599010000163049-0599200000376141",
+    "openbareruimte_id": "0599300000003941",
+    "waterschapsnaam": "Hoogheemraadschap van Schieland en de Krimpenerwaard",
+    "provinciecode": "PV28",
+    "postcode": "3015CB",
+    "provincienaam": "Zuid-Holland",
+    "centroide_ll": "POINT(4.47238222 51.91468964)",
+    "nummeraanduiding_id": "0599200000376141",
+    "waterschapscode": "39",
+    "adresseerbaarobject_id": "0599010000163049",
+    "huisnummer": 11,
+    "provincieafkorting": "ZH",
+    "centroide_rd": "POINT(92059.09 436640.34)",
+    "straatnaam": "Museumpark",
+    "score": 24.873093
+  }
+}

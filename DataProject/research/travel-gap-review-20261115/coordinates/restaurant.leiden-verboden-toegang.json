@@ -1,0 +1,73 @@
+{
+  "id": "restaurant.leiden-verboden-toegang",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "reviewerId": null,
+  "checkedAt": "2026-11-15",
+  "coordinate": {
+    "latitude": 52.15610069,
+    "longitude": 4.48586739
+  },
+  "addressMatched": true,
+  "approvedAddress": "Kaiserstraat 7, 2311 GN Leiden",
+  "officialSourceURL": "https://www.verbodentoegang.nl/",
+  "addressCheckedAt": "2026-11-09",
+  "sourceArtifact": {
+    "path": "YouNew/Resources/Data/younew-approved-local-test.json",
+    "sha256": "84a0a46abb7ebad17f74a6aa058d2e4f7d9352fb728d251ff532711f0f32643a"
+  },
+  "method": "Existing approved official address matched exactly to BAG centroid; not a surveyed entrance",
+  "license": "CC0 1.0",
+  "licenseEvidence": "DataProject/research/travel-approval-20261115/coordinate-license.json",
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Kaiserstraat+7%2C+2311+GN+Leiden&fq=type%3Aadres&rows=5",
+  "robotsSHA256": "852726886a24887ade58aec8312c9c622b4bd980c0729ebd008fc03b7679d84a",
+  "responseSHA256": "4cbc40a486781037d480c6098c3bfc5856d6b735738a3004e8c6c7209258c3da",
+  "candidateAddresses": [
+    "Kaiserstraat 7A, 2311GN Leiden",
+    "Kaiserstraat 7, 2311GN Leiden",
+    "Kaiserstraat 5A, 2311GN Leiden",
+    "Kaiserstraat 1, 2311GN Leiden",
+    "Kaiserstraat 3, 2311GN Leiden"
+  ],
+  "bag": {
+    "bron": "BAG",
+    "woonplaatscode": "2088",
+    "type": "adres",
+    "woonplaatsnaam": "Leiden",
+    "wijkcode": "WK054600",
+    "huis_nlt": "7",
+    "openbareruimtetype": "Weg",
+    "buurtnaam": "Academiewijk",
+    "gemeentecode": "0546",
+    "rdf_seealso": "http://bag.basisregistraties.overheid.nl/bag/id/nummeraanduiding/0546200000064573",
+    "weergavenaam": "Kaiserstraat 7, 2311GN Leiden",
+    "straatnaam_verkort": "Kaiserstr",
+    "id": "adr-583cfed792e93d7be4015756dd418e6e",
+    "gekoppeld_perceel": [
+      "LDN01-F-435",
+      "LDN01-F-1581",
+      "LDN01-F-433"
+    ],
+    "gemeentenaam": "Leiden",
+    "buurtcode": "BU05460001",
+    "wijknaam": "Binnenstad-Zuid",
+    "identificatie": "0546010000064482-0546200000064573",
+    "openbareruimte_id": "0546300000000650",
+    "waterschapsnaam": "Hoogheemraadschap van Rijnland",
+    "provinciecode": "PV28",
+    "postcode": "2311GN",
+    "provincienaam": "Zuid-Holland",
+    "centroide_ll": "POINT(4.48586739 52.15610069)",
+    "nummeraanduiding_id": "0546200000064573",
+    "waterschapscode": "13",
+    "adresseerbaarobject_id": "0546010000064482",
+    "huisnummer": 7,
+    "provincieafkorting": "ZH",
+    "centroide_rd": "POINT(93320.187 463486.28)",
+    "straatnaam": "Kaiserstraat",
+    "gekoppeld_appartement": [
+      "LDN01-F-2797-A-1"
+    ],
+    "score": 23.78854
+  }
+}

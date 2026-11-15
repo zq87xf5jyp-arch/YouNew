@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-11-15",
+  "records": [
+    {
+      "id": "place.leiden-oude-sterrewacht",
+      "sourceURL": "https://hortusleiden.nl/zien-en-doen/ontdek-de-oude-sterrewacht",
+      "evidenceFile": "DataProject/research/travel-gap-review-20261115/sources/1eb270bfb978ea16003f022cf4cc2f0c77fafee312b244179c8b33345b9e9345.json",
+      "evidenceSHA256": "3192326fe1cfc5a094bf7b4ff095607f34d6c5241c1352ed4c30596a8564a1dd",
+      "fetchStatus": "opened",
+      "status": "needs_review",
+      "publicationAuthorized": false,
+      "reviewerId": null
+    },
+    {
+      "id": "museum.foam",
+      "sourceURL": "https://www.foam.org/visit",
+      "evidenceFile": "DataProject/research/travel-gap-review-20261115/sources/3c89e31cd932cf4a7f3fad77610f7f58a9d787538876646c82d4bce5a3637722.json",
+      "evidenceSHA256": "924917303959a3f727685d38f3912dcbb15ce434eae60f3628e858ec52607a1a",
+      "fetchStatus": "robots_disallowed_or_unavailable",
+      "status": "needs_review",
+      "publicationAuthorized": false,
+      "reviewerId": null
+    },
+    {
+      "id": "museum.artis-micropia",
+      "sourceURL": "https://www.artis.nl/nl/artis-micropia",
+      "evidenceFile": "DataProject/research/travel-gap-review-20261115/sources/bdffca9f163288f2a4f0d101527d906d119d37e2e9d5cc859890a79ec44ac7ae.json",
+      "evidenceSHA256": "59ce7f48f85fe2178ac92858da7168c077c12f69899c80e00617b7a994317a88",
+      "fetchStatus": "opened",
+      "status": "needs_review",
+      "publicationAuthorized": false,
+      "reviewerId": null
+    },
+    {
+      "id": "museum.museum-van-loon",
+      "sourceURL": "https://www.museumvanloon.nl/bezoek",
+      "evidenceFile": "DataProject/research/travel-gap-review-20261115/sources/c24e78d0f2343532e9c8da68885e73b8075eca8655fa51988780d4a936cc208d.json",
+      "evidenceSHA256": "c11bd326b5ce6e375738b3fde19efbe3d8ae61e06db541a85c39d88972e6abec",
+      "fetchStatus": "robots_disallowed_or_unavailable",
+      "status": "needs_review",
+      "publicationAuthorized": false,
+      "reviewerId": null
+    },
+    {
+      "id": "museum.den-haag-mauritshuis",
+      "sourceURL": "https://www.mauritshuis.nl/bezoek",
+      "evidenceFile": "DataProject/research/travel-gap-review-20261115/sources/e2fd50783d608656d4282748be546314f019dfa8f2446bc2fc18b70f0004cca5.json",
+      "evidenceSHA256": "5db68cf0fe396459d43a7c82aae0611c9ab908d794ff6b0074946f5bcaa12e5b",
+      "fetchStatus": "robots_disallowed_or_unavailable",
+      "status": "needs_review",
+      "publicationAuthorized": false,
+      "reviewerId": null
+    },
+    {
+      "id": "museum.den-haag-kunstmuseum",
+      "sourceURL": "https://www.kunstmuseum.nl/nl/bezoek",
+      "evidenceFile": "DataProject/research/travel-gap-review-20261115/sources/cdf7bf5773c75d72e468edec3c813e0d0e15aa92d98d9466b3d75153385fcfd8.json",
+      "evidenceSHA256": "b74532f1f37601f457e398b4179766a962373998dfb75d870aa444150217b8ba",
+      "fetchStatus": "robots_disallowed_or_unavailable",
+      "status": "needs_review",
+      "publicationAuthorized": false,
+      "reviewerId": null
+    },
+    {
+      "id": "place.den-haag-madurodam",
+      "sourceURL": "https://www.madurodam.nl/nl/praktische-informatie/adres-en-route",
+      "evidenceFile": "DataProject/research/travel-gap-review-20261115/sources/0cdcf4cf8c4da396e047fcc248256090557708790eb5aac48daf8bfc08825ec3.json",
+      "evidenceSHA256": "0f9feaaa39ad6f47d0e3240f10f88b2e210972dcc97a31f48e816d18024ce537",
+      "fetchStatus": "robots_disallowed_or_unavailable",
+      "status": "needs_review",
+      "publicationAuthorized": false,
+      "reviewerId": null
+    },
+    {
+      "id": "place.eindhoven-strijp-s",
+      "sourceURL": "https://www.strijp-s.nl/historie",
+      "evidenceFile": "DataProject/research/travel-gap-review-20261115/sources/a546d3c64d397d742d2901a0fcb6bd60b5ed271f8cd8f1c7a5ac5bc45870cc41.json",
+      "evidenceSHA256": "58aa39db3da191272eed1830b90fbfae2f937203e0f10d6afbc2a52e4432a9e0",
+      "fetchStatus": "opened",
+      "status": "needs_review",
+      "publicationAuthorized": false,
+      "reviewerId": null
+    },
+    {
+      "id": "place.eindhoven-park-theatre",
+      "sourceURL": "https://www.parktheater.nl/contact-r2l7",
+      "evidenceFile": "DataProject/research/travel-gap-review-20261115/sources/09969549378d493e5629f6623f9611bb4cc1da94a46949ef0315b047896f675c.json",
+      "evidenceSHA256": "90c4551d4bd65adad59437d01bebe2fec70884cb5d0d90c1f7b79e0d1f6615d2",
+      "fetchStatus": "unavailable",
+      "status": "needs_review",
+      "publicationAuthorized": false,
+      "reviewerId": null
+    },
+    {
+      "id": "museum.dutch-resistance-museum",
+      "sourceURL": "https://www.verzetsmuseum.org/en/address-and-opening-hours",
+      "evidenceFile": "DataProject/research/travel-gap-review-20261115/sources/4f9295ceef3ff6803517bcf301a891cfe8c1d7c533ec0ec51c70ea466ec3bf4e.json",
+      "evidenceSHA256": "cc83703b47f868e0b9244436a14fb80d50ea837bd9c4deb6fdaa7ba0797521c8",
+      "fetchStatus": "opened",
+      "status": "needs_review",
+      "publicationAuthorized": false,
+      "reviewerId": null
+    },
+    {
+      "id": "place.eindhoven-muziekgebouw",
+      "sourceURL": "https://www.heuveleindhoven.nl/winkels/muziekgebouw/",
+      "evidenceFile": "DataProject/research/travel-gap-review-20261115/sources/04d2a4335f90e421583cccb80ee9eb4db9c8d1a348dc0fe72e48cf2a274772b8.json",
+      "evidenceSHA256": "ef175f5e8ac185a7ad9af0ae157e22bf8f5ad69ea7388c4a6b3a5344d4a6b50e",
+      "fetchStatus": "opened",
+      "status": "needs_review",
+      "publicationAuthorized": false,
+      "reviewerId": null
+    }
+  ],
+  "publicationAuthorized": false,
+  "reviewerId": null,
+  "scope": "Eleven source/address follow-ups; no content activated or previous evidence overwritten."
+}

@@ -1,0 +1,20 @@
+{
+  "url": "https://www.artis.nl/nl/artis-micropia",
+  "checkedAt": "2026-11-15",
+  "status": "opened",
+  "contentReviewed": false,
+  "robotsSHA256": "35b204a35c47fadc41f2a0519aeecf0e71ea41143d5ed8ffc4af598950a4a0d0",
+  "robotsStatus": "fetched",
+  "httpStatus": 200,
+  "finalURL": "https://www.artis.nl/nl/artis-micropia",
+  "sha256": "04948a73309fe05b820f970dcbc0189f008724ac8dc8a7f27e3b70625cea16ad",
+  "title": "ARTIS-Micropia | ARTIS",
+  "excerpt": "ARTIS-Micropia | ARTIS Ga naar content Ga naar zoeken Ga naar footer Park Ontdek ARTIS-Park Ontdek ARTIS-Park Homepagina ARTIS-Park Dagagenda",
+  "actionCandidates": [
+    "https://www.artis.nl/nl/plan-je-bezoek/ticketprijzen",
+    "https://dagtickets.artis.nl/kaartjes-kopen/artis",
+    "https://dagtickets.artis.nl/kaartjes-kopen/groote-museum",
+    "https://dagtickets.artis.nl/kaartjes-kopen/micropia",
+    "https://dagtickets.artis.nl"
+  ]
+}
