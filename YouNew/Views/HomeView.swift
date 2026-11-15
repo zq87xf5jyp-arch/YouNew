@@ -599,6 +599,8 @@ struct HomeView: View {
 
                                 placesToVisitHomeSection
 
+                                ApprovedPlaceCollectionsSection(language: lang)
+
                                 housingHomeSection
 
                                 transportHomeSection

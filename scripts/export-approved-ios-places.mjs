@@ -5,6 +5,7 @@ import assert from 'node:assert/strict';
 import { readFile, writeFile, mkdir, copyFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { resolve } from 'node:path';
+import { applyApprovedTravel } from './approved-ios-travel.mjs';
 import { applyApprovedCompletion } from './approved-ios-completion.mjs';
 import { loadEditorialRelease } from '../admin-dashboard/public-site/scripts/editorial-release.mjs';
 
@@ -23,7 +24,7 @@ export const aliases = {
   'restaurant.leiden-oudt-leyden': 'leiden-seed-oudt-leyden'
 };
 const root = fileURLToPath(new URL('../', import.meta.url));
-export async function projectApprovedPlaces(repositoryRoot = root) {
+export async function projectApprovedPlaces(repositoryRoot = root, { localTest = false } = {}) {
   assert.ok(!process.env.YOUNEW_PLACE_REVIEW, 'Private review cannot enter the iOS bundle');
   const release = await loadEditorialRelease(repositoryRoot);
   const entities = Object.entries(aliases).map(([id, legacyID]) => {
@@ -35,12 +36,14 @@ export async function projectApprovedPlaces(repositoryRoot = root) {
     return { ...entity, attributes: { ...entity.attributes, iosLegacyPlaceID: legacyID } };
   });
   const completion = await applyApprovedCompletion(entities, repositoryRoot);
-  return { schemaVersion: 1, mode: 'production', releaseID: release.id,
+  const artifact = { schemaVersion: 1, mode: 'production', releaseID: release.id,
     approvedBatchSha256: release.batchSha256, migrationRegistry: {}, withheldEntityIDs: [], ...completion };
+  return localTest ? applyApprovedTravel(artifact, release, repositoryRoot) : artifact;
 }
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
-  const output = resolve(root, 'YouNew/Resources/Data/younew-approved-places.json');
-  const artifact = await projectApprovedPlaces();
+  const localTest = process.argv.includes('--local-test');
+  const output = resolve(root, `YouNew/Resources/Data/${localTest ? 'younew-approved-local-test' : 'younew-approved-places'}.json`);
+  const artifact = await projectApprovedPlaces(root, {localTest});
   const content = JSON.stringify(artifact, null, 2) + '\n';
   const mediaDirectory = resolve(root, 'YouNew/Resources/Data/ApprovedLeidenMedia');
   for (const media of artifact.mediaFiles) {
@@ -51,5 +54,5 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
   }
   if (process.argv.includes('--check')) assert.equal(await readFile(output, 'utf8'), content, 'Regenerate approved iOS projection');
   else await writeFile(output, content);
-  console.log('Approved iOS projection: 12 approved Leiden places; exactly 4 photos, 5 coordinates, 6 ticket links approved.');
+  console.log(`Approved iOS ${artifact.mode}: ${artifact.entities.length} records, ${artifact.mediaFiles.length} bundled photos, ${artifact.collections?.length ?? 0} collections.`);
 }

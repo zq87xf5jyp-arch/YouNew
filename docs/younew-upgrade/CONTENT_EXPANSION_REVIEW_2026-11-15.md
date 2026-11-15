@@ -103,3 +103,59 @@ python3 scripts/tests/travel_selection_test.py
 ```
 
 Optional cached evidence retrieval uses `--fetch-coordinates` / `--fetch-media`; neither grants approval. The previous `index.json` remains the historical PR #70 checkpoint. This journal and the new exact selection describe the follow-up, preventing old counters from being misrepresented as newly activated content.
+
+## Follow-up: owner-approved local iOS integration (2026-11-15)
+
+The owner explicitly approved the exact PR #71 selection in this conversation. The historical selection above remains unchanged (including its original pending fields); the decision is recorded separately in `DataProject/editorial/travel-ios-local-20261115-approval.json`, attributed to the existing registered human owner `owner.ivan`.
+
+**Selection SHA-256:** `d00afc1621010eba612be3dc397c08a3b0f3a2633538fbe825697b00b8e0dca7`.
+
+| Scope | Approved and integrated locally | Notes |
+|---|---:|---|
+| EN/NL record projections | 57 | Only explicitly selected fields |
+| Photographs | 32 | Existing 1200px WebP bytes reused; author, license, source, capture date and transformation credit retained |
+| BAG coordinates | 33 | Address-centroid disclosure in EN/NL; not surveyed entrances |
+| Collections | 6 | Every member resolves to an existing canonical object |
+| Additional new approval | 0 | Nine unresolved entities, two ambiguous coordinates and all excluded draft fields remain blocked |
+
+The opt-in exporter produces `YouNew/Resources/Data/younew-approved-local-test.json`: **85 unique entities, 36 bundled photos, 40 coordinates, 85 official website fields, six existing ticket links, six collections**. This combines the original 12 Leiden cards with 57 selected projections and 16 previously approved web records required by the selected photos/collections. The latter reuse existing governed approval; their pending draft fields are not imported. These are artifact counts, not a claim that every application screen has been visually verified. All 85 have EN/NL descriptions. Local photo coverage is 36/85 (42.4%); coordinate coverage is 40/85 (47.1%), below the national candidate targets. Existing remote licensed imagery is not counted as bundled photos.
+
+The production artifact remains byte-for-byte unchanged: 12 records, four local photos, seven coordinates and six ticket links. Release code does not load the local-test artifact; Debug explicitly opts in after checking mode and selection hash. The Xcode resource group still copies local resources into products, so any future shipping workflow must explicitly exclude the local candidate resources or obtain appropriate release authorization. This PR does not change publishing/build settings or authorize a Release shipment.
+
+Implementation:
+
+- `scripts/approved-ios-travel.mjs` verifies the registered human receipt, exact scope, fixed approved selection hash, bound source/media bytes, field allowlist, collection membership and BAG evidence. Mutations fail closed.
+- `scripts/export-approved-ios-places.mjs --local-test` integrates through the existing exporter; default export remains unchanged. No whole batch is marked published.
+- `DataProjectRuntimeLoader.swift` accepts this candidate only in Debug and preserves existing production loading.
+- `MockDashboardDiscoveryData.swift` connects approved records to the existing canonical catalog, retains Saved IDs for known name variants and avoids inventing missing coordinates. Name normalization prevents duplicate spellings (e.g. Van Abbemuseum / Van Abbe Museum).
+- `DashboardDiscoveryViews.swift` reuses existing place cards and actions for six collections, and labels BAG accuracy; `HomeView.swift` exposes the collections. Existing Save, Share, Website, Apple Maps and six Tickets actions are reused.
+- `CityPlacesCalendarRegressionTests.swift` covers existing Leiden IDs and the candidate, local-only loading, canonical links, translations, media and alias uniqueness. These tests compile, but require an installed Simulator to execute.
+
+Verification commands:
+
+```sh
+node scripts/export-approved-ios-places.mjs --check
+node scripts/export-approved-ios-places.mjs --local-test --check
+python3 scripts/prepare-travel-selection.py --check
+node --test scripts/tests/approved-ios-places.test.mjs scripts/tests/approved-ios-completion.test.mjs scripts/tests/leiden-completion-selection.test.mjs scripts/tests/approved-ios-travel.test.mjs
+python3 -m unittest scripts/tests/travel_selection_test.py scripts/tests/travel_expansion_review_test.py
+DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer xcodebuild -project /Users/ivan/YouNew/YouNew.xcodeproj -scheme YouNew -configuration Debug -sdk iphonesimulator -destination 'generic/platform=iOS Simulator' -derivedDataPath /tmp/younew-leiden-build ARCHS=arm64 ONLY_ACTIVE_ARCH=YES CODE_SIGNING_ALLOWED=NO build-for-testing
+```
+
+Ten Node tests and fifteen Python tests passed. Both deterministic exporter checks and the unchanged selection check passed. The actual Debug `.app` contains all 36 expected WebP files with matching SHA-256, and its candidate JSON matches the export byte-for-byte. No newly fetched photos are bundled. Xcode build-for-testing compiled app, unit-test and UI-test targets. Final build: **TEST BUILD SUCCEEDED**, with no `warning:` or `error:` diagnostics in `/tmp/younew-travel-local-build.log`.
+
+Xcode tools were attached to the old iCloud checkout, so the build used the explicit correct `/Users/ivan/YouNew/YouNew.xcodeproj` path. The command-line developer directory initially pointed at CommandLineTools; the per-command environment override selected Xcode without changing global configuration. The sandbox initially blocked SwiftPM; the authorized build rerun outside that restriction succeeded. `simctl list runtimes` returned an empty list. No Simulator launch, screenshots, runtime test execution or device QA is claimed. Runtime QA remains mandatory: photo rendering, Saved persistence, collection navigation, Apple Maps, ticket destinations, EN/NL, small screens, themes, VoiceOver, memory and offline behavior. No production, TestFlight, App Store Connect, signing or merge action occurred.
+
+### Next safe batch: replacement photo sources
+
+Prepared five new **source-metadata records only**, in `DataProject/research/travel-media-followup-20261115/`, using `scripts/prepare-travel-media-followup.py`. It reuses the existing cached, bounded, robots-aware client and never modifies earlier evidence or the approved selection. All five Commons pages supplied explicit author/license metadata and source-page SHA-256. No image binaries or derivatives were downloaded; these are not five ready or approved photos.
+
+| Existing entity | Candidate | Review limitation |
+|---|---|---|
+| Foam | Amsterdam Keizersgracht 0609 001.JPG; Janericloebe; CC BY 3.0 | Narrow facade crop, visual check pending; entity primary source remains unresolved |
+| Huis Marseille | Huismarseille.jpg; J.M. Luijt; CC BY 3.0 | Alternative to oversized earlier source; visual check pending |
+| Markthal | Markthal - Rotterdam.jpg; Erik Zachte; CC BY-SA 4.0 | Check building prominence and crop |
+| Museumpark VONK | PreHistorisch Dorp.jpg; author field Eindhoven Museum; CC BY-SA 4.0 | EXIF names Freekje Groenemans Fotografie; rights clarification required; 2016 view is not evidence of current VONK appearance |
+| Parktheater Eindhoven | 13-06-29-eindhoven-50mm-52.jpg | Author/license preserved in JSON; visual identity and suitability pending |
+
+All five remain `needs_review`, `publicationAuthorized: false`, `reviewerId: null`, with empty image file arrays. The preparation is idempotent and its five records were checked for license/source metadata and review isolation. Disk space fell to approximately 190 MiB during compilation (later recovered to approximately 386 MiB); no large media fetch or Simulator installation was attempted. Continue visual/rights checks and source resolution after ensuring sufficient workspace capacity. Do not regenerate or reapprove the exact PR #71 subset.
