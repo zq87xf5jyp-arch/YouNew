@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "batchId": "leiden-nature-culture-20261115",
-  "status": "needs_review",
-  "publicationAuthorized": false,
-  "approvedAt": null,
-  "reviewerId": null,
+  "status": "approved",
+  "publicationAuthorized": true,
+  "approvedAt": "2026-11-15",
+  "reviewerId": "owner.ivan",
   "preparedAt": "2026-11-15",
   "ids": [
     "place.leiden-burcht",
@@ -112,5 +112,15 @@
       "bytes": 243264,
       "sha256": "8cf795db5dc8fe6d3d6447024b96416a2ee5451619e0da9d0f9899b2310cd09c"
     }
-  }
+  },
+  "approvalReference": "Owner explicitly approved the five EN/NL cards and PR #64 in this Codex conversation on 2026-11-15, including production publication after official-source recheck.",
+  "approvedPullRequest": "https://github.com/zq87xf5jyp-arch/YouNew/pull/64",
+  "approvedReviewCommit": "9fc8d2037796eef000cca422f80db81cdbb49da7",
+  "prepublicationCheck": {
+    "checkedAt": "2026-11-15T16:18:42.168219+00:00",
+    "officialUrls": 15,
+    "result": "All 15 official URLs returned HTTP 200; prices, hours, access restrictions and dated notices reconfirmed. No approved content or photo change required.",
+    "evidence": "link-checks.json"
+  },
+  "approvalSha256": "de03a4499147ff1f61188584da66255d345daf3e55a7971db2359ab3394c9fcc"
 }

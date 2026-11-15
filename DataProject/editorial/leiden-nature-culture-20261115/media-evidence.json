@@ -11,7 +11,8 @@
     "commonsSha1": "ee51f0d25e49e4001aa1a4991a234bb0b130ca12",
     "downloadSha256": "568feb4a9999eda02b81410a98983fa296f09d2fc516b77d76ec3a69a9cf931b",
     "visualReview": "inspected: subject matches description; historical photograph; uncropped resize",
-    "publicationAuthorized": false
+    "publicationAuthorized": true,
+    "approvalReference": "Owner approval bound by manifest.json; original photograph and variants unchanged"
   },
   {
     "entityID": "museum.leiden-wereldmuseum",
@@ -25,7 +26,8 @@
     "commonsSha1": "656c46c2d75cd64b05881510e0484fc4211d520a",
     "downloadSha256": "68e446ebe3f28da708d01f5d81fb4555fe79277e41266161e770179ef75b804a",
     "visualReview": "inspected: subject matches description; historical photograph; uncropped resize",
-    "publicationAuthorized": false
+    "publicationAuthorized": true,
+    "approvalReference": "Owner approval bound by manifest.json; original photograph and variants unchanged"
   },
   {
     "entityID": "nature.leiden-plantsoen",
@@ -39,7 +41,8 @@
     "commonsSha1": "d1661e78bc681ab4b3049e2e707f43fa7f241530",
     "downloadSha256": "44e6a85b83035b51790981fa93ad2c74c00140d23a9e950f9e36bc7b000900cf",
     "visualReview": "inspected: subject matches description; historical photograph; uncropped resize",
-    "publicationAuthorized": false
+    "publicationAuthorized": true,
+    "approvalReference": "Owner approval bound by manifest.json; original photograph and variants unchanged"
   },
   {
     "entityID": "nature.leiden-leidse-hout",
@@ -53,7 +56,8 @@
     "commonsSha1": "6fed112b9a179ebea24939eebf483984e3cda6bb",
     "downloadSha256": "783db648038c1077bcb41eb45d5f2ce08be5d8449610727b4c71ce7dfd3ab12a",
     "visualReview": "inspected: subject matches description; historical photograph; uncropped resize",
-    "publicationAuthorized": false
+    "publicationAuthorized": true,
+    "approvalReference": "Owner approval bound by manifest.json; original photograph and variants unchanged"
   },
   {
     "entityID": "nature.leiden-cronesteyn",
@@ -67,6 +71,7 @@
     "commonsSha1": "f4c82b34f4c7f0119f3bdd6514afde9d6e71908f",
     "downloadSha256": "6a86605703f2895041b250cbf197d508a9d264c29c7d47791a5830adf4820a38",
     "visualReview": "inspected: subject matches description; historical photograph; uncropped resize",
-    "publicationAuthorized": false
+    "publicationAuthorized": true,
+    "approvalReference": "Owner approval bound by manifest.json; original photograph and variants unchanged"
   }
 ]

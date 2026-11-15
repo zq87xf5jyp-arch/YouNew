@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "generatedAt": "2026-10-23T00:00:00.000Z",
-  "registryFingerprint": "b2e8fb610153bc9da091a7746091d7ffcbf56284fd50d37b449436bb0d3968fa",
+  "registryFingerprint": "984e94e71ddd22cc08aae9fd55b86f5919900561f9abd05a7e8de5b6aff89fb9",
   "source": {
-    "contentSha256": "849be80bc145bb6ca52a0b1f44c335075e9f45a9bea03852fe6232cce58663fc",
+    "contentSha256": "2cbe9da2398a62c12be4a433e30bd568943031d144c8de55e5da6e13c9d439c5",
     "geographySha256": "928ab17bf26b745c50a88b28e282f536d1a3e61a29066ae57269ed571d179170",
     "trackedRegistrySha256": "45ac0cb52dd08a902f5b3645de1ecd3aeaf88917b846b4374dd7ecc9bdd5ff3d"
   },
@@ -2500,7 +2500,7 @@
       "source_type": "other",
       "evidence_state": "measured",
       "link_health_state": "unknown",
-      "last_checked_date": "2026-11-09",
+      "last_checked_date": "2026-11-15",
       "reference_count": 1,
       "reference_kinds": [
         "content_entity"
@@ -6461,7 +6461,7 @@
       "source_type": "other",
       "evidence_state": "measured",
       "link_health_state": "unknown",
-      "last_checked_date": "2026-11-09",
+      "last_checked_date": "2026-11-15",
       "reference_count": 1,
       "reference_kinds": [
         "content_entity"
@@ -6632,25 +6632,6 @@
       "reference_ids": [
         "collection.leiden-weekend",
         "hotel.leiden-ibis"
-      ]
-    },
-    {
-      "source_key": "source.7bbe930978103c20e16396f7",
-      "title": "Source for an included place; selection is editorial",
-      "publisher": "Linked place / operator",
-      "url": "https://leiden.wereldmuseum.nl/nl/over-wereldmuseum-leiden/contact",
-      "canonical_url": "https://leiden.wereldmuseum.nl/nl/over-wereldmuseum-leiden/contact",
-      "source_type": "other",
-      "evidence_state": "measured",
-      "link_health_state": "unknown",
-      "last_checked_date": "2026-11-09",
-      "reference_count": 2,
-      "reference_kinds": [
-        "content_entity"
-      ],
-      "reference_ids": [
-        "collection.leiden-rain",
-        "museum.leiden-wereldmuseum"
       ]
     },
     {
@@ -9021,7 +9002,7 @@
       "source_type": "other",
       "evidence_state": "measured",
       "link_health_state": "unknown",
-      "last_checked_date": "2026-11-09",
+      "last_checked_date": "2026-11-15",
       "reference_count": 1,
       "reference_kinds": [
         "content_entity"
@@ -10562,6 +10543,25 @@
       ]
     },
     {
+      "source_key": "source.2ee044e6dc516c3c553a9de0",
+      "title": "Singelpark walking map",
+      "publisher": "Stichting Vrienden van het Singelpark",
+      "url": "https://www.singelpark.nl/wp-content/uploads/2024/10/Teksten-audiotour-Singelpark-Cultuur-en-Historie-5-2-2024.pdf",
+      "canonical_url": "https://www.singelpark.nl/wp-content/uploads/2024/10/Teksten-audiotour-Singelpark-Cultuur-en-Historie-5-2-2024.pdf",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-15",
+      "reference_count": 2,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "nature.leiden-park-de-put",
+        "nature.leiden-plantsoen"
+      ]
+    },
+    {
       "source_key": "source.d6cb47dcfb5639504f6aac66",
       "title": "Singelpark walking map",
       "publisher": "Stichting Vrienden van het Singelpark",
@@ -10571,15 +10571,14 @@
       "evidence_state": "measured",
       "link_health_state": "unknown",
       "last_checked_date": "2026-11-09",
-      "reference_count": 4,
+      "reference_count": 3,
       "reference_kinds": [
         "content_entity"
       ],
       "reference_ids": [
         "nature.leiden-ankerpark",
         "nature.leiden-blekerspark",
-        "nature.leiden-huigpark",
-        "nature.leiden-plantsoen"
+        "nature.leiden-huigpark"
       ]
     },
     {
@@ -11933,24 +11932,6 @@
       ]
     },
     {
-      "source_key": "source.2ee044e6dc516c3c553a9de0",
-      "title": "Singelpark walking map",
-      "publisher": "Vrienden van het Singelpark",
-      "url": "https://www.singelpark.nl/wp-content/uploads/2024/10/Teksten-audiotour-Singelpark-Cultuur-en-Historie-5-2-2024.pdf",
-      "canonical_url": "https://www.singelpark.nl/wp-content/uploads/2024/10/Teksten-audiotour-Singelpark-Cultuur-en-Historie-5-2-2024.pdf",
-      "source_type": "other",
-      "evidence_state": "measured",
-      "link_health_state": "unknown",
-      "last_checked_date": "2026-11-09",
-      "reference_count": 1,
-      "reference_kinds": [
-        "content_entity"
-      ],
-      "reference_ids": [
-        "nature.leiden-park-de-put"
-      ]
-    },
-    {
       "source_key": "source.6162517fa3ee61859c5ab6a2",
       "title": "Vught appointment page",
       "publisher": "Vught",
@@ -12290,6 +12271,25 @@
       ],
       "reference_ids": [
         "GM0988"
+      ]
+    },
+    {
+      "source_key": "source.7bbe930978103c20e16396f7",
+      "title": "Official visitor information",
+      "publisher": "Wereldmuseum Leiden",
+      "url": "https://leiden.wereldmuseum.nl/nl/over-wereldmuseum-leiden/contact",
+      "canonical_url": "https://leiden.wereldmuseum.nl/nl/over-wereldmuseum-leiden/contact",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-15",
+      "reference_count": 2,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "collection.leiden-rain",
+        "museum.leiden-wereldmuseum"
       ]
     },
     {

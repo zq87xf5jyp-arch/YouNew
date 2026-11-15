@@ -1,11 +1,13 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {readFile} from 'node:fs/promises';
+import {readFile,mkdtemp,mkdir,symlink,writeFile,rm} from 'node:fs/promises';
+import {tmpdir} from 'node:os';
+import {join} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {spawnSync} from 'node:child_process';
 import {readPlaceReview,applyPlaceReview,validatePlaceRecords,reviewPath} from '../scripts/place-review.mjs';
 import {buildPublicDataset,paths} from '../scripts/generate-public-content.mjs';
-import {loadEditorialRelease} from '../scripts/editorial-release.mjs';
+import {loadEditorialRelease,approvalPath} from '../scripts/editorial-release.mjs';
 import type {PlaceRevision} from '../scripts/place-review.mjs';
 const root=fileURLToPath(new URL('../../../',import.meta.url));
 const batch='leiden-nature-culture-20261115';
@@ -33,7 +35,7 @@ test('five existing IDs gain bilingual private text without changing the approve
  assert.equal(preview.entities.filter(e=>e.editorial?.placeReview).length,5);
  assert.equal(Object.keys(manifest.media).length,15);
  for(const e of publicPreview.entities.filter(e=>manifest.ids.includes(e.id)))assert.ok(e.relatedEntityIds.every(id=>publicPreview.entities.some(other=>other.id===id)));
- for(const [file,proof] of Object.entries(manifest.media))if(file.endsWith('-480.webp'))assert.ok(proof.bytes<80000);;
+ for(const [file,proof] of Object.entries(manifest.media))if(file.endsWith('-480.webp'))assert.ok(proof.bytes<80000);
  for(const e of changed)for(const language of ['en','nl'] as const)assert.ok(e.editorial!.place!.locales[language].blocks.length>=5);
 });
 test('optional park tickets remain absent; invented pins, unsupported tickets and unlicensed photos fail',()=>{
@@ -56,12 +58,29 @@ for r in json.loads((root/'${reviewPath(batch)}/records.json').read_text())['rec
 `,root],{encoding:'utf8'});assert.equal(check.status,0,check.stderr);
 });
 
-test('pending nature batch cannot become an approved revision in ordinary builds',async()=>{
+test('owner-approved nature batch publishes five stable IDs and preserves the first batch',async()=>{
  const release=await loadEditorialRelease();
- assert.equal(manifest.status,'needs_review');assert.equal(manifest.publicationAuthorized,false);
- assert.equal(manifest.approvedAt,null);assert.equal(manifest.reviewerId,null);
- assert.ok(release.entities.filter(e=>manifest.ids.includes(e.id)).every(e=>e.images.length===0&&!e.editorial.place));
- const published=release.entities.filter(e=>e.images.length);
+ assert.equal(manifest.status,'approved');assert.equal(manifest.publicationAuthorized,true);
+ assert.equal(manifest.approvedAt,'2026-11-15');assert.equal(manifest.reviewerId,'owner.ivan');
+ const revised=release.entities.filter(e=>manifest.ids.includes(e.id));assert.equal(revised.length,5);
+ assert.ok(revised.every(e=>e.images.length===1&&e.editorial.place&&!e.editorial.placeReview));
+ const data=buildPublicDataset(JSON.parse(await readFile(paths.source,'utf8')),{editorialRelease:release}).content;
+ assert.ok(data.entities.filter(e=>manifest.ids.includes(e.id)).every(e=>e.images.every(i=>i.url.startsWith(`/images/places/${batch}/`))&&!JSON.stringify(e).includes('/images/place-review/')));
+ const published=release.entities.filter(e=>e.images.length&&!manifest.ids.includes(e.id));
  const preview=await applyPlaceReview(release,root,env);
  for(const e of published){const after=preview.entities.find(x=>x.id===e.id)!;assert.deepEqual(after.images,e.images);assert.deepEqual(after.editorial.place,e.editorial.place);assert.equal(after.editorial.reviewedAt,e.editorial.reviewedAt);}
+});
+
+
+test('pending nature manifest still stays out of an ordinary release',async()=>{
+ const temp=await mkdtemp(join(tmpdir(),'younew-nature-gate-'));
+ try {
+  await mkdir(`${temp}/DataProject/editorial/${batch}`,{recursive:true});
+  for(const path of ['DataProject/staging','DataProject/operations','DataProject/editorial/leiden-places-20261115',approvalPath])await symlink(`${root}/${path}`,`${temp}/${path}`);
+  for(const path of ['records.json','media'])await symlink(`${root}/${reviewPath(batch)}/${path}`,`${temp}/${reviewPath(batch)}/${path}`);
+  await writeFile(`${temp}/${reviewPath(batch)}/manifest.json`,JSON.stringify({...manifest,status:'needs_review',publicationAuthorized:false,approvedAt:null,reviewerId:null}));
+  const release=await loadEditorialRelease(temp);
+  assert.equal(release.entities.filter(e=>e.images.length).length,5);
+  assert.ok(release.entities.filter(e=>manifest.ids.includes(e.id)).every(e=>!e.images.length&&!e.editorial.place&&!e.editorial.placeReview));
+ } finally {await rm(temp,{recursive:true,force:true});}
 });

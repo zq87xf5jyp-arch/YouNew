@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatedAt": "2026-10-23T00:00:00Z",
-  "datasetFingerprint": "5ad1ce12ca2a73165b229eb592e33633f1244ffd284d5f7f73315a577edfe54c",
+  "datasetFingerprint": "c1f1f4fd7f7e47b2a64bfe068589412d3d11e9ff36d69440040a1ccc2e88856d",
   "language": "en",
   "fallbackLanguage": "en",
   "publishedReleaseIds": [
@@ -59,7 +59,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -176,7 +176,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -272,7 +272,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -374,7 +374,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -456,7 +456,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -681,7 +681,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -773,7 +773,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -1079,7 +1079,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -1309,7 +1309,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -1386,7 +1386,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -1486,7 +1486,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "utrecht",
       "provinceId": "utrecht",
@@ -1588,7 +1588,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -1688,7 +1688,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -1780,7 +1780,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -1880,7 +1880,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -1980,7 +1980,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -2080,7 +2080,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -2176,7 +2176,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "rotterdam",
       "provinceId": "zuid-holland",
@@ -2278,7 +2278,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -2378,7 +2378,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -2426,7 +2426,7 @@
       "language": "en",
       "status": "published",
       "title": "De Burcht",
-      "summary": "A historic ring fortification on a raised mound in the centre of Leiden, with views across the surrounding city.",
+      "summary": "A medieval ring fort on an artificial hill, with views over central Leiden.",
       "contentDepth": "summary",
       "practicalGuide": null,
       "editorial": {
@@ -2435,27 +2435,122 @@
         "locales": {
           "en": {
             "title": "De Burcht",
-            "summary": "A historic ring fortification on a raised mound in the centre of Leiden, with views across the surrounding city.",
+            "summary": "A medieval ring fort on an artificial hill, with views over central Leiden.",
             "guide": null
           },
           "nl": {
             "title": "De Burcht",
-            "summary": "Een historische ringburcht op een verhoogde heuvel in het centrum van Leiden, met uitzicht over de omliggende stad.",
+            "summary": "Een middeleeuwse ringburcht op een kunstmatige heuvel, met uitzicht over de Leidse binnenstad.",
             "guide": null
           }
         },
         "sources": [
           {
-            "id": "source.primary",
-            "title": "Official visitor information",
-            "publisher": "De Burcht",
+            "id": "visit",
+            "title": "De Burcht visitor guide",
+            "publisher": "Leiden&Partners",
             "url": "https://www.visitleiden.nl/nl/locaties/2380897422/de-burcht",
-            "checkedAt": "2026-11-09"
+            "checkedAt": "2026-11-15"
           }
         ],
-        "reviewedAt": "2026-11-10",
+        "reviewedAt": "2026-11-15",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f",
+        "place": {
+          "locales": {
+            "en": {
+              "alt": "Wall walk and brick arches at De Burcht · 2019-05-14",
+              "blocks": [
+                {
+                  "id": "history",
+                  "text": "The mound is artificial: earth was added in several stages before the stone ring wall took shape. Look at the wall and hillside together to understand the defensive setting.",
+                  "title": "A fort above the city",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "see",
+                  "text": "From the wall walk, look out over the historic city centre.",
+                  "title": "Look across Leiden",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "entrance",
+                  "text": "Visit Leiden lists Burgsteeg and describes an ornamental entrance gate from 1653.",
+                  "title": "Find the entrance",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "admission",
+                  "text": "The Burcht is freely accessible. Check entrance notices for temporary restrictions.",
+                  "title": "Admission",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "planning",
+                  "text": "Consult the visitor guide and signs at the entrance for current access information.",
+                  "title": "Before visiting",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                }
+              ]
+            },
+            "nl": {
+              "alt": "Weergang en bakstenen bogen van De Burcht · 2019-05-14",
+              "blocks": [
+                {
+                  "id": "history",
+                  "text": "De heuvel is kunstmatig: in verschillende fasen werd grond aangebracht voordat de stenen ringmuur vorm kreeg. Bekijk muur en helling samen om de verdedigingsplek te begrijpen.",
+                  "title": "Een burcht boven de stad",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "see",
+                  "text": "Bekijk vanaf de weergang de historische binnenstad.",
+                  "title": "Kijk over Leiden",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "entrance",
+                  "text": "Visit Leiden vermeldt Burgsteeg en beschrijft een sierlijk toegangshek uit 1653.",
+                  "title": "Vind de ingang",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "admission",
+                  "text": "De Burcht is vrij toegankelijk. Bekijk bij de ingang of er tijdelijke beperkingen gelden.",
+                  "title": "Toegang",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "planning",
+                  "text": "Raadpleeg de bezoekersgids en aanwijzingen bij de ingang voor actuele toegangsinformatie.",
+                  "title": "Voor je bezoek",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                }
+              ]
+            }
+          },
+          "tickets": null
+        }
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -2467,7 +2562,7 @@
         "address": {
           "value": "Burgsteeg, 2312 JR Leiden",
           "sourceUrl": "https://www.visitleiden.nl/nl/locaties/2380897422/de-burcht",
-          "checkedAt": "2026-11-09"
+          "checkedAt": "2026-11-15"
         },
         "website": {
           "value": "https://www.visitleiden.nl/nl/locaties/2380897422/de-burcht",
@@ -2484,13 +2579,28 @@
         "museums-sights",
         "leiden"
       ],
-      "coordinate": null,
-      "images": [],
+      "coordinate": {
+        "latitude": 52.15831,
+        "longitude": 4.492962
+      },
+      "images": [
+        {
+          "id": "media.place.leiden-burcht.commons-20261115",
+          "role": "hero",
+          "url": "/images/places/leiden-nature-culture-20261115/burcht-1200.webp",
+          "alt": "Wall walk and brick arches at De Burcht · 2019-05-14",
+          "attribution": "W. Bulach · 2019-05-14 · resized WebP, no content edits",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:00_1937_Burcht_van_Leiden.jpg",
+          "retrievedAt": "2026-11-15"
+        }
+      ],
       "source": {
         "title": "Official visitor information",
         "publisher": "De Burcht",
         "url": "https://www.visitleiden.nl/nl/locaties/2380897422/de-burcht",
-        "checkedAt": "2026-11-09",
+        "checkedAt": "2026-11-15",
         "publisherOfficial": true
       },
       "trust": {
@@ -2499,13 +2609,17 @@
       },
       "governance": null,
       "indexable": true,
-      "verifiedAt": "2026-11-09",
-      "updatedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
+      "updatedAt": "2026-11-15",
       "releaseId": "editorial-leiden-20261110",
-      "relatedEntityIds": [],
+      "relatedEntityIds": [
+        "place.leiden-rmo",
+        "place.leiden-lakenhal",
+        "nature.leiden-plantsoen"
+      ],
       "seo": {
         "title": "De Burcht | YouNew",
-        "description": "A historic ring fortification on a raised mound in the centre of Leiden, with views across the surrounding city.",
+        "description": "A medieval ring fort on an artificial hill, with views over central Leiden.",
         "canonicalPath": "/places/leiden-burcht"
       }
     },
@@ -2547,7 +2661,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -3123,7 +3237,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -3384,7 +3498,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -3475,7 +3589,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -3556,7 +3670,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "den-haag",
       "provinceId": "zuid-holland",
@@ -3672,7 +3786,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -3963,7 +4077,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -4040,7 +4154,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -4140,7 +4254,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -4211,7 +4325,7 @@
       "language": "en",
       "status": "published",
       "title": "Het Plantsoen",
-      "summary": "A landscaped stretch of the Singelpark beside the Zoeterwoudsesingel, suitable for a pause along the walking route.",
+      "summary": "A landscaped waterside park on the Singelpark walking route, with a pond and aviary.",
       "contentDepth": "summary",
       "practicalGuide": null,
       "editorial": {
@@ -4220,27 +4334,161 @@
         "locales": {
           "en": {
             "title": "Het Plantsoen",
-            "summary": "A landscaped stretch of the Singelpark beside the Zoeterwoudsesingel, suitable for a pause along the walking route.",
+            "summary": "A landscaped waterside park on the Singelpark walking route, with a pond and aviary.",
             "guide": null
           },
           "nl": {
             "title": "Het Plantsoen",
-            "summary": "Een landschappelijk deel van het Singelpark langs de Zoeterwoudsesingel, als rustpunt tijdens de wandeling.",
+            "summary": "Een landschappelijk park aan het water op de Singelparkroute, met een vijver en volière.",
             "guide": null
           }
         },
         "sources": [
           {
-            "id": "source.primary",
-            "title": "Singelpark walking map",
+            "id": "walk",
+            "title": "Singelpark culture and history walk",
             "publisher": "Stichting Vrienden van het Singelpark",
-            "url": "https://www.singelpark.nl/wp-content/uploads/2025/04/DLH_FlyerA5_Singelparkroute_def2.pdf",
-            "checkedAt": "2026-11-09"
+            "url": "https://www.singelpark.nl/wp-content/uploads/2024/10/Teksten-audiotour-Singelpark-Cultuur-en-Historie-5-2-2024.pdf",
+            "checkedAt": "2026-11-15"
+          },
+          {
+            "id": "animals",
+            "title": "Animal enclosures",
+            "publisher": "Gemeente Leiden",
+            "url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/sport-cultuur-en-recreatie/dieren/kinderboerderijen/",
+            "checkedAt": "2026-11-15"
+          },
+          {
+            "id": "visit",
+            "title": "Plantsoen visitor guide",
+            "publisher": "Leiden&Partners",
+            "url": "https://www.visitleiden.nl/nl/locaties/822249959/plantsoen",
+            "checkedAt": "2026-11-15"
+          },
+          {
+            "id": "birds",
+            "title": "Municipal bird notice · 5 November 2026",
+            "publisher": "Gemeente Leiden",
+            "url": "https://gemeente.leiden.nl/nieuws-en-publicaties/nieuws/vogelgriep-in-regio-leiden/",
+            "checkedAt": "2026-11-15"
           }
         ],
-        "reviewedAt": "2026-11-10",
+        "reviewedAt": "2026-11-15",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f",
+        "place": {
+          "locales": {
+            "en": {
+              "alt": "Tree-lined path beside the water in Het Plantsoen · 2021-08-06",
+              "blocks": [
+                {
+                  "id": "history",
+                  "text": "This nineteenth-century landscape park occupies former fortifications beside the Zoeterwoudsesingel.",
+                  "title": "Former fortifications",
+                  "sourceIds": [
+                    "walk"
+                  ]
+                },
+                {
+                  "id": "wildlife",
+                  "text": "The municipality lists an aviary in the Plantsoen with several kinds of birds.",
+                  "title": "The aviary",
+                  "sourceIds": [
+                    "animals"
+                  ]
+                },
+                {
+                  "id": "location",
+                  "text": "Follow Plantsoen beside the Zoeterwoudsesingel. The map points to the park location published by Visit Leiden; it does not identify a step-free entrance.",
+                  "title": "Find the park",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "route",
+                  "text": "The Singelpark guide provides the wider walking context. Check the route before setting out; no journey time is estimated here.",
+                  "title": "Continue your walk",
+                  "sourceIds": [
+                    "walk"
+                  ]
+                },
+                {
+                  "id": "walking",
+                  "text": "The paths pass lawns and waterside views, with changes in level along the way. Choose this section for a park walk, or continue using the Singelpark route guide.",
+                  "title": "Paths and views",
+                  "sourceIds": [
+                    "visit",
+                    "walk"
+                  ]
+                },
+                {
+                  "id": "birds",
+                  "text": "The municipality’s 5 November 2026 bird-flu notice asks visitors not to touch sick or dead birds and to keep dogs on a lead where birds gather. Read its current advice before visiting.",
+                  "title": "Before visiting areas with birds",
+                  "sourceIds": [
+                    "birds"
+                  ]
+                }
+              ]
+            },
+            "nl": {
+              "alt": "Pad met bomen langs het water in Het Plantsoen · 2021-08-06",
+              "blocks": [
+                {
+                  "id": "history",
+                  "text": "Dit negentiende-eeuwse landschapspark ligt op voormalige bolwerken langs de Zoeterwoudsesingel.",
+                  "title": "Voormalige bolwerken",
+                  "sourceIds": [
+                    "walk"
+                  ]
+                },
+                {
+                  "id": "wildlife",
+                  "text": "De gemeente vermeldt een volière in het Plantsoen met verschillende vogelsoorten.",
+                  "title": "De volière",
+                  "sourceIds": [
+                    "animals"
+                  ]
+                },
+                {
+                  "id": "location",
+                  "text": "Volg het Plantsoen langs de Zoeterwoudsesingel. De kaart toont de parklocatie van Visit Leiden; dit is geen bevestiging van een drempelvrije ingang.",
+                  "title": "Vind het park",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "route",
+                  "text": "De Singelparkgids geeft de context voor een langere wandeling. Bekijk de route voor vertrek; hier wordt geen reistijd geschat.",
+                  "title": "Wandel verder",
+                  "sourceIds": [
+                    "walk"
+                  ]
+                },
+                {
+                  "id": "walking",
+                  "text": "De paden voeren langs grasvelden en uitzicht op het water, met hoogteverschillen onderweg. Kies dit deel voor een parkwandeling of volg de routegids verder door het Singelpark.",
+                  "title": "Paden en uitzicht",
+                  "sourceIds": [
+                    "visit",
+                    "walk"
+                  ]
+                },
+                {
+                  "id": "birds",
+                  "text": "Het gemeentelijke vogelgriepbericht van 5 november 2026 vraagt zieke of dode vogels niet aan te raken en honden aan te lijnen waar veel vogels zijn. Lees voor je bezoek het actuele advies.",
+                  "title": "Voor je bezoek aan plekken met vogels",
+                  "sourceIds": [
+                    "birds"
+                  ]
+                }
+              ]
+            }
+          },
+          "tickets": null
+        }
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -4250,9 +4498,9 @@
       "narrowCategory": "parks-walks",
       "placeDetails": {
         "address": {
-          "value": "Plantsoen, Leiden",
-          "sourceUrl": "https://www.singelpark.nl/wp-content/uploads/2025/04/DLH_FlyerA5_Singelparkroute_def2.pdf",
-          "checkedAt": "2026-11-09"
+          "value": "Plantsoen, 2311 KH Leiden",
+          "sourceUrl": "https://www.visitleiden.nl/nl/locaties/822249959/plantsoen",
+          "checkedAt": "2026-11-15"
         },
         "website": {
           "value": "https://www.singelpark.nl/",
@@ -4269,13 +4517,28 @@
         "parks-walks",
         "leiden"
       ],
-      "coordinate": null,
-      "images": [],
+      "coordinate": {
+        "latitude": 52.153836,
+        "longitude": 4.498169
+      },
+      "images": [
+        {
+          "id": "media.nature.leiden-plantsoen.commons-20261115",
+          "role": "hero",
+          "url": "/images/places/leiden-nature-culture-20261115/plantsoen-1200.webp",
+          "alt": "Tree-lined path beside the water in Het Plantsoen · 2021-08-06",
+          "attribution": "Rudolphous · 2021-08-06 · resized WebP, no content edits",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:20210806_Leiden_-_Plantsoen_Park_%27Plantsoen%27.jpg",
+          "retrievedAt": "2026-11-15"
+        }
+      ],
       "source": {
         "title": "Singelpark walking map",
         "publisher": "Stichting Vrienden van het Singelpark",
-        "url": "https://www.singelpark.nl/wp-content/uploads/2025/04/DLH_FlyerA5_Singelparkroute_def2.pdf",
-        "checkedAt": "2026-11-09",
+        "url": "https://www.singelpark.nl/wp-content/uploads/2024/10/Teksten-audiotour-Singelpark-Cultuur-en-Historie-5-2-2024.pdf",
+        "checkedAt": "2026-11-15",
         "publisherOfficial": true
       },
       "trust": {
@@ -4284,13 +4547,17 @@
       },
       "governance": null,
       "indexable": true,
-      "verifiedAt": "2026-11-09",
-      "updatedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
+      "updatedAt": "2026-11-15",
       "releaseId": "editorial-leiden-20261110",
-      "relatedEntityIds": [],
+      "relatedEntityIds": [
+        "nature.leiden-cronesteyn",
+        "nature.leiden-leidse-hout",
+        "place.leiden-hortus"
+      ],
       "seo": {
         "title": "Het Plantsoen | YouNew",
-        "description": "A landscaped stretch of the Singelpark beside the Zoeterwoudsesingel, suitable for a pause along the walking route.",
+        "description": "A landscaped waterside park on the Singelpark walking route, with a pond and aviary.",
         "canonicalPath": "/places/leiden-plantsoen"
       }
     },
@@ -4332,7 +4599,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -4446,7 +4713,7 @@
         ],
         "reviewedAt": "2026-11-15",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998",
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f",
         "place": {
           "locales": {
             "en": {
@@ -4667,7 +4934,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -4759,7 +5026,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -4859,7 +5126,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -4962,7 +5229,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "eindhoven",
       "provinceId": "noord-brabant",
@@ -5064,7 +5331,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "den-haag",
       "provinceId": "zuid-holland",
@@ -5166,7 +5433,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "eindhoven",
       "provinceId": "noord-brabant",
@@ -5268,7 +5535,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "utrecht",
       "provinceId": "utrecht",
@@ -5337,7 +5604,7 @@
       "language": "en",
       "status": "published",
       "title": "Leidse Hout",
-      "summary": "A city park with trees, open lawns and a pond near the boundary with Oegstgeest.",
+      "summary": "A green city park near Oegstgeest, with lawns, a pond and a deer enclosure.",
       "contentDepth": "summary",
       "practicalGuide": null,
       "editorial": {
@@ -5346,27 +5613,152 @@
         "locales": {
           "en": {
             "title": "Leidse Hout",
-            "summary": "A city park with trees, open lawns and a pond near the boundary with Oegstgeest.",
+            "summary": "A green city park near Oegstgeest, with lawns, a pond and a deer enclosure.",
             "guide": null
           },
           "nl": {
             "title": "Leidse Hout",
-            "summary": "Een stadspark met bomen, grasvelden en een vijver bij de grens met Oegstgeest.",
+            "summary": "Een groen stadspark bij Oegstgeest, met grasvelden, een vijver en een hertenkamp.",
             "guide": null
           }
         },
         "sources": [
           {
-            "id": "source.primary",
-            "title": "Official visitor information",
-            "publisher": "Leidse Hout",
+            "id": "visit",
+            "title": "Leidse Hout visitor guide",
+            "publisher": "Leiden&Partners",
             "url": "https://www.visitleiden.nl/nl/locaties/2420997644/leidse-hout",
-            "checkedAt": "2026-11-09"
+            "checkedAt": "2026-11-15"
+          },
+          {
+            "id": "animals",
+            "title": "Animal enclosures",
+            "publisher": "Gemeente Leiden",
+            "url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/sport-cultuur-en-recreatie/dieren/kinderboerderijen/",
+            "checkedAt": "2026-11-15"
+          },
+          {
+            "id": "birds",
+            "title": "Municipal bird notice · 5 November 2026",
+            "publisher": "Gemeente Leiden",
+            "url": "https://gemeente.leiden.nl/nieuws-en-publicaties/nieuws/vogelgriep-in-regio-leiden/",
+            "checkedAt": "2026-11-15"
           }
         ],
-        "reviewedAt": "2026-11-10",
+        "reviewedAt": "2026-11-15",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f",
+        "place": {
+          "locales": {
+            "en": {
+              "alt": "De Waterlelie bandstand beside the pond in Leidse Hout · 2017-09-21",
+              "blocks": [
+                {
+                  "id": "landscape",
+                  "text": "At the edge of Leiden near Oegstgeest, the park combines wooded paths, open lawns and a pond. The bandstand offers a distinctive landmark for a walk; a concert is not part of every visit.",
+                  "title": "Trees, lawns and water",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "see",
+                  "text": "Look for the bandstand and the park’s different planted areas while following its paths.",
+                  "title": "What to look for",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "animals",
+                  "text": "The municipal guide places the deer enclosure opposite Alrijne Hospital and also mentions other animals there.",
+                  "title": "Deer enclosure",
+                  "sourceIds": [
+                    "animals"
+                  ]
+                },
+                {
+                  "id": "address",
+                  "text": "Visit Leiden lists Van Beuningenlaan 1, 2334 CC Leiden; the map uses its published route destination.",
+                  "title": "Arrival point",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "planning",
+                  "text": "A tea house is listed in the park. Check its own information for opening times rather than assuming park access means café service.",
+                  "title": "Plan a break",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "birds",
+                  "text": "The municipality’s 5 November 2026 bird-flu notice asks visitors not to touch sick or dead birds and to keep dogs on a lead where birds gather. Read its current advice before visiting.",
+                  "title": "Before visiting areas with birds",
+                  "sourceIds": [
+                    "birds"
+                  ]
+                }
+              ]
+            },
+            "nl": {
+              "alt": "Muziektent De Waterlelie bij de vijver in de Leidse Hout · 2017-09-21",
+              "blocks": [
+                {
+                  "id": "landscape",
+                  "text": "Aan de rand van Leiden bij Oegstgeest liggen bospaden, open grasvelden en een vijver bij elkaar. De muziektent is een herkenningspunt voor een wandeling; er is niet bij ieder bezoek een concert.",
+                  "title": "Bomen, grasvelden en water",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "see",
+                  "text": "Bekijk tijdens je wandeling de muziektent en de verschillende beplante delen van het park.",
+                  "title": "Wat je kunt bekijken",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "animals",
+                  "text": "De gemeentelijke gids plaatst het hertenkamp tegenover het Alrijne Ziekenhuis en noemt er ook andere dieren.",
+                  "title": "Hertenkamp",
+                  "sourceIds": [
+                    "animals"
+                  ]
+                },
+                {
+                  "id": "address",
+                  "text": "Visit Leiden vermeldt Van Beuningenlaan 1, 2334 CC Leiden; de kaart gebruikt de gepubliceerde routebestemming.",
+                  "title": "Aankomstpunt",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "planning",
+                  "text": "In het park staat een theehuis vermeld. Controleer de eigen openingstijden; parktoegang betekent niet automatisch dat het café open is.",
+                  "title": "Plan een pauze",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "birds",
+                  "text": "Het gemeentelijke vogelgriepbericht van 5 november 2026 vraagt zieke of dode vogels niet aan te raken en honden aan te lijnen waar veel vogels zijn. Lees voor je bezoek het actuele advies.",
+                  "title": "Voor je bezoek aan plekken met vogels",
+                  "sourceIds": [
+                    "birds"
+                  ]
+                }
+              ]
+            }
+          },
+          "tickets": null
+        }
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -5378,7 +5770,7 @@
         "address": {
           "value": "Van Beuningenlaan 1, 2334 CC Leiden",
           "sourceUrl": "https://www.visitleiden.nl/nl/locaties/2420997644/leidse-hout",
-          "checkedAt": "2026-11-09"
+          "checkedAt": "2026-11-15"
         },
         "website": {
           "value": "https://www.visitleiden.nl/nl/locaties/2420997644/leidse-hout",
@@ -5395,13 +5787,28 @@
         "parks-walks",
         "leiden"
       ],
-      "coordinate": null,
-      "images": [],
+      "coordinate": {
+        "latitude": 52.173394,
+        "longitude": 4.476831
+      },
+      "images": [
+        {
+          "id": "media.nature.leiden-leidse-hout.commons-20261115",
+          "role": "hero",
+          "url": "/images/places/leiden-nature-culture-20261115/leidsehout-1200.webp",
+          "alt": "De Waterlelie bandstand beside the pond in Leidse Hout · 2017-09-21",
+          "attribution": "Marianne Cornelissen-Kuyt · 2017-09-21 · resized WebP, no content edits",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Leiden-Muziektent_De_Waterlelie-Leidse_Hout.jpg",
+          "retrievedAt": "2026-11-15"
+        }
+      ],
       "source": {
         "title": "Official visitor information",
         "publisher": "Leidse Hout",
         "url": "https://www.visitleiden.nl/nl/locaties/2420997644/leidse-hout",
-        "checkedAt": "2026-11-09",
+        "checkedAt": "2026-11-15",
         "publisherOfficial": true
       },
       "trust": {
@@ -5410,13 +5817,17 @@
       },
       "governance": null,
       "indexable": true,
-      "verifiedAt": "2026-11-09",
-      "updatedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
+      "updatedAt": "2026-11-15",
       "releaseId": "editorial-leiden-20261110",
-      "relatedEntityIds": [],
+      "relatedEntityIds": [
+        "nature.leiden-plantsoen",
+        "nature.leiden-cronesteyn",
+        "place.leiden-naturalis"
+      ],
       "seo": {
         "title": "Leidse Hout | YouNew",
-        "description": "A city park with trees, open lawns and a pond near the boundary with Oegstgeest.",
+        "description": "A green city park near Oegstgeest, with lawns, a pond and a deer enclosure.",
         "canonicalPath": "/places/leiden-leidse-hout"
       }
     },
@@ -5689,7 +6100,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -5780,7 +6191,7 @@
         ],
         "reviewedAt": "2026-11-15",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998",
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f",
         "place": {
           "locales": {
             "en": {
@@ -6015,7 +6426,7 @@
         ],
         "reviewedAt": "2026-11-15",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998",
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f",
         "place": {
           "locales": {
             "en": {
@@ -6248,7 +6659,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -6348,7 +6759,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -6440,7 +6851,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -6532,7 +6943,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "utrecht",
       "provinceId": "utrecht",
@@ -6795,7 +7206,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -6843,7 +7254,7 @@
       "language": "en",
       "status": "published",
       "title": "Polderpark Cronesteyn",
-      "summary": "A large park with waterways, meadows and woodland areas. Follow the park paths and current access notices.",
+      "summary": "Explore woodland, meadows and wetland habitats in Leiden’s polder landscape; follow current access notices.",
       "contentDepth": "summary",
       "practicalGuide": null,
       "editorial": {
@@ -6852,27 +7263,152 @@
         "locales": {
           "en": {
             "title": "Polderpark Cronesteyn",
-            "summary": "A large park with waterways, meadows and woodland areas. Follow the park paths and current access notices.",
+            "summary": "Explore woodland, meadows and wetland habitats in Leiden’s polder landscape; follow current access notices.",
             "guide": null
           },
           "nl": {
             "title": "Polderpark Cronesteyn",
-            "summary": "Een groot park met water, weilanden en bosgedeelten. Volg de parkpaden en actuele aanwijzingen.",
+            "summary": "Verken bos, weilanden en moerasnatuur in het Leidse polderlandschap; volg actuele toegangsinstructies.",
             "guide": null
           }
         },
         "sources": [
           {
-            "id": "source.primary",
-            "title": "Official visitor information",
-            "publisher": "Polderpark Cronesteyn",
+            "id": "visit",
+            "title": "Polderpark Cronesteyn",
+            "publisher": "Leiden&Partners",
             "url": "https://www.visitleiden.nl/nl/locaties/3133044659/polderpark-cronesteyn",
-            "checkedAt": "2026-11-09"
+            "checkedAt": "2026-11-15"
+          },
+          {
+            "id": "maintenance",
+            "title": "Park maintenance information",
+            "publisher": "Gemeente Leiden",
+            "url": "https://gemeente.leiden.nl/nieuws-en-publicaties/nieuws/werkzaamheden-in-polderpark-cronesteyn/",
+            "checkedAt": "2026-11-15"
+          },
+          {
+            "id": "birds",
+            "title": "Municipal bird notice · 5 November 2026",
+            "publisher": "Gemeente Leiden",
+            "url": "https://gemeente.leiden.nl/nieuws-en-publicaties/nieuws/vogelgriep-in-regio-leiden/",
+            "checkedAt": "2026-11-15"
           }
         ],
-        "reviewedAt": "2026-11-10",
+        "reviewedAt": "2026-11-15",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f",
+        "place": {
+          "locales": {
+            "en": {
+              "alt": "Water and woodland plants in Polderpark Cronesteyn · 2016-06-05",
+              "blocks": [
+                {
+                  "id": "landscape",
+                  "text": "Cronesteyn brings together woodland, meadows, water and a marsh garden.",
+                  "title": "A varied landscape",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "wildlife",
+                  "text": "Different habitats make the park interesting for watching birds and other wildlife. Sightings are never guaranteed.",
+                  "title": "Watch the habitats",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "walking",
+                  "text": "Visit Leiden points to walking information at De Tuin van de Smid. Check the current information locally.",
+                  "title": "Choose a walk",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "arrival",
+                  "text": "The destination listing gives Polderpad, 2322 LB Leiden. Its route pin is a navigation reference, not the whole park boundary.",
+                  "title": "Arrival",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "warning",
+                  "text": "The municipality has reported maintenance and ash dieback. Its dated notice does not establish which paths are open today; follow current signs and barriers.",
+                  "title": "Check access notices",
+                  "sourceIds": [
+                    "maintenance"
+                  ]
+                },
+                {
+                  "id": "birds",
+                  "text": "The municipality’s 5 November 2026 bird-flu notice asks visitors not to touch sick or dead birds and to keep dogs on a lead where birds gather. Read its current advice before visiting.",
+                  "title": "Before visiting areas with birds",
+                  "sourceIds": [
+                    "birds"
+                  ]
+                }
+              ]
+            },
+            "nl": {
+              "alt": "Water en bosplanten in Polderpark Cronesteyn · 2016-06-05",
+              "blocks": [
+                {
+                  "id": "landscape",
+                  "text": "Cronesteyn brengt bos, weilanden, water en een moerastuin samen.",
+                  "title": "Een afwisselend landschap",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "wildlife",
+                  "text": "De verschillende leefgebieden maken het park interessant om vogels en andere dieren te bekijken. Waarnemingen zijn nooit gegarandeerd.",
+                  "title": "Bekijk de leefgebieden",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "walking",
+                  "text": "Visit Leiden verwijst naar wandelinformatie bij De Tuin van de Smid. Controleer ter plaatse de actuele informatie.",
+                  "title": "Kies een wandeling",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "arrival",
+                  "text": "De bestemmingspagina vermeldt Polderpad, 2322 LB Leiden. De routepin is een navigatiepunt, niet de grens van het hele park.",
+                  "title": "Aankomst",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "warning",
+                  "text": "De gemeente heeft onderhoud en essentaksterfte gemeld. Het gedateerde bericht bevestigt niet welke paden vandaag open zijn; volg actuele borden en afzettingen.",
+                  "title": "Controleer toegangsinformatie",
+                  "sourceIds": [
+                    "maintenance"
+                  ]
+                },
+                {
+                  "id": "birds",
+                  "text": "Het gemeentelijke vogelgriepbericht van 5 november 2026 vraagt zieke of dode vogels niet aan te raken en honden aan te lijnen waar veel vogels zijn. Lees voor je bezoek het actuele advies.",
+                  "title": "Voor je bezoek aan plekken met vogels",
+                  "sourceIds": [
+                    "birds"
+                  ]
+                }
+              ]
+            }
+          },
+          "tickets": null
+        }
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -6884,7 +7420,7 @@
         "address": {
           "value": "Polderpad, 2322 LB Leiden",
           "sourceUrl": "https://www.visitleiden.nl/nl/locaties/3133044659/polderpark-cronesteyn",
-          "checkedAt": "2026-11-09"
+          "checkedAt": "2026-11-15"
         },
         "website": {
           "value": "https://www.visitleiden.nl/nl/locaties/3133044659/polderpark-cronesteyn",
@@ -6901,13 +7437,28 @@
         "parks-walks",
         "leiden"
       ],
-      "coordinate": null,
-      "images": [],
+      "coordinate": {
+        "latitude": 52.140322,
+        "longitude": 4.496932
+      },
+      "images": [
+        {
+          "id": "media.nature.leiden-cronesteyn.commons-20261115",
+          "role": "hero",
+          "url": "/images/places/leiden-nature-culture-20261115/cronesteyn-1200.webp",
+          "alt": "Water and woodland plants in Polderpark Cronesteyn · 2016-06-05",
+          "attribution": "Ronald van der Graaf from Leiden, The Netherlands · 2016-06-05 · resized WebP, no content edits",
+          "license": "CC BY 2.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Park_Cronesteyn_Park_Cronesteijn_(26870194233).jpg",
+          "retrievedAt": "2026-11-15"
+        }
+      ],
       "source": {
         "title": "Official visitor information",
         "publisher": "Polderpark Cronesteyn",
         "url": "https://www.visitleiden.nl/nl/locaties/3133044659/polderpark-cronesteyn",
-        "checkedAt": "2026-11-09",
+        "checkedAt": "2026-11-15",
         "publisherOfficial": true
       },
       "trust": {
@@ -6916,13 +7467,17 @@
       },
       "governance": null,
       "indexable": true,
-      "verifiedAt": "2026-11-09",
-      "updatedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
+      "updatedAt": "2026-11-15",
       "releaseId": "editorial-leiden-20261110",
-      "relatedEntityIds": [],
+      "relatedEntityIds": [
+        "nature.leiden-plantsoen",
+        "nature.leiden-leidse-hout",
+        "place.leiden-hortus"
+      ],
       "seo": {
         "title": "Polderpark Cronesteyn | YouNew",
-        "description": "A large park with waterways, meadows and woodland areas. Follow the park paths and current access notices.",
+        "description": "Explore woodland, meadows and wetland habitats in Leiden’s polder landscape; follow current access notices.",
         "canonicalPath": "/places/leiden-cronesteyn"
       }
     },
@@ -7192,7 +7747,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -7269,7 +7824,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -7361,7 +7916,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -7457,7 +8012,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -7557,7 +8112,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -7671,7 +8226,7 @@
         ],
         "reviewedAt": "2026-11-15",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998",
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f",
         "place": {
           "locales": {
             "en": {
@@ -7898,7 +8453,7 @@
         ],
         "reviewedAt": "2026-11-15",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998",
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f",
         "place": {
           "locales": {
             "en": {
@@ -8133,7 +8688,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -8377,7 +8932,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "utrecht",
       "provinceId": "utrecht",
@@ -8639,7 +9194,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -8716,7 +9271,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -8816,7 +9371,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "rotterdam",
       "provinceId": "zuid-holland",
@@ -8918,7 +9473,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -9018,7 +9573,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "den-haag",
       "provinceId": "zuid-holland",
@@ -9120,7 +9675,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "utrecht",
       "provinceId": "utrecht",
@@ -9222,7 +9777,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "rotterdam",
       "provinceId": "zuid-holland",
@@ -9527,7 +10082,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -9752,7 +10307,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -9852,7 +10407,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -9919,7 +10474,7 @@
       "language": "en",
       "status": "published",
       "title": "Wereldmuseum Leiden",
-      "summary": "A museum of world cultures on Steenstraat. Use the museum’s programme to choose an exhibition before visiting.",
+      "summary": "Explore world cultures at the museum on Steenstraat, with visitor planning and accessibility information.",
       "contentDepth": "summary",
       "practicalGuide": null,
       "editorial": {
@@ -9928,27 +10483,163 @@
         "locales": {
           "en": {
             "title": "Wereldmuseum Leiden",
-            "summary": "A museum of world cultures on Steenstraat. Use the museum’s programme to choose an exhibition before visiting.",
+            "summary": "Explore world cultures at the museum on Steenstraat, with visitor planning and accessibility information.",
             "guide": null
           },
           "nl": {
             "title": "Wereldmuseum Leiden",
-            "summary": "Een museum van wereldculturen aan de Steenstraat. Bekijk het programma om vóór je bezoek een tentoonstelling te kiezen.",
+            "summary": "Ontdek wereldculturen in het museum aan de Steenstraat, met bezoekinformatie en informatie over toegankelijkheid.",
             "guide": null
           }
         },
         "sources": [
           {
-            "id": "source.primary",
-            "title": "Official visitor information",
+            "id": "contact",
+            "title": "Visitor address",
             "publisher": "Wereldmuseum Leiden",
             "url": "https://leiden.wereldmuseum.nl/nl/over-wereldmuseum-leiden/contact",
-            "checkedAt": "2026-11-09"
+            "checkedAt": "2026-11-15"
+          },
+          {
+            "id": "visit",
+            "title": "Plan your visit",
+            "publisher": "Wereldmuseum Leiden",
+            "url": "https://leiden.wereldmuseum.nl/nl/plan-je-bezoek-in-wereldmuseum-leiden",
+            "checkedAt": "2026-11-15"
+          },
+          {
+            "id": "access",
+            "title": "Accessibility",
+            "publisher": "Wereldmuseum Leiden",
+            "url": "https://leiden.wereldmuseum.nl/nl/plan-je-bezoek-in-wereldmuseum-leiden/toegankelijkheid",
+            "checkedAt": "2026-11-15"
+          },
+          {
+            "id": "tickets",
+            "title": "Official tickets",
+            "publisher": "Wereldmuseum Leiden",
+            "url": "https://leiden.wereldmuseum.nl/nl/tickets",
+            "checkedAt": "2026-11-15"
+          },
+          {
+            "id": "hours",
+            "title": "Opening hours and admission · 2026",
+            "publisher": "Wereldmuseum Leiden",
+            "url": "https://leiden.wereldmuseum.nl/nl/plan-je-bezoek-in-wereldmuseum-leiden/openingstijden-en-prijzen",
+            "checkedAt": "2026-11-15"
+          },
+          {
+            "id": "route",
+            "title": "Museum route destination",
+            "publisher": "Leiden&Partners",
+            "url": "https://www.visitleiden.nl/nl/locaties/3715984452/wereldmuseum-leiden",
+            "checkedAt": "2026-11-15"
           }
         ],
-        "reviewedAt": "2026-11-10",
+        "reviewedAt": "2026-11-15",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f",
+        "place": {
+          "locales": {
+            "en": {
+              "alt": "Wereldmuseum Leiden façade and entrance · 2024-11-08",
+              "blocks": [
+                {
+                  "id": "description",
+                  "text": "Wereldmuseum Leiden introduces world cultures. Start with the current programme to choose what you want to explore.",
+                  "title": "World cultures",
+                  "sourceIds": [
+                    "contact"
+                  ]
+                },
+                {
+                  "id": "address",
+                  "text": "The visitor address is Steenstraat 1, 2312 BS Leiden. Use the visitor entrance rather than the separate delivery entrance.",
+                  "title": "Arriving",
+                  "sourceIds": [
+                    "contact"
+                  ]
+                },
+                {
+                  "id": "hours",
+                  "text": "Tuesday–Sunday 10:00–17:00. Extra Monday openings listed for 21 and 28 December 2026; closed 25 December. Check the full holiday calendar.",
+                  "title": "Opening hours",
+                  "sourceIds": [
+                    "hours"
+                  ]
+                },
+                {
+                  "id": "booking",
+                  "text": "Ages 19+: €16 online / €18 at the desk; ages 6–18: €6.50 / €8; ages 0–5 free. Students €11; Leiden University students and Museumkaart holders free with valid proof. Check eligibility when booking.",
+                  "title": "Admission · 2026",
+                  "sourceIds": [
+                    "hours",
+                    "tickets"
+                  ]
+                },
+                {
+                  "id": "access",
+                  "text": "The museum provides lifts and an accessible toilet. Mobility scooters and bicycle trailers are not admitted. Contact the museum about your access needs before travelling.",
+                  "title": "Accessibility",
+                  "sourceIds": [
+                    "access"
+                  ]
+                }
+              ]
+            },
+            "nl": {
+              "alt": "Gevel en ingang van Wereldmuseum Leiden · 2024-11-08",
+              "blocks": [
+                {
+                  "id": "description",
+                  "text": "Wereldmuseum Leiden laat je kennismaken met wereldculturen. Kies aan de hand van het actuele programma wat je wilt ontdekken.",
+                  "title": "Wereldculturen",
+                  "sourceIds": [
+                    "contact"
+                  ]
+                },
+                {
+                  "id": "address",
+                  "text": "Het bezoekadres is Steenstraat 1, 2312 BS Leiden. Gebruik de bezoekersingang, niet de aparte leveranciersingang.",
+                  "title": "Aankomst",
+                  "sourceIds": [
+                    "contact"
+                  ]
+                },
+                {
+                  "id": "hours",
+                  "text": "Dinsdag–zondag 10.00–17.00. Extra open op maandag 21 en 28 december 2026; gesloten op 25 december. Bekijk de volledige feestdagenkalender.",
+                  "title": "Openingstijden",
+                  "sourceIds": [
+                    "hours"
+                  ]
+                },
+                {
+                  "id": "booking",
+                  "text": "Vanaf 19 jaar: €16 online / €18 aan de kassa; 6–18 jaar: €6,50 / €8; 0–5 jaar gratis. Studenten €11; studenten van Universiteit Leiden en Museumkaarthouders gratis met geldig bewijs. Controleer de voorwaarden bij reservering.",
+                  "title": "Entree · 2026",
+                  "sourceIds": [
+                    "hours",
+                    "tickets"
+                  ]
+                },
+                {
+                  "id": "access",
+                  "text": "Het museum heeft liften en een rolstoeltoegankelijk toilet. Scootmobielen en fietskarren mogen niet naar binnen. Bespreek je toegankelijkheidsbehoeften voor vertrek met het museum.",
+                  "title": "Toegankelijkheid",
+                  "sourceIds": [
+                    "access"
+                  ]
+                }
+              ]
+            }
+          },
+          "tickets": {
+            "url": "https://leiden.wereldmuseum.nl/nl/tickets",
+            "sourceId": "tickets",
+            "checkedAt": "2026-11-15"
+          }
+        }
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -9960,7 +10651,7 @@
         "address": {
           "value": "Steenstraat 1, 2312 BS Leiden",
           "sourceUrl": "https://leiden.wereldmuseum.nl/nl/over-wereldmuseum-leiden/contact",
-          "checkedAt": "2026-11-09"
+          "checkedAt": "2026-11-15"
         },
         "website": {
           "value": "https://leiden.wereldmuseum.nl/nl/over-wereldmuseum-leiden/contact",
@@ -9981,13 +10672,28 @@
         "museums-sights",
         "leiden"
       ],
-      "coordinate": null,
-      "images": [],
+      "coordinate": {
+        "latitude": 52.16324,
+        "longitude": 4.48245
+      },
+      "images": [
+        {
+          "id": "media.museum.leiden-wereldmuseum.commons-20261115",
+          "role": "hero",
+          "url": "/images/places/leiden-nature-culture-20261115/wereldmuseum-1200.webp",
+          "alt": "Wereldmuseum Leiden façade and entrance · 2024-11-08",
+          "attribution": "Sneeuwvlakte · 2024-11-08 · resized WebP, no content edits",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Wereldmuseum_Leiden_(nov_2024).jpg",
+          "retrievedAt": "2026-11-15"
+        }
+      ],
       "source": {
         "title": "Official visitor information",
         "publisher": "Wereldmuseum Leiden",
         "url": "https://leiden.wereldmuseum.nl/nl/over-wereldmuseum-leiden/contact",
-        "checkedAt": "2026-11-09",
+        "checkedAt": "2026-11-15",
         "publisherOfficial": true
       },
       "trust": {
@@ -9996,13 +10702,17 @@
       },
       "governance": null,
       "indexable": true,
-      "verifiedAt": "2026-11-09",
-      "updatedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
+      "updatedAt": "2026-11-15",
       "releaseId": "editorial-leiden-20261110",
-      "relatedEntityIds": [],
+      "relatedEntityIds": [
+        "place.leiden-rmo",
+        "place.leiden-naturalis",
+        "place.leiden-lakenhal"
+      ],
       "seo": {
         "title": "Wereldmuseum Leiden | YouNew",
-        "description": "A museum of world cultures on Steenstraat. Use the museum’s programme to choose an exhibition before visiting.",
+        "description": "Explore world cultures at the museum on Steenstraat, with visitor planning and accessibility information.",
         "canonicalPath": "/places/leiden-wereldmuseum"
       }
     },
@@ -10044,7 +10754,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "den-haag",
       "provinceId": "zuid-holland",
@@ -10903,7 +11613,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -10999,7 +11709,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -11101,7 +11811,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -11183,7 +11893,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -11470,7 +12180,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -11700,7 +12410,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -11777,7 +12487,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -12034,7 +12744,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -12295,7 +13005,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -12386,7 +13096,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -12481,7 +13191,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -12772,7 +13482,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -13080,7 +13790,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -13326,7 +14036,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -13631,7 +14341,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -13868,7 +14578,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -14152,7 +14862,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -14232,7 +14942,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -14328,7 +15038,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -14420,7 +15130,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -14516,7 +15226,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -14616,7 +15326,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "utrecht",
       "provinceId": "utrecht",
@@ -14718,7 +15428,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -14818,7 +15528,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -14910,7 +15620,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -15010,7 +15720,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -15110,7 +15820,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -15210,7 +15920,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -15306,7 +16016,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "rotterdam",
       "provinceId": "zuid-holland",
@@ -15408,7 +16118,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -15479,7 +16189,7 @@
       "language": "en",
       "status": "published",
       "title": "De Burcht",
-      "summary": "A historic ring fortification on a raised mound in the centre of Leiden, with views across the surrounding city.",
+      "summary": "A medieval ring fort on an artificial hill, with views over central Leiden.",
       "contentDepth": "summary",
       "practicalGuide": null,
       "editorial": {
@@ -15488,27 +16198,122 @@
         "locales": {
           "en": {
             "title": "De Burcht",
-            "summary": "A historic ring fortification on a raised mound in the centre of Leiden, with views across the surrounding city.",
+            "summary": "A medieval ring fort on an artificial hill, with views over central Leiden.",
             "guide": null
           },
           "nl": {
             "title": "De Burcht",
-            "summary": "Een historische ringburcht op een verhoogde heuvel in het centrum van Leiden, met uitzicht over de omliggende stad.",
+            "summary": "Een middeleeuwse ringburcht op een kunstmatige heuvel, met uitzicht over de Leidse binnenstad.",
             "guide": null
           }
         },
         "sources": [
           {
-            "id": "source.primary",
-            "title": "Official visitor information",
-            "publisher": "De Burcht",
+            "id": "visit",
+            "title": "De Burcht visitor guide",
+            "publisher": "Leiden&Partners",
             "url": "https://www.visitleiden.nl/nl/locaties/2380897422/de-burcht",
-            "checkedAt": "2026-11-09"
+            "checkedAt": "2026-11-15"
           }
         ],
-        "reviewedAt": "2026-11-10",
+        "reviewedAt": "2026-11-15",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f",
+        "place": {
+          "locales": {
+            "en": {
+              "alt": "Wall walk and brick arches at De Burcht · 2019-05-14",
+              "blocks": [
+                {
+                  "id": "history",
+                  "text": "The mound is artificial: earth was added in several stages before the stone ring wall took shape. Look at the wall and hillside together to understand the defensive setting.",
+                  "title": "A fort above the city",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "see",
+                  "text": "From the wall walk, look out over the historic city centre.",
+                  "title": "Look across Leiden",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "entrance",
+                  "text": "Visit Leiden lists Burgsteeg and describes an ornamental entrance gate from 1653.",
+                  "title": "Find the entrance",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "admission",
+                  "text": "The Burcht is freely accessible. Check entrance notices for temporary restrictions.",
+                  "title": "Admission",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "planning",
+                  "text": "Consult the visitor guide and signs at the entrance for current access information.",
+                  "title": "Before visiting",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                }
+              ]
+            },
+            "nl": {
+              "alt": "Weergang en bakstenen bogen van De Burcht · 2019-05-14",
+              "blocks": [
+                {
+                  "id": "history",
+                  "text": "De heuvel is kunstmatig: in verschillende fasen werd grond aangebracht voordat de stenen ringmuur vorm kreeg. Bekijk muur en helling samen om de verdedigingsplek te begrijpen.",
+                  "title": "Een burcht boven de stad",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "see",
+                  "text": "Bekijk vanaf de weergang de historische binnenstad.",
+                  "title": "Kijk over Leiden",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "entrance",
+                  "text": "Visit Leiden vermeldt Burgsteeg en beschrijft een sierlijk toegangshek uit 1653.",
+                  "title": "Vind de ingang",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "admission",
+                  "text": "De Burcht is vrij toegankelijk. Bekijk bij de ingang of er tijdelijke beperkingen gelden.",
+                  "title": "Toegang",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "planning",
+                  "text": "Raadpleeg de bezoekersgids en aanwijzingen bij de ingang voor actuele toegangsinformatie.",
+                  "title": "Voor je bezoek",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                }
+              ]
+            }
+          },
+          "tickets": null
+        }
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -15520,7 +16325,7 @@
         "address": {
           "value": "Burgsteeg, 2312 JR Leiden",
           "sourceUrl": "https://www.visitleiden.nl/nl/locaties/2380897422/de-burcht",
-          "checkedAt": "2026-11-09"
+          "checkedAt": "2026-11-15"
         },
         "website": {
           "value": "https://www.visitleiden.nl/nl/locaties/2380897422/de-burcht",
@@ -15537,13 +16342,28 @@
         "museums-sights",
         "leiden"
       ],
-      "coordinate": null,
-      "images": [],
+      "coordinate": {
+        "latitude": 52.15831,
+        "longitude": 4.492962
+      },
+      "images": [
+        {
+          "id": "media.place.leiden-burcht.commons-20261115",
+          "role": "hero",
+          "url": "/images/places/leiden-nature-culture-20261115/burcht-1200.webp",
+          "alt": "Wall walk and brick arches at De Burcht · 2019-05-14",
+          "attribution": "W. Bulach · 2019-05-14 · resized WebP, no content edits",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:00_1937_Burcht_van_Leiden.jpg",
+          "retrievedAt": "2026-11-15"
+        }
+      ],
       "source": {
         "title": "Official visitor information",
         "publisher": "De Burcht",
         "url": "https://www.visitleiden.nl/nl/locaties/2380897422/de-burcht",
-        "checkedAt": "2026-11-09",
+        "checkedAt": "2026-11-15",
         "publisherOfficial": true
       },
       "trust": {
@@ -15552,13 +16372,17 @@
       },
       "governance": null,
       "indexable": true,
-      "verifiedAt": "2026-11-09",
-      "updatedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
+      "updatedAt": "2026-11-15",
       "releaseId": "editorial-leiden-20261110",
-      "relatedEntityIds": [],
+      "relatedEntityIds": [
+        "place.leiden-rmo",
+        "place.leiden-lakenhal",
+        "nature.leiden-plantsoen"
+      ],
       "seo": {
         "title": "De Burcht | YouNew",
-        "description": "A historic ring fortification on a raised mound in the centre of Leiden, with views across the surrounding city.",
+        "description": "A medieval ring fort on an artificial hill, with views over central Leiden.",
         "canonicalPath": "/places/leiden-burcht"
       }
     },
@@ -15600,7 +16424,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -15700,7 +16524,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "den-haag",
       "provinceId": "zuid-holland",
@@ -15802,7 +16626,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -15902,7 +16726,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -15973,7 +16797,7 @@
       "language": "en",
       "status": "published",
       "title": "Het Plantsoen",
-      "summary": "A landscaped stretch of the Singelpark beside the Zoeterwoudsesingel, suitable for a pause along the walking route.",
+      "summary": "A landscaped waterside park on the Singelpark walking route, with a pond and aviary.",
       "contentDepth": "summary",
       "practicalGuide": null,
       "editorial": {
@@ -15982,27 +16806,161 @@
         "locales": {
           "en": {
             "title": "Het Plantsoen",
-            "summary": "A landscaped stretch of the Singelpark beside the Zoeterwoudsesingel, suitable for a pause along the walking route.",
+            "summary": "A landscaped waterside park on the Singelpark walking route, with a pond and aviary.",
             "guide": null
           },
           "nl": {
             "title": "Het Plantsoen",
-            "summary": "Een landschappelijk deel van het Singelpark langs de Zoeterwoudsesingel, als rustpunt tijdens de wandeling.",
+            "summary": "Een landschappelijk park aan het water op de Singelparkroute, met een vijver en volière.",
             "guide": null
           }
         },
         "sources": [
           {
-            "id": "source.primary",
-            "title": "Singelpark walking map",
+            "id": "walk",
+            "title": "Singelpark culture and history walk",
             "publisher": "Stichting Vrienden van het Singelpark",
-            "url": "https://www.singelpark.nl/wp-content/uploads/2025/04/DLH_FlyerA5_Singelparkroute_def2.pdf",
-            "checkedAt": "2026-11-09"
+            "url": "https://www.singelpark.nl/wp-content/uploads/2024/10/Teksten-audiotour-Singelpark-Cultuur-en-Historie-5-2-2024.pdf",
+            "checkedAt": "2026-11-15"
+          },
+          {
+            "id": "animals",
+            "title": "Animal enclosures",
+            "publisher": "Gemeente Leiden",
+            "url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/sport-cultuur-en-recreatie/dieren/kinderboerderijen/",
+            "checkedAt": "2026-11-15"
+          },
+          {
+            "id": "visit",
+            "title": "Plantsoen visitor guide",
+            "publisher": "Leiden&Partners",
+            "url": "https://www.visitleiden.nl/nl/locaties/822249959/plantsoen",
+            "checkedAt": "2026-11-15"
+          },
+          {
+            "id": "birds",
+            "title": "Municipal bird notice · 5 November 2026",
+            "publisher": "Gemeente Leiden",
+            "url": "https://gemeente.leiden.nl/nieuws-en-publicaties/nieuws/vogelgriep-in-regio-leiden/",
+            "checkedAt": "2026-11-15"
           }
         ],
-        "reviewedAt": "2026-11-10",
+        "reviewedAt": "2026-11-15",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f",
+        "place": {
+          "locales": {
+            "en": {
+              "alt": "Tree-lined path beside the water in Het Plantsoen · 2021-08-06",
+              "blocks": [
+                {
+                  "id": "history",
+                  "text": "This nineteenth-century landscape park occupies former fortifications beside the Zoeterwoudsesingel.",
+                  "title": "Former fortifications",
+                  "sourceIds": [
+                    "walk"
+                  ]
+                },
+                {
+                  "id": "wildlife",
+                  "text": "The municipality lists an aviary in the Plantsoen with several kinds of birds.",
+                  "title": "The aviary",
+                  "sourceIds": [
+                    "animals"
+                  ]
+                },
+                {
+                  "id": "location",
+                  "text": "Follow Plantsoen beside the Zoeterwoudsesingel. The map points to the park location published by Visit Leiden; it does not identify a step-free entrance.",
+                  "title": "Find the park",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "route",
+                  "text": "The Singelpark guide provides the wider walking context. Check the route before setting out; no journey time is estimated here.",
+                  "title": "Continue your walk",
+                  "sourceIds": [
+                    "walk"
+                  ]
+                },
+                {
+                  "id": "walking",
+                  "text": "The paths pass lawns and waterside views, with changes in level along the way. Choose this section for a park walk, or continue using the Singelpark route guide.",
+                  "title": "Paths and views",
+                  "sourceIds": [
+                    "visit",
+                    "walk"
+                  ]
+                },
+                {
+                  "id": "birds",
+                  "text": "The municipality’s 5 November 2026 bird-flu notice asks visitors not to touch sick or dead birds and to keep dogs on a lead where birds gather. Read its current advice before visiting.",
+                  "title": "Before visiting areas with birds",
+                  "sourceIds": [
+                    "birds"
+                  ]
+                }
+              ]
+            },
+            "nl": {
+              "alt": "Pad met bomen langs het water in Het Plantsoen · 2021-08-06",
+              "blocks": [
+                {
+                  "id": "history",
+                  "text": "Dit negentiende-eeuwse landschapspark ligt op voormalige bolwerken langs de Zoeterwoudsesingel.",
+                  "title": "Voormalige bolwerken",
+                  "sourceIds": [
+                    "walk"
+                  ]
+                },
+                {
+                  "id": "wildlife",
+                  "text": "De gemeente vermeldt een volière in het Plantsoen met verschillende vogelsoorten.",
+                  "title": "De volière",
+                  "sourceIds": [
+                    "animals"
+                  ]
+                },
+                {
+                  "id": "location",
+                  "text": "Volg het Plantsoen langs de Zoeterwoudsesingel. De kaart toont de parklocatie van Visit Leiden; dit is geen bevestiging van een drempelvrije ingang.",
+                  "title": "Vind het park",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "route",
+                  "text": "De Singelparkgids geeft de context voor een langere wandeling. Bekijk de route voor vertrek; hier wordt geen reistijd geschat.",
+                  "title": "Wandel verder",
+                  "sourceIds": [
+                    "walk"
+                  ]
+                },
+                {
+                  "id": "walking",
+                  "text": "De paden voeren langs grasvelden en uitzicht op het water, met hoogteverschillen onderweg. Kies dit deel voor een parkwandeling of volg de routegids verder door het Singelpark.",
+                  "title": "Paden en uitzicht",
+                  "sourceIds": [
+                    "visit",
+                    "walk"
+                  ]
+                },
+                {
+                  "id": "birds",
+                  "text": "Het gemeentelijke vogelgriepbericht van 5 november 2026 vraagt zieke of dode vogels niet aan te raken en honden aan te lijnen waar veel vogels zijn. Lees voor je bezoek het actuele advies.",
+                  "title": "Voor je bezoek aan plekken met vogels",
+                  "sourceIds": [
+                    "birds"
+                  ]
+                }
+              ]
+            }
+          },
+          "tickets": null
+        }
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -16012,9 +16970,9 @@
       "narrowCategory": "parks-walks",
       "placeDetails": {
         "address": {
-          "value": "Plantsoen, Leiden",
-          "sourceUrl": "https://www.singelpark.nl/wp-content/uploads/2025/04/DLH_FlyerA5_Singelparkroute_def2.pdf",
-          "checkedAt": "2026-11-09"
+          "value": "Plantsoen, 2311 KH Leiden",
+          "sourceUrl": "https://www.visitleiden.nl/nl/locaties/822249959/plantsoen",
+          "checkedAt": "2026-11-15"
         },
         "website": {
           "value": "https://www.singelpark.nl/",
@@ -16031,13 +16989,28 @@
         "parks-walks",
         "leiden"
       ],
-      "coordinate": null,
-      "images": [],
+      "coordinate": {
+        "latitude": 52.153836,
+        "longitude": 4.498169
+      },
+      "images": [
+        {
+          "id": "media.nature.leiden-plantsoen.commons-20261115",
+          "role": "hero",
+          "url": "/images/places/leiden-nature-culture-20261115/plantsoen-1200.webp",
+          "alt": "Tree-lined path beside the water in Het Plantsoen · 2021-08-06",
+          "attribution": "Rudolphous · 2021-08-06 · resized WebP, no content edits",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:20210806_Leiden_-_Plantsoen_Park_%27Plantsoen%27.jpg",
+          "retrievedAt": "2026-11-15"
+        }
+      ],
       "source": {
         "title": "Singelpark walking map",
         "publisher": "Stichting Vrienden van het Singelpark",
-        "url": "https://www.singelpark.nl/wp-content/uploads/2025/04/DLH_FlyerA5_Singelparkroute_def2.pdf",
-        "checkedAt": "2026-11-09",
+        "url": "https://www.singelpark.nl/wp-content/uploads/2024/10/Teksten-audiotour-Singelpark-Cultuur-en-Historie-5-2-2024.pdf",
+        "checkedAt": "2026-11-15",
         "publisherOfficial": true
       },
       "trust": {
@@ -16046,13 +17019,17 @@
       },
       "governance": null,
       "indexable": true,
-      "verifiedAt": "2026-11-09",
-      "updatedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
+      "updatedAt": "2026-11-15",
       "releaseId": "editorial-leiden-20261110",
-      "relatedEntityIds": [],
+      "relatedEntityIds": [
+        "nature.leiden-cronesteyn",
+        "nature.leiden-leidse-hout",
+        "place.leiden-hortus"
+      ],
       "seo": {
         "title": "Het Plantsoen | YouNew",
-        "description": "A landscaped stretch of the Singelpark beside the Zoeterwoudsesingel, suitable for a pause along the walking route.",
+        "description": "A landscaped waterside park on the Singelpark walking route, with a pond and aviary.",
         "canonicalPath": "/places/leiden-plantsoen"
       }
     },
@@ -16094,7 +17071,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -16208,7 +17185,7 @@
         ],
         "reviewedAt": "2026-11-15",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998",
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f",
         "place": {
           "locales": {
             "en": {
@@ -16429,7 +17406,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -16521,7 +17498,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -16621,7 +17598,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -16724,7 +17701,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "eindhoven",
       "provinceId": "noord-brabant",
@@ -16826,7 +17803,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "den-haag",
       "provinceId": "zuid-holland",
@@ -16928,7 +17905,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "eindhoven",
       "provinceId": "noord-brabant",
@@ -17030,7 +18007,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "utrecht",
       "provinceId": "utrecht",
@@ -17099,7 +18076,7 @@
       "language": "en",
       "status": "published",
       "title": "Leidse Hout",
-      "summary": "A city park with trees, open lawns and a pond near the boundary with Oegstgeest.",
+      "summary": "A green city park near Oegstgeest, with lawns, a pond and a deer enclosure.",
       "contentDepth": "summary",
       "practicalGuide": null,
       "editorial": {
@@ -17108,27 +18085,152 @@
         "locales": {
           "en": {
             "title": "Leidse Hout",
-            "summary": "A city park with trees, open lawns and a pond near the boundary with Oegstgeest.",
+            "summary": "A green city park near Oegstgeest, with lawns, a pond and a deer enclosure.",
             "guide": null
           },
           "nl": {
             "title": "Leidse Hout",
-            "summary": "Een stadspark met bomen, grasvelden en een vijver bij de grens met Oegstgeest.",
+            "summary": "Een groen stadspark bij Oegstgeest, met grasvelden, een vijver en een hertenkamp.",
             "guide": null
           }
         },
         "sources": [
           {
-            "id": "source.primary",
-            "title": "Official visitor information",
-            "publisher": "Leidse Hout",
+            "id": "visit",
+            "title": "Leidse Hout visitor guide",
+            "publisher": "Leiden&Partners",
             "url": "https://www.visitleiden.nl/nl/locaties/2420997644/leidse-hout",
-            "checkedAt": "2026-11-09"
+            "checkedAt": "2026-11-15"
+          },
+          {
+            "id": "animals",
+            "title": "Animal enclosures",
+            "publisher": "Gemeente Leiden",
+            "url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/sport-cultuur-en-recreatie/dieren/kinderboerderijen/",
+            "checkedAt": "2026-11-15"
+          },
+          {
+            "id": "birds",
+            "title": "Municipal bird notice · 5 November 2026",
+            "publisher": "Gemeente Leiden",
+            "url": "https://gemeente.leiden.nl/nieuws-en-publicaties/nieuws/vogelgriep-in-regio-leiden/",
+            "checkedAt": "2026-11-15"
           }
         ],
-        "reviewedAt": "2026-11-10",
+        "reviewedAt": "2026-11-15",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f",
+        "place": {
+          "locales": {
+            "en": {
+              "alt": "De Waterlelie bandstand beside the pond in Leidse Hout · 2017-09-21",
+              "blocks": [
+                {
+                  "id": "landscape",
+                  "text": "At the edge of Leiden near Oegstgeest, the park combines wooded paths, open lawns and a pond. The bandstand offers a distinctive landmark for a walk; a concert is not part of every visit.",
+                  "title": "Trees, lawns and water",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "see",
+                  "text": "Look for the bandstand and the park’s different planted areas while following its paths.",
+                  "title": "What to look for",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "animals",
+                  "text": "The municipal guide places the deer enclosure opposite Alrijne Hospital and also mentions other animals there.",
+                  "title": "Deer enclosure",
+                  "sourceIds": [
+                    "animals"
+                  ]
+                },
+                {
+                  "id": "address",
+                  "text": "Visit Leiden lists Van Beuningenlaan 1, 2334 CC Leiden; the map uses its published route destination.",
+                  "title": "Arrival point",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "planning",
+                  "text": "A tea house is listed in the park. Check its own information for opening times rather than assuming park access means café service.",
+                  "title": "Plan a break",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "birds",
+                  "text": "The municipality’s 5 November 2026 bird-flu notice asks visitors not to touch sick or dead birds and to keep dogs on a lead where birds gather. Read its current advice before visiting.",
+                  "title": "Before visiting areas with birds",
+                  "sourceIds": [
+                    "birds"
+                  ]
+                }
+              ]
+            },
+            "nl": {
+              "alt": "Muziektent De Waterlelie bij de vijver in de Leidse Hout · 2017-09-21",
+              "blocks": [
+                {
+                  "id": "landscape",
+                  "text": "Aan de rand van Leiden bij Oegstgeest liggen bospaden, open grasvelden en een vijver bij elkaar. De muziektent is een herkenningspunt voor een wandeling; er is niet bij ieder bezoek een concert.",
+                  "title": "Bomen, grasvelden en water",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "see",
+                  "text": "Bekijk tijdens je wandeling de muziektent en de verschillende beplante delen van het park.",
+                  "title": "Wat je kunt bekijken",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "animals",
+                  "text": "De gemeentelijke gids plaatst het hertenkamp tegenover het Alrijne Ziekenhuis en noemt er ook andere dieren.",
+                  "title": "Hertenkamp",
+                  "sourceIds": [
+                    "animals"
+                  ]
+                },
+                {
+                  "id": "address",
+                  "text": "Visit Leiden vermeldt Van Beuningenlaan 1, 2334 CC Leiden; de kaart gebruikt de gepubliceerde routebestemming.",
+                  "title": "Aankomstpunt",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "planning",
+                  "text": "In het park staat een theehuis vermeld. Controleer de eigen openingstijden; parktoegang betekent niet automatisch dat het café open is.",
+                  "title": "Plan een pauze",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "birds",
+                  "text": "Het gemeentelijke vogelgriepbericht van 5 november 2026 vraagt zieke of dode vogels niet aan te raken en honden aan te lijnen waar veel vogels zijn. Lees voor je bezoek het actuele advies.",
+                  "title": "Voor je bezoek aan plekken met vogels",
+                  "sourceIds": [
+                    "birds"
+                  ]
+                }
+              ]
+            }
+          },
+          "tickets": null
+        }
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -17140,7 +18242,7 @@
         "address": {
           "value": "Van Beuningenlaan 1, 2334 CC Leiden",
           "sourceUrl": "https://www.visitleiden.nl/nl/locaties/2420997644/leidse-hout",
-          "checkedAt": "2026-11-09"
+          "checkedAt": "2026-11-15"
         },
         "website": {
           "value": "https://www.visitleiden.nl/nl/locaties/2420997644/leidse-hout",
@@ -17157,13 +18259,28 @@
         "parks-walks",
         "leiden"
       ],
-      "coordinate": null,
-      "images": [],
+      "coordinate": {
+        "latitude": 52.173394,
+        "longitude": 4.476831
+      },
+      "images": [
+        {
+          "id": "media.nature.leiden-leidse-hout.commons-20261115",
+          "role": "hero",
+          "url": "/images/places/leiden-nature-culture-20261115/leidsehout-1200.webp",
+          "alt": "De Waterlelie bandstand beside the pond in Leidse Hout · 2017-09-21",
+          "attribution": "Marianne Cornelissen-Kuyt · 2017-09-21 · resized WebP, no content edits",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Leiden-Muziektent_De_Waterlelie-Leidse_Hout.jpg",
+          "retrievedAt": "2026-11-15"
+        }
+      ],
       "source": {
         "title": "Official visitor information",
         "publisher": "Leidse Hout",
         "url": "https://www.visitleiden.nl/nl/locaties/2420997644/leidse-hout",
-        "checkedAt": "2026-11-09",
+        "checkedAt": "2026-11-15",
         "publisherOfficial": true
       },
       "trust": {
@@ -17172,13 +18289,17 @@
       },
       "governance": null,
       "indexable": true,
-      "verifiedAt": "2026-11-09",
-      "updatedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
+      "updatedAt": "2026-11-15",
       "releaseId": "editorial-leiden-20261110",
-      "relatedEntityIds": [],
+      "relatedEntityIds": [
+        "nature.leiden-plantsoen",
+        "nature.leiden-cronesteyn",
+        "place.leiden-naturalis"
+      ],
       "seo": {
         "title": "Leidse Hout | YouNew",
-        "description": "A city park with trees, open lawns and a pond near the boundary with Oegstgeest.",
+        "description": "A green city park near Oegstgeest, with lawns, a pond and a deer enclosure.",
         "canonicalPath": "/places/leiden-leidse-hout"
       }
     },
@@ -17234,7 +18355,7 @@
         ],
         "reviewedAt": "2026-11-15",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998",
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f",
         "place": {
           "locales": {
             "en": {
@@ -17469,7 +18590,7 @@
         ],
         "reviewedAt": "2026-11-15",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998",
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f",
         "place": {
           "locales": {
             "en": {
@@ -17702,7 +18823,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -17802,7 +18923,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -17894,7 +19015,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -17986,7 +19107,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "utrecht",
       "provinceId": "utrecht",
@@ -18051,7 +19172,7 @@
       "language": "en",
       "status": "published",
       "title": "Polderpark Cronesteyn",
-      "summary": "A large park with waterways, meadows and woodland areas. Follow the park paths and current access notices.",
+      "summary": "Explore woodland, meadows and wetland habitats in Leiden’s polder landscape; follow current access notices.",
       "contentDepth": "summary",
       "practicalGuide": null,
       "editorial": {
@@ -18060,27 +19181,152 @@
         "locales": {
           "en": {
             "title": "Polderpark Cronesteyn",
-            "summary": "A large park with waterways, meadows and woodland areas. Follow the park paths and current access notices.",
+            "summary": "Explore woodland, meadows and wetland habitats in Leiden’s polder landscape; follow current access notices.",
             "guide": null
           },
           "nl": {
             "title": "Polderpark Cronesteyn",
-            "summary": "Een groot park met water, weilanden en bosgedeelten. Volg de parkpaden en actuele aanwijzingen.",
+            "summary": "Verken bos, weilanden en moerasnatuur in het Leidse polderlandschap; volg actuele toegangsinstructies.",
             "guide": null
           }
         },
         "sources": [
           {
-            "id": "source.primary",
-            "title": "Official visitor information",
-            "publisher": "Polderpark Cronesteyn",
+            "id": "visit",
+            "title": "Polderpark Cronesteyn",
+            "publisher": "Leiden&Partners",
             "url": "https://www.visitleiden.nl/nl/locaties/3133044659/polderpark-cronesteyn",
-            "checkedAt": "2026-11-09"
+            "checkedAt": "2026-11-15"
+          },
+          {
+            "id": "maintenance",
+            "title": "Park maintenance information",
+            "publisher": "Gemeente Leiden",
+            "url": "https://gemeente.leiden.nl/nieuws-en-publicaties/nieuws/werkzaamheden-in-polderpark-cronesteyn/",
+            "checkedAt": "2026-11-15"
+          },
+          {
+            "id": "birds",
+            "title": "Municipal bird notice · 5 November 2026",
+            "publisher": "Gemeente Leiden",
+            "url": "https://gemeente.leiden.nl/nieuws-en-publicaties/nieuws/vogelgriep-in-regio-leiden/",
+            "checkedAt": "2026-11-15"
           }
         ],
-        "reviewedAt": "2026-11-10",
+        "reviewedAt": "2026-11-15",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f",
+        "place": {
+          "locales": {
+            "en": {
+              "alt": "Water and woodland plants in Polderpark Cronesteyn · 2016-06-05",
+              "blocks": [
+                {
+                  "id": "landscape",
+                  "text": "Cronesteyn brings together woodland, meadows, water and a marsh garden.",
+                  "title": "A varied landscape",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "wildlife",
+                  "text": "Different habitats make the park interesting for watching birds and other wildlife. Sightings are never guaranteed.",
+                  "title": "Watch the habitats",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "walking",
+                  "text": "Visit Leiden points to walking information at De Tuin van de Smid. Check the current information locally.",
+                  "title": "Choose a walk",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "arrival",
+                  "text": "The destination listing gives Polderpad, 2322 LB Leiden. Its route pin is a navigation reference, not the whole park boundary.",
+                  "title": "Arrival",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "warning",
+                  "text": "The municipality has reported maintenance and ash dieback. Its dated notice does not establish which paths are open today; follow current signs and barriers.",
+                  "title": "Check access notices",
+                  "sourceIds": [
+                    "maintenance"
+                  ]
+                },
+                {
+                  "id": "birds",
+                  "text": "The municipality’s 5 November 2026 bird-flu notice asks visitors not to touch sick or dead birds and to keep dogs on a lead where birds gather. Read its current advice before visiting.",
+                  "title": "Before visiting areas with birds",
+                  "sourceIds": [
+                    "birds"
+                  ]
+                }
+              ]
+            },
+            "nl": {
+              "alt": "Water en bosplanten in Polderpark Cronesteyn · 2016-06-05",
+              "blocks": [
+                {
+                  "id": "landscape",
+                  "text": "Cronesteyn brengt bos, weilanden, water en een moerastuin samen.",
+                  "title": "Een afwisselend landschap",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "wildlife",
+                  "text": "De verschillende leefgebieden maken het park interessant om vogels en andere dieren te bekijken. Waarnemingen zijn nooit gegarandeerd.",
+                  "title": "Bekijk de leefgebieden",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "walking",
+                  "text": "Visit Leiden verwijst naar wandelinformatie bij De Tuin van de Smid. Controleer ter plaatse de actuele informatie.",
+                  "title": "Kies een wandeling",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "arrival",
+                  "text": "De bestemmingspagina vermeldt Polderpad, 2322 LB Leiden. De routepin is een navigatiepunt, niet de grens van het hele park.",
+                  "title": "Aankomst",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "warning",
+                  "text": "De gemeente heeft onderhoud en essentaksterfte gemeld. Het gedateerde bericht bevestigt niet welke paden vandaag open zijn; volg actuele borden en afzettingen.",
+                  "title": "Controleer toegangsinformatie",
+                  "sourceIds": [
+                    "maintenance"
+                  ]
+                },
+                {
+                  "id": "birds",
+                  "text": "Het gemeentelijke vogelgriepbericht van 5 november 2026 vraagt zieke of dode vogels niet aan te raken en honden aan te lijnen waar veel vogels zijn. Lees voor je bezoek het actuele advies.",
+                  "title": "Voor je bezoek aan plekken met vogels",
+                  "sourceIds": [
+                    "birds"
+                  ]
+                }
+              ]
+            }
+          },
+          "tickets": null
+        }
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -18092,7 +19338,7 @@
         "address": {
           "value": "Polderpad, 2322 LB Leiden",
           "sourceUrl": "https://www.visitleiden.nl/nl/locaties/3133044659/polderpark-cronesteyn",
-          "checkedAt": "2026-11-09"
+          "checkedAt": "2026-11-15"
         },
         "website": {
           "value": "https://www.visitleiden.nl/nl/locaties/3133044659/polderpark-cronesteyn",
@@ -18109,13 +19355,28 @@
         "parks-walks",
         "leiden"
       ],
-      "coordinate": null,
-      "images": [],
+      "coordinate": {
+        "latitude": 52.140322,
+        "longitude": 4.496932
+      },
+      "images": [
+        {
+          "id": "media.nature.leiden-cronesteyn.commons-20261115",
+          "role": "hero",
+          "url": "/images/places/leiden-nature-culture-20261115/cronesteyn-1200.webp",
+          "alt": "Water and woodland plants in Polderpark Cronesteyn · 2016-06-05",
+          "attribution": "Ronald van der Graaf from Leiden, The Netherlands · 2016-06-05 · resized WebP, no content edits",
+          "license": "CC BY 2.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Park_Cronesteyn_Park_Cronesteijn_(26870194233).jpg",
+          "retrievedAt": "2026-11-15"
+        }
+      ],
       "source": {
         "title": "Official visitor information",
         "publisher": "Polderpark Cronesteyn",
         "url": "https://www.visitleiden.nl/nl/locaties/3133044659/polderpark-cronesteyn",
-        "checkedAt": "2026-11-09",
+        "checkedAt": "2026-11-15",
         "publisherOfficial": true
       },
       "trust": {
@@ -18124,13 +19385,17 @@
       },
       "governance": null,
       "indexable": true,
-      "verifiedAt": "2026-11-09",
-      "updatedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
+      "updatedAt": "2026-11-15",
       "releaseId": "editorial-leiden-20261110",
-      "relatedEntityIds": [],
+      "relatedEntityIds": [
+        "nature.leiden-plantsoen",
+        "nature.leiden-leidse-hout",
+        "place.leiden-hortus"
+      ],
       "seo": {
         "title": "Polderpark Cronesteyn | YouNew",
-        "description": "A large park with waterways, meadows and woodland areas. Follow the park paths and current access notices.",
+        "description": "Explore woodland, meadows and wetland habitats in Leiden’s polder landscape; follow current access notices.",
         "canonicalPath": "/places/leiden-cronesteyn"
       }
     },
@@ -18172,7 +19437,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -18264,7 +19529,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -18360,7 +19625,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -18460,7 +19725,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -18574,7 +19839,7 @@
         ],
         "reviewedAt": "2026-11-15",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998",
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f",
         "place": {
           "locales": {
             "en": {
@@ -18801,7 +20066,7 @@
         ],
         "reviewedAt": "2026-11-15",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998",
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f",
         "place": {
           "locales": {
             "en": {
@@ -19036,7 +20301,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -19132,7 +20397,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "utrecht",
       "provinceId": "utrecht",
@@ -19234,7 +20499,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -19334,7 +20599,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "rotterdam",
       "provinceId": "zuid-holland",
@@ -19436,7 +20701,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -19536,7 +20801,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "den-haag",
       "provinceId": "zuid-holland",
@@ -19638,7 +20903,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "utrecht",
       "provinceId": "utrecht",
@@ -19740,7 +21005,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "rotterdam",
       "provinceId": "zuid-holland",
@@ -19838,7 +21103,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -19938,7 +21203,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -20005,7 +21270,7 @@
       "language": "en",
       "status": "published",
       "title": "Wereldmuseum Leiden",
-      "summary": "A museum of world cultures on Steenstraat. Use the museum’s programme to choose an exhibition before visiting.",
+      "summary": "Explore world cultures at the museum on Steenstraat, with visitor planning and accessibility information.",
       "contentDepth": "summary",
       "practicalGuide": null,
       "editorial": {
@@ -20014,27 +21279,163 @@
         "locales": {
           "en": {
             "title": "Wereldmuseum Leiden",
-            "summary": "A museum of world cultures on Steenstraat. Use the museum’s programme to choose an exhibition before visiting.",
+            "summary": "Explore world cultures at the museum on Steenstraat, with visitor planning and accessibility information.",
             "guide": null
           },
           "nl": {
             "title": "Wereldmuseum Leiden",
-            "summary": "Een museum van wereldculturen aan de Steenstraat. Bekijk het programma om vóór je bezoek een tentoonstelling te kiezen.",
+            "summary": "Ontdek wereldculturen in het museum aan de Steenstraat, met bezoekinformatie en informatie over toegankelijkheid.",
             "guide": null
           }
         },
         "sources": [
           {
-            "id": "source.primary",
-            "title": "Official visitor information",
+            "id": "contact",
+            "title": "Visitor address",
             "publisher": "Wereldmuseum Leiden",
             "url": "https://leiden.wereldmuseum.nl/nl/over-wereldmuseum-leiden/contact",
-            "checkedAt": "2026-11-09"
+            "checkedAt": "2026-11-15"
+          },
+          {
+            "id": "visit",
+            "title": "Plan your visit",
+            "publisher": "Wereldmuseum Leiden",
+            "url": "https://leiden.wereldmuseum.nl/nl/plan-je-bezoek-in-wereldmuseum-leiden",
+            "checkedAt": "2026-11-15"
+          },
+          {
+            "id": "access",
+            "title": "Accessibility",
+            "publisher": "Wereldmuseum Leiden",
+            "url": "https://leiden.wereldmuseum.nl/nl/plan-je-bezoek-in-wereldmuseum-leiden/toegankelijkheid",
+            "checkedAt": "2026-11-15"
+          },
+          {
+            "id": "tickets",
+            "title": "Official tickets",
+            "publisher": "Wereldmuseum Leiden",
+            "url": "https://leiden.wereldmuseum.nl/nl/tickets",
+            "checkedAt": "2026-11-15"
+          },
+          {
+            "id": "hours",
+            "title": "Opening hours and admission · 2026",
+            "publisher": "Wereldmuseum Leiden",
+            "url": "https://leiden.wereldmuseum.nl/nl/plan-je-bezoek-in-wereldmuseum-leiden/openingstijden-en-prijzen",
+            "checkedAt": "2026-11-15"
+          },
+          {
+            "id": "route",
+            "title": "Museum route destination",
+            "publisher": "Leiden&Partners",
+            "url": "https://www.visitleiden.nl/nl/locaties/3715984452/wereldmuseum-leiden",
+            "checkedAt": "2026-11-15"
           }
         ],
-        "reviewedAt": "2026-11-10",
+        "reviewedAt": "2026-11-15",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f",
+        "place": {
+          "locales": {
+            "en": {
+              "alt": "Wereldmuseum Leiden façade and entrance · 2024-11-08",
+              "blocks": [
+                {
+                  "id": "description",
+                  "text": "Wereldmuseum Leiden introduces world cultures. Start with the current programme to choose what you want to explore.",
+                  "title": "World cultures",
+                  "sourceIds": [
+                    "contact"
+                  ]
+                },
+                {
+                  "id": "address",
+                  "text": "The visitor address is Steenstraat 1, 2312 BS Leiden. Use the visitor entrance rather than the separate delivery entrance.",
+                  "title": "Arriving",
+                  "sourceIds": [
+                    "contact"
+                  ]
+                },
+                {
+                  "id": "hours",
+                  "text": "Tuesday–Sunday 10:00–17:00. Extra Monday openings listed for 21 and 28 December 2026; closed 25 December. Check the full holiday calendar.",
+                  "title": "Opening hours",
+                  "sourceIds": [
+                    "hours"
+                  ]
+                },
+                {
+                  "id": "booking",
+                  "text": "Ages 19+: €16 online / €18 at the desk; ages 6–18: €6.50 / €8; ages 0–5 free. Students €11; Leiden University students and Museumkaart holders free with valid proof. Check eligibility when booking.",
+                  "title": "Admission · 2026",
+                  "sourceIds": [
+                    "hours",
+                    "tickets"
+                  ]
+                },
+                {
+                  "id": "access",
+                  "text": "The museum provides lifts and an accessible toilet. Mobility scooters and bicycle trailers are not admitted. Contact the museum about your access needs before travelling.",
+                  "title": "Accessibility",
+                  "sourceIds": [
+                    "access"
+                  ]
+                }
+              ]
+            },
+            "nl": {
+              "alt": "Gevel en ingang van Wereldmuseum Leiden · 2024-11-08",
+              "blocks": [
+                {
+                  "id": "description",
+                  "text": "Wereldmuseum Leiden laat je kennismaken met wereldculturen. Kies aan de hand van het actuele programma wat je wilt ontdekken.",
+                  "title": "Wereldculturen",
+                  "sourceIds": [
+                    "contact"
+                  ]
+                },
+                {
+                  "id": "address",
+                  "text": "Het bezoekadres is Steenstraat 1, 2312 BS Leiden. Gebruik de bezoekersingang, niet de aparte leveranciersingang.",
+                  "title": "Aankomst",
+                  "sourceIds": [
+                    "contact"
+                  ]
+                },
+                {
+                  "id": "hours",
+                  "text": "Dinsdag–zondag 10.00–17.00. Extra open op maandag 21 en 28 december 2026; gesloten op 25 december. Bekijk de volledige feestdagenkalender.",
+                  "title": "Openingstijden",
+                  "sourceIds": [
+                    "hours"
+                  ]
+                },
+                {
+                  "id": "booking",
+                  "text": "Vanaf 19 jaar: €16 online / €18 aan de kassa; 6–18 jaar: €6,50 / €8; 0–5 jaar gratis. Studenten €11; studenten van Universiteit Leiden en Museumkaarthouders gratis met geldig bewijs. Controleer de voorwaarden bij reservering.",
+                  "title": "Entree · 2026",
+                  "sourceIds": [
+                    "hours",
+                    "tickets"
+                  ]
+                },
+                {
+                  "id": "access",
+                  "text": "Het museum heeft liften en een rolstoeltoegankelijk toilet. Scootmobielen en fietskarren mogen niet naar binnen. Bespreek je toegankelijkheidsbehoeften voor vertrek met het museum.",
+                  "title": "Toegankelijkheid",
+                  "sourceIds": [
+                    "access"
+                  ]
+                }
+              ]
+            }
+          },
+          "tickets": {
+            "url": "https://leiden.wereldmuseum.nl/nl/tickets",
+            "sourceId": "tickets",
+            "checkedAt": "2026-11-15"
+          }
+        }
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -20046,7 +21447,7 @@
         "address": {
           "value": "Steenstraat 1, 2312 BS Leiden",
           "sourceUrl": "https://leiden.wereldmuseum.nl/nl/over-wereldmuseum-leiden/contact",
-          "checkedAt": "2026-11-09"
+          "checkedAt": "2026-11-15"
         },
         "website": {
           "value": "https://leiden.wereldmuseum.nl/nl/over-wereldmuseum-leiden/contact",
@@ -20067,13 +21468,28 @@
         "museums-sights",
         "leiden"
       ],
-      "coordinate": null,
-      "images": [],
+      "coordinate": {
+        "latitude": 52.16324,
+        "longitude": 4.48245
+      },
+      "images": [
+        {
+          "id": "media.museum.leiden-wereldmuseum.commons-20261115",
+          "role": "hero",
+          "url": "/images/places/leiden-nature-culture-20261115/wereldmuseum-1200.webp",
+          "alt": "Wereldmuseum Leiden façade and entrance · 2024-11-08",
+          "attribution": "Sneeuwvlakte · 2024-11-08 · resized WebP, no content edits",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Wereldmuseum_Leiden_(nov_2024).jpg",
+          "retrievedAt": "2026-11-15"
+        }
+      ],
       "source": {
         "title": "Official visitor information",
         "publisher": "Wereldmuseum Leiden",
         "url": "https://leiden.wereldmuseum.nl/nl/over-wereldmuseum-leiden/contact",
-        "checkedAt": "2026-11-09",
+        "checkedAt": "2026-11-15",
         "publisherOfficial": true
       },
       "trust": {
@@ -20082,13 +21498,17 @@
       },
       "governance": null,
       "indexable": true,
-      "verifiedAt": "2026-11-09",
-      "updatedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
+      "updatedAt": "2026-11-15",
       "releaseId": "editorial-leiden-20261110",
-      "relatedEntityIds": [],
+      "relatedEntityIds": [
+        "place.leiden-rmo",
+        "place.leiden-naturalis",
+        "place.leiden-lakenhal"
+      ],
       "seo": {
         "title": "Wereldmuseum Leiden | YouNew",
-        "description": "A museum of world cultures on Steenstraat. Use the museum’s programme to choose an exhibition before visiting.",
+        "description": "Explore world cultures at the museum on Steenstraat, with visitor planning and accessibility information.",
         "canonicalPath": "/places/leiden-wereldmuseum"
       }
     },
@@ -20130,7 +21550,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
+        "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f"
       },
       "cityId": "den-haag",
       "provinceId": "zuid-holland",

@@ -10,6 +10,8 @@ const legacyConfirmations = JSON.parse(await readFile(new URL("../../DataProject
 const canonicalRuntime = JSON.parse(await readFile(new URL("../../YouNew/Resources/Data/younew-runtime-data.json", siteRoot), "utf8"));
 const editorialApproval = JSON.parse(await readFile(new URL("../../DataProject/editorial/leiden-20261110-approval.json",siteRoot),'utf8'));
 const placeApproval = JSON.parse(await readFile(new URL('../../DataProject/editorial/leiden-places-20261115/manifest.json',siteRoot),'utf8'));
+const natureApproval = JSON.parse(await readFile(new URL('../../DataProject/editorial/leiden-nature-culture-20261115/manifest.json',siteRoot),'utf8'));
+const placeApprovals=[placeApproval,natureApproval];
 const generator = (await import(new URL("scripts/generate-public-content.mjs", siteRoot).href)) as {
   assignStableSlugs: (
     records: Array<{ id: string; title: string }>,
@@ -23,7 +25,7 @@ test("public content accepts the canonical base and the exact owner-approved edi
   const local = provenance.acceptedReleaseIds.includes('integration-synthetic-local-v1');
   const expectedReleases = canonicalRuntime.releases.filter((r: {status:string}) => r.status === 'published').map((r: {id:string}) => r.id);
   assert.deepEqual(provenance.acceptedReleaseIds, [...expectedReleases,...(local?['integration-synthetic-local-v1']:[editorialApproval.releaseId])]);
-  if(!local){assert.equal(provenance.editorialRelease.baseBatchSha256,editorialApproval.batchSha256);assert.equal(provenance.editorialRelease.revisions.length,1);assert.equal(provenance.editorialRelease.revisions[0].approvalSha256,placeApproval.approvalSha256);assert.equal(provenance.editorialRelease.revisions[0].recordsSha256,placeApproval.recordsSha256);assert.deepEqual(content.entities.filter((e:{releaseId:string})=>e.releaseId===editorialApproval.releaseId).map((e:{id:string})=>e.id).sort(),editorialApproval.ids);}
+  if(!local){assert.equal(provenance.editorialRelease.baseBatchSha256,editorialApproval.batchSha256);assert.equal(provenance.editorialRelease.revisions.length,2);for(const approval of placeApprovals){const revision=provenance.editorialRelease.revisions.find((r:{id:string})=>r.id===approval.batchId);assert.equal(revision.approvalSha256,approval.approvalSha256);assert.equal(revision.recordsSha256,approval.recordsSha256);}assert.deepEqual(content.entities.filter((e:{releaseId:string})=>e.releaseId===editorialApproval.releaseId).map((e:{id:string})=>e.id).sort(),editorialApproval.ids);}
   if(local) assert.ok(content.entities.filter((e: {releaseId:string})=>e.releaseId==='integration-synthetic-local-v1').every((e:{id:string;title:string;source:{publisher:string}})=>e.id.startsWith('place.synthetic-')&&e.title.startsWith('[SYNTHETIC]')&&e.source.publisher==='Local QA'));
   assert.equal(content.stats.entities, provenance.counts.acceptedRecords);
   assert.equal(content.entities.length, content.stats.entities);
@@ -97,7 +99,7 @@ test("the public website exposes the verified app image catalogue", () => {
   assert.ok(content.entities.every((entity: { id:string; type: string; title: string; images: Array<{ role: string; url: string; alt: string }> }) =>
     (entity.images.some((image) => image.role === "hero") || (entity.type === "place" && entity.images.length === 0) || (editorialApproval.ids.includes(entity.id) && entity.images.length===0)) &&
     entity.images.every((image) =>
-      (/^https?:\/\//.test(image.url) || (placeApproval.ids.includes(entity.id) && /^\/images\/places\/leiden-places-20261115\/[a-z]+-1200\.webp$/.test(image.url))) &&
+      (/^https?:\/\//.test(image.url) || placeApprovals.some(approval=>approval.ids.includes(entity.id)&&image.url.startsWith(`/images/places/${approval.batchId}/`)&&/\/[a-z]+-1200\.webp$/.test(image.url))) &&
       image.alt.length > 0 &&
       image.alt !== `${entity.title} — ${image.role.replace("_", " ")}`
     )

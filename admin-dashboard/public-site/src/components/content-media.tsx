@@ -23,7 +23,7 @@ export function preferredMedia(assets: readonly PublicMediaAsset[], roles: reado
 export function ContentMedia({ asset, variant, eager = false, eagerMedia, deferUntilVisible = false, sizes: requestedSizes }: ContentMediaProps) {
   const widths = variant === "card" ? [360, 640, 900] : variant === "gallery" ? [480, 800, 1200] : [720, 1200, 1920];
   const localCityImage = /^\/images\/cities\/([a-z-]+)-1920\.webp$/.exec(asset.url);
-  const localPlaceImage = /^(\/images\/(?:place-review|places\/leiden-places-20261115))\/([a-z]+)-1200\.webp$/.exec(asset.url);
+  const localPlaceImage = /^(\/images\/(?:place-review|places\/(?:leiden-places|leiden-nature-culture)-20261115))\/([a-z]+)-1200\.webp$/.exec(asset.url);
   const responsive = localPlaceImage
     ? {src: asset.url, srcSet: [480,800,1200].map(width=>`${localPlaceImage[1]}/${localPlaceImage[2]}-${width}.webp ${width}w`).join(', ')}
     : localCityImage
