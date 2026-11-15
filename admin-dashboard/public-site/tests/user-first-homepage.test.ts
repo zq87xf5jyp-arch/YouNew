@@ -38,7 +38,7 @@ test("discovery imagery remains local, eager only for the hero, and licensed", a
 
 test("discovery home exposes five real cities, six useful topics and three practical starts", () => {
   for (const city of ["amsterdam", "rotterdam", "den-haag", "utrecht", "eindhoven"]) assert.ok(homepage.includes(city));
-  for (const category of ["culture", "food-drink", "outdoors", "organizations", "government", "/start/"]) assert.ok(homepage.includes(category));
+  for (const category of ["culture", "food-drink", "outdoors", "local-services", "government", "/start/"]) assert.ok(homepage.includes(category));
   for (const topic of ["BSN BRP", "GP health insurance", "housing renting"]) assert.ok(homepage.includes(topic));
   assert.match(homepage, /cityGuides\.map/);
   assert.match(homepage, /\/nl\/stadsgidsen\//);

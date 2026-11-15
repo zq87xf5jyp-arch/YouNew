@@ -22,10 +22,10 @@ export function DiscoveryHome({ locale }: { locale: "en" | "nl" }) {
   const search = nl ? "/nl/zoeken/" : "/search/";
   const categoryBase = nl ? "/nl/categorieen/" : "/categories/";
   const categories = [
-    { icon: Compass, label: nl ? "Plekken & cultuur" : "Places & culture", text: nl ? "Ontdek de stad om je heen" : "Get to know the city around you", href: `${categoryBase}culture/` },
-    { icon: UtensilsCrossed, label: nl ? "Eten & drinken" : "Food & drink", text: nl ? "Lokale informatie en bronnen" : "Local information and sources", href: `${categoryBase}food-drink/` },
-    { icon: Trees, label: nl ? "Buiten & activiteiten" : "Outdoors & activities", text: nl ? "Maak ruimte om te ontdekken" : "Make time to explore", href: `${categoryBase}outdoors/` },
-    { icon: Building2, label: nl ? "Lokale diensten" : "Local services", text: nl ? "Vind een bruikbaar vertrekpunt" : "Find a useful starting point", href: nl ? "/nl/organisaties/" : "/organizations/" },
+    { icon: Compass, explore: true, label: nl ? "Plekken & cultuur" : "Places & culture", text: nl ? "Ontdek de stad om je heen" : "Get to know the city around you", href: `${categoryBase}culture/` },
+    { icon: UtensilsCrossed, explore: true, label: nl ? "Eten & drinken" : "Food & drink", text: nl ? "Lokale informatie en bronnen" : "Local information and sources", href: `${categoryBase}food-drink/` },
+    { icon: Trees, explore: true, label: nl ? "Buiten & activiteiten" : "Outdoors & activities", text: nl ? "Maak ruimte om te ontdekken" : "Make time to explore", href: `${categoryBase}outdoors/` },
+    { icon: Building2, explore: true, label: nl ? "Lokale diensten" : "Local services", text: nl ? "Vind een bruikbaar vertrekpunt" : "Find a useful starting point", href: `${categoryBase}local-services/` },
     { icon: Landmark, label: nl ? "Overheid & documenten" : "Government & documents", text: nl ? "De juiste officiële route" : "The right official route", href: `${categoryBase}government/` },
     { icon: BookOpen, label: nl ? "Wonen in Nederland" : "Living in the Netherlands", text: nl ? "Van je eerste stap tot elke dag" : "From your first steps to everyday life", href: nl ? `${search}?q=wonen` : "/start/" }
   ];
@@ -38,7 +38,13 @@ export function DiscoveryHome({ locale }: { locale: "en" | "nl" }) {
     <section className="experience-hero section-shell" aria-labelledby="home-title">
       <div className="experience-hero-copy"><h1 id="home-title">{nl ? <>Wat wil je doen<br />in <em>Nederland?</em></> : <>What would you like<br />to do in <em>the Netherlands?</em></>}</h1>
       <p>{nl ? "Je leven regelen. Een stad ontdekken. Je bedrijf laten zien. Vind je volgende stap, met bronnen die je kunt controleren." : "Make life easier. Discover a city. Share your business. Find your next step, with sources you can check."}</p>
-      <div className="discovery-search"><HomeSearchForm locale={locale} /></div></div>
+      <div className="discovery-search"><HomeSearchForm locale={locale} /></div>
+      <nav className="discovery-explore-shortcuts" aria-labelledby="home-explore-label">
+        <p id="home-explore-label">{nl ? "Ontdek op interesse" : "Explore by interest"}</p>
+        <div>{categories.filter((category) => category.explore).map(({ icon: Icon, label, href }) => (
+          <Link prefetch={false} href={href} key={href}><Icon aria-hidden /><span>{label}</span></Link>
+        ))}</div>
+      </nav></div>
       <div className="experience-hero-photo"><ContentMedia asset={{ ...discoveryHero, alt: nl ? "De Erasmusbrug en de skyline van Rotterdam, gezien vanaf de Euromast" : discoveryHero.alt }} variant="hero" sizes="(max-width: 760px) 100vw, (max-width: 1000px) 40vw, 520px" eager eagerMedia="(min-width: 761px)" /><span className="discovery-photo-label"><MapPin aria-hidden />Rotterdam, Erasmusbrug</span></div>
     </section>
     <nav className="experience-paths section-shell" aria-label={nl ? "Kies je route" : "Choose your path"}>
@@ -46,7 +52,7 @@ export function DiscoveryHome({ locale }: { locale: "en" | "nl" }) {
       <Link prefetch={false} href="#cities-title"><span>{nl ? "Ontdekken" : "Explore"}</span><strong>{nl ? "Ik wil op ontdekking" : "I want to explore"}</strong><p>{nl ? "Vind jouw volgende stad" : "Find your next city"}</p><ArrowRight aria-hidden /></Link>
       <Link prefetch={false} href={nl ? "/nl/voor-bedrijven/" : "/for-business/"}><span>{nl ? "Ondernemen" : "Business"}</span><strong>{nl ? "Ik heb een bedrijf" : "I own a business"}</strong><p>{nl ? "Een gratis profiel, na controle" : "A free profile, after review"}</p><ArrowRight aria-hidden /></Link>
     </nav>
-    <section className="experience-tasks section-shell" id="live" aria-labelledby="tasks-title"><div><p className="discovery-kicker">{nl ? "Wonen in Nederland" : "Live in the Netherlands"}</p><h2 id="tasks-title">{nl ? "Eerst even dit regelen." : "Let’s get that sorted."}</h2></div><nav aria-label={nl ? "Populaire taken" : "Popular tasks"}>{[
+    <section className="experience-tasks section-shell" id="live" aria-labelledby="tasks-title"><div><p className="discovery-kicker">{nl ? "Wonen in Nederland" : "Live in the Netherlands"}</p><h2 id="tasks-title">{nl ? "Eerst even dit regelen." : "Let’s get that sorted."}</h2></div><nav aria-label={nl ? "Praktische taken" : "Practical tasks"}>{[
       ["BSN & DigiD", "BSN DigiD"], [nl ? "Een huisarts vinden" : "Find a doctor", nl ? "huisarts" : "doctor"], [nl ? "Een woning huren" : "Rent a home", "housing renting"], [nl ? "Werk & rechten" : "Work & rights", "work rights"], [nl ? "Onderwijs" : "Education", "education"], [nl ? "Zorgverzekering" : "Health insurance", "health insurance"]
     ].map(([label,query])=><Link prefetch={false} key={label} href={`${search}?q=${encodeURIComponent(query)}`}>{label}<ArrowRight aria-hidden /></Link>)}</nav></section>
     <section className="discovery-section section-shell" aria-labelledby="cities-title">

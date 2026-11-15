@@ -1,0 +1,35 @@
+{
+  "baseCommit": "7e806340808b7c8476c9da5f88ec83470d674374",
+  "checkedAt": "2026-11-15",
+  "entities": 76,
+  "types": {
+    "place": 54,
+    "guide": 17,
+    "city": 5
+  },
+  "fullGuides": 0,
+  "placesWithCoordinates": 3,
+  "placesWithImages": 0,
+  "geography": {
+    "provinces": 12,
+    "municipalities": 342,
+    "settlements": 2502
+  },
+  "categoryCounts": {
+    "food-drink": 21,
+    "things-to-do": 13,
+    "business": 2,
+    "outdoors": 11,
+    "government": 5,
+    "local-services": 9,
+    "culture": 10,
+    "emergency": 1,
+    "healthcare": 2,
+    "transport": 2
+  },
+  "sourceDates": [
+    "2026-10-24T09:30:00.000Z",
+    "2026-11-09",
+    "2026-11-10"
+  ]
+}
