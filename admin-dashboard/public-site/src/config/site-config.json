@@ -12,7 +12,8 @@
     "consentVersion": "2026-10-26-hostinger",
     "schemaVersion": 1,
     "appVersion": "web-2026.10.26",
-    "retentionDays": 90
+    "retentionDays": 90,
+    "guideMetricsEnabled": false
   },
   "statusBanner": {
     "enabled": false,

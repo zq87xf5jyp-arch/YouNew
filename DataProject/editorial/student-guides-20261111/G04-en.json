@@ -1,0 +1,291 @@
+{
+  "schemaVersion": 2,
+  "id": "guide.leiden-student-health-insurance",
+  "slug": "leiden-student-health-insurance",
+  "locale": "en",
+  "title": "Student health insurance: check your situation",
+  "shortSummary": {
+    "id": "summary",
+    "text": "Study, work and internships can lead to different insurance duties. Check your situation before choosing cover.",
+    "sourceIDs": [
+      "svb-student"
+    ]
+  },
+  "audienceProfiles": [
+    "student"
+  ],
+  "whoThisIsFor": {
+    "id": "audience",
+    "text": "International students, including those about to start work or an internship.",
+    "sourceIDs": [
+      "svb-student"
+    ]
+  },
+  "whenYouNeedIt": {
+    "id": "when",
+    "text": "Before arrival and whenever work or internship arrangements change.",
+    "sourceIDs": [
+      "student-insurance"
+    ]
+  },
+  "applicability": {
+    "cityIDs": [
+      "leiden"
+    ],
+    "provinceIDs": [
+      "zuid-holland"
+    ]
+  },
+  "jurisdiction": {
+    "level": "national",
+    "countryCode": "NL",
+    "municipalityDependent": false,
+    "note": "National rules; local starting points for Leiden students.",
+    "sourceIDs": [
+      "svb-student"
+    ]
+  },
+  "prerequisites": [
+    {
+      "id": "prepare",
+      "text": "Before arrival and whenever work or internship arrangements change.",
+      "sourceIDs": [
+        "student-insurance"
+      ]
+    }
+  ],
+  "requiredDocuments": [
+    {
+      "id": "document.0",
+      "text": "Gather your study, work or internship details and current policy; check SVB’s actual application for required evidence.",
+      "sourceIDs": [
+        "svb-work",
+        "student-insurance"
+      ]
+    }
+  ],
+  "estimatedTime": {
+    "state": "varies",
+    "value": null,
+    "currency": null,
+    "note": "Assessment and policy start dates depend on the case; no processing promise is confirmed here.",
+    "sourceIDs": [
+      "svb-work"
+    ]
+  },
+  "estimatedCost": {
+    "state": "varies",
+    "value": null,
+    "currency": null,
+    "note": "Premiums and own payments depend on the applicable insurance and policy. No universal student price is confirmed.",
+    "sourceIDs": [
+      "student-insurance"
+    ]
+  },
+  "numberedSteps": [
+    {
+      "id": "step.1",
+      "position": 1,
+      "title": "Identify your situation",
+      "body": "For study only, Dutch basic insurance is usually not required. Work or a paid internship can change this; exceptions apply.",
+      "sourceIDs": [
+        "svb-student"
+      ],
+      "municipalityDependent": false
+    },
+    {
+      "id": "step.2",
+      "position": 2,
+      "title": "Use the applicable SVB branch",
+      "body": "Read the current student and internship rules. Ask SVB for an assessment if your insurance position is unclear.",
+      "sourceIDs": [
+        "svb-student",
+        "svb-work"
+      ],
+      "municipalityDependent": false
+    },
+    {
+      "id": "step.3",
+      "position": 3,
+      "title": "Check actual cover",
+      "body": "Ask your insurer about the study period, existing conditions, hospital care and repatriation. Keep confirmation.",
+      "sourceIDs": [
+        "student-insurance"
+      ],
+      "municipalityDependent": false
+    }
+  ],
+  "warnings": [
+    {
+      "id": "warning",
+      "text": "Do not buy a policy solely because another student has it.",
+      "sourceIDs": [
+        "student-insurance"
+      ]
+    }
+  ],
+  "commonMistakes": [
+    {
+      "id": "mistake",
+      "text": "A Dutch address does not by itself establish every international student’s Wlz position.",
+      "sourceIDs": [
+        "svb-student"
+      ]
+    }
+  ],
+  "tips": [
+    {
+      "id": "tip",
+      "text": "Once cover is clear, prepare to register with a GP.",
+      "sourceIDs": [
+        "student-insurance"
+      ]
+    }
+  ],
+  "checklist": [
+    {
+      "id": "check.0",
+      "text": "For study only, Dutch basic insurance is usually not required. Work or a paid internship can change this; exceptions apply.",
+      "sourceIDs": [
+        "svb-student"
+      ]
+    },
+    {
+      "id": "check.1",
+      "text": "Read the current student and internship rules. Ask SVB for an assessment if your insurance position is unclear.",
+      "sourceIDs": [
+        "svb-student",
+        "svb-work"
+      ]
+    },
+    {
+      "id": "check.2",
+      "text": "Ask your insurer about the study period, existing conditions, hospital care and repatriation. Keep confirmation.",
+      "sourceIDs": [
+        "student-insurance"
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "id": "faq.0",
+      "question": "Only studying?",
+      "answer": "Check the study-only branch and its exceptions; still arrange suitable medical cover.",
+      "sourceIDs": [
+        "svb-student",
+        "student-insurance"
+      ]
+    },
+    {
+      "id": "faq.1",
+      "question": "Starting a job?",
+      "answer": "Recheck with SVB and your insurer before the change.",
+      "sourceIDs": [
+        "svb-work"
+      ]
+    },
+    {
+      "id": "faq.2",
+      "question": "EHIC enough?",
+      "answer": "Ask the home-country scheme about duration and coverage; the card alone does not describe all conditions.",
+      "sourceIDs": [
+        "student-insurance"
+      ]
+    }
+  ],
+  "emergencyInformation": [
+    {
+      "id": "help",
+      "text": "This guide cannot decide your personal case. Use the responsible institution for help.",
+      "sourceIDs": [
+        "svb-student"
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "id": "context",
+      "title": "Check before acting",
+      "body": "For internships, use the rules applying from September 2025. Residence, remuneration and employee insurance can matter.",
+      "sourceIDs": [
+        "svb-student"
+      ]
+    }
+  ],
+  "officialSources": [
+    {
+      "id": "svb-student",
+      "title": "Studies and internships",
+      "publisher": "SVB",
+      "url": "https://svb.nl/en/the-wlz-scheme/insurance-under-the-wlz-scheme/you-are-a-student-or-doing-an-internship",
+      "isOfficial": true,
+      "status": "verified_opened",
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "id": "svb-work",
+      "title": "Working in the Netherlands",
+      "publisher": "SVB",
+      "url": "https://svb.nl/en/the-wlz-scheme/insurance-under-the-wlz-scheme/you-work-in-the-netherlands",
+      "isOfficial": true,
+      "status": "verified_opened",
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "id": "student-insurance",
+      "title": "Health and liability insurance",
+      "publisher": "Leiden University",
+      "url": "https://www.universiteitleiden.nl/en/education/international-students/prepare-your-stay/insurance/health-insurance",
+      "isOfficial": true,
+      "status": "verified_opened",
+      "checkedAt": "2026-11-11"
+    }
+  ],
+  "contactOptions": [
+    {
+      "id": "official-contact",
+      "kind": "url",
+      "label": "Official instructions",
+      "value": "https://svb.nl/en/the-wlz-scheme/insurance-under-the-wlz-scheme/you-are-a-student-or-doing-an-internship",
+      "sourceIDs": [
+        "svb-student"
+      ]
+    }
+  ],
+  "relatedGuideIDs": [],
+  "nextActions": [
+    {
+      "id": "next",
+      "text": "Once cover is clear, prepare to register with a GP.",
+      "sourceIDs": [
+        "student-insurance"
+      ]
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "updatedAt": "2026-11-11",
+  "reviewer": null,
+  "readingTimeMinutes": 4,
+  "difficulty": "basic",
+  "confidenceLevel": "pending_review",
+  "tags": [
+    "Leiden",
+    "student"
+  ],
+  "publicationGate": null,
+  "disclaimer": "YouNew explains official information. It is not a government service or personal legal or medical advice.",
+  "status": "draft",
+  "seo": {
+    "title": "Student health insurance: check your situation",
+    "description": "Study, work and internships can lead to different insurance duties. Check your situation before choosing cover. Official sources and a dated checklist.",
+    "canonicalPath": "/guides/leiden-student-health-insurance"
+  },
+  "synonyms": [
+    "leiden student health insurance"
+  ],
+  "commonQuestions": [
+    "Only studying?",
+    "Starting a job?",
+    "EHIC enough?"
+  ]
+}

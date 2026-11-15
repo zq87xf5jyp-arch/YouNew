@@ -586,16 +586,16 @@
     "releaseManifests": [
       {
         "path": "DataProject/reports/release-manifests/amsterdam-v0.1.10.json",
-        "sha256": "30b68396a4d3fbdee6c7bb6eab95f1acb16e74cfa6f2004bf6f84fd8e2dfc611"
+        "sha256": "71949dcf93e6dde582248a94873ddfcd733717d17bf9931cc69ac2d08764365d"
       },
       {
         "path": "DataProject/reports/release-manifests/cities-v0.1.0.json",
-        "sha256": "39abec8115616bb77bdbe7730e43bae074622ed985de13016a93ae00ba127a5b"
+        "sha256": "74b89820a84e8e02e8a4c0aa584ae9b77903e6a5317fb72e28bb45e0505bc334"
       }
     ],
     "schema": {
       "path": "DataProject/schema/entity.schema.json",
-      "sha256": "b4536d7b7115c48d75539783eede556b5ff29bb1cdb89f9dec872abc3b1db87c"
+      "sha256": "2dd0e1c25a4291afd6ee1bed16547f9693cc25a62233c3a78c99b1f1dc4b17f2"
     },
     "schemaVersion": "https://younew.nl/schemas/data-project/entity.schema.json"
   },
@@ -662,7 +662,7 @@
     }
   },
   "mode": "production",
-  "outputChecksum": "d39686302bac96ca65c9489f64ed7b7ded29e4f9865e21edfb0f52db8cb45e7c",
+  "outputChecksum": "f1cc5663176c6c4091c54bd72193b0ece934f91ec6b40683243b043acd2d969e",
   "publicationPolicy": {
     "allSevenGatesRequired": true,
     "productionRequiresReleaseStatus": "published",

@@ -1,4 +1,8 @@
+import publicGuideIds from "../../generated/analytics-guide-ids.json" with {type:"json"};
 export type AnalyticsEvent =
+  | { name: "guide_view"; contentId: string; returning?: boolean }
+  | { name: "guide_active_time"; contentId: string; durationMilliseconds: number }
+  | { name: "guide_official_action"; contentId: string }
   | { name: "page_view"; path: string }
   | {
     name: "search";
@@ -47,6 +51,7 @@ export function track(event: AnalyticsEvent) {
 }
 
 export type AnalyticsConfiguration = {
+  guideMetricsEnabled?: boolean;
   endpoint: string;
   consentVersion: string;
   schemaVersion: number;
@@ -97,6 +102,7 @@ export function analyticsEnvironment(hostname: string): "production" | "staging"
     || normalized === "127.0.0.1"
     || normalized === "::1"
     || normalized.endsWith(".localhost")
+    || normalized.startsWith("qa-")
     ? "staging"
     : "production";
 }
@@ -148,7 +154,12 @@ function safeScreen(value: string) {
 
 // Transport only the metrics actually used by the private Hostinger report.
 // Detailed query, filter, profile, content and location values stay in the browser.
-function eventProperties(event: AnalyticsEvent): Record<string, string | number | boolean> {
+function eventProperties(event: AnalyticsEvent, enabled = false): Record<string, string | number | boolean> {
+  if (enabled && "contentId" in event && publicGuideIds.includes(event.contentId)) {
+    if (event.name === "guide_view") return {content_id:event.contentId,...(typeof event.returning === "boolean" ? {returning_7_30d:event.returning} : {})};
+    if (event.name === "guide_official_action") return {content_id:event.contentId};
+    if (event.name === "guide_active_time") return {content_id:event.contentId,duration_ms:Math.max(0,Math.min(3_600_000,Math.trunc(event.durationMilliseconds)))};
+  }
   if (event.name === "search") return {
     result_count: Math.max(0, Math.min(100_000, Math.trunc(event.resultCount))),
     has_results: !event.zeroResult,
@@ -175,7 +186,7 @@ export function createAnalyticsEnvelope(
     platform: "Web",
     app_version: options.configuration.appVersion,
     language: runtime.language().slice(0, 12),
-    properties: eventProperties(event),
+    properties: eventProperties(event, options.configuration.guideMetricsEnabled === true),
     occurred_at: runtime.now().toISOString(),
     consent_version: options.configuration.consentVersion,
     schema_version: options.configuration.schemaVersion,
@@ -232,6 +243,7 @@ export function createHostingerAnalyticsProvider(options: ProviderOptions): Anal
   return {
     track(event) {
       if (disposed || queue.length >= 100) return;
+      if (event.name.startsWith("guide_") && (!options.configuration.guideMetricsEnabled || options.configuration.consentVersion !== "2026-11-11-guides" || !("contentId" in event) || !publicGuideIds.includes(event.contentId))) return;
       queue.push(createAnalyticsEnvelope(event, options, runtime));
       if (queue.length >= maximumBatchSize) {
         void flush();

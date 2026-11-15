@@ -1,0 +1,300 @@
+{
+  "schemaVersion": 2,
+  "id": "guide.leiden-registration",
+  "slug": "leiden-registration",
+  "locale": "en",
+  "title": "Change your address in Leiden",
+  "shortSummary": {
+    "id": "summary",
+    "text": "Already registered in the Netherlands? Report your move to the municipality where you will live.",
+    "sourceIDs": [
+      "move-national"
+    ]
+  },
+  "audienceProfiles": [
+    "student"
+  ],
+  "whoThisIsFor": {
+    "id": "audience",
+    "text": "Students moving within Leiden or from another Dutch municipality.",
+    "sourceIDs": [
+      "leiden-move"
+    ]
+  },
+  "whenYouNeedIt": {
+    "id": "when",
+    "text": "Report from four weeks before until five days after moving.",
+    "sourceIDs": [
+      "move-national"
+    ]
+  },
+  "applicability": {
+    "cityIDs": [
+      "leiden"
+    ],
+    "provinceIDs": [
+      "zuid-holland"
+    ]
+  },
+  "jurisdiction": {
+    "level": "municipal",
+    "countryCode": "NL",
+    "municipalityDependent": true,
+    "note": "Leiden municipal procedure.",
+    "sourceIDs": [
+      "leiden-move"
+    ]
+  },
+  "prerequisites": [
+    {
+      "id": "prepare",
+      "text": "Report from four weeks before until five days after moving.",
+      "sourceIDs": [
+        "move-national"
+      ]
+    }
+  ],
+  "requiredDocuments": [
+    {
+      "id": "document.0",
+      "text": "Housing contract or applicable occupancy evidence. Without DigiD, include signed form and ID copy; cohabitation needs the specified consent and occupant ID copy.",
+      "sourceIDs": [
+        "leiden-move"
+      ]
+    }
+  ],
+  "estimatedTime": {
+    "state": "varies",
+    "value": null,
+    "currency": null,
+    "note": "Leiden lists one working day for a move within Leiden, at least three for a move into Leiden. Processing starts from the moving date.",
+    "sourceIDs": [
+      "leiden-move"
+    ]
+  },
+  "estimatedCost": {
+    "state": "known",
+    "value": "0",
+    "currency": "EUR",
+    "note": "Reporting and processing the address change are free.",
+    "sourceIDs": [
+      "leiden-move"
+    ]
+  },
+  "numberedSteps": [
+    {
+      "id": "step.1",
+      "position": 1,
+      "title": "Choose the right procedure",
+      "body": "First arrival from abroad uses a different route. For a move within the Netherlands, use the new municipality.",
+      "sourceIDs": [
+        "brp",
+        "move-national"
+      ],
+      "municipalityDependent": true
+    },
+    {
+      "id": "step.2",
+      "position": 2,
+      "title": "Prepare and submit",
+      "body": "Use Leiden’s DigiD form or signed paper-form alternative. Attach the required proof of housing.",
+      "sourceIDs": [
+        "leiden-move"
+      ],
+      "municipalityDependent": true
+    },
+    {
+      "id": "step.3",
+      "position": 3,
+      "title": "Check the update",
+      "body": "Keep confirmation and check MijnOverheid. Ask separately about local services that may not transfer automatically.",
+      "sourceIDs": [
+        "leiden-move",
+        "move-national"
+      ],
+      "municipalityDependent": true
+    }
+  ],
+  "warnings": [
+    {
+      "id": "warning",
+      "text": "Late reporting can affect the registered moving date.",
+      "sourceIDs": [
+        "move-national"
+      ]
+    }
+  ],
+  "commonMistakes": [
+    {
+      "id": "mistake",
+      "text": "Do not assume all municipal benefits and services follow the BRP update automatically.",
+      "sourceIDs": [
+        "move-national"
+      ]
+    }
+  ],
+  "tips": [
+    {
+      "id": "tip",
+      "text": "Check services and organisations that need a separate update.",
+      "sourceIDs": [
+        "move-national"
+      ]
+    }
+  ],
+  "checklist": [
+    {
+      "id": "check.0",
+      "text": "First arrival from abroad uses a different route. For a move within the Netherlands, use the new municipality.",
+      "sourceIDs": [
+        "brp",
+        "move-national"
+      ]
+    },
+    {
+      "id": "check.1",
+      "text": "Use Leiden’s DigiD form or signed paper-form alternative. Attach the required proof of housing.",
+      "sourceIDs": [
+        "leiden-move"
+      ]
+    },
+    {
+      "id": "check.2",
+      "text": "Keep confirmation and check MijnOverheid. Ask separately about local services that may not transfer automatically.",
+      "sourceIDs": [
+        "leiden-move",
+        "move-national"
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "id": "faq.0",
+      "question": "Moving to The Hague?",
+      "answer": "Report to your new municipality and follow its procedure.",
+      "sourceIDs": [
+        "move-national"
+      ]
+    },
+    {
+      "id": "faq.1",
+      "question": "No DigiD?",
+      "answer": "Leiden provides a signed form that can be submitted with the required attachments.",
+      "sourceIDs": [
+        "leiden-move"
+      ]
+    },
+    {
+      "id": "faq.2",
+      "question": "Already late?",
+      "answer": "Report promptly and check whether you must also contact IND.",
+      "sourceIDs": [
+        "move-ind"
+      ]
+    }
+  ],
+  "emergencyInformation": [
+    {
+      "id": "help",
+      "text": "This guide cannot decide your personal case. Use the responsible institution for help.",
+      "sourceIDs": [
+        "leiden-move"
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "id": "context",
+      "title": "Check before acting",
+      "body": "For residence-permit holders, late reporting may also require notifying IND directly. Check the official instructions.",
+      "sourceIDs": [
+        "move-ind"
+      ]
+    }
+  ],
+  "officialSources": [
+    {
+      "id": "leiden-move",
+      "title": "Report a move to or within Leiden",
+      "publisher": "Gemeente Leiden",
+      "url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/verhuizen/verhuizing-naar-of-in-leiden-doorgeven/",
+      "isOfficial": true,
+      "status": "verified_opened",
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "id": "move-national",
+      "title": "Inform the municipality of a change of address",
+      "publisher": "Government.nl",
+      "url": "https://www.government.nl/documents/question-and-answer/how-do-i-inform-the-municipality-of-a-change-of-address",
+      "isOfficial": true,
+      "status": "verified_opened",
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "id": "move-ind",
+      "title": "Change of address and IND",
+      "publisher": "Government.nl",
+      "url": "https://www.government.nl/themes/migration-and-travel/immigration-to-the-netherlands/question-and-answer/as-a-foreign-national-do-i-need-to-inform-the-immigration-and-naturalisation-service-ind-if-i-move",
+      "isOfficial": true,
+      "status": "verified_opened",
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "id": "brp",
+      "title": "When to register",
+      "publisher": "NetherlandsWorldwide",
+      "url": "https://www.netherlandsworldwide.nl/personal-records-database-brp/when-register",
+      "isOfficial": true,
+      "status": "verified_opened",
+      "checkedAt": "2026-11-11"
+    }
+  ],
+  "contactOptions": [
+    {
+      "id": "official-contact",
+      "kind": "url",
+      "label": "Official instructions",
+      "value": "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/verhuizen/verhuizing-naar-of-in-leiden-doorgeven/",
+      "sourceIDs": [
+        "leiden-move"
+      ]
+    }
+  ],
+  "relatedGuideIDs": [],
+  "nextActions": [
+    {
+      "id": "next",
+      "text": "Check services and organisations that need a separate update.",
+      "sourceIDs": [
+        "move-national"
+      ]
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "updatedAt": "2026-11-11",
+  "reviewer": null,
+  "readingTimeMinutes": 4,
+  "difficulty": "basic",
+  "confidenceLevel": "pending_review",
+  "tags": [
+    "Leiden",
+    "student"
+  ],
+  "publicationGate": null,
+  "disclaimer": "YouNew explains official information. It is not a government service or personal legal or medical advice.",
+  "status": "draft",
+  "seo": {
+    "title": "Change your address in Leiden",
+    "description": "Already registered in the Netherlands? Report your move to the municipality where you will live. Official sources and a dated checklist.",
+    "canonicalPath": "/guides/leiden-registration"
+  },
+  "synonyms": [
+    "leiden registration"
+  ],
+  "commonQuestions": [
+    "Moving to The Hague?",
+    "No DigiD?",
+    "Already late?"
+  ]
+}

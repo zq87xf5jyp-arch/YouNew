@@ -13,6 +13,10 @@ async function htmlFiles(directory) {
 }
 
 const files = await htmlFiles(nlRoot);
+if (process.env.YOUNEW_GUIDE_REVIEW === "1") {
+  const reviewRoot = fileURLToPath(new URL("../out/review/", import.meta.url));
+  files.push(...(await htmlFiles(reviewRoot)).filter(file=>file.endsWith("/nl/index.html")));
+}
 for (const file of files) {
   const source = await readFile(file, "utf8");
   const localized = source.replace(/<html lang="en"/i, '<html lang="nl"');

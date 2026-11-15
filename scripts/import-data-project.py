@@ -514,6 +514,19 @@ def runtime_practical_guide(guide):
 
 
 def validate_published_practical_guide(record, label: str, reviewer_catalog_override=None, evidence_catalog_override=None):
+    validate_guide_locale(record, label, reviewer_catalog_override, evidence_catalog_override)
+    for locale, translated in (record.get("practical_guide_locales") or {}).items():
+        if locale != "nl" or translated.get("locale") != locale:
+            raise ImportFailure(f"{label}: unsupported or mismatched practical guide translation")
+        if translated.get("status") != "published":
+            continue
+        if (record.get("practical_guide") or {}).get("status") != "published":
+            raise ImportFailure(f"{label}: a published translation requires the English compatibility payload")
+        localized_record = {**record, "title": translated["title"], "practical_guide": translated}
+        validate_guide_locale(localized_record, f"{label}.{locale}", reviewer_catalog_override, evidence_catalog_override, locale)
+
+
+def validate_guide_locale(record, label: str, reviewer_catalog_override=None, evidence_catalog_override=None, locale="en"):
     guide = record.get("practical_guide")
     if guide is None:
         return
@@ -523,7 +536,7 @@ def validate_published_practical_guide(record, label: str, reviewer_catalog_over
         return
     if guide["schema_version"] != 2:
         raise ImportFailure(f"{label}.practical_guide must use schema_version 2 before publication")
-    if guide["locale"] != "en":
+    if guide["locale"] != locale:
         raise ImportFailure(f"{label}.practical_guide locale is not yet supported by the published web route contract")
     if record["lifecycle_status"] != "published" or record["verification_status"] != "verified":
         raise ImportFailure(f"{label}: a published practical guide requires a published, verified parent record")
@@ -537,7 +550,7 @@ def validate_published_practical_guide(record, label: str, reviewer_catalog_over
     expected_slug = public_route_slug_for_id(record["id"])
     if not expected_slug or guide["slug"] != expected_slug:
         raise ImportFailure(f"{label}.practical_guide.slug must equal deterministic public slug {expected_slug!r}")
-    if guide["seo"]["canonical_path"].rstrip("/") != f"/guides/{expected_slug}":
+    if guide["seo"]["canonical_path"].rstrip("/") != f"{'/nl/gidsen' if locale == 'nl' else '/guides'}/{expected_slug}":
         raise ImportFailure(f"{label}.practical_guide SEO canonical path must equal its deterministic public route")
     if guide["confidence_level"] != "high":
         raise ImportFailure(f"{label}.practical_guide requires high confidence before publication")
@@ -555,6 +568,7 @@ def validate_published_practical_guide(record, label: str, reviewer_catalog_over
             not evidence
             or evidence.get("status") != "passed"
             or evidence.get("guide_id") != guide["id"]
+            or evidence.get("locale", "en") != locale
             or evidence.get("checked_at") != gate["checked_at"]
         ):
             raise ImportFailure(f"{label}.practical_guide evidence {evidence_id} is unresolved or does not match the guide gate")
@@ -742,6 +756,9 @@ def runtime_entity(record, release_id: str):
     guide = record.get("practical_guide")
     if guide is not None and guide["status"] == "published":
         result["practicalGuide"] = runtime_practical_guide(guide)
+        translations = {locale: runtime_practical_guide(value) for locale, value in (record.get("practical_guide_locales") or {}).items() if value.get("status") == "published"}
+        if translations:
+            result["practicalGuideLocales"] = translations
     if isinstance(record.get("governance"), dict):
         result["governance"] = record["governance"]
     return result
@@ -876,8 +893,9 @@ def build(args):
         unresolved = sorted(set(record["related_entity_ids"]) - known_ids)
         if unresolved:
             raise ImportFailure(f"{entity_id} has unresolved related_entity_ids: {unresolved}")
-        guide = record.get("practical_guide")
-        if guide is not None and guide["status"] == "published":
+        for guide in [record.get("practical_guide"), *(record.get("practical_guide_locales") or {}).values()]:
+            if guide is None or guide["status"] != "published":
+                continue
             unresolved_guides = sorted(set(guide["related_guide_ids"]) - all_project_ids)
             if unresolved_guides:
                 raise ImportFailure(f"{entity_id} has unresolved practical guide relations: {unresolved_guides}")

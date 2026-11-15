@@ -361,3 +361,30 @@ test("the hydrated consent notice never traps focus or blocks the primary page a
   assert.doesNotMatch(source, /handleDialogKeyDown|querySelectorAll<HTMLElement>/);
   assert.doesNotMatch(source, /declineRef\.current\?\.focus/);
 });
+
+test("guide metrics require new consent, explicit enablement and a public content ID", async () => {
+  for (const variant of ["disabled", "old-consent", "unknown-id", "approved"] as const) {
+    const bodies: string[] = [];
+    const provider = createHostingerAnalyticsProvider({
+      ...identifiers,
+      configuration: {...configuration, guideMetricsEnabled: variant !== "disabled", consentVersion: variant === "old-consent" ? configuration.consentVersion : "2026-11-11-guides"},
+      runtime: {
+        fetch: (async (_input, init) => { bodies.push(String(init?.body)); return new Response(null, {status: 202}); }) as typeof fetch,
+        now: () => new Date("2026-11-11T12:00:00Z"),
+        randomUUID: () => "33333333-3333-4333-8333-333333333333",
+        pathname: () => "/guides/leiden-bsn/?private=never-send", language: () => "nl", environment: () => "production",
+        setTimeout: () => 1, clearTimeout: () => {}
+      }
+    });
+    provider.track({name: "guide_view", contentId: variant === "unknown-id" ? "private.person" : "guide.leiden-bsn"});
+    await provider.flush?.();
+    assert.equal(bodies.length, variant === "approved" ? 1 : 0, variant);
+    if (bodies.length) {
+      const event = JSON.parse(bodies[0]).events[0];
+      assert.deepEqual(event.properties, {content_id: "guide.leiden-bsn"});
+      assert.doesNotMatch(bodies[0], /returning_7_30d|never-send/);
+    }
+    provider.dispose?.();
+  }
+  assert.equal(analyticsEnvironment("qa-catalog.younew.nl"), "staging");
+});

@@ -1,0 +1,98 @@
+[
+  {
+    "path": "/review/guides/leiden-bsn/en/",
+    "h1": 1,
+    "lang": "en",
+    "officialAction": true,
+    "overflow": false,
+    "robots": "noindex, nofollow"
+  },
+  {
+    "path": "/review/guides/leiden-bsn/nl/",
+    "h1": 1,
+    "lang": "nl",
+    "officialAction": true,
+    "overflow": false,
+    "robots": "noindex, nofollow"
+  },
+  {
+    "path": "/review/guides/leiden-digid/en/",
+    "h1": 1,
+    "lang": "en",
+    "officialAction": true,
+    "overflow": false,
+    "robots": "noindex, nofollow"
+  },
+  {
+    "path": "/review/guides/leiden-digid/nl/",
+    "h1": 1,
+    "lang": "nl",
+    "officialAction": true,
+    "overflow": false,
+    "robots": "noindex, nofollow"
+  },
+  {
+    "path": "/review/guides/leiden-student-housing/en/",
+    "h1": 1,
+    "lang": "en",
+    "officialAction": true,
+    "overflow": false,
+    "robots": "noindex, nofollow"
+  },
+  {
+    "path": "/review/guides/leiden-student-housing/nl/",
+    "h1": 1,
+    "lang": "nl",
+    "officialAction": true,
+    "overflow": false,
+    "robots": "noindex, nofollow"
+  },
+  {
+    "path": "/review/guides/leiden-student-health-insurance/en/",
+    "h1": 1,
+    "lang": "en",
+    "officialAction": true,
+    "overflow": false,
+    "robots": "noindex, nofollow"
+  },
+  {
+    "path": "/review/guides/leiden-student-health-insurance/nl/",
+    "h1": 1,
+    "lang": "nl",
+    "officialAction": true,
+    "overflow": false,
+    "robots": "noindex, nofollow"
+  },
+  {
+    "path": "/review/guides/leiden-gp/en/",
+    "h1": 1,
+    "lang": "en",
+    "officialAction": true,
+    "overflow": false,
+    "robots": "noindex, nofollow"
+  },
+  {
+    "path": "/review/guides/leiden-gp/nl/",
+    "h1": 1,
+    "lang": "nl",
+    "officialAction": true,
+    "overflow": false,
+    "robots": "noindex, nofollow"
+  },
+  {
+    "path": "/review/guides/leiden-registration/en/",
+    "h1": 1,
+    "lang": "en",
+    "officialAction": true,
+    "overflow": false,
+    "robots": "noindex, nofollow"
+  },
+  {
+    "path": "/review/guides/leiden-registration/nl/",
+    "h1": 1,
+    "lang": "nl",
+    "officialAction": true,
+    "overflow": false,
+    "robots": "noindex, nofollow"
+  }
+]

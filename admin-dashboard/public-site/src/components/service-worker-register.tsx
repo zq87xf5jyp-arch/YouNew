@@ -4,7 +4,7 @@ import { useEffect } from "react";
 
 export function ServiceWorkerRegister() {
   useEffect(() => {
-    if (!("serviceWorker" in navigator)) return;
+    if (!("serviceWorker" in navigator) || window.location.pathname.startsWith("/review/") || window.location.hostname.startsWith("qa-")) return;
 
     let disposed = false;
     let registration: ServiceWorkerRegistration | undefined;

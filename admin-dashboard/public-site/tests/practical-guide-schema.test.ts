@@ -213,3 +213,35 @@ test("a full guide requires an explicit canonical web category instead of the le
     } : entity)
   }, { verifyChecksum: false }), /publicWebCategory/);
 });
+
+test("full Dutch guides project without the legacy short editorial template", () => {
+  const parent = parentWithAuthoredMedia(schemaParent as RuntimeEntityFixture);
+  const en = fixture();
+  const nl = fixture({locale:"nl", title:"Nederlandse testinstructie", seo:{title:"Nederlandse testinstructie",description:"Nederlandse metadata voor een synthetische testinstructie met gecontroleerde bronnen.",canonicalPath:"/nl/gidsen/synthetic-guide-fixture"}});
+  const published = buildPublicDataset({...schemaRuntime,entities:[{...parent,practicalGuide:en,practicalGuideLocales:{nl}}]},{verifyChecksum:false});
+  assert.equal(published.content.guides[0].practicalGuideLocales.nl.locale,"nl");
+  assert.equal(published.content.guides[0].practicalGuide.locale,"en");
+  assert.equal(published.content.guides[0].editorial,undefined);
+  assert.equal(published.search.documents[0].dutch.title,"Nederlandse testinstructie");
+  assert.deepEqual(published.search.documents[0].languages,["en","nl"]);
+  const draft = buildPublicDataset({...schemaRuntime,entities:[{...parent,practicalGuide:en,practicalGuideLocales:{nl:{...nl,status:"draft"}}}]},{verifyChecksum:false});
+  assert.equal(draft.content.guides[0].practicalGuideLocales.nl,undefined);
+  assert.doesNotMatch(JSON.stringify(draft.search),/Nederlandse testinstructie/);
+  assert.throws(()=>buildPublicDataset({...schemaRuntime,entities:[{...parent,practicalGuideLocales:{nl}}]},{verifyChecksum:false}),/English compatibility/);
+});
+
+test("explicit approved guide upgrades retain URLs without mutating historical editorial approval", () => {
+  const parent = parentWithAuthoredMedia(schemaParent as RuntimeEntityFixture);
+  const editorial = {section:"LIVE",locales:{en:{title:"Previous EN",summary:"Previously approved English summary",guide:null},nl:{title:"Bestaande Nederlandse titel",summary:"Eerder goedgekeurde Nederlandse samenvatting",guide:null}},sources:[],reviewedAt:"2026-07-18"};
+  const release = {id:"test-only-editorial",batchSha256:"test-only",approvedAt:"2026-07-18",entities:[{...parent,editorial}]};
+  const upgrade = {...parent,practicalGuide:fixture(),attributes:{...parent.attributes,supersedesEditorialRelease:release.id}};
+  const snapshot=JSON.stringify(release);
+  const result=buildPublicDataset({...schemaRuntime,entities:[upgrade]},{verifyChecksum:false,editorialRelease:release});
+  assert.equal(result.content.guides.length,1);
+  assert.equal(result.content.guides[0].route,"/guides/synthetic-guide-fixture");
+  assert.equal(result.content.guides[0].editorial.locales.nl.title,editorial.locales.nl.title);
+  assert.equal(JSON.stringify(release),snapshot);
+  for(const candidate of [{...upgrade,practicalGuide:fixture({status:"draft"})},{...upgrade,attributes:parent.attributes},{...upgrade,attributes:{...upgrade.attributes,supersedesEditorialRelease:"wrong-release"}}]) {
+    assert.throws(()=>buildPublicDataset({...schemaRuntime,entities:[candidate]},{verifyChecksum:false,editorialRelease:release}),/explicit guide upgrade/);
+  }
+});

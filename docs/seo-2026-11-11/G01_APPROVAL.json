@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "scope": "G01 EN/NL text, embedded official source checks, and the two original workflow diagrams only",
+  "preparedAt": "2026-11-11",
+  "status": "awaiting_owner_review",
+  "ownerApproval": null,
+  "publicationAllowed": false,
+  "productionChanged": false,
+  "digestAlgorithm": "SHA256 of UTF-8 compact JSON of sorted files array; each entry has path then sha256; no final newline",
+  "sha256": "201f67df72e89b75e9ba304ca24f7fb3b1ed2142a859eda80bcb4c2e70d6e699",
+  "files": [
+    {
+      "path": "DataProject/editorial/student-guides-20261111/G01-en.json",
+      "sha256": "2409d8204e6a6539d24284f054223c09eb46e16b746f592e56f19e0f659146ed"
+    },
+    {
+      "path": "DataProject/editorial/student-guides-20261111/G01-nl.json",
+      "sha256": "325c8f770d9988a939220befc2eb99b98ccdfcaf9e0ed5762dc5f285194341ef"
+    },
+    {
+      "path": "DataProject/editorial/student-guides-20261111/media-rights.json",
+      "sha256": "4067a91e8420ab6a9990a476d47b45cae242c96a6416ca7bab8de0431b320229"
+    },
+    {
+      "path": "admin-dashboard/public-site/public/images/guide-workflow-en.svg",
+      "sha256": "3c2c5fb65224db8bc5b14a09c43a16927ec41c530f081ae60e4f7115105ef73f"
+    },
+    {
+      "path": "admin-dashboard/public-site/public/images/guide-workflow-nl.svg",
+      "sha256": "e881f61ad312628e6fd2bffe0fef979246270cd658c17e4947f2be305ec60fcb"
+    }
+  ],
+  "qaRelease": "hp-seo-review-20261111-r6",
+  "localPreview": {
+    "en": "http://127.0.0.1:8811/review/guides/leiden-bsn/en/",
+    "nl": "http://127.0.0.1:8811/review/guides/leiden-bsn/nl/"
+  },
+  "privateQa": {
+    "en": "https://qa-catalog.younew.nl/review/guides/leiden-bsn/en/",
+    "nl": "https://qa-catalog.younew.nl/review/guides/leiden-bsn/nl/"
+  }
+}

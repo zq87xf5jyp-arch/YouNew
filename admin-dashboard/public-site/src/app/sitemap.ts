@@ -61,6 +61,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `https://younew.nl/city-guides/${guide.slug}/`, lastModified: new Date(`${guide.verifiedAt}T00:00:00Z`), changeFrequency: "monthly" as const, priority: 0.85 },
     { url: `https://younew.nl/nl/stadsgidsen/${guide.slug}/`, lastModified: new Date(`${guide.verifiedAt}T00:00:00Z`), changeFrequency: "monthly" as const, priority: 0.85 }
   ]));
-  const editorialDutchEntries:MetadataRoute.Sitemap=content.entities.filter(e=>e.editorial).map(e=>({url:`https://younew.nl/nl/${e.type==='place'?'plaatsen':'gidsen'}/${e.slug}/`,lastModified:new Date(`${e.editorial!.reviewedAt}T00:00:00Z`),changeFrequency:'monthly',priority:.7}));
+  const editorialDutchEntries:MetadataRoute.Sitemap=content.entities.filter(e=>e.indexable && (e.editorial || e.practicalGuideLocales?.nl)).map(e=>({url:`https://younew.nl/nl/${e.type==='place'?'plaatsen':'gidsen'}/${e.slug}/`,lastModified:new Date(`${e.practicalGuideLocales?.nl?.updatedAt ?? e.editorial!.reviewedAt}T00:00:00Z`),changeFrequency:'monthly',priority:.7}));
   return [...staticEntries, ...dutchStaticEntries, ...editorialDutchEntries, ...cityGuideEntries, ...dutchCategoryEntries, ...dutchOrganizationEntries, ...nationalGuideEntries, ...aggregateEntries, ...municipalityEntries, ...entityEntries];
 }

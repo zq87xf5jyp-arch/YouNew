@@ -1,0 +1,318 @@
+{
+  "schemaVersion": 2,
+  "id": "guide.leiden-gp",
+  "slug": "leiden-gp",
+  "locale": "nl",
+  "title": "Inschrijven bij een huisarts in Leiden",
+  "shortSummary": {
+    "id": "summary",
+    "text": "Zoek een nabije praktijk, bevestig toelating en vraag naar benodigde documenten en dekking.",
+    "sourceIDs": [
+      "gp-university"
+    ]
+  },
+  "audienceProfiles": [
+    "student"
+  ],
+  "whoThisIsFor": {
+    "id": "audience",
+    "text": "Studenten die zich in Leiden vestigen en een vaste huisarts zoeken.",
+    "sourceIDs": [
+      "gp-university"
+    ]
+  },
+  "whenYouNeedIt": {
+    "id": "when",
+    "text": "Regel dit waar mogelijk voordat je gewone zorg nodig hebt.",
+    "sourceIDs": [
+      "gp-help"
+    ]
+  },
+  "applicability": {
+    "cityIDs": [
+      "leiden"
+    ],
+    "provinceIDs": [
+      "zuid-holland"
+    ]
+  },
+  "jurisdiction": {
+    "level": "national",
+    "countryCode": "NL",
+    "municipalityDependent": false,
+    "note": "Landelijke regels; lokale startpunten voor studenten in Leiden.",
+    "sourceIDs": [
+      "gp-choice"
+    ]
+  },
+  "prerequisites": [
+    {
+      "id": "prepare",
+      "text": "Regel dit waar mogelijk voordat je gewone zorg nodig hebt.",
+      "sourceIDs": [
+        "gp-help"
+      ]
+    }
+  ],
+  "requiredDocuments": [
+    {
+      "id": "document.0",
+      "text": "ID en verzekeringsbewijs; bevestig de praktijkvoorwaarden en stuur geen medisch dossier naar YouNew.",
+      "sourceIDs": [
+        "gp-university"
+      ]
+    }
+  ],
+  "estimatedTime": {
+    "state": "varies",
+    "value": null,
+    "currency": null,
+    "note": "Toelating en beschikbare afspraken moeten door de praktijk worden bevestigd.",
+    "sourceIDs": [
+      "gp-choice"
+    ]
+  },
+  "estimatedCost": {
+    "state": "varies",
+    "value": null,
+    "currency": null,
+    "note": "Bij Nederlandse basisverzekering valt huisartsbezoek buiten het verplichte eigen risico; onderzoek of medicijnen kunnen anders vallen. Controleer buitenlandse vergoeding apart.",
+    "sourceIDs": [
+      "gp-cost"
+    ]
+  },
+  "numberedSteps": [
+    {
+      "id": "step.1",
+      "position": 1,
+      "title": "Zoek nabije praktijken",
+      "body": "Begin bij de universitaire huisartsenpagina en vraag de praktijk rechtstreeks naar actuele toelating.",
+      "sourceIDs": [
+        "gp-university"
+      ],
+      "municipalityDependent": false
+    },
+    {
+      "id": "step.2",
+      "position": 2,
+      "title": "Controleer voorwaarden",
+      "body": "Bereid ID en verzekeringsbewijs voor. Vraag naar overige inschrijfgegevens en betaling bij jouw dekking.",
+      "sourceIDs": [
+        "gp-university",
+        "gp-cost"
+      ],
+      "municipalityDependent": false
+    },
+    {
+      "id": "step.3",
+      "position": 3,
+      "title": "Bevestig en draag over",
+      "body": "Informeer na toelating je vorige huisarts en vraag om overdracht van het dossier aan de nieuwe praktijk.",
+      "sourceIDs": [
+        "gp-choice"
+      ],
+      "municipalityDependent": false
+    },
+    {
+      "id": "step.4",
+      "position": 4,
+      "title": "Als praktijken vol zijn",
+      "body": "Vraag je verzekeraar om hulp bij het vinden van een huisarts. Thuisarts noemt ook Zorgbelang bij vragen over weigering.",
+      "sourceIDs": [
+        "gp-choice",
+        "gp-help"
+      ],
+      "municipalityDependent": false
+    }
+  ],
+  "warnings": [
+    {
+      "id": "warning",
+      "text": "Stel dringende zorg niet uit in afwachting van gewone inschrijving; gebruik het passende zorgcontact.",
+      "sourceIDs": [
+        "gp-help"
+      ]
+    }
+  ],
+  "commonMistakes": [
+    {
+      "id": "mistake",
+      "text": "Neem niet aan dat elk onderzoek of medicijn hetzelfde wordt vergoed als het consult.",
+      "sourceIDs": [
+        "gp-cost"
+      ]
+    }
+  ],
+  "tips": [
+    {
+      "id": "tip",
+      "text": "Bewaar de contactinstructies van de praktijk en controleer ze na verhuizing.",
+      "sourceIDs": [
+        "gp-choice"
+      ]
+    }
+  ],
+  "checklist": [
+    {
+      "id": "check.0",
+      "text": "Begin bij de universitaire huisartsenpagina en vraag de praktijk rechtstreeks naar actuele toelating.",
+      "sourceIDs": [
+        "gp-university"
+      ]
+    },
+    {
+      "id": "check.1",
+      "text": "Bereid ID en verzekeringsbewijs voor. Vraag naar overige inschrijfgegevens en betaling bij jouw dekking.",
+      "sourceIDs": [
+        "gp-university",
+        "gp-cost"
+      ]
+    },
+    {
+      "id": "check.2",
+      "text": "Informeer na toelating je vorige huisarts en vraag om overdracht van het dossier aan de nieuwe praktijk.",
+      "sourceIDs": [
+        "gp-choice"
+      ]
+    },
+    {
+      "id": "check.3",
+      "text": "Vraag je verzekeraar om hulp bij het vinden van een huisarts. Thuisarts noemt ook Zorgbelang bij vragen over weigering.",
+      "sourceIDs": [
+        "gp-choice",
+        "gp-help"
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "id": "faq.0",
+      "question": "Iedereen zegt nee?",
+      "answer": "Vraag de verzekeraar om hulp of bemiddeling.",
+      "sourceIDs": [
+        "gp-choice"
+      ]
+    },
+    {
+      "id": "faq.1",
+      "question": "Alleen buitenlandse verzekering?",
+      "answer": "Vraag praktijk en verzekeraar vóór een gewone afspraak naar betaling en vergoeding.",
+      "sourceIDs": [
+        "gp-university",
+        "gp-cost"
+      ]
+    },
+    {
+      "id": "faq.2",
+      "question": "Eerder medisch dossier?",
+      "answer": "Vraag de oude praktijk om veilige overdracht aan de nieuwe huisarts.",
+      "sourceIDs": [
+        "gp-choice"
+      ]
+    }
+  ],
+  "emergencyInformation": [
+    {
+      "id": "help",
+      "text": "Deze gids beslist niet over jouw situatie. Vraag hulp aan de verantwoordelijke instantie.",
+      "sourceIDs": [
+        "gp-choice"
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "id": "context",
+      "title": "Controleer vóór je handelt",
+      "body": "Afstand en capaciteit kunnen je keuze beperken. Een vermelde praktijk garandeert geen plek.",
+      "sourceIDs": [
+        "gp-help"
+      ]
+    }
+  ],
+  "officialSources": [
+    {
+      "id": "gp-choice",
+      "title": "Choosing and changing a GP",
+      "publisher": "Rijksoverheid",
+      "url": "https://www.rijksoverheid.nl/themas/familie-zorg-en-gezondheid/eerstelijnszorg/vraag-en-antwoord/eerstelijnszorg/ben-ik-vrij-om-zelf-een-huisarts-te-kiezen-en-hoe-verander-ik-van-huisarts",
+      "isOfficial": true,
+      "status": "verified_opened",
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "id": "gp-university",
+      "title": "Registering with a doctor",
+      "publisher": "Leiden University",
+      "url": "https://www.universiteitleiden.nl/en/education/international-students/prepare-your-stay/insurance/registering-with-a-doctor",
+      "isOfficial": true,
+      "status": "verified_opened",
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "id": "gp-cost",
+      "title": "GP costs and insurance",
+      "publisher": "Rijksoverheid",
+      "url": "https://www.rijksoverheid.nl/themas/familie-zorg-en-gezondheid/eerstelijnszorg/vraag-en-antwoord/eerstelijnszorg/huisartskosten-op-zorgnota",
+      "isOfficial": true,
+      "status": "verified_opened",
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "id": "gp-help",
+      "title": "Choosing a GP",
+      "publisher": "Thuisarts / NHG",
+      "url": "https://www.thuisarts.nl/inschrijven-bij-huisarts",
+      "isOfficial": true,
+      "status": "verified_opened",
+      "checkedAt": "2026-11-11"
+    }
+  ],
+  "contactOptions": [
+    {
+      "id": "official-contact",
+      "kind": "url",
+      "label": "Officiële instructies",
+      "value": "https://www.rijksoverheid.nl/themas/familie-zorg-en-gezondheid/eerstelijnszorg/vraag-en-antwoord/eerstelijnszorg/ben-ik-vrij-om-zelf-een-huisarts-te-kiezen-en-hoe-verander-ik-van-huisarts",
+      "sourceIDs": [
+        "gp-choice"
+      ]
+    }
+  ],
+  "relatedGuideIDs": [],
+  "nextActions": [
+    {
+      "id": "next",
+      "text": "Bewaar de contactinstructies van de praktijk en controleer ze na verhuizing.",
+      "sourceIDs": [
+        "gp-choice"
+      ]
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "updatedAt": "2026-11-11",
+  "reviewer": null,
+  "readingTimeMinutes": 4,
+  "difficulty": "basic",
+  "confidenceLevel": "pending_review",
+  "tags": [
+    "Leiden",
+    "student"
+  ],
+  "publicationGate": null,
+  "disclaimer": "YouNew legt officiële informatie uit. Het is geen overheidsdienst of persoonlijk juridisch of medisch advies.",
+  "status": "draft",
+  "seo": {
+    "title": "Inschrijven bij een huisarts in Leiden",
+    "description": "Zoek een nabije praktijk, bevestig toelating en vraag naar benodigde documenten en dekking. Officiële bronnen en een gedateerde checklist.",
+    "canonicalPath": "/nl/gidsen/leiden-gp"
+  },
+  "synonyms": [
+    "leiden gp"
+  ],
+  "commonQuestions": [
+    "Iedereen zegt nee?",
+    "Alleen buitenlandse verzekering?",
+    "Eerder medisch dossier?"
+  ]
+}

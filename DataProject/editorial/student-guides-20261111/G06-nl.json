@@ -1,0 +1,300 @@
+{
+  "schemaVersion": 2,
+  "id": "guide.leiden-registration",
+  "slug": "leiden-registration",
+  "locale": "nl",
+  "title": "Je adreswijziging doorgeven in Leiden",
+  "shortSummary": {
+    "id": "summary",
+    "text": "Al ingeschreven in Nederland? Meld je verhuizing bij de gemeente waar je gaat wonen.",
+    "sourceIDs": [
+      "move-national"
+    ]
+  },
+  "audienceProfiles": [
+    "student"
+  ],
+  "whoThisIsFor": {
+    "id": "audience",
+    "text": "Studenten die binnen Leiden of vanuit een andere Nederlandse gemeente verhuizen.",
+    "sourceIDs": [
+      "leiden-move"
+    ]
+  },
+  "whenYouNeedIt": {
+    "id": "when",
+    "text": "Geef door vanaf vier weken vóór tot vijf dagen na verhuizing.",
+    "sourceIDs": [
+      "move-national"
+    ]
+  },
+  "applicability": {
+    "cityIDs": [
+      "leiden"
+    ],
+    "provinceIDs": [
+      "zuid-holland"
+    ]
+  },
+  "jurisdiction": {
+    "level": "municipal",
+    "countryCode": "NL",
+    "municipalityDependent": true,
+    "note": "Gemeentelijke procedure Leiden.",
+    "sourceIDs": [
+      "leiden-move"
+    ]
+  },
+  "prerequisites": [
+    {
+      "id": "prepare",
+      "text": "Geef door vanaf vier weken vóór tot vijf dagen na verhuizing.",
+      "sourceIDs": [
+        "move-national"
+      ]
+    }
+  ],
+  "requiredDocuments": [
+    {
+      "id": "document.0",
+      "text": "Wooncontract of passend woonbewijs. Zonder DigiD: ondertekend formulier en ID-kopie; bij inwoning de gevraagde toestemming en ID-kopie van hoofdbewoner.",
+      "sourceIDs": [
+        "leiden-move"
+      ]
+    }
+  ],
+  "estimatedTime": {
+    "state": "varies",
+    "value": null,
+    "currency": null,
+    "note": "Leiden noemt één werkdag binnen Leiden en minimaal drie bij verhuizing naar Leiden. Verwerking begint vanaf de verhuisdatum.",
+    "sourceIDs": [
+      "leiden-move"
+    ]
+  },
+  "estimatedCost": {
+    "state": "known",
+    "value": "0",
+    "currency": "EUR",
+    "note": "Doorgeven en verwerken van de adreswijziging zijn gratis.",
+    "sourceIDs": [
+      "leiden-move"
+    ]
+  },
+  "numberedSteps": [
+    {
+      "id": "step.1",
+      "position": 1,
+      "title": "Kies de juiste procedure",
+      "body": "Eerste aankomst uit het buitenland heeft een andere route. Gebruik bij verhuizing binnen Nederland de nieuwe gemeente.",
+      "sourceIDs": [
+        "brp",
+        "move-national"
+      ],
+      "municipalityDependent": true
+    },
+    {
+      "id": "step.2",
+      "position": 2,
+      "title": "Bereid voor en dien in",
+      "body": "Gebruik het Leidse DigiD-formulier of het ondertekende papieren alternatief. Voeg het vereiste woonbewijs toe.",
+      "sourceIDs": [
+        "leiden-move"
+      ],
+      "municipalityDependent": true
+    },
+    {
+      "id": "step.3",
+      "position": 3,
+      "title": "Controleer de wijziging",
+      "body": "Bewaar bevestiging en controleer MijnOverheid. Vraag apart naar lokale voorzieningen die niet automatisch meegaan.",
+      "sourceIDs": [
+        "leiden-move",
+        "move-national"
+      ],
+      "municipalityDependent": true
+    }
+  ],
+  "warnings": [
+    {
+      "id": "warning",
+      "text": "Te laat melden kan gevolgen hebben voor de geregistreerde verhuisdatum.",
+      "sourceIDs": [
+        "move-national"
+      ]
+    }
+  ],
+  "commonMistakes": [
+    {
+      "id": "mistake",
+      "text": "Neem niet aan dat alle gemeentelijke voorzieningen automatisch volgen op de BRP-wijziging.",
+      "sourceIDs": [
+        "move-national"
+      ]
+    }
+  ],
+  "tips": [
+    {
+      "id": "tip",
+      "text": "Controleer voorzieningen en organisaties die een aparte melding nodig hebben.",
+      "sourceIDs": [
+        "move-national"
+      ]
+    }
+  ],
+  "checklist": [
+    {
+      "id": "check.0",
+      "text": "Eerste aankomst uit het buitenland heeft een andere route. Gebruik bij verhuizing binnen Nederland de nieuwe gemeente.",
+      "sourceIDs": [
+        "brp",
+        "move-national"
+      ]
+    },
+    {
+      "id": "check.1",
+      "text": "Gebruik het Leidse DigiD-formulier of het ondertekende papieren alternatief. Voeg het vereiste woonbewijs toe.",
+      "sourceIDs": [
+        "leiden-move"
+      ]
+    },
+    {
+      "id": "check.2",
+      "text": "Bewaar bevestiging en controleer MijnOverheid. Vraag apart naar lokale voorzieningen die niet automatisch meegaan.",
+      "sourceIDs": [
+        "leiden-move",
+        "move-national"
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "id": "faq.0",
+      "question": "Verhuizen naar Den Haag?",
+      "answer": "Meld bij de nieuwe gemeente en volg haar procedure.",
+      "sourceIDs": [
+        "move-national"
+      ]
+    },
+    {
+      "id": "faq.1",
+      "question": "Geen DigiD?",
+      "answer": "Leiden biedt een te ondertekenen formulier met vereiste bijlagen.",
+      "sourceIDs": [
+        "leiden-move"
+      ]
+    },
+    {
+      "id": "faq.2",
+      "question": "Al te laat?",
+      "answer": "Meld zo snel mogelijk en controleer of ook contact met IND nodig is.",
+      "sourceIDs": [
+        "move-ind"
+      ]
+    }
+  ],
+  "emergencyInformation": [
+    {
+      "id": "help",
+      "text": "Deze gids beslist niet over jouw situatie. Vraag hulp aan de verantwoordelijke instantie.",
+      "sourceIDs": [
+        "leiden-move"
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "id": "context",
+      "title": "Controleer vóór je handelt",
+      "body": "Bij een verblijfsvergunning kan te laat melden ook een rechtstreekse melding aan IND vereisen. Controleer de officiële instructies.",
+      "sourceIDs": [
+        "move-ind"
+      ]
+    }
+  ],
+  "officialSources": [
+    {
+      "id": "leiden-move",
+      "title": "Report a move to or within Leiden",
+      "publisher": "Gemeente Leiden",
+      "url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/verhuizen/verhuizing-naar-of-in-leiden-doorgeven/",
+      "isOfficial": true,
+      "status": "verified_opened",
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "id": "move-national",
+      "title": "Inform the municipality of a change of address",
+      "publisher": "Government.nl",
+      "url": "https://www.government.nl/documents/question-and-answer/how-do-i-inform-the-municipality-of-a-change-of-address",
+      "isOfficial": true,
+      "status": "verified_opened",
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "id": "move-ind",
+      "title": "Change of address and IND",
+      "publisher": "Government.nl",
+      "url": "https://www.government.nl/themes/migration-and-travel/immigration-to-the-netherlands/question-and-answer/as-a-foreign-national-do-i-need-to-inform-the-immigration-and-naturalisation-service-ind-if-i-move",
+      "isOfficial": true,
+      "status": "verified_opened",
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "id": "brp",
+      "title": "When to register",
+      "publisher": "NetherlandsWorldwide",
+      "url": "https://www.netherlandsworldwide.nl/personal-records-database-brp/when-register",
+      "isOfficial": true,
+      "status": "verified_opened",
+      "checkedAt": "2026-11-11"
+    }
+  ],
+  "contactOptions": [
+    {
+      "id": "official-contact",
+      "kind": "url",
+      "label": "Officiële instructies",
+      "value": "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/verhuizen/verhuizing-naar-of-in-leiden-doorgeven/",
+      "sourceIDs": [
+        "leiden-move"
+      ]
+    }
+  ],
+  "relatedGuideIDs": [],
+  "nextActions": [
+    {
+      "id": "next",
+      "text": "Controleer voorzieningen en organisaties die een aparte melding nodig hebben.",
+      "sourceIDs": [
+        "move-national"
+      ]
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "updatedAt": "2026-11-11",
+  "reviewer": null,
+  "readingTimeMinutes": 4,
+  "difficulty": "basic",
+  "confidenceLevel": "pending_review",
+  "tags": [
+    "Leiden",
+    "student"
+  ],
+  "publicationGate": null,
+  "disclaimer": "YouNew legt officiële informatie uit. Het is geen overheidsdienst of persoonlijk juridisch of medisch advies.",
+  "status": "draft",
+  "seo": {
+    "title": "Je adreswijziging doorgeven in Leiden",
+    "description": "Al ingeschreven in Nederland? Meld je verhuizing bij de gemeente waar je gaat wonen. Officiële bronnen en een gedateerde checklist.",
+    "canonicalPath": "/nl/gidsen/leiden-registration"
+  },
+  "synonyms": [
+    "leiden registration"
+  ],
+  "commonQuestions": [
+    "Verhuizen naar Den Haag?",
+    "Geen DigiD?",
+    "Al te laat?"
+  ]
+}

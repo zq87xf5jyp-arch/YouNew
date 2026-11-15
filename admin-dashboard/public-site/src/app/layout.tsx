@@ -22,22 +22,6 @@ export const metadata: Metadata = {
     template: "%s | YouNew"
   },
   description,
-  keywords: [
-    "Netherlands guide",
-    "expat Netherlands",
-    "living in Netherlands",
-    "Dutch transport",
-    "BSN",
-    "DigiD",
-    "Netherlands app",
-    "Amsterdam guide",
-    "Rotterdam guide",
-    "housing Netherlands",
-    "healthcare Netherlands",
-    "official resources Netherlands",
-    "refugee guide Netherlands",
-    "international student Netherlands"
-  ],
   alternates: { canonical: "https://younew.nl/", languages: { "en": "https://younew.nl/", "nl": "https://younew.nl/nl/", "x-default": "https://younew.nl/" } },
   verification: googleSiteVerification ? { google: googleSiteVerification } : undefined,
   openGraph: {
@@ -66,8 +50,7 @@ export const metadata: Metadata = {
     icon: "/icons/favicon.png",
     apple: "/icons/apple-touch-icon.png"
   },
-  manifest: "/manifest.webmanifest",
-  category: "travel"
+  manifest: "/manifest.webmanifest"
 };
 
 export const viewport: Viewport = {

@@ -1,0 +1,11 @@
+metric,source,baseline,month3_target,month6_target,month12_target,target_type
+nonbrand_clicks_28d,GSC,N/A,0-100,50-300,200-1000,working hypothesis; revise after 28 days
+nonbrand_impressions_28d,GSC,N/A,500-2000,3000-10000,10000-30000,working hypothesis; revise after 28 days
+tracked_queries_top20,"GSC, >=10 impressions per query",N/A,0-3,3-8,8-15,working hypothesis; revise after 28 days
+nonbrand_ctr_percent,"GSC, comparable device/position groups",N/A,1-3,2-4,3-5,working hypothesis; revise after 28 days
+official_action_percent,"Hostinger, guide tab sessions",N/A,10-20,15-25,20-30,working hypothesis; revise after 28 days
+median_active_seconds,"Hostinger, visible active guide time",N/A,30-120,30-120,30-120,working hypothesis; revise after 28 days
+return_7_30d_percent,"Hostinger, measurable consented guide-tab sessions; previous full-guide visit",N/A,3-8,5-12,8-18,working hypothesis; revise after 28 days
+confirmed_subscribers_total,Newsletter deferred,N/A,0,10-30,40-100,working hypothesis; revise after 28 days
+attributed_first_app_downloads_total,App Store Connect,N/A,0-10,10-30,30-100,working hypothesis; revise after 28 days
+relevant_referring_domains_total,GSC links + manual qualification,N/A,0-3,3-8,8-20,working hypothesis; revise after 28 days

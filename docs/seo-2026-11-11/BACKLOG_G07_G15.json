@@ -1,0 +1,304 @@
+[
+  {
+    "code": "G07",
+    "status": "editorial_brief_not_publishable",
+    "title_en": "Prepare foreign documents for registration in Leiden",
+    "locales": [
+      "en",
+      "nl"
+    ],
+    "steps": [
+      "Get the municipal document list",
+      "Choose the issuing country",
+      "Check legalisation exceptions",
+      "Check translation requirements",
+      "Bring required originals"
+    ],
+    "documents": [
+      "Applicable civil-status records; exact documents per municipality"
+    ],
+    "timing": "requires verification for the exact case",
+    "cost": "requires verification for the exact case",
+    "typical_error": "Do not apply one country’s rules universally.",
+    "faq_questions": [
+      "Apostille needed?",
+      "Accepted languages?",
+      "Document unavailable?"
+    ],
+    "required_official_sources": [
+      "https://www.netherlandsworldwide.nl/legalisation/foreign-documents"
+    ],
+    "source_check_status": "recheck before drafting",
+    "owner_review_required": true
+  },
+  {
+    "code": "G08",
+    "status": "editorial_brief_not_publishable",
+    "title_en": "No fixed address: check briefadres eligibility",
+    "locales": [
+      "en",
+      "nl"
+    ],
+    "steps": [
+      "Identify actual residence",
+      "Read briefadres conditions",
+      "Contact municipality",
+      "Prepare consent and evidence",
+      "Submit and respond"
+    ],
+    "documents": [
+      "ID, consent and host ID where required"
+    ],
+    "timing": "requires verification for the exact case",
+    "cost": "requires verification for the exact case",
+    "typical_error": "Not a universal workaround for residential registration.",
+    "faq_questions": [
+      "Several sleeping addresses?",
+      "Business address?",
+      "No host?"
+    ],
+    "required_official_sources": [
+      "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/verhuizen/briefadres/"
+    ],
+    "source_check_status": "recheck before drafting",
+    "owner_review_required": true
+  },
+  {
+    "code": "G09",
+    "status": "editorial_brief_not_publishable",
+    "title_en": "Check a student rental contract",
+    "locales": [
+      "en",
+      "nl"
+    ],
+    "steps": [
+      "Identify contract type",
+      "Separate rent, services and deposit",
+      "Check parties and terms",
+      "Resolve unclear conditions",
+      "Keep contract and condition report"
+    ],
+    "documents": [
+      "Draft contract",
+      "Payment breakdown",
+      "Property inventory"
+    ],
+    "timing": "requires verification for the exact case",
+    "cost": "requires verification for the exact case",
+    "typical_error": "Rules depend on contract type and date.",
+    "faq_questions": [
+      "What does rent include?",
+      "Deposit conditions?",
+      "Where to take disputes?"
+    ],
+    "required_official_sources": [
+      "https://www.government.nl/themes/building-and-housing/housing/rented-housing/step-by-step-plan-for-tenants"
+    ],
+    "source_check_status": "recheck before drafting",
+    "owner_review_required": true
+  },
+  {
+    "code": "G10",
+    "status": "editorial_brief_not_publishable",
+    "title_en": "Check room rent with Huurcommissie",
+    "locales": [
+      "en",
+      "nl"
+    ],
+    "steps": [
+      "Identify dwelling type",
+      "Collect room features",
+      "Run Rent Check",
+      "Check applicable procedure and deadline",
+      "Submit if eligible"
+    ],
+    "documents": [
+      "Rental contract",
+      "Start date",
+      "Room measurements",
+      "Payment evidence"
+    ],
+    "timing": "requires verification for the exact case",
+    "cost": "requires verification for the exact case",
+    "typical_error": "A calculator result is not a dispute ruling.",
+    "faq_questions": [
+      "Room or apartment?",
+      "Deadline?",
+      "Does calculation decide the dispute?"
+    ],
+    "required_official_sources": [
+      "https://www.huurcommissie.nl/support/rent-check"
+    ],
+    "source_check_status": "recheck before drafting",
+    "owner_review_required": true
+  },
+  {
+    "code": "G11",
+    "status": "editorial_brief_not_publishable",
+    "title_en": "Check zorgtoeslag eligibility",
+    "locales": [
+      "en",
+      "nl"
+    ],
+    "steps": [
+      "Confirm applicable Dutch insurance",
+      "Check other eligibility conditions",
+      "Use official calculation",
+      "Apply yourself",
+      "Report relevant changes"
+    ],
+    "documents": [
+      "Insurance details",
+      "Income and assets",
+      "Partner details if applicable"
+    ],
+    "timing": "requires verification for the exact case",
+    "cost": "requires verification for the exact case",
+    "typical_error": "Recheck all 2027 thresholds; no universal student entitlement.",
+    "faq_questions": [
+      "Study only?",
+      "EHIC or private policy?",
+      "Income changed?"
+    ],
+    "required_official_sources": [
+      "https://www.belastingdienst.nl/wps/wcm/connect/bldcontenten/belastingdienst/individuals/benefits/moving_to_the_netherlands/i_have_dutch_healthcare_insurance/healthcare-benefit-if-you-come-to-study-in-the-netherlands"
+    ],
+    "source_check_status": "recheck before drafting",
+    "owner_review_required": true
+  },
+  {
+    "code": "G12",
+    "status": "editorial_brief_not_publishable",
+    "title_en": "Check your right to work while studying",
+    "locales": [
+      "en",
+      "nl"
+    ],
+    "steps": [
+      "Identify nationality and residence status",
+      "Separate employment, internship and self-employment",
+      "Check employer permit",
+      "Agree lawful work arrangement",
+      "Recheck insurance"
+    ],
+    "documents": [
+      "Residence document",
+      "Employment or internship details",
+      "TWV documents confirmed by employer"
+    ],
+    "timing": "requires verification for the exact case",
+    "cost": "requires verification for the exact case",
+    "typical_error": "Do not apply student-permit restrictions to all students.",
+    "faq_questions": [
+      "EU citizen?",
+      "Who applies for TWV?",
+      "Internship rules?"
+    ],
+    "required_official_sources": [
+      "https://ind.nl/en/residence-permits/study/student-residence-permit-for-university-or-higher-professional-education"
+    ],
+    "source_check_status": "recheck before drafting",
+    "owner_review_required": true
+  },
+  {
+    "code": "G13",
+    "status": "editorial_brief_not_publishable",
+    "title_en": "Check DUO student-finance eligibility",
+    "locales": [
+      "en",
+      "nl"
+    ],
+    "steps": [
+      "Check age and programme",
+      "Choose nationality/status branch",
+      "Check residence or work criteria",
+      "Collect evidence",
+      "Apply and monitor changes"
+    ],
+    "documents": [
+      "Enrolment and status evidence",
+      "Work evidence for the selected eligibility branch"
+    ],
+    "timing": "requires verification for the exact case",
+    "cost": "requires verification for the exact case",
+    "typical_error": "Eligibility cannot be reduced to one hours threshold.",
+    "faq_questions": [
+      "Not enough working hours?",
+      "Parent or partner works?",
+      "Tuition-fee loan only?"
+    ],
+    "required_official_sources": [
+      "https://duo.nl/particulier/student-finance-citizens-eu-eer-switzerland-or-uk/eligibility.jsp"
+    ],
+    "source_check_status": "recheck before drafting",
+    "owner_review_required": true
+  },
+  {
+    "code": "G14",
+    "status": "editorial_brief_not_publishable",
+    "title_en": "Apply for and activate the student travel product",
+    "locales": [
+      "en",
+      "nl"
+    ],
+    "steps": [
+      "Check eligibility",
+      "Apply through DUO",
+      "Choose allowed option",
+      "Link the required card",
+      "Activate",
+      "Stop when required"
+    ],
+    "documents": [
+      "DigiD",
+      "Personal OV-chipkaart under current instructions"
+    ],
+    "timing": "requires verification for the exact case",
+    "cost": "requires verification for the exact case",
+    "typical_error": "Do not call this unconditionally free; check repayment rules.",
+    "faq_questions": [
+      "Enrolment sufficient?",
+      "Without a loan?",
+      "When to stop?"
+    ],
+    "required_official_sources": [
+      "https://duo.nl/particulier/student-travel-product/apply.jsp"
+    ],
+    "source_check_status": "recheck before drafting",
+    "owner_review_required": true
+  },
+  {
+    "code": "G15",
+    "status": "editorial_brief_not_publishable",
+    "title_en": "Collect your student residence document",
+    "locales": [
+      "en",
+      "nl"
+    ],
+    "steps": [
+      "Check university/IND message",
+      "Check biometric requirements",
+      "Book at the notified location",
+      "Prepare invitation documents",
+      "Collect and inspect card"
+    ],
+    "documents": [
+      "ID",
+      "Personal notification",
+      "Documents stated in invitation"
+    ],
+    "timing": "requires verification for the exact case",
+    "cost": "requires verification for the exact case",
+    "typical_error": "Collection location is not necessarily Leiden; wait for official notice.",
+    "faq_questions": [
+      "Card ready?",
+      "Biometrics needed?",
+      "Error on card?"
+    ],
+    "required_official_sources": [
+      "https://ind.nl/en/appointment-to-collect-document"
+    ],
+    "source_check_status": "recheck before drafting",
+    "owner_review_required": true
+  }
+]

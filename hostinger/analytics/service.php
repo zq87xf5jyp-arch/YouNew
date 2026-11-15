@@ -3,10 +3,16 @@ declare(strict_types=1);
 namespace YouNewAnalytics;
 
 const CONSENT_VERSION = '2026-10-26-hostinger';
+const GUIDE_CONSENT_VERSION = '2026-11-11-guides';
+function guide_ids(): array {
+    static $ids;
+    return $ids ??= json_decode(file_get_contents(__DIR__.'/guide-ids.json'),true,512,JSON_THROW_ON_ERROR);
+}
 // One-day margin keeps routine scheduled cleanup within the public 90-day upper bound.
 const RETENTION_SECONDS = 89 * 86400;
 const ORIGINS = ['https://younew.nl', 'https://www.younew.nl'];
 const PROPERTY_KEYS = [
+    'guide_view'=>['content_id','returning_7_30d'], 'guide_official_action'=>['content_id'], 'guide_active_time'=>['content_id','duration_ms'],
     'page_view'=>[], 'profile_selected'=>[], 'lead_start'=>[], 'lead_submit'=>[], 'pilot_request'=>[], 'analytics_consent_granted'=>[],
     'search'=>['normalized_query_safe','intent_ids','filter_type','filter_city','filter_province','filter_category','filter_profile','result_count','has_results','zero_result','fallback_tier'],
     'search_result_opened'=>['content_id','position','normalized_query_safe'],
@@ -25,7 +31,7 @@ function section(string $screen): string {
     $parts = explode('/', trim(explode('?', explode('#', $screen)[0])[0], '/'));
     $nl = ($parts[0] ?? '') === 'nl';
     $first = $parts[$nl ? 1 : 0] ?? '';
-    $allowed = ['search','zoeken','for-business','voor-bedrijven','partners','business','support','privacy','terms','app','start','saved','my-younew','guides','essentials','journeys','cities','city-guides','municipalities','gemeenten','provinces','provincies','places','plekken','organizations','organisaties','categories','categorieen','map','discover','arrival-planner','emergency','status','updates','offline','acquisition'];
+    $allowed = ['search','zoeken','for-business','voor-bedrijven','partners','business','support','privacy','terms','app','start','saved','my-younew','guides','gidsen','leiden','plaatsen','essentials','journeys','cities','city-guides','municipalities','gemeenten','provinces','provincies','places','plekken','organizations','organisaties','categories','categorieen','map','discover','arrival-planner','emergency','status','updates','offline','acquisition'];
     if ($first === '') return $nl ? '/nl/' : '/';
     return in_array($first, $allowed, true) ? ($nl ? '/nl/' : '/') . $first . '/' : '/other/';
 }
@@ -38,7 +44,7 @@ function normalize(mixed $input): array {
     foreach ($input->events as $event) {
         if (!$event instanceof \stdClass || count((array)$event) !== count($keys) || array_diff(array_keys((array)$event), $keys)) invalid();
         foreach (['client_event_id','app_instance_id','session_id'] as $key) if (!is_string($event->$key) || !preg_match('/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/Di', $event->$key)) invalid();
-        if (!is_string($event->event_name) || !array_key_exists($event->event_name, PROPERTY_KEYS) || $event->platform !== 'Web' || $event->schema_version !== 1 || $event->consent_version !== CONSENT_VERSION || $event->environment !== 'production') invalid();
+        if (!is_string($event->event_name) || !array_key_exists($event->event_name, PROPERTY_KEYS) || $event->platform !== 'Web' || $event->schema_version !== 1 || !in_array($event->consent_version,[CONSENT_VERSION,GUIDE_CONSENT_VERSION],true) || $event->environment !== 'production') invalid();
         if (!is_string($event->screen) || strlen($event->screen) > 160 || !str_starts_with($event->screen, '/') || str_starts_with($event->screen, '//')) invalid();
         if (!is_string($event->language) || !preg_match('/^[a-z]{2}(?:-[a-zA-Z]{2,8})?$/D', $event->language)) invalid();
         if (!is_string($event->app_version) || !preg_match('/^[a-zA-Z0-9._-]{1,80}$/D', $event->app_version)) invalid();
@@ -47,17 +53,28 @@ function normalize(mixed $input): array {
         $properties = (array)$event->properties;
         if (array_diff(array_keys($properties), PROPERTY_KEYS[$event->event_name])) invalid();
         foreach ($properties as $value) if (!(is_bool($value) || is_int($value) || (is_string($value) && strlen($value) <= 640))) invalid();
+        $guideId=null; $returning=null;
+        if (str_starts_with($event->event_name,'guide_')) {
+            if (getenv('YOUNEW_GUIDE_METRICS_ENABLED') !== '1' || $event->consent_version !== GUIDE_CONSENT_VERSION) invalid();
+            $guideId=$properties['content_id'] ?? null;
+            if (!is_string($guideId) || !in_array($guideId,guide_ids(),true)) invalid();
+            if ($event->event_name==='guide_view') {
+                $returning=$properties['returning_7_30d'] ?? null;
+                if ($returning !== null && !is_bool($returning)) invalid();
+            }
+        }
         $count = null; $zero = null; $tier = null; $duration = null;
         if ($event->event_name === 'search') {
             $count = $properties['result_count'] ?? null; $zero = $properties['zero_result'] ?? null; $tier = $properties['fallback_tier'] ?? null;
             if (!is_int($count) || $count < 0 || $count > 100000 || !is_bool($zero) || $zero !== ($count === 0) || ($properties['has_results'] ?? null) !== !$zero || !in_array($tier, ['exact','national','broadened'], true)) invalid();
         }
-        if ($event->event_name === 'time_to_first_action') {
+        if (in_array($event->event_name,['time_to_first_action','guide_active_time'],true)) {
             $duration = $properties['duration_ms'] ?? null;
             if (!is_int($duration) || $duration < 0 || $duration > 3600000) invalid();
         }
         $result[] = ['event_id'=>strtolower($event->client_event_id), 'session_id'=>strtolower($event->session_id), 'event'=>$event->event_name,
             'section'=>section($event->screen), 'language'=>in_array($event->language,['en','nl'],true) ? $event->language : 'other',
+            'content_id'=>$guideId,'returning'=>$returning===null?null:(int)$returning,
             'result_count'=>$count, 'zero_result'=>$zero === null ? null : (int)$zero, 'fallback_tier'=>$tier, 'duration_ms'=>$duration];
     }
     return $result;
@@ -79,6 +96,8 @@ final class Store {
             CREATE TABLE IF NOT EXISTS events(event_hash TEXT PRIMARY KEY,session_hash TEXT NOT NULL,received_at INTEGER NOT NULL,day TEXT NOT NULL,event TEXT NOT NULL,section TEXT NOT NULL,language TEXT NOT NULL,result_count INTEGER,zero_result INTEGER,fallback_tier TEXT,duration_ms INTEGER);
             CREATE INDEX IF NOT EXISTS event_retention ON events(received_at);
             CREATE INDEX IF NOT EXISTS event_day ON events(day,event);
+            CREATE TABLE IF NOT EXISTS guide_events(session_hash TEXT NOT NULL,day TEXT NOT NULL,content_id TEXT NOT NULL,language TEXT NOT NULL,event TEXT NOT NULL,duration_ms INTEGER,return_flag INTEGER,received_at INTEGER NOT NULL,PRIMARY KEY(session_hash,day,content_id,language,event));
+            CREATE INDEX IF NOT EXISTS guide_retention ON guide_events(received_at);
             CREATE TABLE IF NOT EXISTS rate_windows(bucket TEXT PRIMARY KEY,total INTEGER NOT NULL,expires INTEGER NOT NULL);');
         $this->execute("INSERT OR IGNORE INTO settings(name,value) VALUES('salt',:value)",[':value'=>bin2hex(random_bytes(32))]);
         $this->salt = (string)$this->db->querySingle("SELECT value FROM settings WHERE name='salt'");
@@ -95,6 +114,7 @@ final class Store {
         $this->execute('INSERT INTO rate_windows(bucket,total,expires) VALUES(:bucket,:amount,:expires) ON CONFLICT(bucket) DO UPDATE SET total=total+:amount',[':bucket'=>$bucket,':amount'=>$amount,':expires'=>$window+60]);
     }
     private function expire(int $now): void {
+        $this->execute('DELETE FROM guide_events WHERE received_at<=:cutoff',[':cutoff'=>$now-RETENTION_SECONDS]);
         $this->execute('DELETE FROM events WHERE received_at<=:cutoff',[':cutoff'=>$now-RETENTION_SECONDS]);
         $this->execute('DELETE FROM rate_windows WHERE expires<=:now',[':now'=>$now]);
     }
@@ -110,6 +130,10 @@ final class Store {
                 if ($total+$accepted>=300000) throw new RequestError(503,'capacity_reached');
                 $session=hash_hmac('sha256','session:'.$day.':'.$event['session_id'],$this->salt);
                 $this->limit('session:'.$session,1,120,$now);
+                if ($event['content_id'] ?? null) {
+                    $this->execute('INSERT INTO guide_events VALUES(:session,:day,:id,:language,:event,:duration,:returning,:time) ON CONFLICT(session_hash,day,content_id,language,event) DO UPDATE SET duration_ms=MAX(COALESCE(duration_ms,0),COALESCE(excluded.duration_ms,0))',[
+                        ':session'=>$session,':day'=>$day,':id'=>$event['content_id'],':language'=>$event['language'],':event'=>$event['event'],':duration'=>$event['duration_ms'],':returning'=>$event['returning'],':time'=>$now]);
+                }
                 $this->execute('INSERT INTO events VALUES(:hash,:session,:time,:day,:event,:section,:language,:count,:zero,:tier,:duration)',[
                     ':hash'=>$hash,':session'=>$session,':time'=>$now,':day'=>$day,':event'=>$event['event'],':section'=>$event['section'],':language'=>$event['language'],
                     ':count'=>$event['result_count'],':zero'=>$event['zero_result'],':tier'=>$event['fallback_tier'],':duration'=>$event['duration_ms']]);
@@ -130,6 +154,23 @@ final class Store {
         $snapshot=$this->directory.'/analytics.snapshot.sqlite';
         return $this->export($now,!is_file($snapshot) || $now-filemtime($snapshot)>=86400);
     }
+    private function guideReport(): array {
+        $rows=$this->rows("SELECT day,content_id,language,session_hash,MAX(event='guide_view') AS viewed,MAX(event='guide_official_action') AS acted,MAX(duration_ms) AS active_ms,MAX(return_flag) AS return_flag FROM guide_events GROUP BY day,content_id,language,session_hash");
+        $groups=[];
+        foreach($rows as $row) {
+            if (!$row['viewed']) continue;
+            $key=$row['day'].'|'.$row['content_id'].'|'.$row['language'];
+            $g=$groups[$key] ?? ['day'=>$row['day'],'content_id'=>$row['content_id'],'language'=>$row['language'],'sessions'=>0,'official_actions'=>0,'returning_7_30d'=>0,'return_samples'=>0,'active_samples'=>[]];
+            $g['sessions']++; if ($row['return_flag']!==null) $g['return_samples']++; $g['official_actions']+=(int)$row['acted']; $g['returning_7_30d']+=(int)$row['return_flag'];
+            if ($row['active_ms']!==null) $g['active_samples'][]=(int)$row['active_ms'];
+            $groups[$key]=$g;
+        }
+        return array_values(array_map(function($g){
+            sort($g['active_samples']);$n=count($g['active_samples']);
+            $g['median_active_ms']=$n ? ($g['active_samples'][intdiv($n-1,2)]+$g['active_samples'][intdiv($n,2)])/2 : null;
+            $g['active_samples_count']=$n;unset($g['active_samples']);$g['small_sample']=$g['sessions']<100;return $g;
+        },$groups));
+    }
     private function export(int $now,bool $snapshot): array {
         $lock=fopen($this->directory.'/report.lock','c');if(!$lock || !flock($lock,LOCK_EX))throw new \RuntimeException('Report unavailable');
         $temp=null;
@@ -144,6 +185,7 @@ final class Store {
                     'pages'=>$this->rows("SELECT section,language,COUNT(*) AS page_views FROM events WHERE event='page_view' GROUP BY section,language ORDER BY page_views DESC"),
                     'search'=>$this->rows("SELECT fallback_tier,COUNT(*) AS searches,SUM(zero_result) AS zero_results,ROUND(AVG(result_count),2) AS average_results FROM events WHERE event='search' GROUP BY fallback_tier"),
                     'firstAction'=>$this->rows("SELECT COUNT(*) AS samples,ROUND(AVG(duration_ms)) AS average_ms FROM events WHERE event='time_to_first_action'"),
+                    'guides'=>$this->guideReport(),
                     'notes'=>['Sessions are browser-tab counts per UTC day, not unique people.','Counts depend on visitor consent and can include bots or synthetic QA.','No search phrases, profile filters, form contents, raw IPs or raw session IDs are stored.','Historical Supabase events are not imported.']];
                 $this->db->exec('COMMIT');
             } catch(\Throwable $e) { $this->db->exec('ROLLBACK');throw $e; }

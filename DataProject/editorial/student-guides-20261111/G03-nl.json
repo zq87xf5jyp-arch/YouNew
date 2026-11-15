@@ -1,0 +1,288 @@
+{
+  "schemaVersion": 2,
+  "id": "guide.leiden-student-housing",
+  "slug": "leiden-student-housing",
+  "locale": "nl",
+  "title": "Studentenhuisvesting vinden in Leiden",
+  "shortSummary": {
+    "id": "summary",
+    "text": "Controleer de universitaire route en zoek zelfstandig; een aanvraag garandeert geen kamer.",
+    "sourceIDs": [
+      "housing-office"
+    ]
+  },
+  "audienceProfiles": [
+    "student"
+  ],
+  "whoThisIsFor": {
+    "id": "audience",
+    "text": "Internationale studenten die in Leiden gaan studeren.",
+    "sourceIDs": [
+      "housing-office"
+    ]
+  },
+  "whenYouNeedIt": {
+    "id": "when",
+    "text": "Begin vroeg, vóór reizen of onomkeerbare afspraken.",
+    "sourceIDs": [
+      "housing-search"
+    ]
+  },
+  "applicability": {
+    "cityIDs": [
+      "leiden"
+    ],
+    "provinceIDs": [
+      "zuid-holland"
+    ]
+  },
+  "jurisdiction": {
+    "level": "national",
+    "countryCode": "NL",
+    "municipalityDependent": false,
+    "note": "Landelijke regels; lokale startpunten voor studenten in Leiden.",
+    "sourceIDs": [
+      "housing-office"
+    ]
+  },
+  "prerequisites": [
+    {
+      "id": "prepare",
+      "text": "Begin vroeg, vóór reizen of onomkeerbare afspraken.",
+      "sourceIDs": [
+        "housing-search"
+      ]
+    }
+  ],
+  "requiredDocuments": [
+    {
+      "id": "document.0",
+      "text": "Vraag de gecontroleerde verhuurder naar aanvraagstukken. Gemeentelijke inschrijving kent een aparte documentenlijst.",
+      "sourceIDs": [
+        "housing-search",
+        "leiden-arrival"
+      ]
+    }
+  ],
+  "estimatedTime": {
+    "state": "varies",
+    "value": null,
+    "currency": null,
+    "note": "Er is geen gegarandeerde zoek- of toewijzingstermijn.",
+    "sourceIDs": [
+      "housing-office"
+    ]
+  },
+  "estimatedCost": {
+    "state": "varies",
+    "value": null,
+    "currency": null,
+    "note": "De universiteit noemt €285 housing fee, los van huur en andere kosten. Controleer actuele voorwaarden vóór betaling.",
+    "sourceIDs": [
+      "housing-office"
+    ]
+  },
+  "numberedSteps": [
+    {
+      "id": "step.1",
+      "position": 1,
+      "title": "Controleer de instroom",
+      "body": "Op 11 november 2026 was huisvesting voor degree-studenten in voorjaar 2027 gesloten; exchange/study-abroad-aanvragen waren nog open. Controleer de actuele melding.",
+      "sourceIDs": [
+        "housing-office"
+      ],
+      "municipalityDependent": false
+    },
+    {
+      "id": "step.2",
+      "position": 2,
+      "title": "Verbreed je zoektocht",
+      "body": "Vergelijk ROOM en omliggende plaatsen via de universitaire zoekpagina. Controleer reistijd en totale maandlasten.",
+      "sourceIDs": [
+        "housing-search"
+      ],
+      "municipalityDependent": false
+    },
+    {
+      "id": "step.3",
+      "position": 3,
+      "title": "Controleer vóór betaling",
+      "body": "Controleer aanbieder en woning. Bekijk contract en inschrijfmogelijkheid; stuur geen identiteitsdocumenten naar een onbekende aanbieder.",
+      "sourceIDs": [
+        "housing-search"
+      ],
+      "municipalityDependent": false
+    }
+  ],
+  "warnings": [
+    {
+      "id": "warning",
+      "text": "Betaling van de housing fee garandeert geen woonruimte.",
+      "sourceIDs": [
+        "housing-office"
+      ]
+    }
+  ],
+  "commonMistakes": [
+    {
+      "id": "mistake",
+      "text": "Verwar de geadverteerde huur niet met alle maandlasten.",
+      "sourceIDs": [
+        "housing-search"
+      ]
+    }
+  ],
+  "tips": [
+    {
+      "id": "tip",
+      "text": "Bereid gemeentelijke inschrijving voor zodra je adres bekend is.",
+      "sourceIDs": [
+        "leiden-arrival"
+      ]
+    }
+  ],
+  "checklist": [
+    {
+      "id": "check.0",
+      "text": "Op 11 november 2026 was huisvesting voor degree-studenten in voorjaar 2027 gesloten; exchange/study-abroad-aanvragen waren nog open. Controleer de actuele melding.",
+      "sourceIDs": [
+        "housing-office"
+      ]
+    },
+    {
+      "id": "check.1",
+      "text": "Vergelijk ROOM en omliggende plaatsen via de universitaire zoekpagina. Controleer reistijd en totale maandlasten.",
+      "sourceIDs": [
+        "housing-search"
+      ]
+    },
+    {
+      "id": "check.2",
+      "text": "Controleer aanbieder en woning. Bekijk contract en inschrijfmogelijkheid; stuur geen identiteitsdocumenten naar een onbekende aanbieder.",
+      "sourceIDs": [
+        "housing-search"
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "id": "faq.0",
+      "question": "Universitaire huisvesting vol?",
+      "answer": "Gebruik de zelfstandige zoekroute; reken niet op een kamer door alleen op een wachtlijst te staan.",
+      "sourceIDs": [
+        "housing-search"
+      ]
+    },
+    {
+      "id": "faq.1",
+      "question": "Buiten Leiden wonen?",
+      "answer": "Overweeg omliggende plaatsen en controleer de reis vóór akkoord.",
+      "sourceIDs": [
+        "housing-search"
+      ]
+    },
+    {
+      "id": "faq.2",
+      "question": "Inschrijving onduidelijk?",
+      "answer": "Vraag de gemeente naar je feitelijke woonadres. Inschrijving maakt bewoning op zichzelf niet legaal.",
+      "sourceIDs": [
+        "leiden-arrival"
+      ]
+    }
+  ],
+  "emergencyInformation": [
+    {
+      "id": "help",
+      "text": "Deze gids beslist niet over jouw situatie. Vraag hulp aan de verantwoordelijke instantie.",
+      "sourceIDs": [
+        "housing-office"
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "id": "context",
+      "title": "Controleer vóór je handelt",
+      "body": "Bespreek opties met de universiteit vóór vertrek als huisvesting niet rond is.",
+      "sourceIDs": [
+        "housing-search"
+      ]
+    }
+  ],
+  "officialSources": [
+    {
+      "id": "housing-office",
+      "title": "Housing via Leiden University",
+      "publisher": "Leiden University",
+      "url": "https://www.universiteitleiden.nl/en/education/international-students/prepare-your-stay/housing/via-leiden-university-housing-office",
+      "isOfficial": true,
+      "status": "verified_opened",
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "id": "housing-search",
+      "title": "Finding housing yourself",
+      "publisher": "Leiden University",
+      "url": "https://www.universiteitleiden.nl/en/education/international-students/prepare-your-stay/housing/finding-housing-yourself",
+      "isOfficial": true,
+      "status": "verified_opened",
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "id": "leiden-arrival",
+      "title": "Moving to Leiden from abroad",
+      "publisher": "Gemeente Leiden",
+      "url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/migreren/verhuizen-naar-leiden-vanuit-het-buitenland/",
+      "isOfficial": true,
+      "status": "verified_opened",
+      "checkedAt": "2026-11-11"
+    }
+  ],
+  "contactOptions": [
+    {
+      "id": "official-contact",
+      "kind": "url",
+      "label": "Officiële instructies",
+      "value": "https://www.universiteitleiden.nl/en/education/international-students/prepare-your-stay/housing/via-leiden-university-housing-office",
+      "sourceIDs": [
+        "housing-office"
+      ]
+    }
+  ],
+  "relatedGuideIDs": [],
+  "nextActions": [
+    {
+      "id": "next",
+      "text": "Bereid gemeentelijke inschrijving voor zodra je adres bekend is.",
+      "sourceIDs": [
+        "leiden-arrival"
+      ]
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "updatedAt": "2026-11-11",
+  "reviewer": null,
+  "readingTimeMinutes": 4,
+  "difficulty": "basic",
+  "confidenceLevel": "pending_review",
+  "tags": [
+    "Leiden",
+    "student"
+  ],
+  "publicationGate": null,
+  "disclaimer": "YouNew legt officiële informatie uit. Het is geen overheidsdienst of persoonlijk juridisch of medisch advies.",
+  "status": "draft",
+  "seo": {
+    "title": "Studentenhuisvesting vinden in Leiden",
+    "description": "Controleer de universitaire route en zoek zelfstandig; een aanvraag garandeert geen kamer. Officiële bronnen en een gedateerde checklist.",
+    "canonicalPath": "/nl/gidsen/leiden-student-housing"
+  },
+  "synonyms": [
+    "leiden student housing"
+  ],
+  "commonQuestions": [
+    "Universitaire huisvesting vol?",
+    "Buiten Leiden wonen?",
+    "Inschrijving onduidelijk?"
+  ]
+}

@@ -1,0 +1,287 @@
+{
+  "schemaVersion": 2,
+  "id": "guide.leiden-digid",
+  "slug": "leiden-digid",
+  "locale": "en",
+  "title": "Apply for and activate DigiD",
+  "shortSummary": {
+    "id": "summary",
+    "text": "Apply using your registered details, then activate your account with the letter.",
+    "sourceIDs": [
+      "digid-apply"
+    ]
+  },
+  "audienceProfiles": [
+    "student"
+  ],
+  "whoThisIsFor": {
+    "id": "audience",
+    "text": "Students registered at a Dutch address who need online access to public services.",
+    "sourceIDs": [
+      "digid-apply"
+    ]
+  },
+  "whenYouNeedIt": {
+    "id": "when",
+    "text": "After your BSN and address registration are available.",
+    "sourceIDs": [
+      "brp"
+    ]
+  },
+  "applicability": {
+    "cityIDs": [
+      "leiden"
+    ],
+    "provinceIDs": [
+      "zuid-holland"
+    ]
+  },
+  "jurisdiction": {
+    "level": "national",
+    "countryCode": "NL",
+    "municipalityDependent": false,
+    "note": "National rules; local starting points for Leiden students.",
+    "sourceIDs": [
+      "digid-apply"
+    ]
+  },
+  "prerequisites": [
+    {
+      "id": "prepare",
+      "text": "After your BSN and address registration are available.",
+      "sourceIDs": [
+        "brp"
+      ]
+    }
+  ],
+  "requiredDocuments": [
+    {
+      "id": "document.0",
+      "text": "Activation letter, account credentials and phone; follow the instructions for the method you selected.",
+      "sourceIDs": [
+        "digid-activate"
+      ]
+    }
+  ],
+  "estimatedTime": {
+    "state": "known",
+    "value": "Within five working days for the letter",
+    "currency": null,
+    "note": "DigiD says the letter arrives within five working days.",
+    "sourceIDs": [
+      "digid-apply"
+    ]
+  },
+  "estimatedCost": {
+    "state": "unknown",
+    "value": null,
+    "currency": null,
+    "note": "A separate price statement has not been confirmed in this source set; verify before publication.",
+    "sourceIDs": [
+      "digid-apply"
+    ]
+  },
+  "numberedSteps": [
+    {
+      "id": "step.1",
+      "position": 1,
+      "title": "Prepare",
+      "body": "Have your BSN, registered address and phone ready.",
+      "sourceIDs": [
+        "digid-apply"
+      ],
+      "municipalityDependent": false
+    },
+    {
+      "id": "step.2",
+      "position": 2,
+      "title": "Apply yourself",
+      "body": "Open the official application form. Keep the username and password private.",
+      "sourceIDs": [
+        "digid-apply"
+      ],
+      "municipalityDependent": false
+    },
+    {
+      "id": "step.3",
+      "position": 3,
+      "title": "Activate",
+      "body": "Use the code from your letter through DigiD’s app or website. DigiD states activation is required within 21 days.",
+      "sourceIDs": [
+        "digid-activate"
+      ],
+      "municipalityDependent": false
+    }
+  ],
+  "warnings": [
+    {
+      "id": "warning",
+      "text": "Never give a helper your password or activation code.",
+      "sourceIDs": [
+        "digid-apply"
+      ]
+    }
+  ],
+  "commonMistakes": [
+    {
+      "id": "mistake",
+      "text": "Applying is not the same as activating the account.",
+      "sourceIDs": [
+        "digid-activate"
+      ]
+    }
+  ],
+  "tips": [
+    {
+      "id": "tip",
+      "text": "Test access using an official service; keep your login details out of support messages.",
+      "sourceIDs": [
+        "digid-apply"
+      ]
+    }
+  ],
+  "checklist": [
+    {
+      "id": "check.0",
+      "text": "Have your BSN, registered address and phone ready.",
+      "sourceIDs": [
+        "digid-apply"
+      ]
+    },
+    {
+      "id": "check.1",
+      "text": "Open the official application form. Keep the username and password private.",
+      "sourceIDs": [
+        "digid-apply"
+      ]
+    },
+    {
+      "id": "check.2",
+      "text": "Use the code from your letter through DigiD’s app or website. DigiD states activation is required within 21 days.",
+      "sourceIDs": [
+        "digid-activate"
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "id": "faq.0",
+      "question": "No letter?",
+      "answer": "Wait five working days, check the registered address and use DigiD’s missing-letter help.",
+      "sourceIDs": [
+        "digid-activate"
+      ]
+    },
+    {
+      "id": "faq.1",
+      "question": "Foreign phone?",
+      "answer": "Check whether SMS arrives. DigiD also describes a spoken-code call when SMS fails.",
+      "sourceIDs": [
+        "digid-apply"
+      ]
+    },
+    {
+      "id": "faq.2",
+      "question": "Code expired?",
+      "answer": "Follow the activation page: an account not activated within the stated period requires a new application.",
+      "sourceIDs": [
+        "digid-activate"
+      ]
+    }
+  ],
+  "emergencyInformation": [
+    {
+      "id": "help",
+      "text": "This guide cannot decide your personal case. Use the responsible institution for help.",
+      "sourceIDs": [
+        "digid-apply"
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "id": "context",
+      "title": "Check before acting",
+      "body": "Moving again? Confirm your registered address before requesting the letter.",
+      "sourceIDs": [
+        "digid-activate"
+      ]
+    }
+  ],
+  "officialSources": [
+    {
+      "id": "digid-apply",
+      "title": "DigiD aanvragen",
+      "publisher": "DigiD",
+      "url": "https://www.digid.nl/aanvragen-en-activeren/digid-aanvragen",
+      "isOfficial": true,
+      "status": "verified_opened",
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "id": "digid-activate",
+      "title": "DigiD activeren",
+      "publisher": "DigiD",
+      "url": "https://www.digid.nl/aanvragen-en-activeren/digid-activeren",
+      "isOfficial": true,
+      "status": "verified_opened",
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "id": "brp",
+      "title": "When to register",
+      "publisher": "NetherlandsWorldwide",
+      "url": "https://www.netherlandsworldwide.nl/personal-records-database-brp/when-register",
+      "isOfficial": true,
+      "status": "verified_opened",
+      "checkedAt": "2026-11-11"
+    }
+  ],
+  "contactOptions": [
+    {
+      "id": "official-contact",
+      "kind": "url",
+      "label": "Official instructions",
+      "value": "https://www.digid.nl/aanvragen-en-activeren/digid-aanvragen",
+      "sourceIDs": [
+        "digid-apply"
+      ]
+    }
+  ],
+  "relatedGuideIDs": [],
+  "nextActions": [
+    {
+      "id": "next",
+      "text": "Test access using an official service; keep your login details out of support messages.",
+      "sourceIDs": [
+        "digid-apply"
+      ]
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "updatedAt": "2026-11-11",
+  "reviewer": null,
+  "readingTimeMinutes": 4,
+  "difficulty": "basic",
+  "confidenceLevel": "pending_review",
+  "tags": [
+    "Leiden",
+    "student"
+  ],
+  "publicationGate": null,
+  "disclaimer": "YouNew explains official information. It is not a government service or personal legal or medical advice.",
+  "status": "draft",
+  "seo": {
+    "title": "Apply for and activate DigiD",
+    "description": "Apply using your registered details, then activate your account with the letter. Official sources and a dated checklist.",
+    "canonicalPath": "/guides/leiden-digid"
+  },
+  "synonyms": [
+    "leiden digid"
+  ],
+  "commonQuestions": [
+    "No letter?",
+    "Foreign phone?",
+    "Code expired?"
+  ]
+}

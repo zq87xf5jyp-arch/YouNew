@@ -17,6 +17,7 @@ export const paths = Object.freeze({
   freshnessExclusions: resolve(publicSiteRoot, "src/generated/public-freshness-exclusions.json"),
   legacyGovernanceConfirmations: resolve(publicSiteRoot, "../../DataProject/quality/phase6-1-public-record-confirmations.json"),
   content: resolve(publicSiteRoot, "src/generated/public-content.json"),
+  analyticsGuideIds: resolve(publicSiteRoot, "src/generated/analytics-guide-ids.json"),
   editorialRoutes: resolve(publicSiteRoot, "src/generated/editorial-routes.json"),
   search: resolve(publicSiteRoot, "public/data/search-index.json"),
   provenance: resolve(publicSiteRoot, "public/data/content-provenance.json")
@@ -696,6 +697,19 @@ function sanitizeEntity(entity, slug) {
     language: "en",
     mediaAssets: entity.images
   });
+  const practicalGuideLocales = {};
+  if (practicalGuide) practicalGuideLocales.en = practicalGuide;
+  for (const [locale, raw] of Object.entries(entity.practicalGuideLocales ?? {})) {
+    if (!["en", "nl"].includes(locale)) throw new Error(`Unsupported routed guide locale: ${locale}`);
+    if (type !== "guide") throw new Error("Localized practical guides require a guide entity");
+    if (locale === "en" && entity.practicalGuide && JSON.stringify(raw) !== JSON.stringify(entity.practicalGuide)) throw new Error("English guide contracts must agree");
+    if (raw?.status === "published" && locale === "en" && !entity.practicalGuide) throw new Error("English compatibility payload required");
+    if (raw?.status === "published" && locale === "nl" && !practicalGuide) throw new Error("Published Dutch guide needs the English compatibility payload");
+    const projected = projectPublishedPracticalGuide(raw, {id, language: locale,
+      title: locale === "en" ? title : raw.title,
+      route: locale === "en" ? route : `/nl/gidsen/${slug}`, mediaAssets: entity.images});
+    if (projected) practicalGuideLocales[locale] = projected;
+  }
   const source = {
     title: cleanText(entity.source?.title, 240),
     publisher: cleanText(entity.source?.publisher, 160),
@@ -716,6 +730,7 @@ function sanitizeEntity(entity, slug) {
     summary,
     contentDepth: practicalGuide ? "practical" : "summary",
     practicalGuide,
+    ...(Object.keys(practicalGuideLocales).length ? {practicalGuideLocales} : {}),
     ...(entity.editorial ? {editorial:entity.editorial} : {}),
     cityId: cityId || null,
     provinceId: provinceId || null,
@@ -845,8 +860,8 @@ export function buildSearchIndex(entities, categories, citiesById, provincesById
       country: "NL",
       categories: entity.categorySlugs,
       intents: entity.categorySlugs,
-      languages: entity.editorial ? ["en", "nl"] : ["en"],
-      ...(entity.editorial ? {dutch:{title:entity.editorial.locales.nl.title,summary:entity.editorial.locales.nl.summary,route:`/nl/${entity.type==='place'?'plaatsen':'gidsen'}/${entity.slug}`}} : {}),
+      languages: entity.editorial || entity.practicalGuideLocales?.nl ? ["en", "nl"] : ["en"],
+      ...(entity.practicalGuideLocales?.nl ? {dutch:{title:entity.practicalGuideLocales.nl.title,summary:entity.practicalGuideLocales.nl.shortSummary.text,route:entity.practicalGuideLocales.nl.seo.canonicalPath}} : entity.editorial ? {dutch:{title:entity.editorial.locales.nl.title,summary:entity.editorial.locales.nl.summary,route:`/nl/${entity.type==='place'?'plaatsen':'gidsen'}/${entity.slug}`}} : {}),
       nationalFallback: !entity.cityId && !entity.provinceId,
       qualityScore: entity.contentDepth === "practical" ? 94 : 70,
       verifiedAt: entity.verifiedAt,
@@ -862,7 +877,7 @@ export function buildSearchIndex(entities, categories, citiesById, provincesById
       faqAnswers: practical?.faqs?.map((item) => `${item.question} ${item.answer}`) ?? [],
       whenYouNeedIt: practical?.whenYouNeedIt?.text ? [practical.whenYouNeedIt.text] : [],
       tags: practical?.tags ?? [],
-      synonyms: [...new Set([...(practical?.synonyms ?? []), ...(legacy.synonyms ?? []), ...(entity.editorial ? [entity.editorial.locales.nl.title,entity.editorial.locales.nl.summary] : [])])],
+      synonyms: [...new Set([...(practical?.synonyms ?? []), ...(entity.practicalGuideLocales?.nl?.synonyms ?? []), ...(entity.practicalGuideLocales?.nl ? [entity.practicalGuideLocales.nl.title,entity.practicalGuideLocales.nl.shortSummary.text] : []), ...(legacy.synonyms ?? []), ...(entity.editorial ? [entity.editorial.locales.nl.title,entity.editorial.locales.nl.summary] : [])])],
       officialOrganizationNames: [...new Set(officialOrganizationNames.filter(Boolean))],
       terminology: [...new Set(legacy.terminology ?? [])],
       commonQuestions: [...new Set([...(practical?.commonQuestions ?? []), ...(legacy.commonQuestions ?? [])])]
@@ -1113,8 +1128,25 @@ export function buildPublicDataset(runtime, { verifyChecksum = true, editorialRe
   if (publishedReleaseIds.size === 0) throw new Error("No published canonical releases are available.");
   if (editorialRelease) publishedReleaseIds.add(editorialRelease.id);
 
-  const sourceEntities = [...(Array.isArray(runtime.entities) ? runtime.entities : []), ...(editorialRelease?.entities ?? [])];
-  if (new Set(sourceEntities.map(e=>e.id)).size!==sourceEntities.length) throw new Error("Editorial release duplicates an existing entity ID.");
+  const sourceEntities = [...(Array.isArray(runtime.entities) ? runtime.entities : [])];
+  if (new Set(sourceEntities.map(e=>e.id)).size!==sourceEntities.length) throw new Error("Canonical runtime duplicates an existing entity ID.");
+  const editorialIds = new Set();
+  for (const previous of editorialRelease?.entities ?? []) {
+    if (editorialIds.has(previous.id)) throw new Error("Editorial release duplicates an existing entity ID.");
+    editorialIds.add(previous.id);
+    const position = sourceEntities.findIndex(entity => entity.id === previous.id);
+    if (position < 0) { sourceEntities.push(previous); continue; }
+    const upgrade = sourceEntities[position];
+    // An independently approved canonical release may deepen an existing guide
+    // without editing the immutable old batch or changing its ID/URL. Retain the
+    // previously approved short translation until a full translation is approved.
+    if (previous.editorial?.section !== "LIVE" || upgrade.practicalGuide?.status !== "published"
+      || !isPublishableEntity(upgrade, publishedReleaseIds)
+      || upgrade.attributes?.supersedesEditorialRelease !== editorialRelease.id) {
+      throw new Error("Editorial release duplicates an existing entity ID without an approved explicit guide upgrade.");
+    }
+    sourceEntities[position] = {...upgrade, editorial: previous.editorial};
+  }
   const withheldIds = new Set(runtime.withheldEntityIDs ?? []);
   if (sourceEntities.some((entity) => withheldIds.has(entity.id))) {
     throw new Error("Canonical runtime attempts to republish a withheld entity.");
@@ -1240,7 +1272,8 @@ export async function generatePublicContent(sourcePath = process.env.YOUNEW_LOCA
   const outputs = buildPublicDataset(runtime, {editorialRelease});
   await Promise.all([
     writeJSON(paths.content, outputs.content),
-    writeJSON(paths.editorialRoutes, outputs.content.entities.filter(e=>e.editorial).map(e=>({en:e.route,nl:`/nl/${e.type==='place'?'plaatsen':'gidsen'}/${e.slug}`}))),
+    writeJSON(paths.analyticsGuideIds, outputs.content.guides.map(e=>e.id).sort()),
+    writeJSON(paths.editorialRoutes, outputs.content.entities.filter(e=>e.editorial || e.practicalGuideLocales?.nl).map(e=>({en:e.route,nl:`/nl/${e.type==='place'?'plaatsen':'gidsen'}/${e.slug}`}))),
     writeJSON(paths.search, outputs.search),
     writeJSON(paths.provenance, outputs.provenance)
   ]);

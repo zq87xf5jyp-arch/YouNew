@@ -1,0 +1,22 @@
+[
+  {
+    "locale": "en",
+    "path": "admin-dashboard/public-site/public/images/guide-workflow-en.svg",
+    "sha256": "3c2c5fb65224db8bc5b14a09c43a16927ec41c530f081ae60e4f7115105ef73f",
+    "origin": "Original vector diagram authored in this change; no third-party images, fonts or logos",
+    "rights": "YouNew repository rights reserved; no external license claimed",
+    "owner_media_review": "pending",
+    "verified_for_publication": false,
+    "alt": "Check the source, follow the steps, check the result."
+  },
+  {
+    "locale": "nl",
+    "path": "admin-dashboard/public-site/public/images/guide-workflow-nl.svg",
+    "sha256": "e881f61ad312628e6fd2bffe0fef979246270cd658c17e4947f2be305ec60fcb",
+    "origin": "Original vector diagram authored in this change; no third-party images, fonts or logos",
+    "rights": "YouNew repository rights reserved; no external license claimed",
+    "owner_media_review": "pending",
+    "verified_for_publication": false,
+    "alt": "Controleer de bron, volg de stappen, controleer het resultaat."
+  }
+]

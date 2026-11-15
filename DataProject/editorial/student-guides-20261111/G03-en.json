@@ -1,0 +1,288 @@
+{
+  "schemaVersion": 2,
+  "id": "guide.leiden-student-housing",
+  "slug": "leiden-student-housing",
+  "locale": "en",
+  "title": "Find student housing in Leiden",
+  "shortSummary": {
+    "id": "summary",
+    "text": "Check the university route and search independently; a request never guarantees a room.",
+    "sourceIDs": [
+      "housing-office"
+    ]
+  },
+  "audienceProfiles": [
+    "student"
+  ],
+  "whoThisIsFor": {
+    "id": "audience",
+    "text": "International students preparing to study in Leiden.",
+    "sourceIDs": [
+      "housing-office"
+    ]
+  },
+  "whenYouNeedIt": {
+    "id": "when",
+    "text": "Start early, before travelling or making irreversible arrangements.",
+    "sourceIDs": [
+      "housing-search"
+    ]
+  },
+  "applicability": {
+    "cityIDs": [
+      "leiden"
+    ],
+    "provinceIDs": [
+      "zuid-holland"
+    ]
+  },
+  "jurisdiction": {
+    "level": "national",
+    "countryCode": "NL",
+    "municipalityDependent": false,
+    "note": "National rules; local starting points for Leiden students.",
+    "sourceIDs": [
+      "housing-office"
+    ]
+  },
+  "prerequisites": [
+    {
+      "id": "prepare",
+      "text": "Start early, before travelling or making irreversible arrangements.",
+      "sourceIDs": [
+        "housing-search"
+      ]
+    }
+  ],
+  "requiredDocuments": [
+    {
+      "id": "document.0",
+      "text": "Ask the verified provider for its application requirements. Municipal registration has a separate document list.",
+      "sourceIDs": [
+        "housing-search",
+        "leiden-arrival"
+      ]
+    }
+  ],
+  "estimatedTime": {
+    "state": "varies",
+    "value": null,
+    "currency": null,
+    "note": "There is no guaranteed search or allocation time.",
+    "sourceIDs": [
+      "housing-office"
+    ]
+  },
+  "estimatedCost": {
+    "state": "varies",
+    "value": null,
+    "currency": null,
+    "note": "The university lists a €285 housing fee, separate from rent and other charges. Check current terms before paying.",
+    "sourceIDs": [
+      "housing-office"
+    ]
+  },
+  "numberedSteps": [
+    {
+      "id": "step.1",
+      "position": 1,
+      "title": "Check the intake",
+      "body": "On 11 November 2026, Spring 2027 degree housing was closed; exchange/study-abroad applications remained open. Recheck the live notice.",
+      "sourceIDs": [
+        "housing-office"
+      ],
+      "municipalityDependent": false
+    },
+    {
+      "id": "step.2",
+      "position": 2,
+      "title": "Broaden the search",
+      "body": "Compare ROOM and surrounding towns using the university’s independent-search page. Check travel and total monthly costs.",
+      "sourceIDs": [
+        "housing-search"
+      ],
+      "municipalityDependent": false
+    },
+    {
+      "id": "step.3",
+      "position": 3,
+      "title": "Verify before paying",
+      "body": "Verify the advertiser and property. Inspect the contract and registration arrangements; avoid sending identity documents to an unknown advertiser.",
+      "sourceIDs": [
+        "housing-search"
+      ],
+      "municipalityDependent": false
+    }
+  ],
+  "warnings": [
+    {
+      "id": "warning",
+      "text": "Paying the housing fee does not guarantee accommodation.",
+      "sourceIDs": [
+        "housing-office"
+      ]
+    }
+  ],
+  "commonMistakes": [
+    {
+      "id": "mistake",
+      "text": "Do not confuse the advertised rent with the complete monthly bill.",
+      "sourceIDs": [
+        "housing-search"
+      ]
+    }
+  ],
+  "tips": [
+    {
+      "id": "tip",
+      "text": "Once you know your address, prepare municipal registration.",
+      "sourceIDs": [
+        "leiden-arrival"
+      ]
+    }
+  ],
+  "checklist": [
+    {
+      "id": "check.0",
+      "text": "On 11 November 2026, Spring 2027 degree housing was closed; exchange/study-abroad applications remained open. Recheck the live notice.",
+      "sourceIDs": [
+        "housing-office"
+      ]
+    },
+    {
+      "id": "check.1",
+      "text": "Compare ROOM and surrounding towns using the university’s independent-search page. Check travel and total monthly costs.",
+      "sourceIDs": [
+        "housing-search"
+      ]
+    },
+    {
+      "id": "check.2",
+      "text": "Verify the advertiser and property. Inspect the contract and registration arrangements; avoid sending identity documents to an unknown advertiser.",
+      "sourceIDs": [
+        "housing-search"
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "id": "faq.0",
+      "question": "University housing full?",
+      "answer": "Use the independent-search route; do not assume a waiting-list place will become a room.",
+      "sourceIDs": [
+        "housing-search"
+      ]
+    },
+    {
+      "id": "faq.1",
+      "question": "Live outside Leiden?",
+      "answer": "Consider nearby towns and check the commute before agreeing.",
+      "sourceIDs": [
+        "housing-search"
+      ]
+    },
+    {
+      "id": "faq.2",
+      "question": "Registration unclear?",
+      "answer": "Ask the municipality about your real residential address. Registration alone does not legalise occupation.",
+      "sourceIDs": [
+        "leiden-arrival"
+      ]
+    }
+  ],
+  "emergencyInformation": [
+    {
+      "id": "help",
+      "text": "This guide cannot decide your personal case. Use the responsible institution for help.",
+      "sourceIDs": [
+        "housing-office"
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "id": "context",
+      "title": "Check before acting",
+      "body": "If housing remains unresolved, discuss options with the university before travelling.",
+      "sourceIDs": [
+        "housing-search"
+      ]
+    }
+  ],
+  "officialSources": [
+    {
+      "id": "housing-office",
+      "title": "Housing via Leiden University",
+      "publisher": "Leiden University",
+      "url": "https://www.universiteitleiden.nl/en/education/international-students/prepare-your-stay/housing/via-leiden-university-housing-office",
+      "isOfficial": true,
+      "status": "verified_opened",
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "id": "housing-search",
+      "title": "Finding housing yourself",
+      "publisher": "Leiden University",
+      "url": "https://www.universiteitleiden.nl/en/education/international-students/prepare-your-stay/housing/finding-housing-yourself",
+      "isOfficial": true,
+      "status": "verified_opened",
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "id": "leiden-arrival",
+      "title": "Moving to Leiden from abroad",
+      "publisher": "Gemeente Leiden",
+      "url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/migreren/verhuizen-naar-leiden-vanuit-het-buitenland/",
+      "isOfficial": true,
+      "status": "verified_opened",
+      "checkedAt": "2026-11-11"
+    }
+  ],
+  "contactOptions": [
+    {
+      "id": "official-contact",
+      "kind": "url",
+      "label": "Official instructions",
+      "value": "https://www.universiteitleiden.nl/en/education/international-students/prepare-your-stay/housing/via-leiden-university-housing-office",
+      "sourceIDs": [
+        "housing-office"
+      ]
+    }
+  ],
+  "relatedGuideIDs": [],
+  "nextActions": [
+    {
+      "id": "next",
+      "text": "Once you know your address, prepare municipal registration.",
+      "sourceIDs": [
+        "leiden-arrival"
+      ]
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "updatedAt": "2026-11-11",
+  "reviewer": null,
+  "readingTimeMinutes": 4,
+  "difficulty": "basic",
+  "confidenceLevel": "pending_review",
+  "tags": [
+    "Leiden",
+    "student"
+  ],
+  "publicationGate": null,
+  "disclaimer": "YouNew explains official information. It is not a government service or personal legal or medical advice.",
+  "status": "draft",
+  "seo": {
+    "title": "Find student housing in Leiden",
+    "description": "Check the university route and search independently; a request never guarantees a room. Official sources and a dated checklist.",
+    "canonicalPath": "/guides/leiden-student-housing"
+  },
+  "synonyms": [
+    "leiden student housing"
+  ],
+  "commonQuestions": [
+    "University housing full?",
+    "Live outside Leiden?",
+    "Registration unclear?"
+  ]
+}

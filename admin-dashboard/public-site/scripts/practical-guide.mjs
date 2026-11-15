@@ -173,6 +173,20 @@ export function projectPublishedPracticalGuide(raw, parent = {}) {
   if (!statuses.has(raw.status)) failure(context, "status is unsupported");
   if (raw.status !== "published") return null;
 
+  return projectGuideContent(raw, parent, false);
+}
+
+// Preview-only projection. It does not manufacture human review or a passed gate.
+// The production projector above still returns null for every draft.
+export function projectPracticalGuideDraft(raw, parent = {}) {
+  if (!raw || raw.status !== "draft" || raw.reviewer != null || raw.publicationGate != null) {
+    throw new Error("Preview requires an unapproved draft without review credentials");
+  }
+  return projectGuideContent(raw, parent, true);
+}
+
+function projectGuideContent(raw, parent, reviewOnly) {
+  const context = parent.id ?? "<unknown>";
   if (raw.schemaVersion !== 2) failure(context, "schemaVersion must equal 2");
   const id = text(raw.id, "id", context);
   if (parent.id && id !== parent.id) failure(context, "id must match the parent entity ID");
@@ -182,8 +196,8 @@ export function projectPublishedPracticalGuide(raw, parent = {}) {
   if (!locales.has(locale)) failure(context, "locale is unsupported");
   if (parent.language && locale !== parent.language) failure(context, "locale must match the generated page language");
   if (parent.title && text(raw.title, "title", context, 2, 120) !== parent.title) failure(context, "title must match the parent entity title");
-  if (!Array.isArray(parent.mediaAssets) || parent.mediaAssets.length === 0) failure(context, "at least one verified media asset is required");
-  for (const [index, media] of parent.mediaAssets.entries()) {
+  if (!reviewOnly && (!Array.isArray(parent.mediaAssets) || parent.mediaAssets.length === 0)) failure(context, "at least one verified media asset is required");
+  for (const [index, media] of (reviewOnly ? [] : parent.mediaAssets).entries()) {
     if (media?.verified !== true || text(media?.alt, `mediaAssets[${index}].alt`, context, 2, 300).length < 2) failure(context, `mediaAssets[${index}] must be verified and have authored alt text`);
     const publicAssetPath = text(media?.publicAssetPath, `mediaAssets[${index}].publicAssetPath`, context, 1, 240);
     if (!publicAssetPattern.test(publicAssetPath) || publicAssetPath.includes("//") || publicAssetPath.includes("/../")) failure(context, `mediaAssets[${index}].publicAssetPath must be a safe local image path`);
@@ -217,20 +231,26 @@ export function projectPublishedPracticalGuide(raw, parent = {}) {
   if (jurisdictionLevel === "mixed" && cityIds.length === 0 && provinceIds.length === 0) failure(context, "mixed guidance requires city or province applicability");
   if (jurisdictionLevel === "national" && (jurisdiction.municipalityDependent || municipalSteps)) failure(context, "national guidance cannot contain municipality-dependent instructions");
 
-  if (!raw.reviewer || typeof raw.reviewer !== "object") failure(context, "reviewer is missing");
-  const reviewerId = text(raw.reviewer.id, "reviewer.id", context, 1, 160);
-  const reviewerType = text(raw.reviewer.reviewerType, "reviewer.reviewerType", context, 1, 64);
-  if (!new Set(["human_editor", "subject_matter_expert", "official_owner"]).has(reviewerType)) failure(context, "reviewer.reviewerType must identify a human reviewer");
-  const reviewedAt = isoDate(raw.reviewer.reviewedAt, "reviewer.reviewedAt", context);
-  const gate = publicationGate(raw.publicationGate, context);
+  let reviewer = null;
+  let gate = null;
+  if (!reviewOnly) {
+    if (!raw.reviewer || typeof raw.reviewer !== "object") failure(context, "reviewer is missing");
+    const reviewerType = text(raw.reviewer.reviewerType, "reviewer.reviewerType", context, 1, 64);
+    if (!["human_editor", "subject_matter_expert", "official_owner"].includes(reviewerType)) failure(context, "reviewer.reviewerType must identify a human reviewer");
+    reviewer = { id: text(raw.reviewer.id, "reviewer.id", context, 1, 160),
+      name: text(raw.reviewer.name, "reviewer.name", context, 2, 120),
+      role: text(raw.reviewer.role, "reviewer.role", context, 2, 160), reviewerType,
+      reviewedAt: isoDate(raw.reviewer.reviewedAt, "reviewer.reviewedAt", context) };
+    gate = publicationGate(raw.publicationGate, context);
+  }
   const readingTimeMinutes = raw.readingTimeMinutes;
   if (!Number.isInteger(readingTimeMinutes) || readingTimeMinutes < 1 || readingTimeMinutes > 120) failure(context, "readingTimeMinutes must be between 1 and 120");
   const difficulty = text(raw.difficulty, "difficulty", context);
   if (!difficulties.has(difficulty)) failure(context, "difficulty is unsupported");
-  if (raw.confidenceLevel !== "high") failure(context, "confidenceLevel must equal high");
+  if (!reviewOnly && raw.confidenceLevel !== "high") failure(context, "confidenceLevel must equal high");
   if (!raw.seo || typeof raw.seo !== "object") failure(context, "seo is missing");
   const canonicalPath = text(raw.seo.canonicalPath, "seo.canonicalPath", context, 1, 180);
-  if (!canonicalPath.startsWith("/guides/")) failure(context, "seo.canonicalPath must be a guide route");
+  if (!canonicalPath.startsWith(locale === "nl" ? "/nl/gidsen/" : "/guides/")) failure(context, "seo.canonicalPath must be a guide route");
   if (parent.route && canonicalPath !== parent.route) failure(context, "seo.canonicalPath must match the generated route");
 
   const contacts = Array.isArray(raw.contactOptions) ? raw.contactOptions.map((contact, index) => {
@@ -272,10 +292,10 @@ export function projectPublishedPracticalGuide(raw, parent = {}) {
   const verifiedAt = isoDate(raw.verifiedAt, "verifiedAt", context);
   const updatedAt = isoDate(raw.updatedAt, "updatedAt", context);
   const today = new Date().toISOString().slice(0, 10);
-  if (verifiedAt > today || updatedAt > today || reviewedAt > today || gate.checkedAt > today) failure(context, "review and verification dates cannot be in the future");
+  if (verifiedAt > today || updatedAt > today || (reviewer && reviewer.reviewedAt > today) || (gate && gate.checkedAt > today)) failure(context, "review and verification dates cannot be in the future");
   if (sources.some((source) => source.checkedAt < updatedAt || source.checkedAt > verifiedAt)) failure(context, "official source dates must fall between update and verification");
-  if (!(updatedAt <= reviewedAt && reviewedAt <= verifiedAt)) failure(context, "reviewer date must fall between update and verification");
-  if (!(updatedAt <= gate.checkedAt && gate.checkedAt <= verifiedAt)) failure(context, "publication gate date must fall between update and verification");
+  if (reviewer && !(updatedAt <= reviewer.reviewedAt && reviewer.reviewedAt <= verifiedAt)) failure(context, "reviewer date must fall between update and verification");
+  if (gate && !(updatedAt <= gate.checkedAt && gate.checkedAt <= verifiedAt)) failure(context, "publication gate date must fall between update and verification");
 
   return {
     schemaVersion: 2,
@@ -321,20 +341,14 @@ export function projectPublishedPracticalGuide(raw, parent = {}) {
     nextActions: sourcedTextArray(raw.nextActions, "nextActions", context, sourceIds, { minimum: 1, maximum: 20 }),
     verifiedAt,
     updatedAt,
-    reviewer: {
-      id: reviewerId,
-      name: text(raw.reviewer.name, "reviewer.name", context, 2, 120),
-      role: text(raw.reviewer.role, "reviewer.role", context, 2, 160),
-      reviewerType,
-      reviewedAt
-    },
+    reviewer,
     readingTimeMinutes,
     difficulty,
-    confidenceLevel: "high",
+    confidenceLevel: reviewOnly ? "pending_review" : "high",
     tags: stringArray(raw.tags, "tags", context, { minimum: 2, maximum: 20, itemMaximum: 60 }),
     publicationGate: gate,
     disclaimer: text(raw.disclaimer, "disclaimer", context, 10, 2_000),
-    status: "published",
+    status: reviewOnly ? "draft" : "published",
     seo: {
       title: (() => {
         const seoTitle = text(raw.seo.title, "seo.title", context, 10, 70);

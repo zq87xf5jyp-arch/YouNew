@@ -1,0 +1,37 @@
+{
+  "period_end": "2026-11-11",
+  "source_timezones": {
+    "GSC": "provider reporting timezone; record on import",
+    "Hostinger": "UTC",
+    "Apple": "provider reporting timezone; record on import"
+  },
+  "metrics": {
+    "nonbrand_clicks_28d": null,
+    "nonbrand_impressions_28d": null,
+    "tracked_queries_top20": null,
+    "nonbrand_ctr_percent": null,
+    "official_action_percent": null,
+    "median_active_seconds": null,
+    "return_7_30d_percent": null,
+    "confirmed_subscribers_total": null,
+    "attributed_first_app_downloads_total": null,
+    "relevant_referring_domains_total": null
+  },
+  "guide_sessions": null,
+  "source_changes": [
+    "G01: national five-day wording and municipal five-working-day wording need editorial resolution before publication.",
+    "G03: university housing availability is semester-specific; recheck immediately before release."
+  ],
+  "link_issues": [
+    "608/608 live sitemap URLs returned 200 on 11 November.",
+    "19 official source pages were opened; direct automated checks returned 17 HTTP 200 and 2 SVB HTTP 403 (access restriction, not a confirmed broken page)."
+  ],
+  "content_decision": "Review G01 EN/NL first. All six guide pairs remain private drafts; nine later briefs are prepared.",
+  "next_week_action": "Obtain the specific editorial decision; verify GSC property and App Store Connect access before importing baseline metrics.",
+  "guide_counts": {
+    "guide_sessions": null,
+    "official_action_sessions": null,
+    "return_sample_sessions": null,
+    "return_7_30d_sessions": null
+  }
+}
