@@ -31,5 +31,17 @@
       "latitude": 52.140322,
       "longitude": 4.496932
     }
+  },
+  {
+    "id": "museum.leiden-wereldmuseum",
+    "url": "https://www.visitleiden.nl/nl/locaties/3715984452/wereldmuseum-leiden",
+    "http": 200,
+    "checkedAt": "2026-11-15",
+    "method": "Destination coordinates in the route link on Visit Leiden, not camera centre or image metadata",
+    "destinationURL": "https://www.google.com/maps/dir/?api=1&destination=52.16324%2C4.48245",
+    "coordinate": {
+      "latitude": 52.16324,
+      "longitude": 4.48245
+    }
   }
 ]
