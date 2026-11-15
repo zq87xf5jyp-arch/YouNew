@@ -1,0 +1,20 @@
+[
+  {
+    "route": "/",
+    "beforeHtmlBytes": 107258,
+    "afterHtmlBytes": 113302,
+    "beforeGzipBytes": 15176,
+    "afterGzipBytes": 15589,
+    "beforeScriptCount": 9,
+    "afterScriptCount": 9
+  },
+  {
+    "route": "/nl/",
+    "beforeHtmlBytes": 107906,
+    "afterHtmlBytes": 114021,
+    "beforeGzipBytes": 15867,
+    "afterGzipBytes": 16316,
+    "beforeScriptCount": 9,
+    "afterScriptCount": 9
+  }
+]

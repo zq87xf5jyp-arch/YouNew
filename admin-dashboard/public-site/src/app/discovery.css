@@ -269,6 +269,12 @@ html[data-theme="light"] .coverage-map-reset { color:var(--text-secondary); back
 .experience-hero h1 { margin:0; font-size:clamp(36px,4.2vw,60px); line-height:1.08; letter-spacing:-.045em; font-weight:650; }
 .experience-hero h1 em,.business-discovery-hero h1 em { font-family:Georgia,serif; color:var(--cyan); font-weight:400; }
 .experience-hero-copy>p { max-width:540px; color:var(--text-secondary); font-size:17px; line-height:1.65; margin:22px 0; }
+.discovery-explore-shortcuts { margin-top:20px; }
+.discovery-explore-shortcuts>p { margin:0 0 10px; color:var(--text-secondary); font-size:13px; font-weight:650; }
+.discovery-explore-shortcuts>div { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
+.discovery-explore-shortcuts a { display:flex; align-items:center; gap:9px; min-height:44px; padding:10px 12px; border:1px solid var(--line-strong); border-radius:10px; color:var(--text); background:var(--panel); font-size:14px; font-weight:600; line-height:1.4; }
+.discovery-explore-shortcuts svg { width:18px; height:18px; flex-shrink:0; color:var(--cyan); }
+.discovery-explore-shortcuts a:hover { border-color:var(--cyan); text-decoration:underline; text-underline-offset:3px; }
 .experience-hero-photo { position:relative; min-width:0; }
 .experience-hero-photo .content-media { border:0; margin:0; box-shadow:none; background:none; }
 .experience-hero-photo img { height:348px; width:100%; object-fit:cover; object-position:60% center; border-radius:12px 60px 12px 12px; }

@@ -1,0 +1,137 @@
+{
+  "status": "PASS",
+  "release": "hp-upgrade-20261115-r1",
+  "archiveSha256": "f571dc8bda2fe537490e817f06a7ae064eb41744c8f5600bcf3a76dfe22d9498",
+  "checks": [
+    {
+      "path": "/",
+      "http": 200,
+      "exact": true,
+      "noindex": true,
+      "noStore": true
+    },
+    {
+      "path": "/nl/",
+      "http": 200,
+      "exact": true,
+      "noindex": true,
+      "noStore": true
+    },
+    {
+      "path": "/categories/culture/",
+      "http": 200,
+      "exact": true,
+      "noindex": true,
+      "noStore": true
+    },
+    {
+      "path": "/categories/food-drink/",
+      "http": 200,
+      "exact": true,
+      "noindex": true,
+      "noStore": true
+    },
+    {
+      "path": "/categories/outdoors/",
+      "http": 200,
+      "exact": true,
+      "noindex": true,
+      "noStore": true
+    },
+    {
+      "path": "/categories/local-services/",
+      "http": 200,
+      "exact": true,
+      "noindex": true,
+      "noStore": true
+    },
+    {
+      "path": "/nl/categorieen/culture/",
+      "http": 200,
+      "exact": true,
+      "noindex": true,
+      "noStore": true
+    },
+    {
+      "path": "/nl/categorieen/food-drink/",
+      "http": 200,
+      "exact": true,
+      "noindex": true,
+      "noStore": true
+    },
+    {
+      "path": "/nl/categorieen/outdoors/",
+      "http": 200,
+      "exact": true,
+      "noindex": true,
+      "noStore": true
+    },
+    {
+      "path": "/nl/categorieen/local-services/",
+      "http": 200,
+      "exact": true,
+      "noindex": true,
+      "noStore": true
+    },
+    {
+      "path": "/city-guides/rotterdam/",
+      "http": 200,
+      "exact": true,
+      "noindex": true,
+      "noStore": true
+    },
+    {
+      "path": "/nl/stadsgidsen/rotterdam/",
+      "http": 200,
+      "exact": true,
+      "noindex": true,
+      "noStore": true
+    },
+    {
+      "path": "/places/leiden-lakenhal/",
+      "http": 200,
+      "exact": true,
+      "noindex": true,
+      "noStore": true
+    },
+    {
+      "path": "/nl/plaatsen/leiden-lakenhal/",
+      "http": 200,
+      "exact": true,
+      "noindex": true,
+      "noStore": true
+    },
+    {
+      "path": "/saved/",
+      "http": 200,
+      "exact": true,
+      "noindex": true,
+      "noStore": true
+    },
+    {
+      "path": "/search/",
+      "http": 200,
+      "exact": true,
+      "noindex": true,
+      "noStore": true
+    },
+    {
+      "path": "/nl/zoeken/",
+      "http": 200,
+      "exact": true,
+      "noindex": true,
+      "noStore": true
+    },
+    {
+      "path": "/for-business/",
+      "http": 200,
+      "exact": true,
+      "noindex": true,
+      "noStore": true
+    }
+  ],
+  "anonymousDenied": true,
+  "previousQaRestored": true,
+  "g01EnNlUnchanged": true,
+  "productionChanged": false
+}
