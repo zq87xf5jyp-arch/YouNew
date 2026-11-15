@@ -5,7 +5,7 @@ import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {spawnSync} from 'node:child_process';
-import {readPlaceReview,applyPlaceReview,validatePlaceRecords,reviewPath} from '../scripts/place-review.mjs';
+import {readPlaceReview,applyPlaceReview,validatePlaceRecords,reviewPath,placeReviewBatches} from '../scripts/place-review.mjs';
 import {buildPublicDataset,paths} from '../scripts/generate-public-content.mjs';
 import {loadEditorialRelease,approvalPath} from '../scripts/editorial-release.mjs';
 import type {PlaceRevision} from '../scripts/place-review.mjs';
@@ -76,7 +76,7 @@ test('pending nature manifest still stays out of an ordinary release',async()=>{
  const temp=await mkdtemp(join(tmpdir(),'younew-nature-gate-'));
  try {
   await mkdir(`${temp}/DataProject/editorial/${batch}`,{recursive:true});
-  for(const path of ['DataProject/staging','DataProject/operations','DataProject/editorial/leiden-places-20261115',approvalPath])await symlink(`${root}/${path}`,`${temp}/${path}`);
+  for(const path of ['DataProject/staging','DataProject/operations',...placeReviewBatches.filter(b=>b!==batch).map(b=>reviewPath(b)),approvalPath])await symlink(`${root}/${path}`,`${temp}/${path}`);
   for(const path of ['records.json','media'])await symlink(`${root}/${reviewPath(batch)}/${path}`,`${temp}/${reviewPath(batch)}/${path}`);
   await writeFile(`${temp}/${reviewPath(batch)}/manifest.json`,JSON.stringify({...manifest,status:'needs_review',publicationAuthorized:false,approvedAt:null,reviewerId:null}));
   const release=await loadEditorialRelease(temp);

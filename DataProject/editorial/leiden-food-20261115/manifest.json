@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "batchId": "leiden-food-20261115",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "approvedAt": null,
+  "reviewerId": null,
+  "preparedAt": "2026-11-15",
+  "ids": [
+    "restaurant.leiden-waag",
+    "restaurant.leiden-grand-cafe-burcht",
+    "restaurant.leiden-oudt-leyden",
+    "cafe.leiden-roos",
+    "restaurant.leiden-prentenkabinet"
+  ],
+  "baseFiles": {
+    "restaurant.leiden-waag": {
+      "file": "DataProject/staging/content-20261109/WP-08-M1-leiden-20261109.json",
+      "sha256": "bb36b4add35026cfc95fac11aeda5e9e28f72579f680fa5658057099f14c9452"
+    },
+    "restaurant.leiden-grand-cafe-burcht": {
+      "file": "DataProject/staging/content-20261109/WP-08-M1-leiden-20261109.json",
+      "sha256": "bb36b4add35026cfc95fac11aeda5e9e28f72579f680fa5658057099f14c9452"
+    },
+    "restaurant.leiden-oudt-leyden": {
+      "file": "DataProject/staging/content-20261109/WP-08-M1-leiden-20261109.json",
+      "sha256": "bb36b4add35026cfc95fac11aeda5e9e28f72579f680fa5658057099f14c9452"
+    },
+    "cafe.leiden-roos": {
+      "file": "DataProject/staging/content-20261109/WP-09-M1-leiden-20261109.json",
+      "sha256": "68917f141122109522c058021b14da8fe9766eeee49cca3b760b1e6d36be7b4b"
+    },
+    "restaurant.leiden-prentenkabinet": {
+      "file": "DataProject/staging/content-20261109/WP-08-M1-leiden-20261109.json",
+      "sha256": "bb36b4add35026cfc95fac11aeda5e9e28f72579f680fa5658057099f14c9452"
+    }
+  },
+  "recordsSha256": "28fc12087c3226f81f890a0899c8ffc2722b5593742ad45fac1b9dd008989827",
+  "media": {
+    "waag-480.webp": {
+      "width": 480,
+      "bytes": 28800,
+      "sha256": "4b521f9fb3633c8ff010abcbf9b95039efe602a292f558a222f47c9c5664fb13"
+    },
+    "waag-800.webp": {
+      "width": 800,
+      "bytes": 65498,
+      "sha256": "5b63f69bc8106529c790f8f088f0e4bf03694c9108235b6fdcd0cc40e7d854b3"
+    },
+    "waag-1200.webp": {
+      "width": 1200,
+      "bytes": 131624,
+      "sha256": "2f6372fbbbb5d348ae5fafa4a9abe920108c76eb16d1888c272b139be9e8e043"
+    },
+    "grandcafe-480.webp": {
+      "width": 480,
+      "bytes": 29816,
+      "sha256": "d852251a1b3f5ecf709cae145d4a7ad4d27870ca561653e64e71991b73e684e2"
+    },
+    "grandcafe-800.webp": {
+      "width": 800,
+      "bytes": 81682,
+      "sha256": "086037af7266e7abac479956a21d9e39f86ff1a25b6d4f2c7bab0572b205dac3"
+    },
+    "grandcafe-1200.webp": {
+      "width": 1200,
+      "bytes": 191448,
+      "sha256": "d274807e98e48289646f055dfc4279b322bf8223fa3001f0103549d5051a9230"
+    },
+    "oudt-480.webp": {
+      "width": 480,
+      "bytes": 53578,
+      "sha256": "8fd0bb64beadd4a97426e9b61e47a75fff6be0b1ef7d31aab3403fe5ea5be803"
+    },
+    "oudt-800.webp": {
+      "width": 800,
+      "bytes": 128016,
+      "sha256": "01c67bd3be4e5074cd17ce46e2f0753dda58c202d79a7e15d40453fc154370c8"
+    },
+    "oudt-1200.webp": {
+      "width": 1200,
+      "bytes": 258214,
+      "sha256": "38fbe50f3a63640c3ba0b5561994aa3580ae5ffa395a8aa1a4b5a99d19fecc48"
+    },
+    "roos-480.webp": {
+      "width": 480,
+      "bytes": 35252,
+      "sha256": "5573b8d7c2a89e608d45e4eb5c25bd21ac79f96b59880cd379edcc6485e99492"
+    },
+    "roos-800.webp": {
+      "width": 800,
+      "bytes": 73932,
+      "sha256": "821cad562807408abd4f525e5c1f2b623bfa5033bf3798f87db735068a6f419f"
+    },
+    "roos-1200.webp": {
+      "width": 1200,
+      "bytes": 126962,
+      "sha256": "e80fc0908eb5425b288a4ec9a6dba7ef04f1bf746d3116d492da072ccc9ae701"
+    },
+    "prent-480.webp": {
+      "width": 480,
+      "bytes": 41154,
+      "sha256": "6f51b8dd7dff80a7d0f23f0a58256991d27144587dad92b6dd1147d02d83277c"
+    },
+    "prent-800.webp": {
+      "width": 800,
+      "bytes": 106730,
+      "sha256": "73a72fe3a18a77ba4a6c3cb8a92794c31a80809314d200710d63ff971a04b3aa"
+    },
+    "prent-1200.webp": {
+      "width": 1200,
+      "bytes": 212426,
+      "sha256": "c3ca99f770302729b683c6318674ccdab3a334c5c0edfaeeeb3cd90c50a25347"
+    }
+  }
+}

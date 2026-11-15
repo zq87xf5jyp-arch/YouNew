@@ -4,7 +4,7 @@ import {readFile} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {resolve} from 'node:path';
 export const placeReviewBatch='leiden-places-20261115';
-export const placeReviewBatches=[placeReviewBatch,'leiden-nature-culture-20261115'];
+export const placeReviewBatches=[placeReviewBatch,'leiden-nature-culture-20261115','leiden-food-20261115'];
 export function reviewPath(batch=placeReviewBatch) {
   assert.ok(placeReviewBatches.includes(batch),'unknown review');
   return `DataProject/editorial/${batch}`;

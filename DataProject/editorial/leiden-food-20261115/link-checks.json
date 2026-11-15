@@ -1,0 +1,227 @@
+[
+  {
+    "key": "waag-contact",
+    "url": "https://www.waagleiden.nl/nl/contactpagina/",
+    "status": 200,
+    "finalURL": "https://www.waagleiden.nl/nl/contactpagina/",
+    "contentType": "text/html",
+    "sha256": "e6fa3720fc2332d98b2985c6586ec8c6a0aba250bd6d62d20256e57115c5aec5",
+    "checkedAt": "2026-11-15T17:54:41.237709+00:00",
+    "routeURLs": []
+  },
+  {
+    "key": "waag-menu",
+    "url": "https://static.rce.eu/wp-content/uploads/sites/10/2026/03/17142126/26034-Menu_Waag_Locaties_105x304_ISO.pdf",
+    "status": 200,
+    "finalURL": "https://static.rce.eu/wp-content/uploads/sites/10/2026/03/17142126/26034-Menu_Waag_Locaties_105x304_ISO.pdf",
+    "contentType": "application/pdf",
+    "sha256": "a03637f495c8809140fdb89de2d9f794743d68d4ef21071de333342ba2b7041e",
+    "checkedAt": "2026-11-15T17:54:41.356399+00:00",
+    "routeURLs": []
+  },
+  {
+    "key": "waag-route",
+    "url": "https://www.visitleiden.nl/nl/locaties/3402150775/waag-leiden",
+    "status": 200,
+    "finalURL": "https://www.visitleiden.nl/nl/locaties/3402150775/waag-leiden",
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "e3304ae11ad3566210497e693b530fa44d4ef99e0d6c52e7d91d7fa1e1858420",
+    "checkedAt": "2026-11-15T17:54:41.546255+00:00",
+    "routeURLs": [
+      "https://www.google.com/maps/dir/?api=1&destination=52.159463%2C4.489903",
+      "https://www.google.com/maps/dir/?api=1&destination=52.159463%2C4.489903"
+    ]
+  },
+  {
+    "key": "grandcafe-contact",
+    "url": "https://www.grandcafedeburcht.nl/en",
+    "status": 200,
+    "finalURL": "https://www.grandcafedeburcht.nl/en",
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "8aba1f47c6571d4d7fac74b97c3a80330dad378e54159a8d2e7e49c9e83c01e5",
+    "checkedAt": "2026-11-15T17:54:41.395703+00:00",
+    "routeURLs": []
+  },
+  {
+    "key": "grandcafe-menus",
+    "url": "https://www.grandcafedeburcht.nl/en/menu",
+    "status": 200,
+    "finalURL": "https://www.grandcafedeburcht.nl/en/menu",
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "9912b80172ad95514a7d57f7f43e1f7f30bcd8f1bf0cf15f3d040982aa42bbae",
+    "checkedAt": "2026-11-15T17:54:41.602133+00:00",
+    "routeURLs": []
+  },
+  {
+    "key": "grandcafe-lunch",
+    "url": "https://www.grandcafedeburcht.nl/en/_files/ugd/562831_79a35a217d4f4aefa34c91a0bab92fa5.pdf",
+    "status": 200,
+    "finalURL": "https://www.grandcafedeburcht.nl/en/_files/ugd/562831_79a35a217d4f4aefa34c91a0bab92fa5.pdf",
+    "contentType": "application/pdf",
+    "sha256": "c3e2bcfd65ec0779d0c4d308fbec80f8dd6b4fc8c52da5ad768f798812aa6a9e",
+    "checkedAt": "2026-11-15T17:54:41.824586+00:00",
+    "routeURLs": []
+  },
+  {
+    "key": "grandcafe-dinner",
+    "url": "https://www.grandcafedeburcht.nl/en/_files/ugd/562831_c6ca34142990488fa99a31cf19c36290.pdf",
+    "status": 200,
+    "finalURL": "https://www.grandcafedeburcht.nl/en/_files/ugd/562831_c6ca34142990488fa99a31cf19c36290.pdf",
+    "contentType": "application/pdf",
+    "sha256": "51bc9fe7a8bf437c11a0868dc995816256b7f6145e7f27ede9cd046bcba04584",
+    "checkedAt": "2026-11-15T17:54:42.109200+00:00",
+    "routeURLs": []
+  },
+  {
+    "key": "grandcafe-route",
+    "url": "https://www.visitleiden.nl/nl/locaties/1464043421/grand-cafe-de-burcht",
+    "status": 200,
+    "finalURL": "https://www.visitleiden.nl/nl/locaties/1464043421/grand-cafe-de-burcht",
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "614faa9513538f724c0f428dbb1b19d0c5e1295c465fe0f43544c12a96b922b2",
+    "checkedAt": "2026-11-15T17:54:42.069561+00:00",
+    "routeURLs": [
+      "https://www.google.com/maps/dir/?api=1&destination=52.158506%2C4.492824",
+      "https://www.google.com/maps/dir/?api=1&destination=52.158506%2C4.492824"
+    ]
+  },
+  {
+    "key": "oudt-home",
+    "url": "https://oudtleyden.nl/",
+    "status": 200,
+    "finalURL": "https://oudtleyden.nl/",
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "abe0500d26a7b108de7f201ac4cc46bef82262fd81a8c47c018269da046e6510",
+    "checkedAt": "2026-11-15T17:54:42.089293+00:00",
+    "routeURLs": []
+  },
+  {
+    "key": "oudt-contact",
+    "url": "https://oudtleyden.nl/contact/",
+    "status": 200,
+    "finalURL": "https://oudtleyden.nl/contact/",
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "2802e6b67605aa0ccaf2a31bc855f4a9c6479bdc5546bff90436bb924b7f9c7b",
+    "checkedAt": "2026-11-15T17:54:42.216461+00:00",
+    "routeURLs": []
+  },
+  {
+    "key": "oudt-menu",
+    "url": "https://oudtleyden.nl/wp-content/uploads/2026/04/OUD_menukaart-2026-A3.pdf",
+    "status": 200,
+    "finalURL": "https://oudtleyden.nl/wp-content/uploads/2026/04/OUD_menukaart-2026-A3.pdf",
+    "contentType": "application/pdf",
+    "sha256": "14c94a50a6e8236523af75b5fbc51dd6585b2440b26e612369d62ed308ad5ece",
+    "checkedAt": "2026-11-15T17:54:42.248736+00:00",
+    "routeURLs": []
+  },
+  {
+    "key": "oudt-route",
+    "url": "https://www.visitleiden.nl/nl/locaties/2623615998/oudt-leyden-t-pannenkoekenhuysje",
+    "status": 200,
+    "finalURL": "https://www.visitleiden.nl/nl/locaties/2623615998/oudt-leyden-t-pannenkoekenhuysje",
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "f0ef8d8ccc48dc826446e6adbff671dbe1e84fda6ddf15ae75b6fb53ed4fd791",
+    "checkedAt": "2026-11-15T17:54:42.715593+00:00",
+    "routeURLs": [
+      "https://www.google.com/maps/dir/?api=1&destination=52.162479%2C4.484523",
+      "https://www.google.com/maps/dir/?api=1&destination=52.162479%2C4.484523"
+    ]
+  },
+  {
+    "key": "roos-contact",
+    "url": "https://www.roosleiden.nl/contact-roos",
+    "status": 200,
+    "finalURL": "https://www.roosleiden.nl/contact-roos",
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "c35baefd412735fb64de84cd3d410c7c666eedf509955f1f9f6426ecb572f5fe",
+    "checkedAt": "2026-11-15T17:54:42.367478+00:00",
+    "routeURLs": []
+  },
+  {
+    "key": "roos-about",
+    "url": "https://www.roosleiden.nl/over-roos",
+    "status": 200,
+    "finalURL": "https://www.roosleiden.nl/over-roos",
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "29ec9d35efbac50b94bb21fabde16dbcb9165e1b0adb9284d94ad97cc92516c4",
+    "checkedAt": "2026-11-15T17:54:42.376425+00:00",
+    "routeURLs": []
+  },
+  {
+    "key": "roos-menus",
+    "url": "https://www.roosleiden.nl/menu-roos",
+    "status": 200,
+    "finalURL": "https://www.roosleiden.nl/menu-roos",
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "299c2e0952783a98eea599ef8bc2a4c6d2e6ca21490b4ea6db33e195c70bba9f",
+    "checkedAt": "2026-11-15T17:54:42.559739+00:00",
+    "routeURLs": []
+  },
+  {
+    "key": "roos-menu",
+    "url": "https://www.roosleiden.nl/_files/ugd/8f9e89_e49e8ce1954646d08a34ce0f75840c2d.pdf",
+    "status": 200,
+    "finalURL": "https://www.roosleiden.nl/_files/ugd/8f9e89_e49e8ce1954646d08a34ce0f75840c2d.pdf",
+    "contentType": "application/pdf",
+    "sha256": "8cb542eb8e0d41d16be67ba1c8c9eb0c43ce81a8678187a5ab5cf1d1439c1be9",
+    "checkedAt": "2026-11-15T17:54:42.569165+00:00",
+    "routeURLs": []
+  },
+  {
+    "key": "roos-route",
+    "url": "https://www.visitleiden.nl/nl/locaties/599416677/roos",
+    "status": 200,
+    "finalURL": "https://www.visitleiden.nl/nl/locaties/599416677/roos",
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "4599ab2bf10cb3569c6a2158c26cf0e9b10f1132d981ac13ee584d8aa9c1db13",
+    "checkedAt": "2026-11-15T17:54:43.189628+00:00",
+    "routeURLs": [
+      "https://www.google.com/maps/dir/?api=1&destination=52.157362%2C4.492313",
+      "https://www.google.com/maps/dir/?api=1&destination=52.157362%2C4.492313"
+    ]
+  },
+  {
+    "key": "prent-contact",
+    "url": "https://www.prentenkabinet.nl/reserveren/",
+    "status": 200,
+    "finalURL": "https://www.prentenkabinet.nl/reserveren/",
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "6aa2616123735a62d24d732056556477ab679c38d2db1395bd3c175dab0cdcfe",
+    "checkedAt": "2026-11-15T17:54:43.658274+00:00",
+    "routeURLs": []
+  },
+  {
+    "key": "prent-menu",
+    "url": "https://www.prentenkabinet.nl/menukaart/",
+    "status": 200,
+    "finalURL": "https://www.prentenkabinet.nl/menukaart/",
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "636a44fa481a444f04cc83a510378029914b654e8b193dd60023294505bf8205",
+    "checkedAt": "2026-11-15T17:54:43.769072+00:00",
+    "routeURLs": []
+  },
+  {
+    "key": "prent-lunch",
+    "url": "https://www.prentenkabinet.nl/lunch/",
+    "status": 200,
+    "finalURL": "https://www.prentenkabinet.nl/lunch/",
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "e9fbefa87837816d5069839c0d6f3d8032fa04c44b276032a1ad21392a9b232b",
+    "checkedAt": "2026-11-15T17:54:44.010773+00:00",
+    "routeURLs": []
+  },
+  {
+    "key": "prent-route",
+    "url": "https://www.visitleiden.nl/nl/locaties/1965820401/het-prentenkabinet",
+    "status": 200,
+    "finalURL": "https://www.visitleiden.nl/nl/locaties/1965820401/het-prentenkabinet",
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "6849caef93656bbd325ea3fbdb0b411e85c1d16d42106199f20471ed1e813582",
+    "checkedAt": "2026-11-15T17:54:44.170709+00:00",
+    "routeURLs": [
+      "https://www.google.com/maps/dir/?api=1&destination=52.157094%2C4.486795",
+      "https://www.google.com/maps/dir/?api=1&destination=52.157094%2C4.486795"
+    ]
+  }
+]
