@@ -14,6 +14,9 @@ const proof=await readPlaceReview(root,batch);
 // These fields are checked against the DataProject JSON schema below; the
 // runtime projection's deliberately smaller declaration does not expose them.
 type DraftRecord=PlaceRevision & {last_checked:string;coordinates:{latitude:number;longitude:number}};
+type SourceEvidence={finalUrl:string;checkedAt:string;httpStatus:number;method?:string;verificationScope?:string;selectedAddress?:{woonplaatsnaam:string;centroide_ll:string;weergavenaam:string}};
+type ReviewIssues={issues:{id:string;blockingBeforePublication:boolean}[]};
+type PairedText={locales:Record<'en'|'nl',{blocks:{id:string;text:string}[]}>};
 const sha256=(bytes:Uint8Array)=>createHash('sha256').update(bytes).digest('hex');
 
 test('ten historical Amsterdam IDs remain excluded from the ordinary public release',async()=>{
@@ -40,15 +43,15 @@ test('explicit private preview adds ten draft cards and retains five photo candi
 });
 
 test('paired text has source evidence and coordinates match selected BAG addresses',async()=>{
- const checks=JSON.parse(await readFile(`${dir}/source-checks.json`,'utf8'));
+ const checks=JSON.parse(await readFile(`${dir}/source-checks.json`,'utf8')) as Record<string,SourceEvidence>;
  for(const r of proof.records as DraftRecord[]){const p=JSON.parse(r.attributes.place_enrichment);
   assert.deepEqual(p.locales.en.blocks.map((b:{id:string})=>b.id),p.locales.nl.blocks.map((b:{id:string})=>b.id));
-  for(const s of p.sources){const c=Object.values(checks).find((x:any)=>x.finalUrl===s.url) as any;assert.ok(c);assert.equal(c.checkedAt,r.last_checked);assert.ok(c.httpStatus===200||(c.method==='web.run'&&c.verificationScope.includes('manual live check')));}
-  const geo=Object.values(checks).find((x:any)=>x.finalUrl===p.coordinateEvidence.url) as any;assert.equal(geo.selectedAddress.woonplaatsnaam,'Amsterdam');
-  const [lon,lat]=geo.selectedAddress.centroide_ll.match(/[0-9.]+/g).map(Number);assert.deepEqual(r.coordinates,{latitude:Number(lat.toFixed(7)),longitude:Number(lon.toFixed(7))});assert.equal(r.attributes.address,geo.selectedAddress.weergavenaam);assert.match(p.coordinateEvidence.method,/not a surveyed entrance/);
+  for(const s of p.sources){const c=Object.values(checks).find(x=>x.finalUrl===s.url);assert.ok(c);assert.equal(c.checkedAt,r.last_checked);assert.ok(c.httpStatus===200||(c.method==='web.run'&&c.verificationScope?.includes('manual live check')));}
+  const geo=Object.values(checks).find(x=>x.finalUrl===p.coordinateEvidence.url);assert.ok(geo?.selectedAddress);assert.equal(geo.selectedAddress.woonplaatsnaam,'Amsterdam');
+  const values=geo.selectedAddress.centroide_ll.match(/[0-9.]+/g);assert.ok(values);const [lon,lat]=values.map(Number);assert.deepEqual(r.coordinates,{latitude:Number(lat.toFixed(7)),longitude:Number(lon.toFixed(7))});assert.equal(r.attributes.address,geo.selectedAddress.weergavenaam);assert.match(p.coordinateEvidence.method,/not a surveyed entrance/);
  }
- const issues=JSON.parse(await readFile(`${dir}/review-issues.json`,'utf8'));assert.deepEqual(issues.issues.map((x:any)=>x.id).sort(),['place.de-nieuwe-kerk-amsterdam','place.oba-oosterdok']);assert.ok(issues.issues.every((x:any)=>x.blockingBeforePublication));
- const nieuwe=JSON.parse(proof.records.find(r=>r.id==='place.de-nieuwe-kerk-amsterdam')!.attributes.place_enrichment);assert.match(nieuwe.locales.en.blocks.find((b:any)=>b.id==='hours').text,/different hours/);assert.match(nieuwe.locales.nl.blocks.find((b:any)=>b.id==='hours').text,/andere tijden/);
+ const issues=JSON.parse(await readFile(`${dir}/review-issues.json`,'utf8')) as ReviewIssues;assert.deepEqual(issues.issues.map(x=>x.id).sort(),['place.de-nieuwe-kerk-amsterdam','place.oba-oosterdok']);assert.ok(issues.issues.every(x=>x.blockingBeforePublication));
+ const nieuwe=JSON.parse(proof.records.find(r=>r.id==='place.de-nieuwe-kerk-amsterdam')!.attributes.place_enrichment) as PairedText;assert.match(nieuwe.locales.en.blocks.find(b=>b.id==='hours')?.text??'',/different hours/);assert.match(nieuwe.locales.nl.blocks.find(b=>b.id==='hours')?.text??'',/andere tijden/);
 });
 
 test('all 32 existing photo-package files remain byte-identical to fa0ec02',async()=>{
