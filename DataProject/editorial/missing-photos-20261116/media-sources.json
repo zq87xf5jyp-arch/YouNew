@@ -165,7 +165,7 @@
     "outputLicense": "CC BY 2.0",
     "transformations": [
       "EXIF orientation if present",
-      "proportional resize to 480/800/1200 pixels; 1200-pixel variant upscaled from 1024-pixel source for existing responsive pipeline",
+      "Proportional downsize to 480/800 pixels; 1024-pixel WebP retains the downloaded source dimensions; no upscaling",
       "WebP encoding; original aspect ratio retained; no retouching"
     ],
     "identityEvidence": {
@@ -177,6 +177,11 @@
       "en": "Super Deluxe room at Supernova Hotel, with temporary pink balloon decorations by Rotterdams Ballonnenbedrijf; September 2022",
       "nl": "Super Deluxe-kamer in Supernova Hotel, tijdelijk versierd met roze ballonnen door Rotterdams Ballonnenbedrijf; september 2022"
     },
-    "historicalImage": true
+    "historicalImage": true,
+    "retainedSupersededVariant": {
+      "file": "media/supernova-1200.webp",
+      "sha256": "c30304fb5e136b531bf616684ea10624e736f016994ccf103ac9588437ef2aa8",
+      "use": "Evidence only; earlier upscaled variant is excluded from preview/public asset copying and srcset"
+    }
   }
 }

@@ -23,9 +23,9 @@ export function preferredMedia(assets: readonly PublicMediaAsset[], roles: reado
 export function ContentMedia({ asset, variant, eager = false, eagerMedia, deferUntilVisible = false, sizes: requestedSizes }: ContentMediaProps) {
   const widths = variant === "card" ? [360, 640, 900] : variant === "gallery" ? [480, 800, 1200] : [720, 1200, 1920];
   const localCityImage = /^\/images\/cities\/([a-z-]+)-1920\.webp$/.exec(asset.url);
-  const localPlaceImage = /^(\/images\/(?:place-review|places\/(?:leiden-places|leiden-nature-culture|leiden-food|leiden-stay-parks|amsterdam-museums|priority-cities)-20261115))\/([a-z]+)-1200\.webp$/.exec(asset.url);
+  const localPlaceImage = /^(\/images\/(?:place-review|places\/(?:(?:leiden-places|leiden-nature-culture|leiden-food|leiden-stay-parks|amsterdam-museums|priority-cities)-20261115|missing-photos-20261116)))\/([a-z]+)-(1024|1200)\.webp$/.exec(asset.url);
   const responsive = localPlaceImage
-    ? {src: asset.url, srcSet: [480,800,1200].map(width=>`${localPlaceImage[1]}/${localPlaceImage[2]}-${width}.webp ${width}w`).join(', ')}
+    ? {src: asset.url, srcSet: [480,800,Number(localPlaceImage[3])].map(width=>`${localPlaceImage[1]}/${localPlaceImage[2]}-${width}.webp ${width}w`).join(', ')}
     : localCityImage
     ? { src: asset.url, srcSet: [480, 800, 1200, 1920].map((width) => `/images/cities/${localCityImage[1]}-${width}.webp ${width}w`).join(", ") }
     : responsivePublicImage(asset.url, widths);

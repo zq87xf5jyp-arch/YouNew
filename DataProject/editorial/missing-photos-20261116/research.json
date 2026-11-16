@@ -50,7 +50,8 @@
       "source": "https://kaafi.nl/contact-us",
       "contact": "info@kaafi.nl",
       "reason": "No exact openly licensed photo found in name/address searches or Commons within 125 m. Results for other people named Kaafi and generic coffee are unrelated. The official site supplies no reuse permission in the checked page.",
-      "outreachSent": false
+      "outreachSent": false,
+      "followupReasonRU": "Официальный сайт подтверждает адрес, но не даёт разрешения на повторное использование фотографий. В прежнем поиске Commons/Openverse подходящий снимок именно Kaafi не найден; новые поиски пресс-материалов не дали подтверждённой лицензии. Нужен собственный снимок или письменное разрешение."
     },
     {
       "id": "cafe.utrecht-koffie-leute",
@@ -60,7 +61,8 @@
       "source": "https://www.koffieleute.nl/",
       "contact": "info@koffieleute.nl",
       "reason": "Name/address searches and nearby Commons images did not establish an exact cafe photo. A licensed canal panorama does not identify the premises clearly. Event photos on NMTH have photographer credits but no verified reuse grant.",
-      "outreachSent": false
+      "outreachSent": false,
+      "followupReasonRU": "Flickr 7913701884: CC BY-SA 2.0 и автор Nelleke Poorthuis подтверждены первоисточником. Однако виден только процесс приготовления кофе на стойке с логотипом, без идентифицируемого помещения Westerkade 30. Дата в модели Flickr — 2012-09-02 с флагом isDateTakenUnknown=true, поэтому точную дату съёмки не утверждаем. Как главная фотография нынешнего кафе отклонён."
     },
     {
       "id": "hotel.rotterdam-supernova",
@@ -81,7 +83,8 @@
       "source": "https://www.thecollectorhotel.com/",
       "contact": "basecamp@thecollectorhotel.com",
       "reason": "Commons Haagsche Bluf photographs have licenses, but inspected candidates show Loetje, a mural or the shared courtyard, not an identifiable Collector hotel facade. Nearby coordinates are not proof. The official gallery supplies no verified reuse permission.",
-      "outreachSent": false
+      "outreachSent": false,
+      "followupReasonRU": "Официальная галерея и FAQ не дают проверенного разрешения на повторное использование. Пресс-релиз WorldHotels содержит фото отеля, но разрешение на распространение этого файла в публичном GitHub и производных WebP не подтверждено; прежняя проверка пресс-условий выявила ограничение передачи третьим лицам. Фото общего Haagsche Bluf не доказывает изображение отеля. Нужен точный файл с подходящими правами."
     },
     {
       "id": "hotel.utrecht-nox",
@@ -91,7 +94,8 @@
       "source": "https://www.thenoxhotel.com/en/faq",
       "contact": "marketing@thenoxhotel.com",
       "reason": "The official FAQ expressly requires permission for commercial use of website/social photographs. Commons Keistraat photographs identify other addresses (3,4,5–7,9,24), not number 8; a broad 1987 streetscape is insufficient as a hotel hero.",
-      "outreachSent": false
+      "outreachSent": false,
+      "followupReasonRU": "FAQ прямо требует разрешения для коммерческого использования фото сайта и соцсетей. Ранее найденные Commons-фотографии относятся к другим номерам Keistraat. Фото именно Keistraat 8 с подходящей лицензией не подтверждено; требуется разрешение или собственный снимок."
     }
   ],
   "searches": [
@@ -865,5 +869,34 @@
     "openverse": "Queried joined/spaced names and addresses. Supernova Flickr asset independently licensed on its original page. Koffie Leute results with NC/ND are excluded; a BY-SA image mentioning coffee with Koffie Leute does not establish the Westerkade premises. Nox Utrecht and Keistraat 8 results refer to unrelated art or another town. Haagsche Bluf results alone do not establish the Collector facade.",
     "press": "BWH 2022 Collector press picture found, but public-repository redistribution rights not established; current press terms restrict passing images to third parties.",
     "sent": false
+  },
+  "ciFixFollowup": {
+    "checkedAt": "2026-11-16",
+    "noPreparedPhotoRedownloads": true,
+    "outreachSent": false,
+    "sources": [
+      "https://kaafi.nl/contact-us",
+      "https://www.koffieleute.nl/",
+      "https://www.flickr.com/photos/8142720@N04/7913701884",
+      "https://www.thecollectorhotel.com/gallery",
+      "https://www.thecollectorhotel.com/faq",
+      "https://www.bestwestern.de/pressrelease/pdf/en/2022/December/PR_BWH_TheCollector_WHCraftedCollection.pdf",
+      "https://www.thenoxhotel.com/en/faq"
+    ],
+    "rejectedEvidence": "evidence/rejected-koffieleute-7913701884.json",
+    "searches": [
+      "Kaafi cafe photography press images Creative Commons",
+      "The Collector hotel press photos reuse worldhotels",
+      "Koffie Leute Westerkade 30 2015 2012",
+      "site.kaafi.nl photo press"
+    ],
+    "result": "No new exact-place photo with confirmed reusable rights; four gaps remain.",
+    "worldHotelsRightsRecheck": {
+      "url": "https://www.worldhotels-inside.de/presse/downloads",
+      "checkedAt": "2026-11-16",
+      "httpStatus": 200,
+      "htmlSha256": "fc3ff929c732ea04b255d2e3023fe8dd1f623b823eb7715c1cbfc051ffa98d0b",
+      "finding": "Credited editorial use allowed; advertising or redistribution to third parties requires prior consent. Exact Collector file and public GitHub redistribution rights not confirmed."
+    }
   }
 }

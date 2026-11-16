@@ -69,8 +69,18 @@ export async function readPlaceReview(root,batchId=placeReviewBatch) {
     bases.set(id,JSON.parse(bytes).records.find(r=>r.id===id));
   }
   for(const [file,proof] of Object.entries(manifest.media)) {
-    assert.match(file,/^[a-z]+-(480|800|1200)\.webp$/);
+    assert.match(file,/^[a-z]+-(480|800|1024|1200)\.webp$/);
     assert.equal(sha256(await readFile(resolve(path,'media',file))),proof.sha256,'changed review image');
+  }
+  if(manifest.retainedMedia) {
+    assert.equal(batchId,'missing-photos-20261116','retained media requires explicit review');
+    assert.deepEqual(Object.keys(manifest.retainedMedia),['supernova-1200.webp']);
+    const preserved=JSON.parse(await readFile(resolve(path,'evidence/pre-ci-fix-preservation.json'),'utf8'));
+    for(const [file,proof] of Object.entries(manifest.retainedMedia)) {
+      assert.equal(proof.sha256,preserved.files[`media/${file}`].sha256,'retained baseline changed');
+      assert.equal(sha256(await readFile(resolve(path,'media',file))),proof.sha256,'changed retained image');
+      assert.ok(!Object.hasOwn(manifest.media,file),'retained image must not be served');
+    }
   }
   validatePlaceRecords(batch.records,manifest.ids,bases,batchId!==placeReviewBatch,expansion);
   if(expansion?.mediaOnlyBases) {
@@ -110,7 +120,18 @@ export async function readPlaceReview(root,batchId=placeReviewBatch) {
       for(const credit of [proof.author,proof.title,proof.created])assert.ok(photo.attribution.includes(credit),'missing photo credit');
     }
   }
-  const requiredMedia=batch.records.flatMap(r=>r.images.flatMap(i=>[480,800,1200].map(w=>i.public_asset_path.split('/').at(-1).replace('-1200.webp',`-${w}.webp`))));
+  const requiredMedia=batch.records.flatMap(r=>r.images.flatMap(i=>{
+    const file=i.public_asset_path.split('/').at(-1);
+    const width=Number(/-(1024|1200)\.webp$/.exec(file)?.[1]);
+    assert.ok(width===1024||width===1200,'unsupported largest variant');
+    if(width===1024) {
+      assert.equal(batchId,'missing-photos-20261116');
+      assert.equal(r.id,'hotel.rotterdam-supernova');
+      assert.equal(manifest.media[file].width,1024);
+      assert.equal(manifest.media[file].height,768);
+    }
+    return [480,800,width].map(w=>file.replace(/-(1024|1200)\.webp$/,`-${w}.webp`));
+  }));
   assert.deepEqual(Object.keys(manifest.media).sort(),requiredMedia.sort(),'incomplete or extraneous review media');
   const reviewer=validatePlaceApproval(manifest,batch.records,reviewers);
   return {manifest,records:batch.records,reviewer};
@@ -165,7 +186,7 @@ export function validatePlaceRecords(records,ids,bases,optionalTickets=false,exp
       assert.equal(destination,`${r.coordinates.latitude},${r.coordinates.longitude}`,'coordinate destination mismatch');
     }
     assert.ok(r.images.length===1||(expansion&&r.images.length===0),'one verified photo or explicit missing media');
-    for(const image of r.images){assert.equal(image.verified,true);https(image.source_page_url);https(image.asset_url);assert.match(image.license_url,expansion?/^https:\/\/creativecommons.org\/(?:licenses\/(?:by|by-sa)\/(?:2|3|4)\.0(?:\/nl)?|publicdomain\/zero\/1\.0(?:\/deed\.en)?)\/?$/:/^https:\/\/creativecommons.org\/licenses\/(by|by-sa)\/(2|3|4)\.0(?:\/nl)?\/?$/);assert.ok(image.attribution.length>10);assert.match(image.public_asset_path,/^\/images\/place-review\/[a-z]+-1200\.webp$/);}
+    for(const image of r.images){assert.equal(image.verified,true);https(image.source_page_url);https(image.asset_url);assert.match(image.license_url,expansion?/^https:\/\/creativecommons.org\/(?:licenses\/(?:by|by-sa)\/(?:2|3|4)\.0(?:\/nl)?|publicdomain\/zero\/1\.0(?:\/deed\.en)?)\/?$/:/^https:\/\/creativecommons.org\/licenses\/(by|by-sa)\/(2|3|4)\.0(?:\/nl)?\/?$/);assert.ok(image.attribution.length>10);assert.match(image.public_asset_path,/^\/images\/place-review\/[a-z]+-(1024|1200)\.webp$/);}
   }
 }
 

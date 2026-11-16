@@ -9,9 +9,13 @@ const selected=selectedPlaceReviews();
 // assets when another batch is being privately reviewed.
 await rm(reviewTarget,{recursive:true,force:true});
 for(const batch of placeReviewBatches) {
-  const {reviewer}=await readPlaceReview(root,batch);
+  const {reviewer,manifest}=await readPlaceReview(root,batch);
   const publishedTarget=`${publicRoot}/images/places/${batch}`;
   await rm(publishedTarget,{recursive:true,force:true});
   const target=selected.includes(batch)?reviewTarget:reviewer?publishedTarget:null;
-  if(target) {await mkdir(target,{recursive:true});await cp(`${root}/${reviewPath(batch)}/media`,target,{recursive:true});}
+  if(target) {
+    await mkdir(target,{recursive:true});
+    // Copy only active, hash-validated derivatives. Retained evidence is not served.
+    for(const file of Object.keys(manifest.media))await cp(`${root}/${reviewPath(batch)}/media/${file}`,`${target}/${file}`);
+  }
 }

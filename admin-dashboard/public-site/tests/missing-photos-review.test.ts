@@ -66,3 +66,13 @@ schema=json.loads((root/'DataProject/schema/entity.schema.json').read_text())
 for r in json.loads((root/'DataProject/editorial/${batch}/records.json').read_text())['records']:m.validate_schema(r,schema,schema,r['id'])
 `,root],{encoding:'utf8'});assert.equal(check.status,0,check.stderr);
 });
+
+test('all fifteen prepared image files and five license proofs retain their original hashes',async()=>{
+ const {createHash}=await import('node:crypto');
+ const preservation=JSON.parse(await readFile(`${root}/${reviewPath(batch)}/evidence/pre-ci-fix-preservation.json`,'utf8'));
+ const unchanged=Object.entries(preservation.files).filter(([file])=>file.startsWith('media/')||file.startsWith('evidence/'));
+ assert.equal(unchanged.filter(([file])=>file.startsWith('media/')).length,15);
+ for(const [file,proof] of unchanged)assert.equal(createHash('sha256').update(await readFile(`${root}/${reviewPath(batch)}/${file}`)).digest('hex'),(proof as {sha256:string}).sha256,file);
+ assert.ok(!Object.hasOwn(manifest.media,'supernova-1200.webp'));
+ assert.equal(manifest.media['supernova-1024.webp'].width,1024);
+});

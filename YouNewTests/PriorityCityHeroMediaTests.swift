@@ -1,5 +1,6 @@
 import Foundation
 import Testing
+import UIKit
 @testable import YouNew
 
 @MainActor
@@ -56,29 +57,24 @@ struct PriorityCityHeroMediaTests {
         }
     }
 
-    @Test func priorityHeroURLsReturnImages() async throws {
+    // Contract/decoding only: network availability is a separate Media availability
+    // workflow using these same registry URLs (scripts/check-priority-hero-urls.py).
+    @Test func priorityHeroURLsDecodeLocalFixtureWithoutNetwork() async throws {
         let configuration = URLSessionConfiguration.ephemeral
-        configuration.timeoutIntervalForRequest = 8
-        configuration.timeoutIntervalForResource = 16
-        configuration.waitsForConnectivity = false
+        configuration.protocolClasses = [HeroImageFixtureProtocol.self]
         let session = URLSession(configuration: configuration)
+        defer { session.invalidateAndCancel() }
 
         for city in priorityCities {
             let placeId = CuratedPlaceHeroMediaRegistry.cityPlaceId(cityName: city.name, provinceName: city.province)
             let media = try #require(CuratedPlaceHeroMediaRegistry.media(for: placeId))
             let url = try #require(media.remoteURL)
-            var request = URLRequest(url: url, timeoutInterval: 8)
-            request.setValue("YouNew/1.0 (iOS; NetherlandsGuide)", forHTTPHeaderField: "User-Agent")
-
-            let (data, response) = try await session.data(for: request)
+            let (data, response) = try await session.data(from: url)
             let httpResponse = try #require(response as? HTTPURLResponse)
-            let contentType = httpResponse.value(forHTTPHeaderField: "Content-Type")?.lowercased() ?? ""
-
-            #expect(httpResponse.statusCode == 200, "\(city.name) returned HTTP \(httpResponse.statusCode)")
-            #expect(contentType.hasPrefix("image/"), "\(city.name) returned \(contentType)")
-            #expect(data.count > 8_000, "\(city.name) image response is unexpectedly small")
-            #expect(httpResponse.statusCode != 404)
-            #expect(httpResponse.statusCode != 403)
+            #expect(httpResponse.statusCode == 200)
+            #expect(httpResponse.value(forHTTPHeaderField: "Content-Type") == "image/png")
+            let image = try #require(UIImage(data: data))
+            #expect(image.size == CGSize(width: 1, height: 1))
         }
     }
 
@@ -351,4 +347,24 @@ struct PriorityCityHeroMediaTests {
         }
         return "\(host)\(path)?\(components.percentEncodedQuery ?? "")".trimmingCharacters(in: CharacterSet(charactersIn: "?"))
     }
+}
+
+// Test-owned 1×1 PNG. Intercepts every request, so no fallback can reach the
+// network. No shared mutable handler and no application networking changes.
+private final class HeroImageFixtureProtocol: URLProtocol, @unchecked Sendable {
+    override class func canInit(with request: URLRequest) -> Bool { true }
+    override class func canonicalRequest(for request: URLRequest) -> URLRequest { request }
+    override func startLoading() {
+        guard let url = request.url, url.scheme == "https", url.host == "commons.wikimedia.org",
+              url.path.contains("Special:FilePath"),
+              let data = Data(base64Encoded: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAADElEQVR4nGOQC4gCAAFYAMnYQvRqAAAAAElFTkSuQmCC"),
+              let response = HTTPURLResponse(url: url, statusCode: 200, httpVersion: "HTTP/1.1", headerFields: ["Content-Type": "image/png"]) else {
+            client?.urlProtocol(self, didFailWithError: URLError(.unsupportedURL))
+            return
+        }
+        client?.urlProtocol(self, didReceive: response, cacheStoragePolicy: .notAllowed)
+        client?.urlProtocol(self, didLoad: data)
+        client?.urlProtocolDidFinishLoading(self)
+    }
+    override func stopLoading() {}
 }

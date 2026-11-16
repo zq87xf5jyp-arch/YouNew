@@ -37,7 +37,7 @@
       "sha256": "8a808c99acf914a36e7e84f18198f32243badc55fe92e06be4c605903c98dab3"
     }
   },
-  "recordsSha256": "6c18f8f98f773f4e437bb31b56aa6d5bb240c8d17234cd93ed935ae35a0319e2",
+  "recordsSha256": "88fa7dfe1c8abe5fe1cbc9a7994c70ca7c138063b870c16a0353ba6486afa677",
   "media": {
     "rembrandtpark-480.webp": {
       "width": 480,
@@ -123,19 +123,27 @@
       "bytes": 46574,
       "sha256": "dd0064a100f0b4c5bda5e306eea615751bbd6bd36d7bb826b77f98d10fd8aec9"
     },
+    "supernova-1024.webp": {
+      "width": 1024,
+      "height": 768,
+      "bytes": 70014,
+      "sha256": "ba78c398b0962c7e430e89be785bd42f7cc96a65b63245dc8a8aca328ea669f0"
+    }
+  },
+  "sourceChecksSha256": "225bcaa7b9b84137c27be35edc4ee7e1e79b40f91324f0222a07fcbd38dfe6dc",
+  "mediaSourcesSha256": "631590b230502ff9704fe5c38d6665b3397a90b451e2e2056b7cd1e63fbc47f4",
+  "publicationScope": {
+    "type": "owner-approved-existing-ids",
+    "addedIds": [],
+    "supersedesHistoricalWithholding": false
+  },
+  "scope": "Media-only candidates: five of nine gaps. New approval required; no production publication.",
+  "retainedMedia": {
     "supernova-1200.webp": {
       "width": 1200,
       "height": 900,
       "bytes": 82082,
       "sha256": "c30304fb5e136b531bf616684ea10624e736f016994ccf103ac9588437ef2aa8"
     }
-  },
-  "sourceChecksSha256": "225bcaa7b9b84137c27be35edc4ee7e1e79b40f91324f0222a07fcbd38dfe6dc",
-  "mediaSourcesSha256": "50c5bb9fbb083fdb0538c7f76337e148a6d568acae722475ca9333a7f5934512",
-  "publicationScope": {
-    "type": "owner-approved-existing-ids",
-    "addedIds": [],
-    "supersedesHistoricalWithholding": false
-  },
-  "scope": "Media-only candidates: five of nine gaps. New approval required; no production publication."
+  }
 }
