@@ -12,7 +12,7 @@ export interface PlaceManifest {
 }
 export const placeReviewBatch:string;
 export const placeReviewBatches:string[];
-export const expansionReviews:Record<string,{count:number;city?:string;bounds?:number[];cities?:Record<string,number[]>;allowPrivateAdditions?:boolean}>;
+export const expansionReviews:Record<string,{count:number;city?:string;bounds?:number[];cities?:Record<string,number[]>;allowPrivateAdditions?:boolean;mediaOnlyBases?:string[]}>;
 export function selectedPlaceReviews(env?:Record<string,string|undefined>):string[];
 export function reviewPath(batch?:string):string;
 export const placePublishedMediaPath:string;
@@ -24,3 +24,4 @@ export function validatePlaceRecords(records:PlaceRevision[],ids:string[],bases:
 export function applyPlaceReview(release:EditorialRelease,root:string,env?:Record<string,string|undefined>):Promise<EditorialRelease>;
 
 export function isApprovedPlaceAddition(entity:unknown,release:unknown):boolean;
+export function validateMediaOnlyRecords(records:PlaceRevision[],bases:Map<string,PlaceRevision>):void;

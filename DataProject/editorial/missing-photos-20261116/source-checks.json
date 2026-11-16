@@ -1,0 +1,34 @@
+[
+  {
+    "id": "nature.leiden-rembrandtpark",
+    "url": "https://www.visitleiden.nl/nl/locaties/1706027937/rembrandtpark",
+    "checkedAt": "2026-11-16",
+    "status": "verified_opened",
+    "scope": "identity/address only; approved text, prices, hours and fact-check dates are unchanged",
+    "identityEvidence": "The archive description explicitly identifies Rembrandtpark, the Wittepoortsbrug viewpoint and July 1986. The photograph visibly includes the park and former nautical school. Historical image only; not evidence of the current park layout."
+  },
+  {
+    "id": "hotel.leiden-ibis",
+    "url": "https://all.accor.com/hotel/8087/index.en.shtml",
+    "checkedAt": "2026-11-16",
+    "status": "verified_opened",
+    "scope": "identity/address only; approved text, prices, hours and fact-check dates are unchanged",
+    "identityEvidence": "Commons names Ibis Hotel at Stationsplein in Leiden; the ibis facade/sign is visible. Accor confirms Stationsplein 240–242. Exterior photograph only, not a claim about present rooms or amenities."
+  },
+  {
+    "id": "hotel.leiden-rembrandt-hotel",
+    "url": "https://www.rembrandthotel.nl/",
+    "checkedAt": "2026-11-16",
+    "status": "verified_opened",
+    "scope": "identity/address only; approved text, prices, hours and fact-check dates are unchanged",
+    "identityEvidence": "Commons identifies addresses 8, 10–12 and 14. The hotel website confirms number 10; the Rembrandt sign is visible beneath the tree. The wider streetscape is retained and not presented as a current unobstructed hotel portrait."
+  },
+  {
+    "id": "restaurant.eindhoven-kazerne",
+    "url": "https://www.kazerne.com/",
+    "checkedAt": "2026-11-16",
+    "status": "verified_opened",
+    "scope": "identity/address only; approved text, prices, hours and fact-check dates are unchanged",
+    "identityEvidence": "Commons records Paradijslaan 4, 4a, 6, 6a (municipal monument WN176), within the official Kazerne address 2–8. The complex facade and former Benz sign are visible. Not Constant Rebecque Kazerne; not a current BarBistro interior photograph."
+  }
+]

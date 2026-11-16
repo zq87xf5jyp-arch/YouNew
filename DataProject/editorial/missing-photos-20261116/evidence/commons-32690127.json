@@ -1,0 +1,113 @@
+{
+  "pageid": 32690127,
+  "ns": 6,
+  "title": "File:Leiden224.JPG",
+  "imagerepository": "local",
+  "imageinfo": [
+    {
+      "size": 3102272,
+      "width": 2112,
+      "height": 2816,
+      "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ac/Leiden224.JPG/1280px-Leiden224.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "thumbwidth": 1200,
+      "thumbheight": 1600,
+      "responsiveUrls": {
+        "2": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Leiden224.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+      },
+      "thumbattribs": {
+        "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ac/Leiden224.JPG/1280px-Leiden224.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "decoding": "async",
+        "loading": "lazy",
+        "width": 1200,
+        "height": 1600,
+        "srcset": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Leiden224.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled 2x"
+      },
+      "url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Leiden224.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "descriptionurl": "https://commons.wikimedia.org/wiki/File:Leiden224.JPG",
+      "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=32690127",
+      "sha1": "c419eb81b617d21a3c3e8f5fd1047a2e803358f1",
+      "extmetadata": {
+        "DateTime": {
+          "value": "2014-05-09 23:24:49",
+          "source": "mediawiki-metadata",
+          "hidden": ""
+        },
+        "ObjectName": {
+          "value": "Leiden224",
+          "source": "mediawiki-metadata"
+        },
+        "CommonsMetadataExtension": {
+          "value": 1.2,
+          "source": "extension",
+          "hidden": ""
+        },
+        "Categories": {
+          "value": "Taken with Canon Digital IXUS 60|Attribution only license|Self-published work|Photographs by User:Vysotsky|Hotel Ibis, Leiden",
+          "source": "commons-categories",
+          "hidden": ""
+        },
+        "Assessments": {
+          "value": "",
+          "source": "commons-categories",
+          "hidden": ""
+        },
+        "ImageDescription": {
+          "value": "Ibis Hotel, Stationsplein, Leiden (The Netherlands)",
+          "source": "commons-desc-page"
+        },
+        "DateTimeOriginal": {
+          "value": "2014-05-09 16:37:36",
+          "source": "commons-desc-page"
+        },
+        "Credit": {
+          "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+          "source": "commons-desc-page"
+        },
+        "Artist": {
+          "value": "<a href=\"//commons.wikimedia.org/wiki/User:Vysotsky\" title=\"User:Vysotsky\">Vysotsky</a>",
+          "source": "commons-desc-page"
+        },
+        "LicenseShortName": {
+          "value": "CC BY-SA 3.0",
+          "source": "commons-desc-page",
+          "hidden": ""
+        },
+        "UsageTerms": {
+          "value": "Creative Commons Attribution-Share Alike 3.0",
+          "source": "commons-desc-page"
+        },
+        "AttributionRequired": {
+          "value": "true",
+          "source": "commons-desc-page",
+          "hidden": ""
+        },
+        "LicenseUrl": {
+          "value": "https://creativecommons.org/licenses/by-sa/3.0",
+          "source": "commons-desc-page"
+        },
+        "Copyrighted": {
+          "value": "True",
+          "source": "commons-desc-page",
+          "hidden": ""
+        },
+        "Restrictions": {
+          "value": "",
+          "source": "commons-desc-page",
+          "hidden": ""
+        },
+        "License": {
+          "value": "cc-by-sa-3.0",
+          "source": "commons-templates",
+          "hidden": ""
+        }
+      }
+    }
+  ],
+  "revisions": [
+    {
+      "revid": 1184640332,
+      "parentid": 1180405345,
+      "timestamp": "2026-03-21T16:53:39Z"
+    }
+  ]
+}

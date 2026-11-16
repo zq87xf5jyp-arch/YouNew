@@ -10,7 +10,9 @@ import {loadEditorialRelease} from '../scripts/editorial-release.mjs';
 import {buildPublicDataset,paths} from '../scripts/generate-public-content.mjs';
 import {isDiscoverableContent} from '../src/lib/content/presentation.ts';
 const root=fileURLToPath(new URL('../../../',import.meta.url));
-const batches=Object.keys(expansionReviews);
+// This suite describes the three approved expansion batches. Subsequent
+// media-only follow-ups deliberately reuse IDs and have their own draft gates.
+const batches=Object.keys(expansionReviews).filter(b=>!expansionReviews[b].mediaOnlyBases);
 const proofs=await Promise.all(batches.map(b=>readPlaceReview(root,b)));
 
 test('private discovery needs an explicit draft ID and never makes an ordinary draft discoverable',()=>{

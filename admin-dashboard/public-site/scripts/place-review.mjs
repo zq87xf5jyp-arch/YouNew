@@ -10,6 +10,7 @@ export const expansionReviews={
   'leiden-stay-parks-20261115':{count:10,city:'leiden',bounds:[52.1,52.3,4.4,4.6]},
   'amsterdam-museums-20261115':{count:20,city:'amsterdam',bounds:[52.28,52.44,4.73,5.02],allowPrivateAdditions:true},
   'priority-cities-20261115':{count:14,cities:{utrecht:[52,52.2,5,5.25],rotterdam:[51.8,52,4.3,4.65],'den-haag':[52,52.2,4.2,4.4],eindhoven:[51.35,51.55,5.35,5.6]}},
+  'missing-photos-20261116':{count:4,cities:{leiden:[52.1,52.3,4.4,4.6],eindhoven:[51.35,51.55,5.35,5.6]},mediaOnlyBases:['leiden-stay-parks-20261115','priority-cities-20261115']},
 };
 export const placeReviewBatches=[placeReviewBatch,'leiden-nature-culture-20261115','leiden-food-20261115',...Object.keys(expansionReviews)];
 export function selectedPlaceReviews(env=process.env) {
@@ -57,7 +58,12 @@ export async function readPlaceReview(root,batchId=placeReviewBatch) {
   }
   const bases=new Map();
   for(const [id,base] of Object.entries(manifest.baseFiles)) {
-    if(expansion?.allowPrivateAdditions)assert.equal(base.file,'DataProject/batches/WP-06/M2-amsterdam-001.json');
+    if(expansion?.mediaOnlyBases) {
+      const sourceBatch=expansion.mediaOnlyBases.find(b=>base.file===`${reviewPath(b)}/records.json`);
+      assert.ok(sourceBatch,'media revision requires an approved editorial base');
+      const source=await readPlaceReview(root,sourceBatch);
+      assert.ok(source.manifest.ids.includes(id),'unknown media base ID');
+    } else if(expansion?.allowPrivateAdditions)assert.equal(base.file,'DataProject/batches/WP-06/M2-amsterdam-001.json');
     else assert.match(base.file,/^DataProject\/staging\/content-20261109\/WP-\d{2}-M1-leiden-20261109\.json$/);
     const bytes=await readFile(resolve(root,base.file));assert.equal(sha256(bytes),base.sha256,'approved base changed');
     bases.set(id,JSON.parse(bytes).records.find(r=>r.id===id));
@@ -67,10 +73,47 @@ export async function readPlaceReview(root,batchId=placeReviewBatch) {
     assert.equal(sha256(await readFile(resolve(path,'media',file))),proof.sha256,'changed review image');
   }
   validatePlaceRecords(batch.records,manifest.ids,bases,batchId!==placeReviewBatch,expansion);
+  if(expansion?.mediaOnlyBases) {
+    validateMediaOnlyRecords(batch.records,bases);
+    const sources=JSON.parse(await readFile(resolve(path,'media-sources.json'),'utf8'));
+    assert.deepEqual(Object.keys(sources).sort(),[...manifest.ids].sort(),'incomplete media provenance');
+    for(const record of batch.records) {
+      const proof=sources[record.id],photo=record.images[0];
+      assert.match(proof.licenseEvidence,new RegExp(`^${reviewPath(batchId)}/evidence/commons-[0-9]+\\.json$`));
+      const bytes=await readFile(resolve(root,proof.licenseEvidence));
+      assert.equal(sha256(bytes),proof.licenseEvidenceSha256,'changed license evidence');
+      const info=JSON.parse(bytes).imageinfo[0];
+      assert.equal(photo.source_page_url,info.descriptionurl);
+      assert.equal(photo.asset_url,info.url);
+      assert.equal(photo.license,info.extmetadata.LicenseShortName.value);
+      assert.equal(photo.license_url,info.extmetadata.LicenseUrl.value.replace(/^http:/,'https:'));
+      assert.equal(proof.originalSha1,info.sha1);
+      assert.equal(proof.outputLicense,photo.license);
+      assert.equal(proof.commercialReuse,true);assert.equal(proof.adaptationAllowed,true);
+      for(const credit of [proof.author,proof.title,proof.created])assert.ok(photo.attribution.includes(credit),'missing photo credit');
+    }
+  }
   const requiredMedia=batch.records.flatMap(r=>r.images.flatMap(i=>[480,800,1200].map(w=>i.public_asset_path.split('/').at(-1).replace('-1200.webp',`-${w}.webp`))));
   assert.deepEqual(Object.keys(manifest.media).sort(),requiredMedia.sort(),'incomplete or extraneous review media');
   const reviewer=validatePlaceApproval(manifest,batch.records,reviewers);
   return {manifest,records:batch.records,reviewer};
+}
+
+// A photo follow-up cannot silently revert already approved facts, dates or URLs.
+export function validateMediaOnlyRecords(records,bases) {
+  const withoutMedia=record=>{
+    const copy=structuredClone(record);copy.images=[];
+    const enrichment=JSON.parse(copy.attributes.place_enrichment);
+    for(const locale of ['en','nl'])enrichment.locales[locale].alt='';
+    copy.attributes.place_enrichment=enrichment;
+    return copy;
+  };
+  for(const record of records) {
+    const base=bases.get(record.id);
+    assert.ok(base&&base.images.length===0,'media follow-up must fill an existing empty slot');
+    assert.equal(record.images.length,1,'media follow-up needs one verified image');
+    assert.deepEqual(withoutMedia(record),withoutMedia(base),'media-only revision changed approved facts');
+  }
 }
 
 export function validatePlaceRecords(records,ids,bases,optionalTickets=false,expansion=null) {
@@ -152,6 +195,12 @@ export async function applyPlaceReview(release,root,env=process.env) {
 }
 
 function projectPlaceRevision(release,{manifest,records,reviewer},privateReview) {
+  if(expansionReviews[manifest.batchId]?.mediaOnlyBases) {
+    for(const base of Object.values(manifest.baseFiles)) {
+      const baseId=base.file.split('/').at(-2);
+      assert.ok(release.revisions?.some(r=>r.id===baseId&&r.recordsSha256===base.sha256&&r.reviewerId==='owner.ivan'),'media requires its approved base in the release');
+    }
+  }
   const batchHash=sha256(`${release.batchSha256}:${privateReview?'PRIVATE-REVIEW':'APPROVED-REVISION'}:${manifest.recordsSha256}:${manifest.approvalSha256??''}`);
   const ids=new Set(release.entities.map(e=>e.id));
   const additions=records.filter(r=>!ids.has(r.id));

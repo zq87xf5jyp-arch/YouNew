@@ -1,0 +1,146 @@
+{
+  "nature.leiden-rembrandtpark": {
+    "page": "https://commons.wikimedia.org/wiki/File:%27Prins_Hendrik%27,_Objectnr_PV_PV29329R.5.jpg",
+    "asset": "https://upload.wikimedia.org/wikipedia/commons/e/e8/%27Prins_Hendrik%27%2C_Objectnr_PV_PV29329R.5.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "author": "Gemeente Leiden Afdeling Monumentenzorg; Erfgoed Leiden en Omstreken",
+    "title": "'Prins Hendrik', Objectnr PV PV29329R.5",
+    "created": "1986-07",
+    "license": "CC0",
+    "licenseURL": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "licenseEvidence": "DataProject/editorial/missing-photos-20261116/evidence/commons-158853289.json",
+    "licenseEvidenceSha256": "32f002330c8debff287129e0e086d153238b86b3fdf3a7aa165b63f21cd4956c",
+    "commonsRevisionId": 1215348933,
+    "originalSha256": "6d69b20cf5264979cd520e355e73981cf7865b2b2d87c478771f6a3f6fa21057",
+    "originalSha1": "10bd30d1f58d020d0a1298f666ef2920736e442f",
+    "originalBytes": 806273,
+    "width": 3452,
+    "height": 2264,
+    "checkedAt": "2026-11-16",
+    "commercialReuse": true,
+    "adaptationAllowed": true,
+    "shareAlike": false,
+    "outputLicense": "CC0",
+    "transformations": [
+      "EXIF orientation if present",
+      "proportional resize to 480/800/1200 pixels",
+      "WebP encoding; original aspect ratio retained; no retouching"
+    ],
+    "identityEvidence": {
+      "officialURL": "https://www.visitleiden.nl/nl/locaties/1706027937/rembrandtpark",
+      "reason": "The archive description explicitly identifies Rembrandtpark, the Wittepoortsbrug viewpoint and July 1986. The photograph visibly includes the park and former nautical school. Historical image only; not evidence of the current park layout."
+    },
+    "alt": {
+      "en": "Historical view of Rembrandtpark across the Witte Singel, with the former nautical school; July 1986",
+      "nl": "Historisch zicht op het Rembrandtpark over de Witte Singel, met de voormalige zeevaartschool; juli 1986"
+    },
+    "historicalImage": true
+  },
+  "hotel.leiden-ibis": {
+    "page": "https://commons.wikimedia.org/wiki/File:Leiden224.JPG",
+    "asset": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Leiden224.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "author": "Vysotsky",
+    "title": "Leiden224",
+    "created": "2014-05-09",
+    "license": "CC BY-SA 3.0",
+    "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0",
+    "licenseEvidence": "DataProject/editorial/missing-photos-20261116/evidence/commons-32690127.json",
+    "licenseEvidenceSha256": "2a0654bf979d13c3a03e09af039c810958a14e2840e8d5470e1c7b9a8ca8bd55",
+    "commonsRevisionId": 1184640332,
+    "originalSha256": "b20b40c1c92ca6e8aa4f83f3679dead6c52f43b3f82162b39b3951727b206e99",
+    "originalSha1": "c419eb81b617d21a3c3e8f5fd1047a2e803358f1",
+    "originalBytes": 3102272,
+    "width": 2112,
+    "height": 2816,
+    "checkedAt": "2026-11-16",
+    "commercialReuse": true,
+    "adaptationAllowed": true,
+    "shareAlike": true,
+    "outputLicense": "CC BY-SA 3.0",
+    "transformations": [
+      "EXIF orientation if present",
+      "proportional resize to 480/800/1200 pixels",
+      "WebP encoding; original aspect ratio retained; no retouching"
+    ],
+    "identityEvidence": {
+      "officialURL": "https://all.accor.com/hotel/8087/index.en.shtml",
+      "reason": "Commons names Ibis Hotel at Stationsplein in Leiden; the ibis facade/sign is visible. Accor confirms Stationsplein 240–242. Exterior photograph only, not a claim about present rooms or amenities."
+    },
+    "alt": {
+      "en": "Facade of ibis Leiden Centre at Stationsplein, photographed in May 2014",
+      "nl": "Gevel van ibis Leiden Centre aan het Stationsplein, gefotografeerd in mei 2014"
+    },
+    "historicalImage": true
+  },
+  "hotel.leiden-rembrandt-hotel": {
+    "page": "https://commons.wikimedia.org/wiki/File:Nieuwe_beestenmarkt_8,_10-12,_14.JPG",
+    "asset": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Nieuwe_beestenmarkt_8%2C_10-12%2C_14.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "author": "Xsandriel",
+    "title": "Nieuwe beestenmarkt 8, 10-12, 14",
+    "created": "2015-07-10",
+    "license": "CC BY-SA 4.0",
+    "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0",
+    "licenseEvidence": "DataProject/editorial/missing-photos-20261116/evidence/commons-41641261.json",
+    "licenseEvidenceSha256": "1543a13a8c7b8eb1f78cea39cb687c39e77db54c07cbd252b6fdf79c3335b109",
+    "commonsRevisionId": 1010029161,
+    "originalSha256": "9ea2b14250a22a86083f93c3975bf54c30b9004c37e00591e824cdf87c4aab88",
+    "originalSha1": "98d8c682dd7c84b98d9b920f40a208cf48a9ded1",
+    "originalBytes": 2560629,
+    "width": 4272,
+    "height": 2848,
+    "checkedAt": "2026-11-16",
+    "commercialReuse": true,
+    "adaptationAllowed": true,
+    "shareAlike": true,
+    "outputLicense": "CC BY-SA 4.0",
+    "transformations": [
+      "EXIF orientation if present",
+      "proportional resize to 480/800/1200 pixels",
+      "WebP encoding; original aspect ratio retained; no retouching"
+    ],
+    "identityEvidence": {
+      "officialURL": "https://www.rembrandthotel.nl/",
+      "reason": "Commons identifies addresses 8, 10–12 and 14. The hotel website confirms number 10; the Rembrandt sign is visible beneath the tree. The wider streetscape is retained and not presented as a current unobstructed hotel portrait."
+    },
+    "alt": {
+      "en": "City Hotel Rembrandt among the facades at Nieuwe Beestenmarkt 8–14, partly obscured by a tree; July 2015",
+      "nl": "City Hotel Rembrandt tussen de gevels aan de Nieuwe Beestenmarkt 8–14, deels achter een boom; juli 2015"
+    },
+    "historicalImage": true
+  },
+  "restaurant.eindhoven-kazerne": {
+    "page": "https://commons.wikimedia.org/wiki/File:0772_WN176_Paradijslaan_4,_4a,_6,_6a,_Eindhoven.jpg",
+    "asset": "https://upload.wikimedia.org/wikipedia/commons/e/ef/0772_WN176_Paradijslaan_4%2C_4a%2C_6%2C_6a%2C_Eindhoven.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "author": "Rosemoon",
+    "title": "0772 WN176 Paradijslaan 4, 4a, 6, 6a, Eindhoven",
+    "created": "2020-03-17",
+    "license": "CC BY-SA 4.0",
+    "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0",
+    "licenseEvidence": "DataProject/editorial/missing-photos-20261116/evidence/commons-88292721.json",
+    "licenseEvidenceSha256": "ab7857cbfa47aca24aac3edba75a4f8245e28b27825d4d8ba5b41149870b5ce3",
+    "commonsRevisionId": 1097415459,
+    "originalSha256": "3759d9d6ff735583f463ad919ea35b77b21dc119744f62106dfc61cd7433f7fd",
+    "originalSha1": "7e00eacfd52df64698896cab08536397af11f33e",
+    "originalBytes": 6751715,
+    "width": 6000,
+    "height": 4000,
+    "checkedAt": "2026-11-16",
+    "commercialReuse": true,
+    "adaptationAllowed": true,
+    "shareAlike": true,
+    "outputLicense": "CC BY-SA 4.0",
+    "transformations": [
+      "EXIF orientation if present",
+      "proportional resize to 480/800/1200 pixels",
+      "WebP encoding; original aspect ratio retained; no retouching"
+    ],
+    "identityEvidence": {
+      "officialURL": "https://www.kazerne.com/",
+      "reason": "Commons records Paradijslaan 4, 4a, 6, 6a (municipal monument WN176), within the official Kazerne address 2–8. The complex facade and former Benz sign are visible. Not Constant Rebecque Kazerne; not a current BarBistro interior photograph."
+    },
+    "alt": {
+      "en": "Street facade of the Kazerne complex at Paradijslaan in Eindhoven, with historical Benz signage; March 2020",
+      "nl": "Straatgevel van het Kazernecomplex aan de Paradijslaan in Eindhoven, met de toenmalige Benz-aanduiding; maart 2020"
+    },
+    "historicalImage": true
+  }
+}

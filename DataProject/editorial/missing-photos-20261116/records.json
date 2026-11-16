@@ -1,0 +1,287 @@
+{
+  "schema_version": 1,
+  "batch_id": "missing-photos-20261116",
+  "publication_status": "draft",
+  "records": [
+    {
+      "id": "nature.leiden-rembrandtpark",
+      "entity_type": "nature",
+      "category": "parks-walks",
+      "city_id": "leiden",
+      "province_id": "zuid-holland",
+      "coordinates": {
+        "latitude": 52.160299,
+        "longitude": 4.481362
+      },
+      "title": "Rembrandtpark",
+      "description": "A park in two parts around Noordeinde, close to the Witte Singel and the Weddesteeg. The northern and southern sections have different planting and layouts.",
+      "images": [
+        {
+          "id": "media.nature.leiden-rembrandtpark.missing-20261116",
+          "role": "hero",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:%27Prins_Hendrik%27,_Objectnr_PV_PV29329R.5.jpg",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/e/e8/%27Prins_Hendrik%27%2C_Objectnr_PV_PV29329R.5.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "public_asset_path": "/images/place-review/rembrandtpark-1200.webp",
+          "license": "CC0",
+          "license_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "attribution": "Gemeente Leiden Afdeling Monumentenzorg; Erfgoed Leiden en Omstreken · 'Prins Hendrik', Objectnr PV PV29329R.5 · 1986-07 · Archive photograph / Archieffoto · resized / verkleind, WebP; no content edits / inhoud ongewijzigd",
+          "verified": true,
+          "retrieved_at": "2026-11-16",
+          "alt": "Historical view of Rembrandtpark across the Witte Singel, with the former nautical school; July 1986"
+        }
+      ],
+      "official_source": {
+        "title": "Het Rembrandtpark | Visit Leiden",
+        "publisher": "www.visitleiden.nl",
+        "url": "https://www.visitleiden.nl/nl/locaties/1706027937/rembrandtpark",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.visitleiden.nl/nl/locaties/1706027937/rembrandtpark",
+      "related_entity_ids": [
+        "nature.leiden-park-de-put",
+        "place.leiden-hortus"
+      ],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "A park in two parts around Noordeinde, close to the Witte Singel and the Weddesteeg. The northern and southern sections have different planting and layouts.",
+      "search_keywords": [
+        "Rembrandtpark",
+        "leiden",
+        "parks-walks",
+        "rembrandtpark"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "slug": "rembrandtpark",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "description_nl": "Een park in twee delen rond het Noordeinde, bij de Witte Singel en de Weddesteeg. Het noordelijke en zuidelijke deel verschillen in beplanting en opzet.",
+        "title_nl": "Rembrandtpark",
+        "field_review_status": "Source verification complete; human editorial approval pending",
+        "catalog_review_batch": "leiden-stay-parks-20261115",
+        "address": "Rembrandtpark, 2311 WX Leiden",
+        "address_source_url": "https://www.visitleiden.nl/nl/locaties/1706027937/rembrandtpark",
+        "address_checked_at": "2026-11-15",
+        "website": "https://www.visitleiden.nl/nl/locaties/1706027937/rembrandtpark",
+        "website_source_url": "https://www.visitleiden.nl/nl/locaties/1706027937/rembrandtpark",
+        "website_checked_at": "2026-11-15",
+        "address_note": "",
+        "media_status": "No suitable licensed photograph confirmed; no substitute image used",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-15\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.rembrandtpark\",\"title\":\"Het Rembrandtpark | Visit Leiden\",\"publisher\":\"www.visitleiden.nl\",\"url\":\"https://www.visitleiden.nl/nl/locaties/1706027937/rembrandtpark\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://www.visitleiden.nl/nl/locaties/1706027937/rembrandtpark\",\"method\":\"Official tourism location map point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.160299,4.481362\"},\"tickets\":null,\"locales\":{\"en\":{\"alt\":\"Historical view of Rembrandtpark across the Witte Singel, with the former nautical school; July 1986\",\"blocks\":[{\"id\":\"setting\",\"title\":\"About this place\",\"text\":\"Noordeinde divides the park. Fruit trees, beeches and chestnuts are described in the southern section.\",\"source_ids\":[\"source.rembrandtpark\"]},{\"id\":\"history\",\"title\":\"Background\",\"text\":\"The northern section is near the former nautical school and the memorial at Rembrandt’s birthplace in the Weddesteeg.\",\"source_ids\":[\"source.rembrandtpark\"]},{\"id\":\"hours\",\"title\":\"Opening hours\",\"text\":\"The location page lists the park as open every day, without precise hours.\",\"source_ids\":[\"source.rembrandtpark\"]},{\"id\":\"visit\",\"title\":\"Plan your visit\",\"text\":\"The park can be approached from Noordeinde or Arsenaalplein. The map point is for orientation, not a verified accessible entrance.\",\"source_ids\":[\"source.rembrandtpark\"]},{\"id\":\"plan\",\"title\":\"Before you go\",\"text\":\"Check the official location map before visiting: the Rembrandtpark includes separate sections along the water.\",\"source_ids\":[\"source.rembrandtpark\"]}]},\"nl\":{\"alt\":\"Historisch zicht op het Rembrandtpark over de Witte Singel, met de voormalige zeevaartschool; juli 1986\",\"blocks\":[{\"id\":\"setting\",\"title\":\"Over deze plek\",\"text\":\"Het Noordeinde verdeelt het park. In het zuidelijke deel worden fruitbomen, beuken en kastanjes beschreven.\",\"source_ids\":[\"source.rembrandtpark\"]},{\"id\":\"history\",\"title\":\"Achtergrond\",\"text\":\"Het noordelijke deel ligt bij de voormalige zeevaartschool en de gedenksteen bij Rembrandts geboorteplaats in de Weddesteeg.\",\"source_ids\":[\"source.rembrandtpark\"]},{\"id\":\"hours\",\"title\":\"Openingstijden\",\"text\":\"De locatiepagina vermeldt dat het park iedere dag open is, zonder precieze tijden.\",\"source_ids\":[\"source.rembrandtpark\"]},{\"id\":\"visit\",\"title\":\"Plan je bezoek\",\"text\":\"Je kunt het park bereiken vanaf het Noordeinde of Arsenaalplein. Het kaartpunt dient voor oriëntatie, niet als bevestigde toegankelijke ingang.\",\"source_ids\":[\"source.rembrandtpark\"]},{\"id\":\"plan\",\"title\":\"Voor vertrek\",\"text\":\"Bekijk vóór je bezoek de officiële locatiekaart: het Rembrandtpark bestaat uit afzonderlijke delen langs het water.\",\"source_ids\":[\"source.rembrandtpark\"]}]}}}"
+      }
+    },
+    {
+      "id": "hotel.leiden-ibis",
+      "entity_type": "hotel",
+      "category": "hotel",
+      "city_id": "leiden",
+      "province_id": "zuid-holland",
+      "coordinates": {
+        "latitude": 52.164199,
+        "longitude": 4.481492
+      },
+      "title": "ibis Leiden Centre",
+      "description": "A hotel opposite Leiden Centraal for visitors arriving by train. Accor’s official page lists room categories, breakfast arrangements and on-site facilities.",
+      "images": [
+        {
+          "id": "media.hotel.leiden-ibis.missing-20261116",
+          "role": "hero",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:Leiden224.JPG",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Leiden224.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "public_asset_path": "/images/place-review/ibisleiden-1200.webp",
+          "license": "CC BY-SA 3.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+          "attribution": "Vysotsky · Leiden224 · 2014-05-09 · Archive photograph / Archieffoto · resized / verkleind, WebP; no content edits / inhoud ongewijzigd",
+          "verified": true,
+          "retrieved_at": "2026-11-16",
+          "alt": "Facade of ibis Leiden Centre at Stationsplein, photographed in May 2014"
+        }
+      ],
+      "official_source": {
+        "title": "IBIS LEIDEN CENTRE - Ibis hotel - Accor - ALL - ALL",
+        "publisher": "all.accor.com",
+        "url": "https://all.accor.com/hotel/8087/index.en.shtml",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://all.accor.com/hotel/8087/index.en.shtml",
+      "related_entity_ids": [
+        "museum.leiden-wereldmuseum",
+        "place.leiden-naturalis"
+      ],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 7,
+      "verification_status": "needs_review",
+      "ai_summary": "A hotel opposite Leiden Centraal for visitors arriving by train. Accor’s official page lists room categories, breakfast arrangements and on-site facilities.",
+      "search_keywords": [
+        "ibis Leiden Centre",
+        "leiden",
+        "hotel",
+        "ibis"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "slug": "ibis",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "description_nl": "Een hotel tegenover Leiden Centraal voor bezoekers die met de trein aankomen. De officiële Accor-pagina vermeldt kamertypes, ontbijt en voorzieningen.",
+        "title_nl": "ibis Leiden Centre",
+        "field_review_status": "Source verification complete; human editorial approval pending",
+        "catalog_review_batch": "leiden-stay-parks-20261115",
+        "address": "Stationsplein 240–242, 2312 AR Leiden",
+        "address_source_url": "https://all.accor.com/hotel/8087/index.en.shtml",
+        "address_checked_at": "2026-11-15",
+        "website": "https://all.accor.com/hotel/8087/index.en.shtml",
+        "website_source_url": "https://all.accor.com/hotel/8087/index.en.shtml",
+        "website_checked_at": "2026-11-15",
+        "address_note": "",
+        "media_status": "No suitable licensed photograph confirmed; no substitute image used",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-15\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.ibis\",\"title\":\"IBIS LEIDEN CENTRE - Ibis hotel - Accor - ALL - ALL\",\"publisher\":\"all.accor.com\",\"url\":\"https://all.accor.com/hotel/8087/index.en.shtml\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.ibistourism\",\"title\":\"Hotel Ibis | Visit Leiden\",\"publisher\":\"www.visitleiden.nl\",\"url\":\"https://www.visitleiden.nl/nl/locaties/3858932145/ibis-leiden-centre\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://www.visitleiden.nl/nl/locaties/3858932145/ibis-leiden-centre\",\"method\":\"Official tourism location map point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.164199,4.481492\"},\"tickets\":null,\"locales\":{\"en\":{\"alt\":\"Facade of ibis Leiden Centre at Stationsplein, photographed in May 2014\",\"blocks\":[{\"id\":\"address\",\"title\":\"Location\",\"text\":\"Stationsplein 240–242, 2312 AR Leiden, opposite the central station.\",\"source_ids\":[\"source.ibis\"]},{\"id\":\"rooms\",\"title\":\"Rooms\",\"text\":\"The operator lists double, twin, single and triple options. Check the capacity and bedding of the selected room.\",\"source_ids\":[\"source.ibis\"]},{\"id\":\"breakfast\",\"title\":\"Breakfast\",\"text\":\"Breakfast is listed as 06:30–10:00 on weekdays and 06:30–11:00 at weekends. Check whether your rate includes it.\",\"source_ids\":[\"source.ibis\"]},{\"id\":\"facilities\",\"title\":\"Facilities\",\"text\":\"Free Wi-Fi and bicycle rental are listed; confirm rental availability and any fee directly.\",\"source_ids\":[\"source.ibis\"]},{\"id\":\"book\",\"title\":\"Booking\",\"text\":\"Use Accor’s official hotel page to choose dates and review cancellation terms. No review rating or live price is reproduced here.\",\"source_ids\":[\"source.ibis\"]}]},\"nl\":{\"alt\":\"Gevel van ibis Leiden Centre aan het Stationsplein, gefotografeerd in mei 2014\",\"blocks\":[{\"id\":\"address\",\"title\":\"Locatie\",\"text\":\"Stationsplein 240–242, 2312 AR Leiden, tegenover het centraal station.\",\"source_ids\":[\"source.ibis\"]},{\"id\":\"rooms\",\"title\":\"Kamers\",\"text\":\"De aanbieder vermeldt double-, twin-, single- en triple-opties. Controleer de capaciteit en bedden van de gekozen kamer.\",\"source_ids\":[\"source.ibis\"]},{\"id\":\"breakfast\",\"title\":\"Ontbijt\",\"text\":\"Ontbijt wordt vermeld van 06.30–10.00 uur op werkdagen en 06.30–11.00 uur in het weekend. Controleer of jouw tarief ontbijt omvat.\",\"source_ids\":[\"source.ibis\"]},{\"id\":\"facilities\",\"title\":\"Voorzieningen\",\"text\":\"Gratis wifi en fietsverhuur worden vermeld; vraag rechtstreeks naar beschikbaarheid en de eventuele huurprijs.\",\"source_ids\":[\"source.ibis\"]},{\"id\":\"book\",\"title\":\"Boeken\",\"text\":\"Kies data via de officiële Accor-hotelsite en bekijk de annuleringsvoorwaarden. Hier worden geen beoordelingsscore of actuele prijs overgenomen.\",\"source_ids\":[\"source.ibis\"]}]}}}"
+      }
+    },
+    {
+      "id": "hotel.leiden-rembrandt-hotel",
+      "entity_type": "hotel",
+      "category": "hotel",
+      "city_id": "leiden",
+      "province_id": "zuid-holland",
+      "coordinates": {
+        "latitude": 52.163219,
+        "longitude": 4.485801
+      },
+      "title": "City Hotel Rembrandt",
+      "description": "A city hotel on Nieuwe Beestenmarkt, close to Leiden’s museum quarter. The official website distinguishes hotel rooms from hotel studios.",
+      "images": [
+        {
+          "id": "media.hotel.leiden-rembrandt-hotel.missing-20261116",
+          "role": "hero",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:Nieuwe_beestenmarkt_8,_10-12,_14.JPG",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Nieuwe_beestenmarkt_8%2C_10-12%2C_14.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "public_asset_path": "/images/place-review/rembrandthotel-1200.webp",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "attribution": "Xsandriel · Nieuwe beestenmarkt 8, 10-12, 14 · 2015-07-10 · Archive photograph / Archieffoto · resized / verkleind, WebP; no content edits / inhoud ongewijzigd",
+          "verified": true,
+          "retrieved_at": "2026-11-16",
+          "alt": "City Hotel Rembrandt among the facades at Nieuwe Beestenmarkt 8–14, partly obscured by a tree; July 2015"
+        }
+      ],
+      "official_source": {
+        "title": "Contact hotel | City Hotel Rembrandt | Leiden",
+        "publisher": "www.rembrandthotel.nl",
+        "url": "https://www.rembrandthotel.nl/contact",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.rembrandthotel.nl/contact",
+      "related_entity_ids": [
+        "place.leiden-lakenhal",
+        "museum.leiden-boerhaave"
+      ],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 7,
+      "verification_status": "needs_review",
+      "ai_summary": "A city hotel on Nieuwe Beestenmarkt, close to Leiden’s museum quarter. The official website distinguishes hotel rooms from hotel studios.",
+      "search_keywords": [
+        "City Hotel Rembrandt",
+        "leiden",
+        "hotel",
+        "rembrandthotel"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "slug": "rembrandt-hotel",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "description_nl": "Een stadshotel aan de Nieuwe Beestenmarkt, bij het Leidse museumgebied. De officiële website maakt onderscheid tussen hotelkamers en hotelstudio’s.",
+        "title_nl": "City Hotel Rembrandt",
+        "field_review_status": "Source verification complete; human editorial approval pending",
+        "catalog_review_batch": "leiden-stay-parks-20261115",
+        "address": "Nieuwe Beestenmarkt 10, 2312 CH Leiden",
+        "address_source_url": "https://www.rembrandthotel.nl/contact",
+        "address_checked_at": "2026-11-15",
+        "website": "https://www.rembrandthotel.nl/contact",
+        "website_source_url": "https://www.rembrandthotel.nl/contact",
+        "website_checked_at": "2026-11-15",
+        "address_note": "",
+        "media_status": "No suitable licensed photograph confirmed; no substitute image used",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-15\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.rembrandthotel\",\"title\":\"Contact hotel | City Hotel Rembrandt | Leiden\",\"publisher\":\"www.rembrandthotel.nl\",\"url\":\"https://www.rembrandthotel.nl/contact\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.rembrandthotelhome\",\"title\":\"Hotel in Leiden | City Hotel Rembrandt | Leiden\",\"publisher\":\"www.rembrandthotel.nl\",\"url\":\"https://www.rembrandthotel.nl/\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.rembrandthoteltourism\",\"title\":\"Rembrandt Hotel Leiden | Visit Leiden\",\"publisher\":\"www.visitleiden.nl\",\"url\":\"https://www.visitleiden.nl/nl/locaties/976921119/rembrandt-hotel-leiden\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://www.visitleiden.nl/nl/locaties/976921119/rembrandt-hotel-leiden\",\"method\":\"Official tourism location map point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.163219,4.485801\"},\"tickets\":null,\"locales\":{\"en\":{\"alt\":\"City Hotel Rembrandt among the facades at Nieuwe Beestenmarkt 8–14, partly obscured by a tree; July 2015\",\"blocks\":[{\"id\":\"address\",\"title\":\"Location\",\"text\":\"Nieuwe Beestenmarkt 10, 2312 CH Leiden. Use the official contact details for arrival questions.\",\"source_ids\":[\"source.rembrandthotel\"]},{\"id\":\"rooms\",\"title\":\"Rooms\",\"text\":\"The hotel advertises rooms and studios. Check the room description rather than assuming each option has the same facilities.\",\"source_ids\":[\"source.rembrandthotelhome\"]},{\"id\":\"parking\",\"title\":\"Parking\",\"text\":\"Five private parking spaces are advertised, subject to availability. The contact page lists €16.50 per day; reserve and reconfirm.\",\"source_ids\":[\"source.rembrandthotel\"]},{\"id\":\"breakfast\",\"title\":\"Breakfast\",\"text\":\"The hotel directs guests to its booking module to check whether breakfast is included.\",\"source_ids\":[\"source.rembrandthotelhome\"]},{\"id\":\"arrival\",\"title\":\"Arrival\",\"text\":\"Exact check-in and checkout times are not given in the homepage FAQ; arrange arrival directly before travel.\",\"source_ids\":[\"source.rembrandthotelhome\"]}]},\"nl\":{\"alt\":\"City Hotel Rembrandt tussen de gevels aan de Nieuwe Beestenmarkt 8–14, deels achter een boom; juli 2015\",\"blocks\":[{\"id\":\"address\",\"title\":\"Locatie\",\"text\":\"Nieuwe Beestenmarkt 10, 2312 CH Leiden. Gebruik de officiële contactgegevens voor vragen over aankomst.\",\"source_ids\":[\"source.rembrandthotel\"]},{\"id\":\"rooms\",\"title\":\"Kamers\",\"text\":\"Het hotel biedt kamers en studio’s aan. Bekijk de kameromschrijving; niet iedere optie heeft dezelfde voorzieningen.\",\"source_ids\":[\"source.rembrandthotelhome\"]},{\"id\":\"parking\",\"title\":\"Parkeren\",\"text\":\"Er worden vijf eigen parkeerplaatsen aangeboden, afhankelijk van beschikbaarheid. De contactpagina noemt €16,50 per dag; reserveer en bevestig het tarief.\",\"source_ids\":[\"source.rembrandthotel\"]},{\"id\":\"breakfast\",\"title\":\"Ontbijt\",\"text\":\"Het hotel verwijst gasten naar de boekingsmodule om te controleren of ontbijt is inbegrepen.\",\"source_ids\":[\"source.rembrandthotelhome\"]},{\"id\":\"arrival\",\"title\":\"Aankomst\",\"text\":\"De FAQ op de homepage geeft geen exacte in- en uitchecktijden; stem je aankomst vooraf rechtstreeks af.\",\"source_ids\":[\"source.rembrandthotelhome\"]}]}}}"
+      }
+    },
+    {
+      "id": "restaurant.eindhoven-kazerne",
+      "entity_type": "restaurant",
+      "category": "restaurant",
+      "city_id": "eindhoven",
+      "province_id": "noord-brabant",
+      "coordinates": {
+        "latitude": 51.4360392,
+        "longitude": 5.4773741
+      },
+      "title": "Kazerne BarBistro",
+      "description": "A bar-bistro within Eindhoven’s Kazerne design setting. Evening dining and the daytime offering have different schedules.",
+      "images": [
+        {
+          "id": "media.restaurant.eindhoven-kazerne.missing-20261116",
+          "role": "hero",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:0772_WN176_Paradijslaan_4,_4a,_6,_6a,_Eindhoven.jpg",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/e/ef/0772_WN176_Paradijslaan_4%2C_4a%2C_6%2C_6a%2C_Eindhoven.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "public_asset_path": "/images/place-review/kazerne-1200.webp",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "attribution": "Rosemoon · 0772 WN176 Paradijslaan 4, 4a, 6, 6a, Eindhoven · 2020-03-17 · Archive photograph / Archieffoto · resized / verkleind, WebP; no content edits / inhoud ongewijzigd",
+          "verified": true,
+          "retrieved_at": "2026-11-16",
+          "alt": "Street facade of the Kazerne complex at Paradijslaan in Eindhoven, with historical Benz signage; March 2020"
+        }
+      ],
+      "official_source": {
+        "title": "Food & Drinks bij Kazerne | ByDay café & BarBistro Eindhoven",
+        "publisher": "www.kazerne.com",
+        "url": "https://www.kazerne.com/bar-bistro-kazerne",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.kazerne.com/bar-bistro-kazerne",
+      "related_entity_ids": [
+        "museum.eindhoven-inkijkmuseum",
+        "city.eindhoven"
+      ],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 7,
+      "verification_status": "needs_review",
+      "ai_summary": "A bar-bistro within Eindhoven’s Kazerne design setting. Evening dining and the daytime offering have different schedules.",
+      "search_keywords": [
+        "Kazerne BarBistro",
+        "eindhoven",
+        "restaurant",
+        "eindhovenkazerne"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "slug": "eindhoven-kazerne",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "description_nl": "Een bar-bistro in de designomgeving van Kazerne in Eindhoven. Avondeten en het dagaanbod hebben verschillende openingstijden.",
+        "title_nl": "Kazerne BarBistro",
+        "field_review_status": "Source verification complete; human editorial approval pending",
+        "catalog_review_batch": "priority-cities-20261115",
+        "address": "Paradijslaan 2–8, 5611 KN Eindhoven",
+        "address_source_url": "https://www.kazerne.com/bar-bistro-kazerne",
+        "address_checked_at": "2026-11-15",
+        "website": "https://www.kazerne.com/bar-bistro-kazerne",
+        "website_source_url": "https://www.kazerne.com/bar-bistro-kazerne",
+        "website_checked_at": "2026-11-15",
+        "address_note": "",
+        "media_status": "No suitable licensed photograph confirmed; no substitute image used",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-15\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.eindhovenkazerne\",\"title\":\"Food & Drinks bij Kazerne | ByDay café & BarBistro Eindhoven\",\"publisher\":\"www.kazerne.com\",\"url\":\"https://www.kazerne.com/bar-bistro-kazerne\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.pdok\",\"title\":\"BAG address coordinate: Paradijslaan 2, 5611KN Eindhoven\",\"publisher\":\"PDOK / Kadaster\",\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Paradijslaan+2+Eindhoven&fq=type%3Aadres&rows=3\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Paradijslaan+2+Eindhoven&fq=type%3Aadres&rows=3\",\"method\":\"BAG address point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=51.4360392,5.4773741\"},\"tickets\":null,\"locales\":{\"en\":{\"alt\":\"Street facade of the Kazerne complex at Paradijslaan in Eindhoven, with historical Benz signage; March 2020\",\"blocks\":[{\"id\":\"setting\",\"title\":\"About this place\",\"text\":\"Kazerne combines dining with a design environment. Check the current programme and menu for your visit.\",\"source_ids\":[\"source.eindhovenkazerne\"]},{\"id\":\"hours\",\"title\":\"Opening hours\",\"text\":\"BarBistro is listed Monday–Saturday from 17:00. ByDay is listed daily 07:30–17:00; it is a separate daytime offering.\",\"source_ids\":[\"source.eindhovenkazerne\"]},{\"id\":\"prices\",\"title\":\"Tickets and prices\",\"text\":\"Follow the menu link on the official BarBistro page for dishes and current prices; no fixed meal budget is promised here.\",\"source_ids\":[\"source.eindhovenkazerne\"]},{\"id\":\"book\",\"title\":\"Booking\",\"text\":\"Use the reservation route on the official page and confirm the venue, date and arrival time.\",\"source_ids\":[\"source.eindhovenkazerne\"]},{\"id\":\"restrictions\",\"title\":\"Check before travelling\",\"text\":\"Discuss dietary requirements with the restaurant before booking. The daytime and evening menus should not be treated as interchangeable.\",\"source_ids\":[\"source.eindhovenkazerne\"]}]},\"nl\":{\"alt\":\"Straatgevel van het Kazernecomplex aan de Paradijslaan in Eindhoven, met de toenmalige Benz-aanduiding; maart 2020\",\"blocks\":[{\"id\":\"setting\",\"title\":\"Over deze plek\",\"text\":\"Kazerne combineert eten met een designomgeving. Bekijk het actuele programma en menu voor je bezoek.\",\"source_ids\":[\"source.eindhovenkazerne\"]},{\"id\":\"hours\",\"title\":\"Openingstijden\",\"text\":\"BarBistro staat vermeld voor maandag–zaterdag vanaf 17.00 uur. ByDay is dagelijks 07.30–17.00 uur open en is een afzonderlijk dagaanbod.\",\"source_ids\":[\"source.eindhovenkazerne\"]},{\"id\":\"prices\",\"title\":\"Tickets en prijzen\",\"text\":\"Volg de menulink op de officiële BarBistro-pagina voor gerechten en actuele prijzen; hier wordt geen vast maaltijdtarief beloofd.\",\"source_ids\":[\"source.eindhovenkazerne\"]},{\"id\":\"book\",\"title\":\"Boeken\",\"text\":\"Gebruik de reserveringsroute op de officiële pagina en bevestig locatie, datum en aankomsttijd.\",\"source_ids\":[\"source.eindhovenkazerne\"]},{\"id\":\"restrictions\",\"title\":\"Controleer voor vertrek\",\"text\":\"Bespreek dieetwensen vóór reserveren met het restaurant. De dag- en avondkaart zijn niet zonder meer uitwisselbaar.\",\"source_ids\":[\"source.eindhovenkazerne\"]}]}}}"
+      }
+    }
+  ]
+}
