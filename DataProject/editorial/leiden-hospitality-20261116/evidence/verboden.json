@@ -1,0 +1,16 @@
+{
+  "url": "https://www.verbodentoegang.nl/",
+  "checkedAt": "2026-11-16",
+  "httpStatus": 200,
+  "finalUrl": "https://www.verbodentoegang.nl/",
+  "sha256": "5f549a82ea52ddd51eb14d74ec47f6406780e4621110ea5fefcdbf13965b3cb9",
+  "recheckedThisBatch": true,
+  "method": "Direct HTTPS, ordinary urllib client; no access-control bypass",
+  "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/verboden",
+  "officialLinks": [
+    {
+      "text": "Menu",
+      "href": "https://www.verbodentoegang.nl/menukaart/"
+    }
+  ]
+}

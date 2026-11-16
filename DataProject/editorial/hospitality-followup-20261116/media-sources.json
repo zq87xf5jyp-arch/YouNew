@@ -1,0 +1,122 @@
+{
+  "restaurant.leiden-waag": {
+    "reuseFrom": "leiden-food-20261115",
+    "baseRecordSha256": "28fc12087c3226f81f890a0899c8ffc2722b5593742ad45fac1b9dd008989827",
+    "photoUnchanged": true,
+    "photo": {
+      "id": "media.restaurant.leiden-waag.commons-20261115",
+      "role": "hero",
+      "source_page_url": "https://commons.wikimedia.org/wiki/File:Waag_Leiden_6892.jpg",
+      "asset_url": "https://upload.wikimedia.org/wikipedia/commons/6/69/Waag_Leiden_6892.jpg",
+      "public_asset_path": "/images/place-review/waag-1200.webp",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "attribution": "C messier · 2017-02-03 · Historical exterior / Historische buitenopname · resized WebP, no content edits",
+      "verified": true,
+      "retrieved_at": "2026-11-15",
+      "alt": "Waag façade on the Aalmarkt, photographed in 2017"
+    },
+    "recommendedPlacement": "retain previous dated/historical placement; no new contemporary-state claim",
+    "publicationAuthorized": false
+  },
+  "restaurant.leiden-oudt-leyden": {
+    "reuseFrom": "leiden-food-20261115",
+    "baseRecordSha256": "28fc12087c3226f81f890a0899c8ffc2722b5593742ad45fac1b9dd008989827",
+    "photoUnchanged": true,
+    "photo": {
+      "id": "media.restaurant.leiden-oudt-leyden.commons-20261115",
+      "role": "hero",
+      "source_page_url": "https://commons.wikimedia.org/wiki/File:Oudt_Leyden.jpg",
+      "asset_url": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Oudt_Leyden.jpg",
+      "public_asset_path": "/images/place-review/oudt-1200.webp",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "attribution": "Ngchikit · 2019-04-27 · Historical exterior / Historische buitenopname · resized WebP, no content edits",
+      "verified": true,
+      "retrieved_at": "2026-11-15",
+      "alt": "Oudt Leyden and the adjoining Steenstraat façades at dusk, April 2019"
+    },
+    "recommendedPlacement": "retain previous dated/historical placement; no new contemporary-state claim",
+    "publicationAuthorized": false
+  },
+  "restaurant.leiden-prentenkabinet": {
+    "reuseFrom": "leiden-food-20261115",
+    "baseRecordSha256": "28fc12087c3226f81f890a0899c8ffc2722b5593742ad45fac1b9dd008989827",
+    "photoUnchanged": true,
+    "photo": {
+      "id": "media.restaurant.leiden-prentenkabinet.commons-20261115",
+      "role": "hero",
+      "source_page_url": "https://commons.wikimedia.org/wiki/File:Leiden_Kloksteeg_23_en_25.JPG",
+      "asset_url": "https://upload.wikimedia.org/wikipedia/commons/d/d1/Leiden_Kloksteeg_23_en_25.JPG",
+      "public_asset_path": "/images/place-review/prent-1200.webp",
+      "license": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0/",
+      "attribution": "Rudolphous · 2010-02-03 · Historical exterior / Historische buitenopname · resized WebP, no content edits",
+      "verified": true,
+      "retrieved_at": "2026-11-15",
+      "alt": "Het Prentenkabinet façade and flag on Kloksteeg, February 2010"
+    },
+    "recommendedPlacement": "retain previous dated/historical placement; no new contemporary-state claim",
+    "publicationAuthorized": false
+  },
+  "hotel.leiden-oude-morsch": {
+    "reuseFrom": "leiden-stay-parks-20261115",
+    "baseRecordSha256": "32fb30b21b90e5a9419bc2482384946c9acccd8f77997b0791d8679b29132864",
+    "photoUnchanged": true,
+    "photo": {
+      "id": "media.hotel.leiden-oude-morsch.expansion-20261115",
+      "role": "hero",
+      "source_page_url": "https://commons.wikimedia.org/wiki/File:Leiden_-_Boutiqie_Hotel_D%27Oude_Morsch.jpg",
+      "asset_url": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Leiden_-_Boutiqie_Hotel_D%27Oude_Morsch.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "public_asset_path": "/images/place-review/expoudemorsch-1200.webp",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "attribution": "Rudolphous · 2017-09-16 16:03:15 · Archive photograph / Archieffoto · resized WebP; no content edits",
+      "verified": true,
+      "retrieved_at": "2026-11-15",
+      "alt": "Exterior of hotel d’Oude Morsch — photograph 2017"
+    },
+    "recommendedPlacement": "retain previous dated/historical placement; no new contemporary-state claim",
+    "publicationAuthorized": false
+  },
+  "hotel.leiden-huys-van-leyden": {
+    "reuseFrom": "leiden-stay-parks-20261115",
+    "baseRecordSha256": "32fb30b21b90e5a9419bc2482384946c9acccd8f77997b0791d8679b29132864",
+    "photoUnchanged": true,
+    "photo": {
+      "id": "media.hotel.leiden-huys-van-leyden.expansion-20261115",
+      "role": "hero",
+      "source_page_url": "https://commons.wikimedia.org/wiki/File:Leiden_-_Oude_Singel_212.jpg",
+      "asset_url": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Leiden_-_Oude_Singel_212.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "public_asset_path": "/images/place-review/exphuys-1200.webp",
+      "license": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0",
+      "attribution": "Rudolphous · 2010-02-07 · Archive photograph / Archieffoto · resized WebP; no content edits",
+      "verified": true,
+      "retrieved_at": "2026-11-15",
+      "alt": "Historic façade at Oude Singel 212, before the current hotel presentation — photograph 2010"
+    },
+    "recommendedPlacement": "retain previous dated/historical placement; no new contemporary-state claim",
+    "publicationAuthorized": false
+  },
+  "hotel.leiden-steenhof": {
+    "reuseFrom": "leiden-stay-parks-20261115",
+    "baseRecordSha256": "32fb30b21b90e5a9419bc2482384946c9acccd8f77997b0791d8679b29132864",
+    "photoUnchanged": true,
+    "photo": {
+      "id": "media.hotel.leiden-steenhof.expansion-20261115",
+      "role": "hero",
+      "source_page_url": "https://commons.wikimedia.org/wiki/File:Leiden_-_Steenschuur_11.JPG",
+      "asset_url": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Leiden_-_Steenschuur_11.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "public_asset_path": "/images/place-review/expsteenhof-1200.webp",
+      "license": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0",
+      "attribution": "Rudolphous · 2010-02-03 · Archive photograph / Archieffoto · resized WebP; no content edits",
+      "verified": true,
+      "retrieved_at": "2026-11-15",
+      "alt": "Historic façade of Steenschuur 11 — photograph 2010"
+    },
+    "recommendedPlacement": "retain previous dated/historical placement; no new contemporary-state claim",
+    "publicationAuthorized": false
+  }
+}

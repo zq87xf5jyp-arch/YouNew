@@ -1,0 +1,155 @@
+[
+  {
+    "id": "restaurant.leiden-waag",
+    "newBlockIds": [
+      "plant-based",
+      "small-plates"
+    ],
+    "addedBlocksEnNl": 4,
+    "preservedBlocksEnNl": 12,
+    "factsRecheckedThisBatch": false,
+    "newCoordinate": false,
+    "relatedIds": [
+      "place.leiden-lakenhal",
+      "place.leiden-burcht"
+    ]
+  },
+  {
+    "id": "restaurant.leiden-oudt-leyden",
+    "newBlockIds": [
+      "beyond-pancakes",
+      "extra-toppings"
+    ],
+    "addedBlocksEnNl": 4,
+    "preservedBlocksEnNl": 12,
+    "factsRecheckedThisBatch": false,
+    "newCoordinate": false,
+    "relatedIds": [
+      "museum.leiden-wereldmuseum",
+      "place.leiden-naturalis",
+      "place.leiden-rmo"
+    ]
+  },
+  {
+    "id": "restaurant.leiden-prentenkabinet",
+    "newBlockIds": [
+      "bites",
+      "lunch-sharing"
+    ],
+    "addedBlocksEnNl": 4,
+    "preservedBlocksEnNl": 12,
+    "factsRecheckedThisBatch": false,
+    "newCoordinate": false,
+    "relatedIds": [
+      "place.leiden-rmo",
+      "place.leiden-hortus"
+    ]
+  },
+  {
+    "id": "hotel.leiden-oude-morsch",
+    "newBlockIds": [
+      "cot",
+      "rentals"
+    ],
+    "addedBlocksEnNl": 4,
+    "preservedBlocksEnNl": 10,
+    "factsRecheckedThisBatch": false,
+    "newCoordinate": false,
+    "relatedIds": [
+      "nature.leiden-park-de-put",
+      "museum.leiden-wereldmuseum"
+    ]
+  },
+  {
+    "id": "hotel.leiden-huys-van-leyden",
+    "newBlockIds": [
+      "breakfast-options",
+      "historic-room"
+    ],
+    "addedBlocksEnNl": 4,
+    "preservedBlocksEnNl": 10,
+    "factsRecheckedThisBatch": false,
+    "newCoordinate": false,
+    "relatedIds": [
+      "nature.leiden-huigpark",
+      "nature.leiden-blekerspark",
+      "place.leiden-lakenhal"
+    ]
+  },
+  {
+    "id": "hotel.leiden-steenhof",
+    "newBlockIds": [
+      "gym",
+      "private-events"
+    ],
+    "addedBlocksEnNl": 4,
+    "preservedBlocksEnNl": 10,
+    "factsRecheckedThisBatch": false,
+    "newCoordinate": false,
+    "relatedIds": [
+      "place.leiden-rmo",
+      "place.leiden-hortus",
+      "nature.leiden-plantsoen"
+    ]
+  },
+  {
+    "id": "cafe.den-haag-kaafi",
+    "newBlockIds": [
+      "egg-options",
+      "sweet-brunch"
+    ],
+    "addedBlocksEnNl": 4,
+    "preservedBlocksEnNl": 10,
+    "factsRecheckedThisBatch": false,
+    "newCoordinate": false,
+    "relatedIds": [
+      "hotel.den-haag-collector",
+      "museum.den-haag-fotomuseum"
+    ]
+  },
+  {
+    "id": "cafe.utrecht-koffie-leute",
+    "newBlockIds": [
+      "filter",
+      "record-shop"
+    ],
+    "addedBlocksEnNl": 4,
+    "preservedBlocksEnNl": 10,
+    "factsRecheckedThisBatch": false,
+    "newCoordinate": true,
+    "relatedIds": [
+      "museum.utrecht-sonnenborgh",
+      "place.utrecht-neude"
+    ]
+  },
+  {
+    "id": "hotel.den-haag-collector",
+    "newBlockIds": [
+      "beds",
+      "loft"
+    ],
+    "addedBlocksEnNl": 4,
+    "preservedBlocksEnNl": 10,
+    "factsRecheckedThisBatch": false,
+    "newCoordinate": false,
+    "relatedIds": [
+      "cafe.den-haag-kaafi",
+      "museum.den-haag-fotomuseum"
+    ]
+  },
+  {
+    "id": "hotel.utrecht-nox",
+    "newBlockIds": [
+      "children",
+      "groups"
+    ],
+    "addedBlocksEnNl": 4,
+    "preservedBlocksEnNl": 10,
+    "factsRecheckedThisBatch": false,
+    "newCoordinate": false,
+    "relatedIds": [
+      "place.utrecht-neude",
+      "museum.utrecht-sonnenborgh"
+    ]
+  }
+]

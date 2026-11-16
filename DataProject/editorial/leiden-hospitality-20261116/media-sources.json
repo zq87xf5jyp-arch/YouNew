@@ -1,0 +1,27 @@
+{
+  "place.leiden-cafe-laken": {
+    "reuseFrom": "leiden-places-20261115",
+    "reuseRecordId": "place.leiden-lakenhal",
+    "sourceRecordSha256": "cded4e8afbf2a1f20cbfd1a8edeae261d61922e1932905062d0f297c6d16c75a",
+    "sourceMediaEvidenceSha256": "888865946ecc8e40401ebec9708358032d8346743d508c13aba086abdaa26747",
+    "photo": {
+      "id": "media.place.leiden-cafe-laken.building-2015",
+      "role": "hero",
+      "source_page_url": "https://commons.wikimedia.org/wiki/File:Leiden_-_Lakenhal_.jpg",
+      "asset_url": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Leiden_-_Lakenhal_.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "public_asset_path": "/images/place-review/cafelaken-1200.webp",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "attribution": "Vera de Kok · 2015-03-21 · resized WebP, no content edits",
+      "verified": true,
+      "retrieved_at": "2026-11-15",
+      "alt": "Museum De Lakenhal exterior, 2015; building context only, not the present café interior"
+    },
+    "recommendedPlacement": "dated_building_context_only",
+    "publicationAuthorized": false,
+    "commercialReuse": true,
+    "adaptationAllowed": true,
+    "originalAttributionUnchanged": true,
+    "note": "Same museum address independently established by the cafe official page and BAG; no new download or transformation."
+  }
+}

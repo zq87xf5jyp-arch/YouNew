@@ -1,0 +1,10 @@
+{
+  "url": "https://dende.nl/kaart/",
+  "checkedAt": "2026-11-16",
+  "httpStatus": 200,
+  "finalUrl": "https://dende.nl/kaart/",
+  "sha256": "e5006a885ad15b78541ea0bff9646ee97e0be8b13aee2464e8ff46884744ab99",
+  "recheckedThisBatch": true,
+  "method": "Direct HTTPS, ordinary urllib client; no access-control bypass",
+  "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/dende-menu"
+}

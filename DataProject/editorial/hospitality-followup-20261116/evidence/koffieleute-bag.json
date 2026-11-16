@@ -1,0 +1,43 @@
+{
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Westerkade+30+Utrecht&fq=type%3Aadres&rows=5",
+  "checkedAt": "2026-11-16",
+  "httpStatus": 200,
+  "sha256": "64b0e2a26cc1d7a59dd096ef4f151746416ffa7350e8989e0ee187f39f9a5d88",
+  "recheckedThisBatch": true,
+  "selectedAddress": {
+    "bron": "BAG",
+    "woonplaatscode": "3295",
+    "type": "adres",
+    "woonplaatsnaam": "Utrecht",
+    "wijkcode": "WK034406",
+    "huis_nlt": "30",
+    "openbareruimtetype": "Weg",
+    "buurtnaam": "Bleekstraat en omgeving",
+    "gemeentecode": "0344",
+    "rdf_seealso": "http://bag.basisregistraties.overheid.nl/bag/id/nummeraanduiding/0344200000190271",
+    "weergavenaam": "Westerkade 30, 3511HC Utrecht",
+    "straatnaam_verkort": "Westerkd",
+    "id": "adr-ee5bef64e8660fb0e861a42195d3d914",
+    "gekoppeld_perceel": [
+      "TSG00-A-2168"
+    ],
+    "gemeentenaam": "Utrecht",
+    "buurtcode": "BU03440627",
+    "wijknaam": "Wijk 06 Binnenstad",
+    "identificatie": "0344010000187170-0344200000190271",
+    "openbareruimte_id": "0344300000000709",
+    "waterschapsnaam": "Hoogheemraadschap De Stichtse Rijnlanden",
+    "provinciecode": "PV26",
+    "postcode": "3511HC",
+    "provincienaam": "Utrecht",
+    "centroide_ll": "POINT(5.12255925 52.07947745)",
+    "nummeraanduiding_id": "0344200000190271",
+    "waterschapscode": "14",
+    "adresseerbaarobject_id": "0344010000187170",
+    "huisnummer": 30,
+    "provincieafkorting": "UT",
+    "centroide_rd": "POINT(136858.623 454611.244)",
+    "straatnaam": "Westerkade",
+    "score": 13.907439
+  }
+}

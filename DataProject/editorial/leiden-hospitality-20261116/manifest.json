@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "batchId": "leiden-hospitality-20261116",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "privateOnly": true,
+  "approvedAt": null,
+  "reviewerId": null,
+  "preparedAt": "2026-11-16",
+  "ids": [
+    "cafe.leiden-barista",
+    "cafe.leiden-borgman",
+    "cafe.leiden-brownies",
+    "cafe.leiden-30ml",
+    "cafe.leiden-paco-ciao",
+    "place.leiden-cafe-laken",
+    "restaurant.leiden-bikini",
+    "restaurant.leiden-dende",
+    "restaurant.leiden-tabu",
+    "restaurant.leiden-verboden-toegang"
+  ],
+  "baseFiles": {
+    "cafe.leiden-barista": {
+      "file": "DataProject/staging/content-20261109/WP-09-M1-leiden-20261109.json",
+      "sha256": "68917f141122109522c058021b14da8fe9766eeee49cca3b760b1e6d36be7b4b"
+    },
+    "cafe.leiden-borgman": {
+      "file": "DataProject/staging/content-20261109/WP-09-M1-leiden-20261109.json",
+      "sha256": "68917f141122109522c058021b14da8fe9766eeee49cca3b760b1e6d36be7b4b"
+    },
+    "cafe.leiden-brownies": {
+      "file": "DataProject/staging/content-20261109/WP-09-M1-leiden-20261109.json",
+      "sha256": "68917f141122109522c058021b14da8fe9766eeee49cca3b760b1e6d36be7b4b"
+    },
+    "cafe.leiden-30ml": {
+      "file": "DataProject/staging/content-20261109/WP-09-M1-leiden-20261109.json",
+      "sha256": "68917f141122109522c058021b14da8fe9766eeee49cca3b760b1e6d36be7b4b"
+    },
+    "cafe.leiden-paco-ciao": {
+      "file": "DataProject/staging/content-20261109/WP-09-M1-leiden-20261109.json",
+      "sha256": "68917f141122109522c058021b14da8fe9766eeee49cca3b760b1e6d36be7b4b"
+    },
+    "place.leiden-cafe-laken": {
+      "file": "DataProject/staging/content-20261109/WP-09-M1-leiden-20261109.json",
+      "sha256": "68917f141122109522c058021b14da8fe9766eeee49cca3b760b1e6d36be7b4b"
+    },
+    "restaurant.leiden-bikini": {
+      "file": "DataProject/staging/content-20261109/WP-08-M1-leiden-20261109.json",
+      "sha256": "bb36b4add35026cfc95fac11aeda5e9e28f72579f680fa5658057099f14c9452"
+    },
+    "restaurant.leiden-dende": {
+      "file": "DataProject/staging/content-20261109/WP-08-M1-leiden-20261109.json",
+      "sha256": "bb36b4add35026cfc95fac11aeda5e9e28f72579f680fa5658057099f14c9452"
+    },
+    "restaurant.leiden-tabu": {
+      "file": "DataProject/staging/content-20261109/WP-08-M1-leiden-20261109.json",
+      "sha256": "bb36b4add35026cfc95fac11aeda5e9e28f72579f680fa5658057099f14c9452"
+    },
+    "restaurant.leiden-verboden-toegang": {
+      "file": "DataProject/staging/content-20261109/WP-08-M1-leiden-20261109.json",
+      "sha256": "bb36b4add35026cfc95fac11aeda5e9e28f72579f680fa5658057099f14c9452"
+    }
+  },
+  "recordsSha256": "bc7fa2da3aee1fcabfe908fae97fe8c515c2a250ca57c9fd1ba31ca67c635790",
+  "sourceChecksSha256": "0ac610abaf09c72bebde4ac9ecb05252c209072a3f2337397eed55dba920db7b",
+  "mediaSourcesSha256": "82aab42091d6e7cdd62466db8cb2aa99084cd555cdd2f468aa7a48e8cade1d24",
+  "media": {
+    "cafelaken-1200.webp": {
+      "width": 1200,
+      "bytes": 166638,
+      "sha256": "e2c6d4dd2fb01bd773fdcccd69853d5d03c872037f839b7f5ec295c35c1d41e8"
+    },
+    "cafelaken-480.webp": {
+      "width": 480,
+      "bytes": 29098,
+      "sha256": "091558c7e7f921ed51fe30e7985d054ed51bee16773926c24131e961f3292f08"
+    },
+    "cafelaken-800.webp": {
+      "width": 800,
+      "bytes": 79584,
+      "sha256": "5fff9f41c114c0200236cfd503f3865a6e0720be9e0071406ec54959f6b70810"
+    }
+  },
+  "publicationScope": {
+    "type": "owner-approved-existing-ids",
+    "addedIds": [],
+    "supersedesHistoricalWithholding": false
+  }
+}

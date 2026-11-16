@@ -1,0 +1,11 @@
+{
+  "url": "https://www.cafelaken.nl/",
+  "checkedAt": "2026-11-16",
+  "httpStatus": 200,
+  "finalUrl": "https://www.cafelaken.nl/",
+  "sha256": "3921a73d08de323409e657652c34e800e9bb85034bc3e4670ffff6d7036c4a85",
+  "recheckedThisBatch": true,
+  "method": "Direct HTTPS, ordinary urllib client; no access-control bypass",
+  "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/laken",
+  "officialLinks": []
+}

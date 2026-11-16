@@ -1,0 +1,20 @@
+{
+  "url": "https://pacociao.nl/en/menu/",
+  "checkedAt": "2026-11-16",
+  "httpStatus": 200,
+  "finalUrl": "https://pacociao.nl/en/menu/",
+  "sha256": "86b3577923e0b07a7d2cf1b6f8f5bb2014ae7c142ee82e8d6d2dac2f287595d6",
+  "recheckedThisBatch": true,
+  "method": "Direct HTTPS, ordinary urllib client; no access-control bypass",
+  "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/paco-menu",
+  "officialLinks": [
+    {
+      "text": "Check our menu",
+      "href": "https://pacociao.nl/wp-content/uploads/2026/11/PC26_OnlineMenu_20261105.pdf"
+    },
+    {
+      "text": "Menu",
+      "href": "https://pacociao.nl/en/menu/"
+    }
+  ]
+}

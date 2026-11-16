@@ -13,6 +13,8 @@ export const expansionReviews={
   'priority-cities-20261115':{count:14,cities:{utrecht:[52,52.2,5,5.25],rotterdam:[51.8,52,4.3,4.65],'den-haag':[52,52.2,4.2,4.4],eindhoven:[51.35,51.55,5.35,5.6]}},
   'missing-photos-20261116':{count:5,cities:{leiden:[52.1,52.3,4.4,4.6],eindhoven:[51.35,51.55,5.35,5.6],rotterdam:[51.8,52,4.3,4.65]},mediaOnlyBases:['leiden-stay-parks-20261115','priority-cities-20261115']},
   'priority-cities-followup-20261116':{count:10,cities:{utrecht:[52,52.2,5,5.25],rotterdam:[51.8,52,4.3,4.65],'den-haag':[52,52.2,4.2,4.4],eindhoven:[51.35,51.55,5.35,5.6]},revisionBases:['priority-cities-20261115']},
+  'leiden-hospitality-20261116':{count:10,city:'leiden',bounds:[52.1,52.3,4.4,4.6],privateDraftRevisions:true},
+  'hospitality-followup-20261116':{count:10,cities:{leiden:[52.1,52.3,4.4,4.6],utrecht:[52,52.2,5,5.25],'den-haag':[52,52.2,4.2,4.4]},revisionBases:['leiden-food-20261115','leiden-stay-parks-20261115','priority-cities-20261115']},
 };
 export const placeReviewBatches=[placeReviewBatch,'leiden-nature-culture-20261115','leiden-food-20261115',...Object.keys(expansionReviews)];
 export function selectedPlaceReviews(env=process.env) {
@@ -230,14 +232,26 @@ export function validatePlaceApproval(manifest,records,registry,{today=new Date(
   return reviewer;
 }
 
+// Sibling revisions share a base but are not successors of one another. Never
+// let selection order or eventual approval silently discard text or media.
+export function assertCompatibleReviewChain(manifests) {
+  const latest=new Map();
+  for(const manifest of manifests)for(const id of manifest.ids) {
+    const prior=latest.get(id),base=manifest.baseFiles[id];
+    if(prior)assert.ok(base?.file===`${reviewPath(prior.batchId)}/records.json`&&base.sha256===prior.recordsSha256,'overlapping revisions require explicit composition and a new approval; separate private previews cannot be silently combined');
+    latest.set(id,manifest);
+  }
+}
+
 export async function applyPlaceReview(release,root,env=process.env) {
   const selected=selectedPlaceReviews(env);
   assert.ok(!(selected.includes('priority-cities-followup-20261116')&&selected.includes('missing-photos-20261116')),'overlapping content and photo revisions require separate private previews; do not overwrite either review');
-  let result=release;
+  let result=release;const active=[];
   for(const batchId of placeReviewBatches) {
     const proof=await readPlaceReview(root,batchId);
     const privateReview=selected.includes(batchId);
     if(!privateReview&&!proof.reviewer)continue;
+    active.push(proof.manifest);assertCompatibleReviewChain(active);
     // Do not apply the same approved revision twice when previewing an already
     // projected release. Draft revisions never enter an ordinary build.
     if(!privateReview&&result.revisions?.some(r=>r.id===batchId&&r.approvalSha256===proof.manifest.approvalSha256))continue;
@@ -272,7 +286,7 @@ function projectPlaceRevision(release,{manifest,records,reviewer},privateReview)
   return {...release,batchSha256:batchHash,...(privateReview?{privateReview:true}:{}),...(!privateReview?{baseBatchSha256:release.baseBatchSha256??release.batchSha256,approvedAt:manifest.approvedAt,revisions:[...(release.revisions??[]),{id:manifest.batchId,recordsSha256:manifest.recordsSha256,approvalSha256:manifest.approvalSha256,approvedAt:manifest.approvedAt,reviewerId:manifest.reviewerId,count:records.length,...(additions.length?{addedIds:additions.map(r=>r.id)}:{})}]}:{}),entities:[...release.entities,...seeds].map(e=>{
     const r=revisions.get(e.id);if(!r)return {...e,editorial:{...e.editorial,batchSha256:batchHash}};
     const p=JSON.parse(r.attributes.place_enrichment);
-    const draftRevision=privateReview&&Boolean(expansionReviews[manifest.batchId]?.revisionBases);
+    const draftRevision=privateReview&&Boolean(expansionReviews[manifest.batchId]?.revisionBases||expansionReviews[manifest.batchId]?.privateDraftRevisions);
     return {...e,...(draftRevision?{publicationStatus:'draft',verificationStatus:'needs_review'}:{}),summary:r.description,coordinate:r.coordinates,lastChecked:r.last_checked,relatedEntityIDs:r.related_entity_ids,
       source:{...e.source,url:r.official_source.url,checkedAt:r.official_source.checked_at},
       attributes:{...e.attributes,...r.attributes,...(draftRevision?{lifecycleStatus:'draft',verificationStatus:'needs_review'}:{}),...(!privateReview?{dataProjectRevision:manifest.batchId,place_enrichment:JSON.stringify({...p,status:'approved',approvedAt:manifest.approvedAt,reviewer:reviewer.name})}:{})},

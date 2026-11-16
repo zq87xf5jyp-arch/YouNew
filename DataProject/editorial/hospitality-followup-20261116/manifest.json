@@ -1,0 +1,164 @@
+{
+  "schemaVersion": 1,
+  "batchId": "hospitality-followup-20261116",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "privateOnly": true,
+  "approvedAt": null,
+  "reviewerId": null,
+  "preparedAt": "2026-11-16",
+  "ids": [
+    "restaurant.leiden-waag",
+    "restaurant.leiden-oudt-leyden",
+    "restaurant.leiden-prentenkabinet",
+    "hotel.leiden-oude-morsch",
+    "hotel.leiden-huys-van-leyden",
+    "hotel.leiden-steenhof",
+    "cafe.den-haag-kaafi",
+    "cafe.utrecht-koffie-leute",
+    "hotel.den-haag-collector",
+    "hotel.utrecht-nox"
+  ],
+  "baseFiles": {
+    "restaurant.leiden-waag": {
+      "file": "DataProject/editorial/leiden-food-20261115/records.json",
+      "sha256": "28fc12087c3226f81f890a0899c8ffc2722b5593742ad45fac1b9dd008989827"
+    },
+    "restaurant.leiden-oudt-leyden": {
+      "file": "DataProject/editorial/leiden-food-20261115/records.json",
+      "sha256": "28fc12087c3226f81f890a0899c8ffc2722b5593742ad45fac1b9dd008989827"
+    },
+    "restaurant.leiden-prentenkabinet": {
+      "file": "DataProject/editorial/leiden-food-20261115/records.json",
+      "sha256": "28fc12087c3226f81f890a0899c8ffc2722b5593742ad45fac1b9dd008989827"
+    },
+    "hotel.leiden-oude-morsch": {
+      "file": "DataProject/editorial/leiden-stay-parks-20261115/records.json",
+      "sha256": "32fb30b21b90e5a9419bc2482384946c9acccd8f77997b0791d8679b29132864"
+    },
+    "hotel.leiden-huys-van-leyden": {
+      "file": "DataProject/editorial/leiden-stay-parks-20261115/records.json",
+      "sha256": "32fb30b21b90e5a9419bc2482384946c9acccd8f77997b0791d8679b29132864"
+    },
+    "hotel.leiden-steenhof": {
+      "file": "DataProject/editorial/leiden-stay-parks-20261115/records.json",
+      "sha256": "32fb30b21b90e5a9419bc2482384946c9acccd8f77997b0791d8679b29132864"
+    },
+    "cafe.den-haag-kaafi": {
+      "file": "DataProject/editorial/priority-cities-20261115/records.json",
+      "sha256": "8a808c99acf914a36e7e84f18198f32243badc55fe92e06be4c605903c98dab3"
+    },
+    "cafe.utrecht-koffie-leute": {
+      "file": "DataProject/editorial/priority-cities-20261115/records.json",
+      "sha256": "8a808c99acf914a36e7e84f18198f32243badc55fe92e06be4c605903c98dab3"
+    },
+    "hotel.den-haag-collector": {
+      "file": "DataProject/editorial/priority-cities-20261115/records.json",
+      "sha256": "8a808c99acf914a36e7e84f18198f32243badc55fe92e06be4c605903c98dab3"
+    },
+    "hotel.utrecht-nox": {
+      "file": "DataProject/editorial/priority-cities-20261115/records.json",
+      "sha256": "8a808c99acf914a36e7e84f18198f32243badc55fe92e06be4c605903c98dab3"
+    }
+  },
+  "recordsSha256": "99fee72d9f0fc5fa7947435af0141f1ad196f586d46f61352f26999c59ae4f33",
+  "sourceChecksSha256": "e4dd32bc978dd362735bd54479c2a49c6bfb2471b23bf127b7306d12e5019485",
+  "mediaSourcesSha256": "2fdcfb6d3c21a122fb0321ba6b58404ecb0215b4723d194172206cdf7ab50224",
+  "media": {
+    "exphuys-1200.webp": {
+      "width": 1200,
+      "bytes": 301968,
+      "sha256": "0fd898fed7a12fe6caa547bafe0cf5050ee38dd4b6a46379e5b5f2598b8e7753"
+    },
+    "exphuys-480.webp": {
+      "width": 480,
+      "bytes": 54644,
+      "sha256": "b517a15f7924703f913533aea95425e233322934b0cc066f191255d7ecde79bb"
+    },
+    "exphuys-800.webp": {
+      "width": 800,
+      "bytes": 141654,
+      "sha256": "86f7094a7d59afb0043295d0cbcf2ed2606f6afa2cac51d9093909073b5d8587"
+    },
+    "expoudemorsch-1200.webp": {
+      "width": 1200,
+      "bytes": 214226,
+      "sha256": "477fbfdff938650cb5859c3973b9346003a98a56b531cf486d0aa63907b339f7"
+    },
+    "expoudemorsch-480.webp": {
+      "width": 480,
+      "bytes": 34184,
+      "sha256": "aa26110b9f816b0a19b30cdee74942cd1a17f4172dbbc813b65b45d976b0b6c8"
+    },
+    "expoudemorsch-800.webp": {
+      "width": 800,
+      "bytes": 98056,
+      "sha256": "419589c1e0a35137a5665802095eda3652bbc0dd25389228699149275c03fc9b"
+    },
+    "expsteenhof-1200.webp": {
+      "width": 1200,
+      "bytes": 358050,
+      "sha256": "4932feff39e7b7ddd63111885dc1e048971107c9f3af6fcefe2ef22395b52927"
+    },
+    "expsteenhof-480.webp": {
+      "width": 480,
+      "bytes": 56378,
+      "sha256": "41f8098086200f1ffb34eb6aaddd68b2eeb920608052cac1526da1ceb4d3df2e"
+    },
+    "expsteenhof-800.webp": {
+      "width": 800,
+      "bytes": 165550,
+      "sha256": "fd37c8998c0e06d2336690de0e83a018224720b8a3d0df2bae7c5a19b4087ce3"
+    },
+    "oudt-1200.webp": {
+      "width": 1200,
+      "bytes": 258214,
+      "sha256": "38fbe50f3a63640c3ba0b5561994aa3580ae5ffa395a8aa1a4b5a99d19fecc48"
+    },
+    "oudt-480.webp": {
+      "width": 480,
+      "bytes": 53578,
+      "sha256": "8fd0bb64beadd4a97426e9b61e47a75fff6be0b1ef7d31aab3403fe5ea5be803"
+    },
+    "oudt-800.webp": {
+      "width": 800,
+      "bytes": 128016,
+      "sha256": "01c67bd3be4e5074cd17ce46e2f0753dda58c202d79a7e15d40453fc154370c8"
+    },
+    "prent-1200.webp": {
+      "width": 1200,
+      "bytes": 212426,
+      "sha256": "c3ca99f770302729b683c6318674ccdab3a334c5c0edfaeeeb3cd90c50a25347"
+    },
+    "prent-480.webp": {
+      "width": 480,
+      "bytes": 41154,
+      "sha256": "6f51b8dd7dff80a7d0f23f0a58256991d27144587dad92b6dd1147d02d83277c"
+    },
+    "prent-800.webp": {
+      "width": 800,
+      "bytes": 106730,
+      "sha256": "73a72fe3a18a77ba4a6c3cb8a92794c31a80809314d200710d63ff971a04b3aa"
+    },
+    "waag-1200.webp": {
+      "width": 1200,
+      "bytes": 131624,
+      "sha256": "2f6372fbbbb5d348ae5fafa4a9abe920108c76eb16d1888c272b139be9e8e043"
+    },
+    "waag-480.webp": {
+      "width": 480,
+      "bytes": 28800,
+      "sha256": "4b521f9fb3633c8ff010abcbf9b95039efe602a292f558a222f47c9c5664fb13"
+    },
+    "waag-800.webp": {
+      "width": 800,
+      "bytes": 65498,
+      "sha256": "5b63f69bc8106529c790f8f088f0e4bf03694c9108235b6fdcd0cc40e7d854b3"
+    }
+  },
+  "publicationScope": {
+    "type": "owner-approved-existing-ids",
+    "addedIds": [],
+    "supersedesHistoricalWithholding": false
+  }
+}

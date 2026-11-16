@@ -1,0 +1,189 @@
+{
+  "snapshotDate": "2026-11-16",
+  "baselineCommit": "fea2401cc937a258e0ab7293a7d5e912a5bee528",
+  "newBatches": {
+    "count": 2,
+    "distinctObjects": 20,
+    "addedBlocksEnNl": 140,
+    "newBagCoordinates": 11,
+    "retainedCoordinates": 9,
+    "freshSourceEntries": 32,
+    "retainedSourceEntries": 32,
+    "distinctSourceUrls": 64,
+    "newGalleryCandidates": 2,
+    "newCurrentHeroPhotos": 0,
+    "reusedBuildingContextPhoto": 1,
+    "retainedPhotos": 6,
+    "collectionBriefsEnNl": 4,
+    "approvals": 0
+  },
+  "cumulativePending": {
+    "revisionEntries": 45,
+    "distinctObjects": 43,
+    "objectsWithCoordinates": 43,
+    "objectsWithRecordPhoto": 30,
+    "separateGalleryCandidates": 2,
+    "newDistinctPhotoFilesSinceOriginalPr75": 12,
+    "frozenOriginalFive": 5,
+    "approvalCount": 0
+  },
+  "cityCoverage": [
+    {
+      "city": "amsterdam",
+      "distinctPendingObjects": 10,
+      "pendingWithRecordPhoto": 10,
+      "pendingWithCoordinates": 10,
+      "ordinaryPublishedPlaces": 20
+    },
+    {
+      "city": "den-haag",
+      "distinctPendingObjects": 4,
+      "pendingWithRecordPhoto": 2,
+      "pendingWithCoordinates": 4,
+      "ordinaryPublishedPlaces": 4
+    },
+    {
+      "city": "eindhoven",
+      "distinctPendingObjects": 2,
+      "pendingWithRecordPhoto": 2,
+      "pendingWithCoordinates": 2,
+      "ordinaryPublishedPlaces": 2
+    },
+    {
+      "city": "leiden",
+      "distinctPendingObjects": 19,
+      "pendingWithRecordPhoto": 10,
+      "pendingWithCoordinates": 19,
+      "ordinaryPublishedPlaces": 40
+    },
+    {
+      "city": "rotterdam",
+      "distinctPendingObjects": 3,
+      "pendingWithRecordPhoto": 3,
+      "pendingWithCoordinates": 3,
+      "ordinaryPublishedPlaces": 3
+    },
+    {
+      "city": "utrecht",
+      "distinctPendingObjects": 5,
+      "pendingWithRecordPhoto": 3,
+      "pendingWithCoordinates": 5,
+      "ordinaryPublishedPlaces": 5
+    }
+  ],
+  "unchangedApprovedBatches": [
+    {
+      "batch": "priority-cities-20261115",
+      "ids": [
+        "place.utrecht-neude",
+        "museum.rotterdam-chabot",
+        "museum.den-haag-fotomuseum",
+        "museum.eindhoven-inkijkmuseum",
+        "cafe.den-haag-kaafi",
+        "restaurant.eindhoven-kazerne",
+        "cafe.utrecht-koffie-leute",
+        "nature.utrecht-oog-in-al",
+        "museum.utrecht-sonnenborgh",
+        "hotel.rotterdam-supernova",
+        "hotel.den-haag-collector",
+        "hotel.utrecht-nox",
+        "nature.rotterdam-trompenburg",
+        "nature.den-haag-westbroekpark"
+      ]
+    },
+    {
+      "batch": "amsterdam-museums-20261115",
+      "ids": [
+        "museum.rijksmuseum",
+        "museum.van-gogh-museum",
+        "museum.stedelijk-museum-amsterdam",
+        "museum.anne-frank-house",
+        "museum.nemo-science-museum",
+        "museum.het-scheepvaartmuseum",
+        "museum.museum-rembrandthuis",
+        "museum.museum-ons-lieve-heer-op-solder",
+        "museum.hart-museum",
+        "museum.jewish-museum",
+        "museum.dutch-resistance-museum",
+        "museum.eye-filmmuseum",
+        "museum.museum-of-the-canals",
+        "museum.foam",
+        "museum.huis-marseille",
+        "museum.allard-pierson",
+        "museum.artis-micropia",
+        "museum.wereldmuseum-amsterdam",
+        "museum.museum-van-loon",
+        "place.royal-palace-amsterdam"
+      ]
+    },
+    {
+      "batch": "leiden-places-20261115",
+      "ids": [
+        "place.leiden-lakenhal",
+        "place.leiden-naturalis",
+        "place.leiden-hortus",
+        "place.leiden-rmo",
+        "museum.leiden-boerhaave"
+      ]
+    },
+    {
+      "batch": "leiden-nature-culture-20261115",
+      "ids": [
+        "place.leiden-burcht",
+        "museum.leiden-wereldmuseum",
+        "nature.leiden-plantsoen",
+        "nature.leiden-leidse-hout",
+        "nature.leiden-cronesteyn"
+      ]
+    },
+    {
+      "batch": "leiden-food-20261115",
+      "ids": [
+        "restaurant.leiden-waag",
+        "restaurant.leiden-grand-cafe-burcht",
+        "restaurant.leiden-oudt-leyden",
+        "cafe.leiden-roos",
+        "restaurant.leiden-prentenkabinet"
+      ]
+    },
+    {
+      "batch": "leiden-stay-parks-20261115",
+      "ids": [
+        "nature.leiden-ankerpark",
+        "nature.leiden-blekerspark",
+        "nature.leiden-huigpark",
+        "nature.leiden-park-de-put",
+        "nature.leiden-rembrandtpark",
+        "hotel.leiden-oude-morsch",
+        "hotel.leiden-huys-van-leyden",
+        "hotel.leiden-steenhof",
+        "hotel.leiden-ibis",
+        "hotel.leiden-rembrandt-hotel"
+      ]
+    }
+  ],
+  "unchangedApprovedDistinctEnrichedObjects": 59,
+  "ordinaryArtifact": {
+    "datasetFingerprint": "87c6b9743ecfc2eec0b3dc665d9af8f7a65e5d0830dff3b7439a26715a13a303",
+    "stats": {
+      "entities": 96,
+      "cities": 5,
+      "guides": 17,
+      "practicalGuides": 0,
+      "summaryGuides": 17,
+      "organizations": 0,
+      "places": 74,
+      "categories": 33,
+      "provinces": 4
+    },
+    "placesWithImages": 50,
+    "productionReauditedThisRun": false
+  },
+  "limitations": [
+    "Counts describe revisions, not newly published objects or complete city coverage.",
+    "Photo slots can contain archival material; counts do not mean current hero coverage.",
+    "11 new BAG address points are not independently surveyed entrances.",
+    "32 source entries from 15 November were reused without a new freshness claim.",
+    "Full visual acceptance deferred to a substantive release candidate."
+  ]
+}

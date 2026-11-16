@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "scope": "Editorial collection briefs only; no new entity IDs, routes, advertised packages or inferred walking distances. Claims inherit the cited record source dates.",
+  "collections": [
+    {
+      "key": "leiden-coffee-culture",
+      "city": "leiden",
+      "title": {
+        "en": "Coffee and culture in Leiden",
+        "nl": "Koffie en cultuur in Leiden"
+      },
+      "description": {
+        "en": "Use Café Laken as the documented café of Museum De Lakenhal. For another coffee stop, compare Barista and 30ML by their own hours and menu. These are alternatives, not a timed walking route; museum admission and refreshments are separate.",
+        "nl": "Gebruik Café Laken als het gedocumenteerde café van Museum De Lakenhal. Vergelijk voor een andere koffiestop Barista en 30ML op hun eigen openingstijden en kaart. Dit zijn alternatieven, geen getimede wandelroute; museumtoegang en consumpties zijn apart."
+      },
+      "entityIds": [
+        "place.leiden-lakenhal",
+        "place.leiden-cafe-laken",
+        "cafe.leiden-barista",
+        "cafe.leiden-30ml"
+      ]
+    },
+    {
+      "key": "leiden-historic-stays",
+      "city": "leiden",
+      "title": {
+        "en": "Choose a historic stay by practical needs",
+        "nl": "Kies een historisch verblijf op praktische behoeften"
+      },
+      "description": {
+        "en": "Compare d’Oude Morsch, Huys van Leyden and Steenhof Suites by room access, reception arrangements and paid extras. Historic architecture does not mean the same facilities in every room. Check the exact room, date-specific rate and cancellation terms with the hotel.",
+        "nl": "Vergelijk d’Oude Morsch, Huys van Leyden en Steenhof Suites op kamertoegang, receptieafspraken en betaalde extra’s. Historische architectuur betekent niet dat iedere kamer dezelfde voorzieningen heeft. Controleer kamer, datumprijs en annuleringsvoorwaarden bij het hotel."
+      },
+      "entityIds": [
+        "hotel.leiden-oude-morsch",
+        "hotel.leiden-huys-van-leyden",
+        "hotel.leiden-steenhof"
+      ]
+    },
+    {
+      "key": "den-haag-visit-parts",
+      "city": "den-haag",
+      "title": {
+        "en": "Build a day around photography and brunch",
+        "nl": "Stel een dag samen met fotografie en brunch"
+      },
+      "description": {
+        "en": "Fotomuseum Den Haag, Kaafi and The Collector offer different parts of a visit: an exhibition, a daytime meal and a stay. They are separate venues across the city, not a single package. Check transport and each venue’s opening or booking terms independently.",
+        "nl": "Fotomuseum Den Haag, Kaafi en The Collector bieden verschillende onderdelen van een bezoek: een tentoonstelling, een dagmaaltijd en een verblijf. Het zijn afzonderlijke locaties in de stad, geen gezamenlijk arrangement. Controleer vervoer en bezoek- of boekingsvoorwaarden per locatie."
+      },
+      "entityIds": [
+        "museum.den-haag-fotomuseum",
+        "cafe.den-haag-kaafi",
+        "hotel.den-haag-collector"
+      ]
+    },
+    {
+      "key": "utrecht-books-coffee-science",
+      "city": "utrecht",
+      "title": {
+        "en": "Books, coffee and a science visit",
+        "nl": "Boeken, koffie en een wetenschapsbezoek"
+      },
+      "description": {
+        "en": "Choose between browsing Neude, coffee and records at Koffie Leute, and a booked visit to Sonnenborgh. Library workspace rules, café walk-ins and museum or stargazing tickets are different arrangements. This selection does not guarantee same-day availability or a particular travel time.",
+        "nl": "Kies tussen rondkijken in Neude, koffie en platen bij Koffie Leute en een geboekt bezoek aan Sonnenborgh. Werkplekregels, vrije inloop in het café en museum- of sterrenkijktickets zijn verschillende regelingen. Deze selectie garandeert geen beschikbaarheid op dezelfde dag of bepaalde reistijd."
+      },
+      "entityIds": [
+        "place.utrecht-neude",
+        "cafe.utrecht-koffie-leute",
+        "museum.utrecht-sonnenborgh"
+      ]
+    }
+  ]
+}
