@@ -1,0 +1,14 @@
+{
+  "status": "CONSISTENT_BACKUP_WRITTEN",
+  "at": "2026-11-16T19:09:18.858Z",
+  "dump": {
+    "file": "database.sql",
+    "bytes": 4902717,
+    "sha256": "041ed119ca0657913f0586d26267bcd0325c72773b2493b52c3a0ede0775df03"
+  },
+  "tables": 32,
+  "schemaUnchanged": true,
+  "productionDatabaseMutated": false,
+  "restorePerformed": false,
+  "scope": "Additional precaution for a static web release; rollback never imports this dump or discards newer user data."
+}

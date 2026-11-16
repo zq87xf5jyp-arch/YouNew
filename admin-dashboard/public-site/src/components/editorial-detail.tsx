@@ -1,3 +1,4 @@
+import {EditorialCollections} from './editorial-collections';
 import Link from "next/link";
 import {MapPin, ExternalLink} from "lucide-react";
 import {PlaceContactDetails} from "@/components/place-contact-details";
@@ -51,6 +52,7 @@ export function EditorialDetail({entity,locale='en'}:{entity:ContentEntity;local
       {content.section==='COLLECTIONS'?<p>{nl?'Een redactionele selectie van YouNew; geen aanbeveling namens de genoemde locaties.':'A YouNew editorial selection; not an endorsement by the listed places.'}</p>:null}
       <a href={report}>{nl?'Meld een correctie':'Report a correction'}</a>
     </aside></div>
+    <EditorialCollections locale={locale} memberId={entity.id}/>
     <script type="application/ld+json" dangerouslySetInnerHTML={{__html:serializeJsonLd({'@context':'https://schema.org','@type':entity.type==='place'?'Place':'Article',name:copy.title,headline:copy.title,description:copy.summary,url:`https://younew.nl${route}/`,inLanguage:locale,dateModified:content.placeReview?.preparedAt??content.reviewedAt,citation:sources.map(s=>s.url),...(entity.coordinate?{geo:{'@type':'GeoCoordinates',latitude:entity.coordinate.latitude,longitude:entity.coordinate.longitude}}:{})})}}/>
   </article>;
 }

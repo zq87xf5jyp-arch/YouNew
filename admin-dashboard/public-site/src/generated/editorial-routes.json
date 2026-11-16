@@ -16,6 +16,10 @@
     "nl": "/nl/gidsen/leiden-weekend"
   },
   {
+    "en": "/places/adam-lookout",
+    "nl": "/nl/plaatsen/adam-lookout"
+  },
+  {
     "en": "/guides/leiden-add",
     "nl": "/nl/gidsen/leiden-add"
   },
@@ -42,6 +46,10 @@
   {
     "en": "/guides/leiden-municipal-services",
     "nl": "/nl/gidsen/leiden-municipal-services"
+  },
+  {
+    "en": "/places/artis",
+    "nl": "/nl/plaatsen/artis"
   },
   {
     "en": "/places/artis-micropia",
@@ -100,6 +108,14 @@
     "nl": "/nl/plaatsen/leiden-engelenbak"
   },
   {
+    "en": "/places/de-hallen-amsterdam",
+    "nl": "/nl/plaatsen/de-hallen-amsterdam"
+  },
+  {
+    "en": "/places/de-nieuwe-kerk-amsterdam",
+    "nl": "/nl/plaatsen/de-nieuwe-kerk-amsterdam"
+  },
+  {
     "en": "/places/dutch-resistance-museum",
     "nl": "/nl/plaatsen/dutch-resistance-museum"
   },
@@ -148,6 +164,10 @@
     "nl": "/nl/plaatsen/hart-museum"
   },
   {
+    "en": "/places/heineken-experience",
+    "nl": "/nl/plaatsen/heineken-experience"
+  },
+  {
     "en": "/places/leiden-plantsoen",
     "nl": "/nl/plaatsen/leiden-plantsoen"
   },
@@ -158,6 +178,10 @@
   {
     "en": "/places/het-scheepvaartmuseum",
     "nl": "/nl/plaatsen/het-scheepvaartmuseum"
+  },
+  {
+    "en": "/places/hortus-botanicus-amsterdam",
+    "nl": "/nl/plaatsen/hortus-botanicus-amsterdam"
   },
   {
     "en": "/places/leiden-hortus",
@@ -186,6 +210,10 @@
   {
     "en": "/places/jewish-museum",
     "nl": "/nl/plaatsen/jewish-museum"
+  },
+  {
+    "en": "/places/johan-cruijff-arena",
+    "nl": "/nl/plaatsen/johan-cruijff-arena"
   },
   {
     "en": "/places/den-haag-kaafi",
@@ -234,6 +262,14 @@
   {
     "en": "/places/nemo-science-museum",
     "nl": "/nl/plaatsen/nemo-science-museum"
+  },
+  {
+    "en": "/places/oba-oosterdok",
+    "nl": "/nl/plaatsen/oba-oosterdok"
+  },
+  {
+    "en": "/places/oude-kerk",
+    "nl": "/nl/plaatsen/oude-kerk"
   },
   {
     "en": "/places/leiden-oudt-leyden",
@@ -362,5 +398,9 @@
   {
     "en": "/places/den-haag-westbroekpark",
     "nl": "/nl/plaatsen/den-haag-westbroekpark"
+  },
+  {
+    "en": "/places/westerkerk",
+    "nl": "/nl/plaatsen/westerkerk"
   }
 ]

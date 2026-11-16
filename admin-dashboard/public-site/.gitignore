@@ -5,4 +5,5 @@ node_modules/
 *.tsbuildinfo
 
 /public/images/place-review/
-/public/images/places/leiden-places-20261115/
+# Hash-verified derivatives are generated from DataProject by place-review-assets.mjs.
+/public/images/places/

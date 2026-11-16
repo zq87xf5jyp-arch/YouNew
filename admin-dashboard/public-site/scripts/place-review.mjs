@@ -7,6 +7,7 @@ export const placeReviewBatch='leiden-places-20261115';
 // Expansion batches use the same hash-bound review format. They are private
 // candidates only; activating additional IDs requires a separately reviewed release.
 export const expansionReviews={
+  'pr75-integration-20261116':{count:43,integrationSelection:true,allowPrivateAdditions:true,privateDraftRevisions:true,cities:{leiden:[52.1,52.3,4.4,4.6],amsterdam:[52.28,52.44,4.73,5.02],utrecht:[52,52.2,5,5.25],rotterdam:[51.8,52,4.3,4.65],'den-haag':[52,52.2,4.2,4.4],eindhoven:[51.35,51.55,5.35,5.6]}},
   'leiden-stay-parks-20261115':{count:10,city:'leiden',bounds:[52.1,52.3,4.4,4.6]},
   'amsterdam-museums-20261115':{count:20,city:'amsterdam',bounds:[52.28,52.44,4.73,5.02],allowPrivateAdditions:true},
   'amsterdam-attractions-20261116':{count:10,city:'amsterdam',bounds:[52.28,52.44,4.73,5.02],allowPrivateAdditions:true,verifiedCommonsMedia:true},
@@ -16,7 +17,7 @@ export const expansionReviews={
   'leiden-hospitality-20261116':{count:10,city:'leiden',bounds:[52.1,52.3,4.4,4.6],privateDraftRevisions:true},
   'hospitality-followup-20261116':{count:10,cities:{leiden:[52.1,52.3,4.4,4.6],utrecht:[52,52.2,5,5.25],'den-haag':[52,52.2,4.2,4.4]},revisionBases:['leiden-food-20261115','leiden-stay-parks-20261115','priority-cities-20261115']},
 };
-export const placeReviewBatches=[placeReviewBatch,'leiden-nature-culture-20261115','leiden-food-20261115',...Object.keys(expansionReviews)];
+export const placeReviewBatches=[placeReviewBatch,'leiden-nature-culture-20261115','leiden-food-20261115',...Object.keys(expansionReviews).filter(b=>b!=='pr75-integration-20261116'),'pr75-integration-20261116'];
 export function selectedPlaceReviews(env=process.env) {
   if(!env.YOUNEW_PLACE_REVIEW)return [];
   assert.equal(env.YOUNEW_PRIVATE_REVIEW_BUILD,'1','private review build required');
@@ -52,7 +53,7 @@ export async function readPlaceReview(root,batchId=placeReviewBatch) {
     assert.equal(manifest.privateOnly,manifest.status!=='approved','private/public approval scope mismatch');
     if(manifest.status==='approved') {
       assert.equal(manifest.publicationScope?.type,'owner-approved-existing-ids');
-      assert.deepEqual(manifest.publicationScope.addedIds,expansion.allowPrivateAdditions?manifest.ids:[],'unapproved added IDs');
+      if(!expansion.integrationSelection)assert.deepEqual(manifest.publicationScope.addedIds,expansion.allowPrivateAdditions?manifest.ids:[],'unapproved added IDs');
       assert.equal(manifest.publicationScope.supersedesHistoricalWithholding,Boolean(expansion.allowPrivateAdditions));
     }
   }
@@ -60,9 +61,13 @@ export async function readPlaceReview(root,batchId=placeReviewBatch) {
     assert.equal(sha256(await readFile(resolve(path,'source-checks.json'))),manifest.sourceChecksSha256,'changed source evidence');
     assert.equal(sha256(await readFile(resolve(path,'media-sources.json'))),manifest.mediaSourcesSha256,'changed media provenance');
   }
+  let integration=null;
+  if(expansion?.integrationSelection){const {verifyIntegration}=await import('./pr75-integration.mjs');integration=await verifyIntegration(root,manifest,batch.records);}
   const bases=new Map();
   for(const [id,base] of Object.entries(manifest.baseFiles)) {
-    if(expansion?.mediaOnlyBases||expansion?.revisionBases) {
+    if(expansion?.integrationSelection) {
+      // Exact source paths and all transformed records were verified above.
+    } else if(expansion?.mediaOnlyBases||expansion?.revisionBases) {
       const sourceBatch=(expansion.mediaOnlyBases??expansion.revisionBases).find(b=>base.file===`${reviewPath(b)}/records.json`);
       assert.ok(sourceBatch,'revision requires an approved editorial base');
       const source=await readPlaceReview(root,sourceBatch);
@@ -129,7 +134,7 @@ export async function readPlaceReview(root,batchId=placeReviewBatch) {
     const width=Number(/-(1024|1200)\.webp$/.exec(file)?.[1]);
     assert.ok(width===1024||width===1200,'unsupported largest variant');
     if(width===1024) {
-      assert.equal(batchId,'missing-photos-20261116');
+      assert.ok(batchId==='missing-photos-20261116'||expansion?.integrationSelection);
       assert.equal(r.id,'hotel.rotterdam-supernova');
       assert.equal(manifest.media[file].width,1024);
       assert.equal(manifest.media[file].height,768);
@@ -138,7 +143,7 @@ export async function readPlaceReview(root,batchId=placeReviewBatch) {
   }));
   assert.deepEqual(Object.keys(manifest.media).sort(),requiredMedia.sort(),'incomplete or extraneous review media');
   const reviewer=validatePlaceApproval(manifest,batch.records,reviewers);
-  return {manifest,records:batch.records,reviewer};
+  return {manifest,records:batch.records,reviewer,...(integration?{collections:integration.collections}:{})};
 }
 
 // A photo follow-up cannot silently revert already approved facts, dates or URLs.
@@ -170,14 +175,14 @@ export function validatePlaceRecords(records,ids,bases,optionalTickets=false,exp
     const sourceIds=new Set(p.sources.map(s=>s.id));assert.equal(sourceIds.size,p.sources.length);
     for(const s of p.sources){
       https(s.url);assert.equal(s.is_official,true);assert.equal(s.status,'verified_opened');
-      if(expansion?.revisionBases){
+      if(expansion?.revisionBases||expansion?.integrationSelection){
         assert.match(s.checked_at,/^\d{4}-\d{2}-\d{2}$/);
         assert.ok(s.checked_at<=r.last_checked,'source date after record check');
       }else assert.equal(s.checked_at,r.last_checked);
     }
-    if(expansion?.revisionBases){
+    if(expansion?.revisionBases||expansion?.integrationSelection){
       assert.equal(r.last_checked,[...p.sources.map(s=>s.checked_at)].sort().at(-1),'record check must reflect latest individual source');
-      const previous=JSON.parse(base.attributes.place_enrichment);
+      const previous=base.attributes.place_enrichment?JSON.parse(base.attributes.place_enrichment):{sources:[]};
       for(const source of previous.sources)assert.deepEqual(p.sources.find(s=>s.id===source.id),source,'prior source dates/evidence must be preserved');
     }
     const bounds=expansion?.cities?.[r.city_id]??expansion?.bounds??[52.1,52.3,4.4,4.6];
@@ -206,7 +211,7 @@ export function validatePlaceRecords(records,ids,bases,optionalTickets=false,exp
 }
 
 export function placeApprovalDigest(manifest) {
-  return sha256(JSON.stringify({batchId:manifest.batchId,ids:manifest.ids,recordsSha256:manifest.recordsSha256,media:manifest.media,...(expansionReviews[manifest.batchId]?{publicationScope:manifest.publicationScope}: {})}));
+  return sha256(JSON.stringify({batchId:manifest.batchId,ids:manifest.ids,recordsSha256:manifest.recordsSha256,media:manifest.media,...(expansionReviews[manifest.batchId]?{publicationScope:manifest.publicationScope}: {}),...(manifest.integrationReviewSha256?{integrationReviewSha256:manifest.integrationReviewSha256}:{})}));
 }
 
 export function validatePlaceApproval(manifest,records,registry,{today=new Date().toISOString().slice(0,10)}={}) {
@@ -260,7 +265,13 @@ export async function applyPlaceReview(release,root,env=process.env) {
   return result;
 }
 
-function projectPlaceRevision(release,{manifest,records,reviewer},privateReview) {
+function projectPlaceRevision(release,{manifest,records,reviewer,collections},privateReview) {
+  if(expansionReviews[manifest.batchId]?.integrationSelection) {
+    for(const base of Object.values(manifest.baseFiles).filter(b=>b.file.startsWith('DataProject/editorial/'))) {
+      const baseId=base.file.split('/').at(-2);
+      assert.ok(release.revisions?.some(r=>r.id===baseId&&r.recordsSha256===base.sha256&&r.reviewerId==='owner.ivan'),'integration requires every approved editorial base in the release');
+    }
+  }
   if(expansionReviews[manifest.batchId]?.mediaOnlyBases||expansionReviews[manifest.batchId]?.revisionBases) {
     for(const base of Object.values(manifest.baseFiles)) {
       const baseId=base.file.split('/').at(-2);
@@ -283,14 +294,14 @@ function projectPlaceRevision(release,{manifest,records,reviewer},privateReview)
       locales:{en:{title:r.title,summary:r.description,guide:null},nl:{title:r.attributes.title_nl??r.title,summary:r.attributes.description_nl,guide:null}}}
   }));
   const revisions=new Map(records.map(r=>[r.id,r]));
-  return {...release,batchSha256:batchHash,...(privateReview?{privateReview:true}:{}),...(!privateReview?{baseBatchSha256:release.baseBatchSha256??release.batchSha256,approvedAt:manifest.approvedAt,revisions:[...(release.revisions??[]),{id:manifest.batchId,recordsSha256:manifest.recordsSha256,approvalSha256:manifest.approvalSha256,approvedAt:manifest.approvedAt,reviewerId:manifest.reviewerId,count:records.length,...(additions.length?{addedIds:additions.map(r=>r.id)}:{})}]}:{}),entities:[...release.entities,...seeds].map(e=>{
+  return {...release,...(collections?{collections}:{}),batchSha256:batchHash,...(privateReview?{privateReview:true}:{}),...(!privateReview?{baseBatchSha256:release.baseBatchSha256??release.batchSha256,approvedAt:manifest.approvedAt,revisions:[...(release.revisions??[]),{id:manifest.batchId,recordsSha256:manifest.recordsSha256,approvalSha256:manifest.approvalSha256,approvedAt:manifest.approvedAt,reviewerId:manifest.reviewerId,count:records.length,...(additions.length?{addedIds:additions.map(r=>r.id)}:{})}]}:{}),entities:[...release.entities,...seeds].map(e=>{
     const r=revisions.get(e.id);if(!r)return {...e,editorial:{...e.editorial,batchSha256:batchHash}};
     const p=JSON.parse(r.attributes.place_enrichment);
     const draftRevision=privateReview&&Boolean(expansionReviews[manifest.batchId]?.revisionBases||expansionReviews[manifest.batchId]?.privateDraftRevisions);
     return {...e,...(draftRevision?{publicationStatus:'draft',verificationStatus:'needs_review'}:{}),summary:r.description,coordinate:r.coordinates,lastChecked:r.last_checked,relatedEntityIDs:r.related_entity_ids,
       source:{...e.source,url:r.official_source.url,checkedAt:r.official_source.checked_at},
       attributes:{...e.attributes,...r.attributes,...(draftRevision?{lifecycleStatus:'draft',verificationStatus:'needs_review'}:{}),...(!privateReview?{dataProjectRevision:manifest.batchId,place_enrichment:JSON.stringify({...p,status:'approved',approvedAt:manifest.approvedAt,reviewer:reviewer.name})}:{})},
-      images:r.images.map(i=>({id:i.id,role:i.role,verified:i.verified,assetURL:i.asset_url,publicAssetPath:privateReview?i.public_asset_path:`/images/places/${manifest.batchId}/${i.public_asset_path.split('/').at(-1)}`,alt:i.alt,attribution:i.attribution,license:i.license,licenseURL:i.license_url,sourcePageURL:i.source_page_url,retrievedAt:i.retrieved_at})),
+      images:r.images.map(i=>({id:i.id,role:i.role,...(r.attributes.media_placements?JSON.parse(r.attributes.media_placements)[i.id]??{}:{}),verified:i.verified,assetURL:i.asset_url,publicAssetPath:privateReview?i.public_asset_path:`/images/places/${manifest.batchId}/${i.public_asset_path.split('/').at(-1)}`,alt:i.alt,attribution:i.attribution,license:i.license,licenseURL:i.license_url,sourcePageURL:i.source_page_url,retrievedAt:i.retrieved_at})),
       editorial:{...e.editorial,batchSha256:batchHash,...(privateReview?{reviewedAt:null,reviewer:null,placeReview:{batchId:manifest.batchId,preparedAt:p.preparedAt,approvedAt:null}}:{placeReview:undefined,reviewedAt:manifest.approvedAt,reviewer:reviewer.name}),place:{locales:Object.fromEntries(['en','nl'].map(l=>[l,{alt:p.locales[l].alt,blocks:p.locales[l].blocks.map(b=>({id:b.id,text:b.text,title:b.title,sourceIds:b.source_ids}))}])),tickets:p.tickets},
         sources:p.sources.map(s=>({id:s.id,title:s.title,publisher:s.publisher,url:s.url,checkedAt:s.checked_at})),
         locales:{en:{...e.editorial.locales.en,summary:r.description},nl:{...e.editorial.locales.nl,summary:r.attributes.description_nl}}}

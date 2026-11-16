@@ -1,5 +1,5 @@
 import {pendingReviewRoot} from './place-review-fixture.ts';
-import test from 'node:test';
+import test, {after} from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {fileURLToPath} from 'node:url';
@@ -10,6 +10,9 @@ import {loadEditorialRelease} from '../scripts/editorial-release.mjs';
 import {buildPublicDataset,paths} from '../scripts/generate-public-content.mjs';
 import {isDiscoverableContent} from '../src/lib/content/presentation.ts';
 const root=fileURLToPath(new URL('../../../',import.meta.url));
+// Freeze this suite's historical publication boundary; current approval is tested separately.
+const history=await pendingReviewRoot(root,['pr75-integration-20261116']);
+after(()=>history.cleanup());
 // This suite describes the three approved expansion batches. Subsequent
 // draft follow-ups have their own approval-boundary tests.
 const batches=['leiden-stay-parks-20261115','amsterdam-museums-20261115','priority-cities-20261115'];
@@ -27,7 +30,7 @@ test('private discovery needs an explicit draft ID and never makes an ordinary d
 
 test('expansion keeps ordinary content byte-equivalent and requires an explicit private build',async()=>{
  const runtime=JSON.parse(await readFile(paths.source,'utf8'));
- const fixture=await pendingReviewRoot(root,batches);
+ const fixture=await pendingReviewRoot(history.root,batches);
  const ordinary=await loadEditorialRelease(fixture.root);const snapshot=JSON.stringify(ordinary);
  try {
  assert.strictEqual(await applyPlaceReview(ordinary,fixture.root,{}),ordinary);
@@ -85,7 +88,7 @@ for batch in json.loads(sys.argv[2]):
 });
 
 test('approved expansion adds only the twenty exact reviewed historical IDs',async()=>{
- const runtime=JSON.parse(await readFile(paths.source,'utf8')),release=await loadEditorialRelease();
+ const runtime=JSON.parse(await readFile(paths.source,'utf8')),release=await loadEditorialRelease(history.root);
  const data=buildPublicDataset(runtime,{editorialRelease:release}).content;
  assert.equal(data.entities.length,96);assert.equal(Object.hasOwn(data,'privateReview'),false);
  const proof=proofs.find(p=>p.manifest.batchId==='amsterdam-museums-20261115')!;

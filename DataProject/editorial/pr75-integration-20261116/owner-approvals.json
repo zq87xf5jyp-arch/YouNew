@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "decisions": {
+    "selection1": {
+      "sha256": "defc64135bfe6c273f5d70a04ecec61714301778278e3634af2cb449ce38267a",
+      "status": "approved",
+      "reviewerId": "owner.ivan",
+      "approvedAt": "2026-11-16",
+      "ownerConfirmation": "Одобряю точный редакционный пакет",
+      "questionItemId": "[\"request_user_input_async\",\"call_de2e8ca5ad194f6a9a3e30b16107e6a3\",0]",
+      "scope": "Editorial approval of the exact target hash; not production deployment authorization."
+    },
+    "selection2": {
+      "sha256": "4996a1f1b37a98491627162ea9a60d1e4bbb0967654d8beb4bded763cdffae5e",
+      "status": "approved",
+      "reviewerId": "owner.ivan",
+      "approvedAt": "2026-11-16",
+      "ownerConfirmation": "Одобряю точный редакционный пакет",
+      "questionItemId": "[\"request_user_input_async\",\"call_de2e8ca5ad194f6a9a3e30b16107e6a3\",0]",
+      "scope": "Editorial approval of the exact target hash; not production deployment authorization."
+    },
+    "restaurant.eindhoven-kazerne": {
+      "sha256": "8a407face9de7d5e4feeeff7a576dd4e9ad7b21ba9665850b0f25368b3f06c2e",
+      "status": "approved",
+      "reviewerId": "owner.ivan",
+      "approvedAt": "2026-11-16",
+      "ownerConfirmation": "Одобряю точную ревизию Kazerne",
+      "questionItemId": "[\"request_user_input_async\",\"call_de2e8ca5ad194f6a9a3e30b16107e6a3\",1]",
+      "scope": "Editorial approval of the exact target hash; not production deployment authorization."
+    },
+    "hotel.rotterdam-supernova": {
+      "sha256": "6ed0a97e133d1f1a1dbe068a00339cf13d378f6c0375f5f63fb7ec29c57c274c",
+      "status": "approved",
+      "reviewerId": "owner.ivan",
+      "approvedAt": "2026-11-16",
+      "ownerConfirmation": "Одобряю точную ревизию Supernova",
+      "questionItemId": "[\"request_user_input_async\",\"call_de2e8ca5ad194f6a9a3e30b16107e6a3\",2]",
+      "scope": "Editorial approval of the exact target hash; not production deployment authorization."
+    },
+    "integration": {
+      "sha256": "58bc2fefa694ac31b4f3558a283e8d2b3c7b5997f7bb4598d278e52b2fbf6e11",
+      "status": "approved",
+      "reviewerId": "owner.ivan",
+      "approvedAt": "2026-11-16",
+      "ownerConfirmation": "Одобряю точный редакционный пакет",
+      "questionItemId": "[\"request_user_input_async\",\"call_de2e8ca5ad194f6a9a3e30b16107e6a3\",0]",
+      "scope": "Editorial approval of the exact target hash; not production deployment authorization."
+    }
+  }
+}

@@ -5,14 +5,14 @@
   "source": "../../YouNew/Resources/Data/younew-runtime-data.json",
   "sourceMode": "production",
   "sourceSchemaVersion": 1,
-  "datasetFingerprint": "87c6b9743ecfc2eec0b3dc665d9af8f7a65e5d0830dff3b7439a26715a13a303",
+  "datasetFingerprint": "fdfd13771b62dc527141161a6a23b2c5cd01cf1f9923868dbe4d07e372b46de4",
   "sourceOutputChecksum": "d39686302bac96ca65c9489f64ed7b7ded29e4f9865e21edfb0f52db8cb45e7c",
   "sourceDatasetFingerprint": "39a365a2152382da678d1a888a535295ab497481858b815d785c00c32fcbabfc",
   "editorialRelease": {
     "id": "editorial-leiden-20261110",
-    "batchSha256": "7422f841d1d660379c366b0863a7e19a0f2eb2a2e4a0f85e74b26f3e911e7fdc",
-    "approvedAt": "2026-11-15",
-    "count": 91,
+    "batchSha256": "9f93de3c5095c48afc56ffd12b18e5d7305bd37a2e08366e62f950b600df5bbd",
+    "approvedAt": "2026-11-16",
+    "count": 101,
     "baseBatchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea",
     "revisions": [
       {
@@ -84,6 +84,26 @@
         "approvedAt": "2026-11-15",
         "reviewerId": "owner.ivan",
         "count": 14
+      },
+      {
+        "id": "pr75-integration-20261116",
+        "recordsSha256": "340d296518f488bdf1ea15fa102853f98f580228949a11f5ceb1b43d5156ee1d",
+        "approvalSha256": "a9e9d34978d86bfc5570953e9eb0394bbad8d80e095eb95ce0a6110633628b95",
+        "approvedAt": "2026-11-16",
+        "reviewerId": "owner.ivan",
+        "count": 43,
+        "addedIds": [
+          "place.adam-lookout",
+          "place.artis",
+          "place.de-hallen-amsterdam",
+          "place.de-nieuwe-kerk-amsterdam",
+          "place.heineken-experience",
+          "place.hortus-botanicus-amsterdam",
+          "place.johan-cruijff-arena",
+          "place.oba-oosterdok",
+          "place.oude-kerk",
+          "place.westerkerk"
+        ]
       }
     ]
   },
@@ -117,8 +137,8 @@
     "temporaryFreshnessExclusionPolicy": "fail_closed_until_field_level_reverification"
   },
   "counts": {
-    "sourceRecords": 96,
-    "acceptedRecords": 96,
+    "sourceRecords": 106,
+    "acceptedRecords": 106,
     "excludedRecords": 0,
     "freshnessExcludedRecords": 0
   }

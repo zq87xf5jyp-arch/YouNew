@@ -24,11 +24,15 @@
         "business-editorial",
         "cafe",
         "canal-house-history",
+        "church-cultural-venue",
+        "church-exhibition-venue",
+        "church-landmark",
         "city-park",
         "coffee",
         "collection",
         "contacts",
         "cultural-history",
+        "culture-shopping",
         "digid",
         "film",
         "gp",
@@ -36,11 +40,13 @@
         "historic-attraction",
         "history-memorial",
         "hotel",
+        "industrial-heritage-attraction",
         "maritime-history",
         "microbiology",
         "modern-art-design",
         "municipal-services",
         "museums-sights",
+        "observation-deck",
         "parks-walks",
         "pharmacy",
         "photography",
@@ -49,16 +55,19 @@
         "religious-history",
         "restaurant",
         "science",
+        "stadium",
         "transport",
         "urban-history",
         "visitor-information",
         "war-history",
         "waste",
-        "world-cultures"
+        "world-cultures",
+        "zoo"
       ],
       "approval_reference": "DataProject/editorial/leiden-20261110-approval.json",
       "additional_approval_references": [
-        "Owner approval of 49 EN/NL cards in PR #68/#72, Codex conversation 2026-11-15; existing owner identity retained."
+        "Owner approval of 49 EN/NL cards in PR #68/#72, Codex conversation 2026-11-15; existing owner identity retained.",
+        "DataProject/editorial/pr75-integration-20261116/owner-approvals.json — explicit owner approval of request 58bc2fefa694ac31b4f3558a283e8d2b3c7b5997f7bb4598d278e52b2fbf6e11 and separate Kazerne/Supernova hashes, 2026-11-16; existing owner identity retained."
       ]
     }
   ]

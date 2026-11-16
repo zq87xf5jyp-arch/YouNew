@@ -1,0 +1,27 @@
+{
+  "status": "needs_review",
+  "productionChanged": false,
+  "sourceHead": "750b3342a8127f49f145b2f0dec21c0d0216cc72",
+  "objects": 43,
+  "photos": 32,
+  "archiveOnly": 8,
+  "coordinates": 43,
+  "blocksENNL": 518,
+  "cities": {
+    "den-haag": 4,
+    "leiden": 19,
+    "utrecht": 5,
+    "rotterdam": 3,
+    "eindhoven": 2,
+    "amsterdam": 10
+  },
+  "newEditorialApprovals": 0,
+  "currentPublicEntities": 96,
+  "privateCandidateEntities": 106,
+  "collections": 4,
+  "candidateArchiveSha256": "2b617cbf5b825e7d760df311418c109e2cd265563511f8d95ac755c1c14426a7",
+  "integrationRequestSha256": "58bc2fefa694ac31b4f3558a283e8d2b3c7b5997f7bb4598d278e52b2fbf6e11",
+  "privateCandidatePlaces": 84,
+  "privateCandidatePlacesWithAnyPhoto": 68,
+  "privateCandidatePlacesWithNonArchivePhoto": 60
+}

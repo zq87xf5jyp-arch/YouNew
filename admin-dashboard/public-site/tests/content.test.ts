@@ -11,7 +11,7 @@ const canonicalRuntime = JSON.parse(await readFile(new URL("../../YouNew/Resourc
 const editorialApproval = JSON.parse(await readFile(new URL("../../DataProject/editorial/leiden-20261110-approval.json",siteRoot),'utf8'));
 const placeApproval = JSON.parse(await readFile(new URL('../../DataProject/editorial/leiden-places-20261115/manifest.json',siteRoot),'utf8'));
 const natureApproval = JSON.parse(await readFile(new URL('../../DataProject/editorial/leiden-nature-culture-20261115/manifest.json',siteRoot),'utf8'));
-const placeApprovals=[placeApproval,natureApproval,...await Promise.all(['leiden-food-20261115','leiden-stay-parks-20261115','amsterdam-museums-20261115','priority-cities-20261115'].map(async batch=>JSON.parse(await readFile(new URL(`../../DataProject/editorial/${batch}/manifest.json`,siteRoot),'utf8'))))];
+const placeApprovals=[placeApproval,natureApproval,...await Promise.all(['leiden-food-20261115','leiden-stay-parks-20261115','amsterdam-museums-20261115','priority-cities-20261115','pr75-integration-20261116'].map(async batch=>JSON.parse(await readFile(new URL(`../../DataProject/editorial/${batch}/manifest.json`,siteRoot),'utf8'))))];
 const addedIds=placeApprovals.flatMap(approval=>approval.publicationScope?.addedIds??[]);
 const generator = (await import(new URL("scripts/generate-public-content.mjs", siteRoot).href)) as {
   assignStableSlugs: (
@@ -97,10 +97,10 @@ test("the public website exposes the verified app image catalogue", () => {
   const media = content.entities.flatMap((entity: { images: unknown[] }) => entity.images);
   assert.ok(media.length > 0, `expected images on the remaining current public records, received ${media.length}`);
   assert.equal(media.some((image: { id?: string }) => image.id === "media.museum.amsterdam-museum.thumbnail.3e34aacbba"), false);
-  assert.ok(content.entities.every((entity: { id:string; type: string; title: string; images: Array<{ role: string; url: string; alt: string }> }) =>
-    (entity.images.some((image) => image.role === "hero") || (entity.type === "place" && entity.images.length === 0) || (editorialApproval.ids.includes(entity.id) && entity.images.length===0)) &&
+  assert.ok(content.entities.every((entity: { id:string; type: string; title: string; images: Array<{ role: string; url: string; alt: string; placement?: string }> }) =>
+    (entity.images.some((image) => image.role === "hero") || (entity.images.length>0 && entity.images.every(image=>image.role==="gallery"&&image.placement==="archive_gallery_only")) || (entity.type === "place" && entity.images.length === 0) || (editorialApproval.ids.includes(entity.id) && entity.images.length===0)) &&
     entity.images.every((image) =>
-      (/^https?:\/\//.test(image.url) || placeApprovals.some(approval=>approval.ids.includes(entity.id)&&image.url.startsWith(`/images/places/${approval.batchId}/`)&&/\/[a-z]+-1200\.webp$/.test(image.url))) &&
+      (/^https?:\/\//.test(image.url) || placeApprovals.some(approval=>approval.ids.includes(entity.id)&&image.url.startsWith(`/images/places/${approval.batchId}/`)&&Object.hasOwn(approval.media,image.url.split('/').at(-1)!))) &&
       image.alt.length > 0 &&
       image.alt !== `${entity.title} — ${image.role.replace("_", " ")}`
     )
