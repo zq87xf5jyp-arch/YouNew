@@ -3,12 +3,18 @@ import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {fileURLToPath} from 'node:url';
 import {spawnSync} from 'node:child_process';
-import {readPlaceReview,applyPlaceReview,sha256,selectedPlaceReviews} from '../scripts/place-review.mjs';
+import {createHash} from 'node:crypto';
+import {readPlaceReview,applyPlaceReview,selectedPlaceReviews} from '../scripts/place-review.mjs';
+import type {PlaceRevision} from '../scripts/place-review.mjs';
 import {loadEditorialRelease} from '../scripts/editorial-release.mjs';
 import {buildPublicDataset,paths} from '../scripts/generate-public-content.mjs';
 const root=fileURLToPath(new URL('../../../',import.meta.url));
 const batch='amsterdam-attractions-20261116',dir=`${root}/DataProject/editorial/${batch}`;
 const proof=await readPlaceReview(root,batch);
+// These fields are checked against the DataProject JSON schema below; the
+// runtime projection's deliberately smaller declaration does not expose them.
+type DraftRecord=PlaceRevision & {last_checked:string;coordinates:{latitude:number;longitude:number}};
+const sha256=(bytes:Uint8Array)=>createHash('sha256').update(bytes).digest('hex');
 
 test('ten historical Amsterdam IDs remain excluded from the ordinary public release',async()=>{
  const release=await loadEditorialRelease();assert.strictEqual(await applyPlaceReview(release,root,{}),release);
@@ -35,7 +41,7 @@ test('explicit private preview adds ten draft cards and retains five photo candi
 
 test('paired text has source evidence and coordinates match selected BAG addresses',async()=>{
  const checks=JSON.parse(await readFile(`${dir}/source-checks.json`,'utf8'));
- for(const r of proof.records){const p=JSON.parse(r.attributes.place_enrichment);
+ for(const r of proof.records as DraftRecord[]){const p=JSON.parse(r.attributes.place_enrichment);
   assert.deepEqual(p.locales.en.blocks.map((b:{id:string})=>b.id),p.locales.nl.blocks.map((b:{id:string})=>b.id));
   for(const s of p.sources){const c=Object.values(checks).find((x:any)=>x.finalUrl===s.url) as any;assert.ok(c);assert.equal(c.checkedAt,r.last_checked);assert.ok(c.httpStatus===200||(c.method==='web.run'&&c.verificationScope.includes('manual live check')));}
   const geo=Object.values(checks).find((x:any)=>x.finalUrl===p.coordinateEvidence.url) as any;assert.equal(geo.selectedAddress.woonplaatsnaam,'Amsterdam');
