@@ -1,0 +1,113 @@
+{
+  "pageid": 158853289,
+  "ns": 6,
+  "title": "File:'Prins Hendrik', Objectnr PV PV29329R.5.jpg",
+  "imagerepository": "local",
+  "imageinfo": [
+    {
+      "size": 806273,
+      "width": 3452,
+      "height": 2264,
+      "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/%27Prins_Hendrik%27%2C_Objectnr_PV_PV29329R.5.jpg/1280px-%27Prins_Hendrik%27%2C_Objectnr_PV_PV29329R.5.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "thumbwidth": 1200,
+      "thumbheight": 787,
+      "responsiveUrls": {
+        "2": "https://upload.wikimedia.org/wikipedia/commons/e/e8/%27Prins_Hendrik%27%2C_Objectnr_PV_PV29329R.5.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+      },
+      "thumbattribs": {
+        "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/%27Prins_Hendrik%27%2C_Objectnr_PV_PV29329R.5.jpg/1280px-%27Prins_Hendrik%27%2C_Objectnr_PV_PV29329R.5.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "decoding": "async",
+        "loading": "lazy",
+        "width": 1200,
+        "height": 787,
+        "srcset": "https://upload.wikimedia.org/wikipedia/commons/e/e8/%27Prins_Hendrik%27%2C_Objectnr_PV_PV29329R.5.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled 2x"
+      },
+      "url": "https://upload.wikimedia.org/wikipedia/commons/e/e8/%27Prins_Hendrik%27%2C_Objectnr_PV_PV29329R.5.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "descriptionurl": "https://commons.wikimedia.org/wiki/File:%27Prins_Hendrik%27,_Objectnr_PV_PV29329R.5.jpg",
+      "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=158853289",
+      "sha1": "10bd30d1f58d020d0a1298f666ef2920736e442f",
+      "extmetadata": {
+        "DateTime": {
+          "value": "2025-01-31 13:53:05",
+          "source": "mediawiki-metadata",
+          "hidden": ""
+        },
+        "ObjectName": {
+          "value": "'Prins Hendrik', Objectnr PV PV29329R.5",
+          "source": "mediawiki-metadata"
+        },
+        "CommonsMetadataExtension": {
+          "value": 1.2,
+          "source": "extension",
+          "hidden": ""
+        },
+        "Categories": {
+          "value": "CC-Zero|Collections of Erfgoed Leiden",
+          "source": "commons-categories",
+          "hidden": ""
+        },
+        "Assessments": {
+          "value": "",
+          "source": "commons-categories",
+          "hidden": ""
+        },
+        "ImageDescription": {
+          "value": "<br>Titel: 'Prins Hendrik'<br>Collectie: Erfgoed Leiden en Omstreken<br>Makers: Gemeente Leiden Afdeling Monumentenzorg (Primaire vervaardiger) <br>Rechthebbende: Erfgoed Leiden en Omstreken <br>Auteursrechten: CC-O. <br>Objectnummer: PV_PV29329R.5 <br>Plaatsnaam: Leiden <br>Beschrijving: Rembrandtpark gezien vanaf de Wittepoortsbrug naar het noordoosten. Voormalige Kweekschool voor Zeevaart 'Prins Hendrik' op de achtergrond. Witte Singel op de voorgrond. Juli 1986.<br>Formaat: 18 cm x 24 cm<br>Techniek: Foto zwart/wit <br>Datum vervaardiging: 1986 <br>",
+          "source": "commons-desc-page"
+        },
+        "DateTimeOriginal": {
+          "value": "1986",
+          "source": "commons-desc-page"
+        },
+        "Credit": {
+          "value": "<a rel=\"nofollow\" class=\"external free\" href=\"https://www.erfgoedleiden.nl/collecties/beeldmateriaal/zoeken-in-beeldmateriaal/detail/02b747c2-26bd-11e3-a156-3cd92befe4f8/media/3868833\">https://www.erfgoedleiden.nl/collecties/beeldmateriaal/zoeken-in-beeldmateriaal/detail/02b747c2-26bd-11e3-a156-3cd92befe4f8/media/3868833</a>",
+          "source": "commons-desc-page"
+        },
+        "Artist": {
+          "value": "Gemeente Leiden Afdeling Monumentenzorg (Primaire vervaardiger)",
+          "source": "commons-desc-page"
+        },
+        "LicenseShortName": {
+          "value": "CC0",
+          "source": "commons-desc-page",
+          "hidden": ""
+        },
+        "UsageTerms": {
+          "value": "Creative Commons Zero, Public Domain Dedication",
+          "source": "commons-desc-page"
+        },
+        "AttributionRequired": {
+          "value": "false",
+          "source": "commons-desc-page",
+          "hidden": ""
+        },
+        "LicenseUrl": {
+          "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "source": "commons-desc-page"
+        },
+        "Copyrighted": {
+          "value": "True",
+          "source": "commons-desc-page",
+          "hidden": ""
+        },
+        "Restrictions": {
+          "value": "",
+          "source": "commons-desc-page",
+          "hidden": ""
+        },
+        "License": {
+          "value": "cc0",
+          "source": "commons-templates",
+          "hidden": ""
+        }
+      }
+    }
+  ],
+  "revisions": [
+    {
+      "revid": 1215348933,
+      "parentid": 1002338724,
+      "timestamp": "2026-05-17T02:49:53Z"
+    }
+  ]
+}

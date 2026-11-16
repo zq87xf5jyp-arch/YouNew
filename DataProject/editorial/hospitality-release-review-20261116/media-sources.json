@@ -1,0 +1,158 @@
+{
+  "schemaVersion": 1,
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-16",
+  "scope": "Supplemental editorial gallery candidates only; not an activation manifest and not imported by place-review.",
+  "licenseVerification": {
+    "url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "date": "2026-11-16",
+    "requirements": [
+      "credit author and source",
+      "link license",
+      "identify conversion",
+      "ShareAlike for derivatives",
+      "no implied endorsement; image license does not waive other rights"
+    ]
+  },
+  "accepted": [
+    {
+      "entityId": "restaurant.leiden-bikini",
+      "status": "needs_review",
+      "publicationAuthorized": false,
+      "recommendedPlacement": "archive_gallery_only",
+      "heroAllowed": false,
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Haven_1-3,_Leiden.JPG",
+      "sourceRevision": 1174711114,
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/32/Haven_1-3%2C_Leiden.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "author": "Xsandriel",
+      "authorUrl": "https://commons.wikimedia.org/wiki/User:Xsandriel",
+      "captureDate": "2015-09-09 13:46:02",
+      "retrievedAt": "2026-11-16",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "commercialUse": true,
+      "adaptationsAllowed": true,
+      "shareAlikeRequired": true,
+      "sourceIsOwnWork": true,
+      "original": {
+        "width": 4163,
+        "height": 2775,
+        "bytes": 2285816,
+        "sha1": "8444f74404c8b8365fda5ce2f44bf2000062f1bf",
+        "sha256": "0749ccc0f157512bebad91144be2d228c4291d1463deb1a975c46e2156395bd6",
+        "evidenceFile": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/original-44567899.jpg"
+      },
+      "identityEvidence": {
+        "commonsTitle": "File:Haven 1-3, Leiden.JPG",
+        "officialAndBag": "../leiden-hospitality-20261116/source-checks.json",
+        "scope": "Same address/building, not verified current venue appearance"
+      },
+      "captions": {
+        "en": "Haven 1–3, Leiden, photographed on 9 September 2015. Archive view of the building and waterfront; it does not document today’s Bikini restaurant, terrace or signage.",
+        "nl": "Haven 1–3 in Leiden, gefotografeerd op 9 september 2015. Archiefbeeld van het pand en de kade; geen weergave van het huidige restaurant Bikini, terras of de huidige gevelreclame."
+      },
+      "attribution": "Xsandriel / Wikimedia Commons / CC BY-SA 4.0. Resized WebP, no crop or content edits; derivative remains CC BY-SA 4.0.",
+      "variants": {
+        "haven-2015-480.webp": {
+          "width": 480,
+          "height": 320,
+          "bytes": 38390,
+          "sha256": "b4fe631bde7d66ed1c67018e0788b3c0e1fae047fb76d9284ba57ff3cb3945d2"
+        },
+        "haven-2015-800.webp": {
+          "width": 800,
+          "height": 533,
+          "bytes": 89322,
+          "sha256": "5c8e1f6c5d4a5a8a4b66a0013667138fb2ea1689500625008fc5f98353b494f2"
+        },
+        "haven-2015-1200.webp": {
+          "width": 1200,
+          "height": 800,
+          "bytes": 176282,
+          "sha256": "3a52d7377fc5bdba2595fcc49f1f617101ade08c985566ab03aa4795f7348f3b"
+        }
+      }
+    },
+    {
+      "entityId": "cafe.leiden-paco-ciao",
+      "status": "needs_review",
+      "publicationAuthorized": false,
+      "recommendedPlacement": "archive_gallery_only",
+      "heroAllowed": false,
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Leiden_-_Stationsweg_25_v2.jpg",
+      "sourceRevision": 928090424,
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/18/Leiden_-_Stationsweg_25_v2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "author": "Vera de Kok",
+      "authorUrl": "https://commons.wikimedia.org/wiki/User:1Veertje",
+      "captureDate": "2015-03-21 16:56",
+      "retrievedAt": "2026-11-16",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "commercialUse": true,
+      "adaptationsAllowed": true,
+      "shareAlikeRequired": true,
+      "sourceIsOwnWork": true,
+      "original": {
+        "width": 3456,
+        "height": 5184,
+        "bytes": 1835887,
+        "sha1": "ac5d168a3829c3d323be4522c0226bf28ccee835",
+        "sha256": "4166ba97003d69c54d0aed3f11319f2d0d09cc492ed150c1778ee429085f221b",
+        "evidenceFile": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/original-62730706.jpg"
+      },
+      "identityEvidence": {
+        "commonsTitle": "File:Leiden - Stationsweg 25 v2.jpg",
+        "officialAndBag": "../leiden-hospitality-20261116/source-checks.json",
+        "scope": "Same address/building, not verified current venue appearance"
+      },
+      "captions": {
+        "en": "Stationsweg 25, Leiden, photographed on 21 March 2015. Archive view of the building; this is not a photograph of the current Paco Ciao interior or entrance arrangements.",
+        "nl": "Stationsweg 25 in Leiden, gefotografeerd op 21 maart 2015. Archiefbeeld van het pand; geen foto van het huidige interieur of de toegangssituatie van Paco Ciao."
+      },
+      "attribution": "Vera de Kok / Wikimedia Commons / CC BY-SA 4.0. Resized WebP, no crop or content edits; derivative remains CC BY-SA 4.0.",
+      "variants": {
+        "stationsweg25-2015-480.webp": {
+          "width": 480,
+          "height": 720,
+          "bytes": 71488,
+          "sha256": "eb3a1f31317030dea5b94b2b3a418b068f65ce01f03ef19a556e305077d15a83"
+        },
+        "stationsweg25-2015-800.webp": {
+          "width": 800,
+          "height": 1200,
+          "bytes": 182040,
+          "sha256": "b330bf4549473efa03d8066dcfef303ef5f93d0745873954e91ec3d538f68497"
+        },
+        "stationsweg25-2015-1200.webp": {
+          "width": 1200,
+          "height": 1800,
+          "bytes": 353754,
+          "sha256": "381a23fdf5cc63cf3ca6baa5f6f36c62a5df47f5f0523fc751bf08c11434a01d"
+        }
+      }
+    }
+  ],
+  "rejected": [
+    {
+      "pageId": "62606007",
+      "entityId": "restaurant.leiden-tabu",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Leiden_-_Rembrandtstraat_27.jpg",
+      "reason": "Former De Grote Beer/Grolsch signage and construction container; not current Tabu. No current hero or supplemental gallery prepared.",
+      "decision": "rejected",
+      "originalSha256": "20151d60cfc3da95284eb8efefa67fab9bd811860ac798e0b9eda7e77341d978",
+      "noDerivativePrepared": true
+    },
+    {
+      "pageId": "11391999",
+      "entityId": "restaurant.leiden-dende",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:WLM-leiden-20100905-eia_174.JPG",
+      "reason": "Metadata identifies Nieuwe Rijn 3 and 4, not the target address 5; poor framing/sharpness. Exact venue correspondence insufficient.",
+      "decision": "rejected",
+      "originalSha256": "232621bff68a49c4238d2a1d300b0e7173c5dee686bc25f405cae9cc3b1890b6",
+      "noDerivativePrepared": true
+    }
+  ],
+  "oldGapsReference": "../amsterdam-attractions-20261116/media-followup.json",
+  "oldFivePhotosUnchanged": true
+}

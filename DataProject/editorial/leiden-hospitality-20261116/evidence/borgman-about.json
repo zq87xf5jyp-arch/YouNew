@@ -1,0 +1,11 @@
+{
+  "url": "https://www.borgmanborgman.nl/over-ons",
+  "checkedAt": "2026-11-16",
+  "httpStatus": 200,
+  "finalUrl": "https://www.borgmanborgman.nl/over-ons",
+  "sha256": "3c8cd833a4cb7f5f4ecc29fbf2a69d74964232f6be2a83a15696b7c3cf24b192",
+  "recheckedThisBatch": true,
+  "method": "Direct HTTPS, ordinary urllib client; no access-control bypass",
+  "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/borgman-about",
+  "officialLinks": []
+}

@@ -1,0 +1,20 @@
+{
+  "url": "https://www.nieuwekerk.nl/vragen-over-je-bezoek/",
+  "finalUrl": "https://www.nieuwekerk.nl/vragen-over-je-bezoek/",
+  "httpStatus": 200,
+  "checkedAt": "2026-11-16T15:36:40.237Z",
+  "method": "visible standard Chrome page navigation, no proxy/stealth/retry or challenge bypass",
+  "title": "Vragen over je bezoek - De Nieuwe Kerk",
+  "sha256": "121ad8e6e942ca822d4f0d77fccdbc44e2fb497c19e0db366224a79da490fa6f",
+  "priorObservation": {
+    "url": "https://www.nieuwekerk.nl/vragen-over-je-bezoek/",
+    "finalUrl": "https://www.nieuwekerk.nl/vragen-over-je-bezoek/",
+    "httpStatus": 200,
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "2f2cf120fc0c3ffc2a3731408c59b332b1a92358c6c9a1734952b7484065d045",
+    "file": "39f8ebc95050765b.html",
+    "checkedAt": "2026-11-16"
+  },
+  "screenshotEvidence": "/Users/ivan/YouNew-Expansion-20261116-Next-Evidence/nieuwe-faq-browser.png",
+  "rawHTMLRetainedOutsideRepository": "/Users/ivan/YouNew-Expansion-20261116-Next-Evidence/nieuwe-faq-browser.html"
+}

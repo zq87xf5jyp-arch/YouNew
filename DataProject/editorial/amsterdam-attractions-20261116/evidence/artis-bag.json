@@ -1,0 +1,20 @@
+{
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Plantage+Kerklaan+38+Amsterdam&fq=type%3Aadres&rows=3",
+  "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Plantage+Kerklaan+38+Amsterdam&fq=type%3Aadres&rows=3",
+  "httpStatus": 200,
+  "contentType": "application/json;charset=utf-8",
+  "sha256": "45aa83557bd8554582fd2e0f36dc7f954d9017ba7ca547fc5987425c10e5b90f",
+  "file": "0f17c7f27dd2a128.html",
+  "checkedAt": "2026-11-16",
+  "selectedAddress": {
+    "woonplaatsnaam": "Amsterdam",
+    "weergavenaam": "Plantage Kerklaan 38, 1018CZ Amsterdam",
+    "id": "adr-0e4782784553697a455b062082094ceb",
+    "postcode": "1018CZ",
+    "centroide_ll": "POINT(4.91258158 52.36696148)",
+    "nummeraanduiding_id": "0363200000390027",
+    "huisnummer": 38,
+    "straatnaam": "Plantage Kerklaan"
+  },
+  "method": "official BAG address geocoder; not an entrance survey"
+}

@@ -1,0 +1,11 @@
+{
+  "url": "https://www.borgmanborgman.nl/contact-1",
+  "checkedAt": "2026-11-16",
+  "httpStatus": 200,
+  "finalUrl": "https://www.borgmanborgman.nl/contact-1",
+  "sha256": "c8e7d37ae514fe316074ca30db89ffebf3fcaf31ddb4685de9851644c4ced79a",
+  "recheckedThisBatch": true,
+  "method": "Direct HTTPS, ordinary urllib client; no access-control bypass",
+  "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/borgman",
+  "officialLinks": []
+}

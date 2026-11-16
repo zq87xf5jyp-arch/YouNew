@@ -1,0 +1,632 @@
+{
+  "batch_id": "leiden-hospitality-20261116",
+  "publication_status": "draft",
+  "records": [
+    {
+      "id": "cafe.leiden-barista",
+      "entity_type": "cafe",
+      "category": "cafe",
+      "city_id": "leiden",
+      "province_id": "zuid-holland",
+      "coordinates": {
+        "latitude": 52.15947118,
+        "longitude": 4.48970713
+      },
+      "title": "Barista Cafe Leiden",
+      "description": "Coffee, breakfast and lunch in Catharinasteeg, with a courtyard terrace and a separately bookable high tea.",
+      "images": [],
+      "official_source": {
+        "title": "Leiden – Barista Cafe",
+        "publisher": "Barista Cafe Leiden",
+        "url": "https://www.baristacafe.nl/vestiging/leiden/",
+        "is_official": true,
+        "status": "verified_opened",
+        "checked_at": "2026-11-16"
+      },
+      "website": "https://www.baristacafe.nl/vestiging/leiden/",
+      "related_entity_ids": [
+        "place.leiden-burcht"
+      ],
+      "last_checked": "2026-11-16",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Coffee, breakfast and lunch in Catharinasteeg, with a courtyard terrace and a separately bookable high tea.",
+      "search_keywords": [
+        "Barista Cafe Leiden",
+        "cafe",
+        "leiden"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "slug": "barista",
+        "description_nl": "Koffie, ontbijt en lunch in de Catharinasteeg, met een hofjesterras en afzonderlijk te reserveren high tea.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "media_status": "no_verified_current_photo",
+        "catalog_review_batch": "leiden-20261109",
+        "field_review_status": "EN/NL factual draft; human approval pending",
+        "title_source_url": "https://www.baristacafe.nl/vestiging/leiden/",
+        "title_checked_at": "2026-11-09",
+        "category_source_url": "https://www.baristacafe.nl/vestiging/leiden/",
+        "category_checked_at": "2026-11-09",
+        "city_id_source_url": "https://www.baristacafe.nl/vestiging/leiden/",
+        "city_id_checked_at": "2026-11-09",
+        "address": "Catharinasteeg 5, 2311DE Leiden",
+        "address_source_url": "https://www.baristacafe.nl/vestiging/leiden/",
+        "address_checked_at": "2026-11-16",
+        "description_source_url": "https://www.baristacafe.nl/vestiging/leiden/",
+        "description_checked_at": "2026-11-16",
+        "description_nl_source_url": "https://www.baristacafe.nl/vestiging/leiden/",
+        "description_nl_checked_at": "2026-11-16",
+        "website_source_url": "https://www.baristacafe.nl/vestiging/leiden/",
+        "website_checked_at": "2026-11-16",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-16\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"barista\",\"title\":\"Leiden – Barista Cafe\",\"publisher\":\"Barista Cafe Leiden\",\"url\":\"https://www.baristacafe.nl/vestiging/leiden/\",\"is_official\":true,\"status\":\"verified_opened\",\"checked_at\":\"2026-11-16\"},{\"id\":\"barista-menu\",\"title\":\"barista-menu\",\"publisher\":\"Barista Cafe Leiden\",\"url\":\"https://www.cavesco.nl/docs/baristacafe/menukaart_leiden.pdf\",\"is_official\":true,\"status\":\"verified_opened\",\"checked_at\":\"2026-11-16\"},{\"id\":\"bag\",\"title\":\"BAG address: Catharinasteeg 5, 2311DE Leiden\",\"publisher\":\"PDOK / Kadaster\",\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Catharinasteeg+5%2C+Leiden&fq=type%3Aadres&rows=5\",\"is_official\":true,\"status\":\"verified_opened\",\"checked_at\":\"2026-11-16\"}],\"tickets\":null,\"coordinateEvidence\":{\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Catharinasteeg+5%2C+Leiden&fq=type%3Aadres&rows=5\",\"method\":\"Exact street/house number matched to venue official address; BAG address point, not surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.15947118,4.48970713\"},\"locales\":{\"en\":{\"alt\":\"\",\"blocks\":[{\"id\":\"setting\",\"title\":\"The courtyard café\",\"text\":\"The café occupies a historic building with a courtyard terrace. The branch describes breakfast, lunch and homemade cakes.\",\"source_ids\":[\"barista\"]},{\"id\":\"hours\",\"title\":\"Opening hours\",\"text\":\"Monday–Friday and Sunday 09:30–17:00; Saturday 09:00–17:00. Recheck holiday exceptions with the branch.\",\"source_ids\":[\"barista\"]},{\"id\":\"prices\",\"title\":\"Menu examples\",\"text\":\"The linked Leiden menu lists a flat white at €4.70 and apple pie at €5.25. Prices were checked on 16 November 2026; extras are separate.\",\"source_ids\":[\"barista-menu\"]},{\"id\":\"planning\",\"title\":\"High tea and allergies\",\"text\":\"Reserve high tea at least 24 hours ahead. The branch links an allergen list; discuss your requirements with staff.\",\"source_ids\":[\"barista-menu\",\"barista\"]},{\"id\":\"address\",\"title\":\"Find the café\",\"text\":\"Catharinasteeg 5, Leiden. Use the branch contact or reservation link for visit questions.\",\"source_ids\":[\"barista\"]}]},\"nl\":{\"alt\":\"\",\"blocks\":[{\"id\":\"setting\",\"title\":\"Het hofjescafé\",\"text\":\"Het café zit in een historisch pand met hofjesterras. De vestiging biedt ontbijt, lunch en huisgemaakt gebak.\",\"source_ids\":[\"barista\"]},{\"id\":\"hours\",\"title\":\"Openingstijden\",\"text\":\"Maandag–vrijdag en zondag 09.30–17.00; zaterdag 09.00–17.00. Vraag de vestiging naar afwijkende feestdagen.\",\"source_ids\":[\"barista\"]},{\"id\":\"prices\",\"title\":\"Voorbeelden van de kaart\",\"text\":\"De gekoppelde Leidse kaart noemt een flat white voor €4,70 en appeltaart voor €5,25. Gecontroleerd op 16 november 2026; extra’s komen erbij.\",\"source_ids\":[\"barista-menu\"]},{\"id\":\"planning\",\"title\":\"High tea en allergieën\",\"text\":\"Reserveer high tea minimaal 24 uur vooraf. De vestiging linkt naar een allergenenlijst; bespreek je wensen met het personeel.\",\"source_ids\":[\"barista-menu\",\"barista\"]},{\"id\":\"address\",\"title\":\"Vind het café\",\"text\":\"Catharinasteeg 5, Leiden. Gebruik het contact- of reserveringsformulier van de vestiging voor bezoekvragen.\",\"source_ids\":[\"barista\"]}]}}}"
+      }
+    },
+    {
+      "id": "cafe.leiden-borgman",
+      "entity_type": "cafe",
+      "category": "cafe",
+      "city_id": "leiden",
+      "province_id": "zuid-holland",
+      "coordinates": {
+        "latitude": 52.15731757,
+        "longitude": 4.49324429
+      },
+      "title": "Borgman Borgman",
+      "description": "A coffee roastery and café on Nieuwe Rijn, with breakfast and lunch. Tables are for walk-ins.",
+      "images": [],
+      "official_source": {
+        "title": "contact | borgmanborgman",
+        "publisher": "Borgman Borgman",
+        "url": "https://www.borgmanborgman.nl/contact-1",
+        "is_official": true,
+        "status": "verified_opened",
+        "checked_at": "2026-11-16"
+      },
+      "website": "https://www.borgmanborgman.nl/contact-1",
+      "related_entity_ids": [
+        "place.leiden-burcht"
+      ],
+      "last_checked": "2026-11-16",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "A coffee roastery and café on Nieuwe Rijn, with breakfast and lunch. Tables are for walk-ins.",
+      "search_keywords": [
+        "Borgman Borgman",
+        "cafe",
+        "leiden"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "slug": "borgman",
+        "description_nl": "Koffiebranderij en café aan de Nieuwe Rijn, met ontbijt en lunch. Je loopt binnen zonder reservering.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "media_status": "no_verified_current_photo",
+        "catalog_review_batch": "leiden-20261109",
+        "field_review_status": "EN/NL factual draft; human approval pending",
+        "title_source_url": "https://www.borgmanborgman.nl/contact-1",
+        "title_checked_at": "2026-11-09",
+        "category_source_url": "https://www.borgmanborgman.nl/contact-1",
+        "category_checked_at": "2026-11-09",
+        "city_id_source_url": "https://www.borgmanborgman.nl/contact-1",
+        "city_id_checked_at": "2026-11-09",
+        "address": "Nieuwe Rijn 41, 2312JG Leiden",
+        "address_source_url": "https://www.borgmanborgman.nl/contact-1",
+        "address_checked_at": "2026-11-16",
+        "description_source_url": "https://www.borgmanborgman.nl/contact-1",
+        "description_checked_at": "2026-11-16",
+        "description_nl_source_url": "https://www.borgmanborgman.nl/contact-1",
+        "description_nl_checked_at": "2026-11-16",
+        "website_source_url": "https://www.borgmanborgman.nl/contact-1",
+        "website_checked_at": "2026-11-16",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-16\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"borgman-about\",\"title\":\"over ons | borgmanborgman\",\"publisher\":\"Borgman Borgman\",\"url\":\"https://www.borgmanborgman.nl/over-ons\",\"is_official\":true,\"status\":\"verified_opened\",\"checked_at\":\"2026-11-16\"},{\"id\":\"borgman\",\"title\":\"contact | borgmanborgman\",\"publisher\":\"Borgman Borgman\",\"url\":\"https://www.borgmanborgman.nl/contact-1\",\"is_official\":true,\"status\":\"verified_opened\",\"checked_at\":\"2026-11-16\"},{\"id\":\"borgman-menu\",\"title\":\"menu | borgmanborgman\",\"publisher\":\"Borgman Borgman\",\"url\":\"https://www.borgmanborgman.nl/menu\",\"is_official\":true,\"status\":\"verified_opened\",\"checked_at\":\"2026-11-16\"},{\"id\":\"bag\",\"title\":\"BAG address: Nieuwe Rijn 41, 2312JG Leiden\",\"publisher\":\"PDOK / Kadaster\",\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Nieuwe+Rijn+41%2C+2312+JG+Leiden&fq=type%3Aadres&rows=5\",\"is_official\":true,\"status\":\"verified_opened\",\"checked_at\":\"2026-11-16\"}],\"tickets\":null,\"coordinateEvidence\":{\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Nieuwe+Rijn+41%2C+2312+JG+Leiden&fq=type%3Aadres&rows=5\",\"method\":\"Exact street/house number matched to venue official address; BAG address point, not surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.15731757,4.49324429\"},\"locales\":{\"en\":{\"alt\":\"\",\"blocks\":[{\"id\":\"setting\",\"title\":\"Coffee roasting\",\"text\":\"Borgman Borgman says it began selecting and roasting beans in 2013 and roasts several times a week. This is a working café, not a scheduled factory tour.\",\"source_ids\":[\"borgman-about\"]},{\"id\":\"hours\",\"title\":\"Opening hours\",\"text\":\"Closed Monday; Tuesday–Saturday 08:30–17:00; Sunday 10:00–17:00. Check exceptions before travelling.\",\"source_ids\":[\"borgman\"]},{\"id\":\"booking\",\"title\":\"Walk in\",\"text\":\"The contact page states walk-ins only. A table is not guaranteed; call for practical questions rather than assuming a reservation.\",\"source_ids\":[\"borgman\"]},{\"id\":\"menu\",\"title\":\"Food and prices\",\"text\":\"Breakfast, lunch and something sweet are offered. No reliable item prices were extracted from the menu page; consult the café’s current menu.\",\"source_ids\":[\"borgman-about\",\"borgman-menu\"]},{\"id\":\"address\",\"title\":\"Find Borgman Borgman\",\"text\":\"Nieuwe Rijn 41, 2312 JG Leiden. The official contact page lists 071 566 5537.\",\"source_ids\":[\"borgman\"]}]},\"nl\":{\"alt\":\"\",\"blocks\":[{\"id\":\"setting\",\"title\":\"Koffiebranden\",\"text\":\"Borgman Borgman selecteert en brandt volgens de eigen website sinds 2013 bonen, meerdere keren per week. Dit is een café, geen aangekondigde rondleiding door een fabriek.\",\"source_ids\":[\"borgman-about\"]},{\"id\":\"hours\",\"title\":\"Openingstijden\",\"text\":\"Maandag gesloten; dinsdag–zaterdag 08.30–17.00; zondag 10.00–17.00. Controleer uitzonderingen voor vertrek.\",\"source_ids\":[\"borgman\"]},{\"id\":\"booking\",\"title\":\"Loop binnen\",\"text\":\"De contactpagina vermeldt alleen vrije inloop. Een tafel is niet gegarandeerd; bel voor praktische vragen en ga niet uit van een reservering.\",\"source_ids\":[\"borgman\"]},{\"id\":\"menu\",\"title\":\"Eten en prijzen\",\"text\":\"Er is ontbijt, lunch en iets zoets. Uit de menupagina zijn geen betrouwbare gerechtprijzen gehaald; raadpleeg de actuele kaart in het café.\",\"source_ids\":[\"borgman-about\",\"borgman-menu\"]},{\"id\":\"address\",\"title\":\"Vind Borgman Borgman\",\"text\":\"Nieuwe Rijn 41, 2312 JG Leiden. De officiële contactpagina vermeldt 071 566 5537.\",\"source_ids\":[\"borgman\"]}]}}}"
+      }
+    },
+    {
+      "id": "cafe.leiden-brownies",
+      "entity_type": "cafe",
+      "category": "cafe",
+      "city_id": "leiden",
+      "province_id": "zuid-holland",
+      "coordinates": {
+        "latitude": 52.15976175,
+        "longitude": 4.48977905
+      },
+      "title": "Brownies&downieS Leiden",
+      "description": "A daytime café on the Aalmarkt with a waterside terrace, city garden and facilities for families.",
+      "images": [],
+      "official_source": {
+        "title": "Leiden | Brownies&downieS",
+        "publisher": "Brownies&downieS Leiden",
+        "url": "https://www.browniesanddownies.nl/leiden",
+        "is_official": true,
+        "status": "verified_opened",
+        "checked_at": "2026-11-16"
+      },
+      "website": "https://www.browniesanddownies.nl/leiden",
+      "related_entity_ids": [
+        "place.leiden-burcht"
+      ],
+      "last_checked": "2026-11-16",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "A daytime café on the Aalmarkt with a waterside terrace, city garden and facilities for families.",
+      "search_keywords": [
+        "Brownies&downieS Leiden",
+        "cafe",
+        "leiden"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "slug": "brownies",
+        "description_nl": "Een dagcafé aan de Aalmarkt met terras aan het water, stadstuin en voorzieningen voor gezinnen.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "media_status": "no_verified_current_photo",
+        "catalog_review_batch": "leiden-20261109",
+        "field_review_status": "EN/NL factual draft; human approval pending",
+        "title_source_url": "https://www.browniesanddownies.nl/leiden",
+        "title_checked_at": "2026-11-09",
+        "category_source_url": "https://www.browniesanddownies.nl/leiden",
+        "category_checked_at": "2026-11-09",
+        "city_id_source_url": "https://www.browniesanddownies.nl/leiden",
+        "city_id_checked_at": "2026-11-09",
+        "address": "Aalmarkt 11, 2311EC Leiden",
+        "address_source_url": "https://www.browniesanddownies.nl/leiden",
+        "address_checked_at": "2026-11-16",
+        "description_source_url": "https://www.browniesanddownies.nl/leiden",
+        "description_checked_at": "2026-11-16",
+        "description_nl_source_url": "https://www.browniesanddownies.nl/leiden",
+        "description_nl_checked_at": "2026-11-16",
+        "website_source_url": "https://www.browniesanddownies.nl/leiden",
+        "website_checked_at": "2026-11-16",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-16\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"brownies\",\"title\":\"Leiden | Brownies&downieS\",\"publisher\":\"Brownies&downieS Leiden\",\"url\":\"https://www.browniesanddownies.nl/leiden\",\"is_official\":true,\"status\":\"verified_opened\",\"checked_at\":\"2026-11-16\"},{\"id\":\"bag\",\"title\":\"BAG address: Aalmarkt 11, 2311EC Leiden\",\"publisher\":\"PDOK / Kadaster\",\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Aalmarkt+11%2C+2311+EC+Leiden&fq=type%3Aadres&rows=5\",\"is_official\":true,\"status\":\"verified_opened\",\"checked_at\":\"2026-11-16\"}],\"tickets\":null,\"coordinateEvidence\":{\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Aalmarkt+11%2C+2311+EC+Leiden&fq=type%3Aadres&rows=5\",\"method\":\"Exact street/house number matched to venue official address; BAG address point, not surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.15976175,4.48977905\"},\"locales\":{\"en\":{\"alt\":\"\",\"blocks\":[{\"id\":\"setting\",\"title\":\"By the Oude Rijn\",\"text\":\"The branch describes a historic building, waterside terrace and separate city garden. Coffee, breakfast, lunch and high tea are offered.\",\"source_ids\":[\"brownies\"]},{\"id\":\"hours\",\"title\":\"Opening hours\",\"text\":\"Monday 11:00–17:00; Tuesday–Friday 09:30–17:00; Saturday 09:00–17:00; Sunday closed. Holiday hours may differ.\",\"source_ids\":[\"brownies\"]},{\"id\":\"access\",\"title\":\"Families and access\",\"text\":\"The operator describes wheelchair-friendly access, a children’s corner and a baby-changing area. Ask about your specific access needs; no measurements were independently checked.\",\"source_ids\":[\"brownies\"]},{\"id\":\"prices\",\"title\":\"Before ordering\",\"text\":\"The branch page does not provide a priced menu. Ask for current prices; takeaway coffee, sandwiches and sweets are listed.\",\"source_ids\":[\"brownies\"]},{\"id\":\"address\",\"title\":\"Find the café\",\"text\":\"Aalmarkt 11, 2311 EC Leiden; 071 303 01 47. Contact the branch about group or catering requests.\",\"source_ids\":[\"brownies\"]}]},\"nl\":{\"alt\":\"\",\"blocks\":[{\"id\":\"setting\",\"title\":\"Aan de Oude Rijn\",\"text\":\"De vestiging beschrijft een monumentaal pand, terras aan het water en aparte stadstuin. Er is koffie, ontbijt, lunch en high tea.\",\"source_ids\":[\"brownies\"]},{\"id\":\"hours\",\"title\":\"Openingstijden\",\"text\":\"Maandag 11.00–17.00; dinsdag–vrijdag 09.30–17.00; zaterdag 09.00–17.00; zondag gesloten. Feestdagen kunnen afwijken.\",\"source_ids\":[\"brownies\"]},{\"id\":\"access\",\"title\":\"Gezinnen en toegang\",\"text\":\"De exploitant noemt rolstoelvriendelijke toegang, een kinderhoek en een verschoonplek. Vraag naar je eigen toegankelijkheidsbehoeften; maten zijn niet onafhankelijk gecontroleerd.\",\"source_ids\":[\"brownies\"]},{\"id\":\"prices\",\"title\":\"Voor je bestelt\",\"text\":\"De vestigingspagina bevat geen kaart met prijzen. Vraag naar actuele bedragen; koffie, broodjes en zoetigheden zijn ook om mee te nemen.\",\"source_ids\":[\"brownies\"]},{\"id\":\"address\",\"title\":\"Vind het café\",\"text\":\"Aalmarkt 11, 2311 EC Leiden; 071 303 01 47. Neem voor groeps- of cateringvragen contact op met de vestiging.\",\"source_ids\":[\"brownies\"]}]}}}"
+      }
+    },
+    {
+      "id": "cafe.leiden-30ml",
+      "entity_type": "cafe",
+      "category": "cafe",
+      "city_id": "leiden",
+      "province_id": "zuid-holland",
+      "coordinates": {
+        "latitude": 52.15772484,
+        "longitude": 4.49184004
+      },
+      "title": "30ML Leiden",
+      "description": "Coffee, breakfast and lunch on the Botermarkt, with a summer terrace and an official chain menu linked by the Leiden branch.",
+      "images": [],
+      "official_source": {
+        "title": "30ML Leiden - 30ML",
+        "publisher": "30ML Leiden",
+        "url": "https://30ml.nl/en/locations/30ml-leiden/",
+        "is_official": true,
+        "status": "verified_opened",
+        "checked_at": "2026-11-16"
+      },
+      "website": "https://30ml.nl/en/locations/30ml-leiden/",
+      "related_entity_ids": [
+        "place.leiden-burcht"
+      ],
+      "last_checked": "2026-11-16",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Coffee, breakfast and lunch on the Botermarkt, with a summer terrace and an official chain menu linked by the Leiden branch.",
+      "search_keywords": [
+        "30ML Leiden",
+        "cafe",
+        "leiden"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "slug": "30ml",
+        "description_nl": "Koffie, ontbijt en lunch aan de Botermarkt, met zomerterras en de officiële ketenkaart waarnaar de Leidse vestiging verwijst.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "media_status": "no_verified_current_photo",
+        "catalog_review_batch": "leiden-20261109",
+        "field_review_status": "EN/NL factual draft; human approval pending",
+        "title_source_url": "https://30ml.nl/en/locations/30ml-leiden/",
+        "title_checked_at": "2026-11-09",
+        "category_source_url": "https://30ml.nl/en/locations/30ml-leiden/",
+        "category_checked_at": "2026-11-09",
+        "city_id_source_url": "https://30ml.nl/en/locations/30ml-leiden/",
+        "city_id_checked_at": "2026-11-09",
+        "address": "Botermarkt 3, 2311EM Leiden",
+        "address_source_url": "https://30ml.nl/en/locations/30ml-leiden/",
+        "address_checked_at": "2026-11-16",
+        "description_source_url": "https://30ml.nl/en/locations/30ml-leiden/",
+        "description_checked_at": "2026-11-16",
+        "description_nl_source_url": "https://30ml.nl/en/locations/30ml-leiden/",
+        "description_nl_checked_at": "2026-11-16",
+        "website_source_url": "https://30ml.nl/en/locations/30ml-leiden/",
+        "website_checked_at": "2026-11-16",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-16\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"ml\",\"title\":\"30ML Leiden - 30ML\",\"publisher\":\"30ML Leiden\",\"url\":\"https://30ml.nl/en/locations/30ml-leiden/\",\"is_official\":true,\"status\":\"verified_opened\",\"checked_at\":\"2026-11-16\"},{\"id\":\"ml-menu\",\"title\":\"Our menu - 30ML\",\"publisher\":\"30ML Leiden\",\"url\":\"https://30ml.nl/en/menu/\",\"is_official\":true,\"status\":\"verified_opened\",\"checked_at\":\"2026-11-16\"},{\"id\":\"bag\",\"title\":\"BAG address: Botermarkt 3, 2311EM Leiden\",\"publisher\":\"PDOK / Kadaster\",\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Botermarkt+3%2C+2311+EM+Leiden&fq=type%3Aadres&rows=5\",\"is_official\":true,\"status\":\"verified_opened\",\"checked_at\":\"2026-11-16\"}],\"tickets\":null,\"coordinateEvidence\":{\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Botermarkt+3%2C+2311+EM+Leiden&fq=type%3Aadres&rows=5\",\"method\":\"Exact street/house number matched to venue official address; BAG address point, not surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.15772484,4.49184004\"},\"locales\":{\"en\":{\"alt\":\"\",\"blocks\":[{\"id\":\"setting\",\"title\":\"On the Botermarkt\",\"text\":\"The Leiden branch serves breakfast and lunch and describes a summer terrace overlooking the Botermarktbrug. Outdoor seating is seasonal.\",\"source_ids\":[\"ml\"]},{\"id\":\"hours\",\"title\":\"Opening hours\",\"text\":\"Monday and Sunday 10:00–17:00; Tuesday–Saturday 09:00–17:00 according to the branch page.\",\"source_ids\":[\"ml\"]},{\"id\":\"prices\",\"title\":\"Linked menu examples\",\"text\":\"The linked chain menu lists a croissant at €3.50 and avocado toast at €10.50, checked 16 November 2026. Confirm Leiden availability and extras before ordering.\",\"source_ids\":[\"ml-menu\"]},{\"id\":\"choices\",\"title\":\"Check ingredients\",\"text\":\"The menu distinguishes vegan grilled cheese from dairy-based toasties. Tell staff about allergies; a vegan label is not an allergen-free guarantee.\",\"source_ids\":[\"ml-menu\"]},{\"id\":\"address\",\"title\":\"Find 30ML Leiden\",\"text\":\"Botermarkt 3, 2311 EM Leiden. The map point is the BAG address for number 3, not neighbouring apartments 3A or 3B.\",\"source_ids\":[\"ml\"]}]},\"nl\":{\"alt\":\"\",\"blocks\":[{\"id\":\"setting\",\"title\":\"Aan de Botermarkt\",\"text\":\"De Leidse vestiging serveert ontbijt en lunch en noemt een zomerterras met uitzicht op de Botermarktbrug. Buiten zitten is seizoensgebonden.\",\"source_ids\":[\"ml\"]},{\"id\":\"hours\",\"title\":\"Openingstijden\",\"text\":\"Volgens de vestigingspagina maandag en zondag 10.00–17.00; dinsdag–zaterdag 09.00–17.00.\",\"source_ids\":[\"ml\"]},{\"id\":\"prices\",\"title\":\"Voorbeelden van de gekoppelde kaart\",\"text\":\"De gekoppelde ketenkaart noemt een croissant voor €3,50 en avocadotoast voor €10,50, gecontroleerd op 16 november 2026. Bevestig beschikbaarheid in Leiden en extra’s voor je bestelt.\",\"source_ids\":[\"ml-menu\"]},{\"id\":\"choices\",\"title\":\"Controleer ingrediënten\",\"text\":\"De kaart onderscheidt een vegan tosti van tosti’s met zuivel. Meld allergieën; vegan betekent niet automatisch allergeenvrij.\",\"source_ids\":[\"ml-menu\"]},{\"id\":\"address\",\"title\":\"Vind 30ML Leiden\",\"text\":\"Botermarkt 3, 2311 EM Leiden. De kaart gebruikt het BAG-adres van nummer 3, niet de naastgelegen appartementen 3A of 3B.\",\"source_ids\":[\"ml\"]}]}}}"
+      }
+    },
+    {
+      "id": "cafe.leiden-paco-ciao",
+      "entity_type": "cafe",
+      "category": "cafe",
+      "city_id": "leiden",
+      "province_id": "zuid-holland",
+      "coordinates": {
+        "latitude": 52.16498223,
+        "longitude": 4.48417669
+      },
+      "title": "Paco Ciao",
+      "description": "Breakfast, lunch, dinner and cocktails at Stationsweg 25. Check the menu section as dishes and portions differ between services.",
+      "images": [],
+      "official_source": {
+        "title": "Contact - Paco Ciao",
+        "publisher": "Paco Ciao",
+        "url": "https://pacociao.nl/en/contact/",
+        "is_official": true,
+        "status": "verified_opened",
+        "checked_at": "2026-11-16"
+      },
+      "website": "https://pacociao.nl/en/contact/",
+      "related_entity_ids": [
+        "place.leiden-burcht"
+      ],
+      "last_checked": "2026-11-16",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Breakfast, lunch, dinner and cocktails at Stationsweg 25. Check the menu section as dishes and portions differ between services.",
+      "search_keywords": [
+        "Paco Ciao",
+        "cafe",
+        "leiden"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "slug": "paco-ciao",
+        "description_nl": "Ontbijt, lunch, diner en cocktails aan Stationsweg 25. Bekijk het juiste kaartonderdeel: gerechten en porties verschillen per service.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "media_status": "no_verified_current_photo",
+        "catalog_review_batch": "leiden-20261109",
+        "field_review_status": "EN/NL factual draft; human approval pending",
+        "title_source_url": "https://pacociao.nl/en/contact/",
+        "title_checked_at": "2026-11-09",
+        "category_source_url": "https://pacociao.nl/en/contact/",
+        "category_checked_at": "2026-11-09",
+        "city_id_source_url": "https://pacociao.nl/en/contact/",
+        "city_id_checked_at": "2026-11-09",
+        "address": "Stationsweg 25, 2312AS Leiden",
+        "address_source_url": "https://pacociao.nl/en/contact/",
+        "address_checked_at": "2026-11-16",
+        "description_source_url": "https://pacociao.nl/en/contact/",
+        "description_checked_at": "2026-11-16",
+        "description_nl_source_url": "https://pacociao.nl/en/contact/",
+        "description_nl_checked_at": "2026-11-16",
+        "website_source_url": "https://pacociao.nl/en/contact/",
+        "website_checked_at": "2026-11-16",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-16\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"paco-menu\",\"title\":\"Menu - Paco Ciao\",\"publisher\":\"Paco Ciao\",\"url\":\"https://pacociao.nl/en/menu/\",\"is_official\":true,\"status\":\"verified_opened\",\"checked_at\":\"2026-11-16\"},{\"id\":\"paco-pdf\",\"title\":\"paco-pdf\",\"publisher\":\"Paco Ciao\",\"url\":\"https://pacociao.nl/wp-content/uploads/2026/11/PC26_OnlineMenu_20261105.pdf\",\"is_official\":true,\"status\":\"verified_opened\",\"checked_at\":\"2026-11-16\"},{\"id\":\"paco\",\"title\":\"Contact - Paco Ciao\",\"publisher\":\"Paco Ciao\",\"url\":\"https://pacociao.nl/en/contact/\",\"is_official\":true,\"status\":\"verified_opened\",\"checked_at\":\"2026-11-16\"},{\"id\":\"bag\",\"title\":\"BAG address: Stationsweg 25, 2312AS Leiden\",\"publisher\":\"PDOK / Kadaster\",\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Stationsweg+25%2C+Leiden&fq=type%3Aadres&rows=5\",\"is_official\":true,\"status\":\"verified_opened\",\"checked_at\":\"2026-11-16\"}],\"tickets\":null,\"coordinateEvidence\":{\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Stationsweg+25%2C+Leiden&fq=type%3Aadres&rows=5\",\"method\":\"Exact street/house number matched to venue official address; BAG address point, not surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.16498223,4.48417669\"},\"locales\":{\"en\":{\"alt\":\"\",\"blocks\":[{\"id\":\"setting\",\"title\":\"Choose your meal\",\"text\":\"Paco Ciao’s official menu covers breakfast, sandwiches, plates and dinner. A dish listed at lunch may have another portion or price at dinner.\",\"source_ids\":[\"paco-menu\",\"paco-pdf\"]},{\"id\":\"hours\",\"title\":\"Opening hours\",\"text\":\"Monday–Thursday 10:00–00:00; Friday–Saturday 09:00–00:00; Sunday 09:00–23:00. These are venue hours, not a promise of every menu throughout the day.\",\"source_ids\":[\"paco\"]},{\"id\":\"prices\",\"title\":\"Menu examples\",\"text\":\"The linked November menu lists Banoffee Pancakes at €12.50 and a dinner beef burger with fries at €21.50. Checked 16 November 2026; drinks are separate.\",\"source_ids\":[\"paco-pdf\"]},{\"id\":\"planning\",\"title\":\"Booking and dietary needs\",\"text\":\"Use the official table-booking link. An asterisk on the menu means vegan or a vegan option is possible; ask staff which version you are ordering.\",\"source_ids\":[\"paco-menu\",\"paco-pdf\"]},{\"id\":\"address\",\"title\":\"Find Paco Ciao\",\"text\":\"Stationsweg 25, Leiden. Follow the venue contact page for questions about your visit.\",\"source_ids\":[\"paco\"]}]},\"nl\":{\"alt\":\"\",\"blocks\":[{\"id\":\"setting\",\"title\":\"Kies je eetmoment\",\"text\":\"De officiële kaart omvat ontbijt, broodjes, plates en diner. Een lunchgerecht kan bij het diner een andere portie of prijs hebben.\",\"source_ids\":[\"paco-menu\",\"paco-pdf\"]},{\"id\":\"hours\",\"title\":\"Openingstijden\",\"text\":\"Maandag–donderdag 10.00–00.00; vrijdag–zaterdag 09.00–00.00; zondag 09.00–23.00. Dit zijn openingstijden, geen garantie dat iedere kaart steeds beschikbaar is.\",\"source_ids\":[\"paco\"]},{\"id\":\"prices\",\"title\":\"Voorbeelden van de kaart\",\"text\":\"De gekoppelde novemberkaart noemt Banoffee Pancakes voor €12,50 en een dinerburger met friet voor €21,50. Gecontroleerd op 16 november 2026; drankjes zijn apart.\",\"source_ids\":[\"paco-pdf\"]},{\"id\":\"planning\",\"title\":\"Reserveren en dieetwensen\",\"text\":\"Gebruik de officiële reserveringslink. Een sterretje betekent vegan of mogelijk als vegan variant; vraag welke uitvoering je bestelt.\",\"source_ids\":[\"paco-menu\",\"paco-pdf\"]},{\"id\":\"address\",\"title\":\"Vind Paco Ciao\",\"text\":\"Stationsweg 25, Leiden. Gebruik de contactpagina van het café voor vragen over je bezoek.\",\"source_ids\":[\"paco\"]}]}}}"
+      }
+    },
+    {
+      "id": "place.leiden-cafe-laken",
+      "entity_type": "cafe",
+      "category": "cafe",
+      "city_id": "leiden",
+      "province_id": "zuid-holland",
+      "coordinates": {
+        "latitude": 52.1628594,
+        "longitude": 4.48728587
+      },
+      "title": "Café Laken",
+      "description": "Museum De Lakenhal’s café on the Oude Singel welcomes museum visitors and people stopping by from the city.",
+      "images": [
+        {
+          "id": "media.place.leiden-cafe-laken.building-2015",
+          "role": "hero",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:Leiden_-_Lakenhal_.jpg",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Leiden_-_Lakenhal_.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "public_asset_path": "/images/place-review/cafelaken-1200.webp",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "attribution": "Vera de Kok · 2015-03-21 · resized WebP, no content edits",
+          "verified": true,
+          "retrieved_at": "2026-11-15",
+          "alt": "Museum De Lakenhal exterior, 2015; building context only, not the present café interior"
+        }
+      ],
+      "official_source": {
+        "title": "Home - Café Laken",
+        "publisher": "Café Laken",
+        "url": "https://www.cafelaken.nl/",
+        "is_official": true,
+        "status": "verified_opened",
+        "checked_at": "2026-11-16"
+      },
+      "website": "https://www.cafelaken.nl/",
+      "related_entity_ids": [
+        "place.leiden-lakenhal"
+      ],
+      "last_checked": "2026-11-16",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Museum De Lakenhal’s café on the Oude Singel welcomes museum visitors and people stopping by from the city.",
+      "search_keywords": [
+        "Café Laken",
+        "cafe",
+        "leiden"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "slug": "cafe-laken",
+        "description_nl": "Het café van Museum De Lakenhal aan de Oude Singel verwelkomt museumbezoekers en mensen die vanuit de stad binnenlopen.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "media_status": "no_verified_current_photo",
+        "catalog_review_batch": "leiden-20261109",
+        "field_review_status": "EN/NL factual draft; human approval pending",
+        "title_source_url": "https://www.cafelaken.nl/",
+        "title_checked_at": "2026-11-09",
+        "category_source_url": "https://www.cafelaken.nl/",
+        "category_checked_at": "2026-11-09",
+        "city_id_source_url": "https://www.cafelaken.nl/",
+        "city_id_checked_at": "2026-11-09",
+        "address": "Oude Singel 30, 2312RA Leiden",
+        "address_source_url": "https://www.cafelaken.nl/",
+        "address_checked_at": "2026-11-16",
+        "description_source_url": "https://www.cafelaken.nl/",
+        "description_checked_at": "2026-11-16",
+        "description_nl_source_url": "https://www.cafelaken.nl/",
+        "description_nl_checked_at": "2026-11-16",
+        "website_source_url": "https://www.cafelaken.nl/",
+        "website_checked_at": "2026-11-16",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-16\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"laken\",\"title\":\"Home - Café Laken\",\"publisher\":\"Café Laken\",\"url\":\"https://www.cafelaken.nl/\",\"is_official\":true,\"status\":\"verified_opened\",\"checked_at\":\"2026-11-16\"},{\"id\":\"bag\",\"title\":\"BAG address: Oude Singel 30, 2312RA Leiden\",\"publisher\":\"PDOK / Kadaster\",\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Oude+Singel+30%2C+2312+RA+Leiden&fq=type%3Aadres&rows=5\",\"is_official\":true,\"status\":\"verified_opened\",\"checked_at\":\"2026-11-16\"}],\"tickets\":null,\"coordinateEvidence\":{\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Oude+Singel+30%2C+2312+RA+Leiden&fq=type%3Aadres&rows=5\",\"method\":\"Exact street/house number matched to venue official address; BAG address point, not surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.1628594,4.48728587\"},\"locales\":{\"en\":{\"alt\":\"Museum De Lakenhal exterior, 2015; building context only, not the present café interior\",\"blocks\":[{\"id\":\"setting\",\"title\":\"A museum café\",\"text\":\"Café Laken is the café of Museum De Lakenhal. Its website also welcomes shoppers and neighbours; this does not imply free admission to the museum galleries.\",\"source_ids\":[\"laken\"]},{\"id\":\"hours\",\"title\":\"Opening hours\",\"text\":\"Tuesday–Sunday 10:00–17:00. Private events outside these hours are separately arranged.\",\"source_ids\":[\"laken\"]},{\"id\":\"booking\",\"title\":\"No table reservations\",\"text\":\"The café does not take reservations because museum visitor numbers fluctuate. Contact the operator separately about an event.\",\"source_ids\":[\"laken\"]},{\"id\":\"payment\",\"title\":\"Cards and prices\",\"text\":\"Payment is by debit or credit card only. No item prices were confirmed from the opened page; consult the current café menu.\",\"source_ids\":[\"laken\"]},{\"id\":\"address\",\"title\":\"Find Café Laken\",\"text\":\"Oude Singel 30, 2312 RA Leiden. The museum building photograph is dated 2015 and does not show today’s café interior.\",\"source_ids\":[\"laken\"]}]},\"nl\":{\"alt\":\"Buitenkant Museum De Lakenhal, 2015; alleen het gebouw, niet het huidige café-interieur\",\"blocks\":[{\"id\":\"setting\",\"title\":\"Een museumcafé\",\"text\":\"Café Laken is het café van Museum De Lakenhal. De website verwelkomt ook winkelend publiek en buurtbewoners; dat betekent geen gratis toegang tot de museumzalen.\",\"source_ids\":[\"laken\"]},{\"id\":\"hours\",\"title\":\"Openingstijden\",\"text\":\"Dinsdag–zondag 10.00–17.00. Besloten evenementen buiten deze tijden worden apart afgesproken.\",\"source_ids\":[\"laken\"]},{\"id\":\"booking\",\"title\":\"Geen tafelreserveringen\",\"text\":\"Het café neemt wegens wisselende museumdrukte geen reserveringen aan. Neem voor een evenement afzonderlijk contact op met de exploitant.\",\"source_ids\":[\"laken\"]},{\"id\":\"payment\",\"title\":\"Kaarten en prijzen\",\"text\":\"Betalen kan alleen met pin of creditcard. Op de geopende pagina zijn geen gerechtprijzen bevestigd; bekijk de actuele cafékaart.\",\"source_ids\":[\"laken\"]},{\"id\":\"address\",\"title\":\"Vind Café Laken\",\"text\":\"Oude Singel 30, 2312 RA Leiden. De foto van het museumgebouw dateert uit 2015 en toont niet het huidige café-interieur.\",\"source_ids\":[\"laken\"]}]}}}"
+      }
+    },
+    {
+      "id": "restaurant.leiden-bikini",
+      "entity_type": "restaurant",
+      "category": "restaurant",
+      "city_id": "leiden",
+      "province_id": "zuid-holland",
+      "coordinates": {
+        "latitude": 52.16140868,
+        "longitude": 4.50273988
+      },
+      "title": "Bikini Bikini",
+      "description": "A café-restaurant at Leiden’s harbour offering Mediterranean sharing dishes, with separate daytime and evening menus.",
+      "images": [],
+      "official_source": {
+        "title": "Contact - Bikini Bikini",
+        "publisher": "Bikini Bikini",
+        "url": "https://caferestaurantbikini.nl/contact/",
+        "is_official": true,
+        "status": "verified_opened",
+        "checked_at": "2026-11-16"
+      },
+      "website": "https://caferestaurantbikini.nl/contact/",
+      "related_entity_ids": [
+        "place.leiden-burcht"
+      ],
+      "last_checked": "2026-11-16",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "A café-restaurant at Leiden’s harbour offering Mediterranean sharing dishes, with separate daytime and evening menus.",
+      "search_keywords": [
+        "Bikini Bikini",
+        "restaurant",
+        "leiden"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "slug": "bikini",
+        "description_nl": "Een café-restaurant aan de Leidse haven met mediterrane deelgerechten en aparte dag- en avondkaarten.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "media_status": "no_verified_current_photo",
+        "catalog_review_batch": "leiden-20261109",
+        "field_review_status": "EN/NL factual draft; human approval pending",
+        "title_source_url": "https://caferestaurantbikini.nl/contact/",
+        "title_checked_at": "2026-11-09",
+        "category_source_url": "https://caferestaurantbikini.nl/contact/",
+        "category_checked_at": "2026-11-09",
+        "city_id_source_url": "https://caferestaurantbikini.nl/contact/",
+        "city_id_checked_at": "2026-11-09",
+        "address": "Haven 1, 2312MG Leiden",
+        "address_source_url": "https://caferestaurantbikini.nl/contact/",
+        "address_checked_at": "2026-11-16",
+        "description_source_url": "https://caferestaurantbikini.nl/contact/",
+        "description_checked_at": "2026-11-16",
+        "description_nl_source_url": "https://caferestaurantbikini.nl/contact/",
+        "description_nl_checked_at": "2026-11-16",
+        "website_source_url": "https://caferestaurantbikini.nl/contact/",
+        "website_checked_at": "2026-11-16",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-16\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"bikini-about\",\"title\":\"Over - Bikini Bikini\",\"publisher\":\"Bikini Bikini\",\"url\":\"https://caferestaurantbikini.nl/over/\",\"is_official\":true,\"status\":\"verified_opened\",\"checked_at\":\"2026-11-16\"},{\"id\":\"bikini\",\"title\":\"Contact - Bikini Bikini\",\"publisher\":\"Bikini Bikini\",\"url\":\"https://caferestaurantbikini.nl/contact/\",\"is_official\":true,\"status\":\"verified_opened\",\"checked_at\":\"2026-11-16\"},{\"id\":\"bikini-menu\",\"title\":\"Menu - Bikini Bikini\",\"publisher\":\"Bikini Bikini\",\"url\":\"https://caferestaurantbikini.nl/menu/\",\"is_official\":true,\"status\":\"verified_opened\",\"checked_at\":\"2026-11-16\"},{\"id\":\"bag\",\"title\":\"BAG address: Haven 1, 2312MG Leiden\",\"publisher\":\"PDOK / Kadaster\",\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Haven+1%2C+2312+MG+Leiden&fq=type%3Aadres&rows=5\",\"is_official\":true,\"status\":\"verified_opened\",\"checked_at\":\"2026-11-16\"}],\"tickets\":null,\"coordinateEvidence\":{\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Haven+1%2C+2312+MG+Leiden&fq=type%3Aadres&rows=5\",\"method\":\"Exact street/house number matched to venue official address; BAG address point, not surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.16140868,4.50273988\"},\"locales\":{\"en\":{\"alt\":\"\",\"blocks\":[{\"id\":\"setting\",\"title\":\"By the harbour\",\"text\":\"The restaurant describes Mediterranean dishes to share for lunch and dinner, plus coffee and cakes. A waterside terrace complements indoor seating.\",\"source_ids\":[\"bikini-about\"]},{\"id\":\"hours\",\"title\":\"Opening hours\",\"text\":\"Tuesday–Sunday from 10:00 until late. The operator gives no precise closing time here; confirm it for your date.\",\"source_ids\":[\"bikini\"]},{\"id\":\"menu\",\"title\":\"Choose the right menu\",\"text\":\"The menu page separates daytime, evening, snack, drinks and wine choices. No numerical prices are copied from unread menu images.\",\"source_ids\":[\"bikini-menu\"]},{\"id\":\"planning\",\"title\":\"Groups and allergens\",\"text\":\"The operator accepts walk-ins and reservations and has a separate group route. Day and evening allergen cards are linked; discuss dietary needs before ordering.\",\"source_ids\":[\"bikini-about\",\"bikini-menu\"]},{\"id\":\"address\",\"title\":\"Find Bikini Bikini\",\"text\":\"Haven 1, 2312 MG Leiden; 071 763 0383. An address point is not confirmation of an accessible entrance.\",\"source_ids\":[\"bikini\"]}]},\"nl\":{\"alt\":\"\",\"blocks\":[{\"id\":\"setting\",\"title\":\"Aan de haven\",\"text\":\"Het restaurant beschrijft mediterrane deelgerechten voor lunch en diner, naast koffie en gebak. Er is een terras aan het water en zitruimte binnen.\",\"source_ids\":[\"bikini-about\"]},{\"id\":\"hours\",\"title\":\"Openingstijden\",\"text\":\"Dinsdag–zondag vanaf 10.00 tot laat. De exploitant noemt hier geen vaste sluitingstijd; bevestig die voor jouw datum.\",\"source_ids\":[\"bikini\"]},{\"id\":\"menu\",\"title\":\"Kies de juiste kaart\",\"text\":\"De menupagina scheidt dag-, avond-, snack-, drank- en wijnkaarten. Er worden geen prijzen overgenomen uit niet uitgelezen menubeelden.\",\"source_ids\":[\"bikini-menu\"]},{\"id\":\"planning\",\"title\":\"Groepen en allergenen\",\"text\":\"Je kunt binnenlopen of reserveren; voor groepen is er een aparte route. Er zijn allergenenkaarten voor dag en avond; bespreek dieetwensen voor je bestelt.\",\"source_ids\":[\"bikini-about\",\"bikini-menu\"]},{\"id\":\"address\",\"title\":\"Vind Bikini Bikini\",\"text\":\"Haven 1, 2312 MG Leiden; 071 763 0383. Een adrespunt bevestigt geen toegankelijke ingang.\",\"source_ids\":[\"bikini\"]}]}}}"
+      }
+    },
+    {
+      "id": "restaurant.leiden-dende",
+      "entity_type": "restaurant",
+      "category": "restaurant",
+      "city_id": "leiden",
+      "province_id": "zuid-holland",
+      "coordinates": {
+        "latitude": 52.15903784,
+        "longitude": 4.49156231
+      },
+      "title": "Restaurant Dende",
+      "description": "Lunch and shared dinner dishes beside the Visbrug, with a terrace on the Nieuwe Rijn.",
+      "images": [],
+      "official_source": {
+        "title": "Dende — Lunch, borrel en diner op het water in Leiden",
+        "publisher": "Restaurant Dende",
+        "url": "https://dende.nl/",
+        "is_official": true,
+        "status": "verified_opened",
+        "checked_at": "2026-11-16"
+      },
+      "website": "https://dende.nl/",
+      "related_entity_ids": [
+        "place.leiden-burcht"
+      ],
+      "last_checked": "2026-11-16",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Lunch and shared dinner dishes beside the Visbrug, with a terrace on the Nieuwe Rijn.",
+      "search_keywords": [
+        "Restaurant Dende",
+        "restaurant",
+        "leiden"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "slug": "dende",
+        "description_nl": "Lunch en deelgerechten voor het diner bij de Visbrug, met een terras op de Nieuwe Rijn.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "media_status": "no_verified_current_photo",
+        "catalog_review_batch": "leiden-20261109",
+        "field_review_status": "EN/NL factual draft; human approval pending",
+        "title_source_url": "https://www.dende.nl/contact",
+        "title_checked_at": "2026-11-09",
+        "category_source_url": "https://www.dende.nl/contact",
+        "category_checked_at": "2026-11-09",
+        "city_id_source_url": "https://www.dende.nl/contact",
+        "city_id_checked_at": "2026-11-09",
+        "review_notes": "Official page opening hours differ between update and footer; omitted.",
+        "address": "Nieuwe Rijn 5, 2312JB Leiden",
+        "address_source_url": "https://dende.nl/",
+        "address_checked_at": "2026-11-16",
+        "description_source_url": "https://dende.nl/",
+        "description_checked_at": "2026-11-16",
+        "description_nl_source_url": "https://dende.nl/",
+        "description_nl_checked_at": "2026-11-16",
+        "website_source_url": "https://dende.nl/",
+        "website_checked_at": "2026-11-16",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-16\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"dende-home\",\"title\":\"Dende — Lunch, borrel en diner op het water in Leiden\",\"publisher\":\"Restaurant Dende\",\"url\":\"https://dende.nl/\",\"is_official\":true,\"status\":\"verified_opened\",\"checked_at\":\"2026-11-16\"},{\"id\":\"dende-menu\",\"title\":\"De kaart — Dende Leiden: lunch, borrel, diner, cocktails en wijn\",\"publisher\":\"Restaurant Dende\",\"url\":\"https://dende.nl/kaart/\",\"is_official\":true,\"status\":\"verified_opened\",\"checked_at\":\"2026-11-16\"},{\"id\":\"bag\",\"title\":\"BAG address: Nieuwe Rijn 5, 2312JB Leiden\",\"publisher\":\"PDOK / Kadaster\",\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Nieuwe+Rijn+5%2C+2312+JB+Leiden&fq=type%3Aadres&rows=5\",\"is_official\":true,\"status\":\"verified_opened\",\"checked_at\":\"2026-11-16\"}],\"tickets\":null,\"coordinateEvidence\":{\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Nieuwe+Rijn+5%2C+2312+JB+Leiden&fq=type%3Aadres&rows=5\",\"method\":\"Exact street/house number matched to venue official address; BAG address point, not surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.15903784,4.49156231\"},\"locales\":{\"en\":{\"alt\":\"\",\"blocks\":[{\"id\":\"setting\",\"title\":\"On the water\",\"text\":\"Dende describes a terrace on the Nieuwe Rijn beside the Visbrug, with heaters, blankets and heated cushions. Children and dogs are welcome according to the operator.\",\"source_ids\":[\"dende-home\"]},{\"id\":\"hours\",\"title\":\"Venue and kitchen\",\"text\":\"Sunday–Thursday 11:00–00:00; Friday–Saturday 11:00–01:30. Lunch is 11:00–16:00 and dinner dishes 16:00–21:30.\",\"source_ids\":[\"dende-home\"]},{\"id\":\"payment\",\"title\":\"Payment conditions\",\"text\":\"The menu page states card payment only and no split bills. Agree how your group will pay before ordering.\",\"source_ids\":[\"dende-menu\"]},{\"id\":\"prices\",\"title\":\"Current menu\",\"text\":\"No dependable item prices were extracted from the current menu page. Use the official menu and ask staff about allergies or dietary changes.\",\"source_ids\":[\"dende-menu\"]},{\"id\":\"address\",\"title\":\"Booking and location\",\"text\":\"Nieuwe Rijn 5, 2312 JB Leiden; 071 512 6915. The operator offers indoor or terrace reservations; walk-ins depend on space.\",\"source_ids\":[\"dende-home\"]}]},\"nl\":{\"alt\":\"\",\"blocks\":[{\"id\":\"setting\",\"title\":\"Op het water\",\"text\":\"Dende beschrijft een terras op de Nieuwe Rijn bij de Visbrug, met heaters, dekens en verwarmde kussens. Kinderen en honden zijn volgens de exploitant welkom.\",\"source_ids\":[\"dende-home\"]},{\"id\":\"hours\",\"title\":\"Restaurant en keuken\",\"text\":\"Zondag–donderdag 11.00–00.00; vrijdag–zaterdag 11.00–01.30. Lunch is van 11.00–16.00 en dinergerechten van 16.00–21.30.\",\"source_ids\":[\"dende-home\"]},{\"id\":\"payment\",\"title\":\"Betaalvoorwaarden\",\"text\":\"De menupagina vermeldt alleen pinnen en geen gesplitste betaling. Spreek voor de bestelling af hoe je gezelschap betaalt.\",\"source_ids\":[\"dende-menu\"]},{\"id\":\"prices\",\"title\":\"Actuele kaart\",\"text\":\"Uit de actuele menupagina zijn geen betrouwbare gerechtprijzen gehaald. Bekijk de officiële kaart en vraag het personeel naar allergieën of dieetaanpassingen.\",\"source_ids\":[\"dende-menu\"]},{\"id\":\"address\",\"title\":\"Reserveren en locatie\",\"text\":\"Nieuwe Rijn 5, 2312 JB Leiden; 071 512 6915. Je kunt binnen of op het terras reserveren; vrije inloop hangt af van beschikbare ruimte.\",\"source_ids\":[\"dende-home\"]}]}}}"
+      }
+    },
+    {
+      "id": "restaurant.leiden-tabu",
+      "entity_type": "restaurant",
+      "category": "restaurant",
+      "city_id": "leiden",
+      "province_id": "zuid-holland",
+      "coordinates": {
+        "latitude": 52.1591875,
+        "longitude": 4.48227202
+      },
+      "title": "Tabú",
+      "description": "Tacos and other Latin American menu choices on Rembrandtstraat, with timed reservations and an explicit access limitation.",
+      "images": [],
+      "official_source": {
+        "title": "FAQ - Tabu",
+        "publisher": "Tabú",
+        "url": "https://www.tabu.nl/faq/",
+        "is_official": true,
+        "status": "verified_opened",
+        "checked_at": "2026-11-16"
+      },
+      "website": "https://www.tabu.nl/faq/",
+      "related_entity_ids": [
+        "place.leiden-burcht"
+      ],
+      "last_checked": "2026-11-16",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Tacos and other Latin American menu choices on Rembrandtstraat, with timed reservations and an explicit access limitation.",
+      "search_keywords": [
+        "Tabú",
+        "restaurant",
+        "leiden"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "slug": "tabu",
+        "description_nl": "Taco’s en andere Latijns-Amerikaanse gerechten aan de Rembrandtstraat, met reserveringstijdsloten en een expliciete toegankelijkheidsbeperking.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "media_status": "no_verified_current_photo",
+        "catalog_review_batch": "leiden-20261109",
+        "field_review_status": "EN/NL factual draft; human approval pending",
+        "title_source_url": "https://www.tabu.nl/",
+        "title_checked_at": "2026-11-09",
+        "category_source_url": "https://www.tabu.nl/",
+        "category_checked_at": "2026-11-09",
+        "city_id_source_url": "https://www.tabu.nl/",
+        "city_id_checked_at": "2026-11-09",
+        "review_notes": "Homepage timed out on a repeat link probe; official FAQ is readable and confirms address and public business contacts.",
+        "address": "Rembrandtstraat 27, 2311VV Leiden",
+        "address_source_url": "https://www.tabu.nl/faq/",
+        "address_checked_at": "2026-11-16",
+        "description_source_url": "https://www.tabu.nl/faq/",
+        "description_checked_at": "2026-11-16",
+        "description_nl_source_url": "https://www.tabu.nl/faq/",
+        "description_nl_checked_at": "2026-11-16",
+        "website_source_url": "https://www.tabu.nl/faq/",
+        "website_checked_at": "2026-11-16",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-16\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"tabu\",\"title\":\"FAQ - Tabu\",\"publisher\":\"Tabú\",\"url\":\"https://www.tabu.nl/faq/\",\"is_official\":true,\"status\":\"verified_opened\",\"checked_at\":\"2026-11-16\"},{\"id\":\"tabu-pdf\",\"title\":\"tabu-pdf\",\"publisher\":\"Tabú\",\"url\":\"https://www.tabu.nl/wp-content/uploads/2026/11/261103-TABU-DINER-MENU-EN.pdf\",\"is_official\":true,\"status\":\"verified_opened\",\"checked_at\":\"2026-11-16\"},{\"id\":\"bag\",\"title\":\"BAG address: Rembrandtstraat 27, 2311VV Leiden\",\"publisher\":\"PDOK / Kadaster\",\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Rembrandtstraat+27%2C+2311+VV+Leiden&fq=type%3Aadres&rows=5\",\"is_official\":true,\"status\":\"verified_opened\",\"checked_at\":\"2026-11-16\"}],\"tickets\":null,\"coordinateEvidence\":{\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Rembrandtstraat+27%2C+2311+VV+Leiden&fq=type%3Aadres&rows=5\",\"method\":\"Exact street/house number matched to venue official address; BAG address point, not surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.1591875,4.48227202\"},\"locales\":{\"en\":{\"alt\":\"\",\"blocks\":[{\"id\":\"hours\",\"title\":\"Venue and kitchen\",\"text\":\"Open daily from 11:00 until late; the kitchen closes at 22:00. The dinner menu marks main-course service from 17:00.\",\"source_ids\":[\"tabu\",\"tabu-pdf\"]},{\"id\":\"prices\",\"title\":\"Dinner examples\",\"text\":\"The November menu lists mushroom tacos at €11.50 and roasted squash at €21.50. Checked 16 November 2026; these are separate dishes, excluding drinks.\",\"source_ids\":[\"tabu-pdf\"]},{\"id\":\"booking\",\"title\":\"Reservation limits\",\"text\":\"Online reservations and à-la-carte dining are offered up to eight people. Bookings have a 2.5-hour slot; a terrace booking does not reserve an indoor table too.\",\"source_ids\":[\"tabu\"]},{\"id\":\"access\",\"title\":\"Access and payment\",\"text\":\"The FAQ says the restaurant is not wheelchair accessible and bills cannot be split. Discuss allergies beforehand; payment accepts cash, debit and credit cards.\",\"source_ids\":[\"tabu\"]},{\"id\":\"address\",\"title\":\"Find Tabú\",\"text\":\"Rembrandtstraat 27, 2311 VV Leiden; 071 512 1719. Use the official group route for larger parties.\",\"source_ids\":[\"tabu\"]}]},\"nl\":{\"alt\":\"\",\"blocks\":[{\"id\":\"hours\",\"title\":\"Restaurant en keuken\",\"text\":\"Dagelijks open vanaf 11.00 tot laat; de keuken sluit om 22.00. De dinerkaart vermeldt hoofdgerechten vanaf 17.00.\",\"source_ids\":[\"tabu\",\"tabu-pdf\"]},{\"id\":\"prices\",\"title\":\"Dinervoorbeelden\",\"text\":\"De novemberkaart noemt paddenstoelentaco’s voor €11,50 en geroosterde pompoen voor €21,50. Gecontroleerd op 16 november 2026; losse gerechten zonder drankjes.\",\"source_ids\":[\"tabu-pdf\"]},{\"id\":\"booking\",\"title\":\"Reserveringsvoorwaarden\",\"text\":\"Online reserveren en à la carte eten kan tot acht personen. Het tijdslot is 2,5 uur; een terrasreservering reserveert niet ook een tafel binnen.\",\"source_ids\":[\"tabu\"]},{\"id\":\"access\",\"title\":\"Toegang en betalen\",\"text\":\"Volgens de FAQ is het restaurant niet rolstoeltoegankelijk en kan de rekening niet worden gesplitst. Bespreek allergieën vooraf; contant, pin en creditcard zijn mogelijk.\",\"source_ids\":[\"tabu\"]},{\"id\":\"address\",\"title\":\"Vind Tabú\",\"text\":\"Rembrandtstraat 27, 2311 VV Leiden; 071 512 1719. Gebruik voor grotere gezelschappen de officiële groepsroute.\",\"source_ids\":[\"tabu\"]}]}}}"
+      }
+    },
+    {
+      "id": "restaurant.leiden-verboden-toegang",
+      "entity_type": "restaurant",
+      "category": "restaurant",
+      "city_id": "leiden",
+      "province_id": "zuid-holland",
+      "coordinates": {
+        "latitude": 52.15610069,
+        "longitude": 4.48586739
+      },
+      "title": "Restaurant Verboden Toegang",
+      "description": "An evening restaurant on Kaiserstraat with seasonally changing dishes and menus for the whole table.",
+      "images": [],
+      "official_source": {
+        "title": "Restaurant Leiden - Restaurant Verboden Toegang",
+        "publisher": "Restaurant Verboden Toegang",
+        "url": "https://www.verbodentoegang.nl/",
+        "is_official": true,
+        "status": "verified_opened",
+        "checked_at": "2026-11-16"
+      },
+      "website": "https://www.verbodentoegang.nl/",
+      "related_entity_ids": [
+        "place.leiden-burcht"
+      ],
+      "last_checked": "2026-11-16",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "An evening restaurant on Kaiserstraat with seasonally changing dishes and menus for the whole table.",
+      "search_keywords": [
+        "Restaurant Verboden Toegang",
+        "restaurant",
+        "leiden"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "slug": "verboden-toegang",
+        "description_nl": "Een avondrestaurant aan de Kaiserstraat met seizoensgerechten en menu’s voor de hele tafel.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "media_status": "no_verified_current_photo",
+        "catalog_review_batch": "leiden-20261109",
+        "field_review_status": "EN/NL factual draft; human approval pending",
+        "title_source_url": "https://www.verbodentoegang.nl/",
+        "title_checked_at": "2026-11-09",
+        "category_source_url": "https://www.verbodentoegang.nl/",
+        "category_checked_at": "2026-11-09",
+        "city_id_source_url": "https://www.verbodentoegang.nl/",
+        "city_id_checked_at": "2026-11-09",
+        "address": "Kaiserstraat 7, 2311GN Leiden",
+        "address_source_url": "https://www.verbodentoegang.nl/",
+        "address_checked_at": "2026-11-16",
+        "description_source_url": "https://www.verbodentoegang.nl/",
+        "description_checked_at": "2026-11-16",
+        "description_nl_source_url": "https://www.verbodentoegang.nl/",
+        "description_nl_checked_at": "2026-11-16",
+        "website_source_url": "https://www.verbodentoegang.nl/",
+        "website_checked_at": "2026-11-16",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-16\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"verboden\",\"title\":\"Restaurant Leiden - Restaurant Verboden Toegang\",\"publisher\":\"Restaurant Verboden Toegang\",\"url\":\"https://www.verbodentoegang.nl/\",\"is_official\":true,\"status\":\"verified_opened\",\"checked_at\":\"2026-11-16\"},{\"id\":\"verboden-menu\",\"title\":\"Menukaart - Restaurant Verboden Toegang\",\"publisher\":\"Restaurant Verboden Toegang\",\"url\":\"https://www.verbodentoegang.nl/menukaart/\",\"is_official\":true,\"status\":\"verified_opened\",\"checked_at\":\"2026-11-16\"},{\"id\":\"bag\",\"title\":\"BAG address: Kaiserstraat 7, 2311GN Leiden\",\"publisher\":\"PDOK / Kadaster\",\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Kaiserstraat+7%2C+2311+GN+Leiden&fq=type%3Aadres&rows=5\",\"is_official\":true,\"status\":\"verified_opened\",\"checked_at\":\"2026-11-16\"}],\"tickets\":null,\"coordinateEvidence\":{\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Kaiserstraat+7%2C+2311+GN+Leiden&fq=type%3Aadres&rows=5\",\"method\":\"Exact street/house number matched to venue official address; BAG address point, not surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.15610069,4.48586739\"},\"locales\":{\"en\":{\"alt\":\"\",\"blocks\":[{\"id\":\"setting\",\"title\":\"A themed restaurant\",\"text\":\"The restaurant plays with rules and prohibitions in its decor and dish names. Its own page says the menu changes every three months.\",\"source_ids\":[\"verboden\"]},{\"id\":\"hours\",\"title\":\"Dinner hours\",\"text\":\"Open seven days a week from 17:00. The kitchen closes at 21:00 and the restaurant at 00:00.\",\"source_ids\":[\"verboden\"]},{\"id\":\"prices\",\"title\":\"Menu examples\",\"text\":\"The current menu lists vegan mushroom rendang at €23 and beef steak at €26.50. Checked 16 November 2026; drinks and extras are separate.\",\"source_ids\":[\"verboden-menu\"]},{\"id\":\"menu\",\"title\":\"Whole-table menu\",\"text\":\"The six-course Gerechtelijke dwaling is €57.50 per person and must be ordered by the whole table. The €100 all-in option has different inclusions; confirm these when booking.\",\"source_ids\":[\"verboden-menu\"]},{\"id\":\"address\",\"title\":\"Find the restaurant\",\"text\":\"Kaiserstraat 7, 2311 GN Leiden; 071 514 3388. Use the official booking contact for groups and dietary questions.\",\"source_ids\":[\"verboden\"]}]},\"nl\":{\"alt\":\"\",\"blocks\":[{\"id\":\"setting\",\"title\":\"Een restaurant met thema\",\"text\":\"Het restaurant speelt met regels en verboden in aankleding en gerechtnamen. Volgens de eigen pagina verandert de kaart iedere drie maanden.\",\"source_ids\":[\"verboden\"]},{\"id\":\"hours\",\"title\":\"Dinertijden\",\"text\":\"Zeven dagen per week open vanaf 17.00. De keuken sluit om 21.00 en het restaurant om 00.00.\",\"source_ids\":[\"verboden\"]},{\"id\":\"prices\",\"title\":\"Voorbeelden van de kaart\",\"text\":\"De actuele kaart noemt vegan paddenstoelenrendang voor €23 en biefstuk voor €26,50. Gecontroleerd op 16 november 2026; drankjes en extra’s zijn apart.\",\"source_ids\":[\"verboden-menu\"]},{\"id\":\"menu\",\"title\":\"Menu voor de hele tafel\",\"text\":\"De zesgangen Gerechtelijke dwaling kost €57,50 per persoon en is alleen per tafel te bestellen. Het all-inarrangement van €100 heeft andere inbegrepen onderdelen; bevestig die bij reserveren.\",\"source_ids\":[\"verboden-menu\"]},{\"id\":\"address\",\"title\":\"Vind het restaurant\",\"text\":\"Kaiserstraat 7, 2311 GN Leiden; 071 514 3388. Gebruik het officiële reserveringscontact voor groepen en dieetvragen.\",\"source_ids\":[\"verboden\"]}]}}}"
+      }
+    }
+  ]
+}

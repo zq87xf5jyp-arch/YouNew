@@ -1,0 +1,418 @@
+{
+  "artis-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Plantage+Kerklaan+38+Amsterdam&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Plantage+Kerklaan+38+Amsterdam&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "contentType": "application/json;charset=utf-8",
+    "sha256": "45aa83557bd8554582fd2e0f36dc7f954d9017ba7ca547fc5987425c10e5b90f",
+    "file": "0f17c7f27dd2a128.html",
+    "checkedAt": "2026-11-16",
+    "selectedAddress": {
+      "woonplaatsnaam": "Amsterdam",
+      "weergavenaam": "Plantage Kerklaan 38, 1018CZ Amsterdam",
+      "id": "adr-0e4782784553697a455b062082094ceb",
+      "postcode": "1018CZ",
+      "centroide_ll": "POINT(4.91258158 52.36696148)",
+      "nummeraanduiding_id": "0363200000390027",
+      "huisnummer": 38,
+      "straatnaam": "Plantage Kerklaan"
+    },
+    "method": "official BAG address geocoder; not an entrance survey"
+  },
+  "artis-visit": {
+    "url": "https://www.artis.nl/en/plan-your-visit",
+    "finalUrl": "https://www.artis.nl/en/plan-your-visit",
+    "httpStatus": 200,
+    "contentType": "text/html; charset=utf-8",
+    "sha256": "8c0be43676cc1e99672e3758d0b6ba894df8c49b2d90a463f18a846a91c79063",
+    "file": "c7e9936d5e064ef9.html",
+    "checkedAt": "2026-11-16"
+  },
+  "artis-faq": {
+    "url": "https://www.artis.nl/en/contact-information/frequently-asked-questions",
+    "finalUrl": "https://www.artis.nl/en/contact-information/frequently-asked-questions",
+    "httpStatus": 200,
+    "contentType": "text/html; charset=utf-8",
+    "sha256": "80f7582993bf57026c792a37a1da3d8be4ed6bfa4fe2554f88da7a0b448f07c4",
+    "file": "d23e6116372b195c.html",
+    "checkedAt": "2026-11-16"
+  },
+  "hortus-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Plantage+Middenlaan+2A+Amsterdam&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Plantage+Middenlaan+2A+Amsterdam&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "contentType": "application/json;charset=utf-8",
+    "sha256": "390a0d75ec30990437ba3d175461ce82f4c989710d84d8f18cb79a1198d39732",
+    "file": "faf92ff60f0b917b.html",
+    "checkedAt": "2026-11-16",
+    "selectedAddress": {
+      "woonplaatsnaam": "Amsterdam",
+      "weergavenaam": "Plantage Middenlaan 2A, 1018DD Amsterdam",
+      "id": "adr-f05f2b828627b1a59b401c93f96a3ba6",
+      "huisletter": "A",
+      "postcode": "1018DD",
+      "centroide_ll": "POINT(4.90789737 52.36700552)",
+      "nummeraanduiding_id": "0363200000410408",
+      "huisnummer": 2,
+      "straatnaam": "Plantage Middenlaan"
+    },
+    "method": "official BAG address geocoder; not an entrance survey"
+  },
+  "hortus": {
+    "url": "https://www.dehortus.nl/en/",
+    "finalUrl": "https://www.dehortus.nl/en/",
+    "httpStatus": 200,
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "2d9bee21394553819564c23e967dbcb1019c0070d5db657e4a2db0b5263c3622",
+    "file": "b86bed6cfb0fbb1e.html",
+    "checkedAt": "2026-11-16"
+  },
+  "hortus-visit": {
+    "url": "https://www.dehortus.nl/en/plan-your-visit/",
+    "finalUrl": "https://www.dehortus.nl/en/plan-your-visit/",
+    "httpStatus": 200,
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "f6d259c183ae89a2f94e000b4d1b64b687b5af6d2174e8ff3c55e0a4088b08e6",
+    "file": "8489028ec38793cf.html",
+    "checkedAt": "2026-11-16"
+  },
+  "hortus-faq": {
+    "url": "https://www.dehortus.nl/en/faq/",
+    "finalUrl": "https://www.dehortus.nl/en/faq/",
+    "httpStatus": 200,
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "7ab21089898b6201b2c050d2c9cd72fa9dc203cb9701d7390a501da4da8ad0ef",
+    "file": "c0a597eacf848369.html",
+    "checkedAt": "2026-11-16"
+  },
+  "oude-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Oudekerksplein+23+Amsterdam&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Oudekerksplein+23+Amsterdam&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "contentType": "application/json;charset=utf-8",
+    "sha256": "c74aacfc5314270e67fa31ba8a57da771eefed6370817c72d978d51f4c86d3a5",
+    "file": "c0023d5fde40e6f2.html",
+    "checkedAt": "2026-11-16",
+    "selectedAddress": {
+      "woonplaatsnaam": "Amsterdam",
+      "weergavenaam": "Oudekerksplein 23, 1012GX Amsterdam",
+      "id": "adr-6500f49798379ec488f81e2ff7188f87",
+      "postcode": "1012GX",
+      "centroide_ll": "POINT(4.89776135 52.37411827)",
+      "nummeraanduiding_id": "0363200000227553",
+      "huisnummer": 23,
+      "straatnaam": "Oudekerksplein"
+    },
+    "method": "official BAG address geocoder; not an entrance survey"
+  },
+  "oude-visit": {
+    "url": "https://www.oudekerk.nl/en/tickets-and-visit",
+    "finalUrl": "https://www.oudekerk.nl/en/tickets-and-visit",
+    "httpStatus": 200,
+    "contentType": "text/html; charset=utf-8",
+    "sha256": "9e06578c7eedd15908542ec1b80af51695623d0da89221f7b6999324ac3ce0b7",
+    "file": "e46ec92c5e6134b3.html",
+    "checkedAt": "2026-11-16"
+  },
+  "oude-faq": {
+    "url": "https://www.oudekerk.nl/en/faq",
+    "finalUrl": "https://www.oudekerk.nl/en/faq",
+    "httpStatus": 200,
+    "contentType": "text/html; charset=utf-8",
+    "sha256": "e350d96db1f8bdcd61438ca43a110ab14296382a565a17deb9d43d2b50bf6212",
+    "file": "1c0d4dbf07b56267.html",
+    "checkedAt": "2026-11-16"
+  },
+  "nieuwe-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Dam+12+Amsterdam&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Dam+12+Amsterdam&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "contentType": "application/json;charset=utf-8",
+    "sha256": "0c5958a31aefbeddd143fc95f28f2bbe45234b2dbab7cbbb37a7f91390d8f479",
+    "file": "2c5006e5d643c114.html",
+    "checkedAt": "2026-11-16",
+    "selectedAddress": {
+      "woonplaatsnaam": "Amsterdam",
+      "weergavenaam": "Dam 12, 1012NP Amsterdam",
+      "id": "adr-07149cd8cb4fd4c800546c4182b2769d",
+      "postcode": "1012NP",
+      "centroide_ll": "POINT(4.89187769 52.37367138)",
+      "nummeraanduiding_id": "0363200000076858",
+      "huisnummer": 12,
+      "straatnaam": "Dam"
+    },
+    "method": "official BAG address geocoder; not an entrance survey"
+  },
+  "nieuwe-visit": {
+    "url": "https://www.nieuwekerk.nl/plan-je-bezoek/",
+    "finalUrl": "https://www.nieuwekerk.nl/plan-je-bezoek/",
+    "httpStatus": 200,
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "40e9a6950efbacaed43a14efbde8397be4706625f18497a217138ddb8249d5bc",
+    "checkedAt": "2026-11-16",
+    "method": "visible standard Chrome page inspection",
+    "checkedAtUTC": "2026-11-16T15:36:39.955Z",
+    "evidenceFile": "evidence/nieuwe-visit-live-browser.json",
+    "verificationScope": "Current page loaded directly in a visible Chrome window; no bypass of access restrictions. Earlier indexed evidence retained separately."
+  },
+  "nieuwe-faq": {
+    "url": "https://www.nieuwekerk.nl/vragen-over-je-bezoek/",
+    "finalUrl": "https://www.nieuwekerk.nl/vragen-over-je-bezoek/",
+    "httpStatus": 200,
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "121ad8e6e942ca822d4f0d77fccdbc44e2fb497c19e0db366224a79da490fa6f",
+    "checkedAt": "2026-11-16",
+    "method": "visible standard Chrome page inspection",
+    "checkedAtUTC": "2026-11-16T15:36:40.237Z",
+    "evidenceFile": "evidence/nieuwe-faq-live-browser.json",
+    "verificationScope": "Current page loaded directly in a visible Chrome window; no bypass of access restrictions. Earlier indexed evidence retained separately."
+  },
+  "nieuwe-address": {
+    "url": "https://monumentenregister.cultureelerfgoed.nl/monumenten/5940",
+    "finalUrl": "https://monumentenregister.cultureelerfgoed.nl/monumenten/5940",
+    "httpStatus": 200,
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "bb412c9aaa62bb1e6fa259c4b785e63ac262ed6487f35a1fa090382f6484b809",
+    "file": "ba1da4eb56f9023b.html",
+    "checkedAt": "2026-11-16"
+  },
+  "wester-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Prinsengracht+279+Amsterdam&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Prinsengracht+279+Amsterdam&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "contentType": "application/json;charset=utf-8",
+    "sha256": "119952467eed37128a2eebf9fe1525316d62e53015d77f31ba634f18c3b36603",
+    "file": "8181ad4f8a6d4933.html",
+    "checkedAt": "2026-11-16",
+    "selectedAddress": {
+      "woonplaatsnaam": "Amsterdam",
+      "weergavenaam": "Prinsengracht 279, 1016GW Amsterdam",
+      "id": "adr-64f0c70ed5bcc9a50bdf26f1f7c9f06a",
+      "postcode": "1016GW",
+      "centroide_ll": "POINT(4.88349767 52.37452582)",
+      "nummeraanduiding_id": "0363200000243843",
+      "huisnummer": 279,
+      "straatnaam": "Prinsengracht"
+    },
+    "method": "official BAG address geocoder; not an entrance survey"
+  },
+  "wester-visit": {
+    "url": "https://westerkerk.nl/bezoek-de-westerkerk-amsterdam/",
+    "finalUrl": "https://westerkerk.nl/bezoek-de-westerkerk-amsterdam/",
+    "httpStatus": 200,
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "e678d78fc709f0a4cdf7c5e3e0c09369ef12433fe921d89239bf485b573b75d8",
+    "file": "ec51c57ddd2ac9bc.html",
+    "checkedAt": "2026-11-16"
+  },
+  "adam-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=IJpromenade+4+Amsterdam&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=IJpromenade+4+Amsterdam&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "contentType": "application/json;charset=utf-8",
+    "sha256": "a6d5014e0310e9734af792ea6394cb293c903b92ae9326165b56e5fca457a728",
+    "file": "fee7ff1687ccea54.html",
+    "checkedAt": "2026-11-16",
+    "selectedAddress": {
+      "woonplaatsnaam": "Amsterdam",
+      "weergavenaam": "IJpromenade 4, 1031KT Amsterdam",
+      "id": "adr-e935608a21f0e45ab3864b672e9c3051",
+      "postcode": "1031KT",
+      "centroide_ll": "POINT(4.90221616 52.38386622)",
+      "nummeraanduiding_id": "0363200012096376",
+      "huisnummer": 4,
+      "straatnaam": "IJpromenade"
+    },
+    "method": "official BAG address geocoder; not an entrance survey"
+  },
+  "adam-contact": {
+    "url": "https://www.adamlookout.com/en/contact/",
+    "finalUrl": "https://www.adamlookout.com/en/contact/",
+    "httpStatus": 200,
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "e87a489d6878ff56d8851d4c7172fd3770ff5c46b532804a88bfe26c1b66e76d",
+    "file": "b99afca00ef55cb2.html",
+    "checkedAt": "2026-11-16"
+  },
+  "adam-tickets": {
+    "url": "https://www.adamlookout.com/en/tickets/",
+    "finalUrl": "https://www.adamlookout.com/en/tickets/",
+    "httpStatus": 200,
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "cd00c7dc5f6434694dd7d17ea07e99e23b849c1ab9024f2090e92adaa70deb8f",
+    "file": "a7e66d5cdc119d57.html",
+    "checkedAt": "2026-11-16"
+  },
+  "heineken-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Stadhouderskade+78+Amsterdam&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Stadhouderskade+78+Amsterdam&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "contentType": "application/json;charset=utf-8",
+    "sha256": "d396ca46a6a0bcf1920902ca3c174f21a4e34d0842fa763c364600f2381fdebf",
+    "file": "27caba88a0bf989f.html",
+    "checkedAt": "2026-11-16",
+    "selectedAddress": {
+      "woonplaatsnaam": "Amsterdam",
+      "weergavenaam": "Stadhouderskade 78, 1072AE Amsterdam",
+      "id": "adr-bd90e11395f4fb9c80b17ab7f6a1c3ce",
+      "postcode": "1072AE",
+      "centroide_ll": "POINT(4.89149626 52.35786937)",
+      "nummeraanduiding_id": "0363200000277181",
+      "huisnummer": 78,
+      "straatnaam": "Stadhouderskade"
+    },
+    "method": "official BAG address geocoder; not an entrance survey"
+  },
+  "heineken-tour": {
+    "url": "https://www.heinekenexperience.com/en/discover-our-tours/heineken-tour",
+    "finalUrl": "https://www.heinekenexperience.com/en/discover-our-tours/heineken-tour",
+    "httpStatus": 200,
+    "contentType": "text/html; charset=utf-8",
+    "sha256": "f13a7042eec88e1a6fd2598a3905a026f7a82cf7d68d80af57cbc82b5a596e9a",
+    "file": "28ad0cf2e00be8c2.html",
+    "checkedAt": "2026-11-16"
+  },
+  "heineken-contact": {
+    "url": "https://www.heinekenexperience.com/en/service-and-contact",
+    "finalUrl": "https://www.heinekenexperience.com/en/service-and-contact",
+    "httpStatus": 200,
+    "contentType": "text/html; charset=utf-8",
+    "sha256": "911466e07d07d04cd52c7ee7bd30b9d3c68a30d968b36d31346b566beb554a2a",
+    "file": "ab7a863da3682129.html",
+    "checkedAt": "2026-11-16"
+  },
+  "heineken-faq": {
+    "url": "https://www.heinekenexperience.com/en/faqs",
+    "finalUrl": "https://www.heinekenexperience.com/en/faqs",
+    "httpStatus": 200,
+    "contentType": "text/html; charset=utf-8",
+    "sha256": "56244edb51447fcfed8c42e968f6379b9fd87c26a2d0a8c94ea4fd480b9e1758",
+    "file": "2448641b8e4d78b8.html",
+    "checkedAt": "2026-11-16"
+  },
+  "arena-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Johan+Cruijff+Boulevard+1+Amsterdam&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Johan+Cruijff+Boulevard+1+Amsterdam&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "contentType": "application/json;charset=utf-8",
+    "sha256": "30f2a8ae482de69cff40deeba9fd23d4464168e4b7a5497fea2fba562fec8b02",
+    "file": "117f3a39aabdee02.html",
+    "checkedAt": "2026-11-16",
+    "selectedAddress": {
+      "woonplaatsnaam": "Amsterdam",
+      "weergavenaam": "Johan Cruijff Boulevard 1, 1101AX Amsterdam",
+      "id": "adr-f6e03bba769c4b12c9b8e18e0c8cb0b3",
+      "postcode": "1101AX",
+      "centroide_ll": "POINT(4.94052942 52.31375494)",
+      "nummeraanduiding_id": "0363200000458139",
+      "huisnummer": 1,
+      "straatnaam": "Johan Cruijff Boulevard"
+    },
+    "method": "official BAG address geocoder; not an entrance survey"
+  },
+  "arena-tours": {
+    "url": "https://www.johancruijffarena.nl/en/stadiumtours/",
+    "finalUrl": "https://www.johancruijffarena.nl/en/tickets-visits/stadium-tours/",
+    "httpStatus": 200,
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "64582be628fe048c531885d2a337ec939a3d0f5ad96f7b9abdcf5945a9ff9427",
+    "file": "6d491c1909068cf9.html",
+    "checkedAt": "2026-11-16"
+  },
+  "arena-faq": {
+    "url": "https://www.johancruijffarena.nl/en/tickets-visits/stadium-tours/faq/",
+    "finalUrl": "https://www.johancruijffarena.nl/en/tickets-visits/stadium-tours/faq/",
+    "httpStatus": 200,
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "6a296af8ab989c92394f4dadfac90a57f76ddcbbdfcc690fc761ca4ce77039f1",
+    "file": "be07e571f53c22a6.html",
+    "checkedAt": "2026-11-16"
+  },
+  "arena-address": {
+    "url": "https://www.johancruijffarena.nl/privacyverklaring/",
+    "finalUrl": "https://www.johancruijffarena.nl/privacyverklaring/",
+    "httpStatus": 200,
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "81fd4aa917806f95ad0ac18ef5f3522b821fa7f892916d7218c028b5d224c755",
+    "file": "44d54b07b8855c41.html",
+    "checkedAt": "2026-11-16"
+  },
+  "hallen-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Hannie+Dankbaarpassage+47+Amsterdam&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Hannie+Dankbaarpassage+47+Amsterdam&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "contentType": "application/json;charset=utf-8",
+    "sha256": "4e1aceae6f128369a888ef8ae71b439ab53ce9b2a0c21bdc13669f6c85f3b398",
+    "file": "a411c5f19e8b4bce.html",
+    "checkedAt": "2026-11-16",
+    "selectedAddress": {
+      "woonplaatsnaam": "Amsterdam",
+      "weergavenaam": "Hannie Dankbaarpassage 47, 1053RT Amsterdam",
+      "id": "adr-9f4cc2bc8a3c8a0de3671dd1e98c0277",
+      "postcode": "1053RT",
+      "centroide_ll": "POINT(4.86801563 52.36639473)",
+      "nummeraanduiding_id": "0363200012079676",
+      "huisnummer": 47,
+      "straatnaam": "Hannie Dankbaarpassage"
+    },
+    "method": "official BAG address geocoder; not an entrance survey"
+  },
+  "hallen-visit": {
+    "url": "https://www.dehallen-amsterdam.nl/en/visit",
+    "finalUrl": "https://www.dehallen-amsterdam.nl/en/visit",
+    "httpStatus": 200,
+    "contentType": "text/html; charset=utf-8",
+    "sha256": "f9aa0b58bdc623994018706516c361030c8fefae0b7da8314937902abc67b4db",
+    "file": "17f058f610efb1f3.html",
+    "checkedAt": "2026-11-16"
+  },
+  "hallen-about": {
+    "url": "https://www.dehallen-amsterdam.nl/en/organisation",
+    "finalUrl": "https://www.dehallen-amsterdam.nl/en/organisation",
+    "httpStatus": 200,
+    "contentType": "text/html; charset=utf-8",
+    "sha256": "db1b48aa3e61cd9815839b174fcd69fefe7c300367bebfb2da3d27c50dc7e7a6",
+    "file": "4f69f88e92804d38.html",
+    "checkedAt": "2026-11-16"
+  },
+  "hallen-contact": {
+    "url": "https://www.dehallen-amsterdam.nl/en/contact",
+    "finalUrl": "https://www.dehallen-amsterdam.nl/en/contact",
+    "httpStatus": 200,
+    "contentType": "text/html; charset=utf-8",
+    "sha256": "562b1565c0ca53b9519c3f7a79fd17635783b68b40941d0d9017ec338bb77be6",
+    "file": "f33bfc23f29dec8d.html",
+    "checkedAt": "2026-11-16"
+  },
+  "oba-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Oosterdokskade+143+Amsterdam&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Oosterdokskade+143+Amsterdam&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "contentType": "application/json;charset=utf-8",
+    "sha256": "fe678ff6aec92835621000f9b79e0fad59d18df5aadb9aef492106789fcbd34f",
+    "file": "b45e948ff02151d6.html",
+    "checkedAt": "2026-11-16",
+    "selectedAddress": {
+      "woonplaatsnaam": "Amsterdam",
+      "weergavenaam": "Oosterdokskade 143, 1011DL Amsterdam",
+      "id": "adr-da52245672a295a821680119215aaf50",
+      "postcode": "1011DL",
+      "centroide_ll": "POINT(4.90837481 52.37582439)",
+      "nummeraanduiding_id": "0363200000536717",
+      "huisnummer": 143,
+      "straatnaam": "Oosterdokskade"
+    },
+    "method": "official BAG address geocoder; not an entrance survey"
+  },
+  "oba": {
+    "url": "https://oba.nl/nl/locaties/oba-oosterdok",
+    "finalUrl": "https://oba.nl/nl/locaties/oba-oosterdok",
+    "httpStatus": 200,
+    "method": "visible standard Chrome page inspection",
+    "checkedAt": "2026-11-16",
+    "verificationScope": "Current page loaded directly in a visible Chrome window; no bypass of access restrictions. Earlier indexed evidence retained separately.",
+    "evidenceFile": "evidence/oba-live-browser.json",
+    "sha256": "7340e249eee7060296ecab27750f9a37337ac5f230fb863a0de71ef52bcbf055",
+    "checkedAtUTC": "2026-11-16T15:36:39.233Z"
+  }
+}

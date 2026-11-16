@@ -1,0 +1,99 @@
+{
+  "pageid": 141041752,
+  "ns": 6,
+  "title": "File:Johan Cruijff ArenA Tour (40365193963).jpg",
+  "index": 3,
+  "imagerepository": "local",
+  "imageinfo": [
+    {
+      "size": 7217100,
+      "width": 4608,
+      "height": 3072,
+      "url": "https://upload.wikimedia.org/wikipedia/commons/8/89/Johan_Cruijff_ArenA_Tour_%2840365193963%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "descriptionurl": "https://commons.wikimedia.org/wiki/File:Johan_Cruijff_ArenA_Tour_(40365193963).jpg",
+      "descriptionshorturl": "https://commons.wikimedia.org/wiki/Special:Redirect/page/141041752",
+      "sha1": "ab27796dadffb9d6a9e3733210bc137cf65c4ca4",
+      "extmetadata": {
+        "DateTime": {
+          "value": "2023-11-18 20:30:46",
+          "source": "mediawiki-metadata",
+          "hidden": ""
+        },
+        "ObjectName": {
+          "value": "Johan Cruijff ArenA Tour (40365193963)",
+          "source": "mediawiki-metadata"
+        },
+        "CommonsMetadataExtension": {
+          "value": 1.2,
+          "source": "extension",
+          "hidden": ""
+        },
+        "Categories": {
+          "value": "Johan Cruijff ArenA|Flickr images reviewed by FlickreviewR 2|Photographs by Daniel Richardson",
+          "source": "commons-categories",
+          "hidden": ""
+        },
+        "Assessments": {
+          "value": "",
+          "source": "commons-categories",
+          "hidden": ""
+        },
+        "ImageDescription": {
+          "value": "Johan Cruijff ArenA Tour",
+          "source": "commons-desc-page"
+        },
+        "DateTimeOriginal": {
+          "value": "2019-03-09 16:51",
+          "source": "commons-desc-page"
+        },
+        "Credit": {
+          "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/57511216@N04/40365193963/\">Johan Cruijff ArenA Tour</a>",
+          "source": "commons-desc-page"
+        },
+        "Artist": {
+          "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/57511216@N04\">Daniel</a> from Glasgow, United Kingdom",
+          "source": "commons-desc-page"
+        },
+        "LicenseShortName": {
+          "value": "CC BY 2.0",
+          "source": "commons-desc-page",
+          "hidden": ""
+        },
+        "UsageTerms": {
+          "value": "Creative Commons Attribution 2.0",
+          "source": "commons-desc-page"
+        },
+        "AttributionRequired": {
+          "value": "true",
+          "source": "commons-desc-page",
+          "hidden": ""
+        },
+        "LicenseUrl": {
+          "value": "https://creativecommons.org/licenses/by/2.0",
+          "source": "commons-desc-page"
+        },
+        "Copyrighted": {
+          "value": "True",
+          "source": "commons-desc-page",
+          "hidden": ""
+        },
+        "Restrictions": {
+          "value": "",
+          "source": "commons-desc-page",
+          "hidden": ""
+        },
+        "License": {
+          "value": "cc-by-2.0",
+          "source": "commons-templates",
+          "hidden": ""
+        }
+      }
+    }
+  ],
+  "revisions": [
+    {
+      "revid": 1088006001,
+      "parentid": 1087949809
+    }
+  ]
+}

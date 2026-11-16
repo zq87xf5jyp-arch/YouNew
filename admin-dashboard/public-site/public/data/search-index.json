@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
   "generatedAt": "2026-10-23T00:00:00Z",
-  "datasetFingerprint": "87c6b9743ecfc2eec0b3dc665d9af8f7a65e5d0830dff3b7439a26715a13a303",
+  "datasetFingerprint": "fdfd13771b62dc527141161a6a23b2c5cd01cf1f9923868dbe4d07e372b46de4",
   "locale": "en",
   "geographyEffectiveDate": "2026-01-01",
   "documents": [
@@ -12,7 +12,7 @@
       "slug": "leiden-30ml",
       "route": "/places/leiden-30ml",
       "title": "30ML Leiden",
-      "summary": "Coffee, breakfast and lunch at Botermarkt. Browse the café’s official page for its current opening schedule.",
+      "summary": "Coffee, breakfast and lunch on the Botermarkt, with a summer terrace and an official chain menu linked by the Leiden branch.",
       "contentDepth": "summary",
       "keywords": [
         "30ML Leiden",
@@ -39,12 +39,12 @@
       ],
       "dutch": {
         "title": "30ML Leiden",
-        "summary": "Koffie, ontbijt en lunch aan de Botermarkt. Bekijk de officiële pagina voor de actuele openingstijden.",
+        "summary": "Koffie, ontbijt en lunch aan de Botermarkt, met zomerterras en de officiële ketenkaart waarnaar de Leidse vestiging verwijst.",
         "route": "/nl/plaatsen/leiden-30ml"
       },
       "nationalFallback": false,
       "qualityScore": 70,
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-16",
       "officialSourceUrls": [
         "https://30ml.nl/en/locations/30ml-leiden/"
       ],
@@ -61,7 +61,7 @@
       "tags": [],
       "synonyms": [
         "30ML Leiden",
-        "Koffie, ontbijt en lunch aan de Botermarkt. Bekijk de officiële pagina voor de actuele openingstijden."
+        "Koffie, ontbijt en lunch aan de Botermarkt, met zomerterras en de officiële ketenkaart waarnaar de Leidse vestiging verwijst."
       ],
       "officialOrganizationNames": [
         "30ML Leiden"
@@ -257,6 +257,70 @@
       ],
       "officialOrganizationNames": [
         "Linked place / operator"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "place.adam-lookout",
+      "type": "place",
+      "sourceKind": "place",
+      "slug": "adam-lookout",
+      "route": "/places/adam-lookout",
+      "title": "A'DAM LOOKOUT",
+      "summary": "Look across Amsterdam from the indoor and outdoor observation decks of A’DAM LOOKOUT.",
+      "contentDepth": "summary",
+      "keywords": [
+        "A'DAM LOOKOUT",
+        "amsterdam",
+        "observation-deck"
+      ],
+      "city": "Amsterdam",
+      "cityId": "amsterdam",
+      "province": "Noord-Holland",
+      "provinceId": "noord-holland",
+      "municipalityId": "amsterdam",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "things-to-do"
+      ],
+      "intents": [
+        "things-to-do"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "A'DAM LOOKOUT",
+        "summary": "Kijk uit over Amsterdam vanaf de binnen- en buitendekken van A’DAM LOOKOUT.",
+        "route": "/nl/plaatsen/adam-lookout"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-16",
+      "officialSourceUrls": [
+        "https://www.adamlookout.com/en/contact/"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "observation-deck",
+      "organization": "www.adamlookout.com",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "A'DAM LOOKOUT",
+        "Kijk uit over Amsterdam vanaf de binnen- en buitendekken van A’DAM LOOKOUT."
+      ],
+      "officialOrganizationNames": [
+        "www.adamlookout.com"
       ],
       "terminology": [],
       "commonQuestions": []
@@ -720,6 +784,70 @@
       "commonQuestions": []
     },
     {
+      "id": "place.artis",
+      "type": "place",
+      "sourceKind": "place",
+      "slug": "artis",
+      "route": "/places/artis",
+      "title": "ARTIS",
+      "summary": "Visit ARTIS Zoo in the Plantage neighbourhood, with animal habitats, an aquarium and a planetarium.",
+      "contentDepth": "summary",
+      "keywords": [
+        "ARTIS",
+        "amsterdam",
+        "zoo"
+      ],
+      "city": "Amsterdam",
+      "cityId": "amsterdam",
+      "province": "Noord-Holland",
+      "provinceId": "noord-holland",
+      "municipalityId": "amsterdam",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "things-to-do"
+      ],
+      "intents": [
+        "things-to-do"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "ARTIS",
+        "summary": "Bezoek ARTIS-Park in de Plantagebuurt, met dierenverblijven, een aquarium en een planetarium.",
+        "route": "/nl/plaatsen/artis"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-16",
+      "officialSourceUrls": [
+        "https://www.artis.nl/en/plan-your-visit"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "zoo",
+      "organization": "www.artis.nl",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "ARTIS",
+        "Bezoek ARTIS-Park in de Plantagebuurt, met dierenverblijven, een aquarium en een planetarium."
+      ],
+      "officialOrganizationNames": [
+        "www.artis.nl"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
       "id": "museum.artis-micropia",
       "type": "place",
       "sourceKind": "museum",
@@ -791,7 +919,7 @@
       "slug": "leiden-barista",
       "route": "/places/leiden-barista",
       "title": "Barista Cafe Leiden",
-      "summary": "Coffee, breakfast and lunch in Catharinasteeg, with a courtyard terrace described by the café.",
+      "summary": "Coffee, breakfast and lunch in Catharinasteeg, with a courtyard terrace and a separately bookable high tea.",
       "contentDepth": "summary",
       "keywords": [
         "Barista Cafe Leiden",
@@ -818,12 +946,12 @@
       ],
       "dutch": {
         "title": "Barista Cafe Leiden",
-        "summary": "Koffie, ontbijt en lunch in de Catharinasteeg, met een hofjesterras volgens de eigen bezoekersinformatie.",
+        "summary": "Koffie, ontbijt en lunch in de Catharinasteeg, met een hofjesterras en afzonderlijk te reserveren high tea.",
         "route": "/nl/plaatsen/leiden-barista"
       },
       "nationalFallback": false,
       "qualityScore": 70,
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-16",
       "officialSourceUrls": [
         "https://www.baristacafe.nl/vestiging/leiden/"
       ],
@@ -840,7 +968,7 @@
       "tags": [],
       "synonyms": [
         "Barista Cafe Leiden",
-        "Koffie, ontbijt en lunch in de Catharinasteeg, met een hofjesterras volgens de eigen bezoekersinformatie."
+        "Koffie, ontbijt en lunch in de Catharinasteeg, met een hofjesterras en afzonderlijk te reserveren high tea."
       ],
       "officialOrganizationNames": [
         "Barista Cafe Leiden"
@@ -919,7 +1047,7 @@
       "slug": "leiden-bikini",
       "route": "/places/leiden-bikini",
       "title": "Bikini Bikini",
-      "summary": "A café-restaurant at Haven 1. Check its current menu and opening information before choosing a meal by the harbour.",
+      "summary": "A café-restaurant at Leiden’s harbour offering Mediterranean sharing dishes, with separate daytime and evening menus.",
       "contentDepth": "summary",
       "keywords": [
         "Bikini Bikini",
@@ -946,12 +1074,12 @@
       ],
       "dutch": {
         "title": "Bikini Bikini",
-        "summary": "Een café-restaurant aan Haven 1. Bekijk de actuele kaart en openingstijden voor je maaltijd bij de haven.",
+        "summary": "Een café-restaurant aan de Leidse haven met mediterrane deelgerechten en aparte dag- en avondkaarten.",
         "route": "/nl/plaatsen/leiden-bikini"
       },
       "nationalFallback": false,
       "qualityScore": 70,
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-16",
       "officialSourceUrls": [
         "https://caferestaurantbikini.nl/contact/"
       ],
@@ -968,7 +1096,7 @@
       "tags": [],
       "synonyms": [
         "Bikini Bikini",
-        "Een café-restaurant aan Haven 1. Bekijk de actuele kaart en openingstijden voor je maaltijd bij de haven."
+        "Een café-restaurant aan de Leidse haven met mediterrane deelgerechten en aparte dag- en avondkaarten."
       ],
       "officialOrganizationNames": [
         "Bikini Bikini"
@@ -1047,7 +1175,7 @@
       "slug": "leiden-borgman",
       "route": "/places/leiden-borgman",
       "title": "Borgman Borgman",
-      "summary": "A coffee stop on Nieuwe Rijn. The café accepts walk-ins and publishes its weekly opening hours online.",
+      "summary": "A coffee roastery and café on Nieuwe Rijn, with breakfast and lunch. Tables are for walk-ins.",
       "contentDepth": "summary",
       "keywords": [
         "Borgman Borgman",
@@ -1074,12 +1202,12 @@
       ],
       "dutch": {
         "title": "Borgman Borgman",
-        "summary": "Een koffieadres aan de Nieuwe Rijn. Je kunt zonder reservering binnenlopen; de weektijden staan op de eigen website.",
+        "summary": "Koffiebranderij en café aan de Nieuwe Rijn, met ontbijt en lunch. Je loopt binnen zonder reservering.",
         "route": "/nl/plaatsen/leiden-borgman"
       },
       "nationalFallback": false,
       "qualityScore": 70,
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-16",
       "officialSourceUrls": [
         "https://www.borgmanborgman.nl/contact-1"
       ],
@@ -1096,7 +1224,7 @@
       "tags": [],
       "synonyms": [
         "Borgman Borgman",
-        "Een koffieadres aan de Nieuwe Rijn. Je kunt zonder reservering binnenlopen; de weektijden staan op de eigen website."
+        "Koffiebranderij en café aan de Nieuwe Rijn, met ontbijt en lunch. Je loopt binnen zonder reservering."
       ],
       "officialOrganizationNames": [
         "Borgman Borgman"
@@ -1175,7 +1303,7 @@
       "slug": "leiden-brownies",
       "route": "/places/leiden-brownies",
       "title": "Brownies&downieS Leiden",
-      "summary": "A café on Aalmarkt serving coffee, breakfast, lunch and brownies. The venue also describes a garden at the rear.",
+      "summary": "A daytime café on the Aalmarkt with a waterside terrace, city garden and facilities for families.",
       "contentDepth": "summary",
       "keywords": [
         "Brownies&downieS Leiden",
@@ -1202,12 +1330,12 @@
       ],
       "dutch": {
         "title": "Brownies&downieS Leiden",
-        "summary": "Een café aan de Aalmarkt voor koffie, ontbijt, lunch en brownies. De vestiging beschrijft ook een tuin achter het pand.",
+        "summary": "Een dagcafé aan de Aalmarkt met terras aan het water, stadstuin en voorzieningen voor gezinnen.",
         "route": "/nl/plaatsen/leiden-brownies"
       },
       "nationalFallback": false,
       "qualityScore": 70,
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-16",
       "officialSourceUrls": [
         "https://www.browniesanddownies.nl/leiden"
       ],
@@ -1224,7 +1352,7 @@
       "tags": [],
       "synonyms": [
         "Brownies&downieS Leiden",
-        "Een café aan de Aalmarkt voor koffie, ontbijt, lunch en brownies. De vestiging beschrijft ook een tuin achter het pand."
+        "Een dagcafé aan de Aalmarkt met terras aan het water, stadstuin en voorzieningen voor gezinnen."
       ],
       "officialOrganizationNames": [
         "Brownies&downieS Leiden"
@@ -1239,7 +1367,7 @@
       "slug": "leiden-cafe-laken",
       "route": "/places/leiden-cafe-laken",
       "title": "Café Laken",
-      "summary": "A café at Museum De Lakenhal. Browse the café’s own menu and visitor information before planning a stop.",
+      "summary": "Museum De Lakenhal’s café on the Oude Singel welcomes museum visitors and people stopping by from the city.",
       "contentDepth": "summary",
       "keywords": [
         "Café Laken",
@@ -1266,12 +1394,12 @@
       ],
       "dutch": {
         "title": "Café Laken",
-        "summary": "Een café bij Museum De Lakenhal. Bekijk het eigen menu en de bezoekersinformatie voordat je een stop plant.",
+        "summary": "Het café van Museum De Lakenhal aan de Oude Singel verwelkomt museumbezoekers en mensen die vanuit de stad binnenlopen.",
         "route": "/nl/plaatsen/leiden-cafe-laken"
       },
       "nationalFallback": false,
       "qualityScore": 70,
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-16",
       "officialSourceUrls": [
         "https://www.cafelaken.nl/"
       ],
@@ -1288,7 +1416,7 @@
       "tags": [],
       "synonyms": [
         "Café Laken",
-        "Een café bij Museum De Lakenhal. Bekijk het eigen menu en de bezoekersinformatie voordat je een stop plant."
+        "Het café van Museum De Lakenhal aan de Oude Singel verwelkomt museumbezoekers en mensen die vanuit de stad binnenlopen."
       ],
       "officialOrganizationNames": [
         "Café Laken"
@@ -1612,6 +1740,134 @@
       ],
       "officialOrganizationNames": [
         "De Engelenbak"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "place.de-hallen-amsterdam",
+      "type": "place",
+      "sourceKind": "place",
+      "slug": "de-hallen-amsterdam",
+      "route": "/places/de-hallen-amsterdam",
+      "title": "De Hallen Amsterdam",
+      "summary": "Explore independent food, film and cultural venues connected by De Passage at De Hallen Amsterdam.",
+      "contentDepth": "summary",
+      "keywords": [
+        "De Hallen Amsterdam",
+        "amsterdam",
+        "culture-shopping"
+      ],
+      "city": "Amsterdam",
+      "cityId": "amsterdam",
+      "province": "Noord-Holland",
+      "provinceId": "noord-holland",
+      "municipalityId": "amsterdam",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "things-to-do"
+      ],
+      "intents": [
+        "things-to-do"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "De Hallen Amsterdam",
+        "summary": "Ontdek zelfstandige eet-, film- en cultuurplekken rond De Passage in De Hallen Amsterdam.",
+        "route": "/nl/plaatsen/de-hallen-amsterdam"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-16",
+      "officialSourceUrls": [
+        "https://www.dehallen-amsterdam.nl/en/visit"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "culture-shopping",
+      "organization": "www.dehallen-amsterdam.nl",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "De Hallen Amsterdam",
+        "Ontdek zelfstandige eet-, film- en cultuurplekken rond De Passage in De Hallen Amsterdam."
+      ],
+      "officialOrganizationNames": [
+        "www.dehallen-amsterdam.nl"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "place.de-nieuwe-kerk-amsterdam",
+      "type": "place",
+      "sourceKind": "place",
+      "slug": "de-nieuwe-kerk-amsterdam",
+      "route": "/places/de-nieuwe-kerk-amsterdam",
+      "title": "De Nieuwe Kerk Amsterdam",
+      "summary": "Discover exhibitions inside De Nieuwe Kerk, the historic church beside Dam Square.",
+      "contentDepth": "summary",
+      "keywords": [
+        "De Nieuwe Kerk Amsterdam",
+        "amsterdam",
+        "church-exhibition-venue"
+      ],
+      "city": "Amsterdam",
+      "cityId": "amsterdam",
+      "province": "Noord-Holland",
+      "provinceId": "noord-holland",
+      "municipalityId": "amsterdam",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "things-to-do"
+      ],
+      "intents": [
+        "things-to-do"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "De Nieuwe Kerk Amsterdam",
+        "summary": "Ontdek tentoonstellingen in De Nieuwe Kerk, de historische kerk aan de Dam.",
+        "route": "/nl/plaatsen/de-nieuwe-kerk-amsterdam"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-16",
+      "officialSourceUrls": [
+        "https://www.nieuwekerk.nl/plan-je-bezoek/"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "church-exhibition-venue",
+      "organization": "www.nieuwekerk.nl",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "De Nieuwe Kerk Amsterdam",
+        "Ontdek tentoonstellingen in De Nieuwe Kerk, de historische kerk aan de Dam."
+      ],
+      "officialOrganizationNames": [
+        "www.nieuwekerk.nl"
       ],
       "terminology": [],
       "commonQuestions": []
@@ -2401,6 +2657,70 @@
       "commonQuestions": []
     },
     {
+      "id": "place.heineken-experience",
+      "type": "place",
+      "sourceKind": "place",
+      "slug": "heineken-experience",
+      "route": "/places/heineken-experience",
+      "title": "Heineken Experience",
+      "summary": "Explore the former Heineken brewery through a self-guided brand and brewing-history experience for adults.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Heineken Experience",
+        "amsterdam",
+        "industrial-heritage-attraction"
+      ],
+      "city": "Amsterdam",
+      "cityId": "amsterdam",
+      "province": "Noord-Holland",
+      "provinceId": "noord-holland",
+      "municipalityId": "amsterdam",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "things-to-do"
+      ],
+      "intents": [
+        "things-to-do"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Heineken Experience",
+        "summary": "Ontdek de voormalige Heinekenbrouwerij via een zelfstandige merk- en brouwgeschiedeniservaring voor volwassenen.",
+        "route": "/nl/plaatsen/heineken-experience"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-16",
+      "officialSourceUrls": [
+        "https://www.heinekenexperience.com/en/discover-our-tours/heineken-tour"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "industrial-heritage-attraction",
+      "organization": "www.heinekenexperience.com",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Heineken Experience",
+        "Ontdek de voormalige Heinekenbrouwerij via een zelfstandige merk- en brouwgeschiedeniservaring voor volwassenen."
+      ],
+      "officialOrganizationNames": [
+        "www.heinekenexperience.com"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
       "id": "nature.leiden-plantsoen",
       "type": "place",
       "sourceKind": "park",
@@ -2589,6 +2909,70 @@
       ],
       "officialOrganizationNames": [
         "www.hetscheepvaartmuseum.com"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "place.hortus-botanicus-amsterdam",
+      "type": "place",
+      "sourceKind": "place",
+      "slug": "hortus-botanicus-amsterdam",
+      "route": "/places/hortus-botanicus-amsterdam",
+      "title": "Hortus Botanicus Amsterdam",
+      "summary": "Explore living plant collections in the Hortus garden and greenhouses in central Amsterdam.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Hortus Botanicus Amsterdam",
+        "amsterdam",
+        "botanical-garden"
+      ],
+      "city": "Amsterdam",
+      "cityId": "amsterdam",
+      "province": "Noord-Holland",
+      "provinceId": "noord-holland",
+      "municipalityId": "amsterdam",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "things-to-do"
+      ],
+      "intents": [
+        "things-to-do"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Hortus Botanicus Amsterdam",
+        "summary": "Ontdek levende plantencollecties in de tuin en kassen van de Hortus in hartje Amsterdam.",
+        "route": "/nl/plaatsen/hortus-botanicus-amsterdam"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-16",
+      "officialSourceUrls": [
+        "https://www.dehortus.nl/en/"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "botanical-garden",
+      "organization": "www.dehortus.nl",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Hortus Botanicus Amsterdam",
+        "Ontdek levende plantencollecties in de tuin en kassen van de Hortus in hartje Amsterdam."
+      ],
+      "officialOrganizationNames": [
+        "www.dehortus.nl"
       ],
       "terminology": [],
       "commonQuestions": []
@@ -3039,6 +3423,70 @@
       ],
       "officialOrganizationNames": [
         "jck.nl"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "place.johan-cruijff-arena",
+      "type": "place",
+      "sourceKind": "place",
+      "slug": "johan-cruijff-arena",
+      "route": "/places/johan-cruijff-arena",
+      "title": "Johan Cruijff ArenA",
+      "summary": "Take a stadium tour behind the scenes at Ajax’s home, subject to the event schedule.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Johan Cruijff ArenA",
+        "amsterdam",
+        "stadium"
+      ],
+      "city": "Amsterdam",
+      "cityId": "amsterdam",
+      "province": "Noord-Holland",
+      "provinceId": "noord-holland",
+      "municipalityId": "amsterdam",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "things-to-do"
+      ],
+      "intents": [
+        "things-to-do"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Johan Cruijff ArenA",
+        "summary": "Neem een kijkje achter de schermen in het thuisstadion van Ajax, afhankelijk van de evenementenkalender.",
+        "route": "/nl/plaatsen/johan-cruijff-arena"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-16",
+      "officialSourceUrls": [
+        "https://www.johancruijffarena.nl/en/tickets-visits/stadium-tours/"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "stadium",
+      "organization": "www.johancruijffarena.nl",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Johan Cruijff ArenA",
+        "Neem een kijkje achter de schermen in het thuisstadion van Ajax, afhankelijk van de evenementenkalender."
+      ],
+      "officialOrganizationNames": [
+        "www.johancruijffarena.nl"
       ],
       "terminology": [],
       "commonQuestions": []
@@ -3821,6 +4269,134 @@
       "commonQuestions": []
     },
     {
+      "id": "place.oba-oosterdok",
+      "type": "place",
+      "sourceKind": "place",
+      "slug": "oba-oosterdok",
+      "route": "/places/oba-oosterdok",
+      "title": "OBA Oosterdok",
+      "summary": "Browse books, read or explore the cultural programme at OBA Oosterdok.",
+      "contentDepth": "summary",
+      "keywords": [
+        "OBA Oosterdok",
+        "amsterdam",
+        "public-library"
+      ],
+      "city": "Amsterdam",
+      "cityId": "amsterdam",
+      "province": "Noord-Holland",
+      "provinceId": "noord-holland",
+      "municipalityId": "amsterdam",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "things-to-do"
+      ],
+      "intents": [
+        "things-to-do"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "OBA Oosterdok",
+        "summary": "Blader door boeken, lees of ontdek het culturele programma van OBA Oosterdok.",
+        "route": "/nl/plaatsen/oba-oosterdok"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-16",
+      "officialSourceUrls": [
+        "https://oba.nl/nl/locaties/oba-oosterdok"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "public-library",
+      "organization": "oba.nl",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "OBA Oosterdok",
+        "Blader door boeken, lees of ontdek het culturele programma van OBA Oosterdok."
+      ],
+      "officialOrganizationNames": [
+        "oba.nl"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "place.oude-kerk",
+      "type": "place",
+      "sourceKind": "place",
+      "slug": "oude-kerk",
+      "route": "/places/oude-kerk",
+      "title": "Oude Kerk",
+      "summary": "Visit the Oude Kerk for its historic interior and changing programme of contemporary art and music.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Oude Kerk",
+        "amsterdam",
+        "church-cultural-venue"
+      ],
+      "city": "Amsterdam",
+      "cityId": "amsterdam",
+      "province": "Noord-Holland",
+      "provinceId": "noord-holland",
+      "municipalityId": "amsterdam",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "things-to-do"
+      ],
+      "intents": [
+        "things-to-do"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Oude Kerk",
+        "summary": "Bezoek de Oude Kerk voor het historische interieur en een wisselend programma met hedendaagse kunst en muziek.",
+        "route": "/nl/plaatsen/oude-kerk"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-16",
+      "officialSourceUrls": [
+        "https://www.oudekerk.nl/en/tickets-and-visit"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "church-cultural-venue",
+      "organization": "www.oudekerk.nl",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Oude Kerk",
+        "Bezoek de Oude Kerk voor het historische interieur en een wisselend programma met hedendaagse kunst en muziek."
+      ],
+      "officialOrganizationNames": [
+        "www.oudekerk.nl"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
       "id": "restaurant.leiden-oudt-leyden",
       "type": "place",
       "sourceKind": "restaurant",
@@ -3891,7 +4467,7 @@
       "slug": "leiden-paco-ciao",
       "route": "/places/leiden-paco-ciao",
       "title": "Paco Ciao",
-      "summary": "A café and dining stop on Stationsweg. Consult the venue’s menu and contact page before your visit.",
+      "summary": "Breakfast, lunch, dinner and cocktails at Stationsweg 25. Check the menu section as dishes and portions differ between services.",
       "contentDepth": "summary",
       "keywords": [
         "Paco Ciao",
@@ -3918,12 +4494,12 @@
       ],
       "dutch": {
         "title": "Paco Ciao",
-        "summary": "Een café en eetgelegenheid aan de Stationsweg. Bekijk de eigen kaart en contactpagina voor je bezoek.",
+        "summary": "Ontbijt, lunch, diner en cocktails aan Stationsweg 25. Bekijk het juiste kaartonderdeel: gerechten en porties verschillen per service.",
         "route": "/nl/plaatsen/leiden-paco-ciao"
       },
       "nationalFallback": false,
       "qualityScore": 70,
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-16",
       "officialSourceUrls": [
         "https://pacociao.nl/en/contact/"
       ],
@@ -3940,7 +4516,7 @@
       "tags": [],
       "synonyms": [
         "Paco Ciao",
-        "Een café en eetgelegenheid aan de Stationsweg. Bekijk de eigen kaart en contactpagina voor je bezoek."
+        "Ontbijt, lunch, diner en cocktails aan Stationsweg 25. Bekijk het juiste kaartonderdeel: gerechten en porties verschillen per service."
       ],
       "officialOrganizationNames": [
         "Paco Ciao"
@@ -4347,7 +4923,7 @@
       "slug": "leiden-dende",
       "route": "/places/leiden-dende",
       "title": "Restaurant Dende",
-      "summary": "A restaurant on Nieuwe Rijn. Use the current menu and direct contact details to plan your visit.",
+      "summary": "Lunch and shared dinner dishes beside the Visbrug, with a terrace on the Nieuwe Rijn.",
       "contentDepth": "summary",
       "keywords": [
         "Restaurant Dende",
@@ -4374,14 +4950,14 @@
       ],
       "dutch": {
         "title": "Restaurant Dende",
-        "summary": "Een restaurant aan de Nieuwe Rijn. Gebruik de actuele kaart en contactgegevens om je bezoek te plannen.",
+        "summary": "Lunch en deelgerechten voor het diner bij de Visbrug, met een terras op de Nieuwe Rijn.",
         "route": "/nl/plaatsen/leiden-dende"
       },
       "nationalFallback": false,
       "qualityScore": 70,
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-16",
       "officialSourceUrls": [
-        "https://www.dende.nl/contact"
+        "https://dende.nl/"
       ],
       "relatedOrganizationIds": [],
       "narrowCategory": "restaurant",
@@ -4396,7 +4972,7 @@
       "tags": [],
       "synonyms": [
         "Restaurant Dende",
-        "Een restaurant aan de Nieuwe Rijn. Gebruik de actuele kaart en contactgegevens om je bezoek te plannen."
+        "Lunch en deelgerechten voor het diner bij de Visbrug, met een terras op de Nieuwe Rijn."
       ],
       "officialOrganizationNames": [
         "Restaurant Dende"
@@ -4475,7 +5051,7 @@
       "slug": "leiden-verboden-toegang",
       "route": "/places/leiden-verboden-toegang",
       "title": "Restaurant Verboden Toegang",
-      "summary": "A restaurant on Kaiserstraat with a changing seasonal menu. It serves dinner daily; the kitchen has an earlier closing time than the restaurant.",
+      "summary": "An evening restaurant on Kaiserstraat with seasonally changing dishes and menus for the whole table.",
       "contentDepth": "summary",
       "keywords": [
         "Restaurant Verboden Toegang",
@@ -4502,12 +5078,12 @@
       ],
       "dutch": {
         "title": "Restaurant Verboden Toegang",
-        "summary": "Een restaurant aan de Kaiserstraat met een wisselende seizoenskaart. Dagelijks diner; de keuken sluit eerder dan het restaurant.",
+        "summary": "Een avondrestaurant aan de Kaiserstraat met seizoensgerechten en menu’s voor de hele tafel.",
         "route": "/nl/plaatsen/leiden-verboden-toegang"
       },
       "nationalFallback": false,
       "qualityScore": 70,
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-16",
       "officialSourceUrls": [
         "https://www.verbodentoegang.nl/"
       ],
@@ -4524,7 +5100,7 @@
       "tags": [],
       "synonyms": [
         "Restaurant Verboden Toegang",
-        "Een restaurant aan de Kaiserstraat met een wisselende seizoenskaart. Dagelijks diner; de keuken sluit eerder dan het restaurant."
+        "Een avondrestaurant aan de Kaiserstraat met seizoensgerechten en menu’s voor de hele tafel."
       ],
       "officialOrganizationNames": [
         "Restaurant Verboden Toegang"
@@ -5186,7 +5762,7 @@
       "slug": "leiden-tabu",
       "route": "/places/leiden-tabu",
       "title": "Tabú",
-      "summary": "A restaurant on Rembrandtstraat with dishes inspired by Latin American cuisines and a separate drinks menu.",
+      "summary": "Tacos and other Latin American menu choices on Rembrandtstraat, with timed reservations and an explicit access limitation.",
       "contentDepth": "summary",
       "keywords": [
         "Tabú",
@@ -5213,12 +5789,12 @@
       ],
       "dutch": {
         "title": "Tabú",
-        "summary": "Een restaurant aan de Rembrandtstraat met gerechten uit Latijns-Amerikaanse keukens en een aparte drankenkaart.",
+        "summary": "Taco’s en andere Latijns-Amerikaanse gerechten aan de Rembrandtstraat, met reserveringstijdsloten en een expliciete toegankelijkheidsbeperking.",
         "route": "/nl/plaatsen/leiden-tabu"
       },
       "nationalFallback": false,
       "qualityScore": 70,
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-16",
       "officialSourceUrls": [
         "https://www.tabu.nl/faq/"
       ],
@@ -5235,7 +5811,7 @@
       "tags": [],
       "synonyms": [
         "Tabú",
-        "Een restaurant aan de Rembrandtstraat met gerechten uit Latijns-Amerikaanse keukens en een aparte drankenkaart."
+        "Taco’s en andere Latijns-Amerikaanse gerechten aan de Rembrandtstraat, met reserveringstijdsloten en een expliciete toegankelijkheidsbeperking."
       ],
       "officialOrganizationNames": [
         "Tabú"
@@ -5885,6 +6461,70 @@
       ],
       "officialOrganizationNames": [
         "Westbroekpark"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "place.westerkerk",
+      "type": "place",
+      "sourceKind": "place",
+      "slug": "westerkerk",
+      "route": "/places/westerkerk",
+      "title": "Westerkerk",
+      "summary": "Step inside the Westerkerk for its church interior and organs; the tower is currently unavailable to climb.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Westerkerk",
+        "amsterdam",
+        "church-landmark"
+      ],
+      "city": "Amsterdam",
+      "cityId": "amsterdam",
+      "province": "Noord-Holland",
+      "provinceId": "noord-holland",
+      "municipalityId": "amsterdam",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "things-to-do"
+      ],
+      "intents": [
+        "things-to-do"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Westerkerk",
+        "summary": "Bekijk het kerkinterieur en de orgels van de Westerkerk; de toren is momenteel niet te beklimmen.",
+        "route": "/nl/plaatsen/westerkerk"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-16",
+      "officialSourceUrls": [
+        "https://westerkerk.nl/bezoek-de-westerkerk-amsterdam/"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "church-landmark",
+      "organization": "westerkerk.nl",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Westerkerk",
+        "Bekijk het kerkinterieur en de orgels van de Westerkerk; de toren is momenteel niet te beklimmen."
+      ],
+      "officialOrganizationNames": [
+        "westerkerk.nl"
       ],
       "terminology": [],
       "commonQuestions": []

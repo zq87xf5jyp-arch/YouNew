@@ -1,0 +1,672 @@
+{
+  "schemaVersion": 1,
+  "selectionId": "pr75-fea2401-20261116",
+  "sourceCommit": "fea2401cc937a258e0ab7293a7d5e912a5bee528",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "approvedAt": null,
+  "reviewerId": null,
+  "scope": "Exact immutable source selection; approval is separate from activation. Any file edit requires a new selection ID and digest.",
+  "batches": [
+    {
+      "batchId": "amsterdam-attractions-20261116",
+      "ids": [
+        "place.artis",
+        "place.hortus-botanicus-amsterdam",
+        "place.oude-kerk",
+        "place.de-nieuwe-kerk-amsterdam",
+        "place.westerkerk",
+        "place.adam-lookout",
+        "place.heineken-experience",
+        "place.johan-cruijff-arena",
+        "place.de-hallen-amsterdam",
+        "place.oba-oosterdok"
+      ],
+      "recordsSha256": "8c1f4ca957a9ecfd7464d56db0ab8b05ca7a597ee37a0a865af1356c37977d8f",
+      "records": 10,
+      "blocksEnNl": 102,
+      "photos": 10,
+      "approvalStatus": "needs_review"
+    },
+    {
+      "batchId": "priority-cities-followup-20261116",
+      "ids": [
+        "place.utrecht-neude",
+        "museum.rotterdam-chabot",
+        "museum.den-haag-fotomuseum",
+        "museum.eindhoven-inkijkmuseum",
+        "restaurant.eindhoven-kazerne",
+        "nature.utrecht-oog-in-al",
+        "museum.utrecht-sonnenborgh",
+        "hotel.rotterdam-supernova",
+        "nature.rotterdam-trompenburg",
+        "nature.den-haag-westbroekpark"
+      ],
+      "recordsSha256": "ae8f1969a6bfacae346d521ec968729048a4de6fef48d4e50c4865447fc09ed7",
+      "records": 10,
+      "blocksEnNl": 140,
+      "photos": 8,
+      "approvalStatus": "needs_review"
+    },
+    {
+      "batchId": "missing-photos-20261116",
+      "ids": [
+        "nature.leiden-rembrandtpark",
+        "hotel.leiden-ibis",
+        "hotel.leiden-rembrandt-hotel",
+        "restaurant.eindhoven-kazerne",
+        "hotel.rotterdam-supernova"
+      ],
+      "recordsSha256": "88fa7dfe1c8abe5fe1cbc9a7994c70ca7c138063b870c16a0353ba6486afa677",
+      "records": 5,
+      "blocksEnNl": 50,
+      "photos": 5,
+      "approvalStatus": "needs_review"
+    }
+  ],
+  "amsterdamPlacement": {
+    "place.artis": "dated_hero_candidate",
+    "place.hortus-botanicus-amsterdam": "dated_hero_candidate",
+    "place.oude-kerk": "dated_hero_candidate",
+    "place.de-nieuwe-kerk-amsterdam": "archive_gallery_only",
+    "place.westerkerk": "dated_hero_candidate",
+    "place.adam-lookout": "dated_hero_candidate",
+    "place.heineken-experience": "dated_hero_candidate",
+    "place.johan-cruijff-arena": "dated_hero_candidate",
+    "place.de-hallen-amsterdam": "dated_hero_candidate",
+    "place.oba-oosterdok": "dated_hero_candidate"
+  },
+  "overlaps": {
+    "restaurant.eindhoven-kazerne": [
+      "priority-cities-followup-20261116",
+      "missing-photos-20261116"
+    ],
+    "hotel.rotterdam-supernova": [
+      "priority-cities-followup-20261116",
+      "missing-photos-20261116"
+    ]
+  },
+  "integration": "Overlapping revisions must not overwrite one another; combined preview requires separate hash-bound composition evidence and remains unapproved.",
+  "files": {
+    "DataProject/batches/WP-06/M2-amsterdam-001.json": {
+      "sha256": "a24f464c86e1880a542b23f1606f8622218cc0c7aa75464a9a19402847813b07",
+      "bytes": 769930
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/QA_REPORT_RU.md": {
+      "sha256": "9daa853b5bd0ae8dc8735833978fc6bc9c543eabe76659f142fb7d1713fef09c",
+      "bytes": 7876
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/README.md": {
+      "sha256": "3b2df5e3bd166fbd135277566215d6d00e5356803c5c75802574fbd336add5bd",
+      "bytes": 2921
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/REVIEW.html": {
+      "sha256": "b8585db1e71474f086dc7a00f4786c7f42a410bde44910476d88e4b5f5cc2416",
+      "bytes": 118257
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/build-review.py": {
+      "sha256": "a3bfe8e875aa0e2afe1a7f4e86ed6dff4a168fe47660a7f99e15c20eead8251e",
+      "bytes": 9316
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/evidence/adam-bag.json": {
+      "sha256": "90ce10c36049eafe49fad67c74fff42a3bc65cdbfb2fb8d82d0bcbe40a05eafb",
+      "bytes": 872
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/evidence/arena-bag.json": {
+      "sha256": "3a6316a312341b0adf3f9a0dd96dbb54271547583be0a7dc62053580867d2545",
+      "bytes": 920
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/evidence/artis-bag.json": {
+      "sha256": "1706b0cc86b264667d0cb5f31f001282e2f83ecb5ffe11c5e94dfa884b5cfd39",
+      "bytes": 900
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/evidence/commons-138539998.json": {
+      "sha256": "e6f12f184178f3112550d4b1e000dc072bab0be9d90441dbe24e3820536e39ea",
+      "bytes": 3687
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/evidence/commons-139224286.json": {
+      "sha256": "66e9b29bd740169bf10c255c329bbe01a60efeeea376ac8bc919ee768d0d8afe",
+      "bytes": 3196
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/evidence/commons-141041752.json": {
+      "sha256": "bb9124b1e8f58e1a0cd34d58841f00a1248464ecc97d12c82e2d986b887899d1",
+      "bytes": 3198
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/evidence/commons-148346618.json": {
+      "sha256": "6e868aa578979859a6f2da9f84e117cc0efa69e3cb3bd58cc0b0b2bfad272685",
+      "bytes": 3525
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/evidence/commons-150724314.json": {
+      "sha256": "1f5bdbc1593fafea02467c5147b55f97c48788d368878da78cd935774f12b0c9",
+      "bytes": 3705
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/evidence/commons-169452699.json": {
+      "sha256": "e2257aef9d48e049c25e7d771cf2d88bda4d60d70dc6888a3715c24ecc4fb801",
+      "bytes": 3212
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/evidence/commons-21809472.json": {
+      "sha256": "ffae9787ede88d82b39799ea678f6e8599d96e9a72925c7d4d5c0aea1f2c65ba",
+      "bytes": 3727
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/evidence/commons-75233594.json": {
+      "sha256": "59b00edfbf05b8d30e8b6c39c014a0f8c38a9f3c7bd3e218620a79669a5b5ae8",
+      "bytes": 3078
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/evidence/commons-76286301.json": {
+      "sha256": "6f58db8cc07dc59da1af2eddc326714ed3cbe50107d13d6fcd4201e7a852be18",
+      "bytes": 3070
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/evidence/commons-91128392.json": {
+      "sha256": "9ae0c2ee4cc1dafe6ee6f9f3c2fff018ed9383139f31fb667bb3de7da1267b12",
+      "bytes": 3035
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/evidence/commons-91441109.json": {
+      "sha256": "619fc1e11fe2532c8b0e10b932e69cc9e85c6ce2b47f84a812e5dcd1d627d8e1",
+      "bytes": 3139
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/evidence/hallen-bag.json": {
+      "sha256": "b6269de8a8492130e6386781fbbb77c13ba580ae1bf79aa0f1eacf55aa9fa1ee",
+      "bytes": 920
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/evidence/heineken-bag.json": {
+      "sha256": "4430f85ae39b8c83ff6ab633e816a7558947bd10d2f2850cc30b2c972132015f",
+      "bytes": 892
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/evidence/hortus-bag.json": {
+      "sha256": "42d970e228f13d226bbd18b250c3c9dff0d31176a0507d68dc00fac34938bf80",
+      "bytes": 930
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/evidence/nieuwe-bag.json": {
+      "sha256": "3e0eea30706b3306d061b70c661deed573b4039bcd4f9e02d574a7ea39d3cc63",
+      "bytes": 844
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/evidence/nieuwe-faq-live-browser.json": {
+      "sha256": "fba94974d0e2971dc61793513d66aa37fb4f394c55d9edde92d4a71b516b3b05",
+      "bytes": 1024
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/evidence/nieuwe-visit-live-browser.json": {
+      "sha256": "4923a1d2b257e55c110c57b32281b0e31d80ff5fdb2b8f03b6f45892a9f3936b",
+      "bytes": 993
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/evidence/oba-bag.json": {
+      "sha256": "064ca42b5e0c8d08a55f6cdf193605c07f0ede64b003ff6bef33a32047d0ee3e",
+      "bytes": 892
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/evidence/oba-indexed.json": {
+      "sha256": "c560e400217aaa94f78ad5e9fa8b6f74d2098186c2c55baaeee5d4ef90f64c84",
+      "bytes": 510
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/evidence/oba-live-browser.json": {
+      "sha256": "39d0834c6045f874978ae3fdffb4b81168a5b3a8d4785246690dd03ca6e4181d",
+      "bytes": 1139
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/evidence/oude-bag.json": {
+      "sha256": "ac339f7cff33cf7cf3f89a6a1971ae30088c7d934ab9facac6397e66d30da1a1",
+      "bytes": 888
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/evidence/preserved-pr75.json": {
+      "sha256": "62e50fcef742341c0eba60b97effebf152d81d20d750f04095e2a31eb651e6a2",
+      "bytes": 4775
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/evidence/wester-bag.json": {
+      "sha256": "45a364701aa18266238cc3fdbd12ed5faaa6e9366655fb2c93678c6f3786b474",
+      "bytes": 888
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/manifest.json": {
+      "sha256": "045c7e2d9ed7b50cf3e5bfeb11c168868cfee4b1418ff80199b40f1dab5ae38a",
+      "bytes": 8306
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/media-followup.json": {
+      "sha256": "21a9bedac9bf3cda6a77cfdf03c32b2f3e4990a694f8f04fe216cdf27c350638",
+      "bytes": 12546
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/media-selection-review.json": {
+      "sha256": "51d33874773d4e1b43c2d170303a64b3044b8b146e66cd219b32a3e081aa620c",
+      "bytes": 2255
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/media-sources.json": {
+      "sha256": "2429ef0c5ea9834241a8366482e6c96cab6395c9133104eee59d25a9e33cf64d",
+      "bytes": 20890
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/media/amsadam-1200.webp": {
+      "sha256": "c32064d3230141a272814ec3f9453d150bea89456f102e0e798fa9a584e6282d",
+      "bytes": 166486
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/media/amsadam-480.webp": {
+      "sha256": "da20c7fdfc310009820021f462ac2f3fea709216dc58c541a51749122e3a8418",
+      "bytes": 41774
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/media/amsadam-800.webp": {
+      "sha256": "544bdb909effa4003c1583b5b54b98ae5403526379ddc7b7bf04f3eb54fcff29",
+      "bytes": 92264
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/media/amsarena-1200.webp": {
+      "sha256": "9b91db00f521bb2f05fcaae1b6cf84b55ff9cdcbb626aa4f4627d48f61e5e0a5",
+      "bytes": 235000
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/media/amsarena-480.webp": {
+      "sha256": "b7e83e7c41aff6d41316ff7970a3cf741926875e8f009479fda8804b771a6d82",
+      "bytes": 49594
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/media/amsarena-800.webp": {
+      "sha256": "6608ccdb412992781f48a2c4cc1c2ab3ba8f9bda982bc86d70650d6700ba8136",
+      "bytes": 123824
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/media/amsartis-1200.webp": {
+      "sha256": "df3f8aa41738e7762d6e4fae2f09f1dfbfe9c1e221a5bbb720637fe1c461b56c",
+      "bytes": 182688
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/media/amsartis-480.webp": {
+      "sha256": "96982aa1592e9926348bcd76934d29d73cc1cc83d45761df620386c72fc2e3d4",
+      "bytes": 36534
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/media/amsartis-800.webp": {
+      "sha256": "dd4325f0faaca54f6f1502ea1c3dbc4226becc8dec5c0aa4ad8ffeda4e1c27d7",
+      "bytes": 90874
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/media/amshallen-1200.webp": {
+      "sha256": "339b0078b02849dfaa5e4e75380d6e2e1cc51b6855fec5216a565f1aa3c49698",
+      "bytes": 515012
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/media/amshallen-480.webp": {
+      "sha256": "3c8faf4ee3b0398f0a82e8eee3b3436c92945d36f11fa23f65abd605f987046a",
+      "bytes": 92226
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/media/amshallen-800.webp": {
+      "sha256": "3ae6f14c848b14a623df134295f9e3703f6052bec38a154860308f01164c92a8",
+      "bytes": 240736
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/media/amsheineken-1200.webp": {
+      "sha256": "3b58659d15d1116e3d699bb072a9912091d568e8481427da6a4718990de466f4",
+      "bytes": 206758
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/media/amsheineken-480.webp": {
+      "sha256": "d4cdc068597a6181f1f4fb44a13283addea1819d56d1d02cbbf9ef4f9896c5f0",
+      "bytes": 29640
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/media/amsheineken-800.webp": {
+      "sha256": "e0b93b2e8fa14ca831a242b25fa41c0a9bf812226db8156877db232d0f42587e",
+      "bytes": 91682
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/media/amshortus-1200.webp": {
+      "sha256": "ddab295de852ab09f6712a532caf0e2259c6d7f117d2c386257e7bed33342807",
+      "bytes": 633106
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/media/amshortus-480.webp": {
+      "sha256": "c3c41571d856ad0c0c1ac9800df63bfdced672e1ebc91d48085a0562cf1e1674",
+      "bytes": 116952
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/media/amshortus-800.webp": {
+      "sha256": "935feceb9674538bcc17292f324c49cf8326ad3b55396f8218fa9f89d484be97",
+      "bytes": 302928
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/media/amsnieuwe-1200.webp": {
+      "sha256": "0966aa4b6de577495a65dae2410d792896fea89f93f047764d808a76f2119dc7",
+      "bytes": 198990
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/media/amsnieuwe-480.webp": {
+      "sha256": "7faf9e02c1107e5e333600526fd13b60a594edae5e6ea57be52a1668937ced3f",
+      "bytes": 36042
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/media/amsnieuwe-800.webp": {
+      "sha256": "b119ade25be764fd1cf076f9e98b6f50ab1fe3eb96e0e6acfb00c98876d8003a",
+      "bytes": 93664
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/media/amsoba-1200.webp": {
+      "sha256": "3848c3197e2a2dacecd1ec2f7340579ce3d535c4a3b8513404d2043aa12caf32",
+      "bytes": 166616
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/media/amsoba-480.webp": {
+      "sha256": "3c4d43d15570e8b7322ccb387e28416dd76d658dac649eb717d68607caa46cc1",
+      "bytes": 35580
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/media/amsoba-800.webp": {
+      "sha256": "33690ac78edcecd25a27f8336c389d7fa68f2d3727d74125e393c78e6d2615f2",
+      "bytes": 81472
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/media/amsoude-1200.webp": {
+      "sha256": "a09a088f5204e2b910aff3115236ca00d6057ceff3994ebc3446001275d79cfc",
+      "bytes": 388984
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/media/amsoude-480.webp": {
+      "sha256": "7e4384d47be4563092ef51f1e22456a8bf57b27449885e20d9f37d818267ba2b",
+      "bytes": 76816
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/media/amsoude-800.webp": {
+      "sha256": "3dfc2bb6ac476c37c8757bb00755624fcfd9601b526b9fdf8ac4b2c8962a85f4",
+      "bytes": 191612
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/media/amswester-1200.webp": {
+      "sha256": "91611188f1b6d3130658dd6607576055dfbb9ddc85a26efb5b36c8c7d6897b87",
+      "bytes": 103180
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/media/amswester-480.webp": {
+      "sha256": "92df3b572d0f3b4287375881a3502f60c21d22c3d8f18cd46bd1f994ec589165",
+      "bytes": 28076
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/media/amswester-800.webp": {
+      "sha256": "9779c2a6b2bda0ab80182fe99fc5e63ff000414a036d49be822aa62394f0ef3d",
+      "bytes": 57930
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/records.json": {
+      "sha256": "8c1f4ca957a9ecfd7464d56db0ab8b05ca7a597ee37a0a865af1356c37977d8f",
+      "bytes": 71139
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/review-issues.json": {
+      "sha256": "764fe367a8f915a9fe75387c95068b5f9979148eb2a5698c5a36314b074f6596",
+      "bytes": 1720
+    },
+    "DataProject/editorial/amsterdam-attractions-20261116/source-checks.json": {
+      "sha256": "4e30f3f18944b320c74c0ecaba0f68e1012a6fa889a078800fc3e662aa9b638c",
+      "bytes": 18892
+    },
+    "DataProject/editorial/leiden-stay-parks-20261115/records.json": {
+      "sha256": "32fb30b21b90e5a9419bc2482384946c9acccd8f77997b0791d8679b29132864",
+      "bytes": 64350
+    },
+    "DataProject/editorial/missing-photos-20261116/PERMISSION_REQUESTS_EN_NL.md": {
+      "sha256": "48453c508fe7c8ad2f9677098dcc6b614b0de928560871c5e6e327e7c008c47d",
+      "bytes": 11328
+    },
+    "DataProject/editorial/missing-photos-20261116/PHOTO_REVIEW.html": {
+      "sha256": "d1ca7ac3aca449e3da36bf3cf072aaf75d9f200a466f8c423612b847b9bf4303",
+      "bytes": 13920
+    },
+    "DataProject/editorial/missing-photos-20261116/README.md": {
+      "sha256": "b6bb21f0f58039975d461a3c176c1867c2f71aebe63026513ecd4595bbdeecf9",
+      "bytes": 4781
+    },
+    "DataProject/editorial/missing-photos-20261116/evidence/commons-158853289.json": {
+      "sha256": "32f002330c8debff287129e0e086d153238b86b3fdf3a7aa165b63f21cd4956c",
+      "bytes": 4994
+    },
+    "DataProject/editorial/missing-photos-20261116/evidence/commons-32690127.json": {
+      "sha256": "2a0654bf979d13c3a03e09af039c810958a14e2840e8d5470e1c7b9a8ca8bd55",
+      "bytes": 4000
+    },
+    "DataProject/editorial/missing-photos-20261116/evidence/commons-41641261.json": {
+      "sha256": "1543a13a8c7b8eb1f78cea39cb687c39e77db54c07cbd252b6fdf79c3335b109",
+      "bytes": 4396
+    },
+    "DataProject/editorial/missing-photos-20261116/evidence/commons-88292721.json": {
+      "sha256": "ab7857cbfa47aca24aac3edba75a4f8245e28b27825d4d8ba5b41149870b5ce3",
+      "bytes": 4928
+    },
+    "DataProject/editorial/missing-photos-20261116/evidence/flickr-52366054870.json": {
+      "sha256": "d77436a2278e63f27cb9dd2f28eab7710f0ca0f0107dca8cfb2ab68ccc804889",
+      "bytes": 1858
+    },
+    "DataProject/editorial/missing-photos-20261116/evidence/pre-ci-fix-preservation.json": {
+      "sha256": "205d67c7abbe0565a216ff84aee459f01d6b9c46e96acaa134b7b75b376794fe",
+      "bytes": 3473
+    },
+    "DataProject/editorial/missing-photos-20261116/evidence/rejected-koffieleute-7913701884.json": {
+      "sha256": "c8e95e6c24bfbd1a5c9d9ed600e0a59b600cd5eddf4c49666b09ac35c07c02c8",
+      "bytes": 1280
+    },
+    "DataProject/editorial/missing-photos-20261116/manifest.json": {
+      "sha256": "a3ad01a6d210af09a735845a644c914236610b2d55df108228f4f034541d4f50",
+      "bytes": 4962
+    },
+    "DataProject/editorial/missing-photos-20261116/media-sources.json": {
+      "sha256": "631590b230502ff9704fe5c38d6665b3397a90b451e2e2056b7cd1e63fbc47f4",
+      "bytes": 10195
+    },
+    "DataProject/editorial/missing-photos-20261116/media/ibisleiden-1200.webp": {
+      "sha256": "13146b3ab2d7b20290497d443c9145a1dff2c61caec21f843d85c5e48d17d280",
+      "bytes": 222794
+    },
+    "DataProject/editorial/missing-photos-20261116/media/ibisleiden-480.webp": {
+      "sha256": "e17f1e4c694e98e47d515ffa4381e39769700a346e364f6660daedc46c55d818",
+      "bytes": 47942
+    },
+    "DataProject/editorial/missing-photos-20261116/media/ibisleiden-800.webp": {
+      "sha256": "f00c40ec2d03df209c0bf8432a2d5e1d4a18eeb39930e3f1259747cea296b460",
+      "bytes": 113854
+    },
+    "DataProject/editorial/missing-photos-20261116/media/kazerne-1200.webp": {
+      "sha256": "6423398ec6c729222fa3a884ab5b8904ec79c0124e697396b1318373b56fd010",
+      "bytes": 224164
+    },
+    "DataProject/editorial/missing-photos-20261116/media/kazerne-480.webp": {
+      "sha256": "56b7dcd0fd9110e7ba7426d80ac77475332b092a5f72e698726c5b3b15bf4815",
+      "bytes": 34276
+    },
+    "DataProject/editorial/missing-photos-20261116/media/kazerne-800.webp": {
+      "sha256": "951b5904afec2f149b1aee0014950f87f444666d18cc93fc71f24319907968ec",
+      "bytes": 98886
+    },
+    "DataProject/editorial/missing-photos-20261116/media/rembrandthotel-1200.webp": {
+      "sha256": "598fbda97a92a1cf13741e206ca6b631fd6bce83f44c17fe6603b7de1a72306d",
+      "bytes": 168006
+    },
+    "DataProject/editorial/missing-photos-20261116/media/rembrandthotel-480.webp": {
+      "sha256": "de5bfeca55425b31bc720691f55782ae91e8a8ac50ee52fdba0c12a4c41e80f4",
+      "bytes": 34694
+    },
+    "DataProject/editorial/missing-photos-20261116/media/rembrandthotel-800.webp": {
+      "sha256": "805f97f2e59ad7401e0d682278cb7bec385b565dce28b5ed3f3800391b52c9e8",
+      "bytes": 85172
+    },
+    "DataProject/editorial/missing-photos-20261116/media/rembrandtpark-1200.webp": {
+      "sha256": "dfb13bdffdc972bb7c121b6e767f22a5ddb34dcf65adc28d3b092ff2adf93453",
+      "bytes": 106140
+    },
+    "DataProject/editorial/missing-photos-20261116/media/rembrandtpark-480.webp": {
+      "sha256": "826135fdb718d60259cb0ceb94e2954dffaff9935e510dcd354d03b36c6d28bc",
+      "bytes": 22354
+    },
+    "DataProject/editorial/missing-photos-20261116/media/rembrandtpark-800.webp": {
+      "sha256": "e516357640e590d484d26562aa6e73cb693118be2e53155bb8f16a2141165942",
+      "bytes": 53462
+    },
+    "DataProject/editorial/missing-photos-20261116/media/supernova-1024.webp": {
+      "sha256": "ba78c398b0962c7e430e89be785bd42f7cc96a65b63245dc8a8aca328ea669f0",
+      "bytes": 70014
+    },
+    "DataProject/editorial/missing-photos-20261116/media/supernova-1200.webp": {
+      "sha256": "c30304fb5e136b531bf616684ea10624e736f016994ccf103ac9588437ef2aa8",
+      "bytes": 82082
+    },
+    "DataProject/editorial/missing-photos-20261116/media/supernova-480.webp": {
+      "sha256": "41a8cb789e574b8af78ae893892b3e1297e731dcc6c924be69187804aca91f01",
+      "bytes": 19790
+    },
+    "DataProject/editorial/missing-photos-20261116/media/supernova-800.webp": {
+      "sha256": "dd0064a100f0b4c5bda5e306eea615751bbd6bd36d7bb826b77f98d10fd8aec9",
+      "bytes": 46574
+    },
+    "DataProject/editorial/missing-photos-20261116/records.json": {
+      "sha256": "88fa7dfe1c8abe5fe1cbc9a7994c70ca7c138063b870c16a0353ba6486afa677",
+      "bytes": 34214
+    },
+    "DataProject/editorial/missing-photos-20261116/research.json": {
+      "sha256": "e78f5d91c4ed7df553ef33203751a2aa8ae3f57b75ab37ac541fc91ae82f7d74",
+      "bytes": 57169
+    },
+    "DataProject/editorial/missing-photos-20261116/source-checks.json": {
+      "sha256": "225bcaa7b9b84137c27be35edc4ee7e1e79b40f91324f0222a07fcbd38dfe6dc",
+      "bytes": 2655
+    },
+    "DataProject/editorial/missing-photos-20261116/visual-review.json": {
+      "sha256": "c4cc34a6f7020f313a28f06da73fab4a0c18900a7c01c2ecdb5b7c499e2d7d82",
+      "bytes": 3243
+    },
+    "DataProject/editorial/priority-cities-20261115/records.json": {
+      "sha256": "8a808c99acf914a36e7e84f18198f32243badc55fe92e06be4c605903c98dab3",
+      "bytes": 89607
+    },
+    "DataProject/editorial/priority-cities-followup-20261116/QA_FOLLOWUP_RU.md": {
+      "sha256": "48259e43a8d7834c8b39d0c09503da59d91a36fec5ad2b3d11d823364d6f54ff",
+      "bytes": 8301
+    },
+    "DataProject/editorial/priority-cities-followup-20261116/README.md": {
+      "sha256": "8d372badda5d6c2a4316c9acb1a40028d7b7f6eee29af8954b97bc5621d053a9",
+      "bytes": 2493
+    },
+    "DataProject/editorial/priority-cities-followup-20261116/changes.json": {
+      "sha256": "3b4fc3b2cd24d4cc5e43a4b8df1f4a02cea5ef983c193391fd489d6ed3af69d1",
+      "bytes": 5926
+    },
+    "DataProject/editorial/priority-cities-followup-20261116/evidence/chabot-collection.json": {
+      "sha256": "db0c17e060db1ae46c4a104880e035d0add9f87835478e638e59899e76e50913",
+      "bytes": 472
+    },
+    "DataProject/editorial/priority-cities-followup-20261116/evidence/chabot-villa.json": {
+      "sha256": "ba2fa5843a282a1e9a03fa3b2c5b57deac311d78e71fe361dc6548935e43160a",
+      "bytes": 467
+    },
+    "DataProject/editorial/priority-cities-followup-20261116/evidence/fotomuseum-exhibition.json": {
+      "sha256": "50e7f43513e4d3ee9af415e1115e9b5f8fc2a4513685ef8ba9bb72206ab782df",
+      "bytes": 536
+    },
+    "DataProject/editorial/priority-cities-followup-20261116/evidence/inkijk-owner.json": {
+      "sha256": "c8cb4b60b529b35bf859df59774774cbacddf35647cba38b0d3e3c96ca9561e1",
+      "bytes": 457
+    },
+    "DataProject/editorial/priority-cities-followup-20261116/evidence/kazerne-design.json": {
+      "sha256": "29ccb33514bd33a7e56c471d9f33498e7dcfcaa59fc9183ad261ca33047ee35a",
+      "bytes": 449
+    },
+    "DataProject/editorial/priority-cities-followup-20261116/evidence/local-qa.json": {
+      "sha256": "f5ed01425b9d392d9b2bf91e3de86873beff1801bc6a4afccdcf2a8ab230a3f3",
+      "bytes": 971
+    },
+    "DataProject/editorial/priority-cities-followup-20261116/evidence/neude-booking.json": {
+      "sha256": "4e0f4259899327912cf314cba73771fbb647bfff48a2f72385cd5160ba80b65d",
+      "bytes": 526
+    },
+    "DataProject/editorial/priority-cities-followup-20261116/evidence/oog-municipality.json": {
+      "sha256": "652ab5a6291f518795a4fb287458634b2ae6bbd4e0f8fda6cd3bf7d9e8c156c3",
+      "bytes": 583
+    },
+    "DataProject/editorial/priority-cities-followup-20261116/evidence/sonnenborgh-discover.json": {
+      "sha256": "f674e23df5ca2006bb13625cb4cc5c68987e7a02d110bbd4e58b4ac1ebaa29bd",
+      "bytes": 497
+    },
+    "DataProject/editorial/priority-cities-followup-20261116/evidence/sonnenborgh-faq.json": {
+      "sha256": "a63ebd30a1059b5d6b163063209dad795ffc5595df49407a911a47a9847c3e55",
+      "bytes": 466
+    },
+    "DataProject/editorial/priority-cities-followup-20261116/evidence/supernova-bikes.json": {
+      "sha256": "db5d03fcac80f01c03dfb6ea4f0607fd8d85b48ad77b9b1e52842c7495cf58f6",
+      "bytes": 470
+    },
+    "DataProject/editorial/priority-cities-followup-20261116/evidence/trompenburg-foodforest.json": {
+      "sha256": "9ca86362212595501b6b3cca4d373931d76c8238bf22e7e88585be20201a706b",
+      "bytes": 493
+    },
+    "DataProject/editorial/priority-cities-followup-20261116/manifest.json": {
+      "sha256": "cf731a954661b84d2c73b878248d434eae2eb6b697eb209580bd23292329e2d2",
+      "bytes": 7195
+    },
+    "DataProject/editorial/priority-cities-followup-20261116/media-sources.json": {
+      "sha256": "3345c5f679b96780e091285604ab50e796c877fbc277d88b113fb3120b257d69",
+      "bytes": 8653
+    },
+    "DataProject/editorial/priority-cities-followup-20261116/media/expdenhaagfotomuseum-1200.webp": {
+      "sha256": "e6f9e8b9eeee6bf814789a1bff66b133874cf2a342ab9e9f2faf2544ee2070d8",
+      "bytes": 166274
+    },
+    "DataProject/editorial/priority-cities-followup-20261116/media/expdenhaagfotomuseum-480.webp": {
+      "sha256": "416aa1c1d867658108e409d2f2a79b3808f9bf547436406d3ae3a1776fae0c9e",
+      "bytes": 27192
+    },
+    "DataProject/editorial/priority-cities-followup-20261116/media/expdenhaagfotomuseum-800.webp": {
+      "sha256": "25acb29bfede1b8b6d8d3be626b8f5de9fd4cd1f86a40e3493d9c07cbcbd3792",
+      "bytes": 76224
+    },
+    "DataProject/editorial/priority-cities-followup-20261116/media/expdenhaagwestbroekpark-1200.webp": {
+      "sha256": "35e91b78d1c9acd2d78ce41afb9d8a8aaba4a623abbab74cb24107b0159e4c3a",
+      "bytes": 341464
+    },
+    "DataProject/editorial/priority-cities-followup-20261116/media/expdenhaagwestbroekpark-480.webp": {
+      "sha256": "07e7df11b6c2be849bf10da3b11bbc17206fdf5a47a0e6b588bec7335cf55d86",
+      "bytes": 44488
+    },
+    "DataProject/editorial/priority-cities-followup-20261116/media/expdenhaagwestbroekpark-800.webp": {
+      "sha256": "d4de402312b18a480158e5fdfdc3f057e29b2fe8f1463f5c9a7ac206c97e3b62",
+      "bytes": 141054
+    },
+    "DataProject/editorial/priority-cities-followup-20261116/media/expeindhoveninkijkmuseum-1200.webp": {
+      "sha256": "009e88809d4e7864b6f46a23245fc15739b5c7892a0691059080d0631c9e4a26",
+      "bytes": 216132
+    },
+    "DataProject/editorial/priority-cities-followup-20261116/media/expeindhoveninkijkmuseum-480.webp": {
+      "sha256": "515562a0aa48991b7d754099b34138562bb0cd27f6c776b92443b0ae0a79a1e8",
+      "bytes": 34028
+    },
+    "DataProject/editorial/priority-cities-followup-20261116/media/expeindhoveninkijkmuseum-800.webp": {
+      "sha256": "c4710924bca04b03f025f393b9ef33c7d61c1c5cb93968d5d3f72e9cc1715a8e",
+      "bytes": 98582
+    },
+    "DataProject/editorial/priority-cities-followup-20261116/media/exprotterdamchabot-1200.webp": {
+      "sha256": "43e0b0b75f634d6931fe8badd804bcfe76b40adbe091af6347124a1bac4f400c",
+      "bytes": 204242
+    },
+    "DataProject/editorial/priority-cities-followup-20261116/media/exprotterdamchabot-480.webp": {
+      "sha256": "a18c514901b5fbb851f25cba0d11e1f07f6c33a836f0b9247c8a4c04f0ad9d68",
+      "bytes": 30604
+    },
+    "DataProject/editorial/priority-cities-followup-20261116/media/exprotterdamchabot-800.webp": {
+      "sha256": "4b98ba84863e58687447b993c1af5ce512f58ee64a50307171d82a6936058d6b",
+      "bytes": 88402
+    },
+    "DataProject/editorial/priority-cities-followup-20261116/media/exprotterdamtrompenburg-1200.webp": {
+      "sha256": "83dd5c1a8e4ee8a7a528190ec93dd05469d9e0fabb1db29c5186ffb449d3d1c8",
+      "bytes": 420678
+    },
+    "DataProject/editorial/priority-cities-followup-20261116/media/exprotterdamtrompenburg-480.webp": {
+      "sha256": "bf8018b508fa80e9726b62e68d2be1f6306108e7a3d16e0b25479776dbacd0c4",
+      "bytes": 71298
+    },
+    "DataProject/editorial/priority-cities-followup-20261116/media/exprotterdamtrompenburg-800.webp": {
+      "sha256": "0ea8715e83719ada39ecebe6158687e5d8e4cc69cbcfef653fdaa371cc788799",
+      "bytes": 201172
+    },
+    "DataProject/editorial/priority-cities-followup-20261116/media/exputrechtneude-1200.webp": {
+      "sha256": "6ddd789d1e0ec9378cfe74030e2b027c5265572f8968c802e493786161bb67cd",
+      "bytes": 271150
+    },
+    "DataProject/editorial/priority-cities-followup-20261116/media/exputrechtneude-480.webp": {
+      "sha256": "cc9ceeae06dc332da836b7eaf37b3e2be8a5dec1a218ace74d05fae32e47ca2c",
+      "bytes": 63174
+    },
+    "DataProject/editorial/priority-cities-followup-20261116/media/exputrechtneude-800.webp": {
+      "sha256": "84a0df4129aefc11d81039d97f8431804990120a8243554d27930e8c01e05033",
+      "bytes": 143586
+    },
+    "DataProject/editorial/priority-cities-followup-20261116/media/exputrechtooginal-1200.webp": {
+      "sha256": "a0bea7240a67def169f806fbefe6e995427d724422839a0ba488b6b9e9417790",
+      "bytes": 377006
+    },
+    "DataProject/editorial/priority-cities-followup-20261116/media/exputrechtooginal-480.webp": {
+      "sha256": "fabaae7f86080b036b7e29d947018ab9e0bd0e32d809cabb2bd11eab127652ab",
+      "bytes": 99224
+    },
+    "DataProject/editorial/priority-cities-followup-20261116/media/exputrechtooginal-800.webp": {
+      "sha256": "a11125fdd9a7b32e93d5b75e44d4e53bfa84e62906699ffd8f31ff1c125a7893",
+      "bytes": 232954
+    },
+    "DataProject/editorial/priority-cities-followup-20261116/media/exputrechtsonnenborgh-1200.webp": {
+      "sha256": "5722aedad202ddbe5a097c391d97a1d55f174fba20d732efc46b94c627ce1833",
+      "bytes": 375748
+    },
+    "DataProject/editorial/priority-cities-followup-20261116/media/exputrechtsonnenborgh-480.webp": {
+      "sha256": "0c58c31778ad4399b739166a2481675191c88b51b9685146f275eace935cecf8",
+      "bytes": 57130
+    },
+    "DataProject/editorial/priority-cities-followup-20261116/media/exputrechtsonnenborgh-800.webp": {
+      "sha256": "8ec0cfc7986a4c28e334c321dbc48a566bea66aed39ee336a9d16c7586d994bf",
+      "bytes": 163828
+    },
+    "DataProject/editorial/priority-cities-followup-20261116/records.json": {
+      "sha256": "ae8f1969a6bfacae346d521ec968729048a4de6fef48d4e50c4865447fc09ed7",
+      "bytes": 86923
+    },
+    "DataProject/editorial/priority-cities-followup-20261116/source-checks.json": {
+      "sha256": "74ce173ac18b11be97eb522b7c6871707d69a32d97304bbeb9e09320c04529f6",
+      "bytes": 18523
+    }
+  }
+}

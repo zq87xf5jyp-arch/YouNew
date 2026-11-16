@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "scope": "private R2 candidate exchanged with restored production snapshot in isolated directories only",
+  "archiveSha256": "2b617cbf5b825e7d760df311418c109e2cd265563511f8d95ac755c1c14426a7",
+  "candidateFiles": 1794,
+  "backupFiles": 2106,
+  "forwardAndBackwardFileHashesVerified": true,
+  "productionUnchanged": true,
+  "privateConfigurationUnchanged": true,
+  "databaseRestored": false
+}

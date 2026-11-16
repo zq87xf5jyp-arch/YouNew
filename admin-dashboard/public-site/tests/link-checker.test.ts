@@ -3,6 +3,7 @@ import { mkdtemp, mkdir, writeFile, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { spawnSync } from "node:child_process";
+import { fileURLToPath } from "node:url";
 import test from "node:test";
 
 test("static link audit resolves directory indexes and still rejects missing fragments", async () => {
@@ -13,7 +14,7 @@ test("static link audit resolves directory indexes and still rejects missing fra
     await writeFile(join(fixture,"nl/index.html"),'<h2 id="cities">Steden</h2>');
     await writeFile(join(fixture,"manifest.webmanifest"),'{}');
     await writeFile(join(fixture,"sw.js"),'const OFFLINE_URL = "/"; const SHELL_URLS = ["/", OFFLINE_URL];');
-    const run = () => spawnSync(process.execPath,[new URL("../scripts/check-links.mjs",import.meta.url).pathname],{env:{...process.env,YOUNEW_STATIC_ROOT:fixture},encoding:"utf8"});
+    const run = () => spawnSync(process.execPath,[fileURLToPath(new URL("../scripts/check-links.mjs",import.meta.url))],{env:{...process.env,YOUNEW_STATIC_ROOT:fixture},encoding:"utf8"});
     const valid = run();
     assert.equal(valid.status,0,valid.stderr);
     await writeFile(join(fixture,"nl/index.html"),'<h2 id="elsewhere">Steden</h2>');

@@ -1,0 +1,49 @@
+{
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Kaiserstraat+7%2C+2311+GN+Leiden&fq=type%3Aadres&rows=5",
+  "httpStatus": 200,
+  "checkedAt": "2026-11-16",
+  "sha256": "2c437d6a1276788fdbd9e35b3462adf588e5c6fb37baeb5f55692799331efe25",
+  "selectedAddress": {
+    "bron": "BAG",
+    "woonplaatscode": "2088",
+    "type": "adres",
+    "woonplaatsnaam": "Leiden",
+    "wijkcode": "WK054600",
+    "huis_nlt": "7",
+    "openbareruimtetype": "Weg",
+    "buurtnaam": "Academiewijk",
+    "gemeentecode": "0546",
+    "rdf_seealso": "http://bag.basisregistraties.overheid.nl/bag/id/nummeraanduiding/0546200000064573",
+    "weergavenaam": "Kaiserstraat 7, 2311GN Leiden",
+    "straatnaam_verkort": "Kaiserstr",
+    "id": "adr-583cfed792e93d7be4015756dd418e6e",
+    "gekoppeld_perceel": [
+      "LDN01-F-435",
+      "LDN01-F-1581",
+      "LDN01-F-433"
+    ],
+    "gemeentenaam": "Leiden",
+    "buurtcode": "BU05460001",
+    "wijknaam": "Binnenstad-Zuid",
+    "identificatie": "0546010000064482-0546200000064573",
+    "openbareruimte_id": "0546300000000650",
+    "waterschapsnaam": "Hoogheemraadschap van Rijnland",
+    "provinciecode": "PV28",
+    "postcode": "2311GN",
+    "provincienaam": "Zuid-Holland",
+    "centroide_ll": "POINT(4.48586739 52.15610069)",
+    "nummeraanduiding_id": "0546200000064573",
+    "waterschapscode": "13",
+    "adresseerbaarobject_id": "0546010000064482",
+    "huisnummer": 7,
+    "provincieafkorting": "ZH",
+    "centroide_rd": "POINT(93320.187 463486.28)",
+    "straatnaam": "Kaiserstraat",
+    "gekoppeld_appartement": [
+      "LDN01-F-2797-A-1"
+    ],
+    "score": 23.788542
+  },
+  "method": "Exact street/house number matched to venue official address; BAG address point, not surveyed entrance",
+  "recheckedThisBatch": true
+}

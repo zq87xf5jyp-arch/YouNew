@@ -1,0 +1,47 @@
+{
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Botermarkt+3%2C+2311+EM+Leiden&fq=type%3Aadres&rows=5",
+  "httpStatus": 200,
+  "checkedAt": "2026-11-16",
+  "sha256": "f9e2fbb89e28e91c21469a6041371cbdf4359ac8e8e10d163d83a2be379ed7ff",
+  "selectedAddress": {
+    "bron": "BAG",
+    "woonplaatscode": "2088",
+    "type": "adres",
+    "woonplaatsnaam": "Leiden",
+    "wijkcode": "WK054600",
+    "huis_nlt": "3",
+    "openbareruimtetype": "Weg",
+    "buurtnaam": "Pieterswijk",
+    "gemeentecode": "0546",
+    "rdf_seealso": "http://bag.basisregistraties.overheid.nl/bag/id/nummeraanduiding/0546200000008263",
+    "weergavenaam": "Botermarkt 3, 2311EM Leiden",
+    "straatnaam_verkort": "Botermarkt",
+    "id": "adr-d71b9da8d5d45a40b5a54bdb7a74886d",
+    "gekoppeld_perceel": [
+      "LDN01-G-1714"
+    ],
+    "gemeentenaam": "Leiden",
+    "buurtcode": "BU05460000",
+    "wijknaam": "Binnenstad-Zuid",
+    "identificatie": "0546010000008263-0546200000008263",
+    "openbareruimte_id": "0546300000000202",
+    "waterschapsnaam": "Hoogheemraadschap van Rijnland",
+    "provinciecode": "PV28",
+    "postcode": "2311EM",
+    "provincienaam": "Zuid-Holland",
+    "centroide_ll": "POINT(4.49184004 52.15772484)",
+    "nummeraanduiding_id": "0546200000008263",
+    "waterschapscode": "13",
+    "adresseerbaarobject_id": "0546010000008263",
+    "huisnummer": 3,
+    "provincieafkorting": "ZH",
+    "centroide_rd": "POINT(93731.12 463661.914)",
+    "straatnaam": "Botermarkt",
+    "gekoppeld_appartement": [
+      "LDN01-G-2362-A-1"
+    ],
+    "score": 23.788946
+  },
+  "method": "Exact street/house number matched to venue official address; BAG address point, not surveyed entrance",
+  "recheckedThisBatch": true
+}

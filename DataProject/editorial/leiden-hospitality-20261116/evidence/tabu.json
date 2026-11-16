@@ -1,0 +1,11 @@
+{
+  "url": "https://www.tabu.nl/faq/",
+  "checkedAt": "2026-11-16",
+  "httpStatus": 200,
+  "finalUrl": "https://www.tabu.nl/faq/",
+  "sha256": "ca9d4b8e77cdc07dbbda7f88654ae2168c4a668a0195c1e2a504e441613bc768",
+  "recheckedThisBatch": true,
+  "method": "Direct HTTPS, ordinary urllib client; no access-control bypass",
+  "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/tabu",
+  "officialLinks": []
+}

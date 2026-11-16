@@ -1,0 +1,113 @@
+{
+  "pageid": 41641261,
+  "ns": 6,
+  "title": "File:Nieuwe beestenmarkt 8, 10-12, 14.JPG",
+  "imagerepository": "local",
+  "imageinfo": [
+    {
+      "size": 2560629,
+      "width": 4272,
+      "height": 2848,
+      "thumburl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Nieuwe_beestenmarkt_8%2C_10-12%2C_14.JPG/1280px-Nieuwe_beestenmarkt_8%2C_10-12%2C_14.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "thumbwidth": 1200,
+      "thumbheight": 800,
+      "responsiveUrls": {
+        "2": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Nieuwe_beestenmarkt_8%2C_10-12%2C_14.JPG/3840px-Nieuwe_beestenmarkt_8%2C_10-12%2C_14.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+      },
+      "thumbattribs": {
+        "src": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Nieuwe_beestenmarkt_8%2C_10-12%2C_14.JPG/1280px-Nieuwe_beestenmarkt_8%2C_10-12%2C_14.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "decoding": "async",
+        "loading": "lazy",
+        "width": 1200,
+        "height": 800,
+        "srcset": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Nieuwe_beestenmarkt_8%2C_10-12%2C_14.JPG/3840px-Nieuwe_beestenmarkt_8%2C_10-12%2C_14.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail 2x"
+      },
+      "url": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Nieuwe_beestenmarkt_8%2C_10-12%2C_14.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "descriptionurl": "https://commons.wikimedia.org/wiki/File:Nieuwe_beestenmarkt_8,_10-12,_14.JPG",
+      "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=41641261",
+      "sha1": "98d8c682dd7c84b98d9b920f40a208cf48a9ded1",
+      "extmetadata": {
+        "DateTime": {
+          "value": "2015-07-17 10:46:23",
+          "source": "mediawiki-metadata",
+          "hidden": ""
+        },
+        "ObjectName": {
+          "value": "Nieuwe beestenmarkt 8, 10-12, 14",
+          "source": "mediawiki-metadata"
+        },
+        "CommonsMetadataExtension": {
+          "value": 1.2,
+          "source": "extension",
+          "hidden": ""
+        },
+        "Categories": {
+          "value": "Nieuwe Beestenmarkt, Leiden|Self-published work|2015 in Leiden|Netherlands photographs taken on 2015-07-10",
+          "source": "commons-categories",
+          "hidden": ""
+        },
+        "Assessments": {
+          "value": "",
+          "source": "commons-categories",
+          "hidden": ""
+        },
+        "ImageDescription": {
+          "value": "Будинки №№ 8, 10-12, 14 на площі Ньїве-Бестенмаркт, Лейден, Нідерланди",
+          "source": "commons-desc-page"
+        },
+        "DateTimeOriginal": {
+          "value": "2015-07-10 11:10:53",
+          "source": "commons-desc-page"
+        },
+        "Credit": {
+          "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+          "source": "commons-desc-page"
+        },
+        "Artist": {
+          "value": "<a href=\"//commons.wikimedia.org/wiki/User:Xsandriel\" title=\"User:Xsandriel\">Xsandriel</a>",
+          "source": "commons-desc-page"
+        },
+        "LicenseShortName": {
+          "value": "CC BY-SA 4.0",
+          "source": "commons-desc-page",
+          "hidden": ""
+        },
+        "UsageTerms": {
+          "value": "Creative Commons Attribution-Share Alike 4.0",
+          "source": "commons-desc-page"
+        },
+        "AttributionRequired": {
+          "value": "true",
+          "source": "commons-desc-page",
+          "hidden": ""
+        },
+        "LicenseUrl": {
+          "value": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "commons-desc-page"
+        },
+        "Copyrighted": {
+          "value": "True",
+          "source": "commons-desc-page",
+          "hidden": ""
+        },
+        "Restrictions": {
+          "value": "",
+          "source": "commons-desc-page",
+          "hidden": ""
+        },
+        "License": {
+          "value": "cc-by-sa-4.0",
+          "source": "commons-templates",
+          "hidden": ""
+        }
+      }
+    }
+  ],
+  "revisions": [
+    {
+      "revid": 1010029161,
+      "parentid": 934431783,
+      "timestamp": "2025-03-15T18:37:04Z"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "mode": "qa",
+  "status": "PASS",
+  "origin": "https://qa-catalog.younew.nl",
+  "viewports": [
+    "390x844"
+  ],
+  "environment": "existing Playwright + Chrome; Browser plugin not available; no real-device Safari test",
+  "cardChecks": 0,
+  "overview": [],
+  "interaction": "ARTIS, Kazerne, Supernova: Save, reload, Saved, open, remove; Rijksmuseum EN/NL, Share clipboard, map/category/search",
+  "errors": [],
+  "labLimit": "Unthrottled hosted LCP/CLS observations only; no field CWV, no measured INP, no accessibility certification"
+}

@@ -1,0 +1,20 @@
+{
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Prinsengracht+279+Amsterdam&fq=type%3Aadres&rows=3",
+  "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Prinsengracht+279+Amsterdam&fq=type%3Aadres&rows=3",
+  "httpStatus": 200,
+  "contentType": "application/json;charset=utf-8",
+  "sha256": "119952467eed37128a2eebf9fe1525316d62e53015d77f31ba634f18c3b36603",
+  "file": "8181ad4f8a6d4933.html",
+  "checkedAt": "2026-11-16",
+  "selectedAddress": {
+    "woonplaatsnaam": "Amsterdam",
+    "weergavenaam": "Prinsengracht 279, 1016GW Amsterdam",
+    "id": "adr-64f0c70ed5bcc9a50bdf26f1f7c9f06a",
+    "postcode": "1016GW",
+    "centroide_ll": "POINT(4.88349767 52.37452582)",
+    "nummeraanduiding_id": "0363200000243843",
+    "huisnummer": 279,
+    "straatnaam": "Prinsengracht"
+  },
+  "method": "official BAG address geocoder; not an entrance survey"
+}

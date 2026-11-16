@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "testedAt": "2026-11-16",
+  "baseCommit": "63024764d029a1c26f3a71405a96ef44baba0bb0",
+  "browserCases": 80,
+  "viewports": [
+    390,
+    1280
+  ],
+  "locales": [
+    "en",
+    "nl"
+  ],
+  "approvalPackageCards": 20,
+  "approvalPackageImages": 18,
+  "browserScriptSha256": "203fe1d3c3cfa4d7995df4d263ac70996211c67a13fc1144ddccfea91913474b",
+  "browserReportSha256": "ec17e5ac249d1d2b90001d9b488220ef0b4ebddfe58d462b6df3f6949d0fdb10",
+  "predeployTests": 287,
+  "targetedTests": 22,
+  "recordsHashes": {
+    "amsterdam-attractions-20261116": "8c1f4ca957a9ecfd7464d56db0ab8b05ca7a597ee37a0a865af1356c37977d8f",
+    "priority-cities-followup-20261116": "ae8f1969a6bfacae346d521ec968729048a4de6fef48d4e50c4865447fc09ed7"
+  },
+  "productionChanged": false,
+  "environment": "Existing desktop Chrome + Playwright on loopback; no physical device or Hostinger deployment",
+  "rawEvidenceDirectory": "/Users/ivan/YouNew-Expansion-20261116-Next-Evidence"
+}

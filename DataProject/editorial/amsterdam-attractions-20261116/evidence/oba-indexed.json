@@ -1,0 +1,24 @@
+{
+  "url": "https://oba.nl/nl/locaties/oba-oosterdok",
+  "checkedAt": "2026-11-16",
+  "method": "web.run search",
+  "directHttpStatus": [
+    403,
+    429
+  ],
+  "factsObserved": {
+    "address": "Oosterdokskade 143, 1011DL Amsterdam",
+    "services": [
+      "books and magazines",
+      "study and work spaces",
+      "exhibitions",
+      "children’s department",
+      "theatre on seventh floor"
+    ]
+  },
+  "notAssertedAsLive": [
+    "opening hours",
+    "current room availability",
+    "prices"
+  ]
+}

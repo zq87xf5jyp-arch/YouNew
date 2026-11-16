@@ -1,0 +1,38 @@
+name: Media availability
+
+on:
+  pull_request:
+    paths:
+      - 'YouNew/Data/CuratedPlaceHeroMediaRegistry.swift'
+      - 'YouNewTests/PriorityCityHeroMediaTests.swift'
+      - 'scripts/check-priority-hero-urls.py'
+      - 'scripts/tests/test_priority_hero_urls.py'
+      - '.github/workflows/media-availability.yml'
+  schedule:
+    - cron: '20 7 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  priority-hero-urls:
+    name: Priority hero URL availability (external network)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Test checker with deterministic fixtures
+        run: python3 -m unittest discover -s scripts/tests -p 'test_priority_hero_urls.py'
+      - name: Check the real registry URLs with bounded retries
+        run: python3 scripts/check-priority-hero-urls.py --output "$RUNNER_TEMP/priority-hero-urls.json"
+      - name: Preserve per-URL results, including network failures
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: priority-hero-urls-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/priority-hero-urls.json
+          if-no-files-found: error
+          retention-days: 14

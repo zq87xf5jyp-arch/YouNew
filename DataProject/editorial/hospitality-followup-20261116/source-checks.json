@@ -1,0 +1,428 @@
+{
+  "restaurant.leiden-waag:contact": {
+    "key": "waag-contact",
+    "url": "https://www.waagleiden.nl/nl/contactpagina/",
+    "status": 200,
+    "finalURL": "https://www.waagleiden.nl/nl/contactpagina/",
+    "contentType": "text/html",
+    "sha256": "e6fa3720fc2332d98b2985c6586ec8c6a0aba250bd6d62d20256e57115c5aec5",
+    "checkedAt": "2026-11-15",
+    "routeURLs": [],
+    "httpStatus": 200,
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/leiden-food-20261115/link-checks.json"
+  },
+  "restaurant.leiden-waag:menu": {
+    "key": "waag-menu",
+    "url": "https://static.rce.eu/wp-content/uploads/sites/10/2026/03/17142126/26034-Menu_Waag_Locaties_105x304_ISO.pdf",
+    "status": 200,
+    "finalURL": "https://static.rce.eu/wp-content/uploads/sites/10/2026/03/17142126/26034-Menu_Waag_Locaties_105x304_ISO.pdf",
+    "contentType": "application/pdf",
+    "sha256": "a03637f495c8809140fdb89de2d9f794743d68d4ef21071de333342ba2b7041e",
+    "checkedAt": "2026-11-15",
+    "routeURLs": [],
+    "httpStatus": 200,
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/leiden-food-20261115/link-checks.json"
+  },
+  "restaurant.leiden-waag:route": {
+    "key": "waag-route",
+    "url": "https://www.visitleiden.nl/nl/locaties/3402150775/waag-leiden",
+    "status": 200,
+    "finalURL": "https://www.visitleiden.nl/nl/locaties/3402150775/waag-leiden",
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "e3304ae11ad3566210497e693b530fa44d4ef99e0d6c52e7d91d7fa1e1858420",
+    "checkedAt": "2026-11-15",
+    "routeURLs": [
+      "https://www.google.com/maps/dir/?api=1&destination=52.159463%2C4.489903",
+      "https://www.google.com/maps/dir/?api=1&destination=52.159463%2C4.489903"
+    ],
+    "httpStatus": 200,
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/leiden-food-20261115/link-checks.json"
+  },
+  "restaurant.leiden-oudt-leyden:home": {
+    "key": "oudt-home",
+    "url": "https://oudtleyden.nl/",
+    "status": 200,
+    "finalURL": "https://oudtleyden.nl/",
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "abe0500d26a7b108de7f201ac4cc46bef82262fd81a8c47c018269da046e6510",
+    "checkedAt": "2026-11-15",
+    "routeURLs": [],
+    "httpStatus": 200,
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/leiden-food-20261115/link-checks.json"
+  },
+  "restaurant.leiden-oudt-leyden:contact": {
+    "key": "oudt-contact",
+    "url": "https://oudtleyden.nl/contact/",
+    "status": 200,
+    "finalURL": "https://oudtleyden.nl/contact/",
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "2802e6b67605aa0ccaf2a31bc855f4a9c6479bdc5546bff90436bb924b7f9c7b",
+    "checkedAt": "2026-11-15",
+    "routeURLs": [],
+    "httpStatus": 200,
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/leiden-food-20261115/link-checks.json"
+  },
+  "restaurant.leiden-oudt-leyden:menu": {
+    "key": "oudt-menu",
+    "url": "https://oudtleyden.nl/wp-content/uploads/2026/04/OUD_menukaart-2026-A3.pdf",
+    "status": 200,
+    "finalURL": "https://oudtleyden.nl/wp-content/uploads/2026/04/OUD_menukaart-2026-A3.pdf",
+    "contentType": "application/pdf",
+    "sha256": "14c94a50a6e8236523af75b5fbc51dd6585b2440b26e612369d62ed308ad5ece",
+    "checkedAt": "2026-11-15",
+    "routeURLs": [],
+    "httpStatus": 200,
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/leiden-food-20261115/link-checks.json"
+  },
+  "restaurant.leiden-oudt-leyden:route": {
+    "key": "oudt-route",
+    "url": "https://www.visitleiden.nl/nl/locaties/2623615998/oudt-leyden-t-pannenkoekenhuysje",
+    "status": 200,
+    "finalURL": "https://www.visitleiden.nl/nl/locaties/2623615998/oudt-leyden-t-pannenkoekenhuysje",
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "f0ef8d8ccc48dc826446e6adbff671dbe1e84fda6ddf15ae75b6fb53ed4fd791",
+    "checkedAt": "2026-11-15",
+    "routeURLs": [
+      "https://www.google.com/maps/dir/?api=1&destination=52.162479%2C4.484523",
+      "https://www.google.com/maps/dir/?api=1&destination=52.162479%2C4.484523"
+    ],
+    "httpStatus": 200,
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/leiden-food-20261115/link-checks.json"
+  },
+  "restaurant.leiden-prentenkabinet:contact": {
+    "key": "prent-contact",
+    "url": "https://www.prentenkabinet.nl/reserveren/",
+    "status": 200,
+    "finalURL": "https://www.prentenkabinet.nl/reserveren/",
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "6aa2616123735a62d24d732056556477ab679c38d2db1395bd3c175dab0cdcfe",
+    "checkedAt": "2026-11-15",
+    "routeURLs": [],
+    "httpStatus": 200,
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/leiden-food-20261115/link-checks.json"
+  },
+  "restaurant.leiden-prentenkabinet:menu": {
+    "key": "prent-menu",
+    "url": "https://www.prentenkabinet.nl/menukaart/",
+    "status": 200,
+    "finalURL": "https://www.prentenkabinet.nl/menukaart/",
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "636a44fa481a444f04cc83a510378029914b654e8b193dd60023294505bf8205",
+    "checkedAt": "2026-11-15",
+    "routeURLs": [],
+    "httpStatus": 200,
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/leiden-food-20261115/link-checks.json"
+  },
+  "restaurant.leiden-prentenkabinet:lunch": {
+    "key": "prent-lunch",
+    "url": "https://www.prentenkabinet.nl/lunch/",
+    "status": 200,
+    "finalURL": "https://www.prentenkabinet.nl/lunch/",
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "e9fbefa87837816d5069839c0d6f3d8032fa04c44b276032a1ad21392a9b232b",
+    "checkedAt": "2026-11-15",
+    "routeURLs": [],
+    "httpStatus": 200,
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/leiden-food-20261115/link-checks.json"
+  },
+  "restaurant.leiden-prentenkabinet:route": {
+    "key": "prent-route",
+    "url": "https://www.visitleiden.nl/nl/locaties/1965820401/het-prentenkabinet",
+    "status": 200,
+    "finalURL": "https://www.visitleiden.nl/nl/locaties/1965820401/het-prentenkabinet",
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "6849caef93656bbd325ea3fbdb0b411e85c1d16d42106199f20471ed1e813582",
+    "checkedAt": "2026-11-15",
+    "routeURLs": [
+      "https://www.google.com/maps/dir/?api=1&destination=52.157094%2C4.486795",
+      "https://www.google.com/maps/dir/?api=1&destination=52.157094%2C4.486795"
+    ],
+    "httpStatus": 200,
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/leiden-food-20261115/link-checks.json"
+  },
+  "hotel.leiden-oude-morsch:source.oudemorsch": {
+    "url": "https://www.boutiquehoteldeoudemorsch.nl/contact/",
+    "finalUrl": "https://www.boutiquehoteldeoudemorsch.nl/contact/",
+    "httpStatus": 200,
+    "sha256": "1e3ca1842f2126477a064b82d9d00774e8246afa0c9b8f177333ed20c49b076d",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8",
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/leiden-stay-parks-20261115/source-checks.json"
+  },
+  "hotel.leiden-oude-morsch:source.oudemorschtourism": {
+    "url": "https://www.visitleiden.nl/nl/locaties/3944718715/boutique-hotel-doude-morsch",
+    "finalUrl": "https://www.visitleiden.nl/nl/locaties/3944718715/boutique-hotel-doude-morsch",
+    "httpStatus": 200,
+    "sha256": "d2ad39587a25c314bc640b72b9a37f3342e892b6b14c0d04cddbc913fa305a96",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8",
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/leiden-stay-parks-20261115/source-checks.json"
+  },
+  "hotel.leiden-oude-morsch:source.oudemorschfacilities": {
+    "url": "https://www.boutiquehoteldeoudemorsch.nl/faciliteiten/",
+    "finalUrl": "https://www.boutiquehoteldeoudemorsch.nl/faciliteiten/",
+    "httpStatus": 200,
+    "sha256": "9cb6708c2f626ef63f8bc6b87329c52a7551d8aaf13b3841efb8a3caa83a2fa9",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8",
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/leiden-stay-parks-20261115/source-checks.json"
+  },
+  "hotel.leiden-oude-morsch:source.oudemorschholiday": {
+    "url": "https://www.boutiquehoteldeoudemorsch.nl/openingstijden-feestdagen/",
+    "finalUrl": "https://www.boutiquehoteldeoudemorsch.nl/openingstijden-feestdagen/",
+    "httpStatus": 200,
+    "sha256": "ed08259c4d723870e041c66971b5d339e934e1ac8895796cbdae7965dd3fbf06",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8",
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/leiden-stay-parks-20261115/source-checks.json"
+  },
+  "hotel.leiden-huys-van-leyden:source.huys": {
+    "url": "https://www.boutiquehotelsvanleyden.nl/nl/contact.html",
+    "finalUrl": "https://www.boutiquehotelsvanleyden.nl/nl/contact.html",
+    "httpStatus": 200,
+    "sha256": "0bcff659234d75b1712ad2d17a541bab2b73d4e7cf7bbdfef9af70813e9df459",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html",
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/leiden-stay-parks-20261115/source-checks.json"
+  },
+  "hotel.leiden-huys-van-leyden:source.huyssuite": {
+    "url": "https://www.boutiquehotelsvanleyden.nl/nl/huys-van-leyden/accommodaties/suite-met-grachtzicht.html",
+    "finalUrl": "https://www.boutiquehotelsvanleyden.nl/nl/huys-van-leyden/accommodaties/suite-met-grachtzicht.html",
+    "httpStatus": 200,
+    "sha256": "08466de40ca82ea17eebd698110e87a2bce79c20f1226cc50814ecd4b20e3711",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html",
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/leiden-stay-parks-20261115/source-checks.json"
+  },
+  "hotel.leiden-huys-van-leyden:source.huystourism": {
+    "url": "https://www.visitleiden.nl/nl/locaties/2048619726/boutique-hotel-huys-van-leyden",
+    "finalUrl": "https://www.visitleiden.nl/nl/locaties/2048619726/boutique-hotel-huys-van-leyden",
+    "httpStatus": 200,
+    "sha256": "8e9fef61db163acceb1d82cf70afec2a054696c8a3a5f25f6893739339c07166",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8",
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/leiden-stay-parks-20261115/source-checks.json"
+  },
+  "hotel.leiden-steenhof:source.steenhof": {
+    "url": "https://steenhofsuites.nl/contact/",
+    "finalUrl": "https://steenhofsuites.nl/contact/",
+    "httpStatus": 200,
+    "sha256": "ad47d8f2f85ac2f363b6393672b275b953a3cbc83a4c32691928bde4c629d56d",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8",
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/leiden-stay-parks-20261115/source-checks.json"
+  },
+  "hotel.leiden-steenhof:source.steenhoffacilities": {
+    "url": "https://steenhofsuites.nl/faciliteiten-arrangement/",
+    "finalUrl": "https://steenhofsuites.nl/faciliteiten-arrangement/",
+    "httpStatus": 200,
+    "sha256": "d23bbe977c6cc012bfea9be706e43624501db22ceb7cf0ed26a2a9b933913310",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8",
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/leiden-stay-parks-20261115/source-checks.json"
+  },
+  "hotel.leiden-steenhof:source.steenhoftourism": {
+    "url": "https://www.visitleiden.nl/nl/locaties/4129642951/steenhof-suites",
+    "finalUrl": "https://www.visitleiden.nl/nl/locaties/4129642951/steenhof-suites",
+    "httpStatus": 200,
+    "sha256": "5659f9fbac416c6f4e2b4b52c8fb51088ded1cbe12b910a28bb39b4b3a46b89c",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8",
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/leiden-stay-parks-20261115/source-checks.json"
+  },
+  "cafe.den-haag-kaafi:source.denhaagkaafi": {
+    "url": "https://kaafi.nl/contact-us",
+    "finalUrl": "https://kaafi.nl/contact-us",
+    "httpStatus": 200,
+    "sha256": "5f783429abc7d71a66394728722ddd5aac28469a863a191a7674f7c4bead1def",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html;charset=utf-8",
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json"
+  },
+  "cafe.den-haag-kaafi:source.kaafikitchen": {
+    "url": "https://kaafi.nl/breakfast-brunch-and-lunch-in-the-hague",
+    "finalUrl": "https://kaafi.nl/breakfast-brunch-and-lunch-in-the-hague",
+    "httpStatus": 200,
+    "sha256": "d2b2d68c2020792fc31346532c46772b50e53f1bcc42647c9153c4b418005337",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html;charset=utf-8",
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json"
+  },
+  "cafe.den-haag-kaafi:source.pdok": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Prinsestraat+25+Den+Haag&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Prinsestraat+25+Den+Haag&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-15",
+    "sha256": "c3bc3058e33e2e1bea2f04ac33c49eca91e867c047d122202473711f1d8789b4",
+    "selectedAddress": {
+      "id": "adr-dae1d5db1588bdd35856dd01c39009d7",
+      "weergavenaam": "Prinsestraat 25, 2513CA 's-Gravenhage",
+      "centroide_ll": "POINT(4.30619013 52.07870536)",
+      "nummeraanduiding_id": "0518200000650706",
+      "woonplaatsnaam": "'s-Gravenhage"
+    },
+    "method": "official address geocoder; not an entrance survey",
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json"
+  },
+  "cafe.utrecht-koffie-leute:source.utrechtkoffieleute": {
+    "url": "https://www.koffieleute.nl/",
+    "finalUrl": "https://www.koffieleute.nl/",
+    "httpStatus": 200,
+    "sha256": "1c5acbeef15b4e610ed95af470198bdb4fdf1d1bf0e66784548d0672ab5abb9c",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8",
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json"
+  },
+  "koffieleute-bag": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Westerkade+30+Utrecht&fq=type%3Aadres&rows=5",
+    "checkedAt": "2026-11-16",
+    "httpStatus": 200,
+    "sha256": "64b0e2a26cc1d7a59dd096ef4f151746416ffa7350e8989e0ee187f39f9a5d88",
+    "recheckedThisBatch": true,
+    "selectedAddress": {
+      "bron": "BAG",
+      "woonplaatscode": "3295",
+      "type": "adres",
+      "woonplaatsnaam": "Utrecht",
+      "wijkcode": "WK034406",
+      "huis_nlt": "30",
+      "openbareruimtetype": "Weg",
+      "buurtnaam": "Bleekstraat en omgeving",
+      "gemeentecode": "0344",
+      "rdf_seealso": "http://bag.basisregistraties.overheid.nl/bag/id/nummeraanduiding/0344200000190271",
+      "weergavenaam": "Westerkade 30, 3511HC Utrecht",
+      "straatnaam_verkort": "Westerkd",
+      "id": "adr-ee5bef64e8660fb0e861a42195d3d914",
+      "gekoppeld_perceel": [
+        "TSG00-A-2168"
+      ],
+      "gemeentenaam": "Utrecht",
+      "buurtcode": "BU03440627",
+      "wijknaam": "Wijk 06 Binnenstad",
+      "identificatie": "0344010000187170-0344200000190271",
+      "openbareruimte_id": "0344300000000709",
+      "waterschapsnaam": "Hoogheemraadschap De Stichtse Rijnlanden",
+      "provinciecode": "PV26",
+      "postcode": "3511HC",
+      "provincienaam": "Utrecht",
+      "centroide_ll": "POINT(5.12255925 52.07947745)",
+      "nummeraanduiding_id": "0344200000190271",
+      "waterschapscode": "14",
+      "adresseerbaarobject_id": "0344010000187170",
+      "huisnummer": 30,
+      "provincieafkorting": "UT",
+      "centroide_rd": "POINT(136858.623 454611.244)",
+      "straatnaam": "Westerkade",
+      "score": 13.907439
+    }
+  },
+  "hotel.den-haag-collector:source.denhaagcollector": {
+    "url": "https://www.thecollectorhotel.com/contact",
+    "finalUrl": "https://www.thecollectorhotel.com/contact",
+    "httpStatus": 200,
+    "sha256": "5552d3151e96092a29c3ac88fc106014ce7de70eb0c4f90a19cfdad9b75300de",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html;charset=utf-8",
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json"
+  },
+  "hotel.den-haag-collector:source.collectorrooms": {
+    "url": "https://www.thecollectorhotel.com/rooms",
+    "finalUrl": "https://www.thecollectorhotel.com/rooms",
+    "httpStatus": 200,
+    "sha256": "d285599044cd5c624ddaaf7daf681ddb5e1bd28a775d297b9034ba1c4d7893d5",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html;charset=utf-8",
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json"
+  },
+  "hotel.den-haag-collector:source.collectorfaq": {
+    "url": "https://www.thecollectorhotel.com/faq",
+    "finalUrl": "https://www.thecollectorhotel.com/faq",
+    "httpStatus": 200,
+    "sha256": "fd3c7534f8a6ae309b250c699052a37846ae27ae784ad357c541f56c62311bcc",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html;charset=utf-8",
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json"
+  },
+  "hotel.den-haag-collector:source.pdok": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Haagsche+Bluf+52+Den+Haag&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Haagsche+Bluf+52+Den+Haag&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-15",
+    "sha256": "9be41f5dc46c1dafeabdd168e43b27186f4c699ceff3582f9b206c5524aa12e1",
+    "selectedAddress": {
+      "id": "adr-08556f4bf2818bc967541b845186858f",
+      "weergavenaam": "Haagsche Bluf 52, 2511CP 's-Gravenhage",
+      "centroide_ll": "POINT(4.30952044 52.0770521)",
+      "nummeraanduiding_id": "0518200000452157",
+      "woonplaatsnaam": "'s-Gravenhage"
+    },
+    "method": "official address geocoder; not an entrance survey",
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json"
+  },
+  "hotel.utrecht-nox:source.utrechtnox": {
+    "url": "https://www.thenoxhotel.com/en/contact",
+    "finalUrl": "https://www.thenoxhotel.com/en/contact",
+    "httpStatus": 200,
+    "sha256": "a18e03083f56af0972f6fb1b76544ccb6135ba194da6dd723bacfabbf2975376",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8",
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json"
+  },
+  "hotel.utrecht-nox:source.noxfaq": {
+    "url": "https://www.thenoxhotel.com/en/faq",
+    "finalUrl": "https://www.thenoxhotel.com/en/faq",
+    "httpStatus": 200,
+    "sha256": "6ddc1a86c2abfd106758c45e34209938bd8d51cf71026f3306badc0443c2c997",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8",
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json"
+  },
+  "hotel.utrecht-nox:source.pdok": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Keistraat+8+Utrecht&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Keistraat+8+Utrecht&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-15",
+    "sha256": "b15c9a69f7396c20b2f7d81b5d056ae7ba7c23239123d25fd04d4a3198d7a036",
+    "selectedAddress": {
+      "id": "adr-2566b1f0fd8900e5489e685a5e239a89",
+      "weergavenaam": "Keistraat 8, 3512HV Utrecht",
+      "centroide_ll": "POINT(5.12296158 52.09229311)",
+      "nummeraanduiding_id": "0344200000196848",
+      "woonplaatsnaam": "Utrecht"
+    },
+    "method": "official address geocoder; not an entrance survey",
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json"
+  }
+}

@@ -608,7 +608,8 @@ function sanitizeImage(image, entityTitle) {
     license: cleanText(image.license, 80),
     licenseUrl: cleanURL(image.licenseURL),
     sourcePageUrl: cleanURL(image.sourcePageURL),
-    retrievedAt: cleanDate(image.retrievedAt)
+    retrievedAt: cleanDate(image.retrievedAt),
+    ...(image.placement==='archive_gallery_only'?{placement:'archive_gallery_only',captions:{en:cleanText(image.captions?.en,500),nl:cleanText(image.captions?.nl,500)}}:{})
   };
 }
 
@@ -1184,6 +1185,7 @@ export function buildPublicDataset(runtime, { verifyChecksum = true, editorialRe
       categories: categories.length,
       provinces: provinces.length
     },
+    ...(editorialRelease?.collections?{editorialCollections:editorialRelease.collections.map(c=>({...c,sources:entities.filter(e=>c.entityIds.includes(e.id)).flatMap(e=>e.editorial?.sources??[])})).filter(c=>c.entityIds.every(id=>entities.some(e=>e.id===id)))}:{}),
     entities,
     cities,
     guides,

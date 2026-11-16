@@ -1,0 +1,20 @@
+{
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Hannie+Dankbaarpassage+47+Amsterdam&fq=type%3Aadres&rows=3",
+  "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Hannie+Dankbaarpassage+47+Amsterdam&fq=type%3Aadres&rows=3",
+  "httpStatus": 200,
+  "contentType": "application/json;charset=utf-8",
+  "sha256": "4e1aceae6f128369a888ef8ae71b439ab53ce9b2a0c21bdc13669f6c85f3b398",
+  "file": "a411c5f19e8b4bce.html",
+  "checkedAt": "2026-11-16",
+  "selectedAddress": {
+    "woonplaatsnaam": "Amsterdam",
+    "weergavenaam": "Hannie Dankbaarpassage 47, 1053RT Amsterdam",
+    "id": "adr-9f4cc2bc8a3c8a0de3671dd1e98c0277",
+    "postcode": "1053RT",
+    "centroide_ll": "POINT(4.86801563 52.36639473)",
+    "nummeraanduiding_id": "0363200012079676",
+    "huisnummer": 47,
+    "straatnaam": "Hannie Dankbaarpassage"
+  },
+  "method": "official BAG address geocoder; not an entrance survey"
+}

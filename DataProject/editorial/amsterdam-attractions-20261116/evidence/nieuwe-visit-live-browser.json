@@ -1,0 +1,20 @@
+{
+  "url": "https://www.nieuwekerk.nl/plan-je-bezoek/",
+  "finalUrl": "https://www.nieuwekerk.nl/plan-je-bezoek/",
+  "httpStatus": 200,
+  "checkedAt": "2026-11-16T15:36:39.955Z",
+  "method": "visible standard Chrome page navigation, no proxy/stealth/retry or challenge bypass",
+  "title": "Plan je bezoek - De Nieuwe Kerk",
+  "sha256": "40e9a6950efbacaed43a14efbde8397be4706625f18497a217138ddb8249d5bc",
+  "priorObservation": {
+    "url": "https://www.nieuwekerk.nl/plan-je-bezoek/",
+    "finalUrl": "https://www.nieuwekerk.nl/plan-je-bezoek/",
+    "httpStatus": 200,
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "79b3b16b39c128ffc687912ad6bac6c44a1bfe9328e1ca86acc427a00a6f0927",
+    "file": "cb5447ab9f9db815.html",
+    "checkedAt": "2026-11-16"
+  },
+  "screenshotEvidence": "/Users/ivan/YouNew-Expansion-20261116-Next-Evidence/nieuwe-visit-browser.png",
+  "rawHTMLRetainedOutsideRepository": "/Users/ivan/YouNew-Expansion-20261116-Next-Evidence/nieuwe-visit-browser.html"
+}

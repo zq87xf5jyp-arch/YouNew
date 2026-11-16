@@ -1,0 +1,11 @@
+{
+  "url": "https://www.borgmanborgman.nl/menu",
+  "checkedAt": "2026-11-16",
+  "httpStatus": 200,
+  "finalUrl": "https://www.borgmanborgman.nl/menu",
+  "sha256": "6d255ede621c8001147dc768525d4bce4d4117722ab36b188eab258f7045d52a",
+  "recheckedThisBatch": true,
+  "method": "Direct HTTPS, ordinary urllib client; no access-control bypass",
+  "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/borgman-menu",
+  "officialLinks": []
+}

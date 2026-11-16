@@ -1,0 +1,20 @@
+{
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=IJpromenade+4+Amsterdam&fq=type%3Aadres&rows=3",
+  "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=IJpromenade+4+Amsterdam&fq=type%3Aadres&rows=3",
+  "httpStatus": 200,
+  "contentType": "application/json;charset=utf-8",
+  "sha256": "a6d5014e0310e9734af792ea6394cb293c903b92ae9326165b56e5fca457a728",
+  "file": "fee7ff1687ccea54.html",
+  "checkedAt": "2026-11-16",
+  "selectedAddress": {
+    "woonplaatsnaam": "Amsterdam",
+    "weergavenaam": "IJpromenade 4, 1031KT Amsterdam",
+    "id": "adr-e935608a21f0e45ab3864b672e9c3051",
+    "postcode": "1031KT",
+    "centroide_ll": "POINT(4.90221616 52.38386622)",
+    "nummeraanduiding_id": "0363200012096376",
+    "huisnummer": 4,
+    "straatnaam": "IJpromenade"
+  },
+  "method": "official BAG address geocoder; not an entrance survey"
+}

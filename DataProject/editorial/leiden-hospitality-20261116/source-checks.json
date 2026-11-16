@@ -1,0 +1,755 @@
+{
+  "barista": {
+    "url": "https://www.baristacafe.nl/vestiging/leiden/",
+    "checkedAt": "2026-11-16",
+    "httpStatus": 200,
+    "finalUrl": "https://www.baristacafe.nl/vestiging/leiden/",
+    "sha256": "a7afb1f9cfd3c51e9d255bd1431edaea9cbea421d7f0f117eb604d5f9a05efab",
+    "recheckedThisBatch": true,
+    "method": "Direct HTTPS, ordinary urllib client; no access-control bypass",
+    "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/barista",
+    "officialLinks": [
+      {
+        "text": "Ons menu",
+        "href": "https://www.cavesco.nl/docs/baristacafe/menukaart_leiden.pdf"
+      }
+    ]
+  },
+  "barista-menu": {
+    "url": "https://www.cavesco.nl/docs/baristacafe/menukaart_leiden.pdf",
+    "checkedAt": "2026-11-16",
+    "httpStatus": 200,
+    "finalUrl": "https://www.cavesco.nl/docs/baristacafe/menukaart_leiden.pdf",
+    "sha256": "68dc9c08d4dd2daa0639ffae938963bb984377cc00e4f260bfe17aea34eb0f49",
+    "recheckedThisBatch": true,
+    "method": "Direct official linked PDF",
+    "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/barista-menu"
+  },
+  "barista-bag": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Catharinasteeg+5%2C+Leiden&fq=type%3Aadres&rows=5",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-16",
+    "sha256": "d28de1cd9fdb4cac7c6eeb0efe79c4306e5c8ce6a1c8b77813f5efbe8c097ed8",
+    "selectedAddress": {
+      "bron": "BAG",
+      "woonplaatscode": "2088",
+      "type": "adres",
+      "woonplaatsnaam": "Leiden",
+      "wijkcode": "WK054600",
+      "huis_nlt": "5",
+      "openbareruimtetype": "Weg",
+      "buurtnaam": "Pieterswijk",
+      "gemeentecode": "0546",
+      "rdf_seealso": "http://bag.basisregistraties.overheid.nl/bag/id/nummeraanduiding/0546200000069414",
+      "weergavenaam": "Catharinasteeg 5, 2311DE Leiden",
+      "straatnaam_verkort": "Catharinastg",
+      "id": "adr-62b21eac6f685f092c2c9acc1f622e79",
+      "gekoppeld_perceel": [
+        "LDN01-G-2525"
+      ],
+      "gemeentenaam": "Leiden",
+      "buurtcode": "BU05460000",
+      "wijknaam": "Binnenstad-Zuid",
+      "identificatie": "0546010000069190-0546200000069414",
+      "openbareruimte_id": "0546300000002041",
+      "waterschapsnaam": "Hoogheemraadschap van Rijnland",
+      "provinciecode": "PV28",
+      "postcode": "2311DE",
+      "provincienaam": "Zuid-Holland",
+      "centroide_ll": "POINT(4.48970713 52.15947118)",
+      "nummeraanduiding_id": "0546200000069414",
+      "waterschapscode": "13",
+      "adresseerbaarobject_id": "0546010000069190",
+      "huisnummer": 5,
+      "provincieafkorting": "ZH",
+      "centroide_rd": "POINT(93587.575 463858.005)",
+      "straatnaam": "Catharinasteeg",
+      "score": 17.312927
+    },
+    "method": "Exact street/house number matched to venue official address; BAG address point, not surveyed entrance",
+    "recheckedThisBatch": true
+  },
+  "borgman-about": {
+    "url": "https://www.borgmanborgman.nl/over-ons",
+    "checkedAt": "2026-11-16",
+    "httpStatus": 200,
+    "finalUrl": "https://www.borgmanborgman.nl/over-ons",
+    "sha256": "3c8cd833a4cb7f5f4ecc29fbf2a69d74964232f6be2a83a15696b7c3cf24b192",
+    "recheckedThisBatch": true,
+    "method": "Direct HTTPS, ordinary urllib client; no access-control bypass",
+    "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/borgman-about",
+    "officialLinks": []
+  },
+  "borgman": {
+    "url": "https://www.borgmanborgman.nl/contact-1",
+    "checkedAt": "2026-11-16",
+    "httpStatus": 200,
+    "finalUrl": "https://www.borgmanborgman.nl/contact-1",
+    "sha256": "c8e7d37ae514fe316074ca30db89ffebf3fcaf31ddb4685de9851644c4ced79a",
+    "recheckedThisBatch": true,
+    "method": "Direct HTTPS, ordinary urllib client; no access-control bypass",
+    "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/borgman",
+    "officialLinks": []
+  },
+  "borgman-menu": {
+    "url": "https://www.borgmanborgman.nl/menu",
+    "checkedAt": "2026-11-16",
+    "httpStatus": 200,
+    "finalUrl": "https://www.borgmanborgman.nl/menu",
+    "sha256": "6d255ede621c8001147dc768525d4bce4d4117722ab36b188eab258f7045d52a",
+    "recheckedThisBatch": true,
+    "method": "Direct HTTPS, ordinary urllib client; no access-control bypass",
+    "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/borgman-menu",
+    "officialLinks": []
+  },
+  "borgman-bag": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Nieuwe+Rijn+41%2C+2312+JG+Leiden&fq=type%3Aadres&rows=5",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-16",
+    "sha256": "892cb8449f238b432917343954f554f20322ffa56609dc8a088be7cc519d89e9",
+    "selectedAddress": {
+      "bron": "BAG",
+      "woonplaatscode": "2088",
+      "type": "adres",
+      "woonplaatsnaam": "Leiden",
+      "wijkcode": "WK054601",
+      "huis_nlt": "41",
+      "openbareruimtetype": "Weg",
+      "buurtnaam": "Pancras-West",
+      "gemeentecode": "0546",
+      "rdf_seealso": "http://bag.basisregistraties.overheid.nl/bag/id/nummeraanduiding/0546200000013397",
+      "weergavenaam": "Nieuwe Rijn 41, 2312JG Leiden",
+      "straatnaam_verkort": "Nieuwe Rijn",
+      "id": "adr-05af125d9551f89ff3fdcaa79f74f0cd",
+      "gekoppeld_perceel": [
+        "LDN01-I-262"
+      ],
+      "gemeentenaam": "Leiden",
+      "buurtcode": "BU05460102",
+      "wijknaam": "Binnenstad-Noord",
+      "identificatie": "0546010000013397-0546200000013397",
+      "openbareruimte_id": "0546300000000991",
+      "waterschapsnaam": "Hoogheemraadschap van Rijnland",
+      "provinciecode": "PV28",
+      "postcode": "2312JG",
+      "provincienaam": "Zuid-Holland",
+      "centroide_ll": "POINT(4.49324429 52.15731757)",
+      "nummeraanduiding_id": "0546200000013397",
+      "waterschapscode": "13",
+      "adresseerbaarobject_id": "0546010000013397",
+      "huisnummer": 41,
+      "provincieafkorting": "ZH",
+      "centroide_rd": "POINT(93826.65 463615.418)",
+      "straatnaam": "Nieuwe Rijn",
+      "score": 23.46365
+    },
+    "method": "Exact street/house number matched to venue official address; BAG address point, not surveyed entrance",
+    "recheckedThisBatch": true
+  },
+  "brownies": {
+    "url": "https://www.browniesanddownies.nl/leiden",
+    "checkedAt": "2026-11-16",
+    "httpStatus": 200,
+    "finalUrl": "https://www.browniesanddownies.nl/leiden",
+    "sha256": "d3cd7696fd05aea19a556c4edfa0ace67f245d46d6e3b1319a4ad72e9f8b0906",
+    "recheckedThisBatch": true,
+    "method": "Direct HTTPS, ordinary urllib client; no access-control bypass",
+    "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/brownies"
+  },
+  "brownies-bag": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Aalmarkt+11%2C+2311+EC+Leiden&fq=type%3Aadres&rows=5",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-16",
+    "sha256": "a53e947525e412dd5cdc527c6de35a873dfed4d4c91430d9ac67702e9149e19c",
+    "selectedAddress": {
+      "bron": "BAG",
+      "woonplaatscode": "2088",
+      "type": "adres",
+      "woonplaatsnaam": "Leiden",
+      "wijkcode": "WK054600",
+      "huis_nlt": "11",
+      "openbareruimtetype": "Weg",
+      "buurtnaam": "Pieterswijk",
+      "gemeentecode": "0546",
+      "rdf_seealso": "http://bag.basisregistraties.overheid.nl/bag/id/nummeraanduiding/0546200000069398",
+      "weergavenaam": "Aalmarkt 11, 2311EC Leiden",
+      "straatnaam_verkort": "Aalmarkt",
+      "id": "adr-cac52d5c48c6e51594d47f2ecb464382",
+      "gekoppeld_perceel": [
+        "LDN01-G-2424",
+        "LDN01-G-2527"
+      ],
+      "gemeentenaam": "Leiden",
+      "buurtcode": "BU05460000",
+      "wijknaam": "Binnenstad-Zuid",
+      "identificatie": "0546010000069174-0546200000069398",
+      "openbareruimte_id": "0546300000000016",
+      "waterschapsnaam": "Hoogheemraadschap van Rijnland",
+      "provinciecode": "PV28",
+      "postcode": "2311EC",
+      "provincienaam": "Zuid-Holland",
+      "centroide_ll": "POINT(4.48977905 52.15976175)",
+      "nummeraanduiding_id": "0546200000069398",
+      "waterschapscode": "13",
+      "adresseerbaarobject_id": "0546010000069174",
+      "huisnummer": 11,
+      "provincieafkorting": "ZH",
+      "centroide_rd": "POINT(93592.896 463890.271)",
+      "straatnaam": "Aalmarkt",
+      "score": 25.405909
+    },
+    "method": "Exact street/house number matched to venue official address; BAG address point, not surveyed entrance",
+    "recheckedThisBatch": true
+  },
+  "ml": {
+    "url": "https://30ml.nl/en/locations/30ml-leiden/",
+    "checkedAt": "2026-11-16",
+    "httpStatus": 200,
+    "finalUrl": "https://30ml.nl/en/locations/30ml-leiden/",
+    "sha256": "004c4c2f9271fad953317dbeafc72af8a575ebdd48a95de3bb63c7a35c2c3016",
+    "recheckedThisBatch": true,
+    "method": "Direct HTTPS, ordinary urllib client; no access-control bypass",
+    "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/ml",
+    "officialLinks": [
+      {
+        "text": "Our menu",
+        "href": "https://30ml.nl/en/menu/"
+      },
+      {
+        "text": "Our menu",
+        "href": "https://30ml.nl/en/menu/"
+      },
+      {
+        "text": "Our menu",
+        "href": "https://30ml.nl/en/menu/"
+      }
+    ]
+  },
+  "ml-menu": {
+    "url": "https://30ml.nl/en/menu/",
+    "checkedAt": "2026-11-16",
+    "httpStatus": 200,
+    "finalUrl": "https://30ml.nl/en/menu/",
+    "sha256": "839423ee543676caedf8b6fad72ab4285ba7ed4cb517ccb29ecf8bf57ca5f6d7",
+    "recheckedThisBatch": true,
+    "method": "Direct HTTPS, ordinary urllib client; no access-control bypass",
+    "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/ml-menu",
+    "officialLinks": [
+      {
+        "text": "Our menu",
+        "href": "https://30ml.nl/en/menu/"
+      },
+      {
+        "text": "Our menu",
+        "href": "https://30ml.nl/en/menu/"
+      }
+    ]
+  },
+  "ml-bag": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Botermarkt+3%2C+2311+EM+Leiden&fq=type%3Aadres&rows=5",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-16",
+    "sha256": "f9e2fbb89e28e91c21469a6041371cbdf4359ac8e8e10d163d83a2be379ed7ff",
+    "selectedAddress": {
+      "bron": "BAG",
+      "woonplaatscode": "2088",
+      "type": "adres",
+      "woonplaatsnaam": "Leiden",
+      "wijkcode": "WK054600",
+      "huis_nlt": "3",
+      "openbareruimtetype": "Weg",
+      "buurtnaam": "Pieterswijk",
+      "gemeentecode": "0546",
+      "rdf_seealso": "http://bag.basisregistraties.overheid.nl/bag/id/nummeraanduiding/0546200000008263",
+      "weergavenaam": "Botermarkt 3, 2311EM Leiden",
+      "straatnaam_verkort": "Botermarkt",
+      "id": "adr-d71b9da8d5d45a40b5a54bdb7a74886d",
+      "gekoppeld_perceel": [
+        "LDN01-G-1714"
+      ],
+      "gemeentenaam": "Leiden",
+      "buurtcode": "BU05460000",
+      "wijknaam": "Binnenstad-Zuid",
+      "identificatie": "0546010000008263-0546200000008263",
+      "openbareruimte_id": "0546300000000202",
+      "waterschapsnaam": "Hoogheemraadschap van Rijnland",
+      "provinciecode": "PV28",
+      "postcode": "2311EM",
+      "provincienaam": "Zuid-Holland",
+      "centroide_ll": "POINT(4.49184004 52.15772484)",
+      "nummeraanduiding_id": "0546200000008263",
+      "waterschapscode": "13",
+      "adresseerbaarobject_id": "0546010000008263",
+      "huisnummer": 3,
+      "provincieafkorting": "ZH",
+      "centroide_rd": "POINT(93731.12 463661.914)",
+      "straatnaam": "Botermarkt",
+      "gekoppeld_appartement": [
+        "LDN01-G-2362-A-1"
+      ],
+      "score": 23.788946
+    },
+    "method": "Exact street/house number matched to venue official address; BAG address point, not surveyed entrance",
+    "recheckedThisBatch": true
+  },
+  "paco-menu": {
+    "url": "https://pacociao.nl/en/menu/",
+    "checkedAt": "2026-11-16",
+    "httpStatus": 200,
+    "finalUrl": "https://pacociao.nl/en/menu/",
+    "sha256": "86b3577923e0b07a7d2cf1b6f8f5bb2014ae7c142ee82e8d6d2dac2f287595d6",
+    "recheckedThisBatch": true,
+    "method": "Direct HTTPS, ordinary urllib client; no access-control bypass",
+    "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/paco-menu",
+    "officialLinks": [
+      {
+        "text": "Check our menu",
+        "href": "https://pacociao.nl/wp-content/uploads/2026/11/PC26_OnlineMenu_20261105.pdf"
+      },
+      {
+        "text": "Menu",
+        "href": "https://pacociao.nl/en/menu/"
+      }
+    ]
+  },
+  "paco-pdf": {
+    "url": "https://pacociao.nl/wp-content/uploads/2026/11/PC26_OnlineMenu_20261105.pdf",
+    "checkedAt": "2026-11-16",
+    "httpStatus": 200,
+    "finalUrl": "https://pacociao.nl/wp-content/uploads/2026/11/PC26_OnlineMenu_20261105.pdf",
+    "sha256": "3d1d445ebc76a2d653062f49d592c10b97b3b2d0169bf9872908538754dcdfe8",
+    "recheckedThisBatch": true,
+    "method": "Direct official linked PDF",
+    "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/paco-pdf"
+  },
+  "paco": {
+    "url": "https://pacociao.nl/en/contact/",
+    "checkedAt": "2026-11-16",
+    "httpStatus": 200,
+    "finalUrl": "https://pacociao.nl/en/contact/",
+    "sha256": "5f2d56bc29b7f446fc86eaaad6c723b94bce427b1df7eeeb005b1bb3505a30d4",
+    "recheckedThisBatch": true,
+    "method": "Direct HTTPS, ordinary urllib client; no access-control bypass",
+    "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/paco",
+    "officialLinks": [
+      {
+        "text": "Menu",
+        "href": "https://pacociao.nl/en/menu/"
+      }
+    ]
+  },
+  "paco-bag": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Stationsweg+25%2C+Leiden&fq=type%3Aadres&rows=5",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-16",
+    "sha256": "a27cf8f90935a80e4af12bf5afe21c2169f14e40674c5b59f232567b5dacba79",
+    "selectedAddress": {
+      "bron": "BAG",
+      "woonplaatscode": "2088",
+      "type": "adres",
+      "woonplaatsnaam": "Leiden",
+      "wijkcode": "WK054602",
+      "huis_nlt": "25",
+      "openbareruimtetype": "Weg",
+      "buurtnaam": "Stationskwartier",
+      "gemeentecode": "0546",
+      "rdf_seealso": "http://bag.basisregistraties.overheid.nl/bag/id/nummeraanduiding/0546200000052076",
+      "weergavenaam": "Stationsweg 25, 2312AS Leiden",
+      "straatnaam_verkort": "Stationswg",
+      "id": "adr-7ddb8034298fd1679544b4eaefaa23cb",
+      "gekoppeld_perceel": [
+        "LDN01-L-2098"
+      ],
+      "gemeentenaam": "Leiden",
+      "buurtcode": "BU05460200",
+      "wijknaam": "Stationsdistrict",
+      "identificatie": "0546010000052076-0546200000052076",
+      "openbareruimte_id": "0546300000001330",
+      "waterschapsnaam": "Hoogheemraadschap van Rijnland",
+      "provinciecode": "PV28",
+      "postcode": "2312AS",
+      "provincienaam": "Zuid-Holland",
+      "centroide_ll": "POINT(4.48417669 52.16498223)",
+      "nummeraanduiding_id": "0546200000052076",
+      "waterschapscode": "13",
+      "adresseerbaarobject_id": "0546010000052076",
+      "huisnummer": 25,
+      "provincieafkorting": "ZH",
+      "centroide_rd": "POINT(93216.791 464475.829)",
+      "straatnaam": "Stationsweg",
+      "score": 12.455053
+    },
+    "method": "Exact street/house number matched to venue official address; BAG address point, not surveyed entrance",
+    "recheckedThisBatch": true
+  },
+  "laken": {
+    "url": "https://www.cafelaken.nl/",
+    "checkedAt": "2026-11-16",
+    "httpStatus": 200,
+    "finalUrl": "https://www.cafelaken.nl/",
+    "sha256": "3921a73d08de323409e657652c34e800e9bb85034bc3e4670ffff6d7036c4a85",
+    "recheckedThisBatch": true,
+    "method": "Direct HTTPS, ordinary urllib client; no access-control bypass",
+    "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/laken",
+    "officialLinks": []
+  },
+  "laken-bag": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Oude+Singel+30%2C+2312+RA+Leiden&fq=type%3Aadres&rows=5",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-16",
+    "sha256": "1409402419ee6935f9c9df8c785df22ea8fd699c4127f63bf47f51b2284189a9",
+    "selectedAddress": {
+      "bron": "BAG",
+      "woonplaatscode": "2088",
+      "type": "adres",
+      "woonplaatsnaam": "Leiden",
+      "wijkcode": "WK054601",
+      "huis_nlt": "30",
+      "openbareruimtetype": "Weg",
+      "buurtnaam": "Molenbuurt",
+      "gemeentecode": "0546",
+      "rdf_seealso": "http://bag.basisregistraties.overheid.nl/bag/id/nummeraanduiding/0546200000069981",
+      "weergavenaam": "Oude Singel 30, 2312RA Leiden",
+      "straatnaam_verkort": "Oude Singel",
+      "id": "adr-40913233da6faeec90930649ac738c96",
+      "gekoppeld_perceel": [
+        "LDN01-B-3735"
+      ],
+      "gemeentenaam": "Leiden",
+      "buurtcode": "BU05460108",
+      "wijknaam": "Binnenstad-Noord",
+      "identificatie": "0546010000069723-0546200000069981",
+      "openbareruimte_id": "0546300000001032",
+      "waterschapsnaam": "Hoogheemraadschap van Rijnland",
+      "provinciecode": "PV28",
+      "postcode": "2312RA",
+      "provincienaam": "Zuid-Holland",
+      "centroide_ll": "POINT(4.48728587 52.1628594)",
+      "nummeraanduiding_id": "0546200000069981",
+      "waterschapscode": "13",
+      "adresseerbaarobject_id": "0546010000069723",
+      "huisnummer": 30,
+      "provincieafkorting": "ZH",
+      "centroide_rd": "POINT(93426.578 464237.012)",
+      "straatnaam": "Oude Singel",
+      "score": 24.29591
+    },
+    "method": "Exact street/house number matched to venue official address; BAG address point, not surveyed entrance",
+    "recheckedThisBatch": true
+  },
+  "bikini-about": {
+    "url": "https://caferestaurantbikini.nl/over/",
+    "checkedAt": "2026-11-16",
+    "httpStatus": 200,
+    "finalUrl": "https://caferestaurantbikini.nl/over/",
+    "sha256": "115d956d7e9a3ff0719478a094c6fae83076c1ad6857dbf135581aac58c8ce79",
+    "recheckedThisBatch": true,
+    "method": "Direct HTTPS, ordinary urllib client; no access-control bypass",
+    "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/bikini-about",
+    "officialLinks": [
+      {
+        "text": "Menu",
+        "href": "https://caferestaurantbikini.nl/menu/"
+      },
+      {
+        "text": "Menu",
+        "href": "https://caferestaurantbikini.nl/menu/"
+      }
+    ]
+  },
+  "bikini": {
+    "url": "https://caferestaurantbikini.nl/contact/",
+    "checkedAt": "2026-11-16",
+    "httpStatus": 200,
+    "finalUrl": "https://caferestaurantbikini.nl/contact/",
+    "sha256": "5f1fe1068873009b2326c93e48828c9fecaa94b99ae700476372970022268799",
+    "recheckedThisBatch": true,
+    "method": "Direct HTTPS, ordinary urllib client; no access-control bypass",
+    "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/bikini",
+    "officialLinks": [
+      {
+        "text": "Menu",
+        "href": "https://caferestaurantbikini.nl/menu/"
+      },
+      {
+        "text": "Menu",
+        "href": "https://caferestaurantbikini.nl/menu/"
+      }
+    ]
+  },
+  "bikini-menu": {
+    "url": "https://caferestaurantbikini.nl/menu/",
+    "checkedAt": "2026-11-16",
+    "httpStatus": 200,
+    "finalUrl": "https://caferestaurantbikini.nl/menu/",
+    "sha256": "ff1594ab2ae5101e2b788c8f438d374ea44cb83cb2e2f5446fd93d87bed6c6d3",
+    "recheckedThisBatch": true,
+    "method": "Direct HTTPS, ordinary urllib client; no access-control bypass",
+    "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/bikini-menu",
+    "officialLinks": [
+      {
+        "text": "Menu",
+        "href": "https://caferestaurantbikini.nl/menu/"
+      },
+      {
+        "text": "Menu",
+        "href": "https://caferestaurantbikini.nl/menu/"
+      }
+    ]
+  },
+  "bikini-bag": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Haven+1%2C+2312+MG+Leiden&fq=type%3Aadres&rows=5",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-16",
+    "sha256": "c34ca206a20456086e2f72bedcf589e1807ea9a5cbd65a78956242e67b0318d3",
+    "selectedAddress": {
+      "bron": "BAG",
+      "woonplaatscode": "2088",
+      "type": "adres",
+      "woonplaatsnaam": "Leiden",
+      "wijkcode": "WK054601",
+      "huis_nlt": "1",
+      "openbareruimtetype": "Weg",
+      "buurtnaam": "Havenwijk-Noord",
+      "gemeentecode": "0546",
+      "rdf_seealso": "http://bag.basisregistraties.overheid.nl/bag/id/nummeraanduiding/0546200000064384",
+      "weergavenaam": "Haven 1, 2312MG Leiden",
+      "straatnaam_verkort": "Haven",
+      "id": "adr-e0896e1114e281788405d7c416d54101",
+      "gekoppeld_perceel": [
+        "LDN01-C-1820"
+      ],
+      "gemeentenaam": "Leiden",
+      "buurtcode": "BU05460106",
+      "wijknaam": "Binnenstad-Noord",
+      "identificatie": "0546010000064302-0546200000064384",
+      "openbareruimte_id": "0546300000000504",
+      "waterschapsnaam": "Hoogheemraadschap van Rijnland",
+      "provinciecode": "PV28",
+      "postcode": "2312MG",
+      "provincienaam": "Zuid-Holland",
+      "centroide_ll": "POINT(4.50273988 52.16140868)",
+      "nummeraanduiding_id": "0546200000064384",
+      "waterschapscode": "13",
+      "adresseerbaarobject_id": "0546010000064302",
+      "huisnummer": 1,
+      "provincieafkorting": "ZH",
+      "centroide_rd": "POINT(94481.955 464062.611)",
+      "straatnaam": "Haven",
+      "score": 21.290756
+    },
+    "method": "Exact street/house number matched to venue official address; BAG address point, not surveyed entrance",
+    "recheckedThisBatch": true
+  },
+  "dende-home": {
+    "url": "https://dende.nl/",
+    "checkedAt": "2026-11-16",
+    "httpStatus": 200,
+    "finalUrl": "https://dende.nl/",
+    "sha256": "a7372b8cfc69cc07c1b0c672694c27b425dff836ba6513be7e648f5a000325cb",
+    "recheckedThisBatch": true,
+    "method": "Direct HTTPS, ordinary urllib client; no access-control bypass",
+    "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/dende-home",
+    "officialLinks": []
+  },
+  "dende-menu": {
+    "url": "https://dende.nl/kaart/",
+    "checkedAt": "2026-11-16",
+    "httpStatus": 200,
+    "finalUrl": "https://dende.nl/kaart/",
+    "sha256": "e5006a885ad15b78541ea0bff9646ee97e0be8b13aee2464e8ff46884744ab99",
+    "recheckedThisBatch": true,
+    "method": "Direct HTTPS, ordinary urllib client; no access-control bypass",
+    "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/dende-menu"
+  },
+  "dende-bag": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Nieuwe+Rijn+5%2C+2312+JB+Leiden&fq=type%3Aadres&rows=5",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-16",
+    "sha256": "757535f28228b3525a155baffc1d3fb463a52d4d056ea4a938b55dc5cfd4e953",
+    "selectedAddress": {
+      "bron": "BAG",
+      "woonplaatscode": "2088",
+      "type": "adres",
+      "woonplaatsnaam": "Leiden",
+      "wijkcode": "WK054601",
+      "huis_nlt": "5",
+      "openbareruimtetype": "Weg",
+      "buurtnaam": "Pancras-West",
+      "gemeentecode": "0546",
+      "rdf_seealso": "http://bag.basisregistraties.overheid.nl/bag/id/nummeraanduiding/0546200000071694",
+      "weergavenaam": "Nieuwe Rijn 5, 2312JB Leiden",
+      "straatnaam_verkort": "Nieuwe Rijn",
+      "id": "adr-d4ff25dad92ea5aee1f16dc6a7695e7c",
+      "gekoppeld_perceel": [
+        "LDN01-I-35"
+      ],
+      "gemeentenaam": "Leiden",
+      "buurtcode": "BU05460102",
+      "wijknaam": "Binnenstad-Noord",
+      "identificatie": "0546010000071420-0546200000071694",
+      "openbareruimte_id": "0546300000000991",
+      "waterschapsnaam": "Hoogheemraadschap van Rijnland",
+      "provinciecode": "PV28",
+      "postcode": "2312JB",
+      "provincienaam": "Zuid-Holland",
+      "centroide_ll": "POINT(4.49156231 52.15903784)",
+      "nummeraanduiding_id": "0546200000071694",
+      "waterschapscode": "13",
+      "adresseerbaarobject_id": "0546010000071420",
+      "huisnummer": 5,
+      "provincieafkorting": "ZH",
+      "centroide_rd": "POINT(93713.919 463808.225)",
+      "straatnaam": "Nieuwe Rijn",
+      "score": 22.646408
+    },
+    "method": "Exact street/house number matched to venue official address; BAG address point, not surveyed entrance",
+    "recheckedThisBatch": true
+  },
+  "tabu": {
+    "url": "https://www.tabu.nl/faq/",
+    "checkedAt": "2026-11-16",
+    "httpStatus": 200,
+    "finalUrl": "https://www.tabu.nl/faq/",
+    "sha256": "ca9d4b8e77cdc07dbbda7f88654ae2168c4a668a0195c1e2a504e441613bc768",
+    "recheckedThisBatch": true,
+    "method": "Direct HTTPS, ordinary urllib client; no access-control bypass",
+    "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/tabu",
+    "officialLinks": []
+  },
+  "tabu-pdf": {
+    "url": "https://www.tabu.nl/wp-content/uploads/2026/11/261103-TABU-DINER-MENU-EN.pdf",
+    "checkedAt": "2026-11-16",
+    "httpStatus": 200,
+    "finalUrl": "https://www.tabu.nl/wp-content/uploads/2026/11/261103-TABU-DINER-MENU-EN.pdf",
+    "sha256": "4cbedc70b22a690d6a7e56d0e94f24aaafb412fcea6e15b03be7263269b7d71e",
+    "recheckedThisBatch": true,
+    "method": "Direct official linked PDF",
+    "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/tabu-pdf"
+  },
+  "tabu-bag": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Rembrandtstraat+27%2C+2311+VV+Leiden&fq=type%3Aadres&rows=5",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-16",
+    "sha256": "5e5808cdbb0bde799886ac5a7f91ddf7a4c86abf2caba76a562c024a863c978f",
+    "selectedAddress": {
+      "bron": "BAG",
+      "woonplaatscode": "2088",
+      "type": "adres",
+      "woonplaatsnaam": "Leiden",
+      "wijkcode": "WK054600",
+      "huis_nlt": "27",
+      "openbareruimtetype": "Weg",
+      "buurtnaam": "Academiewijk",
+      "gemeentecode": "0546",
+      "rdf_seealso": "http://bag.basisregistraties.overheid.nl/bag/id/nummeraanduiding/0546200000055321",
+      "weergavenaam": "Rembrandtstraat 27, 2311VV Leiden",
+      "straatnaam_verkort": "Rembrandtstr",
+      "id": "adr-8e17ccc1483169ee278e3b82e9e58b7e",
+      "gekoppeld_perceel": [
+        "LDN01-F-1566"
+      ],
+      "gemeentenaam": "Leiden",
+      "buurtcode": "BU05460001",
+      "wijknaam": "Binnenstad-Zuid",
+      "identificatie": "0546010000055321-0546200000055321",
+      "openbareruimte_id": "0546300000001149",
+      "waterschapsnaam": "Hoogheemraadschap van Rijnland",
+      "provinciecode": "PV28",
+      "postcode": "2311VV",
+      "provincienaam": "Zuid-Holland",
+      "centroide_ll": "POINT(4.48227202 52.1591875)",
+      "nummeraanduiding_id": "0546200000055321",
+      "waterschapscode": "13",
+      "adresseerbaarobject_id": "0546010000055321",
+      "huisnummer": 27,
+      "provincieafkorting": "ZH",
+      "centroide_rd": "POINT(93078.442 463832.763)",
+      "straatnaam": "Rembrandtstraat",
+      "score": 22.363398
+    },
+    "method": "Exact street/house number matched to venue official address; BAG address point, not surveyed entrance",
+    "recheckedThisBatch": true
+  },
+  "verboden": {
+    "url": "https://www.verbodentoegang.nl/",
+    "checkedAt": "2026-11-16",
+    "httpStatus": 200,
+    "finalUrl": "https://www.verbodentoegang.nl/",
+    "sha256": "5f549a82ea52ddd51eb14d74ec47f6406780e4621110ea5fefcdbf13965b3cb9",
+    "recheckedThisBatch": true,
+    "method": "Direct HTTPS, ordinary urllib client; no access-control bypass",
+    "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/verboden",
+    "officialLinks": [
+      {
+        "text": "Menu",
+        "href": "https://www.verbodentoegang.nl/menukaart/"
+      }
+    ]
+  },
+  "verboden-menu": {
+    "url": "https://www.verbodentoegang.nl/menukaart/",
+    "checkedAt": "2026-11-16",
+    "httpStatus": 200,
+    "finalUrl": "https://www.verbodentoegang.nl/menukaart/",
+    "sha256": "9e8a3aa48ec924186965ebb1a212b71b892ed86c8fb6eba191b4c768d9756889",
+    "recheckedThisBatch": true,
+    "method": "Direct HTTPS, ordinary urllib client; no access-control bypass",
+    "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/verboden-menu",
+    "officialLinks": [
+      {
+        "text": "Menu",
+        "href": "https://www.verbodentoegang.nl/menukaart/"
+      }
+    ]
+  },
+  "verboden-bag": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Kaiserstraat+7%2C+2311+GN+Leiden&fq=type%3Aadres&rows=5",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-16",
+    "sha256": "2c437d6a1276788fdbd9e35b3462adf588e5c6fb37baeb5f55692799331efe25",
+    "selectedAddress": {
+      "bron": "BAG",
+      "woonplaatscode": "2088",
+      "type": "adres",
+      "woonplaatsnaam": "Leiden",
+      "wijkcode": "WK054600",
+      "huis_nlt": "7",
+      "openbareruimtetype": "Weg",
+      "buurtnaam": "Academiewijk",
+      "gemeentecode": "0546",
+      "rdf_seealso": "http://bag.basisregistraties.overheid.nl/bag/id/nummeraanduiding/0546200000064573",
+      "weergavenaam": "Kaiserstraat 7, 2311GN Leiden",
+      "straatnaam_verkort": "Kaiserstr",
+      "id": "adr-583cfed792e93d7be4015756dd418e6e",
+      "gekoppeld_perceel": [
+        "LDN01-F-435",
+        "LDN01-F-1581",
+        "LDN01-F-433"
+      ],
+      "gemeentenaam": "Leiden",
+      "buurtcode": "BU05460001",
+      "wijknaam": "Binnenstad-Zuid",
+      "identificatie": "0546010000064482-0546200000064573",
+      "openbareruimte_id": "0546300000000650",
+      "waterschapsnaam": "Hoogheemraadschap van Rijnland",
+      "provinciecode": "PV28",
+      "postcode": "2311GN",
+      "provincienaam": "Zuid-Holland",
+      "centroide_ll": "POINT(4.48586739 52.15610069)",
+      "nummeraanduiding_id": "0546200000064573",
+      "waterschapscode": "13",
+      "adresseerbaarobject_id": "0546010000064482",
+      "huisnummer": 7,
+      "provincieafkorting": "ZH",
+      "centroide_rd": "POINT(93320.187 463486.28)",
+      "straatnaam": "Kaiserstraat",
+      "gekoppeld_appartement": [
+        "LDN01-F-2797-A-1"
+      ],
+      "score": 23.788542
+    },
+    "method": "Exact street/house number matched to venue official address; BAG address point, not surveyed entrance",
+    "recheckedThisBatch": true
+  }
+}

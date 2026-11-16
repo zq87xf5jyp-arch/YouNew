@@ -1,0 +1,290 @@
+{
+  "privatePages": 40,
+  "checks": [
+    {
+      "id": "cafe.leiden-barista",
+      "locale": "en",
+      "singleH1": true,
+      "noindex": true,
+      "blocksAndSourceLinks": true
+    },
+    {
+      "id": "cafe.leiden-barista",
+      "locale": "nl",
+      "singleH1": true,
+      "noindex": true,
+      "blocksAndSourceLinks": true
+    },
+    {
+      "id": "cafe.leiden-borgman",
+      "locale": "en",
+      "singleH1": true,
+      "noindex": true,
+      "blocksAndSourceLinks": true
+    },
+    {
+      "id": "cafe.leiden-borgman",
+      "locale": "nl",
+      "singleH1": true,
+      "noindex": true,
+      "blocksAndSourceLinks": true
+    },
+    {
+      "id": "cafe.leiden-brownies",
+      "locale": "en",
+      "singleH1": true,
+      "noindex": true,
+      "blocksAndSourceLinks": true
+    },
+    {
+      "id": "cafe.leiden-brownies",
+      "locale": "nl",
+      "singleH1": true,
+      "noindex": true,
+      "blocksAndSourceLinks": true
+    },
+    {
+      "id": "cafe.leiden-30ml",
+      "locale": "en",
+      "singleH1": true,
+      "noindex": true,
+      "blocksAndSourceLinks": true
+    },
+    {
+      "id": "cafe.leiden-30ml",
+      "locale": "nl",
+      "singleH1": true,
+      "noindex": true,
+      "blocksAndSourceLinks": true
+    },
+    {
+      "id": "cafe.leiden-paco-ciao",
+      "locale": "en",
+      "singleH1": true,
+      "noindex": true,
+      "blocksAndSourceLinks": true
+    },
+    {
+      "id": "cafe.leiden-paco-ciao",
+      "locale": "nl",
+      "singleH1": true,
+      "noindex": true,
+      "blocksAndSourceLinks": true
+    },
+    {
+      "id": "place.leiden-cafe-laken",
+      "locale": "en",
+      "singleH1": true,
+      "noindex": true,
+      "blocksAndSourceLinks": true
+    },
+    {
+      "id": "place.leiden-cafe-laken",
+      "locale": "nl",
+      "singleH1": true,
+      "noindex": true,
+      "blocksAndSourceLinks": true
+    },
+    {
+      "id": "restaurant.leiden-bikini",
+      "locale": "en",
+      "singleH1": true,
+      "noindex": true,
+      "blocksAndSourceLinks": true
+    },
+    {
+      "id": "restaurant.leiden-bikini",
+      "locale": "nl",
+      "singleH1": true,
+      "noindex": true,
+      "blocksAndSourceLinks": true
+    },
+    {
+      "id": "restaurant.leiden-dende",
+      "locale": "en",
+      "singleH1": true,
+      "noindex": true,
+      "blocksAndSourceLinks": true
+    },
+    {
+      "id": "restaurant.leiden-dende",
+      "locale": "nl",
+      "singleH1": true,
+      "noindex": true,
+      "blocksAndSourceLinks": true
+    },
+    {
+      "id": "restaurant.leiden-tabu",
+      "locale": "en",
+      "singleH1": true,
+      "noindex": true,
+      "blocksAndSourceLinks": true
+    },
+    {
+      "id": "restaurant.leiden-tabu",
+      "locale": "nl",
+      "singleH1": true,
+      "noindex": true,
+      "blocksAndSourceLinks": true
+    },
+    {
+      "id": "restaurant.leiden-verboden-toegang",
+      "locale": "en",
+      "singleH1": true,
+      "noindex": true,
+      "blocksAndSourceLinks": true
+    },
+    {
+      "id": "restaurant.leiden-verboden-toegang",
+      "locale": "nl",
+      "singleH1": true,
+      "noindex": true,
+      "blocksAndSourceLinks": true
+    },
+    {
+      "id": "restaurant.leiden-waag",
+      "locale": "en",
+      "singleH1": true,
+      "noindex": true,
+      "blocksAndSourceLinks": true
+    },
+    {
+      "id": "restaurant.leiden-waag",
+      "locale": "nl",
+      "singleH1": true,
+      "noindex": true,
+      "blocksAndSourceLinks": true
+    },
+    {
+      "id": "restaurant.leiden-oudt-leyden",
+      "locale": "en",
+      "singleH1": true,
+      "noindex": true,
+      "blocksAndSourceLinks": true
+    },
+    {
+      "id": "restaurant.leiden-oudt-leyden",
+      "locale": "nl",
+      "singleH1": true,
+      "noindex": true,
+      "blocksAndSourceLinks": true
+    },
+    {
+      "id": "restaurant.leiden-prentenkabinet",
+      "locale": "en",
+      "singleH1": true,
+      "noindex": true,
+      "blocksAndSourceLinks": true
+    },
+    {
+      "id": "restaurant.leiden-prentenkabinet",
+      "locale": "nl",
+      "singleH1": true,
+      "noindex": true,
+      "blocksAndSourceLinks": true
+    },
+    {
+      "id": "hotel.leiden-oude-morsch",
+      "locale": "en",
+      "singleH1": true,
+      "noindex": true,
+      "blocksAndSourceLinks": true
+    },
+    {
+      "id": "hotel.leiden-oude-morsch",
+      "locale": "nl",
+      "singleH1": true,
+      "noindex": true,
+      "blocksAndSourceLinks": true
+    },
+    {
+      "id": "hotel.leiden-huys-van-leyden",
+      "locale": "en",
+      "singleH1": true,
+      "noindex": true,
+      "blocksAndSourceLinks": true
+    },
+    {
+      "id": "hotel.leiden-huys-van-leyden",
+      "locale": "nl",
+      "singleH1": true,
+      "noindex": true,
+      "blocksAndSourceLinks": true
+    },
+    {
+      "id": "hotel.leiden-steenhof",
+      "locale": "en",
+      "singleH1": true,
+      "noindex": true,
+      "blocksAndSourceLinks": true
+    },
+    {
+      "id": "hotel.leiden-steenhof",
+      "locale": "nl",
+      "singleH1": true,
+      "noindex": true,
+      "blocksAndSourceLinks": true
+    },
+    {
+      "id": "cafe.den-haag-kaafi",
+      "locale": "en",
+      "singleH1": true,
+      "noindex": true,
+      "blocksAndSourceLinks": true
+    },
+    {
+      "id": "cafe.den-haag-kaafi",
+      "locale": "nl",
+      "singleH1": true,
+      "noindex": true,
+      "blocksAndSourceLinks": true
+    },
+    {
+      "id": "cafe.utrecht-koffie-leute",
+      "locale": "en",
+      "singleH1": true,
+      "noindex": true,
+      "blocksAndSourceLinks": true
+    },
+    {
+      "id": "cafe.utrecht-koffie-leute",
+      "locale": "nl",
+      "singleH1": true,
+      "noindex": true,
+      "blocksAndSourceLinks": true
+    },
+    {
+      "id": "hotel.den-haag-collector",
+      "locale": "en",
+      "singleH1": true,
+      "noindex": true,
+      "blocksAndSourceLinks": true
+    },
+    {
+      "id": "hotel.den-haag-collector",
+      "locale": "nl",
+      "singleH1": true,
+      "noindex": true,
+      "blocksAndSourceLinks": true
+    },
+    {
+      "id": "hotel.utrecht-nox",
+      "locale": "en",
+      "singleH1": true,
+      "noindex": true,
+      "blocksAndSourceLinks": true
+    },
+    {
+      "id": "hotel.utrecht-nox",
+      "locale": "nl",
+      "singleH1": true,
+      "noindex": true,
+      "blocksAndSourceLinks": true
+    }
+  ],
+  "reviewHtmlLocalLinks": 22,
+  "sitemapEmpty": true,
+  "robotsDisallowAll": true,
+  "fullVisualAcceptance": "deferred",
+  "physicalMobileDevice": "not tested"
+}

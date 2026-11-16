@@ -1,0 +1,21 @@
+{
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Plantage+Middenlaan+2A+Amsterdam&fq=type%3Aadres&rows=3",
+  "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Plantage+Middenlaan+2A+Amsterdam&fq=type%3Aadres&rows=3",
+  "httpStatus": 200,
+  "contentType": "application/json;charset=utf-8",
+  "sha256": "390a0d75ec30990437ba3d175461ce82f4c989710d84d8f18cb79a1198d39732",
+  "file": "faf92ff60f0b917b.html",
+  "checkedAt": "2026-11-16",
+  "selectedAddress": {
+    "woonplaatsnaam": "Amsterdam",
+    "weergavenaam": "Plantage Middenlaan 2A, 1018DD Amsterdam",
+    "id": "adr-f05f2b828627b1a59b401c93f96a3ba6",
+    "huisletter": "A",
+    "postcode": "1018DD",
+    "centroide_ll": "POINT(4.90789737 52.36700552)",
+    "nummeraanduiding_id": "0363200000410408",
+    "huisnummer": 2,
+    "straatnaam": "Plantage Middenlaan"
+  },
+  "method": "official BAG address geocoder; not an entrance survey"
+}

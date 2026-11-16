@@ -1,0 +1,783 @@
+{
+  "schemaVersion": 1,
+  "batchId": "pr75-integration-20261116",
+  "status": "approved",
+  "publicationAuthorized": true,
+  "privateOnly": false,
+  "approvedAt": "2026-11-16",
+  "reviewerId": "owner.ivan",
+  "preparedAt": "2026-11-16",
+  "ids": [
+    "cafe.den-haag-kaafi",
+    "cafe.leiden-30ml",
+    "cafe.leiden-barista",
+    "cafe.leiden-borgman",
+    "cafe.leiden-brownies",
+    "cafe.leiden-paco-ciao",
+    "cafe.utrecht-koffie-leute",
+    "hotel.den-haag-collector",
+    "hotel.leiden-huys-van-leyden",
+    "hotel.leiden-ibis",
+    "hotel.leiden-oude-morsch",
+    "hotel.leiden-rembrandt-hotel",
+    "hotel.leiden-steenhof",
+    "hotel.rotterdam-supernova",
+    "hotel.utrecht-nox",
+    "museum.den-haag-fotomuseum",
+    "museum.eindhoven-inkijkmuseum",
+    "museum.rotterdam-chabot",
+    "museum.utrecht-sonnenborgh",
+    "nature.den-haag-westbroekpark",
+    "nature.leiden-rembrandtpark",
+    "nature.rotterdam-trompenburg",
+    "nature.utrecht-oog-in-al",
+    "place.adam-lookout",
+    "place.artis",
+    "place.de-hallen-amsterdam",
+    "place.de-nieuwe-kerk-amsterdam",
+    "place.heineken-experience",
+    "place.hortus-botanicus-amsterdam",
+    "place.johan-cruijff-arena",
+    "place.leiden-cafe-laken",
+    "place.oba-oosterdok",
+    "place.oude-kerk",
+    "place.utrecht-neude",
+    "place.westerkerk",
+    "restaurant.eindhoven-kazerne",
+    "restaurant.leiden-bikini",
+    "restaurant.leiden-dende",
+    "restaurant.leiden-oudt-leyden",
+    "restaurant.leiden-prentenkabinet",
+    "restaurant.leiden-tabu",
+    "restaurant.leiden-verboden-toegang",
+    "restaurant.leiden-waag"
+  ],
+  "baseFiles": {
+    "place.artis": {
+      "file": "DataProject/batches/WP-06/M2-amsterdam-001.json",
+      "sha256": "a24f464c86e1880a542b23f1606f8622218cc0c7aa75464a9a19402847813b07"
+    },
+    "place.hortus-botanicus-amsterdam": {
+      "file": "DataProject/batches/WP-06/M2-amsterdam-001.json",
+      "sha256": "a24f464c86e1880a542b23f1606f8622218cc0c7aa75464a9a19402847813b07"
+    },
+    "place.oude-kerk": {
+      "file": "DataProject/batches/WP-06/M2-amsterdam-001.json",
+      "sha256": "a24f464c86e1880a542b23f1606f8622218cc0c7aa75464a9a19402847813b07"
+    },
+    "place.de-nieuwe-kerk-amsterdam": {
+      "file": "DataProject/batches/WP-06/M2-amsterdam-001.json",
+      "sha256": "a24f464c86e1880a542b23f1606f8622218cc0c7aa75464a9a19402847813b07"
+    },
+    "place.westerkerk": {
+      "file": "DataProject/batches/WP-06/M2-amsterdam-001.json",
+      "sha256": "a24f464c86e1880a542b23f1606f8622218cc0c7aa75464a9a19402847813b07"
+    },
+    "place.adam-lookout": {
+      "file": "DataProject/batches/WP-06/M2-amsterdam-001.json",
+      "sha256": "a24f464c86e1880a542b23f1606f8622218cc0c7aa75464a9a19402847813b07"
+    },
+    "place.heineken-experience": {
+      "file": "DataProject/batches/WP-06/M2-amsterdam-001.json",
+      "sha256": "a24f464c86e1880a542b23f1606f8622218cc0c7aa75464a9a19402847813b07"
+    },
+    "place.johan-cruijff-arena": {
+      "file": "DataProject/batches/WP-06/M2-amsterdam-001.json",
+      "sha256": "a24f464c86e1880a542b23f1606f8622218cc0c7aa75464a9a19402847813b07"
+    },
+    "place.de-hallen-amsterdam": {
+      "file": "DataProject/batches/WP-06/M2-amsterdam-001.json",
+      "sha256": "a24f464c86e1880a542b23f1606f8622218cc0c7aa75464a9a19402847813b07"
+    },
+    "place.oba-oosterdok": {
+      "file": "DataProject/batches/WP-06/M2-amsterdam-001.json",
+      "sha256": "a24f464c86e1880a542b23f1606f8622218cc0c7aa75464a9a19402847813b07"
+    },
+    "place.utrecht-neude": {
+      "file": "DataProject/editorial/priority-cities-20261115/records.json",
+      "sha256": "8a808c99acf914a36e7e84f18198f32243badc55fe92e06be4c605903c98dab3"
+    },
+    "museum.rotterdam-chabot": {
+      "file": "DataProject/editorial/priority-cities-20261115/records.json",
+      "sha256": "8a808c99acf914a36e7e84f18198f32243badc55fe92e06be4c605903c98dab3"
+    },
+    "museum.den-haag-fotomuseum": {
+      "file": "DataProject/editorial/priority-cities-20261115/records.json",
+      "sha256": "8a808c99acf914a36e7e84f18198f32243badc55fe92e06be4c605903c98dab3"
+    },
+    "museum.eindhoven-inkijkmuseum": {
+      "file": "DataProject/editorial/priority-cities-20261115/records.json",
+      "sha256": "8a808c99acf914a36e7e84f18198f32243badc55fe92e06be4c605903c98dab3"
+    },
+    "restaurant.eindhoven-kazerne": {
+      "file": "DataProject/editorial/priority-cities-20261115/records.json",
+      "sha256": "8a808c99acf914a36e7e84f18198f32243badc55fe92e06be4c605903c98dab3"
+    },
+    "nature.utrecht-oog-in-al": {
+      "file": "DataProject/editorial/priority-cities-20261115/records.json",
+      "sha256": "8a808c99acf914a36e7e84f18198f32243badc55fe92e06be4c605903c98dab3"
+    },
+    "museum.utrecht-sonnenborgh": {
+      "file": "DataProject/editorial/priority-cities-20261115/records.json",
+      "sha256": "8a808c99acf914a36e7e84f18198f32243badc55fe92e06be4c605903c98dab3"
+    },
+    "hotel.rotterdam-supernova": {
+      "file": "DataProject/editorial/priority-cities-20261115/records.json",
+      "sha256": "8a808c99acf914a36e7e84f18198f32243badc55fe92e06be4c605903c98dab3"
+    },
+    "nature.rotterdam-trompenburg": {
+      "file": "DataProject/editorial/priority-cities-20261115/records.json",
+      "sha256": "8a808c99acf914a36e7e84f18198f32243badc55fe92e06be4c605903c98dab3"
+    },
+    "nature.den-haag-westbroekpark": {
+      "file": "DataProject/editorial/priority-cities-20261115/records.json",
+      "sha256": "8a808c99acf914a36e7e84f18198f32243badc55fe92e06be4c605903c98dab3"
+    },
+    "nature.leiden-rembrandtpark": {
+      "file": "DataProject/editorial/leiden-stay-parks-20261115/records.json",
+      "sha256": "32fb30b21b90e5a9419bc2482384946c9acccd8f77997b0791d8679b29132864"
+    },
+    "hotel.leiden-ibis": {
+      "file": "DataProject/editorial/leiden-stay-parks-20261115/records.json",
+      "sha256": "32fb30b21b90e5a9419bc2482384946c9acccd8f77997b0791d8679b29132864"
+    },
+    "hotel.leiden-rembrandt-hotel": {
+      "file": "DataProject/editorial/leiden-stay-parks-20261115/records.json",
+      "sha256": "32fb30b21b90e5a9419bc2482384946c9acccd8f77997b0791d8679b29132864"
+    },
+    "cafe.leiden-barista": {
+      "file": "DataProject/staging/content-20261109/WP-09-M1-leiden-20261109.json",
+      "sha256": "68917f141122109522c058021b14da8fe9766eeee49cca3b760b1e6d36be7b4b"
+    },
+    "cafe.leiden-borgman": {
+      "file": "DataProject/staging/content-20261109/WP-09-M1-leiden-20261109.json",
+      "sha256": "68917f141122109522c058021b14da8fe9766eeee49cca3b760b1e6d36be7b4b"
+    },
+    "cafe.leiden-brownies": {
+      "file": "DataProject/staging/content-20261109/WP-09-M1-leiden-20261109.json",
+      "sha256": "68917f141122109522c058021b14da8fe9766eeee49cca3b760b1e6d36be7b4b"
+    },
+    "cafe.leiden-30ml": {
+      "file": "DataProject/staging/content-20261109/WP-09-M1-leiden-20261109.json",
+      "sha256": "68917f141122109522c058021b14da8fe9766eeee49cca3b760b1e6d36be7b4b"
+    },
+    "cafe.leiden-paco-ciao": {
+      "file": "DataProject/staging/content-20261109/WP-09-M1-leiden-20261109.json",
+      "sha256": "68917f141122109522c058021b14da8fe9766eeee49cca3b760b1e6d36be7b4b"
+    },
+    "place.leiden-cafe-laken": {
+      "file": "DataProject/staging/content-20261109/WP-09-M1-leiden-20261109.json",
+      "sha256": "68917f141122109522c058021b14da8fe9766eeee49cca3b760b1e6d36be7b4b"
+    },
+    "restaurant.leiden-bikini": {
+      "file": "DataProject/staging/content-20261109/WP-08-M1-leiden-20261109.json",
+      "sha256": "bb36b4add35026cfc95fac11aeda5e9e28f72579f680fa5658057099f14c9452"
+    },
+    "restaurant.leiden-dende": {
+      "file": "DataProject/staging/content-20261109/WP-08-M1-leiden-20261109.json",
+      "sha256": "bb36b4add35026cfc95fac11aeda5e9e28f72579f680fa5658057099f14c9452"
+    },
+    "restaurant.leiden-tabu": {
+      "file": "DataProject/staging/content-20261109/WP-08-M1-leiden-20261109.json",
+      "sha256": "bb36b4add35026cfc95fac11aeda5e9e28f72579f680fa5658057099f14c9452"
+    },
+    "restaurant.leiden-verboden-toegang": {
+      "file": "DataProject/staging/content-20261109/WP-08-M1-leiden-20261109.json",
+      "sha256": "bb36b4add35026cfc95fac11aeda5e9e28f72579f680fa5658057099f14c9452"
+    },
+    "restaurant.leiden-waag": {
+      "file": "DataProject/editorial/leiden-food-20261115/records.json",
+      "sha256": "28fc12087c3226f81f890a0899c8ffc2722b5593742ad45fac1b9dd008989827"
+    },
+    "restaurant.leiden-oudt-leyden": {
+      "file": "DataProject/editorial/leiden-food-20261115/records.json",
+      "sha256": "28fc12087c3226f81f890a0899c8ffc2722b5593742ad45fac1b9dd008989827"
+    },
+    "restaurant.leiden-prentenkabinet": {
+      "file": "DataProject/editorial/leiden-food-20261115/records.json",
+      "sha256": "28fc12087c3226f81f890a0899c8ffc2722b5593742ad45fac1b9dd008989827"
+    },
+    "hotel.leiden-oude-morsch": {
+      "file": "DataProject/editorial/leiden-stay-parks-20261115/records.json",
+      "sha256": "32fb30b21b90e5a9419bc2482384946c9acccd8f77997b0791d8679b29132864"
+    },
+    "hotel.leiden-huys-van-leyden": {
+      "file": "DataProject/editorial/leiden-stay-parks-20261115/records.json",
+      "sha256": "32fb30b21b90e5a9419bc2482384946c9acccd8f77997b0791d8679b29132864"
+    },
+    "hotel.leiden-steenhof": {
+      "file": "DataProject/editorial/leiden-stay-parks-20261115/records.json",
+      "sha256": "32fb30b21b90e5a9419bc2482384946c9acccd8f77997b0791d8679b29132864"
+    },
+    "cafe.den-haag-kaafi": {
+      "file": "DataProject/editorial/priority-cities-20261115/records.json",
+      "sha256": "8a808c99acf914a36e7e84f18198f32243badc55fe92e06be4c605903c98dab3"
+    },
+    "cafe.utrecht-koffie-leute": {
+      "file": "DataProject/editorial/priority-cities-20261115/records.json",
+      "sha256": "8a808c99acf914a36e7e84f18198f32243badc55fe92e06be4c605903c98dab3"
+    },
+    "hotel.den-haag-collector": {
+      "file": "DataProject/editorial/priority-cities-20261115/records.json",
+      "sha256": "8a808c99acf914a36e7e84f18198f32243badc55fe92e06be4c605903c98dab3"
+    },
+    "hotel.utrecht-nox": {
+      "file": "DataProject/editorial/priority-cities-20261115/records.json",
+      "sha256": "8a808c99acf914a36e7e84f18198f32243badc55fe92e06be4c605903c98dab3"
+    }
+  },
+  "recordsSha256": "340d296518f488bdf1ea15fa102853f98f580228949a11f5ceb1b43d5156ee1d",
+  "sourceChecksSha256": "2dc450467405aa18937db8aae6ea43a70ad89c44f489c130bba0cb0de6ba4769",
+  "mediaSourcesSha256": "32cc64f09400735b8eae0f125933d939231b87624469224d2e11dbce15bb186f",
+  "media": {
+    "amsartis-480.webp": {
+      "width": 480,
+      "height": 318,
+      "bytes": 36534,
+      "sha256": "96982aa1592e9926348bcd76934d29d73cc1cc83d45761df620386c72fc2e3d4"
+    },
+    "amsartis-800.webp": {
+      "width": 800,
+      "height": 531,
+      "bytes": 90874,
+      "sha256": "dd4325f0faaca54f6f1502ea1c3dbc4226becc8dec5c0aa4ad8ffeda4e1c27d7"
+    },
+    "amsartis-1200.webp": {
+      "width": 1200,
+      "height": 796,
+      "bytes": 182688,
+      "sha256": "df3f8aa41738e7762d6e4fae2f09f1dfbfe9c1e221a5bbb720637fe1c461b56c"
+    },
+    "amshortus-480.webp": {
+      "width": 480,
+      "height": 640,
+      "bytes": 116952,
+      "sha256": "c3c41571d856ad0c0c1ac9800df63bfdced672e1ebc91d48085a0562cf1e1674"
+    },
+    "amshortus-800.webp": {
+      "width": 800,
+      "height": 1067,
+      "bytes": 302928,
+      "sha256": "935feceb9674538bcc17292f324c49cf8326ad3b55396f8218fa9f89d484be97"
+    },
+    "amshortus-1200.webp": {
+      "width": 1200,
+      "height": 1600,
+      "bytes": 633106,
+      "sha256": "ddab295de852ab09f6712a532caf0e2259c6d7f117d2c386257e7bed33342807"
+    },
+    "amsoude-480.webp": {
+      "width": 480,
+      "height": 720,
+      "bytes": 76816,
+      "sha256": "7e4384d47be4563092ef51f1e22456a8bf57b27449885e20d9f37d818267ba2b"
+    },
+    "amsoude-800.webp": {
+      "width": 800,
+      "height": 1200,
+      "bytes": 191612,
+      "sha256": "3dfc2bb6ac476c37c8757bb00755624fcfd9601b526b9fdf8ac4b2c8962a85f4"
+    },
+    "amsoude-1200.webp": {
+      "width": 1200,
+      "height": 1800,
+      "bytes": 388984,
+      "sha256": "a09a088f5204e2b910aff3115236ca00d6057ceff3994ebc3446001275d79cfc"
+    },
+    "amsnieuwe-480.webp": {
+      "width": 480,
+      "height": 320,
+      "bytes": 36042,
+      "sha256": "7faf9e02c1107e5e333600526fd13b60a594edae5e6ea57be52a1668937ced3f"
+    },
+    "amsnieuwe-800.webp": {
+      "width": 800,
+      "height": 533,
+      "bytes": 93664,
+      "sha256": "b119ade25be764fd1cf076f9e98b6f50ab1fe3eb96e0e6acfb00c98876d8003a"
+    },
+    "amsnieuwe-1200.webp": {
+      "width": 1200,
+      "height": 800,
+      "bytes": 198990,
+      "sha256": "0966aa4b6de577495a65dae2410d792896fea89f93f047764d808a76f2119dc7"
+    },
+    "amswester-480.webp": {
+      "width": 480,
+      "height": 360,
+      "bytes": 28076,
+      "sha256": "92df3b572d0f3b4287375881a3502f60c21d22c3d8f18cd46bd1f994ec589165"
+    },
+    "amswester-800.webp": {
+      "width": 800,
+      "height": 600,
+      "bytes": 57930,
+      "sha256": "9779c2a6b2bda0ab80182fe99fc5e63ff000414a036d49be822aa62394f0ef3d"
+    },
+    "amswester-1200.webp": {
+      "width": 1200,
+      "height": 900,
+      "bytes": 103180,
+      "sha256": "91611188f1b6d3130658dd6607576055dfbb9ddc85a26efb5b36c8c7d6897b87"
+    },
+    "amsadam-480.webp": {
+      "width": 480,
+      "height": 725,
+      "bytes": 41774,
+      "sha256": "da20c7fdfc310009820021f462ac2f3fea709216dc58c541a51749122e3a8418"
+    },
+    "amsadam-800.webp": {
+      "width": 800,
+      "height": 1208,
+      "bytes": 92264,
+      "sha256": "544bdb909effa4003c1583b5b54b98ae5403526379ddc7b7bf04f3eb54fcff29"
+    },
+    "amsadam-1200.webp": {
+      "width": 1200,
+      "height": 1812,
+      "bytes": 166486,
+      "sha256": "c32064d3230141a272814ec3f9453d150bea89456f102e0e798fa9a584e6282d"
+    },
+    "amsheineken-480.webp": {
+      "width": 480,
+      "height": 318,
+      "bytes": 29640,
+      "sha256": "d4cdc068597a6181f1f4fb44a13283addea1819d56d1d02cbbf9ef4f9896c5f0"
+    },
+    "amsheineken-800.webp": {
+      "width": 800,
+      "height": 530,
+      "bytes": 91682,
+      "sha256": "e0b93b2e8fa14ca831a242b25fa41c0a9bf812226db8156877db232d0f42587e"
+    },
+    "amsheineken-1200.webp": {
+      "width": 1200,
+      "height": 795,
+      "bytes": 206758,
+      "sha256": "3b58659d15d1116e3d699bb072a9912091d568e8481427da6a4718990de466f4"
+    },
+    "amsarena-480.webp": {
+      "width": 480,
+      "height": 320,
+      "bytes": 49594,
+      "sha256": "b7e83e7c41aff6d41316ff7970a3cf741926875e8f009479fda8804b771a6d82"
+    },
+    "amsarena-800.webp": {
+      "width": 800,
+      "height": 533,
+      "bytes": 123824,
+      "sha256": "6608ccdb412992781f48a2c4cc1c2ab3ba8f9bda982bc86d70650d6700ba8136"
+    },
+    "amsarena-1200.webp": {
+      "width": 1200,
+      "height": 800,
+      "bytes": 235000,
+      "sha256": "9b91db00f521bb2f05fcaae1b6cf84b55ff9cdcbb626aa4f4627d48f61e5e0a5"
+    },
+    "amshallen-480.webp": {
+      "width": 480,
+      "height": 854,
+      "bytes": 92226,
+      "sha256": "3c8faf4ee3b0398f0a82e8eee3b3436c92945d36f11fa23f65abd605f987046a"
+    },
+    "amshallen-800.webp": {
+      "width": 800,
+      "height": 1423,
+      "bytes": 240736,
+      "sha256": "3ae6f14c848b14a623df134295f9e3703f6052bec38a154860308f01164c92a8"
+    },
+    "amshallen-1200.webp": {
+      "width": 1200,
+      "height": 2134,
+      "bytes": 515012,
+      "sha256": "339b0078b02849dfaa5e4e75380d6e2e1cc51b6855fec5216a565f1aa3c49698"
+    },
+    "amsoba-480.webp": {
+      "width": 480,
+      "height": 360,
+      "bytes": 35580,
+      "sha256": "3c4d43d15570e8b7322ccb387e28416dd76d658dac649eb717d68607caa46cc1"
+    },
+    "amsoba-800.webp": {
+      "width": 800,
+      "height": 600,
+      "bytes": 81472,
+      "sha256": "33690ac78edcecd25a27f8336c389d7fa68f2d3727d74125e393c78e6d2615f2"
+    },
+    "amsoba-1200.webp": {
+      "width": 1200,
+      "height": 900,
+      "bytes": 166616,
+      "sha256": "3848c3197e2a2dacecd1ec2f7340579ce3d535c4a3b8513404d2043aa12caf32"
+    },
+    "exputrechtneude-480.webp": {
+      "width": 480,
+      "bytes": 63174,
+      "sha256": "cc9ceeae06dc332da836b7eaf37b3e2be8a5dec1a218ace74d05fae32e47ca2c"
+    },
+    "exputrechtneude-800.webp": {
+      "width": 800,
+      "bytes": 143586,
+      "sha256": "84a0df4129aefc11d81039d97f8431804990120a8243554d27930e8c01e05033"
+    },
+    "exputrechtneude-1200.webp": {
+      "width": 1200,
+      "bytes": 271150,
+      "sha256": "6ddd789d1e0ec9378cfe74030e2b027c5265572f8968c802e493786161bb67cd"
+    },
+    "exprotterdamchabot-480.webp": {
+      "width": 480,
+      "bytes": 30604,
+      "sha256": "a18c514901b5fbb851f25cba0d11e1f07f6c33a836f0b9247c8a4c04f0ad9d68"
+    },
+    "exprotterdamchabot-800.webp": {
+      "width": 800,
+      "bytes": 88402,
+      "sha256": "4b98ba84863e58687447b993c1af5ce512f58ee64a50307171d82a6936058d6b"
+    },
+    "exprotterdamchabot-1200.webp": {
+      "width": 1200,
+      "bytes": 204242,
+      "sha256": "43e0b0b75f634d6931fe8badd804bcfe76b40adbe091af6347124a1bac4f400c"
+    },
+    "expdenhaagfotomuseum-480.webp": {
+      "width": 480,
+      "bytes": 27192,
+      "sha256": "416aa1c1d867658108e409d2f2a79b3808f9bf547436406d3ae3a1776fae0c9e"
+    },
+    "expdenhaagfotomuseum-800.webp": {
+      "width": 800,
+      "bytes": 76224,
+      "sha256": "25acb29bfede1b8b6d8d3be626b8f5de9fd4cd1f86a40e3493d9c07cbcbd3792"
+    },
+    "expdenhaagfotomuseum-1200.webp": {
+      "width": 1200,
+      "bytes": 166274,
+      "sha256": "e6f9e8b9eeee6bf814789a1bff66b133874cf2a342ab9e9f2faf2544ee2070d8"
+    },
+    "expeindhoveninkijkmuseum-480.webp": {
+      "width": 480,
+      "bytes": 34028,
+      "sha256": "515562a0aa48991b7d754099b34138562bb0cd27f6c776b92443b0ae0a79a1e8"
+    },
+    "expeindhoveninkijkmuseum-800.webp": {
+      "width": 800,
+      "bytes": 98582,
+      "sha256": "c4710924bca04b03f025f393b9ef33c7d61c1c5cb93968d5d3f72e9cc1715a8e"
+    },
+    "expeindhoveninkijkmuseum-1200.webp": {
+      "width": 1200,
+      "bytes": 216132,
+      "sha256": "009e88809d4e7864b6f46a23245fc15739b5c7892a0691059080d0631c9e4a26"
+    },
+    "kazerne-480.webp": {
+      "width": 480,
+      "height": 320,
+      "bytes": 34276,
+      "sha256": "56b7dcd0fd9110e7ba7426d80ac77475332b092a5f72e698726c5b3b15bf4815"
+    },
+    "kazerne-800.webp": {
+      "width": 800,
+      "height": 533,
+      "bytes": 98886,
+      "sha256": "951b5904afec2f149b1aee0014950f87f444666d18cc93fc71f24319907968ec"
+    },
+    "kazerne-1200.webp": {
+      "width": 1200,
+      "height": 800,
+      "bytes": 224164,
+      "sha256": "6423398ec6c729222fa3a884ab5b8904ec79c0124e697396b1318373b56fd010"
+    },
+    "exputrechtooginal-480.webp": {
+      "width": 480,
+      "bytes": 99224,
+      "sha256": "fabaae7f86080b036b7e29d947018ab9e0bd0e32d809cabb2bd11eab127652ab"
+    },
+    "exputrechtooginal-800.webp": {
+      "width": 800,
+      "bytes": 232954,
+      "sha256": "a11125fdd9a7b32e93d5b75e44d4e53bfa84e62906699ffd8f31ff1c125a7893"
+    },
+    "exputrechtooginal-1200.webp": {
+      "width": 1200,
+      "bytes": 377006,
+      "sha256": "a0bea7240a67def169f806fbefe6e995427d724422839a0ba488b6b9e9417790"
+    },
+    "exputrechtsonnenborgh-480.webp": {
+      "width": 480,
+      "bytes": 57130,
+      "sha256": "0c58c31778ad4399b739166a2481675191c88b51b9685146f275eace935cecf8"
+    },
+    "exputrechtsonnenborgh-800.webp": {
+      "width": 800,
+      "bytes": 163828,
+      "sha256": "8ec0cfc7986a4c28e334c321dbc48a566bea66aed39ee336a9d16c7586d994bf"
+    },
+    "exputrechtsonnenborgh-1200.webp": {
+      "width": 1200,
+      "bytes": 375748,
+      "sha256": "5722aedad202ddbe5a097c391d97a1d55f174fba20d732efc46b94c627ce1833"
+    },
+    "supernova-480.webp": {
+      "width": 480,
+      "height": 360,
+      "bytes": 19790,
+      "sha256": "41a8cb789e574b8af78ae893892b3e1297e731dcc6c924be69187804aca91f01"
+    },
+    "supernova-800.webp": {
+      "width": 800,
+      "height": 600,
+      "bytes": 46574,
+      "sha256": "dd0064a100f0b4c5bda5e306eea615751bbd6bd36d7bb826b77f98d10fd8aec9"
+    },
+    "supernova-1024.webp": {
+      "width": 1024,
+      "height": 768,
+      "bytes": 70014,
+      "sha256": "ba78c398b0962c7e430e89be785bd42f7cc96a65b63245dc8a8aca328ea669f0"
+    },
+    "exprotterdamtrompenburg-480.webp": {
+      "width": 480,
+      "bytes": 71298,
+      "sha256": "bf8018b508fa80e9726b62e68d2be1f6306108e7a3d16e0b25479776dbacd0c4"
+    },
+    "exprotterdamtrompenburg-800.webp": {
+      "width": 800,
+      "bytes": 201172,
+      "sha256": "0ea8715e83719ada39ecebe6158687e5d8e4cc69cbcfef653fdaa371cc788799"
+    },
+    "exprotterdamtrompenburg-1200.webp": {
+      "width": 1200,
+      "bytes": 420678,
+      "sha256": "83dd5c1a8e4ee8a7a528190ec93dd05469d9e0fabb1db29c5186ffb449d3d1c8"
+    },
+    "expdenhaagwestbroekpark-480.webp": {
+      "width": 480,
+      "bytes": 44488,
+      "sha256": "07e7df11b6c2be849bf10da3b11bbc17206fdf5a47a0e6b588bec7335cf55d86"
+    },
+    "expdenhaagwestbroekpark-800.webp": {
+      "width": 800,
+      "bytes": 141054,
+      "sha256": "d4de402312b18a480158e5fdfdc3f057e29b2fe8f1463f5c9a7ac206c97e3b62"
+    },
+    "expdenhaagwestbroekpark-1200.webp": {
+      "width": 1200,
+      "bytes": 341464,
+      "sha256": "35e91b78d1c9acd2d78ce41afb9d8a8aaba4a623abbab74cb24107b0159e4c3a"
+    },
+    "rembrandtpark-480.webp": {
+      "width": 480,
+      "height": 315,
+      "bytes": 22354,
+      "sha256": "826135fdb718d60259cb0ceb94e2954dffaff9935e510dcd354d03b36c6d28bc"
+    },
+    "rembrandtpark-800.webp": {
+      "width": 800,
+      "height": 525,
+      "bytes": 53462,
+      "sha256": "e516357640e590d484d26562aa6e73cb693118be2e53155bb8f16a2141165942"
+    },
+    "rembrandtpark-1200.webp": {
+      "width": 1200,
+      "height": 787,
+      "bytes": 106140,
+      "sha256": "dfb13bdffdc972bb7c121b6e767f22a5ddb34dcf65adc28d3b092ff2adf93453"
+    },
+    "ibisleiden-480.webp": {
+      "width": 480,
+      "height": 640,
+      "bytes": 47942,
+      "sha256": "e17f1e4c694e98e47d515ffa4381e39769700a346e364f6660daedc46c55d818"
+    },
+    "ibisleiden-800.webp": {
+      "width": 800,
+      "height": 1067,
+      "bytes": 113854,
+      "sha256": "f00c40ec2d03df209c0bf8432a2d5e1d4a18eeb39930e3f1259747cea296b460"
+    },
+    "ibisleiden-1200.webp": {
+      "width": 1200,
+      "height": 1600,
+      "bytes": 222794,
+      "sha256": "13146b3ab2d7b20290497d443c9145a1dff2c61caec21f843d85c5e48d17d280"
+    },
+    "rembrandthotel-480.webp": {
+      "width": 480,
+      "height": 320,
+      "bytes": 34694,
+      "sha256": "de5bfeca55425b31bc720691f55782ae91e8a8ac50ee52fdba0c12a4c41e80f4"
+    },
+    "rembrandthotel-800.webp": {
+      "width": 800,
+      "height": 533,
+      "bytes": 85172,
+      "sha256": "805f97f2e59ad7401e0d682278cb7bec385b565dce28b5ed3f3800391b52c9e8"
+    },
+    "rembrandthotel-1200.webp": {
+      "width": 1200,
+      "height": 800,
+      "bytes": 168006,
+      "sha256": "598fbda97a92a1cf13741e206ca6b631fd6bce83f44c17fe6603b7de1a72306d"
+    },
+    "cafelaken-480.webp": {
+      "width": 480,
+      "bytes": 29098,
+      "sha256": "091558c7e7f921ed51fe30e7985d054ed51bee16773926c24131e961f3292f08"
+    },
+    "cafelaken-800.webp": {
+      "width": 800,
+      "bytes": 79584,
+      "sha256": "5fff9f41c114c0200236cfd503f3865a6e0720be9e0071406ec54959f6b70810"
+    },
+    "cafelaken-1200.webp": {
+      "width": 1200,
+      "bytes": 166638,
+      "sha256": "e2c6d4dd2fb01bd773fdcccd69853d5d03c872037f839b7f5ec295c35c1d41e8"
+    },
+    "waag-480.webp": {
+      "width": 480,
+      "bytes": 28800,
+      "sha256": "4b521f9fb3633c8ff010abcbf9b95039efe602a292f558a222f47c9c5664fb13"
+    },
+    "waag-800.webp": {
+      "width": 800,
+      "bytes": 65498,
+      "sha256": "5b63f69bc8106529c790f8f088f0e4bf03694c9108235b6fdcd0cc40e7d854b3"
+    },
+    "waag-1200.webp": {
+      "width": 1200,
+      "bytes": 131624,
+      "sha256": "2f6372fbbbb5d348ae5fafa4a9abe920108c76eb16d1888c272b139be9e8e043"
+    },
+    "oudt-480.webp": {
+      "width": 480,
+      "bytes": 53578,
+      "sha256": "8fd0bb64beadd4a97426e9b61e47a75fff6be0b1ef7d31aab3403fe5ea5be803"
+    },
+    "oudt-800.webp": {
+      "width": 800,
+      "bytes": 128016,
+      "sha256": "01c67bd3be4e5074cd17ce46e2f0753dda58c202d79a7e15d40453fc154370c8"
+    },
+    "oudt-1200.webp": {
+      "width": 1200,
+      "bytes": 258214,
+      "sha256": "38fbe50f3a63640c3ba0b5561994aa3580ae5ffa395a8aa1a4b5a99d19fecc48"
+    },
+    "prent-480.webp": {
+      "width": 480,
+      "bytes": 41154,
+      "sha256": "6f51b8dd7dff80a7d0f23f0a58256991d27144587dad92b6dd1147d02d83277c"
+    },
+    "prent-800.webp": {
+      "width": 800,
+      "bytes": 106730,
+      "sha256": "73a72fe3a18a77ba4a6c3cb8a92794c31a80809314d200710d63ff971a04b3aa"
+    },
+    "prent-1200.webp": {
+      "width": 1200,
+      "bytes": 212426,
+      "sha256": "c3ca99f770302729b683c6318674ccdab3a334c5c0edfaeeeb3cd90c50a25347"
+    },
+    "expoudemorsch-480.webp": {
+      "width": 480,
+      "bytes": 34184,
+      "sha256": "aa26110b9f816b0a19b30cdee74942cd1a17f4172dbbc813b65b45d976b0b6c8"
+    },
+    "expoudemorsch-800.webp": {
+      "width": 800,
+      "bytes": 98056,
+      "sha256": "419589c1e0a35137a5665802095eda3652bbc0dd25389228699149275c03fc9b"
+    },
+    "expoudemorsch-1200.webp": {
+      "width": 1200,
+      "bytes": 214226,
+      "sha256": "477fbfdff938650cb5859c3973b9346003a98a56b531cf486d0aa63907b339f7"
+    },
+    "exphuys-480.webp": {
+      "width": 480,
+      "bytes": 54644,
+      "sha256": "b517a15f7924703f913533aea95425e233322934b0cc066f191255d7ecde79bb"
+    },
+    "exphuys-800.webp": {
+      "width": 800,
+      "bytes": 141654,
+      "sha256": "86f7094a7d59afb0043295d0cbcf2ed2606f6afa2cac51d9093909073b5d8587"
+    },
+    "exphuys-1200.webp": {
+      "width": 1200,
+      "bytes": 301968,
+      "sha256": "0fd898fed7a12fe6caa547bafe0cf5050ee38dd4b6a46379e5b5f2598b8e7753"
+    },
+    "expsteenhof-480.webp": {
+      "width": 480,
+      "bytes": 56378,
+      "sha256": "41f8098086200f1ffb34eb6aaddd68b2eeb920608052cac1526da1ceb4d3df2e"
+    },
+    "expsteenhof-800.webp": {
+      "width": 800,
+      "bytes": 165550,
+      "sha256": "fd37c8998c0e06d2336690de0e83a018224720b8a3d0df2bae7c5a19b4087ce3"
+    },
+    "expsteenhof-1200.webp": {
+      "width": 1200,
+      "bytes": 358050,
+      "sha256": "4932feff39e7b7ddd63111885dc1e048971107c9f3af6fcefe2ef22395b52927"
+    },
+    "havenarchive-480.webp": {
+      "width": 480,
+      "height": 320,
+      "bytes": 38390,
+      "sha256": "b4fe631bde7d66ed1c67018e0788b3c0e1fae047fb76d9284ba57ff3cb3945d2"
+    },
+    "havenarchive-800.webp": {
+      "width": 800,
+      "height": 533,
+      "bytes": 89322,
+      "sha256": "5c8e1f6c5d4a5a8a4b66a0013667138fb2ea1689500625008fc5f98353b494f2"
+    },
+    "havenarchive-1200.webp": {
+      "width": 1200,
+      "height": 800,
+      "bytes": 176282,
+      "sha256": "3a52d7377fc5bdba2595fcc49f1f617101ade08c985566ab03aa4795f7348f3b"
+    },
+    "stationswegarchive-480.webp": {
+      "width": 480,
+      "height": 720,
+      "bytes": 71488,
+      "sha256": "eb3a1f31317030dea5b94b2b3a418b068f65ce01f03ef19a556e305077d15a83"
+    },
+    "stationswegarchive-800.webp": {
+      "width": 800,
+      "height": 1200,
+      "bytes": 182040,
+      "sha256": "b330bf4549473efa03d8066dcfef303ef5f93d0745873954e91ec3d538f68497"
+    },
+    "stationswegarchive-1200.webp": {
+      "width": 1200,
+      "height": 1800,
+      "bytes": 353754,
+      "sha256": "381a23fdf5cc63cf3ca6baa5f6f36c62a5df47f5f0523fc751bf08c11434a01d"
+    }
+  },
+  "publicationScope": {
+    "type": "owner-approved-existing-ids",
+    "addedIds": [
+      "place.artis",
+      "place.hortus-botanicus-amsterdam",
+      "place.oude-kerk",
+      "place.de-nieuwe-kerk-amsterdam",
+      "place.westerkerk",
+      "place.adam-lookout",
+      "place.heineken-experience",
+      "place.johan-cruijff-arena",
+      "place.de-hallen-amsterdam",
+      "place.oba-oosterdok"
+    ],
+    "supersedesHistoricalWithholding": true
+  },
+  "integrationReviewSha256": "58bc2fefa694ac31b4f3558a283e8d2b3c7b5997f7bb4598d278e52b2fbf6e11",
+  "approvalSha256": "a9e9d34978d86bfc5570953e9eb0394bbad8d80e095eb95ce0a6110633628b95"
+}

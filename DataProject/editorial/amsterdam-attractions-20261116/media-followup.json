@@ -1,0 +1,197 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-11-16",
+  "newApprovedOrDownloadedImages": 0,
+  "preservedPhotoPackage": "../missing-photos-20261116",
+  "candidates": [
+    {
+      "id": "cafe.den-haag-kaafi",
+      "name": "Kaafi",
+      "purpose": "first_card_photo",
+      "source": "https://crate47.com/portfolio/kaafi-coffee-shop-branding/",
+      "creditLead": "Crate47; project with Liqui",
+      "dateEvidence": "Project year 2017; not evidence of the current interior",
+      "decision": "permission_required",
+      "reasonRU": "Найден авторский проект Crate47 с фотографиями именно Kaafi. Подвал сайта: All rights reserved. Публикация в портфолио не разрешает копирование в YouNew; интерьер проекта 2017 года требует проверки актуальности.",
+      "nextRU": "После отдельного одобрения запросить у Kaafi/Crate47 конкретный актуальный файл, автора и письменные условия для сайта, WebP и публичного репозитория.",
+      "checkedAt": "2026-11-16",
+      "publicationAuthorized": false,
+      "outreachSent": false,
+      "downloaded": false
+    },
+    {
+      "id": "cafe.utrecht-koffie-leute",
+      "name": "Koffie Leute",
+      "purpose": "first_card_photo",
+      "source": "https://www.amsterdamcoffeefestival.com/Journal/2016/March/Koffie-Leute",
+      "creditLead": "de Franse Fotograaf; source koffieTcacao magazine",
+      "dateEvidence": "Article archive March 2016; not a confirmed capture date",
+      "decision": "permission_required",
+      "reasonRU": "Новая зацепка — статья организатора Amsterdam Coffee Festival с кредитом de Franse Fotograaf. Это более точная атрибуция, но разрешения на использование нет. Официальный сайт кафе также указывает All rights reserved. Прежний Flickr 2012 с кофейной стойкой остаётся отклонённым как фото нынешнего кафе.",
+      "nextRU": "Получить актуальный кадр Westerkade 30 с правами от кафе или названного фотографа; прежние изображения не скачивать заново.",
+      "checkedAt": "2026-11-16",
+      "publicationAuthorized": false,
+      "outreachSent": false,
+      "downloaded": false
+    },
+    {
+      "id": "hotel.den-haag-collector",
+      "name": "The Collector",
+      "purpose": "first_card_photo",
+      "source": "https://www.thecollectorhotel.com/gallery",
+      "creditLead": "Author not identified in official gallery",
+      "dateEvidence": "Gallery checked 2026-11-16; capture dates unknown",
+      "decision": "permission_required",
+      "reasonRU": "В официальной галерее есть конкретные изображения входа, лобби и террасы, но нет лицензии, имени фотографа и даты съёмки. Прежний релиз BWH 2022 сохранён как зацепка; право распространять файл и производные в репозитории не подтверждено.",
+      "nextRU": "Запросить точный файл фасада/входа Haagsche Bluf 52 с письменным разрешением; не подменять его общим двором или Loetje.",
+      "checkedAt": "2026-11-16",
+      "publicationAuthorized": false,
+      "outreachSent": false,
+      "downloaded": false
+    },
+    {
+      "id": "hotel.utrecht-nox",
+      "name": "The Nox Hotel Utrecht",
+      "purpose": "first_card_photo",
+      "source": "https://www.thenoxhotel.com/en/disclaimer",
+      "creditLead": "The Nox owns site material unless stated otherwise; exact photographer unconfirmed",
+      "dateEvidence": "Gallery checked 2026-11-16; capture dates unknown",
+      "decision": "permission_required",
+      "reasonRU": "Официальный disclaimer прямо требует согласия на воспроизведение и распространение изображений; сохранение разрешено только для личного пользования. Нужен кадр Keistraat 8. Отдельно исключён одноимённый Hotel Nox в Любляне.",
+      "nextRU": "После одобрения обращения получить разрешение The Nox на конкретный файл и установить автора/дату.",
+      "checkedAt": "2026-11-16",
+      "publicationAuthorized": false,
+      "outreachSent": false,
+      "downloaded": false
+    },
+    {
+      "id": "nature.leiden-rembrandtpark",
+      "name": "Rembrandtpark Leiden",
+      "purpose": "replacement_hero",
+      "source": "https://www.flickr.com/photos/55416316@N07/54370482006",
+      "creditLead": "Peter Jaspers",
+      "dateEvidence": "Flickr taken 2025-02-28; uploaded 2025-03-07",
+      "decision": "all_rights_reserved",
+      "reasonRU": "Найден более свежий снимок парка «Hekje voor de vrijdag» 2025 года, но он имеет All rights reserved. Не скачан. Снимок 1986 года остаётся только архивным.",
+      "nextRU": "Нужен широкий узнаваемый вид именно Rembrandtpark Leiden, с датой и разрешением; не использовать одноимённый парк Амстердама или соседний парк de Put.",
+      "checkedAt": "2026-11-16",
+      "publicationAuthorized": false,
+      "outreachSent": false,
+      "downloaded": false
+    },
+    {
+      "id": "hotel.leiden-rembrandt-hotel",
+      "name": "City Hotel Rembrandt",
+      "purpose": "replacement_hero",
+      "source": "https://www.rembrandthotel.nl/",
+      "creditLead": "Official hotel; photographer not established",
+      "dateEvidence": "Site checked 2026-11-16; capture date not established",
+      "decision": "permission_required",
+      "reasonRU": "Проверен текущий официальный сайт: подходящие гостиничные изображения не сопровождаются проверенной лицензией. Снимок 2015 года с перекрытым деревом фасадом сохранён для архивной галереи.",
+      "nextRU": "Нужен современный фронтальный кадр входа Nieuwe Beestenmarkt 10 с читаемой вывеской, без перекрывающего фасад дерева.",
+      "checkedAt": "2026-11-16",
+      "publicationAuthorized": false,
+      "outreachSent": false,
+      "downloaded": false
+    },
+    {
+      "id": "restaurant.eindhoven-kazerne",
+      "name": "Kazerne",
+      "purpose": "replacement_hero",
+      "source": "https://kazerne.com/en/press-releases/",
+      "creditLead": "Old press index names Patrick Meis / Ruud Balk / Architectuurproducties for different sets",
+      "dateEvidence": "Index includes 2019–2025 sets; exact candidate date not established",
+      "decision": "grant_not_linked_to_current_file",
+      "reasonRU": "В поисковой копии прежнего пресс-раздела есть разрешение публикации с кредитами Kazerne, дизайнера и фотографа. Но действующий URL перенаправляет в блог: точный файл и применимость разрешения к нему не установлены. Разрешение не перенесено на все фото сайта. Снимок 2020 с прежней вывеской Benz остаётся архивным.",
+      "nextRU": "Восстановить официальный набор с именами файлов и условиями либо запросить нейтральный актуальный кадр с нынешней вывеской.",
+      "checkedAt": "2026-11-16",
+      "publicationAuthorized": false,
+      "outreachSent": false,
+      "downloaded": false
+    },
+    {
+      "id": "hotel.rotterdam-supernova",
+      "name": "Supernova",
+      "purpose": "replacement_hero",
+      "source": "https://leon-zondervan.squarespace.com/supernova-hotel-rotterdam",
+      "creditLead": "PION (photography), Leon Zondervan (project page)",
+      "dateEvidence": "Publication page does not confirm capture date",
+      "decision": "permission_required",
+      "reasonRU": "Найден проектный набор с кредитом PION, но открытой лицензии нет. Права автора не следуют из указания его имени. Прежний снимок с шарами остаётся архивным и обслуживается в исходном максимуме 1024 px.",
+      "nextRU": "Получить нейтральный кадр фасада/лобби или комнаты без временных шаров; не обозначать декор как услугу отеля.",
+      "checkedAt": "2026-11-16",
+      "publicationAuthorized": false,
+      "outreachSent": false,
+      "downloaded": false
+    }
+  ],
+  "evidence": {
+    "cafe.den-haag-kaafi": {
+      "url": "https://crate47.com/portfolio/kaafi-coffee-shop-branding/",
+      "finalUrl": "https://crate47.com/portfolio/kaafi-coffee-shop-branding/",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "dac12a38d97a00f760d0abdf7d380683e9b61227521a2e96838f8f394ffecb80",
+      "file": "e8e983acfab03b83.html",
+      "checkedAt": "2026-11-16"
+    },
+    "cafe.utrecht-koffie-leute": {
+      "url": "https://www.amsterdamcoffeefestival.com/Journal/2016/March/Koffie-Leute",
+      "error": "HTTP Error 403: Forbidden",
+      "checkedAt": "2026-11-16",
+      "method": "web.run search",
+      "verificationScope": "Indexed official festival article identifies the photographer. Direct fetch returned 403; no grant inferred."
+    },
+    "hotel.den-haag-collector": {
+      "url": "https://www.thecollectorhotel.com/gallery",
+      "finalUrl": "https://www.thecollectorhotel.com/gallery",
+      "httpStatus": 200,
+      "sha256": "47d76e35f7d3fc4ba300efe8f836f8ee6cab41daa5caebd19f099f79d555e6ce",
+      "file": "749f9afba68fba41.html",
+      "checkedAt": "2026-11-16"
+    },
+    "hotel.utrecht-nox": {
+      "url": "https://www.thenoxhotel.com/en/disclaimer",
+      "finalUrl": "https://www.thenoxhotel.com/en/disclaimer",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "42df57b030739d53964bfa7eabb7c38cacd9e646496c4291c31c8fc96988e00c",
+      "file": "96cbcad748a88e7b.html",
+      "checkedAt": "2026-11-16"
+    },
+    "nature.leiden-rembrandtpark": {
+      "url": "https://www.flickr.com/photos/55416316@N07/54370482006",
+      "finalUrl": "https://www.flickr.com/photos/55416316@N07/54370482006",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "84e89111dee327a12777cd1230113ce45bb54af86143160fd574f568a33e743f",
+      "file": "cb960a8e8c07d1b2.html",
+      "checkedAt": "2026-11-16"
+    },
+    "hotel.leiden-rembrandt-hotel": {
+      "url": "https://www.rembrandthotel.nl/",
+      "finalUrl": "https://www.rembrandthotel.nl/",
+      "httpStatus": 200,
+      "sha256": "39d654ea11ce203216e09d2b49aa837981dbe09c2a9bd7bece57d8f1a8a4153c",
+      "file": "c0f5db8cf6a551b3.html",
+      "checkedAt": "2026-11-16"
+    },
+    "restaurant.eindhoven-kazerne": {
+      "url": "https://www.kazerne.com/en/press-releases",
+      "finalUrl": "https://www.kazerne.com/blog",
+      "httpStatus": 200,
+      "sha256": "86cfe8843f7b03ecb0b29106ed24ee5c25c63bdcedd2255e9cb2968e93f59b2d",
+      "file": "0f1ba5b692e7e3de.html",
+      "checkedAt": "2026-11-16"
+    },
+    "hotel.rotterdam-supernova": {
+      "url": "https://leon-zondervan.squarespace.com/supernova-hotel-rotterdam",
+      "finalUrl": "https://leon-zondervan.squarespace.com/supernova-hotel-rotterdam",
+      "httpStatus": 200,
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "40fc9e583f1e621caaaaecf31966b60690c0f6ca1884ef7544a73985f9993107",
+      "file": "95db17a18e11740b.html",
+      "checkedAt": "2026-11-16"
+    }
+  }
+}

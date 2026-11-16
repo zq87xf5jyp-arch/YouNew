@@ -1,0 +1,11 @@
+{
+  "url": "https://dende.nl/",
+  "checkedAt": "2026-11-16",
+  "httpStatus": 200,
+  "finalUrl": "https://dende.nl/",
+  "sha256": "a7372b8cfc69cc07c1b0c672694c27b425dff836ba6513be7e648f5a000325cb",
+  "recheckedThisBatch": true,
+  "method": "Direct HTTPS, ordinary urllib client; no access-control bypass",
+  "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/dende-home",
+  "officialLinks": []
+}

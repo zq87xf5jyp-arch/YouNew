@@ -1,0 +1,20 @@
+{
+  "url": "https://30ml.nl/en/menu/",
+  "checkedAt": "2026-11-16",
+  "httpStatus": 200,
+  "finalUrl": "https://30ml.nl/en/menu/",
+  "sha256": "839423ee543676caedf8b6fad72ab4285ba7ed4cb517ccb29ecf8bf57ca5f6d7",
+  "recheckedThisBatch": true,
+  "method": "Direct HTTPS, ordinary urllib client; no access-control bypass",
+  "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/ml-menu",
+  "officialLinks": [
+    {
+      "text": "Our menu",
+      "href": "https://30ml.nl/en/menu/"
+    },
+    {
+      "text": "Our menu",
+      "href": "https://30ml.nl/en/menu/"
+    }
+  ]
+}

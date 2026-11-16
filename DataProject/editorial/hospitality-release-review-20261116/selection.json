@@ -1,0 +1,340 @@
+{
+  "schemaVersion": 1,
+  "sourceCommit": "fea2401cc937a258e0ab7293a7d5e912a5bee528",
+  "selectionId": "hospitality-followup-20261116",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "approvedAt": null,
+  "reviewerId": null,
+  "scope": "20 existing-ID revisions, 140 added EN/NL blocks, 2 separate archival gallery candidates, 4 collection briefs; immutable prior selection referenced, never activated",
+  "files": {
+    "DataProject/editorial/leiden-hospitality-20261116/README.md": {
+      "bytes": 1736,
+      "sha256": "9a45bb222ea8576dfb3f96cfe5218496e25e1dd84e2244c4d8299fa4b23ba61b"
+    },
+    "DataProject/editorial/leiden-hospitality-20261116/changes.json": {
+      "bytes": 1723,
+      "sha256": "95a83f2abbea4d1bc1d4911fd7fdb1fc32fbdbd90b49d6a2b0087a3475290006"
+    },
+    "DataProject/editorial/leiden-hospitality-20261116/evidence/barista-bag.json": {
+      "bytes": 1667,
+      "sha256": "50ca415183df95ca3f4e7843ee4527d39e5e1ca471e7c98ae4d209a7a01a7a80"
+    },
+    "DataProject/editorial/leiden-hospitality-20261116/evidence/barista-menu.json": {
+      "bytes": 456,
+      "sha256": "71506153ec0b1e50a2afababa9b1bb2ac98535a137cc599836cbc48e95e1e1c7"
+    },
+    "DataProject/editorial/leiden-hospitality-20261116/evidence/barista.json": {
+      "bytes": 596,
+      "sha256": "7d53a705732228554beac8b16e25c20d2ed65fa365ab8445aab9f9629bb98c18"
+    },
+    "DataProject/editorial/leiden-hospitality-20261116/evidence/bikini-about.json": {
+      "bytes": 649,
+      "sha256": "5553e8f8bd9bb6df1cfc17d3d7f7e4b1e62771a56b25387458490e807aadee17"
+    },
+    "DataProject/editorial/leiden-hospitality-20261116/evidence/bikini-bag.json": {
+      "bytes": 1646,
+      "sha256": "ab5bb1d263264f2707a93473e89a8830f3935aa52fdac23e4787803a863d9f4d"
+    },
+    "DataProject/editorial/leiden-hospitality-20261116/evidence/bikini-menu.json": {
+      "bytes": 648,
+      "sha256": "aa38f2cb407d6299633ec0eb2b2be9c57381618c7d201458345292b74121065d"
+    },
+    "DataProject/editorial/leiden-hospitality-20261116/evidence/bikini.json": {
+      "bytes": 649,
+      "sha256": "ed6b0b78bc98ab80dbccdd01f4768e9f2001fb5b395676032c8c3f79a4b40e0d"
+    },
+    "DataProject/editorial/leiden-hospitality-20261116/evidence/borgman-about.json": {
+      "bytes": 472,
+      "sha256": "454ce341d92295c78899bb199928ce2b346b0f7553f9de27ae03c37c65fa608c"
+    },
+    "DataProject/editorial/leiden-hospitality-20261116/evidence/borgman-bag.json": {
+      "bytes": 1668,
+      "sha256": "93cd5572ac6890266a2441efd23717cd1b0a8c46812ef5bd22df0ecc04cc5180"
+    },
+    "DataProject/editorial/leiden-hospitality-20261116/evidence/borgman-menu.json": {
+      "bytes": 463,
+      "sha256": "3a068adea8f8e11ba28c7b2116b475ec64d0b2cd61820863f02bc762b1b22183"
+    },
+    "DataProject/editorial/leiden-hospitality-20261116/evidence/borgman.json": {
+      "bytes": 468,
+      "sha256": "480f2837ec801726d57c75e07d234ee291c62170a0b6e6803b9f0c0582062bf1"
+    },
+    "DataProject/editorial/leiden-hospitality-20261116/evidence/brownies-bag.json": {
+      "bytes": 1679,
+      "sha256": "17a9ee8764695c751afc3c2ec0433beca3c3c56ba0974f0515e09df508d8d8ee"
+    },
+    "DataProject/editorial/leiden-hospitality-20261116/evidence/brownies.json": {
+      "bytes": 448,
+      "sha256": "eb78ebe492a8439345cf1be658182f80ce692b07a502b392ef3837a6d3c16f03"
+    },
+    "DataProject/editorial/leiden-hospitality-20261116/evidence/dende-bag.json": {
+      "bytes": 1665,
+      "sha256": "c0b98fc450d24494b20983d6421767b5299f495569559bc44f5d4d7e14f6326a"
+    },
+    "DataProject/editorial/leiden-hospitality-20261116/evidence/dende-home.json": {
+      "bytes": 427,
+      "sha256": "f2acd22bcf9ab81c4aab4e06e4ec95d1b4de441a79c0f9f5d5f7bc95498e6b7f"
+    },
+    "DataProject/editorial/leiden-hospitality-20261116/evidence/dende-menu.json": {
+      "bytes": 416,
+      "sha256": "d67199503ac5bec0e928facee4150f88477a0c7ee1d68dd66268af3b1c3c50fa"
+    },
+    "DataProject/editorial/leiden-hospitality-20261116/evidence/laken-bag.json": {
+      "bytes": 1667,
+      "sha256": "c2624421226d8ae9d896216cb6bf463afebb0f982b740b8ff02d18d43e7a3286"
+    },
+    "DataProject/editorial/leiden-hospitality-20261116/evidence/laken.json": {
+      "bytes": 438,
+      "sha256": "eb8540a366055d57ff10c319aad9887f629c4cd8ffb368062d3f2189fc5493c0"
+    },
+    "DataProject/editorial/leiden-hospitality-20261116/evidence/ml-bag.json": {
+      "bytes": 1723,
+      "sha256": "8793469f433e0e3b967954062eaead9c254a330c4fd91857ecc113cfadf764b0"
+    },
+    "DataProject/editorial/leiden-hospitality-20261116/evidence/ml-menu.json": {
+      "bytes": 600,
+      "sha256": "f13561c42bee5c91f3d2724dfe2ad609c1387a4e0031b86408b9040371bc40c9"
+    },
+    "DataProject/editorial/leiden-hospitality-20261116/evidence/ml.json": {
+      "bytes": 709,
+      "sha256": "31d6b716acb1d02bfe29c6410da7288c9bb317880d20ca262c318df0e810c78f"
+    },
+    "DataProject/editorial/leiden-hospitality-20261116/evidence/paco-bag.json": {
+      "bytes": 1666,
+      "sha256": "4be7cd0acadbd21e8508a52e6dc8606e99ec3dead2887a74ee21fa704fd94d2c"
+    },
+    "DataProject/editorial/leiden-hospitality-20261116/evidence/paco-menu.json": {
+      "bytes": 667,
+      "sha256": "c10d2b06fb5ad148e6964e8911142615dec05c5e82da7c2fa78eacd94f413f97"
+    },
+    "DataProject/editorial/leiden-hospitality-20261116/evidence/paco-pdf.json": {
+      "bytes": 482,
+      "sha256": "a0c559e463fc92bd4c68e17ae40bb4432b60799ff62603a090339998829fd98d"
+    },
+    "DataProject/editorial/leiden-hospitality-20261116/evidence/paco.json": {
+      "bytes": 531,
+      "sha256": "99cc536f45f2683aaa4c14dc8907290cfe1b19f13c165cffc8f90d75fde607f3"
+    },
+    "DataProject/editorial/leiden-hospitality-20261116/evidence/tabu-bag.json": {
+      "bytes": 1682,
+      "sha256": "9a94448c864d1fdd4b55cff51207f00fc140bc335b4d89d7bda26cbaa6498fd2"
+    },
+    "DataProject/editorial/leiden-hospitality-20261116/evidence/tabu-pdf.json": {
+      "bytes": 484,
+      "sha256": "8f4a941f84a9ce686840ca68389db2bf4cd3e3ac1d97b0b64aa09e4fd0081947"
+    },
+    "DataProject/editorial/leiden-hospitality-20261116/evidence/tabu.json": {
+      "bytes": 435,
+      "sha256": "cd12340c818be5c110ff2f2fa1cde3ae93b43fb890052bac3117f56f82208a65"
+    },
+    "DataProject/editorial/leiden-hospitality-20261116/evidence/verboden-bag.json": {
+      "bytes": 1771,
+      "sha256": "f17197765a3917ab15cd9f0089b811420f66d0a34cfef4a1e88f2b2f3f0813e7"
+    },
+    "DataProject/editorial/leiden-hospitality-20261116/evidence/verboden-menu.json": {
+      "bytes": 573,
+      "sha256": "c7518f1fddfab3243ac9b0570a9d9d248396b10efd180e4f650629e58d3a7457"
+    },
+    "DataProject/editorial/leiden-hospitality-20261116/evidence/verboden.json": {
+      "bytes": 548,
+      "sha256": "559ffa4b2b8230def6a6f1ef4b808e5339c9f48144d0090341c20e1727e406ff"
+    },
+    "DataProject/editorial/leiden-hospitality-20261116/manifest.json": {
+      "bytes": 3534,
+      "sha256": "e6e2e3241f1ec7a27c1d2f9edbc74f50c54e02b6de0275e2338eda97336ce1dd"
+    },
+    "DataProject/editorial/leiden-hospitality-20261116/media/cafelaken-1200.webp": {
+      "bytes": 166638,
+      "sha256": "e2c6d4dd2fb01bd773fdcccd69853d5d03c872037f839b7f5ec295c35c1d41e8"
+    },
+    "DataProject/editorial/leiden-hospitality-20261116/media/cafelaken-480.webp": {
+      "bytes": 29098,
+      "sha256": "091558c7e7f921ed51fe30e7985d054ed51bee16773926c24131e961f3292f08"
+    },
+    "DataProject/editorial/leiden-hospitality-20261116/media/cafelaken-800.webp": {
+      "bytes": 79584,
+      "sha256": "5fff9f41c114c0200236cfd503f3865a6e0720be9e0071406ec54959f6b70810"
+    },
+    "DataProject/editorial/leiden-hospitality-20261116/media-sources.json": {
+      "bytes": 1441,
+      "sha256": "82aab42091d6e7cdd62466db8cb2aa99084cd555cdd2f468aa7a48e8cade1d24"
+    },
+    "DataProject/editorial/leiden-hospitality-20261116/records.json": {
+      "bytes": 63840,
+      "sha256": "bc7fa2da3aee1fcabfe908fae97fe8c515c2a250ca57c9fd1ba31ca67c635790"
+    },
+    "DataProject/editorial/leiden-hospitality-20261116/source-checks.json": {
+      "bytes": 29929,
+      "sha256": "0ac610abaf09c72bebde4ac9ecb05252c209072a3f2337397eed55dba920db7b"
+    },
+    "DataProject/editorial/hospitality-followup-20261116/README.md": {
+      "bytes": 1529,
+      "sha256": "42f389abc7b35fc51ad749b0346dbe6adb66bafcaa4eb2e2b8ae366255736fe0"
+    },
+    "DataProject/editorial/hospitality-followup-20261116/changes.json": {
+      "bytes": 3343,
+      "sha256": "e16896a0c3ca6348a1107cad48ed1298be307dd184675db677b21e29f6916090"
+    },
+    "DataProject/editorial/hospitality-followup-20261116/evidence/koffieleute-bag.json": {
+      "bytes": 1560,
+      "sha256": "4950870ee845c6b5df629a2e48619297d4f0b42b611a3d52bb7faaa1549bba2f"
+    },
+    "DataProject/editorial/hospitality-followup-20261116/manifest.json": {
+      "bytes": 5889,
+      "sha256": "b3093608a8b76d409ca398088258aab43bd4f504dd3111441b223af3319a68f9"
+    },
+    "DataProject/editorial/hospitality-followup-20261116/media/exphuys-1200.webp": {
+      "bytes": 301968,
+      "sha256": "0fd898fed7a12fe6caa547bafe0cf5050ee38dd4b6a46379e5b5f2598b8e7753"
+    },
+    "DataProject/editorial/hospitality-followup-20261116/media/exphuys-480.webp": {
+      "bytes": 54644,
+      "sha256": "b517a15f7924703f913533aea95425e233322934b0cc066f191255d7ecde79bb"
+    },
+    "DataProject/editorial/hospitality-followup-20261116/media/exphuys-800.webp": {
+      "bytes": 141654,
+      "sha256": "86f7094a7d59afb0043295d0cbcf2ed2606f6afa2cac51d9093909073b5d8587"
+    },
+    "DataProject/editorial/hospitality-followup-20261116/media/expoudemorsch-1200.webp": {
+      "bytes": 214226,
+      "sha256": "477fbfdff938650cb5859c3973b9346003a98a56b531cf486d0aa63907b339f7"
+    },
+    "DataProject/editorial/hospitality-followup-20261116/media/expoudemorsch-480.webp": {
+      "bytes": 34184,
+      "sha256": "aa26110b9f816b0a19b30cdee74942cd1a17f4172dbbc813b65b45d976b0b6c8"
+    },
+    "DataProject/editorial/hospitality-followup-20261116/media/expoudemorsch-800.webp": {
+      "bytes": 98056,
+      "sha256": "419589c1e0a35137a5665802095eda3652bbc0dd25389228699149275c03fc9b"
+    },
+    "DataProject/editorial/hospitality-followup-20261116/media/expsteenhof-1200.webp": {
+      "bytes": 358050,
+      "sha256": "4932feff39e7b7ddd63111885dc1e048971107c9f3af6fcefe2ef22395b52927"
+    },
+    "DataProject/editorial/hospitality-followup-20261116/media/expsteenhof-480.webp": {
+      "bytes": 56378,
+      "sha256": "41f8098086200f1ffb34eb6aaddd68b2eeb920608052cac1526da1ceb4d3df2e"
+    },
+    "DataProject/editorial/hospitality-followup-20261116/media/expsteenhof-800.webp": {
+      "bytes": 165550,
+      "sha256": "fd37c8998c0e06d2336690de0e83a018224720b8a3d0df2bae7c5a19b4087ce3"
+    },
+    "DataProject/editorial/hospitality-followup-20261116/media/oudt-1200.webp": {
+      "bytes": 258214,
+      "sha256": "38fbe50f3a63640c3ba0b5561994aa3580ae5ffa395a8aa1a4b5a99d19fecc48"
+    },
+    "DataProject/editorial/hospitality-followup-20261116/media/oudt-480.webp": {
+      "bytes": 53578,
+      "sha256": "8fd0bb64beadd4a97426e9b61e47a75fff6be0b1ef7d31aab3403fe5ea5be803"
+    },
+    "DataProject/editorial/hospitality-followup-20261116/media/oudt-800.webp": {
+      "bytes": 128016,
+      "sha256": "01c67bd3be4e5074cd17ce46e2f0753dda58c202d79a7e15d40453fc154370c8"
+    },
+    "DataProject/editorial/hospitality-followup-20261116/media/prent-1200.webp": {
+      "bytes": 212426,
+      "sha256": "c3ca99f770302729b683c6318674ccdab3a334c5c0edfaeeeb3cd90c50a25347"
+    },
+    "DataProject/editorial/hospitality-followup-20261116/media/prent-480.webp": {
+      "bytes": 41154,
+      "sha256": "6f51b8dd7dff80a7d0f23f0a58256991d27144587dad92b6dd1147d02d83277c"
+    },
+    "DataProject/editorial/hospitality-followup-20261116/media/prent-800.webp": {
+      "bytes": 106730,
+      "sha256": "73a72fe3a18a77ba4a6c3cb8a92794c31a80809314d200710d63ff971a04b3aa"
+    },
+    "DataProject/editorial/hospitality-followup-20261116/media/waag-1200.webp": {
+      "bytes": 131624,
+      "sha256": "2f6372fbbbb5d348ae5fafa4a9abe920108c76eb16d1888c272b139be9e8e043"
+    },
+    "DataProject/editorial/hospitality-followup-20261116/media/waag-480.webp": {
+      "bytes": 28800,
+      "sha256": "4b521f9fb3633c8ff010abcbf9b95039efe602a292f558a222f47c9c5664fb13"
+    },
+    "DataProject/editorial/hospitality-followup-20261116/media/waag-800.webp": {
+      "bytes": 65498,
+      "sha256": "5b63f69bc8106529c790f8f088f0e4bf03694c9108235b6fdcd0cc40e7d854b3"
+    },
+    "DataProject/editorial/hospitality-followup-20261116/media-sources.json": {
+      "bytes": 6779,
+      "sha256": "2fdcfb6d3c21a122fb0321ba6b58404ecb0215b4723d194172206cdf7ab50224"
+    },
+    "DataProject/editorial/hospitality-followup-20261116/records.json": {
+      "bytes": 87894,
+      "sha256": "99fee72d9f0fc5fa7947435af0141f1ad196f586d46f61352f26999c59ae4f33"
+    },
+    "DataProject/editorial/hospitality-followup-20261116/source-checks.json": {
+      "bytes": 19830,
+      "sha256": "e4dd32bc978dd362735bd54479c2a49c6bfb2471b23bf127b7306d12e5019485"
+    },
+    "DataProject/editorial/hospitality-release-review-20261116/QA_REPORT_RU.md": {
+      "bytes": 8444,
+      "sha256": "9ef0922649111a0406a7ff58a258d53abde490c7bd48370a0526dd49979d6184"
+    },
+    "DataProject/editorial/hospitality-release-review-20261116/README.md": {
+      "bytes": 839,
+      "sha256": "4a26fd15185bc6e4ccfe23189f6cd7ea9ee4c28ecd03693138b27ffff4e38970"
+    },
+    "DataProject/editorial/hospitality-release-review-20261116/REVIEW.html": {
+      "bytes": 100661,
+      "sha256": "f4c0d08e7c678fec206a5845400613a815891683df43c388290557d739a268e8"
+    },
+    "DataProject/editorial/hospitality-release-review-20261116/collections.json": {
+      "bytes": 4130,
+      "sha256": "ea40cdfbcb234a21a4adf9721ac170858b66dd82f514dea5277be6f87133ee91"
+    },
+    "DataProject/editorial/hospitality-release-review-20261116/evidence/commons-selected-pages.json": {
+      "bytes": 23462,
+      "sha256": "4421c6d9c2fe530df8072f9570569a5732d99e302dc2ca0aceeea8f0830eddf9"
+    },
+    "DataProject/editorial/hospitality-release-review-20261116/evidence/media-retry.json": {
+      "bytes": 910,
+      "sha256": "12ae5d73fe8a45ff07b07e42a2bdedcaae9c5bfa3e621a877ead5c4d267da296"
+    },
+    "DataProject/editorial/hospitality-release-review-20261116/evidence/private-structural-checks.json": {
+      "bytes": 6448,
+      "sha256": "db387d36ce3682486a511efd020ef9a7969ab159defdfb486e7b21fcd164316f"
+    },
+    "DataProject/editorial/hospitality-release-review-20261116/media/haven-2015-1200.webp": {
+      "bytes": 176282,
+      "sha256": "3a52d7377fc5bdba2595fcc49f1f617101ade08c985566ab03aa4795f7348f3b"
+    },
+    "DataProject/editorial/hospitality-release-review-20261116/media/haven-2015-480.webp": {
+      "bytes": 38390,
+      "sha256": "b4fe631bde7d66ed1c67018e0788b3c0e1fae047fb76d9284ba57ff3cb3945d2"
+    },
+    "DataProject/editorial/hospitality-release-review-20261116/media/haven-2015-800.webp": {
+      "bytes": 89322,
+      "sha256": "5c8e1f6c5d4a5a8a4b66a0013667138fb2ea1689500625008fc5f98353b494f2"
+    },
+    "DataProject/editorial/hospitality-release-review-20261116/media/stationsweg25-2015-1200.webp": {
+      "bytes": 353754,
+      "sha256": "381a23fdf5cc63cf3ca6baa5f6f36c62a5df47f5f0523fc751bf08c11434a01d"
+    },
+    "DataProject/editorial/hospitality-release-review-20261116/media/stationsweg25-2015-480.webp": {
+      "bytes": 71488,
+      "sha256": "eb3a1f31317030dea5b94b2b3a418b068f65ce01f03ef19a556e305077d15a83"
+    },
+    "DataProject/editorial/hospitality-release-review-20261116/media/stationsweg25-2015-800.webp": {
+      "bytes": 182040,
+      "sha256": "b330bf4549473efa03d8066dcfef303ef5f93d0745873954e91ec3d538f68497"
+    },
+    "DataProject/editorial/hospitality-release-review-20261116/media-sources.json": {
+      "bytes": 7198,
+      "sha256": "81b172cb2f2fb52cc69ff408753ce87ea4655b4abb9eeca2d3b475864aaee3b9"
+    },
+    "DataProject/editorial/hospitality-release-review-20261116/progress.json": {
+      "bytes": 5458,
+      "sha256": "79b0c55ed68f95b4ddfd6f9638e8320c9f3b6a2874a2eb6f373d90e117284702"
+    },
+    "DataProject/editorial/selections/pr75-fea2401-20261116/selection.json": {
+      "bytes": 32087,
+      "sha256": "defc64135bfe6c273f5d70a04ecec61714301778278e3634af2cb449ce38267a"
+    },
+    "DataProject/editorial/selections/pr75-fea2401-20261116/composition-review.json": {
+      "bytes": 18287,
+      "sha256": "709a6298d750165b947a441168540bbd79ec1a3cf3e4dd02711e4cdc15dc1235"
+    }
+  }
+}

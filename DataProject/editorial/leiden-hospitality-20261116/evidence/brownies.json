@@ -1,0 +1,10 @@
+{
+  "url": "https://www.browniesanddownies.nl/leiden",
+  "checkedAt": "2026-11-16",
+  "httpStatus": 200,
+  "finalUrl": "https://www.browniesanddownies.nl/leiden",
+  "sha256": "d3cd7696fd05aea19a556c4edfa0ace67f245d46d6e3b1319a4ad72e9f8b0906",
+  "recheckedThisBatch": true,
+  "method": "Direct HTTPS, ordinary urllib client; no access-control bypass",
+  "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/brownies"
+}

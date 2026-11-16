@@ -1,0 +1,20 @@
+{
+  "url": "https://caferestaurantbikini.nl/contact/",
+  "checkedAt": "2026-11-16",
+  "httpStatus": 200,
+  "finalUrl": "https://caferestaurantbikini.nl/contact/",
+  "sha256": "5f1fe1068873009b2326c93e48828c9fecaa94b99ae700476372970022268799",
+  "recheckedThisBatch": true,
+  "method": "Direct HTTPS, ordinary urllib client; no access-control bypass",
+  "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/bikini",
+  "officialLinks": [
+    {
+      "text": "Menu",
+      "href": "https://caferestaurantbikini.nl/menu/"
+    },
+    {
+      "text": "Menu",
+      "href": "https://caferestaurantbikini.nl/menu/"
+    }
+  ]
+}

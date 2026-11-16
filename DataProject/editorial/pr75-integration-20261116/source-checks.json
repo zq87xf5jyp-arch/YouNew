@@ -1,0 +1,2003 @@
+{
+  "amsterdam-attractions-20261116:artis-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Plantage+Kerklaan+38+Amsterdam&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Plantage+Kerklaan+38+Amsterdam&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "contentType": "application/json;charset=utf-8",
+    "sha256": "45aa83557bd8554582fd2e0f36dc7f954d9017ba7ca547fc5987425c10e5b90f",
+    "file": "0f17c7f27dd2a128.html",
+    "checkedAt": "2026-11-16",
+    "selectedAddress": {
+      "woonplaatsnaam": "Amsterdam",
+      "weergavenaam": "Plantage Kerklaan 38, 1018CZ Amsterdam",
+      "id": "adr-0e4782784553697a455b062082094ceb",
+      "postcode": "1018CZ",
+      "centroide_ll": "POINT(4.91258158 52.36696148)",
+      "nummeraanduiding_id": "0363200000390027",
+      "huisnummer": 38,
+      "straatnaam": "Plantage Kerklaan"
+    },
+    "method": "official BAG address geocoder; not an entrance survey"
+  },
+  "amsterdam-attractions-20261116:artis-visit": {
+    "url": "https://www.artis.nl/en/plan-your-visit",
+    "finalUrl": "https://www.artis.nl/en/plan-your-visit",
+    "httpStatus": 200,
+    "contentType": "text/html; charset=utf-8",
+    "sha256": "8c0be43676cc1e99672e3758d0b6ba894df8c49b2d90a463f18a846a91c79063",
+    "file": "c7e9936d5e064ef9.html",
+    "checkedAt": "2026-11-16"
+  },
+  "amsterdam-attractions-20261116:artis-faq": {
+    "url": "https://www.artis.nl/en/contact-information/frequently-asked-questions",
+    "finalUrl": "https://www.artis.nl/en/contact-information/frequently-asked-questions",
+    "httpStatus": 200,
+    "contentType": "text/html; charset=utf-8",
+    "sha256": "80f7582993bf57026c792a37a1da3d8be4ed6bfa4fe2554f88da7a0b448f07c4",
+    "file": "d23e6116372b195c.html",
+    "checkedAt": "2026-11-16"
+  },
+  "amsterdam-attractions-20261116:hortus-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Plantage+Middenlaan+2A+Amsterdam&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Plantage+Middenlaan+2A+Amsterdam&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "contentType": "application/json;charset=utf-8",
+    "sha256": "390a0d75ec30990437ba3d175461ce82f4c989710d84d8f18cb79a1198d39732",
+    "file": "faf92ff60f0b917b.html",
+    "checkedAt": "2026-11-16",
+    "selectedAddress": {
+      "woonplaatsnaam": "Amsterdam",
+      "weergavenaam": "Plantage Middenlaan 2A, 1018DD Amsterdam",
+      "id": "adr-f05f2b828627b1a59b401c93f96a3ba6",
+      "huisletter": "A",
+      "postcode": "1018DD",
+      "centroide_ll": "POINT(4.90789737 52.36700552)",
+      "nummeraanduiding_id": "0363200000410408",
+      "huisnummer": 2,
+      "straatnaam": "Plantage Middenlaan"
+    },
+    "method": "official BAG address geocoder; not an entrance survey"
+  },
+  "amsterdam-attractions-20261116:hortus": {
+    "url": "https://www.dehortus.nl/en/",
+    "finalUrl": "https://www.dehortus.nl/en/",
+    "httpStatus": 200,
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "2d9bee21394553819564c23e967dbcb1019c0070d5db657e4a2db0b5263c3622",
+    "file": "b86bed6cfb0fbb1e.html",
+    "checkedAt": "2026-11-16"
+  },
+  "amsterdam-attractions-20261116:hortus-visit": {
+    "url": "https://www.dehortus.nl/en/plan-your-visit/",
+    "finalUrl": "https://www.dehortus.nl/en/plan-your-visit/",
+    "httpStatus": 200,
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "f6d259c183ae89a2f94e000b4d1b64b687b5af6d2174e8ff3c55e0a4088b08e6",
+    "file": "8489028ec38793cf.html",
+    "checkedAt": "2026-11-16"
+  },
+  "amsterdam-attractions-20261116:hortus-faq": {
+    "url": "https://www.dehortus.nl/en/faq/",
+    "finalUrl": "https://www.dehortus.nl/en/faq/",
+    "httpStatus": 200,
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "7ab21089898b6201b2c050d2c9cd72fa9dc203cb9701d7390a501da4da8ad0ef",
+    "file": "c0a597eacf848369.html",
+    "checkedAt": "2026-11-16"
+  },
+  "amsterdam-attractions-20261116:oude-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Oudekerksplein+23+Amsterdam&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Oudekerksplein+23+Amsterdam&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "contentType": "application/json;charset=utf-8",
+    "sha256": "c74aacfc5314270e67fa31ba8a57da771eefed6370817c72d978d51f4c86d3a5",
+    "file": "c0023d5fde40e6f2.html",
+    "checkedAt": "2026-11-16",
+    "selectedAddress": {
+      "woonplaatsnaam": "Amsterdam",
+      "weergavenaam": "Oudekerksplein 23, 1012GX Amsterdam",
+      "id": "adr-6500f49798379ec488f81e2ff7188f87",
+      "postcode": "1012GX",
+      "centroide_ll": "POINT(4.89776135 52.37411827)",
+      "nummeraanduiding_id": "0363200000227553",
+      "huisnummer": 23,
+      "straatnaam": "Oudekerksplein"
+    },
+    "method": "official BAG address geocoder; not an entrance survey"
+  },
+  "amsterdam-attractions-20261116:oude-visit": {
+    "url": "https://www.oudekerk.nl/en/tickets-and-visit",
+    "finalUrl": "https://www.oudekerk.nl/en/tickets-and-visit",
+    "httpStatus": 200,
+    "contentType": "text/html; charset=utf-8",
+    "sha256": "9e06578c7eedd15908542ec1b80af51695623d0da89221f7b6999324ac3ce0b7",
+    "file": "e46ec92c5e6134b3.html",
+    "checkedAt": "2026-11-16"
+  },
+  "amsterdam-attractions-20261116:oude-faq": {
+    "url": "https://www.oudekerk.nl/en/faq",
+    "finalUrl": "https://www.oudekerk.nl/en/faq",
+    "httpStatus": 200,
+    "contentType": "text/html; charset=utf-8",
+    "sha256": "e350d96db1f8bdcd61438ca43a110ab14296382a565a17deb9d43d2b50bf6212",
+    "file": "1c0d4dbf07b56267.html",
+    "checkedAt": "2026-11-16"
+  },
+  "amsterdam-attractions-20261116:nieuwe-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Dam+12+Amsterdam&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Dam+12+Amsterdam&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "contentType": "application/json;charset=utf-8",
+    "sha256": "0c5958a31aefbeddd143fc95f28f2bbe45234b2dbab7cbbb37a7f91390d8f479",
+    "file": "2c5006e5d643c114.html",
+    "checkedAt": "2026-11-16",
+    "selectedAddress": {
+      "woonplaatsnaam": "Amsterdam",
+      "weergavenaam": "Dam 12, 1012NP Amsterdam",
+      "id": "adr-07149cd8cb4fd4c800546c4182b2769d",
+      "postcode": "1012NP",
+      "centroide_ll": "POINT(4.89187769 52.37367138)",
+      "nummeraanduiding_id": "0363200000076858",
+      "huisnummer": 12,
+      "straatnaam": "Dam"
+    },
+    "method": "official BAG address geocoder; not an entrance survey"
+  },
+  "amsterdam-attractions-20261116:nieuwe-visit": {
+    "url": "https://www.nieuwekerk.nl/plan-je-bezoek/",
+    "finalUrl": "https://www.nieuwekerk.nl/plan-je-bezoek/",
+    "httpStatus": 200,
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "40e9a6950efbacaed43a14efbde8397be4706625f18497a217138ddb8249d5bc",
+    "checkedAt": "2026-11-16",
+    "method": "visible standard Chrome page inspection",
+    "checkedAtUTC": "2026-11-16T15:36:39.955Z",
+    "evidenceFile": "evidence/nieuwe-visit-live-browser.json",
+    "verificationScope": "Current page loaded directly in a visible Chrome window; no bypass of access restrictions. Earlier indexed evidence retained separately."
+  },
+  "amsterdam-attractions-20261116:nieuwe-faq": {
+    "url": "https://www.nieuwekerk.nl/vragen-over-je-bezoek/",
+    "finalUrl": "https://www.nieuwekerk.nl/vragen-over-je-bezoek/",
+    "httpStatus": 200,
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "121ad8e6e942ca822d4f0d77fccdbc44e2fb497c19e0db366224a79da490fa6f",
+    "checkedAt": "2026-11-16",
+    "method": "visible standard Chrome page inspection",
+    "checkedAtUTC": "2026-11-16T15:36:40.237Z",
+    "evidenceFile": "evidence/nieuwe-faq-live-browser.json",
+    "verificationScope": "Current page loaded directly in a visible Chrome window; no bypass of access restrictions. Earlier indexed evidence retained separately."
+  },
+  "amsterdam-attractions-20261116:nieuwe-address": {
+    "url": "https://monumentenregister.cultureelerfgoed.nl/monumenten/5940",
+    "finalUrl": "https://monumentenregister.cultureelerfgoed.nl/monumenten/5940",
+    "httpStatus": 200,
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "bb412c9aaa62bb1e6fa259c4b785e63ac262ed6487f35a1fa090382f6484b809",
+    "file": "ba1da4eb56f9023b.html",
+    "checkedAt": "2026-11-16"
+  },
+  "amsterdam-attractions-20261116:wester-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Prinsengracht+279+Amsterdam&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Prinsengracht+279+Amsterdam&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "contentType": "application/json;charset=utf-8",
+    "sha256": "119952467eed37128a2eebf9fe1525316d62e53015d77f31ba634f18c3b36603",
+    "file": "8181ad4f8a6d4933.html",
+    "checkedAt": "2026-11-16",
+    "selectedAddress": {
+      "woonplaatsnaam": "Amsterdam",
+      "weergavenaam": "Prinsengracht 279, 1016GW Amsterdam",
+      "id": "adr-64f0c70ed5bcc9a50bdf26f1f7c9f06a",
+      "postcode": "1016GW",
+      "centroide_ll": "POINT(4.88349767 52.37452582)",
+      "nummeraanduiding_id": "0363200000243843",
+      "huisnummer": 279,
+      "straatnaam": "Prinsengracht"
+    },
+    "method": "official BAG address geocoder; not an entrance survey"
+  },
+  "amsterdam-attractions-20261116:wester-visit": {
+    "url": "https://westerkerk.nl/bezoek-de-westerkerk-amsterdam/",
+    "finalUrl": "https://westerkerk.nl/bezoek-de-westerkerk-amsterdam/",
+    "httpStatus": 200,
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "e678d78fc709f0a4cdf7c5e3e0c09369ef12433fe921d89239bf485b573b75d8",
+    "file": "ec51c57ddd2ac9bc.html",
+    "checkedAt": "2026-11-16"
+  },
+  "amsterdam-attractions-20261116:adam-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=IJpromenade+4+Amsterdam&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=IJpromenade+4+Amsterdam&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "contentType": "application/json;charset=utf-8",
+    "sha256": "a6d5014e0310e9734af792ea6394cb293c903b92ae9326165b56e5fca457a728",
+    "file": "fee7ff1687ccea54.html",
+    "checkedAt": "2026-11-16",
+    "selectedAddress": {
+      "woonplaatsnaam": "Amsterdam",
+      "weergavenaam": "IJpromenade 4, 1031KT Amsterdam",
+      "id": "adr-e935608a21f0e45ab3864b672e9c3051",
+      "postcode": "1031KT",
+      "centroide_ll": "POINT(4.90221616 52.38386622)",
+      "nummeraanduiding_id": "0363200012096376",
+      "huisnummer": 4,
+      "straatnaam": "IJpromenade"
+    },
+    "method": "official BAG address geocoder; not an entrance survey"
+  },
+  "amsterdam-attractions-20261116:adam-contact": {
+    "url": "https://www.adamlookout.com/en/contact/",
+    "finalUrl": "https://www.adamlookout.com/en/contact/",
+    "httpStatus": 200,
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "e87a489d6878ff56d8851d4c7172fd3770ff5c46b532804a88bfe26c1b66e76d",
+    "file": "b99afca00ef55cb2.html",
+    "checkedAt": "2026-11-16"
+  },
+  "amsterdam-attractions-20261116:adam-tickets": {
+    "url": "https://www.adamlookout.com/en/tickets/",
+    "finalUrl": "https://www.adamlookout.com/en/tickets/",
+    "httpStatus": 200,
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "cd00c7dc5f6434694dd7d17ea07e99e23b849c1ab9024f2090e92adaa70deb8f",
+    "file": "a7e66d5cdc119d57.html",
+    "checkedAt": "2026-11-16"
+  },
+  "amsterdam-attractions-20261116:heineken-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Stadhouderskade+78+Amsterdam&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Stadhouderskade+78+Amsterdam&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "contentType": "application/json;charset=utf-8",
+    "sha256": "d396ca46a6a0bcf1920902ca3c174f21a4e34d0842fa763c364600f2381fdebf",
+    "file": "27caba88a0bf989f.html",
+    "checkedAt": "2026-11-16",
+    "selectedAddress": {
+      "woonplaatsnaam": "Amsterdam",
+      "weergavenaam": "Stadhouderskade 78, 1072AE Amsterdam",
+      "id": "adr-bd90e11395f4fb9c80b17ab7f6a1c3ce",
+      "postcode": "1072AE",
+      "centroide_ll": "POINT(4.89149626 52.35786937)",
+      "nummeraanduiding_id": "0363200000277181",
+      "huisnummer": 78,
+      "straatnaam": "Stadhouderskade"
+    },
+    "method": "official BAG address geocoder; not an entrance survey"
+  },
+  "amsterdam-attractions-20261116:heineken-tour": {
+    "url": "https://www.heinekenexperience.com/en/discover-our-tours/heineken-tour",
+    "finalUrl": "https://www.heinekenexperience.com/en/discover-our-tours/heineken-tour",
+    "httpStatus": 200,
+    "contentType": "text/html; charset=utf-8",
+    "sha256": "f13a7042eec88e1a6fd2598a3905a026f7a82cf7d68d80af57cbc82b5a596e9a",
+    "file": "28ad0cf2e00be8c2.html",
+    "checkedAt": "2026-11-16"
+  },
+  "amsterdam-attractions-20261116:heineken-contact": {
+    "url": "https://www.heinekenexperience.com/en/service-and-contact",
+    "finalUrl": "https://www.heinekenexperience.com/en/service-and-contact",
+    "httpStatus": 200,
+    "contentType": "text/html; charset=utf-8",
+    "sha256": "911466e07d07d04cd52c7ee7bd30b9d3c68a30d968b36d31346b566beb554a2a",
+    "file": "ab7a863da3682129.html",
+    "checkedAt": "2026-11-16"
+  },
+  "amsterdam-attractions-20261116:heineken-faq": {
+    "url": "https://www.heinekenexperience.com/en/faqs",
+    "finalUrl": "https://www.heinekenexperience.com/en/faqs",
+    "httpStatus": 200,
+    "contentType": "text/html; charset=utf-8",
+    "sha256": "56244edb51447fcfed8c42e968f6379b9fd87c26a2d0a8c94ea4fd480b9e1758",
+    "file": "2448641b8e4d78b8.html",
+    "checkedAt": "2026-11-16"
+  },
+  "amsterdam-attractions-20261116:arena-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Johan+Cruijff+Boulevard+1+Amsterdam&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Johan+Cruijff+Boulevard+1+Amsterdam&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "contentType": "application/json;charset=utf-8",
+    "sha256": "30f2a8ae482de69cff40deeba9fd23d4464168e4b7a5497fea2fba562fec8b02",
+    "file": "117f3a39aabdee02.html",
+    "checkedAt": "2026-11-16",
+    "selectedAddress": {
+      "woonplaatsnaam": "Amsterdam",
+      "weergavenaam": "Johan Cruijff Boulevard 1, 1101AX Amsterdam",
+      "id": "adr-f6e03bba769c4b12c9b8e18e0c8cb0b3",
+      "postcode": "1101AX",
+      "centroide_ll": "POINT(4.94052942 52.31375494)",
+      "nummeraanduiding_id": "0363200000458139",
+      "huisnummer": 1,
+      "straatnaam": "Johan Cruijff Boulevard"
+    },
+    "method": "official BAG address geocoder; not an entrance survey"
+  },
+  "amsterdam-attractions-20261116:arena-tours": {
+    "url": "https://www.johancruijffarena.nl/en/stadiumtours/",
+    "finalUrl": "https://www.johancruijffarena.nl/en/tickets-visits/stadium-tours/",
+    "httpStatus": 200,
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "64582be628fe048c531885d2a337ec939a3d0f5ad96f7b9abdcf5945a9ff9427",
+    "file": "6d491c1909068cf9.html",
+    "checkedAt": "2026-11-16"
+  },
+  "amsterdam-attractions-20261116:arena-faq": {
+    "url": "https://www.johancruijffarena.nl/en/tickets-visits/stadium-tours/faq/",
+    "finalUrl": "https://www.johancruijffarena.nl/en/tickets-visits/stadium-tours/faq/",
+    "httpStatus": 200,
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "6a296af8ab989c92394f4dadfac90a57f76ddcbbdfcc690fc761ca4ce77039f1",
+    "file": "be07e571f53c22a6.html",
+    "checkedAt": "2026-11-16"
+  },
+  "amsterdam-attractions-20261116:arena-address": {
+    "url": "https://www.johancruijffarena.nl/privacyverklaring/",
+    "finalUrl": "https://www.johancruijffarena.nl/privacyverklaring/",
+    "httpStatus": 200,
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "81fd4aa917806f95ad0ac18ef5f3522b821fa7f892916d7218c028b5d224c755",
+    "file": "44d54b07b8855c41.html",
+    "checkedAt": "2026-11-16"
+  },
+  "amsterdam-attractions-20261116:hallen-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Hannie+Dankbaarpassage+47+Amsterdam&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Hannie+Dankbaarpassage+47+Amsterdam&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "contentType": "application/json;charset=utf-8",
+    "sha256": "4e1aceae6f128369a888ef8ae71b439ab53ce9b2a0c21bdc13669f6c85f3b398",
+    "file": "a411c5f19e8b4bce.html",
+    "checkedAt": "2026-11-16",
+    "selectedAddress": {
+      "woonplaatsnaam": "Amsterdam",
+      "weergavenaam": "Hannie Dankbaarpassage 47, 1053RT Amsterdam",
+      "id": "adr-9f4cc2bc8a3c8a0de3671dd1e98c0277",
+      "postcode": "1053RT",
+      "centroide_ll": "POINT(4.86801563 52.36639473)",
+      "nummeraanduiding_id": "0363200012079676",
+      "huisnummer": 47,
+      "straatnaam": "Hannie Dankbaarpassage"
+    },
+    "method": "official BAG address geocoder; not an entrance survey"
+  },
+  "amsterdam-attractions-20261116:hallen-visit": {
+    "url": "https://www.dehallen-amsterdam.nl/en/visit",
+    "finalUrl": "https://www.dehallen-amsterdam.nl/en/visit",
+    "httpStatus": 200,
+    "contentType": "text/html; charset=utf-8",
+    "sha256": "f9aa0b58bdc623994018706516c361030c8fefae0b7da8314937902abc67b4db",
+    "file": "17f058f610efb1f3.html",
+    "checkedAt": "2026-11-16"
+  },
+  "amsterdam-attractions-20261116:hallen-about": {
+    "url": "https://www.dehallen-amsterdam.nl/en/organisation",
+    "finalUrl": "https://www.dehallen-amsterdam.nl/en/organisation",
+    "httpStatus": 200,
+    "contentType": "text/html; charset=utf-8",
+    "sha256": "db1b48aa3e61cd9815839b174fcd69fefe7c300367bebfb2da3d27c50dc7e7a6",
+    "file": "4f69f88e92804d38.html",
+    "checkedAt": "2026-11-16"
+  },
+  "amsterdam-attractions-20261116:hallen-contact": {
+    "url": "https://www.dehallen-amsterdam.nl/en/contact",
+    "finalUrl": "https://www.dehallen-amsterdam.nl/en/contact",
+    "httpStatus": 200,
+    "contentType": "text/html; charset=utf-8",
+    "sha256": "562b1565c0ca53b9519c3f7a79fd17635783b68b40941d0d9017ec338bb77be6",
+    "file": "f33bfc23f29dec8d.html",
+    "checkedAt": "2026-11-16"
+  },
+  "amsterdam-attractions-20261116:oba-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Oosterdokskade+143+Amsterdam&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Oosterdokskade+143+Amsterdam&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "contentType": "application/json;charset=utf-8",
+    "sha256": "fe678ff6aec92835621000f9b79e0fad59d18df5aadb9aef492106789fcbd34f",
+    "file": "b45e948ff02151d6.html",
+    "checkedAt": "2026-11-16",
+    "selectedAddress": {
+      "woonplaatsnaam": "Amsterdam",
+      "weergavenaam": "Oosterdokskade 143, 1011DL Amsterdam",
+      "id": "adr-da52245672a295a821680119215aaf50",
+      "postcode": "1011DL",
+      "centroide_ll": "POINT(4.90837481 52.37582439)",
+      "nummeraanduiding_id": "0363200000536717",
+      "huisnummer": 143,
+      "straatnaam": "Oosterdokskade"
+    },
+    "method": "official BAG address geocoder; not an entrance survey"
+  },
+  "amsterdam-attractions-20261116:oba": {
+    "url": "https://oba.nl/nl/locaties/oba-oosterdok",
+    "finalUrl": "https://oba.nl/nl/locaties/oba-oosterdok",
+    "httpStatus": 200,
+    "method": "visible standard Chrome page inspection",
+    "checkedAt": "2026-11-16",
+    "verificationScope": "Current page loaded directly in a visible Chrome window; no bypass of access restrictions. Earlier indexed evidence retained separately.",
+    "evidenceFile": "evidence/oba-live-browser.json",
+    "sha256": "7340e249eee7060296ecab27750f9a37337ac5f230fb863a0de71ef52bcbf055",
+    "checkedAtUTC": "2026-11-16T15:36:39.233Z"
+  },
+  "priority-cities-followup-20261116:neudevisit": {
+    "url": "https://www.bibliotheekutrecht.nl/bibliotheken/bibliotheek-neude.html",
+    "finalUrl": "https://www.bibliotheekutrecht.nl/bibliotheken/bibliotheek-neude.html",
+    "httpStatus": 200,
+    "sha256": "0aecd7c3f53cd76402b604c527833bb86298103172575a96642a2e87fceabd94",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8",
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json",
+    "recheckedThisBatch": false
+  },
+  "priority-cities-followup-20261116:neudehours": {
+    "url": "https://www.bibliotheekutrecht.nl/klantenservice/vestigingen-openingstijden/vestiging.696013.html/bibliotheek-neude/",
+    "finalUrl": "https://www.bibliotheekutrecht.nl/klantenservice/vestigingen-openingstijden/vestiging.696013.html/bibliotheek-neude/",
+    "httpStatus": 200,
+    "sha256": "524c2745b9ddddf7e2a29f59ee3db9c81f3a730d4cc0c21c75382392fb75c2a5",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8",
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json",
+    "recheckedThisBatch": false
+  },
+  "priority-cities-followup-20261116:utrechtneude": {
+    "url": "https://www.bibliotheekutrecht.nl/bereikbaarheid-neude.html",
+    "finalUrl": "https://www.bibliotheekutrecht.nl/bereikbaarheid-neude.html",
+    "httpStatus": 200,
+    "sha256": "a919f1329ff96d6b298e0f87d7d6538aaa5173fe8a69ddc71f8c44f9c09dc426",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8",
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json",
+    "recheckedThisBatch": false
+  },
+  "priority-cities-followup-20261116:utrechtneude-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Neude+11+Utrecht&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Neude+11+Utrecht&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-15",
+    "sha256": "64dbf298afb1b886b100c9c6c1409cd104e60f3c347fe463f266079cc5d4d968",
+    "selectedAddress": {
+      "id": "adr-980e3ae16c736e1b9d7a90181d4398c3",
+      "weergavenaam": "Neude 11, 3512AE Utrecht",
+      "centroide_ll": "POINT(5.11817873 52.09312792)",
+      "nummeraanduiding_id": "0344200000141392",
+      "woonplaatsnaam": "Utrecht"
+    },
+    "method": "official address geocoder; not an entrance survey",
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json",
+    "recheckedThisBatch": false
+  },
+  "priority-cities-followup-20261116:neude-booking": {
+    "url": "https://www.bibliotheekutrecht.nl/home/werkplekreservering.html",
+    "finalUrl": "https://www.bibliotheekutrecht.nl/home/werkplekreservering.html",
+    "httpStatus": 200,
+    "sha256": "6591e1024a1dc78f39c5f749796ac9fbd83f0560aebb80b81ce569e685e57e4d",
+    "checkedAt": "2026-11-16",
+    "checkedAtUTC": "2026-11-16T15:45:08.013250+00:00",
+    "contentType": "text/html; charset=UTF-8",
+    "method": "direct public page",
+    "rawEvidencePath": "/Users/ivan/YouNew-Expansion-20261116-Next-Evidence/sources/neude-booking.html",
+    "evidenceFile": "DataProject/editorial/priority-cities-followup-20261116/evidence/neude-booking.json"
+  },
+  "priority-cities-followup-20261116:rotterdamchabot": {
+    "url": "https://chabotmuseum.nl/bezoekers/",
+    "finalUrl": "https://chabotmuseum.nl/bezoekers/",
+    "httpStatus": 200,
+    "sha256": "a7cc9d2d62dab5bb8d6e7d64de767cb5b326755e403a45079b10bc46151ce160",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8",
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json",
+    "recheckedThisBatch": false
+  },
+  "priority-cities-followup-20261116:rotterdamchabot-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Museumpark+11+Rotterdam&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Museumpark+11+Rotterdam&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-15",
+    "sha256": "8ebf867c7906723ff840d13c3dd2b3648d2158c1408ee475a268e52f10eed772",
+    "selectedAddress": {
+      "id": "adr-00958a8b4a095e57b4660bcc0d2ff6c4",
+      "weergavenaam": "Museumpark 11, 3015CB Rotterdam",
+      "centroide_ll": "POINT(4.47238222 51.91468964)",
+      "nummeraanduiding_id": "0599200000376141",
+      "woonplaatsnaam": "Rotterdam"
+    },
+    "method": "official address geocoder; not an entrance survey",
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json",
+    "recheckedThisBatch": false
+  },
+  "priority-cities-followup-20261116:chabot-villa": {
+    "url": "https://chabotmuseum.nl/the-villa/",
+    "finalUrl": "https://chabotmuseum.nl/the-villa/",
+    "httpStatus": 200,
+    "sha256": "cac57c5134283289ada627bf23a03eda61239c356d9e91ee682f839fbc56fa6e",
+    "checkedAt": "2026-11-16",
+    "checkedAtUTC": "2026-11-16T15:45:08.315563+00:00",
+    "contentType": "text/html; charset=UTF-8",
+    "method": "direct public page",
+    "rawEvidencePath": "/Users/ivan/YouNew-Expansion-20261116-Next-Evidence/sources/chabot-villa.html",
+    "evidenceFile": "DataProject/editorial/priority-cities-followup-20261116/evidence/chabot-villa.json"
+  },
+  "priority-cities-followup-20261116:chabot-collection": {
+    "url": "https://chabotmuseum.nl/collectie/",
+    "finalUrl": "https://chabotmuseum.nl/collectie/",
+    "httpStatus": 200,
+    "sha256": "b70c192a2690c38fc5b80653bc4770a2c8c584ec3ec8f3fc48aeecc5464c7d9b",
+    "checkedAt": "2026-11-16",
+    "checkedAtUTC": "2026-11-16T15:45:08.323589+00:00",
+    "contentType": "text/html; charset=UTF-8",
+    "method": "direct public page",
+    "rawEvidencePath": "/Users/ivan/YouNew-Expansion-20261116-Next-Evidence/sources/chabot-collection.html",
+    "evidenceFile": "DataProject/editorial/priority-cities-followup-20261116/evidence/chabot-collection.json"
+  },
+  "priority-cities-followup-20261116:fotomuseumvisit": {
+    "url": "https://www.fotomuseumdenhaag.nl/en/plan-your-visit",
+    "finalUrl": "https://www.fotomuseumdenhaag.nl/en/plan-your-visit",
+    "httpStatus": 200,
+    "sha256": "e30649a9250e5515e72bcfdd1f3e6d9dcdc855163a4dc7a50cf4834a3c716a19",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8",
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json",
+    "recheckedThisBatch": false
+  },
+  "priority-cities-followup-20261116:denhaagfotomuseum": {
+    "url": "https://www.fotomuseumdenhaag.nl/en/contact",
+    "finalUrl": "https://www.fotomuseumdenhaag.nl/en/contact",
+    "httpStatus": 200,
+    "sha256": "f508bae4daef2ab382184a96ce8d445572504fafaccd0fa845a6d5a9afd98b7d",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8",
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json",
+    "recheckedThisBatch": false
+  },
+  "priority-cities-followup-20261116:fotomuseum-exhibition": {
+    "url": "https://www.fotomuseumdenhaag.nl/en/exhibitions/liberated-camera",
+    "finalUrl": "https://www.fotomuseumdenhaag.nl/en/exhibitions/liberated-camera",
+    "httpStatus": 200,
+    "sha256": "20d33e2e54f905d196b49acf6f5bf6525d95fb19c70191704d348afb657b2b40",
+    "checkedAt": "2026-11-16",
+    "checkedAtUTC": "2026-11-16T15:45:26.912858+00:00",
+    "contentType": "text/html; charset=UTF-8",
+    "method": "direct public page",
+    "rawEvidencePath": "/Users/ivan/YouNew-Expansion-20261116-Next-Evidence/sources/fotomuseum-exhibition.html",
+    "evidenceFile": "DataProject/editorial/priority-cities-followup-20261116/evidence/fotomuseum-exhibition.json"
+  },
+  "priority-cities-followup-20261116:eindhoveninkijkmuseum": {
+    "url": "https://www.thisiseindhoven.com/nl/locaties/inkijkmuseum",
+    "finalUrl": "https://www.thisiseindhoven.com/nl/locaties/inkijkmuseum",
+    "httpStatus": 200,
+    "sha256": "7c8fddf14b71b00f386bf8054baf81bd2f56f9e6c8daec2eb6f5ce81d770ece9",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=utf-8",
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json",
+    "recheckedThisBatch": false
+  },
+  "priority-cities-followup-20261116:inkijk-owner": {
+    "url": "https://www.inkijkmuseum.nl/",
+    "finalUrl": "https://www.inkijkmuseum.nl/nl",
+    "httpStatus": 200,
+    "sha256": "566006883aa361384f29e305fb720f9fedfbe382ae281cf9569f4574a89ce8d6",
+    "checkedAt": "2026-11-16",
+    "checkedAtUTC": "2026-11-16T15:45:11.241789+00:00",
+    "contentType": "text/html; charset=utf-8",
+    "method": "direct public page",
+    "rawEvidencePath": "/Users/ivan/YouNew-Expansion-20261116-Next-Evidence/sources/inkijk-owner.html",
+    "evidenceFile": "DataProject/editorial/priority-cities-followup-20261116/evidence/inkijk-owner.json"
+  },
+  "priority-cities-followup-20261116:eindhovenkazerne": {
+    "url": "https://www.kazerne.com/bar-bistro-kazerne",
+    "finalUrl": "https://www.kazerne.com/bar-bistro-kazerne",
+    "httpStatus": 200,
+    "sha256": "0f57bf08b9f1612f8883c4e282cc4027b5095be67cd6da75bd81245a4ddfacc6",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=utf-8",
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json",
+    "recheckedThisBatch": false
+  },
+  "priority-cities-followup-20261116:eindhovenkazerne-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Paradijslaan+2+Eindhoven&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Paradijslaan+2+Eindhoven&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-15",
+    "sha256": "8be563e9ff04f101957fbe3f2a43c73b92d91919c70004915b6a57ad3f616082",
+    "selectedAddress": {
+      "id": "adr-e3230075a1bfa0920836bf387b7fce10",
+      "weergavenaam": "Paradijslaan 2, 5611KN Eindhoven",
+      "centroide_ll": "POINT(5.47737414 51.4360392)",
+      "nummeraanduiding_id": "0772200000098549",
+      "woonplaatsnaam": "Eindhoven"
+    },
+    "method": "official address geocoder; not an entrance survey",
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json",
+    "recheckedThisBatch": false
+  },
+  "priority-cities-followup-20261116:kazerne-design": {
+    "url": "https://www.kazerne.com/",
+    "finalUrl": "https://www.kazerne.com/",
+    "httpStatus": 200,
+    "sha256": "2cf896519dd9e8427a18b8c896f7bddd1bbc7b6692b58f91fb529ff9179c5cd1",
+    "checkedAt": "2026-11-16",
+    "checkedAtUTC": "2026-11-16T15:45:08.527429+00:00",
+    "contentType": "text/html; charset=utf-8",
+    "method": "direct public page",
+    "rawEvidencePath": "/Users/ivan/YouNew-Expansion-20261116-Next-Evidence/sources/kazerne-design.html",
+    "evidenceFile": "DataProject/editorial/priority-cities-followup-20261116/evidence/kazerne-design.json"
+  },
+  "priority-cities-followup-20261116:utrechtooginal": {
+    "url": "https://www.ontdek-utrecht.nl/locatie/park-oog-in-al/",
+    "finalUrl": "https://www.ontdek-utrecht.nl/locatie/park-oog-in-al/",
+    "httpStatus": 200,
+    "sha256": "b15ee6298d44bd472b7f96923bf1ed5f639e11884cfbce9913e467416689d6ae",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=utf-8",
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json",
+    "recheckedThisBatch": false
+  },
+  "priority-cities-followup-20261116:oog-municipality": {
+    "url": "https://www.utrecht.nl/wonen-en-leven/parken-en-groen/parken-en-plantsoenen/park-oog-in-al",
+    "finalUrl": "https://www.utrecht.nl/wonen-en-leven/parken-en-groen/parken-en-plantsoenen/park-oog-in-al",
+    "httpStatus": 200,
+    "sha256": "3d065cd022f5edc488701eee9b13f503acf3b812460018860fe1ef641a4338c9",
+    "checkedAt": "2026-11-16",
+    "checkedAtUTC": "2026-11-16T15:45:08.695683+00:00",
+    "contentType": "text/html; charset=utf-8",
+    "method": "direct public page",
+    "rawEvidencePath": "/Users/ivan/YouNew-Expansion-20261116-Next-Evidence/sources/oog-municipality.html",
+    "evidenceFile": "DataProject/editorial/priority-cities-followup-20261116/evidence/oog-municipality.json"
+  },
+  "priority-cities-followup-20261116:utrechtsonnenborgh": {
+    "url": "https://www.sonnenborgh.nl/english/address-contact-and-route",
+    "finalUrl": "https://www.sonnenborgh.nl/english/address-contact-and-route",
+    "httpStatus": 200,
+    "sha256": "cbfc3900ccdb04b18475db3f6ae7e314861ce6b12883a7422c49bd6a5dd6c5bb",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8",
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json",
+    "recheckedThisBatch": false
+  },
+  "priority-cities-followup-20261116:sonnenborghvisit": {
+    "url": "https://www.sonnenborgh.nl/bezoekersinformatie",
+    "finalUrl": "https://www.sonnenborgh.nl/bezoekersinformatie",
+    "httpStatus": 200,
+    "sha256": "05fc6d758cfc1765c3281cd6afa90e3ecb66b1f1cc87196542e09996545acc1d",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8",
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json",
+    "recheckedThisBatch": false
+  },
+  "priority-cities-followup-20261116:sonnenborghprices": {
+    "url": "https://www.sonnenborgh.nl/bezoekersinformatie/prijzen",
+    "finalUrl": "https://www.sonnenborgh.nl/bezoekersinformatie/prijzen",
+    "httpStatus": 200,
+    "sha256": "c5defb06ce97e4e3a05f6ceff426ada8c04f8d787ab010441ae1fae17449a42c",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8",
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json",
+    "recheckedThisBatch": false
+  },
+  "priority-cities-followup-20261116:utrechtsonnenborgh-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Zonnenburg+2+Utrecht&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Zonnenburg+2+Utrecht&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-15",
+    "sha256": "a2f08e598d06482618a43dfe3488e4e4b7dd6b0e0381de6e708d561184e1a36f",
+    "selectedAddress": {
+      "id": "adr-c0d609198ddc3ae7e86764835ec23c7e",
+      "weergavenaam": "Zonnenburg 2, 3512NL Utrecht",
+      "centroide_ll": "POINT(5.12928285 52.08541538)",
+      "nummeraanduiding_id": "0344200000083585",
+      "woonplaatsnaam": "Utrecht"
+    },
+    "method": "official address geocoder; not an entrance survey",
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json",
+    "recheckedThisBatch": false
+  },
+  "priority-cities-followup-20261116:sonnenborgh-discover": {
+    "url": "https://www.sonnenborgh.nl/english/see-and-do",
+    "finalUrl": "https://www.sonnenborgh.nl/english/see-and-do",
+    "httpStatus": 200,
+    "sha256": "9ef3e2ef3ee5f7860d6f2278aeef671fce7cb75c45d8e8a71a0e32692f4227f7",
+    "checkedAt": "2026-11-16",
+    "checkedAtUTC": "2026-11-16T15:45:08.737124+00:00",
+    "contentType": "text/html; charset=UTF-8",
+    "method": "direct public page",
+    "rawEvidencePath": "/Users/ivan/YouNew-Expansion-20261116-Next-Evidence/sources/sonnenborgh-discover.html",
+    "evidenceFile": "DataProject/editorial/priority-cities-followup-20261116/evidence/sonnenborgh-discover.json"
+  },
+  "priority-cities-followup-20261116:sonnenborgh-faq": {
+    "url": "https://www.sonnenborgh.nl/faq-2",
+    "finalUrl": "https://www.sonnenborgh.nl/faq-2",
+    "httpStatus": 200,
+    "sha256": "034a3fda940c3a0ab9a8c72abfd117f0422b27e75863af258060dd1289344c29",
+    "checkedAt": "2026-11-16",
+    "checkedAtUTC": "2026-11-16T15:45:08.972127+00:00",
+    "contentType": "text/html; charset=UTF-8",
+    "method": "direct public page",
+    "rawEvidencePath": "/Users/ivan/YouNew-Expansion-20261116-Next-Evidence/sources/sonnenborgh-faq.html",
+    "evidenceFile": "DataProject/editorial/priority-cities-followup-20261116/evidence/sonnenborgh-faq.json"
+  },
+  "priority-cities-followup-20261116:rotterdamsupernova": {
+    "url": "https://supernovahotel.nl/en",
+    "finalUrl": "https://supernovahotel.nl/en",
+    "httpStatus": 200,
+    "sha256": "10d4967c24635a4c71bec6b35bb8c303cf2d8947345ed9a4a8e010fe0974b643",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=utf-8",
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json",
+    "recheckedThisBatch": false
+  },
+  "priority-cities-followup-20261116:supernova-bikes": {
+    "url": "https://supernovahotel.nl/en/bikes",
+    "finalUrl": "https://supernovahotel.nl/en/bikes",
+    "httpStatus": 200,
+    "sha256": "381ca1ad474845b054736a5f8192389938fcdbb8f4772dc06645458c6c31519f",
+    "checkedAt": "2026-11-16",
+    "checkedAtUTC": "2026-11-16T15:45:09.008912+00:00",
+    "contentType": "text/html; charset=utf-8",
+    "method": "direct public page",
+    "rawEvidencePath": "/Users/ivan/YouNew-Expansion-20261116-Next-Evidence/sources/supernova-bikes.html",
+    "evidenceFile": "DataProject/editorial/priority-cities-followup-20261116/evidence/supernova-bikes.json"
+  },
+  "priority-cities-followup-20261116:rotterdamtrompenburg": {
+    "url": "https://trompenburg.nl/plan-your-visit/",
+    "finalUrl": "https://trompenburg.nl/plan-your-visit/",
+    "httpStatus": 200,
+    "sha256": "30f44d7388f4c4d2b5e77e01cd5b143db2f830fc1cd9b52a7a000f6738955e1d",
+    "checkedAt": "2026-11-15",
+    "method": "curl HTTPS; urllib TLS failed",
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json",
+    "recheckedThisBatch": false
+  },
+  "priority-cities-followup-20261116:rotterdamtrompenburg-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Honingerdijk+86+Rotterdam&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Honingerdijk+86+Rotterdam&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-15",
+    "sha256": "b26b97ccce86d043699ac32cf0114ee47a3da074a59359f067729ef740d69031",
+    "selectedAddress": {
+      "id": "adr-0cab836e7e76309e944f57a7ea678a3b",
+      "weergavenaam": "Honingerdijk 86, 3062NX Rotterdam",
+      "centroide_ll": "POINT(4.51779613 51.91827172)",
+      "nummeraanduiding_id": "0599200000306105",
+      "woonplaatsnaam": "Rotterdam"
+    },
+    "method": "official address geocoder; not an entrance survey",
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json",
+    "recheckedThisBatch": false
+  },
+  "priority-cities-followup-20261116:trompenburg-foodforest": {
+    "url": "https://trompenburg.nl/voedselbos/",
+    "finalUrl": "https://trompenburg.nl/voedselbos/",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-16",
+    "checkedAtUTC": "2026-11-16T15:50:58.948570+00:00",
+    "sha256": "8abba6e283bde3f5748fdd7b7031e2368d0a899d5867661db98760fea477c8e6",
+    "method": "direct curl after Python TLS negotiation error; normal certificate verification",
+    "rawEvidencePath": "/Users/ivan/YouNew-Expansion-20261116-Next-Evidence/sources/trompenburg-foodforest.html",
+    "evidenceFile": "DataProject/editorial/priority-cities-followup-20261116/evidence/trompenburg-foodforest.json"
+  },
+  "priority-cities-followup-20261116:denhaagwestbroekpark": {
+    "url": "https://denhaag.com/en/westbroekpark",
+    "finalUrl": "https://denhaag.com/en/westbroekpark",
+    "httpStatus": 200,
+    "sha256": "2a1b6efcb4ba980b8cd88d6b047785fe164af9c7be84bcfcc5366e7c80dc1d25",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=utf-8",
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json",
+    "recheckedThisBatch": false
+  },
+  "missing-photos-20261116:0": {
+    "id": "nature.leiden-rembrandtpark",
+    "url": "https://www.visitleiden.nl/nl/locaties/1706027937/rembrandtpark",
+    "checkedAt": "2026-11-16",
+    "status": "verified_opened",
+    "scope": "identity/address only; approved text, prices, hours and fact-check dates are unchanged",
+    "identityEvidence": "The archive description explicitly identifies Rembrandtpark, the Wittepoortsbrug viewpoint and July 1986. The photograph visibly includes the park and former nautical school. Historical image only; not evidence of the current park layout."
+  },
+  "missing-photos-20261116:1": {
+    "id": "hotel.leiden-ibis",
+    "url": "https://all.accor.com/hotel/8087/index.en.shtml",
+    "checkedAt": "2026-11-16",
+    "status": "verified_opened",
+    "scope": "identity/address only; approved text, prices, hours and fact-check dates are unchanged",
+    "identityEvidence": "Commons names Ibis Hotel at Stationsplein in Leiden; the ibis facade/sign is visible. Accor confirms Stationsplein 240–242. Exterior photograph only, not a claim about present rooms or amenities."
+  },
+  "missing-photos-20261116:2": {
+    "id": "hotel.leiden-rembrandt-hotel",
+    "url": "https://www.rembrandthotel.nl/",
+    "checkedAt": "2026-11-16",
+    "status": "verified_opened",
+    "scope": "identity/address only; approved text, prices, hours and fact-check dates are unchanged",
+    "identityEvidence": "Commons identifies addresses 8, 10–12 and 14. The hotel website confirms number 10; the Rembrandt sign is visible beneath the tree. The wider streetscape is retained and not presented as a current unobstructed hotel portrait."
+  },
+  "missing-photos-20261116:3": {
+    "id": "restaurant.eindhoven-kazerne",
+    "url": "https://www.kazerne.com/",
+    "checkedAt": "2026-11-16",
+    "status": "verified_opened",
+    "scope": "identity/address only; approved text, prices, hours and fact-check dates are unchanged",
+    "identityEvidence": "Commons records Paradijslaan 4, 4a, 6, 6a (municipal monument WN176), within the official Kazerne address 2–8. The complex facade and former Benz sign are visible. Not Constant Rebecque Kazerne; not a current BarBistro interior photograph."
+  },
+  "missing-photos-20261116:4": {
+    "id": "hotel.rotterdam-supernova",
+    "url": "https://supernovahotel.nl/en",
+    "checkedAt": "2026-11-16",
+    "status": "verified_opened",
+    "scope": "identity only; approved prices, hours and text remain unchanged",
+    "identityEvidence": "The photographer identifies a Super Deluxe room at Supernova Hotel Rotterdam, and links its own Supernova installation page. Temporary balloon decorations are visible. Photograph taken 2022-09-03; not a promise that decorations are included in a hotel booking or that every room has this layout."
+  },
+  "leiden-hospitality-20261116:barista": {
+    "url": "https://www.baristacafe.nl/vestiging/leiden/",
+    "checkedAt": "2026-11-16",
+    "httpStatus": 200,
+    "finalUrl": "https://www.baristacafe.nl/vestiging/leiden/",
+    "sha256": "a7afb1f9cfd3c51e9d255bd1431edaea9cbea421d7f0f117eb604d5f9a05efab",
+    "recheckedThisBatch": true,
+    "method": "Direct HTTPS, ordinary urllib client; no access-control bypass",
+    "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/barista",
+    "officialLinks": [
+      {
+        "text": "Ons menu",
+        "href": "https://www.cavesco.nl/docs/baristacafe/menukaart_leiden.pdf"
+      }
+    ]
+  },
+  "leiden-hospitality-20261116:barista-menu": {
+    "url": "https://www.cavesco.nl/docs/baristacafe/menukaart_leiden.pdf",
+    "checkedAt": "2026-11-16",
+    "httpStatus": 200,
+    "finalUrl": "https://www.cavesco.nl/docs/baristacafe/menukaart_leiden.pdf",
+    "sha256": "68dc9c08d4dd2daa0639ffae938963bb984377cc00e4f260bfe17aea34eb0f49",
+    "recheckedThisBatch": true,
+    "method": "Direct official linked PDF",
+    "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/barista-menu"
+  },
+  "leiden-hospitality-20261116:barista-bag": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Catharinasteeg+5%2C+Leiden&fq=type%3Aadres&rows=5",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-16",
+    "sha256": "d28de1cd9fdb4cac7c6eeb0efe79c4306e5c8ce6a1c8b77813f5efbe8c097ed8",
+    "selectedAddress": {
+      "bron": "BAG",
+      "woonplaatscode": "2088",
+      "type": "adres",
+      "woonplaatsnaam": "Leiden",
+      "wijkcode": "WK054600",
+      "huis_nlt": "5",
+      "openbareruimtetype": "Weg",
+      "buurtnaam": "Pieterswijk",
+      "gemeentecode": "0546",
+      "rdf_seealso": "http://bag.basisregistraties.overheid.nl/bag/id/nummeraanduiding/0546200000069414",
+      "weergavenaam": "Catharinasteeg 5, 2311DE Leiden",
+      "straatnaam_verkort": "Catharinastg",
+      "id": "adr-62b21eac6f685f092c2c9acc1f622e79",
+      "gekoppeld_perceel": [
+        "LDN01-G-2525"
+      ],
+      "gemeentenaam": "Leiden",
+      "buurtcode": "BU05460000",
+      "wijknaam": "Binnenstad-Zuid",
+      "identificatie": "0546010000069190-0546200000069414",
+      "openbareruimte_id": "0546300000002041",
+      "waterschapsnaam": "Hoogheemraadschap van Rijnland",
+      "provinciecode": "PV28",
+      "postcode": "2311DE",
+      "provincienaam": "Zuid-Holland",
+      "centroide_ll": "POINT(4.48970713 52.15947118)",
+      "nummeraanduiding_id": "0546200000069414",
+      "waterschapscode": "13",
+      "adresseerbaarobject_id": "0546010000069190",
+      "huisnummer": 5,
+      "provincieafkorting": "ZH",
+      "centroide_rd": "POINT(93587.575 463858.005)",
+      "straatnaam": "Catharinasteeg",
+      "score": 17.312927
+    },
+    "method": "Exact street/house number matched to venue official address; BAG address point, not surveyed entrance",
+    "recheckedThisBatch": true
+  },
+  "leiden-hospitality-20261116:borgman-about": {
+    "url": "https://www.borgmanborgman.nl/over-ons",
+    "checkedAt": "2026-11-16",
+    "httpStatus": 200,
+    "finalUrl": "https://www.borgmanborgman.nl/over-ons",
+    "sha256": "3c8cd833a4cb7f5f4ecc29fbf2a69d74964232f6be2a83a15696b7c3cf24b192",
+    "recheckedThisBatch": true,
+    "method": "Direct HTTPS, ordinary urllib client; no access-control bypass",
+    "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/borgman-about",
+    "officialLinks": []
+  },
+  "leiden-hospitality-20261116:borgman": {
+    "url": "https://www.borgmanborgman.nl/contact-1",
+    "checkedAt": "2026-11-16",
+    "httpStatus": 200,
+    "finalUrl": "https://www.borgmanborgman.nl/contact-1",
+    "sha256": "c8e7d37ae514fe316074ca30db89ffebf3fcaf31ddb4685de9851644c4ced79a",
+    "recheckedThisBatch": true,
+    "method": "Direct HTTPS, ordinary urllib client; no access-control bypass",
+    "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/borgman",
+    "officialLinks": []
+  },
+  "leiden-hospitality-20261116:borgman-menu": {
+    "url": "https://www.borgmanborgman.nl/menu",
+    "checkedAt": "2026-11-16",
+    "httpStatus": 200,
+    "finalUrl": "https://www.borgmanborgman.nl/menu",
+    "sha256": "6d255ede621c8001147dc768525d4bce4d4117722ab36b188eab258f7045d52a",
+    "recheckedThisBatch": true,
+    "method": "Direct HTTPS, ordinary urllib client; no access-control bypass",
+    "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/borgman-menu",
+    "officialLinks": []
+  },
+  "leiden-hospitality-20261116:borgman-bag": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Nieuwe+Rijn+41%2C+2312+JG+Leiden&fq=type%3Aadres&rows=5",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-16",
+    "sha256": "892cb8449f238b432917343954f554f20322ffa56609dc8a088be7cc519d89e9",
+    "selectedAddress": {
+      "bron": "BAG",
+      "woonplaatscode": "2088",
+      "type": "adres",
+      "woonplaatsnaam": "Leiden",
+      "wijkcode": "WK054601",
+      "huis_nlt": "41",
+      "openbareruimtetype": "Weg",
+      "buurtnaam": "Pancras-West",
+      "gemeentecode": "0546",
+      "rdf_seealso": "http://bag.basisregistraties.overheid.nl/bag/id/nummeraanduiding/0546200000013397",
+      "weergavenaam": "Nieuwe Rijn 41, 2312JG Leiden",
+      "straatnaam_verkort": "Nieuwe Rijn",
+      "id": "adr-05af125d9551f89ff3fdcaa79f74f0cd",
+      "gekoppeld_perceel": [
+        "LDN01-I-262"
+      ],
+      "gemeentenaam": "Leiden",
+      "buurtcode": "BU05460102",
+      "wijknaam": "Binnenstad-Noord",
+      "identificatie": "0546010000013397-0546200000013397",
+      "openbareruimte_id": "0546300000000991",
+      "waterschapsnaam": "Hoogheemraadschap van Rijnland",
+      "provinciecode": "PV28",
+      "postcode": "2312JG",
+      "provincienaam": "Zuid-Holland",
+      "centroide_ll": "POINT(4.49324429 52.15731757)",
+      "nummeraanduiding_id": "0546200000013397",
+      "waterschapscode": "13",
+      "adresseerbaarobject_id": "0546010000013397",
+      "huisnummer": 41,
+      "provincieafkorting": "ZH",
+      "centroide_rd": "POINT(93826.65 463615.418)",
+      "straatnaam": "Nieuwe Rijn",
+      "score": 23.46365
+    },
+    "method": "Exact street/house number matched to venue official address; BAG address point, not surveyed entrance",
+    "recheckedThisBatch": true
+  },
+  "leiden-hospitality-20261116:brownies": {
+    "url": "https://www.browniesanddownies.nl/leiden",
+    "checkedAt": "2026-11-16",
+    "httpStatus": 200,
+    "finalUrl": "https://www.browniesanddownies.nl/leiden",
+    "sha256": "d3cd7696fd05aea19a556c4edfa0ace67f245d46d6e3b1319a4ad72e9f8b0906",
+    "recheckedThisBatch": true,
+    "method": "Direct HTTPS, ordinary urllib client; no access-control bypass",
+    "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/brownies"
+  },
+  "leiden-hospitality-20261116:brownies-bag": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Aalmarkt+11%2C+2311+EC+Leiden&fq=type%3Aadres&rows=5",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-16",
+    "sha256": "a53e947525e412dd5cdc527c6de35a873dfed4d4c91430d9ac67702e9149e19c",
+    "selectedAddress": {
+      "bron": "BAG",
+      "woonplaatscode": "2088",
+      "type": "adres",
+      "woonplaatsnaam": "Leiden",
+      "wijkcode": "WK054600",
+      "huis_nlt": "11",
+      "openbareruimtetype": "Weg",
+      "buurtnaam": "Pieterswijk",
+      "gemeentecode": "0546",
+      "rdf_seealso": "http://bag.basisregistraties.overheid.nl/bag/id/nummeraanduiding/0546200000069398",
+      "weergavenaam": "Aalmarkt 11, 2311EC Leiden",
+      "straatnaam_verkort": "Aalmarkt",
+      "id": "adr-cac52d5c48c6e51594d47f2ecb464382",
+      "gekoppeld_perceel": [
+        "LDN01-G-2424",
+        "LDN01-G-2527"
+      ],
+      "gemeentenaam": "Leiden",
+      "buurtcode": "BU05460000",
+      "wijknaam": "Binnenstad-Zuid",
+      "identificatie": "0546010000069174-0546200000069398",
+      "openbareruimte_id": "0546300000000016",
+      "waterschapsnaam": "Hoogheemraadschap van Rijnland",
+      "provinciecode": "PV28",
+      "postcode": "2311EC",
+      "provincienaam": "Zuid-Holland",
+      "centroide_ll": "POINT(4.48977905 52.15976175)",
+      "nummeraanduiding_id": "0546200000069398",
+      "waterschapscode": "13",
+      "adresseerbaarobject_id": "0546010000069174",
+      "huisnummer": 11,
+      "provincieafkorting": "ZH",
+      "centroide_rd": "POINT(93592.896 463890.271)",
+      "straatnaam": "Aalmarkt",
+      "score": 25.405909
+    },
+    "method": "Exact street/house number matched to venue official address; BAG address point, not surveyed entrance",
+    "recheckedThisBatch": true
+  },
+  "leiden-hospitality-20261116:ml": {
+    "url": "https://30ml.nl/en/locations/30ml-leiden/",
+    "checkedAt": "2026-11-16",
+    "httpStatus": 200,
+    "finalUrl": "https://30ml.nl/en/locations/30ml-leiden/",
+    "sha256": "004c4c2f9271fad953317dbeafc72af8a575ebdd48a95de3bb63c7a35c2c3016",
+    "recheckedThisBatch": true,
+    "method": "Direct HTTPS, ordinary urllib client; no access-control bypass",
+    "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/ml",
+    "officialLinks": [
+      {
+        "text": "Our menu",
+        "href": "https://30ml.nl/en/menu/"
+      },
+      {
+        "text": "Our menu",
+        "href": "https://30ml.nl/en/menu/"
+      },
+      {
+        "text": "Our menu",
+        "href": "https://30ml.nl/en/menu/"
+      }
+    ]
+  },
+  "leiden-hospitality-20261116:ml-menu": {
+    "url": "https://30ml.nl/en/menu/",
+    "checkedAt": "2026-11-16",
+    "httpStatus": 200,
+    "finalUrl": "https://30ml.nl/en/menu/",
+    "sha256": "839423ee543676caedf8b6fad72ab4285ba7ed4cb517ccb29ecf8bf57ca5f6d7",
+    "recheckedThisBatch": true,
+    "method": "Direct HTTPS, ordinary urllib client; no access-control bypass",
+    "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/ml-menu",
+    "officialLinks": [
+      {
+        "text": "Our menu",
+        "href": "https://30ml.nl/en/menu/"
+      },
+      {
+        "text": "Our menu",
+        "href": "https://30ml.nl/en/menu/"
+      }
+    ]
+  },
+  "leiden-hospitality-20261116:ml-bag": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Botermarkt+3%2C+2311+EM+Leiden&fq=type%3Aadres&rows=5",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-16",
+    "sha256": "f9e2fbb89e28e91c21469a6041371cbdf4359ac8e8e10d163d83a2be379ed7ff",
+    "selectedAddress": {
+      "bron": "BAG",
+      "woonplaatscode": "2088",
+      "type": "adres",
+      "woonplaatsnaam": "Leiden",
+      "wijkcode": "WK054600",
+      "huis_nlt": "3",
+      "openbareruimtetype": "Weg",
+      "buurtnaam": "Pieterswijk",
+      "gemeentecode": "0546",
+      "rdf_seealso": "http://bag.basisregistraties.overheid.nl/bag/id/nummeraanduiding/0546200000008263",
+      "weergavenaam": "Botermarkt 3, 2311EM Leiden",
+      "straatnaam_verkort": "Botermarkt",
+      "id": "adr-d71b9da8d5d45a40b5a54bdb7a74886d",
+      "gekoppeld_perceel": [
+        "LDN01-G-1714"
+      ],
+      "gemeentenaam": "Leiden",
+      "buurtcode": "BU05460000",
+      "wijknaam": "Binnenstad-Zuid",
+      "identificatie": "0546010000008263-0546200000008263",
+      "openbareruimte_id": "0546300000000202",
+      "waterschapsnaam": "Hoogheemraadschap van Rijnland",
+      "provinciecode": "PV28",
+      "postcode": "2311EM",
+      "provincienaam": "Zuid-Holland",
+      "centroide_ll": "POINT(4.49184004 52.15772484)",
+      "nummeraanduiding_id": "0546200000008263",
+      "waterschapscode": "13",
+      "adresseerbaarobject_id": "0546010000008263",
+      "huisnummer": 3,
+      "provincieafkorting": "ZH",
+      "centroide_rd": "POINT(93731.12 463661.914)",
+      "straatnaam": "Botermarkt",
+      "gekoppeld_appartement": [
+        "LDN01-G-2362-A-1"
+      ],
+      "score": 23.788946
+    },
+    "method": "Exact street/house number matched to venue official address; BAG address point, not surveyed entrance",
+    "recheckedThisBatch": true
+  },
+  "leiden-hospitality-20261116:paco-menu": {
+    "url": "https://pacociao.nl/en/menu/",
+    "checkedAt": "2026-11-16",
+    "httpStatus": 200,
+    "finalUrl": "https://pacociao.nl/en/menu/",
+    "sha256": "86b3577923e0b07a7d2cf1b6f8f5bb2014ae7c142ee82e8d6d2dac2f287595d6",
+    "recheckedThisBatch": true,
+    "method": "Direct HTTPS, ordinary urllib client; no access-control bypass",
+    "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/paco-menu",
+    "officialLinks": [
+      {
+        "text": "Check our menu",
+        "href": "https://pacociao.nl/wp-content/uploads/2026/11/PC26_OnlineMenu_20261105.pdf"
+      },
+      {
+        "text": "Menu",
+        "href": "https://pacociao.nl/en/menu/"
+      }
+    ]
+  },
+  "leiden-hospitality-20261116:paco-pdf": {
+    "url": "https://pacociao.nl/wp-content/uploads/2026/11/PC26_OnlineMenu_20261105.pdf",
+    "checkedAt": "2026-11-16",
+    "httpStatus": 200,
+    "finalUrl": "https://pacociao.nl/wp-content/uploads/2026/11/PC26_OnlineMenu_20261105.pdf",
+    "sha256": "3d1d445ebc76a2d653062f49d592c10b97b3b2d0169bf9872908538754dcdfe8",
+    "recheckedThisBatch": true,
+    "method": "Direct official linked PDF",
+    "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/paco-pdf"
+  },
+  "leiden-hospitality-20261116:paco": {
+    "url": "https://pacociao.nl/en/contact/",
+    "checkedAt": "2026-11-16",
+    "httpStatus": 200,
+    "finalUrl": "https://pacociao.nl/en/contact/",
+    "sha256": "5f2d56bc29b7f446fc86eaaad6c723b94bce427b1df7eeeb005b1bb3505a30d4",
+    "recheckedThisBatch": true,
+    "method": "Direct HTTPS, ordinary urllib client; no access-control bypass",
+    "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/paco",
+    "officialLinks": [
+      {
+        "text": "Menu",
+        "href": "https://pacociao.nl/en/menu/"
+      }
+    ]
+  },
+  "leiden-hospitality-20261116:paco-bag": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Stationsweg+25%2C+Leiden&fq=type%3Aadres&rows=5",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-16",
+    "sha256": "a27cf8f90935a80e4af12bf5afe21c2169f14e40674c5b59f232567b5dacba79",
+    "selectedAddress": {
+      "bron": "BAG",
+      "woonplaatscode": "2088",
+      "type": "adres",
+      "woonplaatsnaam": "Leiden",
+      "wijkcode": "WK054602",
+      "huis_nlt": "25",
+      "openbareruimtetype": "Weg",
+      "buurtnaam": "Stationskwartier",
+      "gemeentecode": "0546",
+      "rdf_seealso": "http://bag.basisregistraties.overheid.nl/bag/id/nummeraanduiding/0546200000052076",
+      "weergavenaam": "Stationsweg 25, 2312AS Leiden",
+      "straatnaam_verkort": "Stationswg",
+      "id": "adr-7ddb8034298fd1679544b4eaefaa23cb",
+      "gekoppeld_perceel": [
+        "LDN01-L-2098"
+      ],
+      "gemeentenaam": "Leiden",
+      "buurtcode": "BU05460200",
+      "wijknaam": "Stationsdistrict",
+      "identificatie": "0546010000052076-0546200000052076",
+      "openbareruimte_id": "0546300000001330",
+      "waterschapsnaam": "Hoogheemraadschap van Rijnland",
+      "provinciecode": "PV28",
+      "postcode": "2312AS",
+      "provincienaam": "Zuid-Holland",
+      "centroide_ll": "POINT(4.48417669 52.16498223)",
+      "nummeraanduiding_id": "0546200000052076",
+      "waterschapscode": "13",
+      "adresseerbaarobject_id": "0546010000052076",
+      "huisnummer": 25,
+      "provincieafkorting": "ZH",
+      "centroide_rd": "POINT(93216.791 464475.829)",
+      "straatnaam": "Stationsweg",
+      "score": 12.455053
+    },
+    "method": "Exact street/house number matched to venue official address; BAG address point, not surveyed entrance",
+    "recheckedThisBatch": true
+  },
+  "leiden-hospitality-20261116:laken": {
+    "url": "https://www.cafelaken.nl/",
+    "checkedAt": "2026-11-16",
+    "httpStatus": 200,
+    "finalUrl": "https://www.cafelaken.nl/",
+    "sha256": "3921a73d08de323409e657652c34e800e9bb85034bc3e4670ffff6d7036c4a85",
+    "recheckedThisBatch": true,
+    "method": "Direct HTTPS, ordinary urllib client; no access-control bypass",
+    "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/laken",
+    "officialLinks": []
+  },
+  "leiden-hospitality-20261116:laken-bag": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Oude+Singel+30%2C+2312+RA+Leiden&fq=type%3Aadres&rows=5",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-16",
+    "sha256": "1409402419ee6935f9c9df8c785df22ea8fd699c4127f63bf47f51b2284189a9",
+    "selectedAddress": {
+      "bron": "BAG",
+      "woonplaatscode": "2088",
+      "type": "adres",
+      "woonplaatsnaam": "Leiden",
+      "wijkcode": "WK054601",
+      "huis_nlt": "30",
+      "openbareruimtetype": "Weg",
+      "buurtnaam": "Molenbuurt",
+      "gemeentecode": "0546",
+      "rdf_seealso": "http://bag.basisregistraties.overheid.nl/bag/id/nummeraanduiding/0546200000069981",
+      "weergavenaam": "Oude Singel 30, 2312RA Leiden",
+      "straatnaam_verkort": "Oude Singel",
+      "id": "adr-40913233da6faeec90930649ac738c96",
+      "gekoppeld_perceel": [
+        "LDN01-B-3735"
+      ],
+      "gemeentenaam": "Leiden",
+      "buurtcode": "BU05460108",
+      "wijknaam": "Binnenstad-Noord",
+      "identificatie": "0546010000069723-0546200000069981",
+      "openbareruimte_id": "0546300000001032",
+      "waterschapsnaam": "Hoogheemraadschap van Rijnland",
+      "provinciecode": "PV28",
+      "postcode": "2312RA",
+      "provincienaam": "Zuid-Holland",
+      "centroide_ll": "POINT(4.48728587 52.1628594)",
+      "nummeraanduiding_id": "0546200000069981",
+      "waterschapscode": "13",
+      "adresseerbaarobject_id": "0546010000069723",
+      "huisnummer": 30,
+      "provincieafkorting": "ZH",
+      "centroide_rd": "POINT(93426.578 464237.012)",
+      "straatnaam": "Oude Singel",
+      "score": 24.29591
+    },
+    "method": "Exact street/house number matched to venue official address; BAG address point, not surveyed entrance",
+    "recheckedThisBatch": true
+  },
+  "leiden-hospitality-20261116:bikini-about": {
+    "url": "https://caferestaurantbikini.nl/over/",
+    "checkedAt": "2026-11-16",
+    "httpStatus": 200,
+    "finalUrl": "https://caferestaurantbikini.nl/over/",
+    "sha256": "115d956d7e9a3ff0719478a094c6fae83076c1ad6857dbf135581aac58c8ce79",
+    "recheckedThisBatch": true,
+    "method": "Direct HTTPS, ordinary urllib client; no access-control bypass",
+    "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/bikini-about",
+    "officialLinks": [
+      {
+        "text": "Menu",
+        "href": "https://caferestaurantbikini.nl/menu/"
+      },
+      {
+        "text": "Menu",
+        "href": "https://caferestaurantbikini.nl/menu/"
+      }
+    ]
+  },
+  "leiden-hospitality-20261116:bikini": {
+    "url": "https://caferestaurantbikini.nl/contact/",
+    "checkedAt": "2026-11-16",
+    "httpStatus": 200,
+    "finalUrl": "https://caferestaurantbikini.nl/contact/",
+    "sha256": "5f1fe1068873009b2326c93e48828c9fecaa94b99ae700476372970022268799",
+    "recheckedThisBatch": true,
+    "method": "Direct HTTPS, ordinary urllib client; no access-control bypass",
+    "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/bikini",
+    "officialLinks": [
+      {
+        "text": "Menu",
+        "href": "https://caferestaurantbikini.nl/menu/"
+      },
+      {
+        "text": "Menu",
+        "href": "https://caferestaurantbikini.nl/menu/"
+      }
+    ]
+  },
+  "leiden-hospitality-20261116:bikini-menu": {
+    "url": "https://caferestaurantbikini.nl/menu/",
+    "checkedAt": "2026-11-16",
+    "httpStatus": 200,
+    "finalUrl": "https://caferestaurantbikini.nl/menu/",
+    "sha256": "ff1594ab2ae5101e2b788c8f438d374ea44cb83cb2e2f5446fd93d87bed6c6d3",
+    "recheckedThisBatch": true,
+    "method": "Direct HTTPS, ordinary urllib client; no access-control bypass",
+    "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/bikini-menu",
+    "officialLinks": [
+      {
+        "text": "Menu",
+        "href": "https://caferestaurantbikini.nl/menu/"
+      },
+      {
+        "text": "Menu",
+        "href": "https://caferestaurantbikini.nl/menu/"
+      }
+    ]
+  },
+  "leiden-hospitality-20261116:bikini-bag": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Haven+1%2C+2312+MG+Leiden&fq=type%3Aadres&rows=5",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-16",
+    "sha256": "c34ca206a20456086e2f72bedcf589e1807ea9a5cbd65a78956242e67b0318d3",
+    "selectedAddress": {
+      "bron": "BAG",
+      "woonplaatscode": "2088",
+      "type": "adres",
+      "woonplaatsnaam": "Leiden",
+      "wijkcode": "WK054601",
+      "huis_nlt": "1",
+      "openbareruimtetype": "Weg",
+      "buurtnaam": "Havenwijk-Noord",
+      "gemeentecode": "0546",
+      "rdf_seealso": "http://bag.basisregistraties.overheid.nl/bag/id/nummeraanduiding/0546200000064384",
+      "weergavenaam": "Haven 1, 2312MG Leiden",
+      "straatnaam_verkort": "Haven",
+      "id": "adr-e0896e1114e281788405d7c416d54101",
+      "gekoppeld_perceel": [
+        "LDN01-C-1820"
+      ],
+      "gemeentenaam": "Leiden",
+      "buurtcode": "BU05460106",
+      "wijknaam": "Binnenstad-Noord",
+      "identificatie": "0546010000064302-0546200000064384",
+      "openbareruimte_id": "0546300000000504",
+      "waterschapsnaam": "Hoogheemraadschap van Rijnland",
+      "provinciecode": "PV28",
+      "postcode": "2312MG",
+      "provincienaam": "Zuid-Holland",
+      "centroide_ll": "POINT(4.50273988 52.16140868)",
+      "nummeraanduiding_id": "0546200000064384",
+      "waterschapscode": "13",
+      "adresseerbaarobject_id": "0546010000064302",
+      "huisnummer": 1,
+      "provincieafkorting": "ZH",
+      "centroide_rd": "POINT(94481.955 464062.611)",
+      "straatnaam": "Haven",
+      "score": 21.290756
+    },
+    "method": "Exact street/house number matched to venue official address; BAG address point, not surveyed entrance",
+    "recheckedThisBatch": true
+  },
+  "leiden-hospitality-20261116:dende-home": {
+    "url": "https://dende.nl/",
+    "checkedAt": "2026-11-16",
+    "httpStatus": 200,
+    "finalUrl": "https://dende.nl/",
+    "sha256": "a7372b8cfc69cc07c1b0c672694c27b425dff836ba6513be7e648f5a000325cb",
+    "recheckedThisBatch": true,
+    "method": "Direct HTTPS, ordinary urllib client; no access-control bypass",
+    "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/dende-home",
+    "officialLinks": []
+  },
+  "leiden-hospitality-20261116:dende-menu": {
+    "url": "https://dende.nl/kaart/",
+    "checkedAt": "2026-11-16",
+    "httpStatus": 200,
+    "finalUrl": "https://dende.nl/kaart/",
+    "sha256": "e5006a885ad15b78541ea0bff9646ee97e0be8b13aee2464e8ff46884744ab99",
+    "recheckedThisBatch": true,
+    "method": "Direct HTTPS, ordinary urllib client; no access-control bypass",
+    "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/dende-menu"
+  },
+  "leiden-hospitality-20261116:dende-bag": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Nieuwe+Rijn+5%2C+2312+JB+Leiden&fq=type%3Aadres&rows=5",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-16",
+    "sha256": "757535f28228b3525a155baffc1d3fb463a52d4d056ea4a938b55dc5cfd4e953",
+    "selectedAddress": {
+      "bron": "BAG",
+      "woonplaatscode": "2088",
+      "type": "adres",
+      "woonplaatsnaam": "Leiden",
+      "wijkcode": "WK054601",
+      "huis_nlt": "5",
+      "openbareruimtetype": "Weg",
+      "buurtnaam": "Pancras-West",
+      "gemeentecode": "0546",
+      "rdf_seealso": "http://bag.basisregistraties.overheid.nl/bag/id/nummeraanduiding/0546200000071694",
+      "weergavenaam": "Nieuwe Rijn 5, 2312JB Leiden",
+      "straatnaam_verkort": "Nieuwe Rijn",
+      "id": "adr-d4ff25dad92ea5aee1f16dc6a7695e7c",
+      "gekoppeld_perceel": [
+        "LDN01-I-35"
+      ],
+      "gemeentenaam": "Leiden",
+      "buurtcode": "BU05460102",
+      "wijknaam": "Binnenstad-Noord",
+      "identificatie": "0546010000071420-0546200000071694",
+      "openbareruimte_id": "0546300000000991",
+      "waterschapsnaam": "Hoogheemraadschap van Rijnland",
+      "provinciecode": "PV28",
+      "postcode": "2312JB",
+      "provincienaam": "Zuid-Holland",
+      "centroide_ll": "POINT(4.49156231 52.15903784)",
+      "nummeraanduiding_id": "0546200000071694",
+      "waterschapscode": "13",
+      "adresseerbaarobject_id": "0546010000071420",
+      "huisnummer": 5,
+      "provincieafkorting": "ZH",
+      "centroide_rd": "POINT(93713.919 463808.225)",
+      "straatnaam": "Nieuwe Rijn",
+      "score": 22.646408
+    },
+    "method": "Exact street/house number matched to venue official address; BAG address point, not surveyed entrance",
+    "recheckedThisBatch": true
+  },
+  "leiden-hospitality-20261116:tabu": {
+    "url": "https://www.tabu.nl/faq/",
+    "checkedAt": "2026-11-16",
+    "httpStatus": 200,
+    "finalUrl": "https://www.tabu.nl/faq/",
+    "sha256": "ca9d4b8e77cdc07dbbda7f88654ae2168c4a668a0195c1e2a504e441613bc768",
+    "recheckedThisBatch": true,
+    "method": "Direct HTTPS, ordinary urllib client; no access-control bypass",
+    "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/tabu",
+    "officialLinks": []
+  },
+  "leiden-hospitality-20261116:tabu-pdf": {
+    "url": "https://www.tabu.nl/wp-content/uploads/2026/11/261103-TABU-DINER-MENU-EN.pdf",
+    "checkedAt": "2026-11-16",
+    "httpStatus": 200,
+    "finalUrl": "https://www.tabu.nl/wp-content/uploads/2026/11/261103-TABU-DINER-MENU-EN.pdf",
+    "sha256": "4cbedc70b22a690d6a7e56d0e94f24aaafb412fcea6e15b03be7263269b7d71e",
+    "recheckedThisBatch": true,
+    "method": "Direct official linked PDF",
+    "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/tabu-pdf"
+  },
+  "leiden-hospitality-20261116:tabu-bag": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Rembrandtstraat+27%2C+2311+VV+Leiden&fq=type%3Aadres&rows=5",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-16",
+    "sha256": "5e5808cdbb0bde799886ac5a7f91ddf7a4c86abf2caba76a562c024a863c978f",
+    "selectedAddress": {
+      "bron": "BAG",
+      "woonplaatscode": "2088",
+      "type": "adres",
+      "woonplaatsnaam": "Leiden",
+      "wijkcode": "WK054600",
+      "huis_nlt": "27",
+      "openbareruimtetype": "Weg",
+      "buurtnaam": "Academiewijk",
+      "gemeentecode": "0546",
+      "rdf_seealso": "http://bag.basisregistraties.overheid.nl/bag/id/nummeraanduiding/0546200000055321",
+      "weergavenaam": "Rembrandtstraat 27, 2311VV Leiden",
+      "straatnaam_verkort": "Rembrandtstr",
+      "id": "adr-8e17ccc1483169ee278e3b82e9e58b7e",
+      "gekoppeld_perceel": [
+        "LDN01-F-1566"
+      ],
+      "gemeentenaam": "Leiden",
+      "buurtcode": "BU05460001",
+      "wijknaam": "Binnenstad-Zuid",
+      "identificatie": "0546010000055321-0546200000055321",
+      "openbareruimte_id": "0546300000001149",
+      "waterschapsnaam": "Hoogheemraadschap van Rijnland",
+      "provinciecode": "PV28",
+      "postcode": "2311VV",
+      "provincienaam": "Zuid-Holland",
+      "centroide_ll": "POINT(4.48227202 52.1591875)",
+      "nummeraanduiding_id": "0546200000055321",
+      "waterschapscode": "13",
+      "adresseerbaarobject_id": "0546010000055321",
+      "huisnummer": 27,
+      "provincieafkorting": "ZH",
+      "centroide_rd": "POINT(93078.442 463832.763)",
+      "straatnaam": "Rembrandtstraat",
+      "score": 22.363398
+    },
+    "method": "Exact street/house number matched to venue official address; BAG address point, not surveyed entrance",
+    "recheckedThisBatch": true
+  },
+  "leiden-hospitality-20261116:verboden": {
+    "url": "https://www.verbodentoegang.nl/",
+    "checkedAt": "2026-11-16",
+    "httpStatus": 200,
+    "finalUrl": "https://www.verbodentoegang.nl/",
+    "sha256": "5f549a82ea52ddd51eb14d74ec47f6406780e4621110ea5fefcdbf13965b3cb9",
+    "recheckedThisBatch": true,
+    "method": "Direct HTTPS, ordinary urllib client; no access-control bypass",
+    "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/verboden",
+    "officialLinks": [
+      {
+        "text": "Menu",
+        "href": "https://www.verbodentoegang.nl/menukaart/"
+      }
+    ]
+  },
+  "leiden-hospitality-20261116:verboden-menu": {
+    "url": "https://www.verbodentoegang.nl/menukaart/",
+    "checkedAt": "2026-11-16",
+    "httpStatus": 200,
+    "finalUrl": "https://www.verbodentoegang.nl/menukaart/",
+    "sha256": "9e8a3aa48ec924186965ebb1a212b71b892ed86c8fb6eba191b4c768d9756889",
+    "recheckedThisBatch": true,
+    "method": "Direct HTTPS, ordinary urllib client; no access-control bypass",
+    "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/verboden-menu",
+    "officialLinks": [
+      {
+        "text": "Menu",
+        "href": "https://www.verbodentoegang.nl/menukaart/"
+      }
+    ]
+  },
+  "leiden-hospitality-20261116:verboden-bag": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Kaiserstraat+7%2C+2311+GN+Leiden&fq=type%3Aadres&rows=5",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-16",
+    "sha256": "2c437d6a1276788fdbd9e35b3462adf588e5c6fb37baeb5f55692799331efe25",
+    "selectedAddress": {
+      "bron": "BAG",
+      "woonplaatscode": "2088",
+      "type": "adres",
+      "woonplaatsnaam": "Leiden",
+      "wijkcode": "WK054600",
+      "huis_nlt": "7",
+      "openbareruimtetype": "Weg",
+      "buurtnaam": "Academiewijk",
+      "gemeentecode": "0546",
+      "rdf_seealso": "http://bag.basisregistraties.overheid.nl/bag/id/nummeraanduiding/0546200000064573",
+      "weergavenaam": "Kaiserstraat 7, 2311GN Leiden",
+      "straatnaam_verkort": "Kaiserstr",
+      "id": "adr-583cfed792e93d7be4015756dd418e6e",
+      "gekoppeld_perceel": [
+        "LDN01-F-435",
+        "LDN01-F-1581",
+        "LDN01-F-433"
+      ],
+      "gemeentenaam": "Leiden",
+      "buurtcode": "BU05460001",
+      "wijknaam": "Binnenstad-Zuid",
+      "identificatie": "0546010000064482-0546200000064573",
+      "openbareruimte_id": "0546300000000650",
+      "waterschapsnaam": "Hoogheemraadschap van Rijnland",
+      "provinciecode": "PV28",
+      "postcode": "2311GN",
+      "provincienaam": "Zuid-Holland",
+      "centroide_ll": "POINT(4.48586739 52.15610069)",
+      "nummeraanduiding_id": "0546200000064573",
+      "waterschapscode": "13",
+      "adresseerbaarobject_id": "0546010000064482",
+      "huisnummer": 7,
+      "provincieafkorting": "ZH",
+      "centroide_rd": "POINT(93320.187 463486.28)",
+      "straatnaam": "Kaiserstraat",
+      "gekoppeld_appartement": [
+        "LDN01-F-2797-A-1"
+      ],
+      "score": 23.788542
+    },
+    "method": "Exact street/house number matched to venue official address; BAG address point, not surveyed entrance",
+    "recheckedThisBatch": true
+  },
+  "hospitality-followup-20261116:restaurant.leiden-waag:contact": {
+    "key": "waag-contact",
+    "url": "https://www.waagleiden.nl/nl/contactpagina/",
+    "status": 200,
+    "finalURL": "https://www.waagleiden.nl/nl/contactpagina/",
+    "contentType": "text/html",
+    "sha256": "e6fa3720fc2332d98b2985c6586ec8c6a0aba250bd6d62d20256e57115c5aec5",
+    "checkedAt": "2026-11-15",
+    "routeURLs": [],
+    "httpStatus": 200,
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/leiden-food-20261115/link-checks.json"
+  },
+  "hospitality-followup-20261116:restaurant.leiden-waag:menu": {
+    "key": "waag-menu",
+    "url": "https://static.rce.eu/wp-content/uploads/sites/10/2026/03/17142126/26034-Menu_Waag_Locaties_105x304_ISO.pdf",
+    "status": 200,
+    "finalURL": "https://static.rce.eu/wp-content/uploads/sites/10/2026/03/17142126/26034-Menu_Waag_Locaties_105x304_ISO.pdf",
+    "contentType": "application/pdf",
+    "sha256": "a03637f495c8809140fdb89de2d9f794743d68d4ef21071de333342ba2b7041e",
+    "checkedAt": "2026-11-15",
+    "routeURLs": [],
+    "httpStatus": 200,
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/leiden-food-20261115/link-checks.json"
+  },
+  "hospitality-followup-20261116:restaurant.leiden-waag:route": {
+    "key": "waag-route",
+    "url": "https://www.visitleiden.nl/nl/locaties/3402150775/waag-leiden",
+    "status": 200,
+    "finalURL": "https://www.visitleiden.nl/nl/locaties/3402150775/waag-leiden",
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "e3304ae11ad3566210497e693b530fa44d4ef99e0d6c52e7d91d7fa1e1858420",
+    "checkedAt": "2026-11-15",
+    "routeURLs": [
+      "https://www.google.com/maps/dir/?api=1&destination=52.159463%2C4.489903",
+      "https://www.google.com/maps/dir/?api=1&destination=52.159463%2C4.489903"
+    ],
+    "httpStatus": 200,
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/leiden-food-20261115/link-checks.json"
+  },
+  "hospitality-followup-20261116:restaurant.leiden-oudt-leyden:home": {
+    "key": "oudt-home",
+    "url": "https://oudtleyden.nl/",
+    "status": 200,
+    "finalURL": "https://oudtleyden.nl/",
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "abe0500d26a7b108de7f201ac4cc46bef82262fd81a8c47c018269da046e6510",
+    "checkedAt": "2026-11-15",
+    "routeURLs": [],
+    "httpStatus": 200,
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/leiden-food-20261115/link-checks.json"
+  },
+  "hospitality-followup-20261116:restaurant.leiden-oudt-leyden:contact": {
+    "key": "oudt-contact",
+    "url": "https://oudtleyden.nl/contact/",
+    "status": 200,
+    "finalURL": "https://oudtleyden.nl/contact/",
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "2802e6b67605aa0ccaf2a31bc855f4a9c6479bdc5546bff90436bb924b7f9c7b",
+    "checkedAt": "2026-11-15",
+    "routeURLs": [],
+    "httpStatus": 200,
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/leiden-food-20261115/link-checks.json"
+  },
+  "hospitality-followup-20261116:restaurant.leiden-oudt-leyden:menu": {
+    "key": "oudt-menu",
+    "url": "https://oudtleyden.nl/wp-content/uploads/2026/04/OUD_menukaart-2026-A3.pdf",
+    "status": 200,
+    "finalURL": "https://oudtleyden.nl/wp-content/uploads/2026/04/OUD_menukaart-2026-A3.pdf",
+    "contentType": "application/pdf",
+    "sha256": "14c94a50a6e8236523af75b5fbc51dd6585b2440b26e612369d62ed308ad5ece",
+    "checkedAt": "2026-11-15",
+    "routeURLs": [],
+    "httpStatus": 200,
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/leiden-food-20261115/link-checks.json"
+  },
+  "hospitality-followup-20261116:restaurant.leiden-oudt-leyden:route": {
+    "key": "oudt-route",
+    "url": "https://www.visitleiden.nl/nl/locaties/2623615998/oudt-leyden-t-pannenkoekenhuysje",
+    "status": 200,
+    "finalURL": "https://www.visitleiden.nl/nl/locaties/2623615998/oudt-leyden-t-pannenkoekenhuysje",
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "f0ef8d8ccc48dc826446e6adbff671dbe1e84fda6ddf15ae75b6fb53ed4fd791",
+    "checkedAt": "2026-11-15",
+    "routeURLs": [
+      "https://www.google.com/maps/dir/?api=1&destination=52.162479%2C4.484523",
+      "https://www.google.com/maps/dir/?api=1&destination=52.162479%2C4.484523"
+    ],
+    "httpStatus": 200,
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/leiden-food-20261115/link-checks.json"
+  },
+  "hospitality-followup-20261116:restaurant.leiden-prentenkabinet:contact": {
+    "key": "prent-contact",
+    "url": "https://www.prentenkabinet.nl/reserveren/",
+    "status": 200,
+    "finalURL": "https://www.prentenkabinet.nl/reserveren/",
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "6aa2616123735a62d24d732056556477ab679c38d2db1395bd3c175dab0cdcfe",
+    "checkedAt": "2026-11-15",
+    "routeURLs": [],
+    "httpStatus": 200,
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/leiden-food-20261115/link-checks.json"
+  },
+  "hospitality-followup-20261116:restaurant.leiden-prentenkabinet:menu": {
+    "key": "prent-menu",
+    "url": "https://www.prentenkabinet.nl/menukaart/",
+    "status": 200,
+    "finalURL": "https://www.prentenkabinet.nl/menukaart/",
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "636a44fa481a444f04cc83a510378029914b654e8b193dd60023294505bf8205",
+    "checkedAt": "2026-11-15",
+    "routeURLs": [],
+    "httpStatus": 200,
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/leiden-food-20261115/link-checks.json"
+  },
+  "hospitality-followup-20261116:restaurant.leiden-prentenkabinet:lunch": {
+    "key": "prent-lunch",
+    "url": "https://www.prentenkabinet.nl/lunch/",
+    "status": 200,
+    "finalURL": "https://www.prentenkabinet.nl/lunch/",
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "e9fbefa87837816d5069839c0d6f3d8032fa04c44b276032a1ad21392a9b232b",
+    "checkedAt": "2026-11-15",
+    "routeURLs": [],
+    "httpStatus": 200,
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/leiden-food-20261115/link-checks.json"
+  },
+  "hospitality-followup-20261116:restaurant.leiden-prentenkabinet:route": {
+    "key": "prent-route",
+    "url": "https://www.visitleiden.nl/nl/locaties/1965820401/het-prentenkabinet",
+    "status": 200,
+    "finalURL": "https://www.visitleiden.nl/nl/locaties/1965820401/het-prentenkabinet",
+    "contentType": "text/html; charset=UTF-8",
+    "sha256": "6849caef93656bbd325ea3fbdb0b411e85c1d16d42106199f20471ed1e813582",
+    "checkedAt": "2026-11-15",
+    "routeURLs": [
+      "https://www.google.com/maps/dir/?api=1&destination=52.157094%2C4.486795",
+      "https://www.google.com/maps/dir/?api=1&destination=52.157094%2C4.486795"
+    ],
+    "httpStatus": 200,
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/leiden-food-20261115/link-checks.json"
+  },
+  "hospitality-followup-20261116:hotel.leiden-oude-morsch:source.oudemorsch": {
+    "url": "https://www.boutiquehoteldeoudemorsch.nl/contact/",
+    "finalUrl": "https://www.boutiquehoteldeoudemorsch.nl/contact/",
+    "httpStatus": 200,
+    "sha256": "1e3ca1842f2126477a064b82d9d00774e8246afa0c9b8f177333ed20c49b076d",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8",
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/leiden-stay-parks-20261115/source-checks.json"
+  },
+  "hospitality-followup-20261116:hotel.leiden-oude-morsch:source.oudemorschtourism": {
+    "url": "https://www.visitleiden.nl/nl/locaties/3944718715/boutique-hotel-doude-morsch",
+    "finalUrl": "https://www.visitleiden.nl/nl/locaties/3944718715/boutique-hotel-doude-morsch",
+    "httpStatus": 200,
+    "sha256": "d2ad39587a25c314bc640b72b9a37f3342e892b6b14c0d04cddbc913fa305a96",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8",
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/leiden-stay-parks-20261115/source-checks.json"
+  },
+  "hospitality-followup-20261116:hotel.leiden-oude-morsch:source.oudemorschfacilities": {
+    "url": "https://www.boutiquehoteldeoudemorsch.nl/faciliteiten/",
+    "finalUrl": "https://www.boutiquehoteldeoudemorsch.nl/faciliteiten/",
+    "httpStatus": 200,
+    "sha256": "9cb6708c2f626ef63f8bc6b87329c52a7551d8aaf13b3841efb8a3caa83a2fa9",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8",
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/leiden-stay-parks-20261115/source-checks.json"
+  },
+  "hospitality-followup-20261116:hotel.leiden-oude-morsch:source.oudemorschholiday": {
+    "url": "https://www.boutiquehoteldeoudemorsch.nl/openingstijden-feestdagen/",
+    "finalUrl": "https://www.boutiquehoteldeoudemorsch.nl/openingstijden-feestdagen/",
+    "httpStatus": 200,
+    "sha256": "ed08259c4d723870e041c66971b5d339e934e1ac8895796cbdae7965dd3fbf06",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8",
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/leiden-stay-parks-20261115/source-checks.json"
+  },
+  "hospitality-followup-20261116:hotel.leiden-huys-van-leyden:source.huys": {
+    "url": "https://www.boutiquehotelsvanleyden.nl/nl/contact.html",
+    "finalUrl": "https://www.boutiquehotelsvanleyden.nl/nl/contact.html",
+    "httpStatus": 200,
+    "sha256": "0bcff659234d75b1712ad2d17a541bab2b73d4e7cf7bbdfef9af70813e9df459",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html",
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/leiden-stay-parks-20261115/source-checks.json"
+  },
+  "hospitality-followup-20261116:hotel.leiden-huys-van-leyden:source.huyssuite": {
+    "url": "https://www.boutiquehotelsvanleyden.nl/nl/huys-van-leyden/accommodaties/suite-met-grachtzicht.html",
+    "finalUrl": "https://www.boutiquehotelsvanleyden.nl/nl/huys-van-leyden/accommodaties/suite-met-grachtzicht.html",
+    "httpStatus": 200,
+    "sha256": "08466de40ca82ea17eebd698110e87a2bce79c20f1226cc50814ecd4b20e3711",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html",
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/leiden-stay-parks-20261115/source-checks.json"
+  },
+  "hospitality-followup-20261116:hotel.leiden-huys-van-leyden:source.huystourism": {
+    "url": "https://www.visitleiden.nl/nl/locaties/2048619726/boutique-hotel-huys-van-leyden",
+    "finalUrl": "https://www.visitleiden.nl/nl/locaties/2048619726/boutique-hotel-huys-van-leyden",
+    "httpStatus": 200,
+    "sha256": "8e9fef61db163acceb1d82cf70afec2a054696c8a3a5f25f6893739339c07166",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8",
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/leiden-stay-parks-20261115/source-checks.json"
+  },
+  "hospitality-followup-20261116:hotel.leiden-steenhof:source.steenhof": {
+    "url": "https://steenhofsuites.nl/contact/",
+    "finalUrl": "https://steenhofsuites.nl/contact/",
+    "httpStatus": 200,
+    "sha256": "ad47d8f2f85ac2f363b6393672b275b953a3cbc83a4c32691928bde4c629d56d",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8",
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/leiden-stay-parks-20261115/source-checks.json"
+  },
+  "hospitality-followup-20261116:hotel.leiden-steenhof:source.steenhoffacilities": {
+    "url": "https://steenhofsuites.nl/faciliteiten-arrangement/",
+    "finalUrl": "https://steenhofsuites.nl/faciliteiten-arrangement/",
+    "httpStatus": 200,
+    "sha256": "d23bbe977c6cc012bfea9be706e43624501db22ceb7cf0ed26a2a9b933913310",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8",
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/leiden-stay-parks-20261115/source-checks.json"
+  },
+  "hospitality-followup-20261116:hotel.leiden-steenhof:source.steenhoftourism": {
+    "url": "https://www.visitleiden.nl/nl/locaties/4129642951/steenhof-suites",
+    "finalUrl": "https://www.visitleiden.nl/nl/locaties/4129642951/steenhof-suites",
+    "httpStatus": 200,
+    "sha256": "5659f9fbac416c6f4e2b4b52c8fb51088ded1cbe12b910a28bb39b4b3a46b89c",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8",
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/leiden-stay-parks-20261115/source-checks.json"
+  },
+  "hospitality-followup-20261116:cafe.den-haag-kaafi:source.denhaagkaafi": {
+    "url": "https://kaafi.nl/contact-us",
+    "finalUrl": "https://kaafi.nl/contact-us",
+    "httpStatus": 200,
+    "sha256": "5f783429abc7d71a66394728722ddd5aac28469a863a191a7674f7c4bead1def",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html;charset=utf-8",
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json"
+  },
+  "hospitality-followup-20261116:cafe.den-haag-kaafi:source.kaafikitchen": {
+    "url": "https://kaafi.nl/breakfast-brunch-and-lunch-in-the-hague",
+    "finalUrl": "https://kaafi.nl/breakfast-brunch-and-lunch-in-the-hague",
+    "httpStatus": 200,
+    "sha256": "d2b2d68c2020792fc31346532c46772b50e53f1bcc42647c9153c4b418005337",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html;charset=utf-8",
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json"
+  },
+  "hospitality-followup-20261116:cafe.den-haag-kaafi:source.pdok": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Prinsestraat+25+Den+Haag&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Prinsestraat+25+Den+Haag&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-15",
+    "sha256": "c3bc3058e33e2e1bea2f04ac33c49eca91e867c047d122202473711f1d8789b4",
+    "selectedAddress": {
+      "id": "adr-dae1d5db1588bdd35856dd01c39009d7",
+      "weergavenaam": "Prinsestraat 25, 2513CA 's-Gravenhage",
+      "centroide_ll": "POINT(4.30619013 52.07870536)",
+      "nummeraanduiding_id": "0518200000650706",
+      "woonplaatsnaam": "'s-Gravenhage"
+    },
+    "method": "official address geocoder; not an entrance survey",
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json"
+  },
+  "hospitality-followup-20261116:cafe.utrecht-koffie-leute:source.utrechtkoffieleute": {
+    "url": "https://www.koffieleute.nl/",
+    "finalUrl": "https://www.koffieleute.nl/",
+    "httpStatus": 200,
+    "sha256": "1c5acbeef15b4e610ed95af470198bdb4fdf1d1bf0e66784548d0672ab5abb9c",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8",
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json"
+  },
+  "hospitality-followup-20261116:koffieleute-bag": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Westerkade+30+Utrecht&fq=type%3Aadres&rows=5",
+    "checkedAt": "2026-11-16",
+    "httpStatus": 200,
+    "sha256": "64b0e2a26cc1d7a59dd096ef4f151746416ffa7350e8989e0ee187f39f9a5d88",
+    "recheckedThisBatch": true,
+    "selectedAddress": {
+      "bron": "BAG",
+      "woonplaatscode": "3295",
+      "type": "adres",
+      "woonplaatsnaam": "Utrecht",
+      "wijkcode": "WK034406",
+      "huis_nlt": "30",
+      "openbareruimtetype": "Weg",
+      "buurtnaam": "Bleekstraat en omgeving",
+      "gemeentecode": "0344",
+      "rdf_seealso": "http://bag.basisregistraties.overheid.nl/bag/id/nummeraanduiding/0344200000190271",
+      "weergavenaam": "Westerkade 30, 3511HC Utrecht",
+      "straatnaam_verkort": "Westerkd",
+      "id": "adr-ee5bef64e8660fb0e861a42195d3d914",
+      "gekoppeld_perceel": [
+        "TSG00-A-2168"
+      ],
+      "gemeentenaam": "Utrecht",
+      "buurtcode": "BU03440627",
+      "wijknaam": "Wijk 06 Binnenstad",
+      "identificatie": "0344010000187170-0344200000190271",
+      "openbareruimte_id": "0344300000000709",
+      "waterschapsnaam": "Hoogheemraadschap De Stichtse Rijnlanden",
+      "provinciecode": "PV26",
+      "postcode": "3511HC",
+      "provincienaam": "Utrecht",
+      "centroide_ll": "POINT(5.12255925 52.07947745)",
+      "nummeraanduiding_id": "0344200000190271",
+      "waterschapscode": "14",
+      "adresseerbaarobject_id": "0344010000187170",
+      "huisnummer": 30,
+      "provincieafkorting": "UT",
+      "centroide_rd": "POINT(136858.623 454611.244)",
+      "straatnaam": "Westerkade",
+      "score": 13.907439
+    }
+  },
+  "hospitality-followup-20261116:hotel.den-haag-collector:source.denhaagcollector": {
+    "url": "https://www.thecollectorhotel.com/contact",
+    "finalUrl": "https://www.thecollectorhotel.com/contact",
+    "httpStatus": 200,
+    "sha256": "5552d3151e96092a29c3ac88fc106014ce7de70eb0c4f90a19cfdad9b75300de",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html;charset=utf-8",
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json"
+  },
+  "hospitality-followup-20261116:hotel.den-haag-collector:source.collectorrooms": {
+    "url": "https://www.thecollectorhotel.com/rooms",
+    "finalUrl": "https://www.thecollectorhotel.com/rooms",
+    "httpStatus": 200,
+    "sha256": "d285599044cd5c624ddaaf7daf681ddb5e1bd28a775d297b9034ba1c4d7893d5",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html;charset=utf-8",
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json"
+  },
+  "hospitality-followup-20261116:hotel.den-haag-collector:source.collectorfaq": {
+    "url": "https://www.thecollectorhotel.com/faq",
+    "finalUrl": "https://www.thecollectorhotel.com/faq",
+    "httpStatus": 200,
+    "sha256": "fd3c7534f8a6ae309b250c699052a37846ae27ae784ad357c541f56c62311bcc",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html;charset=utf-8",
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json"
+  },
+  "hospitality-followup-20261116:hotel.den-haag-collector:source.pdok": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Haagsche+Bluf+52+Den+Haag&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Haagsche+Bluf+52+Den+Haag&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-15",
+    "sha256": "9be41f5dc46c1dafeabdd168e43b27186f4c699ceff3582f9b206c5524aa12e1",
+    "selectedAddress": {
+      "id": "adr-08556f4bf2818bc967541b845186858f",
+      "weergavenaam": "Haagsche Bluf 52, 2511CP 's-Gravenhage",
+      "centroide_ll": "POINT(4.30952044 52.0770521)",
+      "nummeraanduiding_id": "0518200000452157",
+      "woonplaatsnaam": "'s-Gravenhage"
+    },
+    "method": "official address geocoder; not an entrance survey",
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json"
+  },
+  "hospitality-followup-20261116:hotel.utrecht-nox:source.utrechtnox": {
+    "url": "https://www.thenoxhotel.com/en/contact",
+    "finalUrl": "https://www.thenoxhotel.com/en/contact",
+    "httpStatus": 200,
+    "sha256": "a18e03083f56af0972f6fb1b76544ccb6135ba194da6dd723bacfabbf2975376",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8",
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json"
+  },
+  "hospitality-followup-20261116:hotel.utrecht-nox:source.noxfaq": {
+    "url": "https://www.thenoxhotel.com/en/faq",
+    "finalUrl": "https://www.thenoxhotel.com/en/faq",
+    "httpStatus": 200,
+    "sha256": "6ddc1a86c2abfd106758c45e34209938bd8d51cf71026f3306badc0443c2c997",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8",
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json"
+  },
+  "hospitality-followup-20261116:hotel.utrecht-nox:source.pdok": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Keistraat+8+Utrecht&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Keistraat+8+Utrecht&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-15",
+    "sha256": "b15c9a69f7396c20b2f7d81b5d056ae7ba7c23239123d25fd04d4a3198d7a036",
+    "selectedAddress": {
+      "id": "adr-2566b1f0fd8900e5489e685a5e239a89",
+      "weergavenaam": "Keistraat 8, 3512HV Utrecht",
+      "centroide_ll": "POINT(5.12296158 52.09229311)",
+      "nummeraanduiding_id": "0344200000196848",
+      "woonplaatsnaam": "Utrecht"
+    },
+    "method": "official address geocoder; not an entrance survey",
+    "recheckedThisBatch": false,
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Stadhouderskade+78+Amsterdam&fq=type%3Aadres&rows=3",
+  "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Stadhouderskade+78+Amsterdam&fq=type%3Aadres&rows=3",
+  "httpStatus": 200,
+  "contentType": "application/json;charset=utf-8",
+  "sha256": "d396ca46a6a0bcf1920902ca3c174f21a4e34d0842fa763c364600f2381fdebf",
+  "file": "27caba88a0bf989f.html",
+  "checkedAt": "2026-11-16",
+  "selectedAddress": {
+    "woonplaatsnaam": "Amsterdam",
+    "weergavenaam": "Stadhouderskade 78, 1072AE Amsterdam",
+    "id": "adr-bd90e11395f4fb9c80b17ab7f6a1c3ce",
+    "postcode": "1072AE",
+    "centroide_ll": "POINT(4.89149626 52.35786937)",
+    "nummeraanduiding_id": "0363200000277181",
+    "huisnummer": 78,
+    "straatnaam": "Stadhouderskade"
+  },
+  "method": "official BAG address geocoder; not an entrance survey"
+}

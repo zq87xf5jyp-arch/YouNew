@@ -1,0 +1,29 @@
+{
+  "checkedAt": "2026-11-16",
+  "source": "https://www.flickr.com/photos/8142720@N04/7913701884",
+  "httpStatus": 200,
+  "htmlSha256": "87fd0c2230fcbd4c4ef67b3cc68195f83237d5a4908180d3a78cae24b561b88d",
+  "imageObject": {
+    "@context": "https://schema.org/",
+    "@type": "ImageObject",
+    "contentUrl": "https://live.staticflickr.com/8031/7913701884_7d267691f2_z.jpg",
+    "license": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "acquireLicensePage": "https://www.flickr.com/photos/nellekepoorthuis/7913701884",
+    "author": {
+      "@type": "Person",
+      "name": "Nelleke Poorthuis",
+      "url": "https://www.flickr.com/photos/nellekepoorthuis",
+      "image": "https://live.staticflickr.com/1343/buddyicons/8142720@N04.jpg?1186733526#8142720@N04"
+    },
+    "creator": {
+      "@type": "Person",
+      "name": "Nelleke Poorthuis",
+      "url": "https://www.flickr.com/photos/nellekepoorthuis",
+      "image": "https://live.staticflickr.com/1343/buddyicons/8142720@N04.jpg?1186733526#8142720@N04"
+    }
+  },
+  "dateTaken": "2012-09-02 16:26:30",
+  "isDateTakenUnknown": true,
+  "decision": "Rejected for the existing cafe card: coffee preparation/logo only, location Westerkade 30 not established. No new photo added to records.",
+  "visualInspection": true
+}

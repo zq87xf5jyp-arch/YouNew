@@ -1,0 +1,58 @@
+{
+  "checkedAt": "2026-11-16",
+  "publicationAuthorized": false,
+  "recordsSha256": "88fa7dfe1c8abe5fe1cbc9a7994c70ca7c138063b870c16a0353ba6486afa677",
+  "placementIsRecommendationOnly": true,
+  "cards": [
+    {
+      "id": "hotel.leiden-ibis",
+      "recommendedUse": "hero_candidate",
+      "reasonRU": "Фасад и вывеска отчётливо узнаваемы. Подпись «май 2014» обязательна; современный вид и состояние не подтверждены. При строгом требовании актуального фото — заменить.",
+      "activeFile": "ibisleiden-1200.webp",
+      "sha256": "13146b3ab2d7b20290497d443c9145a1dff2c61caec21f843d85c5e48d17d280",
+      "author": "Vysotsky",
+      "created": "2014-05-09",
+      "license": "CC BY-SA 3.0"
+    },
+    {
+      "id": "nature.leiden-rembrandtpark",
+      "recommendedUse": "archive_gallery",
+      "reasonRU": "Июль 1986 года. Не использовать как изображение текущего состояния парка; для главной фотографии нужен современный снимок.",
+      "activeFile": "rembrandtpark-1200.webp",
+      "sha256": "dfb13bdffdc972bb7c121b6e767f22a5ddb34dcf65adc28d3b092ff2adf93453",
+      "author": "Gemeente Leiden Afdeling Monumentenzorg; Erfgoed Leiden en Omstreken",
+      "created": "1986-07",
+      "license": "CC0"
+    },
+    {
+      "id": "hotel.leiden-rembrandt-hotel",
+      "recommendedUse": "archive_gallery",
+      "reasonRU": "Июль 2015. Дерево и автомобили закрывают часть фасада/вывески; это вид улицы, а не ясный портрет отеля.",
+      "activeFile": "rembrandthotel-1200.webp",
+      "sha256": "598fbda97a92a1cf13741e206ca6b631fd6bce83f44c17fe6603b7de1a72306d",
+      "author": "Xsandriel",
+      "created": "2015-07-10",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "id": "restaurant.eindhoven-kazerne",
+      "recommendedUse": "archive_gallery",
+      "reasonRU": "Март 2020. Прежняя вывеска Benz; это исторический фасад комплекса, не текущий интерьер BarBistro. Нужна новая главная фотография.",
+      "activeFile": "kazerne-1200.webp",
+      "sha256": "6423398ec6c729222fa3a884ab5b8904ec79c0124e697396b1318373b56fd010",
+      "author": "Rosemoon",
+      "created": "2020-03-17",
+      "license": "CC BY-SA 4.0"
+    },
+    {
+      "id": "hotel.rotterdam-supernova",
+      "recommendedUse": "archive_gallery",
+      "reasonRU": "Сентябрь 2022. Временный декор воздушными шарами, не обещание оформления при бронировании. Новый файл 1024×768, без увеличения; для главной фотографии предпочтителен нейтральный актуальный кадр.",
+      "activeFile": "supernova-1024.webp",
+      "sha256": "ba78c398b0962c7e430e89be785bd42f7cc96a65b63245dc8a8aca328ea669f0",
+      "author": "Rotterdams Ballonnenbedrijf",
+      "created": "2022-09-03",
+      "license": "CC BY 2.0"
+    }
+  ]
+}

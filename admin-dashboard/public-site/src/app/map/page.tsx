@@ -1,3 +1,4 @@
+import {preferredMedia} from "@/components/content-media";
 import { EntityCard } from "@/components/entity-card";
 import { MapPinned } from "lucide-react";
 import { Breadcrumbs } from "@/components/breadcrumbs";
@@ -31,9 +32,7 @@ function getPublishedMapItems(): CoverageMapItem[] {
       coordinate: entity.coordinate,
       verifiedAt: entity.verifiedAt,
       sourcePublisher: entity.source.publisher,
-      image: entity.images.find((image) => image.role === "thumbnail")
-        ?? entity.images.find((image) => image.role === "hero")
-        ?? entity.images[0]
+      image: preferredMedia(entity.images,["thumbnail","hero","gallery"]) ?? undefined
     }];
   }).sort((left, right) => left.title.localeCompare(right.title));
 }

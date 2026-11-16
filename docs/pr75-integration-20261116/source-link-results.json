@@ -1,0 +1,2138 @@
+[
+  {
+    "url": "https://30ml.nl/en/locations/30ml-leiden/",
+    "ids": [
+      "cafe.leiden-30ml"
+    ],
+    "checkedAt": "2026-11-16T19:07:13.583995+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://30ml.nl/en/locations/30ml-leiden/",
+    "bytes": 34395,
+    "sha256": "124ca798cc390207155a0e06cd9e351b8b472139bcb7d9b60db66b0163a940a2",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://30ml.nl/en/menu/",
+    "ids": [
+      "cafe.leiden-30ml"
+    ],
+    "checkedAt": "2026-11-16T19:07:13.585589+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://30ml.nl/en/menu/",
+    "bytes": 52110,
+    "sha256": "839423ee543676caedf8b6fad72ab4285ba7ed4cb517ccb29ecf8bf57ca5f6d7",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://all.accor.com/hotel/8087/index.en.shtml",
+    "ids": [
+      "hotel.leiden-ibis"
+    ],
+    "checkedAt": "2026-11-16T19:07:13.586009+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://all.accor.com/hotel/8087/index.en.shtml",
+    "bytes": 329454,
+    "sha256": "7845b73075d56af461fdd240f9fb4b59bd48cd79c6fe88137c395088b3ff36eb",
+    "contentType": "text/html;charset=UTF-8"
+  },
+  {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Aalmarkt+11%2C+2311+EC+Leiden&fq=type%3Aadres&rows=5",
+    "ids": [
+      "cafe.leiden-brownies"
+    ],
+    "checkedAt": "2026-11-16T19:07:13.817820+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Aalmarkt+11%2C+2311+EC+Leiden&fq=type%3Aadres&rows=5",
+    "bytes": 6715,
+    "sha256": "a53e947525e412dd5cdc527c6de35a873dfed4d4c91430d9ac67702e9149e19c",
+    "contentType": "application/json;charset=utf-8"
+  },
+  {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Botermarkt+3%2C+2311+EM+Leiden&fq=type%3Aadres&rows=5",
+    "ids": [
+      "cafe.leiden-30ml"
+    ],
+    "checkedAt": "2026-11-16T19:07:13.940903+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Botermarkt+3%2C+2311+EM+Leiden&fq=type%3Aadres&rows=5",
+    "bytes": 6805,
+    "sha256": "f9e2fbb89e28e91c21469a6041371cbdf4359ac8e8e10d163d83a2be379ed7ff",
+    "contentType": "application/json;charset=utf-8"
+  },
+  {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Catharinasteeg+5%2C+Leiden&fq=type%3Aadres&rows=5",
+    "ids": [
+      "cafe.leiden-barista"
+    ],
+    "checkedAt": "2026-11-16T19:07:14.039615+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Catharinasteeg+5%2C+Leiden&fq=type%3Aadres&rows=5",
+    "bytes": 6441,
+    "sha256": "d28de1cd9fdb4cac7c6eeb0efe79c4306e5c8ce6a1c8b77813f5efbe8c097ed8",
+    "contentType": "application/json;charset=utf-8"
+  },
+  {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Dam+12+Amsterdam&fq=type%3Aadres&rows=3",
+    "ids": [
+      "place.de-nieuwe-kerk-amsterdam"
+    ],
+    "checkedAt": "2026-11-16T19:07:14.223339+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Dam+12+Amsterdam&fq=type%3Aadres&rows=3",
+    "bytes": 3947,
+    "sha256": "0c5958a31aefbeddd143fc95f28f2bbe45234b2dbab7cbbb37a7f91390d8f479",
+    "contentType": "application/json;charset=utf-8"
+  },
+  {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Haagsche+Bluf+52+Den+Haag&fq=type%3Aadres&rows=3",
+    "ids": [
+      "hotel.den-haag-collector"
+    ],
+    "checkedAt": "2026-11-16T19:07:14.366422+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Haagsche+Bluf+52+Den+Haag&fq=type%3Aadres&rows=3",
+    "bytes": 3948,
+    "sha256": "a1551e759c9beb21daccf40e623c62861fb853f08e75c2cde4ef2638e3fb29e7",
+    "contentType": "application/json;charset=utf-8"
+  },
+  {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Hannie+Dankbaarpassage+47+Amsterdam&fq=type%3Aadres&rows=3",
+    "ids": [
+      "place.de-hallen-amsterdam"
+    ],
+    "checkedAt": "2026-11-16T19:07:14.388230+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Hannie+Dankbaarpassage+47+Amsterdam&fq=type%3Aadres&rows=3",
+    "bytes": 4215,
+    "sha256": "4e1aceae6f128369a888ef8ae71b439ab53ce9b2a0c21bdc13669f6c85f3b398",
+    "contentType": "application/json;charset=utf-8"
+  },
+  {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Haven+1%2C+2312+MG+Leiden&fq=type%3Aadres&rows=5",
+    "ids": [
+      "restaurant.leiden-bikini"
+    ],
+    "checkedAt": "2026-11-16T19:07:14.503745+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Haven+1%2C+2312+MG+Leiden&fq=type%3Aadres&rows=5",
+    "bytes": 6465,
+    "sha256": "c34ca206a20456086e2f72bedcf589e1807ea9a5cbd65a78956242e67b0318d3",
+    "contentType": "application/json;charset=utf-8"
+  },
+  {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Honingerdijk+86+Rotterdam&fq=type%3Aadres&rows=3",
+    "ids": [
+      "nature.rotterdam-trompenburg"
+    ],
+    "checkedAt": "2026-11-16T19:07:14.661486+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Honingerdijk+86+Rotterdam&fq=type%3Aadres&rows=3",
+    "bytes": 4310,
+    "sha256": "b26b97ccce86d043699ac32cf0114ee47a3da074a59359f067729ef740d69031",
+    "contentType": "application/json;charset=utf-8"
+  },
+  {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=IJpromenade+4+Amsterdam&fq=type%3Aadres&rows=3",
+    "ids": [
+      "place.adam-lookout"
+    ],
+    "checkedAt": "2026-11-16T19:07:14.665195+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=IJpromenade+4+Amsterdam&fq=type%3Aadres&rows=3",
+    "bytes": 3972,
+    "sha256": "a6d5014e0310e9734af792ea6394cb293c903b92ae9326165b56e5fca457a728",
+    "contentType": "application/json;charset=utf-8"
+  },
+  {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Johan+Cruijff+Boulevard+1+Amsterdam&fq=type%3Aadres&rows=3",
+    "ids": [
+      "place.johan-cruijff-arena"
+    ],
+    "checkedAt": "2026-11-16T19:07:14.768819+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Johan+Cruijff+Boulevard+1+Amsterdam&fq=type%3Aadres&rows=3",
+    "bytes": 4222,
+    "sha256": "30f2a8ae482de69cff40deeba9fd23d4464168e4b7a5497fea2fba562fec8b02",
+    "contentType": "application/json;charset=utf-8"
+  },
+  {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Kaiserstraat+7%2C+2311+GN+Leiden&fq=type%3Aadres&rows=5",
+    "ids": [
+      "restaurant.leiden-verboden-toegang"
+    ],
+    "checkedAt": "2026-11-16T19:07:14.818478+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Kaiserstraat+7%2C+2311+GN+Leiden&fq=type%3Aadres&rows=5",
+    "bytes": 6776,
+    "sha256": "2c437d6a1276788fdbd9e35b3462adf588e5c6fb37baeb5f55692799331efe25",
+    "contentType": "application/json;charset=utf-8"
+  },
+  {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Keistraat+8+Utrecht&fq=type%3Aadres&rows=3",
+    "ids": [
+      "hotel.utrecht-nox"
+    ],
+    "checkedAt": "2026-11-16T19:07:14.918156+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Keistraat+8+Utrecht&fq=type%3Aadres&rows=3",
+    "bytes": 3989,
+    "sha256": "b15c9a69f7396c20b2f7d81b5d056ae7ba7c23239123d25fd04d4a3198d7a036",
+    "contentType": "application/json;charset=utf-8"
+  },
+  {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Museumpark+11+Rotterdam&fq=type%3Aadres&rows=3",
+    "ids": [
+      "museum.rotterdam-chabot"
+    ],
+    "checkedAt": "2026-11-16T19:07:14.958604+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Museumpark+11+Rotterdam&fq=type%3Aadres&rows=3",
+    "bytes": 3909,
+    "sha256": "8ebf867c7906723ff840d13c3dd2b3648d2158c1408ee475a268e52f10eed772",
+    "contentType": "application/json;charset=utf-8"
+  },
+  {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Neude+11+Utrecht&fq=type%3Aadres&rows=3",
+    "ids": [
+      "place.utrecht-neude"
+    ],
+    "checkedAt": "2026-11-16T19:07:15.029485+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Neude+11+Utrecht&fq=type%3Aadres&rows=3",
+    "bytes": 4010,
+    "sha256": "e2bddf2fe72c175bdbafa5e245eddb4cb2f0c5c6a2d0a7978b6617f0b210558a",
+    "contentType": "application/json;charset=utf-8"
+  },
+  {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Nieuwe+Rijn+41%2C+2312+JG+Leiden&fq=type%3Aadres&rows=5",
+    "ids": [
+      "cafe.leiden-borgman"
+    ],
+    "checkedAt": "2026-11-16T19:07:15.071761+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Nieuwe+Rijn+41%2C+2312+JG+Leiden&fq=type%3Aadres&rows=5",
+    "bytes": 6552,
+    "sha256": "892cb8449f238b432917343954f554f20322ffa56609dc8a088be7cc519d89e9",
+    "contentType": "application/json;charset=utf-8"
+  },
+  {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Nieuwe+Rijn+5%2C+2312+JB+Leiden&fq=type%3Aadres&rows=5",
+    "ids": [
+      "restaurant.leiden-dende"
+    ],
+    "checkedAt": "2026-11-16T19:07:15.186341+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Nieuwe+Rijn+5%2C+2312+JB+Leiden&fq=type%3Aadres&rows=5",
+    "bytes": 6534,
+    "sha256": "757535f28228b3525a155baffc1d3fb463a52d4d056ea4a938b55dc5cfd4e953",
+    "contentType": "application/json;charset=utf-8"
+  },
+  {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Oosterdokskade+143+Amsterdam&fq=type%3Aadres&rows=3",
+    "ids": [
+      "place.oba-oosterdok"
+    ],
+    "checkedAt": "2026-11-16T19:07:15.206117+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Oosterdokskade+143+Amsterdam&fq=type%3Aadres&rows=3",
+    "bytes": 4139,
+    "sha256": "fe678ff6aec92835621000f9b79e0fad59d18df5aadb9aef492106789fcbd34f",
+    "contentType": "application/json;charset=utf-8"
+  },
+  {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Oude+Singel+30%2C+2312+RA+Leiden&fq=type%3Aadres&rows=5",
+    "ids": [
+      "place.leiden-cafe-laken"
+    ],
+    "checkedAt": "2026-11-16T19:07:15.262485+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Oude+Singel+30%2C+2312+RA+Leiden&fq=type%3Aadres&rows=5",
+    "bytes": 6852,
+    "sha256": "1409402419ee6935f9c9df8c785df22ea8fd699c4127f63bf47f51b2284189a9",
+    "contentType": "application/json;charset=utf-8"
+  },
+  {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Oudekerksplein+23+Amsterdam&fq=type%3Aadres&rows=3",
+    "ids": [
+      "place.oude-kerk"
+    ],
+    "checkedAt": "2026-11-16T19:07:15.321997+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Oudekerksplein+23+Amsterdam&fq=type%3Aadres&rows=3",
+    "bytes": 3981,
+    "sha256": "c74aacfc5314270e67fa31ba8a57da771eefed6370817c72d978d51f4c86d3a5",
+    "contentType": "application/json;charset=utf-8"
+  },
+  {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Paradijslaan+2+Eindhoven&fq=type%3Aadres&rows=3",
+    "ids": [
+      "restaurant.eindhoven-kazerne"
+    ],
+    "checkedAt": "2026-11-16T19:07:15.359571+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Paradijslaan+2+Eindhoven&fq=type%3Aadres&rows=3",
+    "bytes": 3872,
+    "sha256": "c717e5bcd88e3ef0ab8a0acf3daafb1c0532fc3465afac32b7f83a6ee62c13d7",
+    "contentType": "application/json;charset=utf-8"
+  },
+  {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Plantage+Kerklaan+38+Amsterdam&fq=type%3Aadres&rows=3",
+    "ids": [
+      "place.artis"
+    ],
+    "checkedAt": "2026-11-16T19:07:15.379585+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Plantage+Kerklaan+38+Amsterdam&fq=type%3Aadres&rows=3",
+    "bytes": 4053,
+    "sha256": "45aa83557bd8554582fd2e0f36dc7f954d9017ba7ca547fc5987425c10e5b90f",
+    "contentType": "application/json;charset=utf-8"
+  },
+  {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Plantage+Middenlaan+2A+Amsterdam&fq=type%3Aadres&rows=3",
+    "ids": [
+      "place.hortus-botanicus-amsterdam"
+    ],
+    "checkedAt": "2026-11-16T19:07:15.452612+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Plantage+Middenlaan+2A+Amsterdam&fq=type%3Aadres&rows=3",
+    "bytes": 4241,
+    "sha256": "390a0d75ec30990437ba3d175461ce82f4c989710d84d8f18cb79a1198d39732",
+    "contentType": "application/json;charset=utf-8"
+  },
+  {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Prinsengracht+279+Amsterdam&fq=type%3Aadres&rows=3",
+    "ids": [
+      "place.westerkerk"
+    ],
+    "checkedAt": "2026-11-16T19:07:15.509254+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Prinsengracht+279+Amsterdam&fq=type%3Aadres&rows=3",
+    "bytes": 4075,
+    "sha256": "119952467eed37128a2eebf9fe1525316d62e53015d77f31ba634f18c3b36603",
+    "contentType": "application/json;charset=utf-8"
+  },
+  {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Prinsestraat+25+Den+Haag&fq=type%3Aadres&rows=3",
+    "ids": [
+      "cafe.den-haag-kaafi"
+    ],
+    "checkedAt": "2026-11-16T19:07:15.518247+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Prinsestraat+25+Den+Haag&fq=type%3Aadres&rows=3",
+    "bytes": 4264,
+    "sha256": "3d61428e495c378688d1b5c8df2a60e78c735579f018223f8c1252b210da79c5",
+    "contentType": "application/json;charset=utf-8"
+  },
+  {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Rembrandtstraat+27%2C+2311+VV+Leiden&fq=type%3Aadres&rows=5",
+    "ids": [
+      "restaurant.leiden-tabu"
+    ],
+    "checkedAt": "2026-11-16T19:07:15.595456+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Rembrandtstraat+27%2C+2311+VV+Leiden&fq=type%3Aadres&rows=5",
+    "bytes": 6801,
+    "sha256": "5e5808cdbb0bde799886ac5a7f91ddf7a4c86abf2caba76a562c024a863c978f",
+    "contentType": "application/json;charset=utf-8"
+  },
+  {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Stadhouderskade+78+Amsterdam&fq=type%3Aadres&rows=3",
+    "ids": [
+      "place.heineken-experience"
+    ],
+    "checkedAt": "2026-11-16T19:07:15.618599+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Stadhouderskade+78+Amsterdam&fq=type%3Aadres&rows=3",
+    "bytes": 4047,
+    "sha256": "d396ca46a6a0bcf1920902ca3c174f21a4e34d0842fa763c364600f2381fdebf",
+    "contentType": "application/json;charset=utf-8"
+  },
+  {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Stationsweg+25%2C+Leiden&fq=type%3Aadres&rows=5",
+    "ids": [
+      "cafe.leiden-paco-ciao"
+    ],
+    "checkedAt": "2026-11-16T19:07:15.725031+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Stationsweg+25%2C+Leiden&fq=type%3Aadres&rows=5",
+    "bytes": 7061,
+    "sha256": "a27cf8f90935a80e4af12bf5afe21c2169f14e40674c5b59f232567b5dacba79",
+    "contentType": "application/json;charset=utf-8"
+  },
+  {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Westerkade+30+Utrecht&fq=type%3Aadres&rows=5",
+    "ids": [
+      "cafe.utrecht-koffie-leute"
+    ],
+    "checkedAt": "2026-11-16T19:07:15.778763+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Westerkade+30+Utrecht&fq=type%3Aadres&rows=5",
+    "bytes": 6662,
+    "sha256": "64b0e2a26cc1d7a59dd096ef4f151746416ffa7350e8989e0ee187f39f9a5d88",
+    "contentType": "application/json;charset=utf-8"
+  },
+  {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Zonnenburg+2+Utrecht&fq=type%3Aadres&rows=3",
+    "ids": [
+      "museum.utrecht-sonnenborgh"
+    ],
+    "checkedAt": "2026-11-16T19:07:15.820294+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Zonnenburg+2+Utrecht&fq=type%3Aadres&rows=3",
+    "bytes": 3952,
+    "sha256": "a2f08e598d06482618a43dfe3488e4e4b7dd6b0e0381de6e708d561184e1a36f",
+    "contentType": "application/json;charset=utf-8"
+  },
+  {
+    "url": "https://caferestaurantbikini.nl/contact/",
+    "ids": [
+      "restaurant.leiden-bikini"
+    ],
+    "checkedAt": "2026-11-16T19:07:15.827431+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://caferestaurantbikini.nl/contact/",
+    "bytes": 40878,
+    "sha256": "94e5f4c82b18e09ce3bb9031e4d2e35c40cca040e0012e07c2603bcfc98c1ea4",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://caferestaurantbikini.nl/menu/",
+    "ids": [
+      "restaurant.leiden-bikini"
+    ],
+    "checkedAt": "2026-11-16T19:07:15.891566+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://caferestaurantbikini.nl/menu/",
+    "bytes": 41000,
+    "sha256": "02c77efabfe26469e9001e6c07a1cfe2fd50d5c99b5de359cc78c3410dde0686",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://caferestaurantbikini.nl/over/",
+    "ids": [
+      "restaurant.leiden-bikini"
+    ],
+    "checkedAt": "2026-11-16T19:07:15.936775+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://caferestaurantbikini.nl/over/",
+    "bytes": 35540,
+    "sha256": "4f23a075ec02fefec4af90bbb1d8191785e045fa5697f7ef67a12745622dff8f",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://chabotmuseum.nl/bezoekers/",
+    "ids": [
+      "museum.rotterdam-chabot"
+    ],
+    "checkedAt": "2026-11-16T19:07:16.760063+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://chabotmuseum.nl/bezoekers/",
+    "bytes": 67794,
+    "sha256": "a7cc9d2d62dab5bb8d6e7d64de767cb5b326755e403a45079b10bc46151ce160",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://chabotmuseum.nl/collectie/",
+    "ids": [
+      "museum.rotterdam-chabot"
+    ],
+    "checkedAt": "2026-11-16T19:07:16.767064+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://chabotmuseum.nl/collectie/",
+    "bytes": 68539,
+    "sha256": "b70c192a2690c38fc5b80653bc4770a2c8c584ec3ec8f3fc48aeecc5464c7d9b",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://chabotmuseum.nl/the-villa/",
+    "ids": [
+      "museum.rotterdam-chabot"
+    ],
+    "checkedAt": "2026-11-16T19:07:16.768307+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://chabotmuseum.nl/the-villa/",
+    "bytes": 57563,
+    "sha256": "a0856f8df3b984e7f7d70221cd8e755ebafd7d4b51a3a50b052c0f91cb269aa0",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://commons.wikimedia.org/wiki/File:%27Prins_Hendrik%27,_Objectnr_PV_PV29329R.5.jpg",
+    "ids": [
+      "nature.leiden-rembrandtpark"
+    ],
+    "checkedAt": "2026-11-16T19:07:17.285795+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://commons.wikimedia.org/wiki/File:%27Prins_Hendrik%27,_Objectnr_PV_PV29329R.5.jpg",
+    "bytes": 78154,
+    "sha256": "17dc758f9f3ba14a3d827233d7206f7bab7095b9390ea2e6925c88e1e289b0dd",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://commons.wikimedia.org/wiki/File:0772_WN176_Paradijslaan_4,_4a,_6,_6a,_Eindhoven.jpg",
+    "ids": [
+      "restaurant.eindhoven-kazerne"
+    ],
+    "checkedAt": "2026-11-16T19:07:17.286021+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://commons.wikimedia.org/wiki/File:0772_WN176_Paradijslaan_4,_4a,_6,_6a,_Eindhoven.jpg",
+    "bytes": 126986,
+    "sha256": "049536d275c4e84e7f56d52daff2bbef7b020d4b96dfbf7db793a2896cb988d6",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://commons.wikimedia.org/wiki/File:Adam_Tower_Amsterdam_2019.jpg",
+    "ids": [
+      "place.adam-lookout"
+    ],
+    "checkedAt": "2026-11-16T19:07:17.286191+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://commons.wikimedia.org/wiki/File:Adam_Tower_Amsterdam_2019.jpg",
+    "bytes": 117118,
+    "sha256": "d1d47d7e6e2aa5bf3f887e9642272924a240a89c27a8681cddd27f464a273521",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://commons.wikimedia.org/wiki/File:Amsterdam_Public_Library_(OBA).jpg",
+    "ids": [
+      "place.oba-oosterdok"
+    ],
+    "checkedAt": "2026-11-16T19:07:17.856307+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://commons.wikimedia.org/wiki/File:Amsterdam_Public_Library_(OBA).jpg",
+    "bytes": 108175,
+    "sha256": "57e1525ccd6b1244aedd76f38050da776261ba7bfef368aed61c103ee479a1c7",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://commons.wikimedia.org/wiki/File:Arboretum_Trompenburg_PICT0340.jpg",
+    "ids": [
+      "nature.rotterdam-trompenburg"
+    ],
+    "checkedAt": "2026-11-16T19:07:17.958504+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://commons.wikimedia.org/wiki/File:Arboretum_Trompenburg_PICT0340.jpg",
+    "bytes": 130076,
+    "sha256": "d6ce29670289996b12d9b5c038200b6b944ece2af85fe5eeae8c7f85704db5f7",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://commons.wikimedia.org/wiki/File:Artis_Toegang1.jpg",
+    "ids": [
+      "place.artis"
+    ],
+    "checkedAt": "2026-11-16T19:07:18.338860+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://commons.wikimedia.org/wiki/File:Artis_Toegang1.jpg",
+    "bytes": 163557,
+    "sha256": "d0a0ad0785151f640620dbdbedcf1e0fc04b35342ece9cacc9feef4e749e2553",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://commons.wikimedia.org/wiki/File:Bruggetje_-_panoramio_-_Marcel030NL.jpg",
+    "ids": [
+      "nature.utrecht-oog-in-al"
+    ],
+    "checkedAt": "2026-11-16T19:07:18.427358+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://commons.wikimedia.org/wiki/File:Bruggetje_-_panoramio_-_Marcel030NL.jpg",
+    "bytes": 124749,
+    "sha256": "249d7d5a5a0a3c3c4fada6774dda132fe92c4747bb31ea9fcce7816f9f846d81",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://commons.wikimedia.org/wiki/File:Chabot_Museum.jpg",
+    "ids": [
+      "museum.rotterdam-chabot"
+    ],
+    "checkedAt": "2026-11-16T19:07:18.678661+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://commons.wikimedia.org/wiki/File:Chabot_Museum.jpg",
+    "bytes": 112631,
+    "sha256": "1ee8d1b4bc2da487c90719a88a9c044a1da90133a90cb26a3d94d9fd148d9e82",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://commons.wikimedia.org/wiki/File:De_Hallen_Amsterdam_2024_Entree_Tollensstraat.jpg",
+    "ids": [
+      "place.de-hallen-amsterdam"
+    ],
+    "checkedAt": "2026-11-16T19:07:18.887507+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://commons.wikimedia.org/wiki/File:De_Hallen_Amsterdam_2024_Entree_Tollensstraat.jpg",
+    "bytes": 102980,
+    "sha256": "ae91f11d5f3be1d65e373c53e7ebe84d49e4f502389782d26c452c3cee987b41",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://commons.wikimedia.org/wiki/File:Exterior_views_of_the_Oude_Kerk_(Amsterdam)_20180701.jpg",
+    "ids": [
+      "place.oude-kerk"
+    ],
+    "checkedAt": "2026-11-16T19:07:19.176406+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://commons.wikimedia.org/wiki/File:Exterior_views_of_the_Oude_Kerk_(Amsterdam)_20180701.jpg",
+    "bytes": 115238,
+    "sha256": "bc96b903195048c5a577b35c54a02119f9953b616091833fa715765e7da3947d",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://commons.wikimedia.org/wiki/File:Fotomuseum_Den_Haag_DSCF3383.jpg",
+    "ids": [
+      "museum.den-haag-fotomuseum"
+    ],
+    "checkedAt": "2026-11-16T19:07:19.205820+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://commons.wikimedia.org/wiki/File:Fotomuseum_Den_Haag_DSCF3383.jpg",
+    "bytes": 118493,
+    "sha256": "d167b9dbcf45aecc585a28060644ff5492690f34bb2634b5ffd5983b359338ad",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://commons.wikimedia.org/wiki/File:Grote_Hal,_Openbare_Bibliotheek_Neude,_Utrecht,_24_oktober_2023_01.jpg",
+    "ids": [
+      "place.utrecht-neude"
+    ],
+    "checkedAt": "2026-11-16T19:07:19.415834+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://commons.wikimedia.org/wiki/File:Grote_Hal,_Openbare_Bibliotheek_Neude,_Utrecht,_24_oktober_2023_01.jpg",
+    "bytes": 115164,
+    "sha256": "e43216f9f1630707018fabee68a471171588be2b45c863f4ff7a7581117f1719",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://commons.wikimedia.org/wiki/File:Haven_1-3,_Leiden.JPG",
+    "ids": [
+      "restaurant.leiden-bikini"
+    ],
+    "checkedAt": "2026-11-16T19:07:19.489917+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://commons.wikimedia.org/wiki/File:Haven_1-3,_Leiden.JPG",
+    "bytes": 114535,
+    "sha256": "57e4d8dc2797fabf544e6d2122c0fb7f630299ef9f6ff68867bdc7e30a11fe21",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://commons.wikimedia.org/wiki/File:Heineken_Experience_Amsterdam_2018_1.jpg",
+    "ids": [
+      "place.heineken-experience"
+    ],
+    "checkedAt": "2026-11-16T19:07:19.546001+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://commons.wikimedia.org/wiki/File:Heineken_Experience_Amsterdam_2018_1.jpg",
+    "bytes": 116380,
+    "sha256": "2e5685aeece34b8bd3b2e2b77a12d352ac41fb3f79154adcb524434002d05acb",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://commons.wikimedia.org/wiki/File:Inkijkmuseum_-_Eindhoven_(2026-09-18).jpg",
+    "ids": [
+      "museum.eindhoven-inkijkmuseum"
+    ],
+    "checkedAt": "2026-11-16T19:07:19.565216+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://commons.wikimedia.org/wiki/File:Inkijkmuseum_-_Eindhoven_(2026-09-18).jpg",
+    "bytes": 110237,
+    "sha256": "d83f2846e01bbaf6445362b931dd7acf57aa873862e64a10c977d7445985f638",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://commons.wikimedia.org/wiki/File:Interior_of_Westerkerk_(Amsterdam)_114314.jpg",
+    "ids": [
+      "place.westerkerk"
+    ],
+    "checkedAt": "2026-11-16T19:07:20.114278+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://commons.wikimedia.org/wiki/File:Interior_of_Westerkerk_(Amsterdam)_114314.jpg",
+    "bytes": 107322,
+    "sha256": "96bd8973a2c1fd7d5d19c2bc2cc3de4a3b7721d7e6e06a11e199f0bfac03f607",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://commons.wikimedia.org/wiki/File:Johan_Cruijff_ArenA_Tour_(40365193963).jpg",
+    "ids": [
+      "place.johan-cruijff-arena"
+    ],
+    "checkedAt": "2026-11-16T19:07:20.189541+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://commons.wikimedia.org/wiki/File:Johan_Cruijff_ArenA_Tour_(40365193963).jpg",
+    "bytes": 118482,
+    "sha256": "279d2449987bc70d08fa4976c6206a578dc36c72aca185e3df99777851bfec72",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://commons.wikimedia.org/wiki/File:Leiden224.JPG",
+    "ids": [
+      "hotel.leiden-ibis"
+    ],
+    "checkedAt": "2026-11-16T19:07:20.233583+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://commons.wikimedia.org/wiki/File:Leiden224.JPG",
+    "bytes": 102974,
+    "sha256": "ebf086921778969521a7b4bec9403d537fa73f38335830d3cda99208f06d70d0",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://commons.wikimedia.org/wiki/File:Leiden_-_Boutiqie_Hotel_D%27Oude_Morsch.jpg",
+    "ids": [
+      "hotel.leiden-oude-morsch"
+    ],
+    "checkedAt": "2026-11-16T19:07:20.510648+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://commons.wikimedia.org/wiki/File:Leiden_-_Boutiqie_Hotel_D%27Oude_Morsch.jpg",
+    "bytes": 158634,
+    "sha256": "920166478308c2957f19ebb27fe2985d7a2318aa8cc44fc010503a5020bc9b11",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://commons.wikimedia.org/wiki/File:Leiden_-_Lakenhal_.jpg",
+    "ids": [
+      "place.leiden-cafe-laken"
+    ],
+    "checkedAt": "2026-11-16T19:07:20.598197+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://commons.wikimedia.org/wiki/File:Leiden_-_Lakenhal_.jpg",
+    "bytes": 155848,
+    "sha256": "0e997fda333afb4561d533a0e60ea68c833096c03d57b12321578028923fa3fe",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://commons.wikimedia.org/wiki/File:Leiden_-_Oude_Singel_212.jpg",
+    "ids": [
+      "hotel.leiden-huys-van-leyden"
+    ],
+    "checkedAt": "2026-11-16T19:07:20.842969+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://commons.wikimedia.org/wiki/File:Leiden_-_Oude_Singel_212.jpg",
+    "bytes": 124041,
+    "sha256": "eda1f14421f48d7a8f48cbeabeb5fae4c7fb5a3188bda9afcd83899711740c81",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://commons.wikimedia.org/wiki/File:Leiden_-_Stationsweg_25_v2.jpg",
+    "ids": [
+      "cafe.leiden-paco-ciao"
+    ],
+    "checkedAt": "2026-11-16T19:07:21.120892+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://commons.wikimedia.org/wiki/File:Leiden_-_Stationsweg_25_v2.jpg",
+    "bytes": 165998,
+    "sha256": "13817ba41d6e05bf2707ea83bbb6db4fc61d9488aaaeb588151deef5a5e7f1b8",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://commons.wikimedia.org/wiki/File:Leiden_-_Steenschuur_11.JPG",
+    "ids": [
+      "hotel.leiden-steenhof"
+    ],
+    "checkedAt": "2026-11-16T19:07:21.274080+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://commons.wikimedia.org/wiki/File:Leiden_-_Steenschuur_11.JPG",
+    "bytes": 110892,
+    "sha256": "a55a2954cdddca724ccccefa0b6fb85a2628d98909c552a7b53f99b69be75362",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://commons.wikimedia.org/wiki/File:Leiden_Kloksteeg_23_en_25.JPG",
+    "ids": [
+      "restaurant.leiden-prentenkabinet"
+    ],
+    "checkedAt": "2026-11-16T19:07:21.739918+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://commons.wikimedia.org/wiki/File:Leiden_Kloksteeg_23_en_25.JPG",
+    "bytes": 113778,
+    "sha256": "fbece661178f4098652a4ffcfcb01acca0163f627eba9c9edda5b6aed2e191ba",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://commons.wikimedia.org/wiki/File:Nieuwe_Kerk_(Amsterdam)_20180701.jpg",
+    "ids": [
+      "place.de-nieuwe-kerk-amsterdam"
+    ],
+    "checkedAt": "2026-11-16T19:07:21.853006+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://commons.wikimedia.org/wiki/File:Nieuwe_Kerk_(Amsterdam)_20180701.jpg",
+    "bytes": 104012,
+    "sha256": "2647f76294b247bf0c65ae2ace6d1ac76a928d87ef8ca2481cfc87fd054182a8",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://commons.wikimedia.org/wiki/File:Nieuwe_beestenmarkt_8,_10-12,_14.JPG",
+    "ids": [
+      "hotel.leiden-rembrandt-hotel"
+    ],
+    "checkedAt": "2026-11-16T19:07:22.042841+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://commons.wikimedia.org/wiki/File:Nieuwe_beestenmarkt_8,_10-12,_14.JPG",
+    "bytes": 100765,
+    "sha256": "f7feae5e8f621c3b7334a3c07bb1cebe5cbc41ec6cb8732522423bbf96aec128",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://commons.wikimedia.org/wiki/File:Oudt_Leyden.jpg",
+    "ids": [
+      "restaurant.leiden-oudt-leyden"
+    ],
+    "checkedAt": "2026-11-16T19:07:22.408537+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://commons.wikimedia.org/wiki/File:Oudt_Leyden.jpg",
+    "bytes": 112778,
+    "sha256": "0db3468346e7b2451d1d0119059a07534e631e05e65b4c8fb21e128fa97c7de2",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://commons.wikimedia.org/wiki/File:Sonnenborgh_Museum_%26_Sterrenwacht.jpg",
+    "ids": [
+      "museum.utrecht-sonnenborgh"
+    ],
+    "checkedAt": "2026-11-16T19:07:22.564366+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://commons.wikimedia.org/wiki/File:Sonnenborgh_Museum_%26_Sterrenwacht.jpg",
+    "bytes": 114551,
+    "sha256": "f83752453daaf214cd8c034cd6d01e7c2ae915ec02177b6f99c91fda52508cd7",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://commons.wikimedia.org/wiki/File:The_interior_of_small_Greenhouse_in_Hortus_Botanicus_of_Amsterdam.jpg",
+    "ids": [
+      "place.hortus-botanicus-amsterdam"
+    ],
+    "checkedAt": "2026-11-16T19:07:22.771237+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://commons.wikimedia.org/wiki/File:The_interior_of_small_Greenhouse_in_Hortus_Botanicus_of_Amsterdam.jpg",
+    "bytes": 126013,
+    "sha256": "402f8fc37ce8721873815af3003f0dc811022490c9cb0fea987099f23340d80f",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://commons.wikimedia.org/wiki/File:Waag_Leiden_6892.jpg",
+    "ids": [
+      "restaurant.leiden-waag"
+    ],
+    "checkedAt": "2026-11-16T19:07:23.085102+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://commons.wikimedia.org/wiki/File:Waag_Leiden_6892.jpg",
+    "bytes": 175646,
+    "sha256": "6e7e8ae9c6b0a30f07907fc7ecdeef3d7cd2228aa4a834900f4c5c1b2fb911bf",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://commons.wikimedia.org/wiki/File:Westbroekpark_rozenbedden.JPG",
+    "ids": [
+      "nature.den-haag-westbroekpark"
+    ],
+    "checkedAt": "2026-11-16T19:07:23.184028+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://commons.wikimedia.org/wiki/File:Westbroekpark_rozenbedden.JPG",
+    "bytes": 115578,
+    "sha256": "069f82e23bc3007a8be11bf06e10e094d45704d45af12b56eaa67014f93903b8",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "ids": [
+      "hotel.leiden-ibis",
+      "museum.utrecht-sonnenborgh",
+      "nature.utrecht-oog-in-al"
+    ],
+    "checkedAt": "2026-11-16T19:07:23.331021+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "bytes": 35431,
+    "sha256": "9a17cd36de36b242cbe4234773116f2036f86a8ce4459af8b37fd120482ca931",
+    "contentType": "text/html"
+  },
+  {
+    "url": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "ids": [
+      "nature.den-haag-westbroekpark",
+      "nature.rotterdam-trompenburg"
+    ],
+    "checkedAt": "2026-11-16T19:07:23.381794+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "bytes": 35431,
+    "sha256": "9a17cd36de36b242cbe4234773116f2036f86a8ce4459af8b37fd120482ca931",
+    "contentType": "text/html"
+  },
+  {
+    "url": "https://creativecommons.org/licenses/by-sa/3.0/nl/deed.en",
+    "ids": [
+      "place.artis"
+    ],
+    "checkedAt": "2026-11-16T19:07:23.464613+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://creativecommons.org/licenses/by-sa/3.0/nl/deed.en",
+    "bytes": 35761,
+    "sha256": "a058a2c966ab070bca2feba3450fb316bcac3342fdba8476a60eb7f9d6f85dc0",
+    "contentType": "text/html"
+  },
+  {
+    "url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "ids": [
+      "cafe.leiden-paco-ciao",
+      "hotel.leiden-oude-morsch",
+      "hotel.leiden-rembrandt-hotel",
+      "museum.eindhoven-inkijkmuseum",
+      "museum.rotterdam-chabot",
+      "place.adam-lookout",
+      "place.de-nieuwe-kerk-amsterdam",
+      "place.heineken-experience",
+      "place.leiden-cafe-laken",
+      "place.oba-oosterdok",
+      "place.oude-kerk",
+      "place.utrecht-neude",
+      "place.westerkerk",
+      "restaurant.eindhoven-kazerne",
+      "restaurant.leiden-bikini"
+    ],
+    "checkedAt": "2026-11-16T19:07:23.579455+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "bytes": 35530,
+    "sha256": "b462fb0a649a8ec875bba7590abad7dc1e72c0456ddec070cf3a28183689dceb",
+    "contentType": "text/html"
+  },
+  {
+    "url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "ids": [
+      "restaurant.leiden-oudt-leyden",
+      "restaurant.leiden-waag"
+    ],
+    "checkedAt": "2026-11-16T19:07:23.797400+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "bytes": 35530,
+    "sha256": "b462fb0a649a8ec875bba7590abad7dc1e72c0456ddec070cf3a28183689dceb",
+    "contentType": "text/html"
+  },
+  {
+    "url": "https://creativecommons.org/licenses/by/2.0",
+    "ids": [
+      "place.johan-cruijff-arena"
+    ],
+    "checkedAt": "2026-11-16T19:07:23.845038+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "bytes": 31822,
+    "sha256": "bbb0dcc37f02552e7270e6d2e06be02672ce29ada816107d6fa91e1e6809714b",
+    "contentType": "text/html"
+  },
+  {
+    "url": "https://creativecommons.org/licenses/by/2.0/",
+    "ids": [
+      "hotel.rotterdam-supernova"
+    ],
+    "checkedAt": "2026-11-16T19:07:23.863554+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "bytes": 31822,
+    "sha256": "bbb0dcc37f02552e7270e6d2e06be02672ce29ada816107d6fa91e1e6809714b",
+    "contentType": "text/html"
+  },
+  {
+    "url": "https://creativecommons.org/licenses/by/3.0",
+    "ids": [
+      "hotel.leiden-huys-van-leyden",
+      "hotel.leiden-steenhof"
+    ],
+    "checkedAt": "2026-11-16T19:07:23.926210+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "bytes": 31824,
+    "sha256": "befae005d7dc8701eed58fe2080fda2889c3749272d6c8aba8e8310114112095",
+    "contentType": "text/html"
+  },
+  {
+    "url": "https://creativecommons.org/licenses/by/3.0/",
+    "ids": [
+      "restaurant.leiden-prentenkabinet"
+    ],
+    "checkedAt": "2026-11-16T19:07:23.944777+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "bytes": 31824,
+    "sha256": "befae005d7dc8701eed58fe2080fda2889c3749272d6c8aba8e8310114112095",
+    "contentType": "text/html"
+  },
+  {
+    "url": "https://creativecommons.org/licenses/by/4.0",
+    "ids": [
+      "museum.den-haag-fotomuseum"
+    ],
+    "checkedAt": "2026-11-16T19:07:23.960542+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "bytes": 31950,
+    "sha256": "8dda1ccec4be91fc80821d4e4fd5c568072b9a3a74b2fdc07c249a27e920ef01",
+    "contentType": "text/html"
+  },
+  {
+    "url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "ids": [
+      "nature.leiden-rembrandtpark",
+      "place.de-hallen-amsterdam",
+      "place.hortus-botanicus-amsterdam"
+    ],
+    "checkedAt": "2026-11-16T19:07:24.109843+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "bytes": 30248,
+    "sha256": "abb4d48fc8b85de52b377dd105532c6c549f515d492a8e1712bc99e7316a1f12",
+    "contentType": "text/html"
+  },
+  {
+    "url": "https://dende.nl/",
+    "ids": [
+      "restaurant.leiden-dende"
+    ],
+    "checkedAt": "2026-11-16T19:07:24.184048+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://dende.nl/",
+    "bytes": 21818,
+    "sha256": "a7372b8cfc69cc07c1b0c672694c27b425dff836ba6513be7e648f5a000325cb",
+    "contentType": "text/html"
+  },
+  {
+    "url": "https://dende.nl/kaart/",
+    "ids": [
+      "restaurant.leiden-dende"
+    ],
+    "checkedAt": "2026-11-16T19:07:24.198355+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://dende.nl/kaart/",
+    "bytes": 3760,
+    "sha256": "e5006a885ad15b78541ea0bff9646ee97e0be8b13aee2464e8ff46884744ab99",
+    "contentType": "text/html"
+  },
+  {
+    "url": "https://denhaag.com/en/westbroekpark",
+    "ids": [
+      "nature.den-haag-westbroekpark"
+    ],
+    "checkedAt": "2026-11-16T19:07:24.201897+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://denhaag.com/en/westbroekpark",
+    "bytes": 154970,
+    "sha256": "c2a47866d1394409c2035d1a64de08ebd25bed84f3a840be56c1e7fff93c53bd",
+    "contentType": "text/html; charset=utf-8"
+  },
+  {
+    "url": "https://kaafi.nl/breakfast-brunch-and-lunch-in-the-hague",
+    "ids": [
+      "cafe.den-haag-kaafi"
+    ],
+    "checkedAt": "2026-11-16T19:07:24.338672+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://kaafi.nl/breakfast-brunch-and-lunch-in-the-hague",
+    "bytes": 531941,
+    "sha256": "71416015a83815a111c258816dfb31f11b4c0c7dfaa9ca3d1df6c1bdafb6ab4f",
+    "contentType": "text/html;charset=utf-8"
+  },
+  {
+    "url": "https://kaafi.nl/contact-us",
+    "ids": [
+      "cafe.den-haag-kaafi"
+    ],
+    "checkedAt": "2026-11-16T19:07:24.366207+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://kaafi.nl/contact-us",
+    "bytes": 158928,
+    "sha256": "1f88e3c8c43820ffeb0b8d0ccb8333fad26e46faade502354e1590c26c08b7f6",
+    "contentType": "text/html;charset=utf-8"
+  },
+  {
+    "url": "https://monumentenregister.cultureelerfgoed.nl/monumenten/5940",
+    "ids": [
+      "place.de-nieuwe-kerk-amsterdam"
+    ],
+    "checkedAt": "2026-11-16T19:07:24.503634+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://monumentenregister.cultureelerfgoed.nl/monumenten/5940",
+    "bytes": 30136,
+    "sha256": "3fa24132d14b23939ff0e3fa688049b6b1eac9dea2d5e086138ba89304f3dd54",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://oba.nl/nl/locaties/oba-oosterdok",
+    "ids": [
+      "place.oba-oosterdok"
+    ],
+    "checkedAt": "2026-11-16T19:07:24.531927+00:00",
+    "httpStatus": 429,
+    "manualCheckRequired": true
+  },
+  {
+    "url": "https://oudtleyden.nl/",
+    "ids": [
+      "restaurant.leiden-oudt-leyden"
+    ],
+    "checkedAt": "2026-11-16T19:07:24.710976+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://oudtleyden.nl/",
+    "bytes": 94395,
+    "sha256": "abe0500d26a7b108de7f201ac4cc46bef82262fd81a8c47c018269da046e6510",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://oudtleyden.nl/contact/",
+    "ids": [
+      "restaurant.leiden-oudt-leyden"
+    ],
+    "checkedAt": "2026-11-16T19:07:24.791408+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://oudtleyden.nl/contact/",
+    "bytes": 72173,
+    "sha256": "2802e6b67605aa0ccaf2a31bc855f4a9c6479bdc5546bff90436bb924b7f9c7b",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://oudtleyden.nl/wp-content/uploads/2026/04/OUD_menukaart-2026-A3.pdf",
+    "ids": [
+      "restaurant.leiden-oudt-leyden"
+    ],
+    "checkedAt": "2026-11-16T19:07:24.876338+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://oudtleyden.nl/wp-content/uploads/2026/04/OUD_menukaart-2026-A3.pdf",
+    "bytes": 149999,
+    "sha256": "14c94a50a6e8236523af75b5fbc51dd6585b2440b26e612369d62ed308ad5ece",
+    "contentType": "application/pdf"
+  },
+  {
+    "url": "https://pacociao.nl/en/contact/",
+    "ids": [
+      "cafe.leiden-paco-ciao"
+    ],
+    "checkedAt": "2026-11-16T19:07:24.921110+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://pacociao.nl/en/contact/",
+    "bytes": 77040,
+    "sha256": "7e549d25c7cb4789886a69635bca68c214b3da706d0b854a23cf43535aba2956",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://pacociao.nl/en/menu/",
+    "ids": [
+      "cafe.leiden-paco-ciao"
+    ],
+    "checkedAt": "2026-11-16T19:07:24.929869+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://pacociao.nl/en/menu/",
+    "bytes": 58094,
+    "sha256": "86b3577923e0b07a7d2cf1b6f8f5bb2014ae7c142ee82e8d6d2dac2f287595d6",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://pacociao.nl/wp-content/uploads/2026/11/PC26_OnlineMenu_20261105.pdf",
+    "ids": [
+      "cafe.leiden-paco-ciao"
+    ],
+    "checkedAt": "2026-11-16T19:07:25.005109+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://pacociao.nl/wp-content/uploads/2026/11/PC26_OnlineMenu_20261105.pdf",
+    "bytes": 981578,
+    "sha256": "3d1d445ebc76a2d653062f49d592c10b97b3b2d0169bf9872908538754dcdfe8",
+    "contentType": "application/pdf"
+  },
+  {
+    "url": "https://static.rce.eu/wp-content/uploads/sites/10/2026/03/17142126/26034-Menu_Waag_Locaties_105x304_ISO.pdf",
+    "ids": [
+      "restaurant.leiden-waag"
+    ],
+    "checkedAt": "2026-11-16T19:07:25.012644+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://static.rce.eu/wp-content/uploads/sites/10/2026/03/17142126/26034-Menu_Waag_Locaties_105x304_ISO.pdf",
+    "bytes": 257387,
+    "sha256": "a03637f495c8809140fdb89de2d9f794743d68d4ef21071de333342ba2b7041e",
+    "contentType": "application/pdf"
+  },
+  {
+    "url": "https://steenhofsuites.nl/contact/",
+    "ids": [
+      "hotel.leiden-steenhof"
+    ],
+    "checkedAt": "2026-11-16T19:07:25.031169+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://steenhofsuites.nl/contact/",
+    "bytes": 373660,
+    "sha256": "c31ff798f50954911fe2d28c460cfe20d6820cf1dcda95b8100844d039afb3bb",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://steenhofsuites.nl/faciliteiten-arrangement/",
+    "ids": [
+      "hotel.leiden-steenhof"
+    ],
+    "checkedAt": "2026-11-16T19:07:25.200788+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://steenhofsuites.nl/faciliteiten-arrangement/",
+    "bytes": 362346,
+    "sha256": "7e3ff710971e377e141847343a373ed04c4d7f09d6a1cf786e2b734754fafd41",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://supernovahotel.nl/en",
+    "ids": [
+      "hotel.rotterdam-supernova"
+    ],
+    "checkedAt": "2026-11-16T19:07:25.205661+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://supernovahotel.nl/en",
+    "bytes": 195349,
+    "sha256": "919197ee8175c392968aad639a3a367a4604757cf65638a205e456a3fff63ae2",
+    "contentType": "text/html; charset=utf-8"
+  },
+  {
+    "url": "https://supernovahotel.nl/en/bikes",
+    "ids": [
+      "hotel.rotterdam-supernova"
+    ],
+    "checkedAt": "2026-11-16T19:07:25.257042+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://supernovahotel.nl/en/bikes",
+    "bytes": 195361,
+    "sha256": "d647ccfb8f652f1ff25de9cf77b5a80a625dadc6808020ab4115ca35994086d0",
+    "contentType": "text/html; charset=utf-8"
+  },
+  {
+    "url": "https://trompenburg.nl/plan-your-visit/",
+    "ids": [
+      "nature.rotterdam-trompenburg"
+    ],
+    "checkedAt": "2026-11-16T19:07:25.402473+00:00",
+    "error": "URLError",
+    "manualCheckRequired": true
+  },
+  {
+    "url": "https://trompenburg.nl/voedselbos/",
+    "ids": [
+      "nature.rotterdam-trompenburg"
+    ],
+    "checkedAt": "2026-11-16T19:07:25.450786+00:00",
+    "error": "URLError",
+    "manualCheckRequired": true
+  },
+  {
+    "url": "https://westerkerk.nl/bezoek-de-westerkerk-amsterdam/",
+    "ids": [
+      "place.westerkerk"
+    ],
+    "checkedAt": "2026-11-16T19:07:25.493610+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://westerkerk.nl/bezoek-de-westerkerk-amsterdam/",
+    "bytes": 251067,
+    "sha256": "e0328835b4e3a6eff9d7df4a5b600e3de671dc66f2eb2076ceca6278b7804165",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://www.adamlookout.com/en/contact/",
+    "ids": [
+      "place.adam-lookout"
+    ],
+    "checkedAt": "2026-11-16T19:07:25.533695+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.adamlookout.com/en/contact/",
+    "bytes": 67100,
+    "sha256": "2f8e2749f9b5ac00295c309134a5f1d2acb04483341c0a32fa53e39b4ad0a2ea",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://www.adamlookout.com/en/tickets/",
+    "ids": [
+      "place.adam-lookout"
+    ],
+    "checkedAt": "2026-11-16T19:07:25.739789+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.adamlookout.com/en/tickets/",
+    "bytes": 80921,
+    "sha256": "657a74bf7f89008cc9902dd65f40537e4cea7626dffca90059257784ffe9b2ce",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://www.artis.nl/en/contact-information/frequently-asked-questions",
+    "ids": [
+      "place.artis"
+    ],
+    "checkedAt": "2026-11-16T19:07:25.856208+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.artis.nl/en/contact-information/frequently-asked-questions",
+    "bytes": 376277,
+    "sha256": "4615208b9a317a27716094f34182ca68196b5432961d7196604c30f23821b6e8",
+    "contentType": "text/html; charset=utf-8"
+  },
+  {
+    "url": "https://www.artis.nl/en/plan-your-visit",
+    "ids": [
+      "place.artis"
+    ],
+    "checkedAt": "2026-11-16T19:07:25.894531+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.artis.nl/en/plan-your-visit",
+    "bytes": 388530,
+    "sha256": "761f5c7bc6220a92c7f0590e824a40e8a4ac03a551a7f099e22dde73ba233bc6",
+    "contentType": "text/html; charset=utf-8"
+  },
+  {
+    "url": "https://www.baristacafe.nl/vestiging/leiden/",
+    "ids": [
+      "cafe.leiden-barista"
+    ],
+    "checkedAt": "2026-11-16T19:07:26.035600+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.baristacafe.nl/vestiging/leiden/",
+    "bytes": 231002,
+    "sha256": "a7afb1f9cfd3c51e9d255bd1431edaea9cbea421d7f0f117eb604d5f9a05efab",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://www.bibliotheekutrecht.nl/bereikbaarheid-neude.html",
+    "ids": [
+      "place.utrecht-neude"
+    ],
+    "checkedAt": "2026-11-16T19:07:26.219294+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.bibliotheekutrecht.nl/bereikbaarheid-neude.html",
+    "bytes": 25716,
+    "sha256": "c51326d9eed35bb053289e08ca035c87cba4de045169d068f324d81f85c55bcf",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://www.bibliotheekutrecht.nl/bibliotheken/bibliotheek-neude.html",
+    "ids": [
+      "place.utrecht-neude"
+    ],
+    "checkedAt": "2026-11-16T19:07:26.228359+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.bibliotheekutrecht.nl/bibliotheken/bibliotheek-neude.html",
+    "bytes": 48189,
+    "sha256": "c595b741d552d2e04d0d0b2a9104eba868059f5c48c922838ac20ba3ef0dd22c",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://www.bibliotheekutrecht.nl/home/werkplekreservering.html",
+    "ids": [
+      "place.utrecht-neude"
+    ],
+    "checkedAt": "2026-11-16T19:07:26.307049+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.bibliotheekutrecht.nl/home/werkplekreservering.html",
+    "bytes": 30993,
+    "sha256": "6591e1024a1dc78f39c5f749796ac9fbd83f0560aebb80b81ce569e685e57e4d",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://www.bibliotheekutrecht.nl/klantenservice/vestigingen-openingstijden/vestiging.696013.html/bibliotheek-neude/",
+    "ids": [
+      "place.utrecht-neude"
+    ],
+    "checkedAt": "2026-11-16T19:07:26.319734+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.bibliotheekutrecht.nl/klantenservice/vestigingen-openingstijden/vestiging.696013.html/bibliotheek-neude/",
+    "bytes": 30091,
+    "sha256": "77a88824e34c54f9cf407477b6b6fe64f6aa51c958c8cb1e7234037618653c73",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://www.borgmanborgman.nl/contact-1",
+    "ids": [
+      "cafe.leiden-borgman"
+    ],
+    "checkedAt": "2026-11-16T19:07:26.376217+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.borgmanborgman.nl/contact-1",
+    "bytes": 770981,
+    "sha256": "c8e7d37ae514fe316074ca30db89ffebf3fcaf31ddb4685de9851644c4ced79a",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://www.borgmanborgman.nl/menu",
+    "ids": [
+      "cafe.leiden-borgman"
+    ],
+    "checkedAt": "2026-11-16T19:07:26.405233+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.borgmanborgman.nl/menu",
+    "bytes": 747602,
+    "sha256": "6d255ede621c8001147dc768525d4bce4d4117722ab36b188eab258f7045d52a",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://www.borgmanborgman.nl/over-ons",
+    "ids": [
+      "cafe.leiden-borgman"
+    ],
+    "checkedAt": "2026-11-16T19:07:28.852401+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.borgmanborgman.nl/over-ons",
+    "bytes": 759604,
+    "sha256": "3c8cd833a4cb7f5f4ecc29fbf2a69d74964232f6be2a83a15696b7c3cf24b192",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://www.boutiquehoteldeoudemorsch.nl/contact/",
+    "ids": [
+      "hotel.leiden-oude-morsch"
+    ],
+    "checkedAt": "2026-11-16T19:07:32.294831+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.boutiquehoteldeoudemorsch.nl/contact/",
+    "bytes": 60483,
+    "sha256": "1172d7e47d1816e189f85d0325de2365aa2c019e74eac16c8d43e766724a95d9",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://www.boutiquehoteldeoudemorsch.nl/faciliteiten/",
+    "ids": [
+      "hotel.leiden-oude-morsch"
+    ],
+    "checkedAt": "2026-11-16T19:07:32.317006+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.boutiquehoteldeoudemorsch.nl/faciliteiten/",
+    "bytes": 49394,
+    "sha256": "c003069dac296b715b99ba987cfdb747e1f38df397398607314ce2cc65ee09c4",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://www.boutiquehoteldeoudemorsch.nl/openingstijden-feestdagen/",
+    "ids": [
+      "hotel.leiden-oude-morsch"
+    ],
+    "checkedAt": "2026-11-16T19:07:33.536238+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.boutiquehoteldeoudemorsch.nl/openingstijden-feestdagen/",
+    "bytes": 51085,
+    "sha256": "63e4435f66658f3696fa8a88ba61fe7a21a7311c41620dc1d6ee9a5a173bfbc8",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://www.boutiquehotelsvanleyden.nl/nl/contact.html",
+    "ids": [
+      "hotel.leiden-huys-van-leyden"
+    ],
+    "checkedAt": "2026-11-16T19:07:33.722549+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.boutiquehotelsvanleyden.nl/nl/contact.html",
+    "bytes": 20843,
+    "sha256": "eff24f75f698f7f85e586ddad00f777ff557024b11c65ba71895ce1715963557",
+    "contentType": "text/html"
+  },
+  {
+    "url": "https://www.boutiquehotelsvanleyden.nl/nl/huys-van-leyden/accommodaties/suite-met-grachtzicht.html",
+    "ids": [
+      "hotel.leiden-huys-van-leyden"
+    ],
+    "checkedAt": "2026-11-16T19:07:33.883840+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.boutiquehotelsvanleyden.nl/nl/huys-van-leyden/accommodaties/suite-met-grachtzicht.html",
+    "bytes": 29715,
+    "sha256": "aadd8cd2a2c8ec6ab28e087931f48ea9101b3c4ae306a3674f6c7f8cc914e9fe",
+    "contentType": "text/html"
+  },
+  {
+    "url": "https://www.browniesanddownies.nl/leiden",
+    "ids": [
+      "cafe.leiden-brownies"
+    ],
+    "checkedAt": "2026-11-16T19:07:34.069951+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.browniesanddownies.nl/leiden",
+    "bytes": 857113,
+    "sha256": "d3cd7696fd05aea19a556c4edfa0ace67f245d46d6e3b1319a4ad72e9f8b0906",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://www.cafelaken.nl/",
+    "ids": [
+      "place.leiden-cafe-laken"
+    ],
+    "checkedAt": "2026-11-16T19:07:34.229932+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.cafelaken.nl/",
+    "bytes": 14920,
+    "sha256": "4c230c44888ef5ce583482811f830a53ab8f342cb7e862ef33b2a00974b3d068",
+    "contentType": "text/html; charset=utf-8"
+  },
+  {
+    "url": "https://www.cavesco.nl/docs/baristacafe/menukaart_leiden.pdf",
+    "ids": [
+      "cafe.leiden-barista"
+    ],
+    "checkedAt": "2026-11-16T19:07:34.455572+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.cavesco.nl/docs/baristacafe/menukaart_leiden.pdf",
+    "bytes": 1497168,
+    "sha256": "68dc9c08d4dd2daa0639ffae938963bb984377cc00e4f260bfe17aea34eb0f49",
+    "contentType": "application/pdf"
+  },
+  {
+    "url": "https://www.dehallen-amsterdam.nl/en/contact",
+    "ids": [
+      "place.de-hallen-amsterdam"
+    ],
+    "checkedAt": "2026-11-16T19:07:34.608529+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.dehallen-amsterdam.nl/en/contact",
+    "bytes": 98694,
+    "sha256": "562b1565c0ca53b9519c3f7a79fd17635783b68b40941d0d9017ec338bb77be6",
+    "contentType": "text/html; charset=utf-8"
+  },
+  {
+    "url": "https://www.dehallen-amsterdam.nl/en/organisation",
+    "ids": [
+      "place.de-hallen-amsterdam"
+    ],
+    "checkedAt": "2026-11-16T19:07:34.703286+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.dehallen-amsterdam.nl/en/organisation",
+    "bytes": 75671,
+    "sha256": "db1b48aa3e61cd9815839b174fcd69fefe7c300367bebfb2da3d27c50dc7e7a6",
+    "contentType": "text/html; charset=utf-8"
+  },
+  {
+    "url": "https://www.dehallen-amsterdam.nl/en/visit",
+    "ids": [
+      "place.de-hallen-amsterdam"
+    ],
+    "checkedAt": "2026-11-16T19:07:34.728823+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.dehallen-amsterdam.nl/en/visit",
+    "bytes": 99381,
+    "sha256": "f9aa0b58bdc623994018706516c361030c8fefae0b7da8314937902abc67b4db",
+    "contentType": "text/html; charset=utf-8"
+  },
+  {
+    "url": "https://www.dehortus.nl/en/",
+    "ids": [
+      "place.hortus-botanicus-amsterdam"
+    ],
+    "checkedAt": "2026-11-16T19:07:34.766278+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.dehortus.nl/en/",
+    "bytes": 217060,
+    "sha256": "7a90074df37bdf1085d3c3885c47b00e8afa05418162780969a5fca586420ab8",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://www.dehortus.nl/en/faq/",
+    "ids": [
+      "place.hortus-botanicus-amsterdam"
+    ],
+    "checkedAt": "2026-11-16T19:07:34.829254+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.dehortus.nl/en/faq/",
+    "bytes": 154267,
+    "sha256": "293350ebe124e1d21bbc184d47c992de115396aebb3e9f92f72afe0197b754aa",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://www.dehortus.nl/en/plan-your-visit/",
+    "ids": [
+      "place.hortus-botanicus-amsterdam"
+    ],
+    "checkedAt": "2026-11-16T19:07:34.858406+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.dehortus.nl/en/plan-your-visit/",
+    "bytes": 112545,
+    "sha256": "45596c3ea2c70ab4c4c594840487f2ac9706836707f1cbc684bddb3c6a188098",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://www.flickr.com/photos/rotterdamsballonnenbedrijf/52366054870",
+    "ids": [
+      "hotel.rotterdam-supernova"
+    ],
+    "checkedAt": "2026-11-16T19:07:35.761170+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.flickr.com/photos/rotterdamsballonnenbedrijf/52366054870",
+    "bytes": 404422,
+    "sha256": "9ebc1923db2f37a45dab7e609013ad6351f3b3c664e65b890be2eb4c4b536f04",
+    "contentType": "text/html; charset=utf-8"
+  },
+  {
+    "url": "https://www.fotomuseumdenhaag.nl/en/contact",
+    "ids": [
+      "museum.den-haag-fotomuseum"
+    ],
+    "checkedAt": "2026-11-16T19:07:35.777888+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.fotomuseumdenhaag.nl/en/contact",
+    "bytes": 56546,
+    "sha256": "2a954db76c71e5dbdb6636ee7f774c03422f88c72f48df68781e6a62f75d02bf",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://www.fotomuseumdenhaag.nl/en/exhibitions/liberated-camera",
+    "ids": [
+      "museum.den-haag-fotomuseum"
+    ],
+    "checkedAt": "2026-11-16T19:07:35.882084+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.fotomuseumdenhaag.nl/en/exhibitions/liberated-camera",
+    "bytes": 71871,
+    "sha256": "e24bc391d28bb8254ee6970eb87a7b987404596495ca8f81d04a57086edbadf2",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://www.fotomuseumdenhaag.nl/en/plan-your-visit",
+    "ids": [
+      "museum.den-haag-fotomuseum"
+    ],
+    "checkedAt": "2026-11-16T19:07:35.971609+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.fotomuseumdenhaag.nl/en/plan-your-visit",
+    "bytes": 68374,
+    "sha256": "5d2e00996197c0f73d8492d734a479a6a25b0e189f873863bb44623e684efcb1",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://www.heinekenexperience.com/en/discover-our-tours/heineken-tour",
+    "ids": [
+      "place.heineken-experience"
+    ],
+    "checkedAt": "2026-11-16T19:07:36.012815+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.heinekenexperience.com/en/discover-our-tours/heineken-tour",
+    "bytes": 595835,
+    "sha256": "a2b564d1ffa5f93418ddde51f4ad3f7e56791985ce09a158238811a1147c8f2c",
+    "contentType": "text/html; charset=utf-8"
+  },
+  {
+    "url": "https://www.heinekenexperience.com/en/faqs",
+    "ids": [
+      "place.heineken-experience"
+    ],
+    "checkedAt": "2026-11-16T19:07:36.173675+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.heinekenexperience.com/en/faqs",
+    "bytes": 573428,
+    "sha256": "3d9b12ca3786611b13e8d6ba4ef5067a8698b95292867e54ca327acf2cd707f8",
+    "contentType": "text/html; charset=utf-8"
+  },
+  {
+    "url": "https://www.heinekenexperience.com/en/service-and-contact",
+    "ids": [
+      "place.heineken-experience"
+    ],
+    "checkedAt": "2026-11-16T19:07:36.183238+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.heinekenexperience.com/en/service-and-contact",
+    "bytes": 341283,
+    "sha256": "8b640b593939d776c25162bf0eba813224adaef424a77a0703d5bf5b7e683d56",
+    "contentType": "text/html; charset=utf-8"
+  },
+  {
+    "url": "https://www.inkijkmuseum.nl/",
+    "ids": [
+      "museum.eindhoven-inkijkmuseum"
+    ],
+    "checkedAt": "2026-11-16T19:07:36.245423+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.inkijkmuseum.nl/nl",
+    "bytes": 59029,
+    "sha256": "0101e71b11642815922dae76ef1617dd3e623026785da805774eb2bbc7e6db43",
+    "contentType": "text/html; charset=utf-8"
+  },
+  {
+    "url": "https://www.johancruijffarena.nl/en/tickets-visits/stadium-tours/",
+    "ids": [
+      "place.johan-cruijff-arena"
+    ],
+    "checkedAt": "2026-11-16T19:07:36.355083+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.johancruijffarena.nl/en/tickets-visits/stadium-tours/",
+    "bytes": 59806,
+    "sha256": "64582be628fe048c531885d2a337ec939a3d0f5ad96f7b9abdcf5945a9ff9427",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://www.johancruijffarena.nl/en/tickets-visits/stadium-tours/faq/",
+    "ids": [
+      "place.johan-cruijff-arena"
+    ],
+    "checkedAt": "2026-11-16T19:07:36.435459+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.johancruijffarena.nl/en/tickets-visits/stadium-tours/faq/",
+    "bytes": 51807,
+    "sha256": "6a296af8ab989c92394f4dadfac90a57f76ddcbbdfcc690fc761ca4ce77039f1",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://www.johancruijffarena.nl/privacyverklaring/",
+    "ids": [
+      "place.johan-cruijff-arena"
+    ],
+    "checkedAt": "2026-11-16T19:07:36.505663+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.johancruijffarena.nl/privacyverklaring/",
+    "bytes": 50525,
+    "sha256": "81fd4aa917806f95ad0ac18ef5f3522b821fa7f892916d7218c028b5d224c755",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://www.kazerne.com/",
+    "ids": [
+      "restaurant.eindhoven-kazerne"
+    ],
+    "checkedAt": "2026-11-16T19:07:36.574654+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.kazerne.com/",
+    "bytes": 69546,
+    "sha256": "2cf896519dd9e8427a18b8c896f7bddd1bbc7b6692b58f91fb529ff9179c5cd1",
+    "contentType": "text/html; charset=utf-8"
+  },
+  {
+    "url": "https://www.kazerne.com/bar-bistro-kazerne",
+    "ids": [
+      "restaurant.eindhoven-kazerne"
+    ],
+    "checkedAt": "2026-11-16T19:07:36.808978+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.kazerne.com/bar-bistro-kazerne",
+    "bytes": 35534,
+    "sha256": "0f57bf08b9f1612f8883c4e282cc4027b5095be67cd6da75bd81245a4ddfacc6",
+    "contentType": "text/html; charset=utf-8"
+  },
+  {
+    "url": "https://www.koffieleute.nl/",
+    "ids": [
+      "cafe.utrecht-koffie-leute"
+    ],
+    "checkedAt": "2026-11-16T19:07:36.945475+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.koffieleute.nl/",
+    "bytes": 50211,
+    "sha256": "565d4b5081a05d94ea1d417ca48941570e55459886f2d1d70f38226cfe167bf3",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://www.nieuwekerk.nl/plan-je-bezoek/",
+    "ids": [
+      "place.de-nieuwe-kerk-amsterdam"
+    ],
+    "checkedAt": "2026-11-16T19:07:37.986783+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.nieuwekerk.nl/plan-je-bezoek/",
+    "bytes": 133521,
+    "sha256": "261a6238bdc9f27a9313bc3a32c24c17eece2ec0f289a1456364f904e8a78b25",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://www.nieuwekerk.nl/vragen-over-je-bezoek/",
+    "ids": [
+      "place.de-nieuwe-kerk-amsterdam"
+    ],
+    "checkedAt": "2026-11-16T19:07:38.009502+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.nieuwekerk.nl/vragen-over-je-bezoek/",
+    "bytes": 133346,
+    "sha256": "ffc1d0bacc556a6844958539812400b2753c41f07767f6d64376e01fe24f1807",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://www.ontdek-utrecht.nl/locatie/park-oog-in-al/",
+    "ids": [
+      "nature.utrecht-oog-in-al"
+    ],
+    "checkedAt": "2026-11-16T19:07:38.086042+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.ontdek-utrecht.nl/locatie/park-oog-in-al/",
+    "bytes": 248796,
+    "sha256": "e0945de2dbc02044046d652ee271f1e952bf72c0df7f209e157996a1f9b15bd1",
+    "contentType": "text/html; charset=utf-8"
+  },
+  {
+    "url": "https://www.oudekerk.nl/en/faq",
+    "ids": [
+      "place.oude-kerk"
+    ],
+    "checkedAt": "2026-11-16T19:07:38.271542+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.oudekerk.nl/en/faq",
+    "bytes": 159014,
+    "sha256": "e350d96db1f8bdcd61438ca43a110ab14296382a565a17deb9d43d2b50bf6212",
+    "contentType": "text/html; charset=utf-8"
+  },
+  {
+    "url": "https://www.oudekerk.nl/en/tickets-and-visit",
+    "ids": [
+      "place.oude-kerk"
+    ],
+    "checkedAt": "2026-11-16T19:07:38.360216+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.oudekerk.nl/en/tickets-and-visit",
+    "bytes": 127620,
+    "sha256": "9e06578c7eedd15908542ec1b80af51695623d0da89221f7b6999324ac3ce0b7",
+    "contentType": "text/html; charset=utf-8"
+  },
+  {
+    "url": "https://www.prentenkabinet.nl/lunch/",
+    "ids": [
+      "restaurant.leiden-prentenkabinet"
+    ],
+    "checkedAt": "2026-11-16T19:07:38.432495+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.prentenkabinet.nl/lunch/",
+    "bytes": 247560,
+    "sha256": "eb819e4f1bcb57851dcf3a0dfc669d80b7456b604fadecf682e25475a9878d41",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://www.prentenkabinet.nl/menukaart/",
+    "ids": [
+      "restaurant.leiden-prentenkabinet"
+    ],
+    "checkedAt": "2026-11-16T19:07:39.346168+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.prentenkabinet.nl/menukaart/",
+    "bytes": 261303,
+    "sha256": "aa2747ba6b66db8e23da3e4e5e1f82ef732ed27f95ccbcb069f72fd816af5690",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://www.prentenkabinet.nl/reserveren/",
+    "ids": [
+      "restaurant.leiden-prentenkabinet"
+    ],
+    "checkedAt": "2026-11-16T19:07:39.381816+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.prentenkabinet.nl/reserveren/",
+    "bytes": 308153,
+    "sha256": "a949011d1cfc92998736552653e76ba881b7f4fa80534d5fb9c79c2e8771d98b",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://www.rembrandthotel.nl/",
+    "ids": [
+      "hotel.leiden-rembrandt-hotel"
+    ],
+    "checkedAt": "2026-11-16T19:07:40.188389+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.rembrandthotel.nl/",
+    "bytes": 163952,
+    "sha256": "39d654ea11ce203216e09d2b49aa837981dbe09c2a9bd7bece57d8f1a8a4153c",
+    "contentType": "text/html;charset=utf-8"
+  },
+  {
+    "url": "https://www.rembrandthotel.nl/contact",
+    "ids": [
+      "hotel.leiden-rembrandt-hotel"
+    ],
+    "checkedAt": "2026-11-16T19:07:40.352560+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.rembrandthotel.nl/contact",
+    "bytes": 123324,
+    "sha256": "0219c87c8c4f6f335dfe3a7df1b06d2408ea7a94478d337ba29695520d16d137",
+    "contentType": "text/html;charset=utf-8"
+  },
+  {
+    "url": "https://www.sonnenborgh.nl/bezoekersinformatie",
+    "ids": [
+      "museum.utrecht-sonnenborgh"
+    ],
+    "checkedAt": "2026-11-16T19:07:40.419534+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.sonnenborgh.nl/bezoekersinformatie",
+    "bytes": 28345,
+    "sha256": "1b1dadfe53d63389666da9a82e7d07e436430d47bd878397fa7dd5320345d755",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://www.sonnenborgh.nl/bezoekersinformatie/prijzen",
+    "ids": [
+      "museum.utrecht-sonnenborgh"
+    ],
+    "checkedAt": "2026-11-16T19:07:40.473704+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.sonnenborgh.nl/bezoekersinformatie/prijzen",
+    "bytes": 30066,
+    "sha256": "46ba63c4349a3ed4cad8c7e9bb65003a4670e7f1faf9c56268c124a928cdb4d5",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://www.sonnenborgh.nl/english/address-contact-and-route",
+    "ids": [
+      "museum.utrecht-sonnenborgh"
+    ],
+    "checkedAt": "2026-11-16T19:07:40.629856+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.sonnenborgh.nl/english/address-contact-and-route",
+    "bytes": 27690,
+    "sha256": "2947efc40da93882570718eb06eca5280bd70f395e089fe7387458189d98cbfe",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://www.sonnenborgh.nl/english/see-and-do",
+    "ids": [
+      "museum.utrecht-sonnenborgh"
+    ],
+    "checkedAt": "2026-11-16T19:07:40.660590+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.sonnenborgh.nl/english/see-and-do",
+    "bytes": 36560,
+    "sha256": "55ae3e1245be15a7d9deda828d5532ec114b1458f0891e3e0fa61177acefe2a4",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://www.sonnenborgh.nl/faq-2",
+    "ids": [
+      "museum.utrecht-sonnenborgh"
+    ],
+    "checkedAt": "2026-11-16T19:07:40.783524+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.sonnenborgh.nl/faq-2",
+    "bytes": 26007,
+    "sha256": "122eac6fadb2d412ba1a3ea5cf0f85f802ef43f555d368d0879efccc98bcfcaf",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://www.tabu.nl/faq/",
+    "ids": [
+      "restaurant.leiden-tabu"
+    ],
+    "checkedAt": "2026-11-16T19:07:40.885620+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.tabu.nl/faq/",
+    "bytes": 21200,
+    "sha256": "4cc5031df7819c9b28a730785e609b14047d5b34780317c26ffadfbada50c593",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://www.tabu.nl/wp-content/uploads/2026/11/261103-TABU-DINER-MENU-EN.pdf",
+    "ids": [
+      "restaurant.leiden-tabu"
+    ],
+    "checkedAt": "2026-11-16T19:07:40.957205+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.tabu.nl/wp-content/uploads/2026/11/261103-TABU-DINER-MENU-EN.pdf",
+    "bytes": 1339430,
+    "sha256": "4cbedc70b22a690d6a7e56d0e94f24aaafb412fcea6e15b03be7263269b7d71e",
+    "contentType": "application/pdf"
+  },
+  {
+    "url": "https://www.thecollectorhotel.com/contact",
+    "ids": [
+      "hotel.den-haag-collector"
+    ],
+    "checkedAt": "2026-11-16T19:07:41.047793+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.thecollectorhotel.com/contact",
+    "bytes": 113725,
+    "sha256": "4ac76affd56ef2df0a2defad1e2415271fcac277b1b26e8f1b32c4e909deccf9",
+    "contentType": "text/html;charset=utf-8"
+  },
+  {
+    "url": "https://www.thecollectorhotel.com/faq",
+    "ids": [
+      "hotel.den-haag-collector"
+    ],
+    "checkedAt": "2026-11-16T19:07:41.078255+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.thecollectorhotel.com/faq",
+    "bytes": 120459,
+    "sha256": "ac8f74eccc83fa7483d096ce5bcd846e6940614fd7a21877fd12eaf6c8e0c024",
+    "contentType": "text/html;charset=utf-8"
+  },
+  {
+    "url": "https://www.thecollectorhotel.com/rooms",
+    "ids": [
+      "hotel.den-haag-collector"
+    ],
+    "checkedAt": "2026-11-16T19:07:41.175703+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.thecollectorhotel.com/rooms",
+    "bytes": 175078,
+    "sha256": "2486d4fd3e808511157c740a3e84694a166aadba60b14b0639f3380ccff2e854",
+    "contentType": "text/html;charset=utf-8"
+  },
+  {
+    "url": "https://www.thenoxhotel.com/en/contact",
+    "ids": [
+      "hotel.utrecht-nox"
+    ],
+    "checkedAt": "2026-11-16T19:07:41.801960+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.thenoxhotel.com/en/contact",
+    "bytes": 21293,
+    "sha256": "a18e03083f56af0972f6fb1b76544ccb6135ba194da6dd723bacfabbf2975376",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://www.thenoxhotel.com/en/faq",
+    "ids": [
+      "hotel.utrecht-nox"
+    ],
+    "checkedAt": "2026-11-16T19:07:42.007894+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.thenoxhotel.com/en/faq",
+    "bytes": 26658,
+    "sha256": "6ddc1a86c2abfd106758c45e34209938bd8d51cf71026f3306badc0443c2c997",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://www.thisiseindhoven.com/nl/locaties/inkijkmuseum",
+    "ids": [
+      "museum.eindhoven-inkijkmuseum"
+    ],
+    "checkedAt": "2026-11-16T19:07:42.083187+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.thisiseindhoven.com/nl/locaties/inkijkmuseum",
+    "bytes": 80701,
+    "sha256": "7c8fddf14b71b00f386bf8054baf81bd2f56f9e6c8daec2eb6f5ce81d770ece9",
+    "contentType": "text/html; charset=utf-8"
+  },
+  {
+    "url": "https://www.utrecht.nl/wonen-en-leven/parken-en-groen/parken-en-plantsoenen/park-oog-in-al",
+    "ids": [
+      "nature.utrecht-oog-in-al"
+    ],
+    "checkedAt": "2026-11-16T19:07:42.456962+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.utrecht.nl/wonen-en-leven/parken-en-groen/parken-en-plantsoenen/park-oog-in-al",
+    "bytes": 37212,
+    "sha256": "1b162e559899bb0b4262453255336b69b71d541de54b714ba9066c5b53c01a69",
+    "contentType": "text/html; charset=utf-8"
+  },
+  {
+    "url": "https://www.verbodentoegang.nl/",
+    "ids": [
+      "restaurant.leiden-verboden-toegang"
+    ],
+    "checkedAt": "2026-11-16T19:07:42.656062+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.verbodentoegang.nl/",
+    "bytes": 225400,
+    "sha256": "bb7a045faec02286b7e6975eb426b4e1634c35f46761e17e6290217448bc4a58",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://www.verbodentoegang.nl/menukaart/",
+    "ids": [
+      "restaurant.leiden-verboden-toegang"
+    ],
+    "checkedAt": "2026-11-16T19:07:43.570172+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.verbodentoegang.nl/menukaart/",
+    "bytes": 181941,
+    "sha256": "9e8a3aa48ec924186965ebb1a212b71b892ed86c8fb6eba191b4c768d9756889",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://www.visitleiden.nl/nl/locaties/1706027937/rembrandtpark",
+    "ids": [
+      "nature.leiden-rembrandtpark"
+    ],
+    "checkedAt": "2026-11-16T19:07:44.078594+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.visitleiden.nl/nl/locaties/1706027937/rembrandtpark",
+    "bytes": 64287,
+    "sha256": "32ee10ab220cbe91f4315dd748a83a47810e17e1d7f3df27c9048b784a605484",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://www.visitleiden.nl/nl/locaties/1965820401/het-prentenkabinet",
+    "ids": [
+      "restaurant.leiden-prentenkabinet"
+    ],
+    "checkedAt": "2026-11-16T19:07:44.145394+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.visitleiden.nl/nl/locaties/1965820401/het-prentenkabinet",
+    "bytes": 105230,
+    "sha256": "2c70313e72ab1bbcc67dc85cd77e8f9e2222a5894e62baca94360413dd2a1475",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://www.visitleiden.nl/nl/locaties/2048619726/boutique-hotel-huys-van-leyden",
+    "ids": [
+      "hotel.leiden-huys-van-leyden"
+    ],
+    "checkedAt": "2026-11-16T19:07:44.700235+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.visitleiden.nl/nl/locaties/2048619726/boutique-hotel-huys-van-leyden",
+    "bytes": 106898,
+    "sha256": "7cbb2d57e22bda89a305b333c9ddf23e4064d56066a04b9a1bb1ede6f015de92",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://www.visitleiden.nl/nl/locaties/2623615998/oudt-leyden-t-pannenkoekenhuysje",
+    "ids": [
+      "restaurant.leiden-oudt-leyden"
+    ],
+    "checkedAt": "2026-11-16T19:07:44.937039+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.visitleiden.nl/nl/locaties/2623615998/oudt-leyden-t-pannenkoekenhuysje",
+    "bytes": 89875,
+    "sha256": "20f8b37d0c03b7b9f957372f6a32886eb75d13eed6dab5778b9e90df2d9cb069",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://www.visitleiden.nl/nl/locaties/3402150775/waag-leiden",
+    "ids": [
+      "restaurant.leiden-waag"
+    ],
+    "checkedAt": "2026-11-16T19:07:45.111449+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.visitleiden.nl/nl/locaties/3402150775/waag-leiden",
+    "bytes": 121928,
+    "sha256": "66bd47a74ec9f3ec4a1b4b7adc7ddab7917e1d36ee51ab1e2d9a79326785731b",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://www.visitleiden.nl/nl/locaties/3858932145/ibis-leiden-centre",
+    "ids": [
+      "hotel.leiden-ibis"
+    ],
+    "checkedAt": "2026-11-16T19:07:45.822224+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.visitleiden.nl/nl/locaties/3858932145/ibis-leiden-centre",
+    "bytes": 108558,
+    "sha256": "d9a899e7d9a0b04138809a98ca6a69fbdc8577f99577553239810c5848cf844c",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://www.visitleiden.nl/nl/locaties/3944718715/boutique-hotel-doude-morsch",
+    "ids": [
+      "hotel.leiden-oude-morsch"
+    ],
+    "checkedAt": "2026-11-16T19:07:45.828176+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.visitleiden.nl/nl/locaties/3944718715/boutique-hotel-doude-morsch",
+    "bytes": 99920,
+    "sha256": "f84e7981597cb38df850ea1096486c433b6f2d860cdcff163dd98e5fa50e4d1a",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://www.visitleiden.nl/nl/locaties/4129642951/steenhof-suites",
+    "ids": [
+      "hotel.leiden-steenhof"
+    ],
+    "checkedAt": "2026-11-16T19:07:46.267983+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.visitleiden.nl/nl/locaties/4129642951/steenhof-suites",
+    "bytes": 141312,
+    "sha256": "439ccff3ea54abbcabb2988630dd5aa5e05149d2da97f108a052f99582cee892",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://www.visitleiden.nl/nl/locaties/976921119/rembrandt-hotel-leiden",
+    "ids": [
+      "hotel.leiden-rembrandt-hotel"
+    ],
+    "checkedAt": "2026-11-16T19:07:46.537844+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.visitleiden.nl/nl/locaties/976921119/rembrandt-hotel-leiden",
+    "bytes": 111320,
+    "sha256": "d065fc849f7cd1dc01b71b6ddf7e9c524cb6eaac7db6448daa828127463b52c4",
+    "contentType": "text/html; charset=UTF-8"
+  },
+  {
+    "url": "https://www.waagleiden.nl/nl/contactpagina/",
+    "ids": [
+      "restaurant.leiden-waag"
+    ],
+    "checkedAt": "2026-11-16T19:07:46.697356+00:00",
+    "httpStatus": 200,
+    "finalUrl": "https://www.waagleiden.nl/nl/contactpagina/",
+    "bytes": 33167,
+    "sha256": "e6fa3720fc2332d98b2985c6586ec8c6a0aba250bd6d62d20256e57115c5aec5",
+    "contentType": "text/html"
+  }
+]

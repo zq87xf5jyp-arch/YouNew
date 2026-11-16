@@ -1,0 +1,41 @@
+{
+  "checkedAt": "2026-11-16",
+  "publicationAuthorized": false,
+  "issues": [
+    {
+      "id": "place.de-nieuwe-kerk-amsterdam",
+      "blockingBeforePublication": false,
+      "resolution": "numeric_hours_withheld",
+      "remainingQuestion": "The applicability/date range of the FAQ schedule is not identified. Do not label it historical or apply it to a particular exhibition without evidence.",
+      "reviewOnlyNumericCandidates": [
+        {
+          "source": "https://www.nieuwekerk.nl/plan-je-bezoek/",
+          "schedule": "daily 10:00–17:00; last entry 16:30",
+          "scope": "General current visit page; no explicit validity period."
+        },
+        {
+          "source": "https://www.nieuwekerk.nl/vragen-over-je-bezoek/",
+          "schedule": "Wednesday–Sunday 11:00–18:00; last entry 17:00",
+          "scope": "General FAQ; no exhibition or validity period stated."
+        }
+      ],
+      "decision": "The card has no numeric opening hours. The official visit and FAQ links remain. Numeric candidates are review-only, not approved data.",
+      "evidence": [
+        "evidence/nieuwe-visit-live-browser.json",
+        "evidence/nieuwe-faq-live-browser.json"
+      ]
+    },
+    {
+      "id": "place.oba-oosterdok",
+      "blockingBeforePublication": false,
+      "resolution": "verified_in_visible_browser",
+      "evidence": "evidence/oba-live-browser.json",
+      "decision": "Direct HTTP 200 in standard visible Chrome. Hours, facilities and access reviewed from the current page; previous indexed observation is retained as history."
+    }
+  ],
+  "allRecordsRequireHumanApproval": true,
+  "mediaGaps": 0,
+  "heroReplacementCandidates": [
+    "place.de-nieuwe-kerk-amsterdam"
+  ]
+}

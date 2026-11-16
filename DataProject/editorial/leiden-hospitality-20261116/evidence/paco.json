@@ -1,0 +1,16 @@
+{
+  "url": "https://pacociao.nl/en/contact/",
+  "checkedAt": "2026-11-16",
+  "httpStatus": 200,
+  "finalUrl": "https://pacociao.nl/en/contact/",
+  "sha256": "5f2d56bc29b7f446fc86eaaad6c723b94bce427b1df7eeeb005b1bb3505a30d4",
+  "recheckedThisBatch": true,
+  "method": "Direct HTTPS, ordinary urllib client; no access-control bypass",
+  "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/paco",
+  "officialLinks": [
+    {
+      "text": "Menu",
+      "href": "https://pacociao.nl/en/menu/"
+    }
+  ]
+}

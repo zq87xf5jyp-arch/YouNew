@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "generatedAt": "2026-10-23T00:00:00.000Z",
-  "registryFingerprint": "e952f3b63b70124266724f3ae7f6dc5a41ad5af0b8ccaec2c8fa750f5d494c35",
+  "registryFingerprint": "69b212dbd836ee032afc350e28cb453789281cab531232fff400cd093621692f",
   "source": {
-    "contentSha256": "2a2bffa682b5bd2ddf6d187afb91c45c89b2002784fce89e37a1e438b81d370d",
+    "contentSha256": "33d7675fa5e88d6815424e1afdd21596616f7d50b0c8186332436dfc711ace00",
     "geographySha256": "928ab17bf26b745c50a88b28e282f536d1a3e61a29066ae57269ed571d179170",
     "trackedRegistrySha256": "45ac0cb52dd08a902f5b3645de1ecd3aeaf88917b846b4374dd7ecc9bdd5ff3d"
   },
@@ -17,8 +17,8 @@
     "confirmedBroken": null
   },
   "counts": {
-    "references": 778,
-    "canonicalLinks": 769,
+    "references": 788,
+    "canonicalLinks": 779,
     "duplicatesCollapsed": 9
   },
   "links": [
@@ -103,7 +103,7 @@
       "source_type": "other",
       "evidence_state": "measured",
       "link_health_state": "unknown",
-      "last_checked_date": "2026-11-09",
+      "last_checked_date": "2026-11-16",
       "reference_count": 1,
       "reference_kinds": [
         "content_entity"
@@ -1023,7 +1023,7 @@
       "source_type": "other",
       "evidence_state": "measured",
       "link_health_state": "unknown",
-      "last_checked_date": "2026-11-09",
+      "last_checked_date": "2026-11-16",
       "reference_count": 2,
       "reference_kinds": [
         "content_entity"
@@ -1546,7 +1546,7 @@
       "source_type": "other",
       "evidence_state": "measured",
       "link_health_state": "unknown",
-      "last_checked_date": "2026-11-09",
+      "last_checked_date": "2026-11-16",
       "reference_count": 1,
       "reference_kinds": [
         "content_entity"
@@ -1762,7 +1762,7 @@
       "source_type": "other",
       "evidence_state": "measured",
       "link_health_state": "unknown",
-      "last_checked_date": "2026-11-09",
+      "last_checked_date": "2026-11-16",
       "reference_count": 1,
       "reference_kinds": [
         "content_entity"
@@ -1978,7 +1978,7 @@
       "source_type": "other",
       "evidence_state": "measured",
       "link_health_state": "unknown",
-      "last_checked_date": "2026-11-09",
+      "last_checked_date": "2026-11-16",
       "reference_count": 1,
       "reference_kinds": [
         "content_entity"
@@ -2158,7 +2158,7 @@
       "source_type": "other",
       "evidence_state": "measured",
       "link_health_state": "unknown",
-      "last_checked_date": "2026-11-09",
+      "last_checked_date": "2026-11-16",
       "reference_count": 1,
       "reference_kinds": [
         "content_entity"
@@ -8166,6 +8166,24 @@
       ]
     },
     {
+      "source_key": "source.c9c64954d229cca411147270",
+      "title": "Oba",
+      "publisher": "oba.nl",
+      "url": "https://oba.nl/nl/locaties/oba-oosterdok",
+      "canonical_url": "https://oba.nl/nl/locaties/oba-oosterdok",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-16",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "place.oba-oosterdok"
+      ]
+    },
+    {
       "source_key": "source.a3b27ba380725d5071e7f066",
       "title": "Oegstgeest official website",
       "publisher": "Oegstgeest",
@@ -8912,7 +8930,7 @@
       "source_type": "other",
       "evidence_state": "measured",
       "link_health_state": "unknown",
-      "last_checked_date": "2026-11-09",
+      "last_checked_date": "2026-11-16",
       "reference_count": 1,
       "reference_kinds": [
         "content_entity"
@@ -9372,15 +9390,15 @@
       ]
     },
     {
-      "source_key": "source.30627a64a174e91922757cea",
+      "source_key": "source.a998d4e298a39a97df8e92e7",
       "title": "Official visitor information",
       "publisher": "Restaurant Dende",
-      "url": "https://www.dende.nl/contact",
-      "canonical_url": "https://www.dende.nl/contact",
+      "url": "https://dende.nl/",
+      "canonical_url": "https://dende.nl/",
       "source_type": "other",
       "evidence_state": "measured",
       "link_health_state": "unknown",
-      "last_checked_date": "2026-11-09",
+      "last_checked_date": "2026-11-16",
       "reference_count": 1,
       "reference_kinds": [
         "content_entity"
@@ -9416,7 +9434,7 @@
       "source_type": "other",
       "evidence_state": "measured",
       "link_health_state": "unknown",
-      "last_checked_date": "2026-11-09",
+      "last_checked_date": "2026-11-16",
       "reference_count": 1,
       "reference_kinds": [
         "content_entity"
@@ -10803,7 +10821,7 @@
       "source_type": "other",
       "evidence_state": "measured",
       "link_health_state": "unknown",
-      "last_checked_date": "2026-11-09",
+      "last_checked_date": "2026-11-16",
       "reference_count": 1,
       "reference_kinds": [
         "content_entity"
@@ -12524,6 +12542,24 @@
       ]
     },
     {
+      "source_key": "source.ec51c57ddd2ac9bc603daa20",
+      "title": "Wester Visit",
+      "publisher": "westerkerk.nl",
+      "url": "https://westerkerk.nl/bezoek-de-westerkerk-amsterdam/",
+      "canonical_url": "https://westerkerk.nl/bezoek-de-westerkerk-amsterdam/",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-16",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "place.westerkerk"
+      ]
+    },
+    {
       "source_key": "source.71085a68350e6989df267a90",
       "title": "Westerkwartier official website",
       "publisher": "Westerkwartier",
@@ -13064,6 +13100,24 @@
       ]
     },
     {
+      "source_key": "source.b99afca00ef55cb2ef4f5e85",
+      "title": "Adam Contact",
+      "publisher": "www.adamlookout.com",
+      "url": "https://www.adamlookout.com/en/contact/",
+      "canonical_url": "https://www.adamlookout.com/en/contact/",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-16",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "place.adam-lookout"
+      ]
+    },
+    {
       "source_key": "source.42613502e948bb2695075c54",
       "title": "Allard Pierson | Home",
       "publisher": "www.allardpierson.nl",
@@ -13115,6 +13169,60 @@
       ],
       "reference_ids": [
         "museum.artis-micropia"
+      ]
+    },
+    {
+      "source_key": "source.c7e9936d5e064ef9d9574ea0",
+      "title": "Artis Visit",
+      "publisher": "www.artis.nl",
+      "url": "https://www.artis.nl/en/plan-your-visit",
+      "canonical_url": "https://www.artis.nl/en/plan-your-visit",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-16",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "place.artis"
+      ]
+    },
+    {
+      "source_key": "source.17f058f610efb1f34ba19cae",
+      "title": "Hallen Visit",
+      "publisher": "www.dehallen-amsterdam.nl",
+      "url": "https://www.dehallen-amsterdam.nl/en/visit",
+      "canonical_url": "https://www.dehallen-amsterdam.nl/en/visit",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-16",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "place.de-hallen-amsterdam"
+      ]
+    },
+    {
+      "source_key": "source.b86bed6cfb0fbb1e39f20da9",
+      "title": "Hortus",
+      "publisher": "www.dehortus.nl",
+      "url": "https://www.dehortus.nl/en/",
+      "canonical_url": "https://www.dehortus.nl/en/",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-16",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "place.hortus-botanicus-amsterdam"
       ]
     },
     {
@@ -13172,6 +13280,24 @@
       ]
     },
     {
+      "source_key": "source.28ad0cf2e00be8c2bf64d9dc",
+      "title": "Heineken Tour",
+      "publisher": "www.heinekenexperience.com",
+      "url": "https://www.heinekenexperience.com/en/discover-our-tours/heineken-tour",
+      "canonical_url": "https://www.heinekenexperience.com/en/discover-our-tours/heineken-tour",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-16",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "place.heineken-experience"
+      ]
+    },
+    {
       "source_key": "source.4bc489024d3d4075db5dbe04",
       "title": "Home | Het Scheepvaartmuseum | The National Maritime Museum",
       "publisher": "www.hetscheepvaartmuseum.com",
@@ -13187,6 +13313,24 @@
       ],
       "reference_ids": [
         "museum.het-scheepvaartmuseum"
+      ]
+    },
+    {
+      "source_key": "source.83f06740841313066b6fa034",
+      "title": "Arena Tours",
+      "publisher": "www.johancruijffarena.nl",
+      "url": "https://www.johancruijffarena.nl/en/tickets-visits/stadium-tours/",
+      "canonical_url": "https://www.johancruijffarena.nl/en/tickets-visits/stadium-tours/",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-16",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "place.johan-cruijff-arena"
       ]
     },
     {
@@ -13223,6 +13367,42 @@
       ],
       "reference_ids": [
         "museum.nemo-science-museum"
+      ]
+    },
+    {
+      "source_key": "source.cb5447ab9f9db815580a8d76",
+      "title": "Nieuwe Visit",
+      "publisher": "www.nieuwekerk.nl",
+      "url": "https://www.nieuwekerk.nl/plan-je-bezoek/",
+      "canonical_url": "https://www.nieuwekerk.nl/plan-je-bezoek/",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-16",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "place.de-nieuwe-kerk-amsterdam"
+      ]
+    },
+    {
+      "source_key": "source.e46ec92c5e6134b3cfbfd4f9",
+      "title": "Oude Visit",
+      "publisher": "www.oudekerk.nl",
+      "url": "https://www.oudekerk.nl/en/tickets-and-visit",
+      "canonical_url": "https://www.oudekerk.nl/en/tickets-and-visit",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-16",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "place.oude-kerk"
       ]
     },
     {

@@ -1,0 +1,16 @@
+{
+  "url": "https://www.baristacafe.nl/vestiging/leiden/",
+  "checkedAt": "2026-11-16",
+  "httpStatus": 200,
+  "finalUrl": "https://www.baristacafe.nl/vestiging/leiden/",
+  "sha256": "a7afb1f9cfd3c51e9d255bd1431edaea9cbea421d7f0f117eb604d5f9a05efab",
+  "recheckedThisBatch": true,
+  "method": "Direct HTTPS, ordinary urllib client; no access-control bypass",
+  "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/barista",
+  "officialLinks": [
+    {
+      "text": "Ons menu",
+      "href": "https://www.cavesco.nl/docs/baristacafe/menukaart_leiden.pdf"
+    }
+  ]
+}

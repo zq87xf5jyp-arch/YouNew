@@ -1,0 +1,24 @@
+{
+  "url": "https://30ml.nl/en/locations/30ml-leiden/",
+  "checkedAt": "2026-11-16",
+  "httpStatus": 200,
+  "finalUrl": "https://30ml.nl/en/locations/30ml-leiden/",
+  "sha256": "004c4c2f9271fad953317dbeafc72af8a575ebdd48a95de3bb63c7a35c2c3016",
+  "recheckedThisBatch": true,
+  "method": "Direct HTTPS, ordinary urllib client; no access-control bypass",
+  "rawEvidence": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/sources/ml",
+  "officialLinks": [
+    {
+      "text": "Our menu",
+      "href": "https://30ml.nl/en/menu/"
+    },
+    {
+      "text": "Our menu",
+      "href": "https://30ml.nl/en/menu/"
+    },
+    {
+      "text": "Our menu",
+      "href": "https://30ml.nl/en/menu/"
+    }
+  ]
+}

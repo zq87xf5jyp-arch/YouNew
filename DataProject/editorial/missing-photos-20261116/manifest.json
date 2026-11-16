@@ -1,0 +1,149 @@
+{
+  "schemaVersion": 1,
+  "batchId": "missing-photos-20261116",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "approvedAt": null,
+  "reviewerId": null,
+  "approvalSha256": null,
+  "preparedAt": "2026-11-16",
+  "privateOnly": true,
+  "ids": [
+    "nature.leiden-rembrandtpark",
+    "hotel.leiden-ibis",
+    "hotel.leiden-rembrandt-hotel",
+    "restaurant.eindhoven-kazerne",
+    "hotel.rotterdam-supernova"
+  ],
+  "baseFiles": {
+    "nature.leiden-rembrandtpark": {
+      "file": "DataProject/editorial/leiden-stay-parks-20261115/records.json",
+      "sha256": "32fb30b21b90e5a9419bc2482384946c9acccd8f77997b0791d8679b29132864"
+    },
+    "hotel.leiden-ibis": {
+      "file": "DataProject/editorial/leiden-stay-parks-20261115/records.json",
+      "sha256": "32fb30b21b90e5a9419bc2482384946c9acccd8f77997b0791d8679b29132864"
+    },
+    "hotel.leiden-rembrandt-hotel": {
+      "file": "DataProject/editorial/leiden-stay-parks-20261115/records.json",
+      "sha256": "32fb30b21b90e5a9419bc2482384946c9acccd8f77997b0791d8679b29132864"
+    },
+    "restaurant.eindhoven-kazerne": {
+      "file": "DataProject/editorial/priority-cities-20261115/records.json",
+      "sha256": "8a808c99acf914a36e7e84f18198f32243badc55fe92e06be4c605903c98dab3"
+    },
+    "hotel.rotterdam-supernova": {
+      "file": "DataProject/editorial/priority-cities-20261115/records.json",
+      "sha256": "8a808c99acf914a36e7e84f18198f32243badc55fe92e06be4c605903c98dab3"
+    }
+  },
+  "recordsSha256": "88fa7dfe1c8abe5fe1cbc9a7994c70ca7c138063b870c16a0353ba6486afa677",
+  "media": {
+    "rembrandtpark-480.webp": {
+      "width": 480,
+      "height": 315,
+      "bytes": 22354,
+      "sha256": "826135fdb718d60259cb0ceb94e2954dffaff9935e510dcd354d03b36c6d28bc"
+    },
+    "rembrandtpark-800.webp": {
+      "width": 800,
+      "height": 525,
+      "bytes": 53462,
+      "sha256": "e516357640e590d484d26562aa6e73cb693118be2e53155bb8f16a2141165942"
+    },
+    "rembrandtpark-1200.webp": {
+      "width": 1200,
+      "height": 787,
+      "bytes": 106140,
+      "sha256": "dfb13bdffdc972bb7c121b6e767f22a5ddb34dcf65adc28d3b092ff2adf93453"
+    },
+    "ibisleiden-480.webp": {
+      "width": 480,
+      "height": 640,
+      "bytes": 47942,
+      "sha256": "e17f1e4c694e98e47d515ffa4381e39769700a346e364f6660daedc46c55d818"
+    },
+    "ibisleiden-800.webp": {
+      "width": 800,
+      "height": 1067,
+      "bytes": 113854,
+      "sha256": "f00c40ec2d03df209c0bf8432a2d5e1d4a18eeb39930e3f1259747cea296b460"
+    },
+    "ibisleiden-1200.webp": {
+      "width": 1200,
+      "height": 1600,
+      "bytes": 222794,
+      "sha256": "13146b3ab2d7b20290497d443c9145a1dff2c61caec21f843d85c5e48d17d280"
+    },
+    "rembrandthotel-480.webp": {
+      "width": 480,
+      "height": 320,
+      "bytes": 34694,
+      "sha256": "de5bfeca55425b31bc720691f55782ae91e8a8ac50ee52fdba0c12a4c41e80f4"
+    },
+    "rembrandthotel-800.webp": {
+      "width": 800,
+      "height": 533,
+      "bytes": 85172,
+      "sha256": "805f97f2e59ad7401e0d682278cb7bec385b565dce28b5ed3f3800391b52c9e8"
+    },
+    "rembrandthotel-1200.webp": {
+      "width": 1200,
+      "height": 800,
+      "bytes": 168006,
+      "sha256": "598fbda97a92a1cf13741e206ca6b631fd6bce83f44c17fe6603b7de1a72306d"
+    },
+    "kazerne-480.webp": {
+      "width": 480,
+      "height": 320,
+      "bytes": 34276,
+      "sha256": "56b7dcd0fd9110e7ba7426d80ac77475332b092a5f72e698726c5b3b15bf4815"
+    },
+    "kazerne-800.webp": {
+      "width": 800,
+      "height": 533,
+      "bytes": 98886,
+      "sha256": "951b5904afec2f149b1aee0014950f87f444666d18cc93fc71f24319907968ec"
+    },
+    "kazerne-1200.webp": {
+      "width": 1200,
+      "height": 800,
+      "bytes": 224164,
+      "sha256": "6423398ec6c729222fa3a884ab5b8904ec79c0124e697396b1318373b56fd010"
+    },
+    "supernova-480.webp": {
+      "width": 480,
+      "height": 360,
+      "bytes": 19790,
+      "sha256": "41a8cb789e574b8af78ae893892b3e1297e731dcc6c924be69187804aca91f01"
+    },
+    "supernova-800.webp": {
+      "width": 800,
+      "height": 600,
+      "bytes": 46574,
+      "sha256": "dd0064a100f0b4c5bda5e306eea615751bbd6bd36d7bb826b77f98d10fd8aec9"
+    },
+    "supernova-1024.webp": {
+      "width": 1024,
+      "height": 768,
+      "bytes": 70014,
+      "sha256": "ba78c398b0962c7e430e89be785bd42f7cc96a65b63245dc8a8aca328ea669f0"
+    }
+  },
+  "sourceChecksSha256": "225bcaa7b9b84137c27be35edc4ee7e1e79b40f91324f0222a07fcbd38dfe6dc",
+  "mediaSourcesSha256": "631590b230502ff9704fe5c38d6665b3397a90b451e2e2056b7cd1e63fbc47f4",
+  "publicationScope": {
+    "type": "owner-approved-existing-ids",
+    "addedIds": [],
+    "supersedesHistoricalWithholding": false
+  },
+  "scope": "Media-only candidates: five of nine gaps. New approval required; no production publication.",
+  "retainedMedia": {
+    "supernova-1200.webp": {
+      "width": 1200,
+      "height": 900,
+      "bytes": 82082,
+      "sha256": "c30304fb5e136b531bf616684ea10624e736f016994ccf103ac9588437ef2aa8"
+    }
+  }
+}

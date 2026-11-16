@@ -1,0 +1,158 @@
+{
+  "schemaVersion": 1,
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "scope": "Composition evidence only, not an activatable batch. Explicit approval of the final combined records and placement remains required.",
+  "sourceSelectionSha256": "defc64135bfe6c273f5d70a04ecec61714301778278e3634af2cb449ce38267a",
+  "inputs": {
+    "base": "8a808c99acf914a36e7e84f18198f32243badc55fe92e06be4c605903c98dab3",
+    "text": "ae8f1969a6bfacae346d521ec968729048a4de6fef48d4e50c4865447fc09ed7",
+    "photo": "88fa7dfe1c8abe5fe1cbc9a7994c70ca7c138063b870c16a0353ba6486afa677"
+  },
+  "recordsSha256": "779c6e4efdcb6f79881d93516e233c550243e96402ae6e2ddaa93b850cb2e643",
+  "records": [
+    {
+      "id": "restaurant.eindhoven-kazerne",
+      "entity_type": "restaurant",
+      "category": "restaurant",
+      "city_id": "eindhoven",
+      "province_id": "noord-brabant",
+      "coordinates": {
+        "latitude": 51.4360392,
+        "longitude": 5.4773741
+      },
+      "title": "Kazerne BarBistro",
+      "description": "A bar-bistro within Eindhoven’s Kazerne design setting. Evening dining and the daytime offering have different schedules.",
+      "images": [
+        {
+          "id": "media.restaurant.eindhoven-kazerne.missing-20261116",
+          "role": "hero",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:0772_WN176_Paradijslaan_4,_4a,_6,_6a,_Eindhoven.jpg",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/e/ef/0772_WN176_Paradijslaan_4%2C_4a%2C_6%2C_6a%2C_Eindhoven.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "public_asset_path": "/images/place-review/kazerne-1200.webp",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "attribution": "Rosemoon · 0772 WN176 Paradijslaan 4, 4a, 6, 6a, Eindhoven · 2020-03-17 · Former Benz sign / Toenmalige Benz-aanduiding; archive photograph / archieffoto · resized / verkleind, WebP; no content edits / inhoud ongewijzigd",
+          "verified": true,
+          "retrieved_at": "2026-11-16",
+          "alt": "Street facade of the Kazerne complex at Paradijslaan in Eindhoven, with historical Benz signage; March 2020"
+        }
+      ],
+      "official_source": {
+        "title": "Food & Drinks bij Kazerne | ByDay café & BarBistro Eindhoven",
+        "publisher": "www.kazerne.com",
+        "url": "https://www.kazerne.com/bar-bistro-kazerne",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.kazerne.com/bar-bistro-kazerne",
+      "related_entity_ids": [
+        "museum.eindhoven-inkijkmuseum",
+        "city.eindhoven"
+      ],
+      "last_checked": "2026-11-16",
+      "review_frequency_days": 7,
+      "verification_status": "needs_review",
+      "ai_summary": "A bar-bistro within Eindhoven’s Kazerne design setting. Evening dining and the daytime offering have different schedules.",
+      "search_keywords": [
+        "Kazerne BarBistro",
+        "eindhoven",
+        "restaurant",
+        "eindhovenkazerne"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "slug": "eindhoven-kazerne",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "description_nl": "Een bar-bistro in de designomgeving van Kazerne in Eindhoven. Avondeten en het dagaanbod hebben verschillende openingstijden.",
+        "title_nl": "Kazerne BarBistro",
+        "field_review_status": "Additional EN/NL facts in review; prior source dates preserved; no renewed publication approval",
+        "catalog_review_batch": "priority-cities-followup-20261116",
+        "address": "Paradijslaan 2–8, 5611 KN Eindhoven",
+        "address_source_url": "https://www.kazerne.com/bar-bistro-kazerne",
+        "address_checked_at": "2026-11-15",
+        "website": "https://www.kazerne.com/bar-bistro-kazerne",
+        "website_source_url": "https://www.kazerne.com/bar-bistro-kazerne",
+        "website_checked_at": "2026-11-15",
+        "address_note": "",
+        "media_status": "No suitable licensed photograph confirmed; no substitute image used",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-16\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.eindhovenkazerne\",\"title\":\"Food & Drinks bij Kazerne | ByDay café & BarBistro Eindhoven\",\"publisher\":\"www.kazerne.com\",\"url\":\"https://www.kazerne.com/bar-bistro-kazerne\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.pdok\",\"title\":\"BAG address coordinate: Paradijslaan 2, 5611KN Eindhoven\",\"publisher\":\"PDOK / Kadaster\",\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Paradijslaan+2+Eindhoven&fq=type%3Aadres&rows=3\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.kazerne-design\",\"title\":\"Design in a former barracks\",\"publisher\":\"www.kazerne.com\",\"url\":\"https://www.kazerne.com/\",\"is_official\":true,\"checked_at\":\"2026-11-16\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Paradijslaan+2+Eindhoven&fq=type%3Aadres&rows=3\",\"method\":\"BAG address point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=51.4360392,5.4773741\"},\"tickets\":null,\"locales\":{\"en\":{\"alt\":\"Street facade of the Kazerne complex at Paradijslaan in Eindhoven, with historical Benz signage; March 2020\",\"blocks\":[{\"id\":\"setting\",\"title\":\"About this place\",\"text\":\"Kazerne combines dining with a design environment. Check the current programme and menu for your visit.\",\"source_ids\":[\"source.eindhovenkazerne\"]},{\"id\":\"hours\",\"title\":\"Opening hours\",\"text\":\"BarBistro is listed Monday–Saturday from 17:00. ByDay is listed daily 07:30–17:00; it is a separate daytime offering.\",\"source_ids\":[\"source.eindhovenkazerne\"]},{\"id\":\"prices\",\"title\":\"Tickets and prices\",\"text\":\"Follow the menu link on the official BarBistro page for dishes and current prices; no fixed meal budget is promised here.\",\"source_ids\":[\"source.eindhovenkazerne\"]},{\"id\":\"book\",\"title\":\"Booking\",\"text\":\"Use the reservation route on the official page and confirm the venue, date and arrival time.\",\"source_ids\":[\"source.eindhovenkazerne\"]},{\"id\":\"restrictions\",\"title\":\"Check before travelling\",\"text\":\"Discuss dietary requirements with the restaurant before booking. The daytime and evening menus should not be treated as interchangeable.\",\"source_ids\":[\"source.eindhovenkazerne\"]},{\"id\":\"design-heritage\",\"title\":\"Design in a former barracks\",\"text\":\"Kazerne combines a former military-police barracks with an adjoining industrial hall. Its Design Lab presents changing work by emerging and established designers. Treat the exhibition as a programme that changes, rather than a fixed collection promised by an older photograph.\",\"source_ids\":[\"source.kazerne-design\"]},{\"id\":\"exhibition-entry\",\"title\":\"Exhibition access and dining are separate\",\"text\":\"The operator says visitors can normally walk in to see the exhibition without an entrance fee. Special events, including Dutch Design Week, may charge admission. This concerns exhibition entry: food, drinks, rooms and event bookings have separate conditions.\",\"source_ids\":[\"source.kazerne-design\"]}]},\"nl\":{\"alt\":\"Straatgevel van het Kazernecomplex aan de Paradijslaan in Eindhoven, met de toenmalige Benz-aanduiding; maart 2020\",\"blocks\":[{\"id\":\"setting\",\"title\":\"Over deze plek\",\"text\":\"Kazerne combineert eten met een designomgeving. Bekijk het actuele programma en menu voor je bezoek.\",\"source_ids\":[\"source.eindhovenkazerne\"]},{\"id\":\"hours\",\"title\":\"Openingstijden\",\"text\":\"BarBistro staat vermeld voor maandag–zaterdag vanaf 17.00 uur. ByDay is dagelijks 07.30–17.00 uur open en is een afzonderlijk dagaanbod.\",\"source_ids\":[\"source.eindhovenkazerne\"]},{\"id\":\"prices\",\"title\":\"Tickets en prijzen\",\"text\":\"Volg de menulink op de officiële BarBistro-pagina voor gerechten en actuele prijzen; hier wordt geen vast maaltijdtarief beloofd.\",\"source_ids\":[\"source.eindhovenkazerne\"]},{\"id\":\"book\",\"title\":\"Boeken\",\"text\":\"Gebruik de reserveringsroute op de officiële pagina en bevestig locatie, datum en aankomsttijd.\",\"source_ids\":[\"source.eindhovenkazerne\"]},{\"id\":\"restrictions\",\"title\":\"Controleer voor vertrek\",\"text\":\"Bespreek dieetwensen vóór reserveren met het restaurant. De dag- en avondkaart zijn niet zonder meer uitwisselbaar.\",\"source_ids\":[\"source.eindhovenkazerne\"]},{\"id\":\"design-heritage\",\"title\":\"Design in een voormalige kazerne\",\"text\":\"Kazerne combineert een voormalige marechausseekazerne met een aangrenzende industriële loods. Het Design Lab toont wisselend werk van jonge en gevestigde ontwerpers. Beschouw de expositie als een veranderend programma, niet als een vaste collectie die een oudere foto belooft.\",\"source_ids\":[\"source.kazerne-design\"]},{\"id\":\"exhibition-entry\",\"title\":\"Expositietoegang en eten zijn afzonderlijk\",\"text\":\"Volgens de aanbieder kun je de expositie doorgaans zonder entreeprijs binnenlopen. Bij bijzondere evenementen, waaronder Dutch Design Week, kan wel entree gelden. Dit betreft de expositie: eten, drinken, kamers en evenementboekingen hebben eigen voorwaarden.\",\"source_ids\":[\"source.kazerne-design\"]}]}}}",
+        "related_entities_editorial_basis": "Eindhoven design and a small arts venue"
+      }
+    },
+    {
+      "id": "hotel.rotterdam-supernova",
+      "entity_type": "hotel",
+      "category": "hotel",
+      "city_id": "rotterdam",
+      "province_id": "zuid-holland",
+      "coordinates": {
+        "latitude": 51.9164928,
+        "longitude": 4.4631285
+      },
+      "title": "Supernova Hotel",
+      "description": "A Rotterdam hotel with individually arranged rooms, a library lounge and local recommendations. Select the room type that matches your stay.",
+      "images": [
+        {
+          "id": "media.hotel.rotterdam-supernova.missing-20261116",
+          "role": "hero",
+          "source_page_url": "https://www.flickr.com/photos/rotterdamsballonnenbedrijf/52366054870",
+          "asset_url": "https://live.staticflickr.com/65535/52366054870_24a3e3e5f1_b.jpg",
+          "public_asset_path": "/images/place-review/supernova-1024.webp",
+          "license": "CC BY 2.0",
+          "license_url": "https://creativecommons.org/licenses/by/2.0/",
+          "attribution": "Rotterdams Ballonnenbedrijf · Heliumballonnen Super Deluxe Kamer Supernova Hotel Rotterdam · 2022-09-03 · Temporary balloon arrangement / Tijdelijke ballonversiering · resized / verkleind, WebP; no content edits / inhoud ongewijzigd",
+          "verified": true,
+          "retrieved_at": "2026-11-16",
+          "alt": "Super Deluxe room at Supernova Hotel, with temporary pink balloon decorations by Rotterdams Ballonnenbedrijf; September 2022"
+        }
+      ],
+      "official_source": {
+        "title": "Supernova Hotel",
+        "publisher": "supernovahotel.nl",
+        "url": "https://supernovahotel.nl/en",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://supernovahotel.nl/en",
+      "related_entity_ids": [
+        "museum.rotterdam-chabot",
+        "city.rotterdam",
+        "nature.rotterdam-trompenburg"
+      ],
+      "last_checked": "2026-11-16",
+      "review_frequency_days": 7,
+      "verification_status": "needs_review",
+      "ai_summary": "A Rotterdam hotel with individually arranged rooms, a library lounge and local recommendations. Select the room type that matches your stay.",
+      "search_keywords": [
+        "Supernova Hotel",
+        "rotterdam",
+        "hotel",
+        "rotterdamsupernova"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "slug": "rotterdam-supernova",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "description_nl": "Een Rotterdams hotel met verschillend ingerichte kamers, een bibliotheeklounge en lokale tips. Kies het kamertype dat bij je verblijf past.",
+        "title_nl": "Supernova Hotel",
+        "field_review_status": "Additional EN/NL facts in review; prior source dates preserved; no renewed publication approval",
+        "catalog_review_batch": "priority-cities-followup-20261116",
+        "address": "’s-Gravendijkwal 68, 3014 EG Rotterdam",
+        "address_source_url": "https://supernovahotel.nl/en",
+        "address_checked_at": "2026-11-15",
+        "website": "https://supernovahotel.nl/en",
+        "website_source_url": "https://supernovahotel.nl/en",
+        "website_checked_at": "2026-11-15",
+        "address_note": "",
+        "media_status": "No suitable licensed photograph confirmed; no substitute image used",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-16\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.rotterdamsupernova\",\"title\":\"Supernova Hotel\",\"publisher\":\"supernovahotel.nl\",\"url\":\"https://supernovahotel.nl/en\",\"is_official\":true,\"checked_at\":\"2026-11-15\",\"status\":\"verified_opened\"},{\"id\":\"source.supernova-bikes\",\"title\":\"Check lounge availability\",\"publisher\":\"supernovahotel.nl\",\"url\":\"https://supernovahotel.nl/en/bikes\",\"is_official\":true,\"checked_at\":\"2026-11-16\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://supernovahotel.nl/en\",\"method\":\"Official tourism location map point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=51.9164928,4.4631285\"},\"tickets\":null,\"locales\":{\"en\":{\"alt\":\"Super Deluxe room at Supernova Hotel, with temporary pink balloon decorations by Rotterdams Ballonnenbedrijf; September 2022\",\"blocks\":[{\"id\":\"rooms\",\"title\":\"Rooms\",\"text\":\"Room features vary: some categories offer a balcony, garden access or a record player. These are not universal room amenities.\",\"source_ids\":[\"source.rotterdamsupernova\"]},{\"id\":\"breakfast\",\"title\":\"Breakfast\",\"text\":\"The hotel offers a breakfast buffet with local products. Check whether breakfast is included in your selected rate.\",\"source_ids\":[\"source.rotterdamsupernova\"]},{\"id\":\"parking\",\"title\":\"Parking\",\"text\":\"The hotel explicitly states that it has no private parking. Check the current conditions of nearby public parking options.\",\"source_ids\":[\"source.rotterdamsupernova\"]},{\"id\":\"book\",\"title\":\"Booking\",\"text\":\"Use the hotel’s own booking link for dates, room capacity and cancellation conditions; no live room price is displayed here.\",\"source_ids\":[\"source.rotterdamsupernova\"]},{\"id\":\"address\",\"title\":\"Location\",\"text\":\"The hotel is at ’s-Gravendijkwal 68. Follow its official route information for arrival.\",\"source_ids\":[\"source.rotterdamsupernova\"]},{\"id\":\"library-lounge\",\"title\":\"Check lounge availability\",\"text\":\"The Library Lounge also serves as a bookable meeting room. Ask the hotel whether it is available for your intended use during your stay; its presence does not guarantee an unrestricted coworking space. Meeting arrangements are separate from a room reservation.\",\"source_ids\":[\"source.supernova-bikes\"]},{\"id\":\"cycling\",\"title\":\"Ask about a hotel bike before planning a ride\",\"text\":\"The hotel promotes exploring Rotterdam on a Supernova bike. The inspected page does not establish a bike price or availability for a particular date. Ask reception before building a day plan around it, and do not assume a bicycle is included in the room rate.\",\"source_ids\":[\"source.supernova-bikes\"]}]},\"nl\":{\"alt\":\"Super Deluxe-kamer in Supernova Hotel, tijdelijk versierd met roze ballonnen door Rotterdams Ballonnenbedrijf; september 2022\",\"blocks\":[{\"id\":\"rooms\",\"title\":\"Kamers\",\"text\":\"Kamervoorzieningen verschillen: sommige categorieën hebben een balkon, tuintoegang of platenspeler. Dit geldt niet voor elke kamer.\",\"source_ids\":[\"source.rotterdamsupernova\"]},{\"id\":\"breakfast\",\"title\":\"Ontbijt\",\"text\":\"Het hotel biedt een ontbijtbuffet met lokale producten. Controleer of ontbijt bij je gekozen tarief is inbegrepen.\",\"source_ids\":[\"source.rotterdamsupernova\"]},{\"id\":\"parking\",\"title\":\"Parkeren\",\"text\":\"Het hotel vermeldt uitdrukkelijk dat het geen eigen parkeerplaats heeft. Controleer de actuele voorwaarden van openbare parkeermogelijkheden in de buurt.\",\"source_ids\":[\"source.rotterdamsupernova\"]},{\"id\":\"book\",\"title\":\"Boeken\",\"text\":\"Gebruik de eigen boekingslink van het hotel voor data, kamercapaciteit en annuleringsvoorwaarden; hier staat geen live kamerprijs.\",\"source_ids\":[\"source.rotterdamsupernova\"]},{\"id\":\"address\",\"title\":\"Locatie\",\"text\":\"Het hotel ligt aan de ’s-Gravendijkwal 68. Volg de officiële route-informatie voor je aankomst.\",\"source_ids\":[\"source.rotterdamsupernova\"]},{\"id\":\"library-lounge\",\"title\":\"Vraag naar de beschikbaarheid van de lounge\",\"text\":\"De Library Lounge dient ook als te boeken vergaderruimte. Vraag het hotel of de lounge tijdens je verblijf beschikbaar is voor jouw gebruik; de aanwezigheid ervan garandeert geen vrij toegankelijke werkplek. Vergaderafspraken staan los van een kamerreservering.\",\"source_ids\":[\"source.supernova-bikes\"]},{\"id\":\"cycling\",\"title\":\"Vraag vooraf naar een hotelfiets\",\"text\":\"Het hotel noemt een Supernova-fiets als manier om Rotterdam te verkennen. De bekeken pagina bevestigt geen fietsprijs of beschikbaarheid op een bepaalde datum. Vraag de receptie voordat je er een dagplan op baseert en ga niet uit van inbegrepen fietsgebruik.\",\"source_ids\":[\"source.supernova-bikes\"]}]}}}",
+        "related_entities_editorial_basis": "Rotterdam cultural and garden stops during a stay"
+      }
+    }
+  ]
+}

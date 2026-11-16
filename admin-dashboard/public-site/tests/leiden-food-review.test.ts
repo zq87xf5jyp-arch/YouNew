@@ -1,5 +1,5 @@
 import {pendingReviewRoot} from './place-review-fixture.ts';
-import test from 'node:test';
+import test, {after} from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {fileURLToPath} from 'node:url';
@@ -9,6 +9,9 @@ import type {PlaceRevision} from '../scripts/place-review.mjs';
 import {loadEditorialRelease} from '../scripts/editorial-release.mjs';
 import {buildPublicDataset,paths} from '../scripts/generate-public-content.mjs';
 const root=fileURLToPath(new URL('../../../',import.meta.url));
+// Freeze this suite's historical publication boundary; current approval is tested separately.
+const history=await pendingReviewRoot(root,['pr75-integration-20261116']);
+after(()=>history.cleanup());
 const batch='leiden-food-20261115';
 const {manifest,records}=await readPlaceReview(root,batch);
 const env={YOUNEW_PLACE_REVIEW:batch,YOUNEW_PRIVATE_REVIEW_BUILD:'1'};
@@ -16,13 +19,13 @@ const bases=new Map(await Promise.all(Object.entries(manifest.baseFiles).map(asy
 
 test('approved food batch publishes exactly five revisions and pending approval still excludes them',async()=>{
  assert.equal(manifest.status,'approved');assert.equal(manifest.publicationAuthorized,true);assert.equal(manifest.reviewerId,'owner.ivan');
- const release=await loadEditorialRelease();
+ const release=await loadEditorialRelease(history.root);
  const revised=release.entities.filter(e=>manifest.ids.includes(e.id));assert.equal(revised.length,5);
  assert.ok(revised.every(e=>e.images.length===1&&e.editorial?.place&&!e.editorial.placeReview&&!e.editorial.place.tickets));
- const preview=await applyPlaceReview(release,root,env);assert.deepEqual(preview.entities.map(e=>e.id),release.entities.map(e=>e.id));
+ const preview=await applyPlaceReview(release,history.root,env);assert.deepEqual(preview.entities.map(e=>e.id),release.entities.map(e=>e.id));
  assert.ok(preview.entities.filter(e=>manifest.ids.includes(e.id)).every(e=>e.editorial.placeReview?.batchId===batch));
- await assert.rejects(applyPlaceReview(release,root,{YOUNEW_PLACE_REVIEW:batch}),/private review/);
- const fixture=await pendingReviewRoot(root,[batch]);
+ await assert.rejects(applyPlaceReview(release,history.root,{YOUNEW_PLACE_REVIEW:batch}),/private review/);
+ const fixture=await pendingReviewRoot(history.root,[batch]);
  try {const withheld=await loadEditorialRelease(fixture.root);assert.ok(withheld.entities.filter(e=>manifest.ids.includes(e.id)).every(e=>!e.images.length&&!e.editorial.place));}
  finally {await fixture.cleanup();}
  const data=buildPublicDataset(JSON.parse(await readFile(paths.source,'utf8')),{editorialRelease:release}).content;assert.equal(data.entities.length,96);

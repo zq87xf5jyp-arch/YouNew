@@ -1,0 +1,1202 @@
+{
+  "place.artis": {
+    "sourceBatch": "amsterdam-attractions-20261116",
+    "sourceRecordSha256": "838d551f1a14d000701c99fac7df74d020f82de3e8705bef25225ad2abb9323b",
+    "photoEvidence": {
+      "page": "https://commons.wikimedia.org/wiki/File:Artis_Toegang1.jpg",
+      "asset": "https://upload.wikimedia.org/wikipedia/commons/6/67/Artis_Toegang1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "author": "Zxempire",
+      "title": "Artis Toegang1.jpg",
+      "created": "2012-08-16 16:24:12",
+      "license": "CC BY-SA 3.0 nl",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/nl/deed.en",
+      "licenseEvidence": "DataProject/editorial/amsterdam-attractions-20261116/evidence/commons-21809472.json",
+      "licenseEvidenceSha256": "ffae9787ede88d82b39799ea678f6e8599d96e9a72925c7d4d5c0aea1f2c65ba",
+      "commonsRevisionId": 1216464079,
+      "originalSha256": "266ae31f0a3b3cd0611848392f534e472152fdc6815ad44ed30409100a0c97f3",
+      "originalSha1": "4792e05d66e0914db5867f6de8f93b3020d82414",
+      "originalBytes": 6048144,
+      "width": 3830,
+      "height": 2543,
+      "checkedAt": "2026-11-16",
+      "commercialReuse": true,
+      "adaptationAllowed": true,
+      "shareAlike": true,
+      "outputLicense": "CC BY-SA 3.0 nl",
+      "transformations": [
+        "EXIF orientation if present",
+        "proportional resize to 480/800/1200 pixels",
+        "WebP encoding; no crop, retouching or upscaling"
+      ],
+      "identityEvidence": {
+        "officialURL": "https://www.artis.nl/en/plan-your-visit",
+        "reason": "The two gate lodges and golden eagle entrance match ARTIS on Plantage Kerklaan. People are incidental to the entrance view."
+      },
+      "alt": {
+        "en": "ARTIS entrance gates and lodges, photographed in August 2012",
+        "nl": "Toegangspoort en portiershuizen van ARTIS, gefotografeerd in augustus 2012"
+      },
+      "historicalImage": true,
+      "recommendedPlacement": "dated_hero_candidate",
+      "publicationAuthorized": false,
+      "otherRights": "CC covers the photograph; no endorsement, model release, trademark rights or unrestricted rights in separately depicted artworks are asserted."
+    },
+    "combined": false
+  },
+  "place.hortus-botanicus-amsterdam": {
+    "sourceBatch": "amsterdam-attractions-20261116",
+    "sourceRecordSha256": "e84ae60a0dedfb323732d57c09cb6128e9140bafe4c18eb0e5d07311d95739af",
+    "photoEvidence": {
+      "page": "https://commons.wikimedia.org/wiki/File:The_interior_of_small_Greenhouse_in_Hortus_Botanicus_of_Amsterdam.jpg",
+      "asset": "https://upload.wikimedia.org/wikipedia/commons/1/1e/The_interior_of_small_Greenhouse_in_Hortus_Botanicus_of_Amsterdam.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "author": "Faust002",
+      "title": "The interior of small Greenhouse in Hortus Botanicus of Amsterdam.jpg",
+      "created": "2024-04-30 16:23:23",
+      "license": "CC0",
+      "licenseURL": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "licenseEvidence": "DataProject/editorial/amsterdam-attractions-20261116/evidence/commons-150724314.json",
+      "licenseEvidenceSha256": "1f5bdbc1593fafea02467c5147b55f97c48788d368878da78cd935774f12b0c9",
+      "commonsRevisionId": 1298684139,
+      "originalSha256": "a703360e5cb43f4e8ebd23785f950e4a13cb70d7c22ee7606ab633ce07c913da",
+      "originalSha1": "eb8d7454a5b3213abde37ccc64264587caeef212",
+      "originalBytes": 4453231,
+      "width": 3024,
+      "height": 4032,
+      "checkedAt": "2026-11-16",
+      "commercialReuse": true,
+      "adaptationAllowed": true,
+      "shareAlike": false,
+      "outputLicense": "CC0",
+      "transformations": [
+        "EXIF orientation if present",
+        "proportional resize to 480/800/1200 pixels",
+        "WebP encoding; no crop, retouching or upscaling"
+      ],
+      "identityEvidence": {
+        "officialURL": "https://www.dehortus.nl/en/",
+        "reason": "Commons explicitly locates this greenhouse at Hortus Amsterdam; glasshouse and plant collection visible. This predates the 2025 Climate House and does not document its current layout."
+      },
+      "alt": {
+        "en": "Interior of a small greenhouse at Hortus Amsterdam, April 2024; not the new Climate House",
+        "nl": "Interieur van een kleine kas in de Hortus Amsterdam, april 2024; niet de nieuwe Klimatenkas"
+      },
+      "historicalImage": true,
+      "recommendedPlacement": "dated_hero_candidate",
+      "publicationAuthorized": false,
+      "otherRights": "CC covers the photograph; no endorsement, model release, trademark rights or unrestricted rights in separately depicted artworks are asserted."
+    },
+    "combined": false
+  },
+  "place.oude-kerk": {
+    "sourceBatch": "amsterdam-attractions-20261116",
+    "sourceRecordSha256": "923c39f0abaf20aaf9fc7f718879a22f75924df0eef4838c0813b53f69b630e4",
+    "photoEvidence": {
+      "page": "https://commons.wikimedia.org/wiki/File:Exterior_views_of_the_Oude_Kerk_(Amsterdam)_20180701.jpg",
+      "asset": "https://upload.wikimedia.org/wikipedia/commons/3/30/Exterior_views_of_the_Oude_Kerk_%28Amsterdam%29_20180701.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "author": "Suicasmo",
+      "title": "Exterior views of the Oude Kerk (Amsterdam) 20180701.jpg",
+      "created": "2018-07-01 17:06:14",
+      "license": "CC BY-SA 4.0",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0",
+      "licenseEvidence": "DataProject/editorial/amsterdam-attractions-20261116/evidence/commons-91441109.json",
+      "licenseEvidenceSha256": "619fc1e11fe2532c8b0e10b932e69cc9e85c6ce2b47f84a812e5dcd1d627d8e1",
+      "commonsRevisionId": 1238067894,
+      "originalSha256": "a4159de1821bf46fd1babb1c190ff3712ad43f37743e2bcf47b48f0430dd081d",
+      "originalSha1": "c5c2df13dfdb0ca2b4c5b14975bee0735aa160a5",
+      "originalBytes": 7736875,
+      "width": 3456,
+      "height": 5184,
+      "checkedAt": "2026-11-16",
+      "commercialReuse": true,
+      "adaptationAllowed": true,
+      "shareAlike": true,
+      "outputLicense": "CC BY-SA 4.0",
+      "transformations": [
+        "EXIF orientation if present",
+        "proportional resize to 480/800/1200 pixels",
+        "WebP encoding; no crop, retouching or upscaling"
+      ],
+      "identityEvidence": {
+        "officialURL": "https://www.oudekerk.nl/en/tickets-and-visit",
+        "reason": "Gothic church tower, clock and roof identify the Oude Kerk. Foreground buildings partly obscure the lower facade."
+      },
+      "alt": {
+        "en": "Oude Kerk tower and exterior in Amsterdam, July 2018",
+        "nl": "Toren en buitenzijde van de Oude Kerk in Amsterdam, juli 2018"
+      },
+      "historicalImage": true,
+      "recommendedPlacement": "dated_hero_candidate",
+      "publicationAuthorized": false,
+      "otherRights": "CC covers the photograph; no endorsement, model release, trademark rights or unrestricted rights in separately depicted artworks are asserted."
+    },
+    "combined": false
+  },
+  "place.de-nieuwe-kerk-amsterdam": {
+    "sourceBatch": "amsterdam-attractions-20261116",
+    "sourceRecordSha256": "151d4eeee43c17e1de49d0804d037c4a82f9bc2daf81996991f189598b5e7448",
+    "photoEvidence": {
+      "page": "https://commons.wikimedia.org/wiki/File:Nieuwe_Kerk_(Amsterdam)_20180701.jpg",
+      "asset": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Nieuwe_Kerk_%28Amsterdam%29_20180701.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "author": "Suicasmo",
+      "title": "Nieuwe Kerk (Amsterdam) 20180701.jpg",
+      "created": "2018-07-01 11:21:38",
+      "license": "CC BY-SA 4.0",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0",
+      "licenseEvidence": "DataProject/editorial/amsterdam-attractions-20261116/evidence/commons-91128392.json",
+      "licenseEvidenceSha256": "9ae0c2ee4cc1dafe6ee6f9f3c2fff018ed9383139f31fb667bb3de7da1267b12",
+      "commonsRevisionId": 1257763967,
+      "originalSha256": "6862470ff5a2d2585fd84d4e42135b72b6d810cc3f498db0a6d9dbd8eb47e857",
+      "originalSha1": "29b927c2ac923c697eef55aa040a75a34a30fb3d",
+      "originalBytes": 8211976,
+      "width": 5184,
+      "height": 3456,
+      "checkedAt": "2026-11-16",
+      "commercialReuse": true,
+      "adaptationAllowed": true,
+      "shareAlike": true,
+      "outputLicense": "CC BY-SA 4.0",
+      "transformations": [
+        "EXIF orientation if present",
+        "proportional resize to 480/800/1200 pixels",
+        "WebP encoding; no crop, retouching or upscaling"
+      ],
+      "identityEvidence": {
+        "officialURL": "https://www.nieuwekerk.nl/plan-je-bezoek/",
+        "reason": "The Nieuwe Kerk gable and Dam-facing facade are visible. Banners explicitly advertise World Press Photo 2018: archive gallery only, not the current exhibition."
+      },
+      "alt": {
+        "en": "Archive: Nieuwe Kerk facade with World Press Photo 2018 banners, July 2018",
+        "nl": "Archief: gevel van de Nieuwe Kerk met World Press Photo-banners uit 2018, juli 2018"
+      },
+      "historicalImage": true,
+      "recommendedPlacement": "archive_gallery_only",
+      "publicationAuthorized": false,
+      "otherRights": "CC covers the photograph; no endorsement, model release, trademark rights or unrestricted rights in separately depicted artworks are asserted."
+    },
+    "combined": false
+  },
+  "place.westerkerk": {
+    "sourceBatch": "amsterdam-attractions-20261116",
+    "sourceRecordSha256": "3bd70c39a51946bb4bb8db11976a027491f0ba3ff51fcf2096b0625233013947",
+    "photoEvidence": {
+      "page": "https://commons.wikimedia.org/wiki/File:Interior_of_Westerkerk_(Amsterdam)_114314.jpg",
+      "asset": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Interior_of_Westerkerk_%28Amsterdam%29_114314.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "author": "Quahadi",
+      "title": "Interior of Westerkerk (Amsterdam) 114314.jpg",
+      "created": "2024-02-28 11:43:14",
+      "license": "CC BY-SA 4.0",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0",
+      "licenseEvidence": "DataProject/editorial/amsterdam-attractions-20261116/evidence/commons-148346618.json",
+      "licenseEvidenceSha256": "6e868aa578979859a6f2da9f84e117cc0efa69e3cb3bd58cc0b0b2bfad272685",
+      "commonsRevisionId": 1275200790,
+      "originalSha256": "4ebc93ec407e7147d60cfad0d2b2a501c552946c745b7a79779116d2eb569e50",
+      "originalSha1": "730b194aff9765bfc97f96f4906e3b255974c40c",
+      "originalBytes": 10654426,
+      "width": 8000,
+      "height": 6000,
+      "checkedAt": "2026-11-16",
+      "commercialReuse": true,
+      "adaptationAllowed": true,
+      "shareAlike": true,
+      "outputLicense": "CC BY-SA 4.0",
+      "transformations": [
+        "EXIF orientation if present",
+        "proportional resize to 480/800/1200 pixels",
+        "WebP encoding; no crop, retouching or upscaling"
+      ],
+      "identityEvidence": {
+        "officialURL": "https://westerkerk.nl/bezoek-de-westerkerk-amsterdam/",
+        "reason": "Commons identifies Westerkerk in Amsterdam. The nave, white columns, wooden pulpit and chandeliers are visible; this dated interior avoids the temporary tower scaffolding in the rejected 2023 view."
+      },
+      "alt": {
+        "en": "Westerkerk interior with white columns, pulpit and chandeliers, February 2024",
+        "nl": "Interieur van de Westerkerk met witte zuilen, preekstoel en kroonluchters, februari 2024"
+      },
+      "historicalImage": true,
+      "recommendedPlacement": "dated_hero_candidate",
+      "publicationAuthorized": false,
+      "otherRights": "CC covers the photograph; no endorsement, model release, trademark rights or unrestricted rights in separately depicted artworks are asserted."
+    },
+    "combined": false
+  },
+  "place.adam-lookout": {
+    "sourceBatch": "amsterdam-attractions-20261116",
+    "sourceRecordSha256": "80b29708b304d98936f4ef96b217a39621631c8f40ae8a2bc06da44e3f50c191",
+    "photoEvidence": {
+      "page": "https://commons.wikimedia.org/wiki/File:Adam_Tower_Amsterdam_2019.jpg",
+      "asset": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Adam_Tower_Amsterdam_2019.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "author": "Steven Lek",
+      "title": "Adam Tower Amsterdam 2019.jpg",
+      "created": "2019-01-21 14:58:49",
+      "license": "CC BY-SA 4.0",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0",
+      "licenseEvidence": "DataProject/editorial/amsterdam-attractions-20261116/evidence/commons-76286301.json",
+      "licenseEvidenceSha256": "6f58db8cc07dc59da1af2eddc326714ed3cbe50107d13d6fcd4201e7a852be18",
+      "commonsRevisionId": 982287347,
+      "originalSha256": "f5677ed9d6767b20fc8ae92c8d45960dc7ed56d0f1435485ea37a9600583a841",
+      "originalSha1": "1484607279a77a3f347dcdabb7544ef26a3af759",
+      "originalBytes": 5961241,
+      "width": 3264,
+      "height": 4928,
+      "checkedAt": "2026-11-16",
+      "commercialReuse": true,
+      "adaptationAllowed": true,
+      "shareAlike": true,
+      "outputLicense": "CC BY-SA 4.0",
+      "transformations": [
+        "EXIF orientation if present",
+        "proportional resize to 480/800/1200 pixels",
+        "WebP encoding; no crop, retouching or upscaling"
+      ],
+      "identityEvidence": {
+        "officialURL": "https://www.adamlookout.com/en/contact/",
+        "reason": "Tower silhouette, cantilevered roof and A’DAM sign identify the building across the IJ. Exterior only: not evidence of current rooftop attractions or access."
+      },
+      "alt": {
+        "en": "A’DAM Tower and its rooftop observation structure, January 2019",
+        "nl": "A’DAM Toren met de uitkijkconstructie op het dak, januari 2019"
+      },
+      "historicalImage": true,
+      "recommendedPlacement": "dated_hero_candidate",
+      "publicationAuthorized": false,
+      "otherRights": "CC covers the photograph; no endorsement, model release, trademark rights or unrestricted rights in separately depicted artworks are asserted."
+    },
+    "combined": false
+  },
+  "place.heineken-experience": {
+    "sourceBatch": "amsterdam-attractions-20261116",
+    "sourceRecordSha256": "db6bd9a58a64c46c8bc099bf4c9713ae7a7a131faab30b15d5ca910b71d03ce8",
+    "photoEvidence": {
+      "page": "https://commons.wikimedia.org/wiki/File:Heineken_Experience_Amsterdam_2018_1.jpg",
+      "asset": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Heineken_Experience_Amsterdam_2018_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "author": "Steven Lek",
+      "title": "Heineken Experience Amsterdam 2018 1.jpg",
+      "created": "2018-12-18 15:22:19",
+      "license": "CC BY-SA 4.0",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0",
+      "licenseEvidence": "DataProject/editorial/amsterdam-attractions-20261116/evidence/commons-75233594.json",
+      "licenseEvidenceSha256": "59b00edfbf05b8d30e8b6c39c014a0f8c38a9f3c7bd3e218620a79669a5b5ae8",
+      "commonsRevisionId": 933224674,
+      "originalSha256": "095a953bcad26b93e25d8a5dab43d6a7e705b0241289d325329292e346d94c22",
+      "originalSha1": "979412d04d0f7fa6daa2130db83966ec7a8e4b52",
+      "originalBytes": 8181619,
+      "width": 4928,
+      "height": 3264,
+      "checkedAt": "2026-11-16",
+      "commercialReuse": true,
+      "adaptationAllowed": true,
+      "shareAlike": true,
+      "outputLicense": "CC BY-SA 4.0",
+      "transformations": [
+        "EXIF orientation if present",
+        "proportional resize to 480/800/1200 pixels",
+        "WebP encoding; no crop, retouching or upscaling"
+      ],
+      "identityEvidence": {
+        "officialURL": "https://www.heinekenexperience.com/en/discover-our-tours/heineken-tour",
+        "reason": "The brick facade and Heineken Brouwerij lettering identify the brewery complex. This exterior does not illustrate or promise the current indoor experience."
+      },
+      "alt": {
+        "en": "Heineken brewery facade at the Experience, December 2018",
+        "nl": "Brouwerijgevel bij de Heineken Experience, december 2018"
+      },
+      "historicalImage": true,
+      "recommendedPlacement": "dated_hero_candidate",
+      "publicationAuthorized": false,
+      "otherRights": "CC covers the photograph; no endorsement, model release, trademark rights or unrestricted rights in separately depicted artworks are asserted."
+    },
+    "combined": false
+  },
+  "place.johan-cruijff-arena": {
+    "sourceBatch": "amsterdam-attractions-20261116",
+    "sourceRecordSha256": "b1cec2b8049f8b7befffabb4bba622fc2d647d4b53ded30cb6bef29f141435dc",
+    "photoEvidence": {
+      "page": "https://commons.wikimedia.org/wiki/File:Johan_Cruijff_ArenA_Tour_(40365193963).jpg",
+      "asset": "https://upload.wikimedia.org/wikipedia/commons/8/89/Johan_Cruijff_ArenA_Tour_%2840365193963%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "author": "Daniel from Glasgow, United Kingdom",
+      "title": "Johan Cruijff ArenA Tour (40365193963).jpg",
+      "created": "2019-03-09 16:51",
+      "license": "CC BY 2.0",
+      "licenseURL": "https://creativecommons.org/licenses/by/2.0",
+      "licenseEvidence": "DataProject/editorial/amsterdam-attractions-20261116/evidence/commons-141041752.json",
+      "licenseEvidenceSha256": "bb9124b1e8f58e1a0cd34d58841f00a1248464ecc97d12c82e2d986b887899d1",
+      "commonsRevisionId": 1088006001,
+      "originalSha256": "230ffc0cccff3394d958db90d74788c2ee3d3b98f470a0b72a06eb37529fcbef",
+      "originalSha1": "ab27796dadffb9d6a9e3733210bc137cf65c4ca4",
+      "originalBytes": 7217100,
+      "width": 4608,
+      "height": 3072,
+      "checkedAt": "2026-11-16",
+      "commercialReuse": true,
+      "adaptationAllowed": true,
+      "shareAlike": false,
+      "outputLicense": "CC BY 2.0",
+      "transformations": [
+        "EXIF orientation if present",
+        "proportional resize to 480/800/1200 pixels",
+        "WebP encoding; no crop, retouching or upscaling"
+      ],
+      "identityEvidence": {
+        "officialURL": "https://www.johancruijffarena.nl/en/tickets-visits/stadium-tours/",
+        "reason": "Commons stadium-tour provenance and visible Ajax arena stands/roof identify the location. Historical advertising and tour view are not a current seat or event guarantee."
+      },
+      "alt": {
+        "en": "Johan Cruijff ArenA stands and roof during a stadium tour, March 2019",
+        "nl": "Tribunes en dak van de Johan Cruijff ArenA tijdens een stadiontour, maart 2019"
+      },
+      "historicalImage": true,
+      "recommendedPlacement": "dated_hero_candidate",
+      "publicationAuthorized": false,
+      "otherRights": "CC covers the photograph; no endorsement, model release, trademark rights or unrestricted rights in separately depicted artworks are asserted."
+    },
+    "combined": false
+  },
+  "place.de-hallen-amsterdam": {
+    "sourceBatch": "amsterdam-attractions-20261116",
+    "sourceRecordSha256": "c7d2c7792cfeeaf03bb31fc08752be7bf43ac93eb8d4607864ba6933152d92ef",
+    "photoEvidence": {
+      "page": "https://commons.wikimedia.org/wiki/File:De_Hallen_Amsterdam_2024_Entree_Tollensstraat.jpg",
+      "asset": "https://upload.wikimedia.org/wikipedia/commons/2/2e/De_Hallen_Amsterdam_2024_Entree_Tollensstraat.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "author": "SophieWikiAms",
+      "title": "De Hallen Amsterdam 2024 Entree Tollensstraat.jpg",
+      "created": "2024-01-27",
+      "license": "CC0",
+      "licenseURL": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "licenseEvidence": "DataProject/editorial/amsterdam-attractions-20261116/evidence/commons-169452699.json",
+      "licenseEvidenceSha256": "e2257aef9d48e049c25e7d771cf2d88bda4d60d70dc6888a3715c24ecc4fb801",
+      "commonsRevisionId": 1169032440,
+      "originalSha256": "8aa28293a98d0c6d5577e61e12ee5930f983d386960bc22bc83150c891d8dfdb",
+      "originalSha1": "bb1b169d38d2b532df2be1d5d5f972989ebb5281",
+      "originalBytes": 1471837,
+      "width": 1606,
+      "height": 2856,
+      "checkedAt": "2026-11-16",
+      "commercialReuse": true,
+      "adaptationAllowed": true,
+      "shareAlike": false,
+      "outputLicense": "CC0",
+      "transformations": [
+        "EXIF orientation if present",
+        "proportional resize to 480/800/1200 pixels",
+        "WebP encoding; no crop, retouching or upscaling"
+      ],
+      "identityEvidence": {
+        "officialURL": "https://www.dehallen-amsterdam.nl/en/visit",
+        "reason": "Entrance arch and De Hallen signage match the Tollensstraat entrance. Passing people are incidental; no model release or endorsement is claimed."
+      },
+      "alt": {
+        "en": "De Hallen entrance on Tollensstraat with passing visitors, January 2024",
+        "nl": "Ingang van De Hallen aan de Tollensstraat met passanten, januari 2024"
+      },
+      "historicalImage": true,
+      "recommendedPlacement": "dated_hero_candidate",
+      "publicationAuthorized": false,
+      "otherRights": "CC covers the photograph; no endorsement, model release, trademark rights or unrestricted rights in separately depicted artworks are asserted."
+    },
+    "combined": false
+  },
+  "place.oba-oosterdok": {
+    "sourceBatch": "amsterdam-attractions-20261116",
+    "sourceRecordSha256": "3f653d45bc7d240958e6c7c7694f2d0be02ffe7553bb0925647aef8871a03dc7",
+    "photoEvidence": {
+      "page": "https://commons.wikimedia.org/wiki/File:Amsterdam_Public_Library_(OBA).jpg",
+      "asset": "https://upload.wikimedia.org/wikipedia/commons/9/92/Amsterdam_Public_Library_%28OBA%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "author": "EstherWikipedian",
+      "title": "Amsterdam Public Library (OBA).jpg",
+      "created": "2023-08-15",
+      "license": "CC BY-SA 4.0",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0",
+      "licenseEvidence": "DataProject/editorial/amsterdam-attractions-20261116/evidence/commons-139224286.json",
+      "licenseEvidenceSha256": "66e9b29bd740169bf10c255c329bbe01a60efeeea376ac8bc919ee768d0d8afe",
+      "commonsRevisionId": 1052861432,
+      "originalSha256": "4658c7bf133a30b5fac36e41c4b8bfabce040ee2c2e8c3841ef405b28ef930ff",
+      "originalSha1": "6b8f07ec6eddcc0667be6de21a84177ec4026aae",
+      "originalBytes": 1792557,
+      "width": 4080,
+      "height": 3060,
+      "checkedAt": "2026-11-16",
+      "commercialReuse": true,
+      "adaptationAllowed": true,
+      "shareAlike": true,
+      "outputLicense": "CC BY-SA 4.0",
+      "transformations": [
+        "EXIF orientation if present",
+        "proportional resize to 480/800/1200 pixels",
+        "WebP encoding; no crop, retouching or upscaling"
+      ],
+      "identityEvidence": {
+        "officialURL": "https://oba.nl/nl/locaties/oba-oosterdok",
+        "reason": "The central-library facade and Openbare Bibliotheek Amsterdam lettering match OBA Oosterdok; not a different branch."
+      },
+      "alt": {
+        "en": "OBA Oosterdok facade with library lettering, August 2023",
+        "nl": "Gevel van OBA Oosterdok met bibliotheekopschrift, augustus 2023"
+      },
+      "historicalImage": true,
+      "recommendedPlacement": "dated_hero_candidate",
+      "publicationAuthorized": false,
+      "otherRights": "CC covers the photograph; no endorsement, model release, trademark rights or unrestricted rights in separately depicted artworks are asserted."
+    },
+    "combined": false
+  },
+  "place.utrecht-neude": {
+    "sourceBatch": "priority-cities-followup-20261116",
+    "sourceRecordSha256": "a2041f4e2ac3113478676f4c687915a2031637780e5bf24f4c6c519e6aa8fc23",
+    "photoEvidence": {
+      "page": "https://commons.wikimedia.org/wiki/File:Grote_Hal,_Openbare_Bibliotheek_Neude,_Utrecht,_24_oktober_2023_01.jpg",
+      "asset": "https://upload.wikimedia.org/wikipedia/commons/0/06/Grote_Hal%2C_Openbare_Bibliotheek_Neude%2C_Utrecht%2C_24_oktober_2023_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/Grote_Hal%2C_Openbare_Bibliotheek_Neude%2C_Utrecht%2C_24_oktober_2023_01.jpg/1280px-Grote_Hal%2C_Openbare_Bibliotheek_Neude%2C_Utrecht%2C_24_oktober_2023_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "sha256": "614175e239ceaeb4b3af3e419113c8e790ff8029e3358bc27d0ccba902c9e3cd",
+      "bytes": 588422,
+      "license": "CC BY-SA 4.0",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Hansmuller",
+      "created": "2023-10-24 11:10:47",
+      "description": "Large main hall with niches at the back, Public Library at Neude, Utrecht, the Netherlands.",
+      "width": 1704,
+      "height": 2272,
+      "checkedAt": "2026-11-15",
+      "reusedFrom": "DataProject/editorial/priority-cities-20261115/media-sources.json",
+      "downloadedThisBatch": false
+    },
+    "combined": false
+  },
+  "museum.rotterdam-chabot": {
+    "sourceBatch": "priority-cities-followup-20261116",
+    "sourceRecordSha256": "de7fbb1af17bb408c395acd3663a2fc264a38f277744e9bce240c33a82d2c005",
+    "photoEvidence": {
+      "page": "https://commons.wikimedia.org/wiki/File:Chabot_Museum.jpg",
+      "asset": "https://upload.wikimedia.org/wikipedia/commons/8/80/Chabot_Museum.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Chabot_Museum.jpg/1280px-Chabot_Museum.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "sha256": "bd93085d8c7c3feee83e7d1be9fcb37b1369eb3c035fc5f1e8b63ff4a90ffa3a",
+      "bytes": 361504,
+      "license": "CC BY-SA 4.0",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Szilas",
+      "created": "2009-02-15 12:02:02",
+      "description": "Chabot Museum, Rotterdam",
+      "width": 3753,
+      "height": 2457,
+      "checkedAt": "2026-11-15",
+      "reusedFrom": "DataProject/editorial/priority-cities-20261115/media-sources.json",
+      "downloadedThisBatch": false
+    },
+    "combined": false
+  },
+  "museum.den-haag-fotomuseum": {
+    "sourceBatch": "priority-cities-followup-20261116",
+    "sourceRecordSha256": "c61fe6c3d0727f3d0874e37d22ab071d86cd209e5da241952daa1e5070b30734",
+    "photoEvidence": {
+      "page": "https://commons.wikimedia.org/wiki/File:Fotomuseum_Den_Haag_DSCF3383.jpg",
+      "asset": "https://upload.wikimedia.org/wikipedia/commons/3/39/Fotomuseum_Den_Haag_DSCF3383.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Fotomuseum_Den_Haag_DSCF3383.jpg/1280px-Fotomuseum_Den_Haag_DSCF3383.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "sha256": "311a21d7ec0924b3f1c3d09010db6f705007a26ec57a779bf926cc245edab778",
+      "bytes": 324460,
+      "license": "CC BY 4.0",
+      "licenseURL": "https://creativecommons.org/licenses/by/4.0",
+      "author": "G.Lanting",
+      "created": "2017-09-20 03:19:01",
+      "description": "Part of the Photo Museum The Hague, Stadhouderslaan 43. (2017)",
+      "width": 2048,
+      "height": 1536,
+      "checkedAt": "2026-11-15",
+      "reusedFrom": "DataProject/editorial/priority-cities-20261115/media-sources.json",
+      "downloadedThisBatch": false
+    },
+    "combined": false
+  },
+  "museum.eindhoven-inkijkmuseum": {
+    "sourceBatch": "priority-cities-followup-20261116",
+    "sourceRecordSha256": "d5cb4d1363808eda3e6a07c64f7098ded645fd1fb87ce0af448222f6bed9bb79",
+    "photoEvidence": {
+      "page": "https://commons.wikimedia.org/wiki/File:Inkijkmuseum_-_Eindhoven_(2026-09-18).jpg",
+      "asset": "https://upload.wikimedia.org/wikipedia/commons/d/db/Inkijkmuseum_-_Eindhoven_%282026-09-18%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/db/Inkijkmuseum_-_Eindhoven_%282026-09-18%29.jpg/1280px-Inkijkmuseum_-_Eindhoven_%282026-09-18%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "sha256": "478b88c88ab50d8a14cfd3f55e8d60631cded32d55359cb093d2a1790ec13f3a",
+      "bytes": 372985,
+      "license": "CC BY-SA 4.0",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0",
+      "author": "Sneeuwvlakte",
+      "created": "2026-09-18 11:25:21",
+      "description": "Gebouw van het Inkijkmuseum in Eindhoven.",
+      "width": 4272,
+      "height": 2848,
+      "checkedAt": "2026-11-15",
+      "reusedFrom": "DataProject/editorial/priority-cities-20261115/media-sources.json",
+      "downloadedThisBatch": false
+    },
+    "combined": false
+  },
+  "restaurant.eindhoven-kazerne": {
+    "sourceBatch": "missing-photos-20261116",
+    "sourceRecordSha256": "509e6d75c4e78dab0cf484ce69b63013516bcaf2f76bae641fb9bbe2eba42de7",
+    "photoEvidence": {
+      "page": "https://commons.wikimedia.org/wiki/File:0772_WN176_Paradijslaan_4,_4a,_6,_6a,_Eindhoven.jpg",
+      "asset": "https://upload.wikimedia.org/wikipedia/commons/e/ef/0772_WN176_Paradijslaan_4%2C_4a%2C_6%2C_6a%2C_Eindhoven.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "author": "Rosemoon",
+      "title": "0772 WN176 Paradijslaan 4, 4a, 6, 6a, Eindhoven",
+      "created": "2020-03-17",
+      "license": "CC BY-SA 4.0",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0",
+      "licenseEvidence": "DataProject/editorial/missing-photos-20261116/evidence/commons-88292721.json",
+      "licenseEvidenceSha256": "ab7857cbfa47aca24aac3edba75a4f8245e28b27825d4d8ba5b41149870b5ce3",
+      "commonsRevisionId": 1097415459,
+      "originalSha256": "3759d9d6ff735583f463ad919ea35b77b21dc119744f62106dfc61cd7433f7fd",
+      "originalSha1": "7e00eacfd52df64698896cab08536397af11f33e",
+      "originalBytes": 6751715,
+      "width": 6000,
+      "height": 4000,
+      "checkedAt": "2026-11-16",
+      "commercialReuse": true,
+      "adaptationAllowed": true,
+      "shareAlike": true,
+      "outputLicense": "CC BY-SA 4.0",
+      "transformations": [
+        "EXIF orientation if present",
+        "proportional resize to 480/800/1200 pixels",
+        "WebP encoding; original aspect ratio retained; no retouching"
+      ],
+      "identityEvidence": {
+        "officialURL": "https://www.kazerne.com/",
+        "reason": "Commons records Paradijslaan 4, 4a, 6, 6a (municipal monument WN176), within the official Kazerne address 2–8. The complex facade and former Benz sign are visible. Not Constant Rebecque Kazerne; not a current BarBistro interior photograph."
+      },
+      "alt": {
+        "en": "Street facade of the Kazerne complex at Paradijslaan in Eindhoven, with historical Benz signage; March 2020",
+        "nl": "Straatgevel van het Kazernecomplex aan de Paradijslaan in Eindhoven, met de toenmalige Benz-aanduiding; maart 2020"
+      },
+      "historicalImage": true
+    },
+    "combined": true
+  },
+  "nature.utrecht-oog-in-al": {
+    "sourceBatch": "priority-cities-followup-20261116",
+    "sourceRecordSha256": "ce01acd4c1bea0fe72c4826a2ba0c18409197c670397da639063f8b1b5b4258e",
+    "photoEvidence": {
+      "page": "https://commons.wikimedia.org/wiki/File:Bruggetje_-_panoramio_-_Marcel030NL.jpg",
+      "asset": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Bruggetje_-_panoramio_-_Marcel030NL.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Bruggetje_-_panoramio_-_Marcel030NL.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "sha256": "45119ae2ad291b82f16dfcf63e1a47c044b6b925a55ca5bdf1a7ecb21377ad7e",
+      "bytes": 647921,
+      "license": "CC BY-SA 3.0",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "Marcel030NL",
+      "created": "Taken on 8 November 2003",
+      "description": "Bruggetje",
+      "width": 932,
+      "height": 1250,
+      "checkedAt": "2026-11-15",
+      "reusedFrom": "DataProject/editorial/priority-cities-20261115/media-sources.json",
+      "downloadedThisBatch": false
+    },
+    "combined": false
+  },
+  "museum.utrecht-sonnenborgh": {
+    "sourceBatch": "priority-cities-followup-20261116",
+    "sourceRecordSha256": "ca5d9baf366fe06f13eaf21417cd35b3a5a40c6bfeec1bd59568ccfef435e703",
+    "photoEvidence": {
+      "page": "https://commons.wikimedia.org/wiki/File:Sonnenborgh_Museum_%26_Sterrenwacht.jpg",
+      "asset": "https://upload.wikimedia.org/wikipedia/commons/2/22/Sonnenborgh_Museum_%26_Sterrenwacht.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/Sonnenborgh_Museum_%26_Sterrenwacht.jpg/1280px-Sonnenborgh_Museum_%26_Sterrenwacht.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "sha256": "ffd50260d9c1a2af4140e430b6e82253d592543edcecf0dd3a46c6da88aaba2a",
+      "bytes": 585714,
+      "license": "CC BY-SA 3.0",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0",
+      "author": "MPhernambucq",
+      "created": "11 September 2021 (according to Exif data)",
+      "description": "Sonnenborgh Museum & Sterrenwacht",
+      "width": 4608,
+      "height": 3456,
+      "checkedAt": "2026-11-15",
+      "reusedFrom": "DataProject/editorial/priority-cities-20261115/media-sources.json",
+      "downloadedThisBatch": false
+    },
+    "combined": false
+  },
+  "hotel.rotterdam-supernova": {
+    "sourceBatch": "missing-photos-20261116",
+    "sourceRecordSha256": "93f3b69d9a89ac19f529b0eb8a2e238ad1a2fd5b7e5f42c460c58a2b3ab96389",
+    "photoEvidence": {
+      "page": "https://www.flickr.com/photos/rotterdamsballonnenbedrijf/52366054870",
+      "asset": "https://live.staticflickr.com/65535/52366054870_24a3e3e5f1_b.jpg",
+      "author": "Rotterdams Ballonnenbedrijf",
+      "title": "Heliumballonnen Super Deluxe Kamer Supernova Hotel Rotterdam",
+      "created": "2022-09-03",
+      "license": "CC BY 2.0",
+      "licenseURL": "https://creativecommons.org/licenses/by/2.0/",
+      "licenseEvidence": "DataProject/editorial/missing-photos-20261116/evidence/flickr-52366054870.json",
+      "licenseEvidenceSha256": "d77436a2278e63f27cb9dd2f28eab7710f0ca0f0107dca8cfb2ab68ccc804889",
+      "sourceSha256": "97f525b95730181f9533797318eea20ac3a68fca4e076c45809c879a7cffb5ef",
+      "sourceSha1": "5d426b12f517e6faa35d99e91b7d64223483d415",
+      "sourceBytes": 147734,
+      "width": 1024,
+      "height": 768,
+      "checkedAt": "2026-11-16",
+      "commercialReuse": true,
+      "adaptationAllowed": true,
+      "shareAlike": false,
+      "outputLicense": "CC BY 2.0",
+      "transformations": [
+        "EXIF orientation if present",
+        "Proportional downsize to 480/800 pixels; 1024-pixel WebP retains the downloaded source dimensions; no upscaling",
+        "WebP encoding; original aspect ratio retained; no retouching"
+      ],
+      "identityEvidence": {
+        "officialURL": "https://supernovahotel.nl/en",
+        "photographerURL": "https://www.rotterdamsballonnenbedrijf.nl/plaatsen/supernova-hotel",
+        "reason": "The photographer identifies a Super Deluxe room at Supernova Hotel Rotterdam, and links its own Supernova installation page. Temporary balloon decorations are visible. Photograph taken 2022-09-03; not a promise that decorations are included in a hotel booking or that every room has this layout."
+      },
+      "alt": {
+        "en": "Super Deluxe room at Supernova Hotel, with temporary pink balloon decorations by Rotterdams Ballonnenbedrijf; September 2022",
+        "nl": "Super Deluxe-kamer in Supernova Hotel, tijdelijk versierd met roze ballonnen door Rotterdams Ballonnenbedrijf; september 2022"
+      },
+      "historicalImage": true,
+      "retainedSupersededVariant": {
+        "file": "media/supernova-1200.webp",
+        "sha256": "c30304fb5e136b531bf616684ea10624e736f016994ccf103ac9588437ef2aa8",
+        "use": "Evidence only; earlier upscaled variant is excluded from preview/public asset copying and srcset"
+      }
+    },
+    "combined": true
+  },
+  "nature.rotterdam-trompenburg": {
+    "sourceBatch": "priority-cities-followup-20261116",
+    "sourceRecordSha256": "59d610d9598859b4a00eb5edfd3d006ba11f36bbfa3038a2e8be7b710f2d1b10",
+    "photoEvidence": {
+      "page": "https://commons.wikimedia.org/wiki/File:Arboretum_Trompenburg_PICT0340.jpg",
+      "asset": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Arboretum_Trompenburg_PICT0340.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/Arboretum_Trompenburg_PICT0340.jpg/1280px-Arboretum_Trompenburg_PICT0340.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "sha256": "92a04ad5ae0fa6b28627ac0f8afde0caaf07b70bebb3c65da61556fc5a4b199e",
+      "bytes": 649722,
+      "license": "CC BY-SA 3.0",
+      "licenseURL": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "author": "Opuntia",
+      "created": "2007-07-22",
+      "description": "Rhododendrons and other plants along a pond - Arboretum Trompenburg",
+      "width": 2272,
+      "height": 1704,
+      "checkedAt": "2026-11-15",
+      "reusedFrom": "DataProject/editorial/priority-cities-20261115/media-sources.json",
+      "downloadedThisBatch": false
+    },
+    "combined": false
+  },
+  "nature.den-haag-westbroekpark": {
+    "sourceBatch": "priority-cities-followup-20261116",
+    "sourceRecordSha256": "4555597f3638d204aa4ac8870d73ac4bd8774239e55db0085cd7b76c37b78dea",
+    "photoEvidence": {
+      "page": "https://commons.wikimedia.org/wiki/File:Westbroekpark_rozenbedden.JPG",
+      "asset": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Westbroekpark_rozenbedden.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Westbroekpark_rozenbedden.JPG/1280px-Westbroekpark_rozenbedden.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "sha256": "666610139ecfdbbb792b58860bbe0ee732de64ef504ef28ee7bd22aa0d51f834",
+      "bytes": 550176,
+      "license": "CC BY-SA 3.0",
+      "licenseURL": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "author": "P.L. van Till at nl.wikipedia",
+      "created": "2008-06-29",
+      "description": "Westbroekpark, rozententoonstelling",
+      "width": 2816,
+      "height": 2112,
+      "checkedAt": "2026-11-15",
+      "reusedFrom": "DataProject/editorial/priority-cities-20261115/media-sources.json",
+      "downloadedThisBatch": false
+    },
+    "combined": false
+  },
+  "nature.leiden-rembrandtpark": {
+    "sourceBatch": "missing-photos-20261116",
+    "sourceRecordSha256": "a42e217b5596e51c90d036e33ab3978b2a07f7ce7437cce3f3a940453fea6001",
+    "photoEvidence": {
+      "page": "https://commons.wikimedia.org/wiki/File:%27Prins_Hendrik%27,_Objectnr_PV_PV29329R.5.jpg",
+      "asset": "https://upload.wikimedia.org/wikipedia/commons/e/e8/%27Prins_Hendrik%27%2C_Objectnr_PV_PV29329R.5.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "author": "Gemeente Leiden Afdeling Monumentenzorg; Erfgoed Leiden en Omstreken",
+      "title": "'Prins Hendrik', Objectnr PV PV29329R.5",
+      "created": "1986-07",
+      "license": "CC0",
+      "licenseURL": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "licenseEvidence": "DataProject/editorial/missing-photos-20261116/evidence/commons-158853289.json",
+      "licenseEvidenceSha256": "32f002330c8debff287129e0e086d153238b86b3fdf3a7aa165b63f21cd4956c",
+      "commonsRevisionId": 1215348933,
+      "originalSha256": "6d69b20cf5264979cd520e355e73981cf7865b2b2d87c478771f6a3f6fa21057",
+      "originalSha1": "10bd30d1f58d020d0a1298f666ef2920736e442f",
+      "originalBytes": 806273,
+      "width": 3452,
+      "height": 2264,
+      "checkedAt": "2026-11-16",
+      "commercialReuse": true,
+      "adaptationAllowed": true,
+      "shareAlike": false,
+      "outputLicense": "CC0",
+      "transformations": [
+        "EXIF orientation if present",
+        "proportional resize to 480/800/1200 pixels",
+        "WebP encoding; original aspect ratio retained; no retouching"
+      ],
+      "identityEvidence": {
+        "officialURL": "https://www.visitleiden.nl/nl/locaties/1706027937/rembrandtpark",
+        "reason": "The archive description explicitly identifies Rembrandtpark, the Wittepoortsbrug viewpoint and July 1986. The photograph visibly includes the park and former nautical school. Historical image only; not evidence of the current park layout."
+      },
+      "alt": {
+        "en": "Historical view of Rembrandtpark across the Witte Singel, with the former nautical school; July 1986",
+        "nl": "Historisch zicht op het Rembrandtpark over de Witte Singel, met de voormalige zeevaartschool; juli 1986"
+      },
+      "historicalImage": true
+    },
+    "combined": false
+  },
+  "hotel.leiden-ibis": {
+    "sourceBatch": "missing-photos-20261116",
+    "sourceRecordSha256": "a78f3dffb751efbb81db22c413e32a98729d9f8c88aa3cac45240978064ebe2d",
+    "photoEvidence": {
+      "page": "https://commons.wikimedia.org/wiki/File:Leiden224.JPG",
+      "asset": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Leiden224.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "author": "Vysotsky",
+      "title": "Leiden224",
+      "created": "2014-05-09",
+      "license": "CC BY-SA 3.0",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0",
+      "licenseEvidence": "DataProject/editorial/missing-photos-20261116/evidence/commons-32690127.json",
+      "licenseEvidenceSha256": "2a0654bf979d13c3a03e09af039c810958a14e2840e8d5470e1c7b9a8ca8bd55",
+      "commonsRevisionId": 1184640332,
+      "originalSha256": "b20b40c1c92ca6e8aa4f83f3679dead6c52f43b3f82162b39b3951727b206e99",
+      "originalSha1": "c419eb81b617d21a3c3e8f5fd1047a2e803358f1",
+      "originalBytes": 3102272,
+      "width": 2112,
+      "height": 2816,
+      "checkedAt": "2026-11-16",
+      "commercialReuse": true,
+      "adaptationAllowed": true,
+      "shareAlike": true,
+      "outputLicense": "CC BY-SA 3.0",
+      "transformations": [
+        "EXIF orientation if present",
+        "proportional resize to 480/800/1200 pixels",
+        "WebP encoding; original aspect ratio retained; no retouching"
+      ],
+      "identityEvidence": {
+        "officialURL": "https://all.accor.com/hotel/8087/index.en.shtml",
+        "reason": "Commons names Ibis Hotel at Stationsplein in Leiden; the ibis facade/sign is visible. Accor confirms Stationsplein 240–242. Exterior photograph only, not a claim about present rooms or amenities."
+      },
+      "alt": {
+        "en": "Facade of ibis Leiden Centre at Stationsplein, photographed in May 2014",
+        "nl": "Gevel van ibis Leiden Centre aan het Stationsplein, gefotografeerd in mei 2014"
+      },
+      "historicalImage": true
+    },
+    "combined": false
+  },
+  "hotel.leiden-rembrandt-hotel": {
+    "sourceBatch": "missing-photos-20261116",
+    "sourceRecordSha256": "6d6e2e72ff96248978d35b4ae28eb4c27ac9769e9021dfdaeec37ceb7be6e2d9",
+    "photoEvidence": {
+      "page": "https://commons.wikimedia.org/wiki/File:Nieuwe_beestenmarkt_8,_10-12,_14.JPG",
+      "asset": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Nieuwe_beestenmarkt_8%2C_10-12%2C_14.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "author": "Xsandriel",
+      "title": "Nieuwe beestenmarkt 8, 10-12, 14",
+      "created": "2015-07-10",
+      "license": "CC BY-SA 4.0",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0",
+      "licenseEvidence": "DataProject/editorial/missing-photos-20261116/evidence/commons-41641261.json",
+      "licenseEvidenceSha256": "1543a13a8c7b8eb1f78cea39cb687c39e77db54c07cbd252b6fdf79c3335b109",
+      "commonsRevisionId": 1010029161,
+      "originalSha256": "9ea2b14250a22a86083f93c3975bf54c30b9004c37e00591e824cdf87c4aab88",
+      "originalSha1": "98d8c682dd7c84b98d9b920f40a208cf48a9ded1",
+      "originalBytes": 2560629,
+      "width": 4272,
+      "height": 2848,
+      "checkedAt": "2026-11-16",
+      "commercialReuse": true,
+      "adaptationAllowed": true,
+      "shareAlike": true,
+      "outputLicense": "CC BY-SA 4.0",
+      "transformations": [
+        "EXIF orientation if present",
+        "proportional resize to 480/800/1200 pixels",
+        "WebP encoding; original aspect ratio retained; no retouching"
+      ],
+      "identityEvidence": {
+        "officialURL": "https://www.rembrandthotel.nl/",
+        "reason": "Commons identifies addresses 8, 10–12 and 14. The hotel website confirms number 10; the Rembrandt sign is visible beneath the tree. The wider streetscape is retained and not presented as a current unobstructed hotel portrait."
+      },
+      "alt": {
+        "en": "City Hotel Rembrandt among the facades at Nieuwe Beestenmarkt 8–14, partly obscured by a tree; July 2015",
+        "nl": "City Hotel Rembrandt tussen de gevels aan de Nieuwe Beestenmarkt 8–14, deels achter een boom; juli 2015"
+      },
+      "historicalImage": true
+    },
+    "combined": false
+  },
+  "cafe.leiden-barista": {
+    "sourceBatch": "leiden-hospitality-20261116",
+    "sourceRecordSha256": "ee771159497238cccc9df9b88a4705fda30c5d21ba5872f3d02f9f04e92019af",
+    "photoEvidence": null,
+    "combined": false
+  },
+  "cafe.leiden-borgman": {
+    "sourceBatch": "leiden-hospitality-20261116",
+    "sourceRecordSha256": "eb74ec08e87469d1bb800517058142792e481f3c13dee6cf5da4a271ae439dc2",
+    "photoEvidence": null,
+    "combined": false
+  },
+  "cafe.leiden-brownies": {
+    "sourceBatch": "leiden-hospitality-20261116",
+    "sourceRecordSha256": "401a18aae6e5973e38d376a0580224d1b9aa3a0b880154f4242641c2a3d8901e",
+    "photoEvidence": null,
+    "combined": false
+  },
+  "cafe.leiden-30ml": {
+    "sourceBatch": "leiden-hospitality-20261116",
+    "sourceRecordSha256": "f74ed8007638f312f3b1f74ac688274b2d9db11ca5633dc72889da9e2e1aa89c",
+    "photoEvidence": null,
+    "combined": false
+  },
+  "cafe.leiden-paco-ciao": {
+    "sourceBatch": "leiden-hospitality-20261116",
+    "sourceRecordSha256": "f8db457aa895ff6ba21c57f6dc081c9e5c9ff64caa3dd52e1b5237f29beff289",
+    "photoEvidence": null,
+    "combined": false,
+    "supplementalPhoto": {
+      "entityId": "cafe.leiden-paco-ciao",
+      "status": "needs_review",
+      "publicationAuthorized": false,
+      "recommendedPlacement": "archive_gallery_only",
+      "heroAllowed": false,
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Leiden_-_Stationsweg_25_v2.jpg",
+      "sourceRevision": 928090424,
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/18/Leiden_-_Stationsweg_25_v2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "author": "Vera de Kok",
+      "authorUrl": "https://commons.wikimedia.org/wiki/User:1Veertje",
+      "captureDate": "2015-03-21 16:56",
+      "retrievedAt": "2026-11-16",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "commercialUse": true,
+      "adaptationsAllowed": true,
+      "shareAlikeRequired": true,
+      "sourceIsOwnWork": true,
+      "original": {
+        "width": 3456,
+        "height": 5184,
+        "bytes": 1835887,
+        "sha1": "ac5d168a3829c3d323be4522c0226bf28ccee835",
+        "sha256": "4166ba97003d69c54d0aed3f11319f2d0d09cc492ed150c1778ee429085f221b",
+        "evidenceFile": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/original-62730706.jpg"
+      },
+      "identityEvidence": {
+        "commonsTitle": "File:Leiden - Stationsweg 25 v2.jpg",
+        "officialAndBag": "../leiden-hospitality-20261116/source-checks.json",
+        "scope": "Same address/building, not verified current venue appearance"
+      },
+      "captions": {
+        "en": "Stationsweg 25, Leiden, photographed on 21 March 2015. Archive view of the building; this is not a photograph of the current Paco Ciao interior or entrance arrangements.",
+        "nl": "Stationsweg 25 in Leiden, gefotografeerd op 21 maart 2015. Archiefbeeld van het pand; geen foto van het huidige interieur of de toegangssituatie van Paco Ciao."
+      },
+      "attribution": "Vera de Kok / Wikimedia Commons / CC BY-SA 4.0. Resized WebP, no crop or content edits; derivative remains CC BY-SA 4.0.",
+      "variants": {
+        "stationsweg25-2015-480.webp": {
+          "width": 480,
+          "height": 720,
+          "bytes": 71488,
+          "sha256": "eb3a1f31317030dea5b94b2b3a418b068f65ce01f03ef19a556e305077d15a83"
+        },
+        "stationsweg25-2015-800.webp": {
+          "width": 800,
+          "height": 1200,
+          "bytes": 182040,
+          "sha256": "b330bf4549473efa03d8066dcfef303ef5f93d0745873954e91ec3d538f68497"
+        },
+        "stationsweg25-2015-1200.webp": {
+          "width": 1200,
+          "height": 1800,
+          "bytes": 353754,
+          "sha256": "381a23fdf5cc63cf3ca6baa5f6f36c62a5df47f5f0523fc751bf08c11434a01d"
+        }
+      }
+    }
+  },
+  "place.leiden-cafe-laken": {
+    "sourceBatch": "leiden-hospitality-20261116",
+    "sourceRecordSha256": "a6c00d54fe796b7d1de8cef1f973eb85a494bd47ce73d9b79a4e1dc001352825",
+    "photoEvidence": {
+      "reuseFrom": "leiden-places-20261115",
+      "reuseRecordId": "place.leiden-lakenhal",
+      "sourceRecordSha256": "cded4e8afbf2a1f20cbfd1a8edeae261d61922e1932905062d0f297c6d16c75a",
+      "sourceMediaEvidenceSha256": "888865946ecc8e40401ebec9708358032d8346743d508c13aba086abdaa26747",
+      "photo": {
+        "id": "media.place.leiden-cafe-laken.building-2015",
+        "role": "hero",
+        "source_page_url": "https://commons.wikimedia.org/wiki/File:Leiden_-_Lakenhal_.jpg",
+        "asset_url": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Leiden_-_Lakenhal_.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "public_asset_path": "/images/place-review/cafelaken-1200.webp",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "attribution": "Vera de Kok · 2015-03-21 · resized WebP, no content edits",
+        "verified": true,
+        "retrieved_at": "2026-11-15",
+        "alt": "Museum De Lakenhal exterior, 2015; building context only, not the present café interior"
+      },
+      "recommendedPlacement": "dated_building_context_only",
+      "publicationAuthorized": false,
+      "commercialReuse": true,
+      "adaptationAllowed": true,
+      "originalAttributionUnchanged": true,
+      "note": "Same museum address independently established by the cafe official page and BAG; no new download or transformation."
+    },
+    "combined": false
+  },
+  "restaurant.leiden-bikini": {
+    "sourceBatch": "leiden-hospitality-20261116",
+    "sourceRecordSha256": "54ca849309dcc404a7bf2b92ecbe6efcc429566140fb47873529b9acccb15a9e",
+    "photoEvidence": null,
+    "combined": false,
+    "supplementalPhoto": {
+      "entityId": "restaurant.leiden-bikini",
+      "status": "needs_review",
+      "publicationAuthorized": false,
+      "recommendedPlacement": "archive_gallery_only",
+      "heroAllowed": false,
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Haven_1-3,_Leiden.JPG",
+      "sourceRevision": 1174711114,
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/32/Haven_1-3%2C_Leiden.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "author": "Xsandriel",
+      "authorUrl": "https://commons.wikimedia.org/wiki/User:Xsandriel",
+      "captureDate": "2015-09-09 13:46:02",
+      "retrievedAt": "2026-11-16",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "commercialUse": true,
+      "adaptationsAllowed": true,
+      "shareAlikeRequired": true,
+      "sourceIsOwnWork": true,
+      "original": {
+        "width": 4163,
+        "height": 2775,
+        "bytes": 2285816,
+        "sha1": "8444f74404c8b8365fda5ce2f44bf2000062f1bf",
+        "sha256": "0749ccc0f157512bebad91144be2d228c4291d1463deb1a975c46e2156395bd6",
+        "evidenceFile": "/Users/ivan/YouNew-Expansion-20261116-Hospitality-Evidence/original-44567899.jpg"
+      },
+      "identityEvidence": {
+        "commonsTitle": "File:Haven 1-3, Leiden.JPG",
+        "officialAndBag": "../leiden-hospitality-20261116/source-checks.json",
+        "scope": "Same address/building, not verified current venue appearance"
+      },
+      "captions": {
+        "en": "Haven 1–3, Leiden, photographed on 9 September 2015. Archive view of the building and waterfront; it does not document today’s Bikini restaurant, terrace or signage.",
+        "nl": "Haven 1–3 in Leiden, gefotografeerd op 9 september 2015. Archiefbeeld van het pand en de kade; geen weergave van het huidige restaurant Bikini, terras of de huidige gevelreclame."
+      },
+      "attribution": "Xsandriel / Wikimedia Commons / CC BY-SA 4.0. Resized WebP, no crop or content edits; derivative remains CC BY-SA 4.0.",
+      "variants": {
+        "haven-2015-480.webp": {
+          "width": 480,
+          "height": 320,
+          "bytes": 38390,
+          "sha256": "b4fe631bde7d66ed1c67018e0788b3c0e1fae047fb76d9284ba57ff3cb3945d2"
+        },
+        "haven-2015-800.webp": {
+          "width": 800,
+          "height": 533,
+          "bytes": 89322,
+          "sha256": "5c8e1f6c5d4a5a8a4b66a0013667138fb2ea1689500625008fc5f98353b494f2"
+        },
+        "haven-2015-1200.webp": {
+          "width": 1200,
+          "height": 800,
+          "bytes": 176282,
+          "sha256": "3a52d7377fc5bdba2595fcc49f1f617101ade08c985566ab03aa4795f7348f3b"
+        }
+      }
+    }
+  },
+  "restaurant.leiden-dende": {
+    "sourceBatch": "leiden-hospitality-20261116",
+    "sourceRecordSha256": "d0639a28367183b75c5a8effab6308f6df613773ec498bc3a8c3fc9919893ba0",
+    "photoEvidence": null,
+    "combined": false
+  },
+  "restaurant.leiden-tabu": {
+    "sourceBatch": "leiden-hospitality-20261116",
+    "sourceRecordSha256": "84467c33ffdd7ce34949d9c13b2c70488d98e54f6aff0fc40973a0b4270659bc",
+    "photoEvidence": null,
+    "combined": false
+  },
+  "restaurant.leiden-verboden-toegang": {
+    "sourceBatch": "leiden-hospitality-20261116",
+    "sourceRecordSha256": "02b801a140fd90e805be21fdf44a52854fdc29e0fdc6618dd83cf33339a4f182",
+    "photoEvidence": null,
+    "combined": false
+  },
+  "restaurant.leiden-waag": {
+    "sourceBatch": "hospitality-followup-20261116",
+    "sourceRecordSha256": "0b71120aa4b45017792c4a775cf540d47333ee2324944eace7b7529fbfc8f039",
+    "photoEvidence": {
+      "reuseFrom": "leiden-food-20261115",
+      "baseRecordSha256": "28fc12087c3226f81f890a0899c8ffc2722b5593742ad45fac1b9dd008989827",
+      "photoUnchanged": true,
+      "photo": {
+        "id": "media.restaurant.leiden-waag.commons-20261115",
+        "role": "hero",
+        "source_page_url": "https://commons.wikimedia.org/wiki/File:Waag_Leiden_6892.jpg",
+        "asset_url": "https://upload.wikimedia.org/wikipedia/commons/6/69/Waag_Leiden_6892.jpg",
+        "public_asset_path": "/images/place-review/waag-1200.webp",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "C messier · 2017-02-03 · Historical exterior / Historische buitenopname · resized WebP, no content edits",
+        "verified": true,
+        "retrieved_at": "2026-11-15",
+        "alt": "Waag façade on the Aalmarkt, photographed in 2017"
+      },
+      "recommendedPlacement": "retain previous dated/historical placement; no new contemporary-state claim",
+      "publicationAuthorized": false
+    },
+    "combined": false
+  },
+  "restaurant.leiden-oudt-leyden": {
+    "sourceBatch": "hospitality-followup-20261116",
+    "sourceRecordSha256": "7e31e0c563a92dc3721e96399e9ab105f402544f5b76f90897bee553cdca28d0",
+    "photoEvidence": {
+      "reuseFrom": "leiden-food-20261115",
+      "baseRecordSha256": "28fc12087c3226f81f890a0899c8ffc2722b5593742ad45fac1b9dd008989827",
+      "photoUnchanged": true,
+      "photo": {
+        "id": "media.restaurant.leiden-oudt-leyden.commons-20261115",
+        "role": "hero",
+        "source_page_url": "https://commons.wikimedia.org/wiki/File:Oudt_Leyden.jpg",
+        "asset_url": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Oudt_Leyden.jpg",
+        "public_asset_path": "/images/place-review/oudt-1200.webp",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Ngchikit · 2019-04-27 · Historical exterior / Historische buitenopname · resized WebP, no content edits",
+        "verified": true,
+        "retrieved_at": "2026-11-15",
+        "alt": "Oudt Leyden and the adjoining Steenstraat façades at dusk, April 2019"
+      },
+      "recommendedPlacement": "retain previous dated/historical placement; no new contemporary-state claim",
+      "publicationAuthorized": false
+    },
+    "combined": false
+  },
+  "restaurant.leiden-prentenkabinet": {
+    "sourceBatch": "hospitality-followup-20261116",
+    "sourceRecordSha256": "29a5098f0d0ac15c1b31fa6eb7570c54170fa4c52223f41bf63043ae49667145",
+    "photoEvidence": {
+      "reuseFrom": "leiden-food-20261115",
+      "baseRecordSha256": "28fc12087c3226f81f890a0899c8ffc2722b5593742ad45fac1b9dd008989827",
+      "photoUnchanged": true,
+      "photo": {
+        "id": "media.restaurant.leiden-prentenkabinet.commons-20261115",
+        "role": "hero",
+        "source_page_url": "https://commons.wikimedia.org/wiki/File:Leiden_Kloksteeg_23_en_25.JPG",
+        "asset_url": "https://upload.wikimedia.org/wikipedia/commons/d/d1/Leiden_Kloksteeg_23_en_25.JPG",
+        "public_asset_path": "/images/place-review/prent-1200.webp",
+        "license": "CC BY 3.0",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/",
+        "attribution": "Rudolphous · 2010-02-03 · Historical exterior / Historische buitenopname · resized WebP, no content edits",
+        "verified": true,
+        "retrieved_at": "2026-11-15",
+        "alt": "Het Prentenkabinet façade and flag on Kloksteeg, February 2010"
+      },
+      "recommendedPlacement": "retain previous dated/historical placement; no new contemporary-state claim",
+      "publicationAuthorized": false
+    },
+    "combined": false
+  },
+  "hotel.leiden-oude-morsch": {
+    "sourceBatch": "hospitality-followup-20261116",
+    "sourceRecordSha256": "10fb05ef0c302e0c6dbfd36b0b5d15dacccd485a2a74234bcb1db00a4736d164",
+    "photoEvidence": {
+      "reuseFrom": "leiden-stay-parks-20261115",
+      "baseRecordSha256": "32fb30b21b90e5a9419bc2482384946c9acccd8f77997b0791d8679b29132864",
+      "photoUnchanged": true,
+      "photo": {
+        "id": "media.hotel.leiden-oude-morsch.expansion-20261115",
+        "role": "hero",
+        "source_page_url": "https://commons.wikimedia.org/wiki/File:Leiden_-_Boutiqie_Hotel_D%27Oude_Morsch.jpg",
+        "asset_url": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Leiden_-_Boutiqie_Hotel_D%27Oude_Morsch.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "public_asset_path": "/images/place-review/expoudemorsch-1200.webp",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+        "attribution": "Rudolphous · 2017-09-16 16:03:15 · Archive photograph / Archieffoto · resized WebP; no content edits",
+        "verified": true,
+        "retrieved_at": "2026-11-15",
+        "alt": "Exterior of hotel d’Oude Morsch — photograph 2017"
+      },
+      "recommendedPlacement": "retain previous dated/historical placement; no new contemporary-state claim",
+      "publicationAuthorized": false
+    },
+    "combined": false
+  },
+  "hotel.leiden-huys-van-leyden": {
+    "sourceBatch": "hospitality-followup-20261116",
+    "sourceRecordSha256": "9e36e578a12b490110152de4453b58707e0fe2ffd8e633e3eb0b8e9b3a5c9b19",
+    "photoEvidence": {
+      "reuseFrom": "leiden-stay-parks-20261115",
+      "baseRecordSha256": "32fb30b21b90e5a9419bc2482384946c9acccd8f77997b0791d8679b29132864",
+      "photoUnchanged": true,
+      "photo": {
+        "id": "media.hotel.leiden-huys-van-leyden.expansion-20261115",
+        "role": "hero",
+        "source_page_url": "https://commons.wikimedia.org/wiki/File:Leiden_-_Oude_Singel_212.jpg",
+        "asset_url": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Leiden_-_Oude_Singel_212.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "public_asset_path": "/images/place-review/exphuys-1200.webp",
+        "license": "CC BY 3.0",
+        "license_url": "https://creativecommons.org/licenses/by/3.0",
+        "attribution": "Rudolphous · 2010-02-07 · Archive photograph / Archieffoto · resized WebP; no content edits",
+        "verified": true,
+        "retrieved_at": "2026-11-15",
+        "alt": "Historic façade at Oude Singel 212, before the current hotel presentation — photograph 2010"
+      },
+      "recommendedPlacement": "retain previous dated/historical placement; no new contemporary-state claim",
+      "publicationAuthorized": false
+    },
+    "combined": false
+  },
+  "hotel.leiden-steenhof": {
+    "sourceBatch": "hospitality-followup-20261116",
+    "sourceRecordSha256": "9cc2103fe63b6526c9007ece57f891fc79da7ad95d8c35e6f544600bdd6af445",
+    "photoEvidence": {
+      "reuseFrom": "leiden-stay-parks-20261115",
+      "baseRecordSha256": "32fb30b21b90e5a9419bc2482384946c9acccd8f77997b0791d8679b29132864",
+      "photoUnchanged": true,
+      "photo": {
+        "id": "media.hotel.leiden-steenhof.expansion-20261115",
+        "role": "hero",
+        "source_page_url": "https://commons.wikimedia.org/wiki/File:Leiden_-_Steenschuur_11.JPG",
+        "asset_url": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Leiden_-_Steenschuur_11.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "public_asset_path": "/images/place-review/expsteenhof-1200.webp",
+        "license": "CC BY 3.0",
+        "license_url": "https://creativecommons.org/licenses/by/3.0",
+        "attribution": "Rudolphous · 2010-02-03 · Archive photograph / Archieffoto · resized WebP; no content edits",
+        "verified": true,
+        "retrieved_at": "2026-11-15",
+        "alt": "Historic façade of Steenschuur 11 — photograph 2010"
+      },
+      "recommendedPlacement": "retain previous dated/historical placement; no new contemporary-state claim",
+      "publicationAuthorized": false
+    },
+    "combined": false
+  },
+  "cafe.den-haag-kaafi": {
+    "sourceBatch": "hospitality-followup-20261116",
+    "sourceRecordSha256": "6b22c2932a9deb5e9da56453fcc01313d4ba5f18751aa4b71326f6265f0229ba",
+    "photoEvidence": null,
+    "combined": false
+  },
+  "cafe.utrecht-koffie-leute": {
+    "sourceBatch": "hospitality-followup-20261116",
+    "sourceRecordSha256": "b33b3dbe47d9038deb45b4337f0fc29e192bba964b6f013e1f8cb808c0cf7580",
+    "photoEvidence": null,
+    "combined": false
+  },
+  "hotel.den-haag-collector": {
+    "sourceBatch": "hospitality-followup-20261116",
+    "sourceRecordSha256": "6c3f061757370ebbf9bd04a9ea7c69ad8b8f1602c383ddfb3a951fcdb1fe8fbf",
+    "photoEvidence": null,
+    "combined": false
+  },
+  "hotel.utrecht-nox": {
+    "sourceBatch": "hospitality-followup-20261116",
+    "sourceRecordSha256": "65da5ae960ead6a99f7237a7fbad4c991b81c686bd9e3858db8ebb775b8f3fc5",
+    "photoEvidence": null,
+    "combined": false
+  }
+}
