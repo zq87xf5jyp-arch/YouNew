@@ -1,0 +1,22 @@
+{
+  "checkedAt": "2026-11-16",
+  "publicationAuthorized": false,
+  "issues": [
+    {
+      "id": "place.de-nieuwe-kerk-amsterdam",
+      "blockingBeforePublication": true,
+      "issues": [
+        "Unresolved official opening-hours conflict: visit page daily 10:00–17:00 vs FAQ Wednesday–Sunday 11:00–18:00. Do not approve before resolving."
+      ]
+    },
+    {
+      "id": "place.oba-oosterdok",
+      "blockingBeforePublication": true,
+      "issues": [
+        "Official indexed page retrieved; live page returned 403/429. Manually confirm current facilities and hours before approval. No numeric hours/prices asserted."
+      ]
+    }
+  ],
+  "allRecordsRequireHumanApproval": true,
+  "mediaGaps": 10
+}

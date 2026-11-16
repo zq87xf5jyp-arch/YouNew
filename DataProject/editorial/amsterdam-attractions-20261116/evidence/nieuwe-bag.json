@@ -1,0 +1,20 @@
+{
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Dam+12+Amsterdam&fq=type%3Aadres&rows=3",
+  "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Dam+12+Amsterdam&fq=type%3Aadres&rows=3",
+  "httpStatus": 200,
+  "contentType": "application/json;charset=utf-8",
+  "sha256": "0c5958a31aefbeddd143fc95f28f2bbe45234b2dbab7cbbb37a7f91390d8f479",
+  "file": "2c5006e5d643c114.html",
+  "checkedAt": "2026-11-16",
+  "selectedAddress": {
+    "woonplaatsnaam": "Amsterdam",
+    "weergavenaam": "Dam 12, 1012NP Amsterdam",
+    "id": "adr-07149cd8cb4fd4c800546c4182b2769d",
+    "postcode": "1012NP",
+    "centroide_ll": "POINT(4.89187769 52.37367138)",
+    "nummeraanduiding_id": "0363200000076858",
+    "huisnummer": 12,
+    "straatnaam": "Dam"
+  },
+  "method": "official BAG address geocoder; not an entrance survey"
+}

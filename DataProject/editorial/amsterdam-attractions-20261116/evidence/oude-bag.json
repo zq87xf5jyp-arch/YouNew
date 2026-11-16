@@ -1,0 +1,20 @@
+{
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Oudekerksplein+23+Amsterdam&fq=type%3Aadres&rows=3",
+  "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Oudekerksplein+23+Amsterdam&fq=type%3Aadres&rows=3",
+  "httpStatus": 200,
+  "contentType": "application/json;charset=utf-8",
+  "sha256": "c74aacfc5314270e67fa31ba8a57da771eefed6370817c72d978d51f4c86d3a5",
+  "file": "c0023d5fde40e6f2.html",
+  "checkedAt": "2026-11-16",
+  "selectedAddress": {
+    "woonplaatsnaam": "Amsterdam",
+    "weergavenaam": "Oudekerksplein 23, 1012GX Amsterdam",
+    "id": "adr-6500f49798379ec488f81e2ff7188f87",
+    "postcode": "1012GX",
+    "centroide_ll": "POINT(4.89776135 52.37411827)",
+    "nummeraanduiding_id": "0363200000227553",
+    "huisnummer": 23,
+    "straatnaam": "Oudekerksplein"
+  },
+  "method": "official BAG address geocoder; not an entrance survey"
+}

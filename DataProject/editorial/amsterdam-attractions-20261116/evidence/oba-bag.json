@@ -1,0 +1,20 @@
+{
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Oosterdokskade+143+Amsterdam&fq=type%3Aadres&rows=3",
+  "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Oosterdokskade+143+Amsterdam&fq=type%3Aadres&rows=3",
+  "httpStatus": 200,
+  "contentType": "application/json;charset=utf-8",
+  "sha256": "fe678ff6aec92835621000f9b79e0fad59d18df5aadb9aef492106789fcbd34f",
+  "file": "b45e948ff02151d6.html",
+  "checkedAt": "2026-11-16",
+  "selectedAddress": {
+    "woonplaatsnaam": "Amsterdam",
+    "weergavenaam": "Oosterdokskade 143, 1011DL Amsterdam",
+    "id": "adr-da52245672a295a821680119215aaf50",
+    "postcode": "1011DL",
+    "centroide_ll": "POINT(4.90837481 52.37582439)",
+    "nummeraanduiding_id": "0363200000536717",
+    "huisnummer": 143,
+    "straatnaam": "Oosterdokskade"
+  },
+  "method": "official BAG address geocoder; not an entrance survey"
+}

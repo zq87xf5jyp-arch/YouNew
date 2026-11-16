@@ -11,8 +11,8 @@ import {buildPublicDataset,paths} from '../scripts/generate-public-content.mjs';
 import {isDiscoverableContent} from '../src/lib/content/presentation.ts';
 const root=fileURLToPath(new URL('../../../',import.meta.url));
 // This suite describes the three approved expansion batches. Subsequent
-// media-only follow-ups deliberately reuse IDs and have their own draft gates.
-const batches=Object.keys(expansionReviews).filter(b=>!expansionReviews[b].mediaOnlyBases);
+// draft follow-ups have their own approval-boundary tests.
+const batches=['leiden-stay-parks-20261115','amsterdam-museums-20261115','priority-cities-20261115'];
 const proofs=await Promise.all(batches.map(b=>readPlaceReview(root,b)));
 
 test('private discovery needs an explicit draft ID and never makes an ordinary draft discoverable',()=>{

@@ -1,0 +1,536 @@
+{
+  "batch_id": "amsterdam-attractions-20261116",
+  "publication_status": "draft",
+  "records": [
+    {
+      "id": "place.artis",
+      "entity_type": "place",
+      "category": "zoo",
+      "city_id": "amsterdam",
+      "province_id": "noord-holland",
+      "title": "ARTIS",
+      "coordinates": {
+        "latitude": 52.3669615,
+        "longitude": 4.9125816
+      },
+      "description": "Visit ARTIS Zoo in the Plantage neighbourhood, with animal habitats, an aquarium and a planetarium.",
+      "images": [],
+      "official_source": {
+        "title": "Artis Visit",
+        "publisher": "www.artis.nl",
+        "url": "https://www.artis.nl/en/plan-your-visit",
+        "is_official": true,
+        "checked_at": "2026-11-16",
+        "status": "verified_opened"
+      },
+      "website": "https://www.artis.nl/en/plan-your-visit",
+      "related_entity_ids": [
+        "city.amsterdam"
+      ],
+      "last_checked": "2026-11-16",
+      "review_frequency_days": 7,
+      "verification_status": "needs_review",
+      "ai_summary": "Visit ARTIS Zoo in the Plantage neighbourhood, with animal habitats, an aquarium and a planetarium.",
+      "search_keywords": [
+        "ARTIS",
+        "amsterdam",
+        "zoo"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "content_section": "EXPLORE",
+        "content_language": "en",
+        "title_nl": "ARTIS",
+        "description_nl": "Bezoek ARTIS-Park in de Plantagebuurt, met dierenverblijven, een aquarium en een planetarium.",
+        "field_review_status": "Human editorial approval pending",
+        "catalog_review_batch": "amsterdam-attractions-20261116",
+        "address": "Plantage Kerklaan 38, 1018CZ Amsterdam",
+        "address_source_url": "https://www.artis.nl/en/contact-information/frequently-asked-questions",
+        "address_checked_at": "2026-11-16",
+        "website": "https://www.artis.nl/en/plan-your-visit",
+        "website_source_url": "https://www.artis.nl/en/plan-your-visit",
+        "website_checked_at": "2026-11-16",
+        "address_note": "BAG address point, not a surveyed entrance",
+        "media_status": "No new photo prepared in this text batch; historical unverified images are not reused",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-16\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.artis-visit\",\"title\":\"Artis Visit\",\"publisher\":\"www.artis.nl\",\"url\":\"https://www.artis.nl/en/plan-your-visit\",\"is_official\":true,\"checked_at\":\"2026-11-16\",\"status\":\"verified_opened\"},{\"id\":\"source.artis-faq\",\"title\":\"Artis Faq\",\"publisher\":\"www.artis.nl\",\"url\":\"https://www.artis.nl/en/contact-information/frequently-asked-questions\",\"is_official\":true,\"checked_at\":\"2026-11-16\",\"status\":\"verified_opened\"},{\"id\":\"source.artis-geo\",\"title\":\"BAG address: Plantage Kerklaan 38, 1018CZ Amsterdam\",\"publisher\":\"PDOK / Kadaster\",\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Plantage+Kerklaan+38+Amsterdam&fq=type%3Aadres&rows=3\",\"is_official\":true,\"checked_at\":\"2026-11-16\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Plantage+Kerklaan+38+Amsterdam&fq=type%3Aadres&rows=3\",\"method\":\"BAG address point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.3669615,4.9125816\"},\"tickets\":{\"url\":\"https://www.artis.nl/en/plan-your-visit\",\"sourceId\":\"source.artis-visit\"},\"locales\":{\"en\":{\"alt\":\"\",\"blocks\":[{\"id\":\"setting\",\"title\":\"About this place\",\"text\":\"The zoo ticket includes the aquarium and planetarium; Micropia and the Groote Museum have separate admission.\",\"source_ids\":[\"source.artis-visit\"]},{\"id\":\"address\",\"title\":\"Location\",\"text\":\"Plantage Kerklaan 38–40, Amsterdam. The map marks the registered address at number 38.\",\"source_ids\":[\"source.artis-faq\",\"source.artis-geo\"]},{\"id\":\"hours\",\"title\":\"Seasonal hours\",\"text\":\"November–February: daily 09:00–17:00. March–October: 09:00–18:00; check exceptions before travelling.\",\"source_ids\":[\"source.artis-faq\"]},{\"id\":\"prices\",\"title\":\"Tickets checked 16 November 2026\",\"text\":\"For ages 13+, online tickets start at €29.50; the counter price is €32.50. Online prices vary by date.\",\"source_ids\":[\"source.artis-visit\"]},{\"id\":\"practical\",\"title\":\"Before you go\",\"text\":\"ARTIS is cashless. Choose the zoo ticket rather than a ticket for only one of the other museums.\",\"source_ids\":[\"source.artis-faq\",\"source.artis-visit\"]}]},\"nl\":{\"alt\":\"\",\"blocks\":[{\"id\":\"setting\",\"title\":\"Over deze plek\",\"text\":\"Het parkticket omvat het aquarium en planetarium; voor Micropia en het Groote Museum geldt aparte toegang.\",\"source_ids\":[\"source.artis-visit\"]},{\"id\":\"address\",\"title\":\"Locatie\",\"text\":\"Plantage Kerklaan 38–40, Amsterdam. De kaart toont het geregistreerde adres op nummer 38.\",\"source_ids\":[\"source.artis-faq\",\"source.artis-geo\"]},{\"id\":\"hours\",\"title\":\"Seizoensuren\",\"text\":\"November–februari: dagelijks 09:00–17:00. Maart–oktober: 09:00–18:00; controleer uitzonderingen vóór vertrek.\",\"source_ids\":[\"source.artis-faq\"]},{\"id\":\"prices\",\"title\":\"Tickets gecontroleerd op 16 november 2026\",\"text\":\"Vanaf 13 jaar kosten onlinetickets vanaf €29,50; aan de kassa €32,50. Onlineprijzen verschillen per bezoekdatum.\",\"source_ids\":[\"source.artis-visit\"]},{\"id\":\"practical\",\"title\":\"Voor vertrek\",\"text\":\"ARTIS accepteert geen contant geld. Kies een parkticket, niet een ticket voor uitsluitend een van de andere musea.\",\"source_ids\":[\"source.artis-faq\",\"source.artis-visit\"]}]}}}"
+      }
+    },
+    {
+      "id": "place.hortus-botanicus-amsterdam",
+      "entity_type": "place",
+      "category": "botanical-garden",
+      "city_id": "amsterdam",
+      "province_id": "noord-holland",
+      "title": "Hortus Botanicus Amsterdam",
+      "coordinates": {
+        "latitude": 52.3670055,
+        "longitude": 4.9078974
+      },
+      "description": "Explore living plant collections in the Hortus garden and greenhouses in central Amsterdam.",
+      "images": [],
+      "official_source": {
+        "title": "Hortus",
+        "publisher": "www.dehortus.nl",
+        "url": "https://www.dehortus.nl/en/",
+        "is_official": true,
+        "checked_at": "2026-11-16",
+        "status": "verified_opened"
+      },
+      "website": "https://www.dehortus.nl/en/",
+      "related_entity_ids": [
+        "city.amsterdam"
+      ],
+      "last_checked": "2026-11-16",
+      "review_frequency_days": 7,
+      "verification_status": "needs_review",
+      "ai_summary": "Explore living plant collections in the Hortus garden and greenhouses in central Amsterdam.",
+      "search_keywords": [
+        "Hortus Botanicus Amsterdam",
+        "amsterdam",
+        "botanical-garden"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "content_section": "EXPLORE",
+        "content_language": "en",
+        "title_nl": "Hortus Botanicus Amsterdam",
+        "description_nl": "Ontdek levende plantencollecties in de tuin en kassen van de Hortus in hartje Amsterdam.",
+        "field_review_status": "Human editorial approval pending",
+        "catalog_review_batch": "amsterdam-attractions-20261116",
+        "address": "Plantage Middenlaan 2A, 1018DD Amsterdam",
+        "address_source_url": "https://www.dehortus.nl/en/plan-your-visit/",
+        "address_checked_at": "2026-11-16",
+        "website": "https://www.dehortus.nl/en/",
+        "website_source_url": "https://www.dehortus.nl/en/",
+        "website_checked_at": "2026-11-16",
+        "address_note": "BAG address point, not a surveyed entrance",
+        "media_status": "No new photo prepared in this text batch; historical unverified images are not reused",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-16\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.hortus\",\"title\":\"Hortus\",\"publisher\":\"www.dehortus.nl\",\"url\":\"https://www.dehortus.nl/en/\",\"is_official\":true,\"checked_at\":\"2026-11-16\",\"status\":\"verified_opened\"},{\"id\":\"source.hortus-visit\",\"title\":\"Hortus Visit\",\"publisher\":\"www.dehortus.nl\",\"url\":\"https://www.dehortus.nl/en/plan-your-visit/\",\"is_official\":true,\"checked_at\":\"2026-11-16\",\"status\":\"verified_opened\"},{\"id\":\"source.hortus-faq\",\"title\":\"Hortus Faq\",\"publisher\":\"www.dehortus.nl\",\"url\":\"https://www.dehortus.nl/en/faq/\",\"is_official\":true,\"checked_at\":\"2026-11-16\",\"status\":\"verified_opened\"},{\"id\":\"source.hortus-geo\",\"title\":\"BAG address: Plantage Middenlaan 2A, 1018DD Amsterdam\",\"publisher\":\"PDOK / Kadaster\",\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Plantage+Middenlaan+2A+Amsterdam&fq=type%3Aadres&rows=3\",\"is_official\":true,\"checked_at\":\"2026-11-16\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Plantage+Middenlaan+2A+Amsterdam&fq=type%3Aadres&rows=3\",\"method\":\"BAG address point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.3670055,4.9078974\"},\"tickets\":{\"url\":\"https://www.dehortus.nl/en/plan-your-visit/\",\"sourceId\":\"source.hortus-visit\"},\"locales\":{\"en\":{\"alt\":\"\",\"blocks\":[{\"id\":\"setting\",\"title\":\"Garden and greenhouses\",\"text\":\"The botanical garden combines outdoor planting with greenhouses, including the Climate House.\",\"source_ids\":[\"source.hortus-faq\"]},{\"id\":\"address\",\"title\":\"Location\",\"text\":\"Plantage Middenlaan 2A, Amsterdam. The map uses the BAG address point, not a surveyed entrance.\",\"source_ids\":[\"source.hortus-visit\",\"source.hortus-geo\"]},{\"id\":\"hours\",\"title\":\"Opening hours\",\"text\":\"Daily 10:00–17:00; closed 25 December and 1 January. The Palm House is partly closed for renovation.\",\"source_ids\":[\"source.hortus-visit\"]},{\"id\":\"prices\",\"title\":\"Tickets checked 16 November 2026\",\"text\":\"Adults €14.75; students with a student card €8.50. Card payment only; the Museumkaart is not valid.\",\"source_ids\":[\"source.hortus-visit\"]},{\"id\":\"access\",\"title\":\"Access and luggage\",\"text\":\"Some paths are narrow or gravelled and older greenhouses have thresholds. There is no luggage storage.\",\"source_ids\":[\"source.hortus-faq\",\"source.hortus-visit\"]}]},\"nl\":{\"alt\":\"\",\"blocks\":[{\"id\":\"setting\",\"title\":\"Tuin en kassen\",\"text\":\"De botanische tuin combineert beplanting buiten met kassen, waaronder het Klimatenhuis.\",\"source_ids\":[\"source.hortus-faq\"]},{\"id\":\"address\",\"title\":\"Locatie\",\"text\":\"Plantage Middenlaan 2A, Amsterdam. De kaart gebruikt het BAG-adrespunt, geen ingemeten ingang.\",\"source_ids\":[\"source.hortus-visit\",\"source.hortus-geo\"]},{\"id\":\"hours\",\"title\":\"Openingstijden\",\"text\":\"Dagelijks 10:00–17:00; gesloten op 25 december en 1 januari. Het Palmenhuis is gedeeltelijk dicht vanwege renovatie.\",\"source_ids\":[\"source.hortus-visit\"]},{\"id\":\"prices\",\"title\":\"Tickets gecontroleerd op 16 november 2026\",\"text\":\"Volwassenen €14,75; studenten met studentenkaart €8,50. Alleen kaartbetaling; de Museumkaart is niet geldig.\",\"source_ids\":[\"source.hortus-visit\"]},{\"id\":\"access\",\"title\":\"Toegankelijkheid en bagage\",\"text\":\"Sommige paden zijn smal of met grind bedekt en oudere kassen hebben drempels. Bagageopslag is niet beschikbaar.\",\"source_ids\":[\"source.hortus-faq\",\"source.hortus-visit\"]}]}}}"
+      }
+    },
+    {
+      "id": "place.oude-kerk",
+      "entity_type": "place",
+      "category": "church-cultural-venue",
+      "city_id": "amsterdam",
+      "province_id": "noord-holland",
+      "title": "Oude Kerk",
+      "coordinates": {
+        "latitude": 52.3741183,
+        "longitude": 4.8977613
+      },
+      "description": "Visit the Oude Kerk for its historic interior and changing programme of contemporary art and music.",
+      "images": [],
+      "official_source": {
+        "title": "Oude Visit",
+        "publisher": "www.oudekerk.nl",
+        "url": "https://www.oudekerk.nl/en/tickets-and-visit",
+        "is_official": true,
+        "checked_at": "2026-11-16",
+        "status": "verified_opened"
+      },
+      "website": "https://www.oudekerk.nl/en/tickets-and-visit",
+      "related_entity_ids": [
+        "city.amsterdam"
+      ],
+      "last_checked": "2026-11-16",
+      "review_frequency_days": 7,
+      "verification_status": "needs_review",
+      "ai_summary": "Visit the Oude Kerk for its historic interior and changing programme of contemporary art and music.",
+      "search_keywords": [
+        "Oude Kerk",
+        "amsterdam",
+        "church-cultural-venue"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "content_section": "EXPLORE",
+        "content_language": "en",
+        "title_nl": "Oude Kerk",
+        "description_nl": "Bezoek de Oude Kerk voor het historische interieur en een wisselend programma met hedendaagse kunst en muziek.",
+        "field_review_status": "Human editorial approval pending",
+        "catalog_review_batch": "amsterdam-attractions-20261116",
+        "address": "Oudekerksplein 23, 1012GX Amsterdam",
+        "address_source_url": "https://www.oudekerk.nl/en/tickets-and-visit",
+        "address_checked_at": "2026-11-16",
+        "website": "https://www.oudekerk.nl/en/tickets-and-visit",
+        "website_source_url": "https://www.oudekerk.nl/en/tickets-and-visit",
+        "website_checked_at": "2026-11-16",
+        "address_note": "BAG address point, not a surveyed entrance",
+        "media_status": "No new photo prepared in this text batch; historical unverified images are not reused",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-16\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.oude-visit\",\"title\":\"Oude Visit\",\"publisher\":\"www.oudekerk.nl\",\"url\":\"https://www.oudekerk.nl/en/tickets-and-visit\",\"is_official\":true,\"checked_at\":\"2026-11-16\",\"status\":\"verified_opened\"},{\"id\":\"source.oude-faq\",\"title\":\"Oude Faq\",\"publisher\":\"www.oudekerk.nl\",\"url\":\"https://www.oudekerk.nl/en/faq\",\"is_official\":true,\"checked_at\":\"2026-11-16\",\"status\":\"verified_opened\"},{\"id\":\"source.oude-geo\",\"title\":\"BAG address: Oudekerksplein 23, 1012GX Amsterdam\",\"publisher\":\"PDOK / Kadaster\",\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Oudekerksplein+23+Amsterdam&fq=type%3Aadres&rows=3\",\"is_official\":true,\"checked_at\":\"2026-11-16\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Oudekerksplein+23+Amsterdam&fq=type%3Aadres&rows=3\",\"method\":\"BAG address point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.3741183,4.8977613\"},\"tickets\":{\"url\":\"https://www.oudekerk.nl/en/tickets-and-visit\",\"sourceId\":\"source.oude-visit\"},\"locales\":{\"en\":{\"alt\":\"\",\"blocks\":[{\"id\":\"setting\",\"title\":\"What to expect\",\"text\":\"A historic church with exhibitions and music; check the programme for the work on view during your visit.\",\"source_ids\":[\"source.oude-visit\"]},{\"id\":\"address\",\"title\":\"Location\",\"text\":\"Oudekerksplein 23, Amsterdam. Use the official visitor page for arrival information.\",\"source_ids\":[\"source.oude-visit\"]},{\"id\":\"hours\",\"title\":\"Opening hours\",\"text\":\"Monday–Saturday 10:00–18:00; Sunday 13:00–17:30. Exhibition changes can cause additional closures.\",\"source_ids\":[\"source.oude-faq\"]},{\"id\":\"prices\",\"title\":\"Tickets checked 16 November 2026\",\"text\":\"The official FAQ lists adult admission at €13.50 and students at €7. Confirm your ticket type at checkout.\",\"source_ids\":[\"source.oude-faq\"]},{\"id\":\"access\",\"title\":\"Tower and access\",\"text\":\"Tower visits are seasonal, April–October; do not expect a November climb. Some historic side rooms are not wheelchair-accessible.\",\"source_ids\":[\"source.oude-faq\"]}]},\"nl\":{\"alt\":\"\",\"blocks\":[{\"id\":\"setting\",\"title\":\"Wat je kunt verwachten\",\"text\":\"Een historische kerk met tentoonstellingen en muziek; bekijk het programma voor het aanbod tijdens je bezoek.\",\"source_ids\":[\"source.oude-visit\"]},{\"id\":\"address\",\"title\":\"Locatie\",\"text\":\"Oudekerksplein 23, Amsterdam. Bekijk de officiële bezoekerspagina voor informatie over je aankomst.\",\"source_ids\":[\"source.oude-visit\"]},{\"id\":\"hours\",\"title\":\"Openingstijden\",\"text\":\"Maandag–zaterdag 10:00–18:00; zondag 13:00–17:30. Bij tentoonstellingswissels kan de kerk extra gesloten zijn.\",\"source_ids\":[\"source.oude-faq\"]},{\"id\":\"prices\",\"title\":\"Tickets gecontroleerd op 16 november 2026\",\"text\":\"De officiële FAQ vermeldt €13,50 voor volwassenen en €7 voor studenten. Controleer je ticketsoort bij het boeken.\",\"source_ids\":[\"source.oude-faq\"]},{\"id\":\"access\",\"title\":\"Toren en toegankelijkheid\",\"text\":\"Torenbezoek is seizoensgebonden, april–oktober; reken niet op een beklimming in november. Sommige historische zijruimten zijn niet rolstoeltoegankelijk.\",\"source_ids\":[\"source.oude-faq\"]}]}}}"
+      }
+    },
+    {
+      "id": "place.de-nieuwe-kerk-amsterdam",
+      "entity_type": "place",
+      "category": "church-exhibition-venue",
+      "city_id": "amsterdam",
+      "province_id": "noord-holland",
+      "title": "De Nieuwe Kerk Amsterdam",
+      "coordinates": {
+        "latitude": 52.3736714,
+        "longitude": 4.8918777
+      },
+      "description": "Discover exhibitions inside De Nieuwe Kerk, the historic church beside Dam Square.",
+      "images": [],
+      "official_source": {
+        "title": "Nieuwe Visit",
+        "publisher": "www.nieuwekerk.nl",
+        "url": "https://www.nieuwekerk.nl/plan-je-bezoek/",
+        "is_official": true,
+        "checked_at": "2026-11-16",
+        "status": "verified_opened"
+      },
+      "website": "https://www.nieuwekerk.nl/plan-je-bezoek/",
+      "related_entity_ids": [
+        "city.amsterdam"
+      ],
+      "last_checked": "2026-11-16",
+      "review_frequency_days": 7,
+      "verification_status": "needs_review",
+      "ai_summary": "Discover exhibitions inside De Nieuwe Kerk, the historic church beside Dam Square.",
+      "search_keywords": [
+        "De Nieuwe Kerk Amsterdam",
+        "amsterdam",
+        "church-exhibition-venue"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "content_section": "EXPLORE",
+        "content_language": "en",
+        "title_nl": "De Nieuwe Kerk Amsterdam",
+        "description_nl": "Ontdek tentoonstellingen in De Nieuwe Kerk, de historische kerk aan de Dam.",
+        "field_review_status": "Human editorial approval pending; live source clarification required",
+        "catalog_review_batch": "amsterdam-attractions-20261116",
+        "address": "Dam 12, 1012NP Amsterdam",
+        "address_source_url": "https://monumentenregister.cultureelerfgoed.nl/monumenten/5940",
+        "address_checked_at": "2026-11-16",
+        "website": "https://www.nieuwekerk.nl/plan-je-bezoek/",
+        "website_source_url": "https://www.nieuwekerk.nl/plan-je-bezoek/",
+        "website_checked_at": "2026-11-16",
+        "address_note": "BAG address point, not a surveyed entrance",
+        "media_status": "No new photo prepared in this text batch; historical unverified images are not reused",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-16\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.nieuwe-visit\",\"title\":\"Nieuwe Visit\",\"publisher\":\"www.nieuwekerk.nl\",\"url\":\"https://www.nieuwekerk.nl/plan-je-bezoek/\",\"is_official\":true,\"checked_at\":\"2026-11-16\",\"status\":\"verified_opened\"},{\"id\":\"source.nieuwe-faq\",\"title\":\"Nieuwe Faq\",\"publisher\":\"www.nieuwekerk.nl\",\"url\":\"https://www.nieuwekerk.nl/vragen-over-je-bezoek/\",\"is_official\":true,\"checked_at\":\"2026-11-16\",\"status\":\"verified_opened\"},{\"id\":\"source.nieuwe-address\",\"title\":\"Nieuwe Address\",\"publisher\":\"monumentenregister.cultureelerfgoed.nl\",\"url\":\"https://monumentenregister.cultureelerfgoed.nl/monumenten/5940\",\"is_official\":true,\"checked_at\":\"2026-11-16\",\"status\":\"verified_opened\"},{\"id\":\"source.nieuwe-geo\",\"title\":\"BAG address: Dam 12, 1012NP Amsterdam\",\"publisher\":\"PDOK / Kadaster\",\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Dam+12+Amsterdam&fq=type%3Aadres&rows=3\",\"is_official\":true,\"checked_at\":\"2026-11-16\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Dam+12+Amsterdam&fq=type%3Aadres&rows=3\",\"method\":\"BAG address point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.3736714,4.8918777\"},\"tickets\":{\"url\":\"https://www.nieuwekerk.nl/plan-je-bezoek/\",\"sourceId\":\"source.nieuwe-visit\"},\"locales\":{\"en\":{\"alt\":\"\",\"blocks\":[{\"id\":\"setting\",\"title\":\"Exhibitions in a monument\",\"text\":\"The Gothic church is a listed national monument. Plan your visit around the current exhibition.\",\"source_ids\":[\"source.nieuwe-address\",\"source.nieuwe-visit\"]},{\"id\":\"address\",\"title\":\"Location\",\"text\":\"Dam 12, Amsterdam, as recorded in the national monument register. The coordinate is the BAG address point.\",\"source_ids\":[\"source.nieuwe-address\",\"source.nieuwe-geo\"]},{\"id\":\"hours\",\"title\":\"Confirm hours before travelling\",\"text\":\"The visit page lists daily 10:00–17:00, last entry 16:30, but the FAQ gives different hours. Confirm your date before travelling.\",\"source_ids\":[\"source.nieuwe-visit\",\"source.nieuwe-faq\"]},{\"id\":\"prices\",\"title\":\"Tickets checked 16 November 2026\",\"text\":\"The visit page lists adult admission at €20 and ages 12–17 at €13.50; children through age 11 enter free.\",\"source_ids\":[\"source.nieuwe-visit\"]},{\"id\":\"practical\",\"title\":\"Booking\",\"text\":\"Use the official visit page to select a ticket. Check the exhibition dates and closures as well as the price.\",\"source_ids\":[\"source.nieuwe-visit\"]}]},\"nl\":{\"alt\":\"\",\"blocks\":[{\"id\":\"setting\",\"title\":\"Tentoonstellingen in een monument\",\"text\":\"De gotische kerk is een rijksmonument. Stem je bezoek af op de actuele tentoonstelling.\",\"source_ids\":[\"source.nieuwe-address\",\"source.nieuwe-visit\"]},{\"id\":\"address\",\"title\":\"Locatie\",\"text\":\"Dam 12, Amsterdam, volgens het Rijksmonumentenregister. De coördinaat is het BAG-adrespunt.\",\"source_ids\":[\"source.nieuwe-address\",\"source.nieuwe-geo\"]},{\"id\":\"hours\",\"title\":\"Controleer de tijden vóór vertrek\",\"text\":\"De bezoekpagina noemt dagelijks 10:00–17:00, laatste toegang 16:30, maar de FAQ noemt andere tijden. Controleer je bezoekdatum vóór vertrek.\",\"source_ids\":[\"source.nieuwe-visit\",\"source.nieuwe-faq\"]},{\"id\":\"prices\",\"title\":\"Tickets gecontroleerd op 16 november 2026\",\"text\":\"De bezoekpagina vermeldt €20 voor volwassenen en €13,50 voor 12–17 jaar; kinderen tot en met 11 jaar hebben gratis toegang.\",\"source_ids\":[\"source.nieuwe-visit\"]},{\"id\":\"practical\",\"title\":\"Boeken\",\"text\":\"Kies een ticket via de officiële bezoekpagina. Controleer naast de prijs ook tentoonstellingsdata en sluitingsdagen.\",\"source_ids\":[\"source.nieuwe-visit\"]}]}}}"
+      }
+    },
+    {
+      "id": "place.westerkerk",
+      "entity_type": "place",
+      "category": "church-landmark",
+      "city_id": "amsterdam",
+      "province_id": "noord-holland",
+      "title": "Westerkerk",
+      "coordinates": {
+        "latitude": 52.3745258,
+        "longitude": 4.8834977
+      },
+      "description": "Step inside the Westerkerk for its church interior and organs; the tower is currently unavailable to climb.",
+      "images": [],
+      "official_source": {
+        "title": "Wester Visit",
+        "publisher": "westerkerk.nl",
+        "url": "https://westerkerk.nl/bezoek-de-westerkerk-amsterdam/",
+        "is_official": true,
+        "checked_at": "2026-11-16",
+        "status": "verified_opened"
+      },
+      "website": "https://westerkerk.nl/bezoek-de-westerkerk-amsterdam/",
+      "related_entity_ids": [
+        "city.amsterdam"
+      ],
+      "last_checked": "2026-11-16",
+      "review_frequency_days": 7,
+      "verification_status": "needs_review",
+      "ai_summary": "Step inside the Westerkerk for its church interior and organs; the tower is currently unavailable to climb.",
+      "search_keywords": [
+        "Westerkerk",
+        "amsterdam",
+        "church-landmark"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "content_section": "EXPLORE",
+        "content_language": "en",
+        "title_nl": "Westerkerk",
+        "description_nl": "Bekijk het kerkinterieur en de orgels van de Westerkerk; de toren is momenteel niet te beklimmen.",
+        "field_review_status": "Human editorial approval pending",
+        "catalog_review_batch": "amsterdam-attractions-20261116",
+        "address": "Prinsengracht 279, 1016GW Amsterdam",
+        "address_source_url": "https://westerkerk.nl/bezoek-de-westerkerk-amsterdam/",
+        "address_checked_at": "2026-11-16",
+        "website": "https://westerkerk.nl/bezoek-de-westerkerk-amsterdam/",
+        "website_source_url": "https://westerkerk.nl/bezoek-de-westerkerk-amsterdam/",
+        "website_checked_at": "2026-11-16",
+        "address_note": "BAG address point, not a surveyed entrance",
+        "media_status": "No new photo prepared in this text batch; historical unverified images are not reused",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-16\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.wester-visit\",\"title\":\"Wester Visit\",\"publisher\":\"westerkerk.nl\",\"url\":\"https://westerkerk.nl/bezoek-de-westerkerk-amsterdam/\",\"is_official\":true,\"checked_at\":\"2026-11-16\",\"status\":\"verified_opened\"},{\"id\":\"source.wester-geo\",\"title\":\"BAG address: Prinsengracht 279, 1016GW Amsterdam\",\"publisher\":\"PDOK / Kadaster\",\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Prinsengracht+279+Amsterdam&fq=type%3Aadres&rows=3\",\"is_official\":true,\"checked_at\":\"2026-11-16\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Prinsengracht+279+Amsterdam&fq=type%3Aadres&rows=3\",\"method\":\"BAG address point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.3745258,4.8834977\"},\"tickets\":null,\"locales\":{\"en\":{\"alt\":\"\",\"blocks\":[{\"id\":\"setting\",\"title\":\"About the church\",\"text\":\"The church was designed by Hendrick de Keyser and built in 1620–1631.\",\"source_ids\":[\"source.wester-visit\"]},{\"id\":\"address\",\"title\":\"Visitor entrance\",\"text\":\"Use Prinsengracht 279, Amsterdam, for the visitor entrance; the church’s contact address is number 281.\",\"source_ids\":[\"source.wester-visit\"]},{\"id\":\"hours\",\"title\":\"Visiting hours\",\"text\":\"Normally Monday–Friday 11:00–15:00. Check the church website for holidays and other exceptions.\",\"source_ids\":[\"source.wester-visit\"]},{\"id\":\"prices\",\"title\":\"Admission\",\"text\":\"Entry is free; donations are welcome. Guided visits must be arranged with the church.\",\"source_ids\":[\"source.wester-visit\"]},{\"id\":\"access\",\"title\":\"Tower and accessibility\",\"text\":\"The visitor entrance is wheelchair-accessible. The tower cannot currently be climbed because of restoration works.\",\"source_ids\":[\"source.wester-visit\"]}]},\"nl\":{\"alt\":\"\",\"blocks\":[{\"id\":\"setting\",\"title\":\"Over de kerk\",\"text\":\"De kerk is ontworpen door Hendrick de Keyser en gebouwd in 1620–1631.\",\"source_ids\":[\"source.wester-visit\"]},{\"id\":\"address\",\"title\":\"Bezoekersingang\",\"text\":\"Gebruik Prinsengracht 279, Amsterdam, als bezoekersingang; het contactadres van de kerk is nummer 281.\",\"source_ids\":[\"source.wester-visit\"]},{\"id\":\"hours\",\"title\":\"Bezoekuren\",\"text\":\"In de regel maandag–vrijdag 11:00–15:00. Controleer de kerkwebsite voor feestdagen en andere uitzonderingen.\",\"source_ids\":[\"source.wester-visit\"]},{\"id\":\"prices\",\"title\":\"Toegang\",\"text\":\"Toegang is gratis; donaties zijn welkom. Rondleidingen moeten met de kerk worden afgesproken.\",\"source_ids\":[\"source.wester-visit\"]},{\"id\":\"access\",\"title\":\"Toren en toegankelijkheid\",\"text\":\"De bezoekersingang is rolstoeltoegankelijk. De toren is momenteel niet te beklimmen vanwege restauratiewerkzaamheden.\",\"source_ids\":[\"source.wester-visit\"]}]}}}"
+      }
+    },
+    {
+      "id": "place.adam-lookout",
+      "entity_type": "place",
+      "category": "observation-deck",
+      "city_id": "amsterdam",
+      "province_id": "noord-holland",
+      "title": "A'DAM LOOKOUT",
+      "coordinates": {
+        "latitude": 52.3838662,
+        "longitude": 4.9022162
+      },
+      "description": "Look across Amsterdam from the indoor and outdoor observation decks of A’DAM LOOKOUT.",
+      "images": [],
+      "official_source": {
+        "title": "Adam Contact",
+        "publisher": "www.adamlookout.com",
+        "url": "https://www.adamlookout.com/en/contact/",
+        "is_official": true,
+        "checked_at": "2026-11-16",
+        "status": "verified_opened"
+      },
+      "website": "https://www.adamlookout.com/en/contact/",
+      "related_entity_ids": [
+        "city.amsterdam"
+      ],
+      "last_checked": "2026-11-16",
+      "review_frequency_days": 7,
+      "verification_status": "needs_review",
+      "ai_summary": "Look across Amsterdam from the indoor and outdoor observation decks of A’DAM LOOKOUT.",
+      "search_keywords": [
+        "A'DAM LOOKOUT",
+        "amsterdam",
+        "observation-deck"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "content_section": "EXPLORE",
+        "content_language": "en",
+        "title_nl": "A'DAM LOOKOUT",
+        "description_nl": "Kijk uit over Amsterdam vanaf de binnen- en buitendekken van A’DAM LOOKOUT.",
+        "field_review_status": "Human editorial approval pending",
+        "catalog_review_batch": "amsterdam-attractions-20261116",
+        "address": "IJpromenade 4, 1031KT Amsterdam",
+        "address_source_url": "https://www.adamlookout.com/en/contact/",
+        "address_checked_at": "2026-11-16",
+        "website": "https://www.adamlookout.com/en/contact/",
+        "website_source_url": "https://www.adamlookout.com/en/contact/",
+        "website_checked_at": "2026-11-16",
+        "address_note": "BAG address point, not a surveyed entrance",
+        "media_status": "No new photo prepared in this text batch; historical unverified images are not reused",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-16\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.adam-contact\",\"title\":\"Adam Contact\",\"publisher\":\"www.adamlookout.com\",\"url\":\"https://www.adamlookout.com/en/contact/\",\"is_official\":true,\"checked_at\":\"2026-11-16\",\"status\":\"verified_opened\"},{\"id\":\"source.adam-tickets\",\"title\":\"Adam Tickets\",\"publisher\":\"www.adamlookout.com\",\"url\":\"https://www.adamlookout.com/en/tickets/\",\"is_official\":true,\"checked_at\":\"2026-11-16\",\"status\":\"verified_opened\"},{\"id\":\"source.adam-geo\",\"title\":\"BAG address: IJpromenade 4, 1031KT Amsterdam\",\"publisher\":\"PDOK / Kadaster\",\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=IJpromenade+4+Amsterdam&fq=type%3Aadres&rows=3\",\"is_official\":true,\"checked_at\":\"2026-11-16\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=IJpromenade+4+Amsterdam&fq=type%3Aadres&rows=3\",\"method\":\"BAG address point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.3838662,4.9022162\"},\"tickets\":{\"url\":\"https://www.adamlookout.com/en/tickets/\",\"sourceId\":\"source.adam-tickets\"},\"locales\":{\"en\":{\"alt\":\"\",\"blocks\":[{\"id\":\"setting\",\"title\":\"View over the IJ\",\"text\":\"The observation decks are in the A’DAM Tower. The swing and VR ride are separate extras.\",\"source_ids\":[\"source.adam-tickets\"]},{\"id\":\"address\",\"title\":\"Arrival\",\"text\":\"IJpromenade 4, Amsterdam. The entrance faces the waterfront opposite EYE; ferry F3 goes to Buiksloterweg.\",\"source_ids\":[\"source.adam-contact\"]},{\"id\":\"hours\",\"title\":\"Opening hours\",\"text\":\"Monday–Thursday 11:00–19:00; Friday–Sunday 11:00–21:00. Last entry is one hour before closing.\",\"source_ids\":[\"source.adam-contact\"]},{\"id\":\"prices\",\"title\":\"Tickets checked 16 November 2026\",\"text\":\"Adult admission costs €16.50 online or €18.50 at the ticket office. Swing and VR are not included.\",\"source_ids\":[\"source.adam-tickets\"]},{\"id\":\"access\",\"title\":\"Restrictions\",\"text\":\"Both the swing and VR ride require a minimum height of 1.20 metres. Dogs are not admitted, except assistance dogs.\",\"source_ids\":[\"source.adam-tickets\",\"source.adam-contact\"]}]},\"nl\":{\"alt\":\"\",\"blocks\":[{\"id\":\"setting\",\"title\":\"Uitzicht over het IJ\",\"text\":\"De uitkijkdekken bevinden zich in de A’DAM Toren. De schommel en VR-rit zijn aparte extra’s.\",\"source_ids\":[\"source.adam-tickets\"]},{\"id\":\"address\",\"title\":\"Aankomst\",\"text\":\"IJpromenade 4, Amsterdam. De ingang ligt aan het water tegenover EYE; pont F3 vaart naar Buiksloterweg.\",\"source_ids\":[\"source.adam-contact\"]},{\"id\":\"hours\",\"title\":\"Openingstijden\",\"text\":\"Maandag–donderdag 11:00–19:00; vrijdag–zondag 11:00–21:00. Laatste toegang is een uur vóór sluiting.\",\"source_ids\":[\"source.adam-contact\"]},{\"id\":\"prices\",\"title\":\"Tickets gecontroleerd op 16 november 2026\",\"text\":\"Toegang voor volwassenen kost online €16,50 of €18,50 aan de kassa. Schommel en VR zijn niet inbegrepen.\",\"source_ids\":[\"source.adam-tickets\"]},{\"id\":\"access\",\"title\":\"Beperkingen\",\"text\":\"Voor zowel de schommel als de VR-rit geldt een minimumlengte van 1,20 meter. Alleen assistentiehonden zijn toegestaan.\",\"source_ids\":[\"source.adam-tickets\",\"source.adam-contact\"]}]}}}"
+      }
+    },
+    {
+      "id": "place.heineken-experience",
+      "entity_type": "place",
+      "category": "industrial-heritage-attraction",
+      "city_id": "amsterdam",
+      "province_id": "noord-holland",
+      "title": "Heineken Experience",
+      "coordinates": {
+        "latitude": 52.3578694,
+        "longitude": 4.8914963
+      },
+      "description": "Explore the former Heineken brewery through a self-guided brand and brewing-history experience for adults.",
+      "images": [],
+      "official_source": {
+        "title": "Heineken Tour",
+        "publisher": "www.heinekenexperience.com",
+        "url": "https://www.heinekenexperience.com/en/discover-our-tours/heineken-tour",
+        "is_official": true,
+        "checked_at": "2026-11-16",
+        "status": "verified_opened"
+      },
+      "website": "https://www.heinekenexperience.com/en/discover-our-tours/heineken-tour",
+      "related_entity_ids": [
+        "city.amsterdam"
+      ],
+      "last_checked": "2026-11-16",
+      "review_frequency_days": 7,
+      "verification_status": "needs_review",
+      "ai_summary": "Explore the former Heineken brewery through a self-guided brand and brewing-history experience for adults.",
+      "search_keywords": [
+        "Heineken Experience",
+        "amsterdam",
+        "industrial-heritage-attraction"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "content_section": "EXPLORE",
+        "content_language": "en",
+        "title_nl": "Heineken Experience",
+        "description_nl": "Ontdek de voormalige Heinekenbrouwerij via een zelfstandige merk- en brouwgeschiedeniservaring voor volwassenen.",
+        "field_review_status": "Human editorial approval pending",
+        "catalog_review_batch": "amsterdam-attractions-20261116",
+        "address": "Stadhouderskade 78, 1072AE Amsterdam",
+        "address_source_url": "https://www.heinekenexperience.com/en/service-and-contact",
+        "address_checked_at": "2026-11-16",
+        "website": "https://www.heinekenexperience.com/en/discover-our-tours/heineken-tour",
+        "website_source_url": "https://www.heinekenexperience.com/en/discover-our-tours/heineken-tour",
+        "website_checked_at": "2026-11-16",
+        "address_note": "BAG address point, not a surveyed entrance",
+        "media_status": "No new photo prepared in this text batch; historical unverified images are not reused",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-16\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.heineken-tour\",\"title\":\"Heineken Tour\",\"publisher\":\"www.heinekenexperience.com\",\"url\":\"https://www.heinekenexperience.com/en/discover-our-tours/heineken-tour\",\"is_official\":true,\"checked_at\":\"2026-11-16\",\"status\":\"verified_opened\"},{\"id\":\"source.heineken-contact\",\"title\":\"Heineken Contact\",\"publisher\":\"www.heinekenexperience.com\",\"url\":\"https://www.heinekenexperience.com/en/service-and-contact\",\"is_official\":true,\"checked_at\":\"2026-11-16\",\"status\":\"verified_opened\"},{\"id\":\"source.heineken-faq\",\"title\":\"Heineken Faq\",\"publisher\":\"www.heinekenexperience.com\",\"url\":\"https://www.heinekenexperience.com/en/faqs\",\"is_official\":true,\"checked_at\":\"2026-11-16\",\"status\":\"verified_opened\"},{\"id\":\"source.heineken-geo\",\"title\":\"BAG address: Stadhouderskade 78, 1072AE Amsterdam\",\"publisher\":\"PDOK / Kadaster\",\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Stadhouderskade+78+Amsterdam&fq=type%3Aadres&rows=3\",\"is_official\":true,\"checked_at\":\"2026-11-16\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Stadhouderskade+78+Amsterdam&fq=type%3Aadres&rows=3\",\"method\":\"BAG address point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.3578694,4.8914963\"},\"tickets\":{\"url\":\"https://www.heinekenexperience.com/en/discover-our-tours/heineken-tour\",\"sourceId\":\"source.heineken-tour\"},\"locales\":{\"en\":{\"alt\":\"\",\"blocks\":[{\"id\":\"setting\",\"title\":\"The standard tour\",\"text\":\"The self-guided Heineken Tour explores the former brewery and brewing process; the operator suggests around 1.5 hours.\",\"source_ids\":[\"source.heineken-tour\"]},{\"id\":\"address\",\"title\":\"Location\",\"text\":\"Stadhouderskade 78, Amsterdam. Check the official arrival information before travelling.\",\"source_ids\":[\"source.heineken-contact\"]},{\"id\":\"hours\",\"title\":\"Opening hours\",\"text\":\"Monday–Thursday and Sunday 10:30–19:30, last entry 17:15; Friday–Saturday until 21:00, last entry 18:45. Holiday hours differ.\",\"source_ids\":[\"source.heineken-contact\"]},{\"id\":\"prices\",\"title\":\"Tickets checked 16 November 2026\",\"text\":\"The standard tour is listed at €24.95 with one beer included. Rooftop and VIP products have different prices.\",\"source_ids\":[\"source.heineken-tour\"]},{\"id\":\"access\",\"title\":\"Age and accessibility\",\"text\":\"Entry is for visitors aged 18 and over. Wheelchair access covers only part of the experience; discuss your requirements before booking.\",\"source_ids\":[\"source.heineken-faq\"]}]},\"nl\":{\"alt\":\"\",\"blocks\":[{\"id\":\"setting\",\"title\":\"De standaardtour\",\"text\":\"De zelfstandige Heineken Tour behandelt de voormalige brouwerij en het brouwproces; de aanbieder rekent op ongeveer 1,5 uur.\",\"source_ids\":[\"source.heineken-tour\"]},{\"id\":\"address\",\"title\":\"Locatie\",\"text\":\"Stadhouderskade 78, Amsterdam. Bekijk vóór vertrek de officiële informatie over bereikbaarheid.\",\"source_ids\":[\"source.heineken-contact\"]},{\"id\":\"hours\",\"title\":\"Openingstijden\",\"text\":\"Maandag–donderdag en zondag 10:30–19:30, laatste toegang 17:15; vrijdag–zaterdag tot 21:00, laatste toegang 18:45. Feestdagen wijken af.\",\"source_ids\":[\"source.heineken-contact\"]},{\"id\":\"prices\",\"title\":\"Tickets gecontroleerd op 16 november 2026\",\"text\":\"De standaardtour staat vermeld voor €24,95, inclusief één bier. Rooftop- en VIP-producten hebben andere prijzen.\",\"source_ids\":[\"source.heineken-tour\"]},{\"id\":\"access\",\"title\":\"Leeftijd en toegankelijkheid\",\"text\":\"Toegang is voor bezoekers vanaf 18 jaar. Slechts een deel is rolstoeltoegankelijk; bespreek je behoeften vóór het boeken.\",\"source_ids\":[\"source.heineken-faq\"]}]}}}"
+      }
+    },
+    {
+      "id": "place.johan-cruijff-arena",
+      "entity_type": "place",
+      "category": "stadium",
+      "city_id": "amsterdam",
+      "province_id": "noord-holland",
+      "title": "Johan Cruijff ArenA",
+      "coordinates": {
+        "latitude": 52.3137549,
+        "longitude": 4.9405294
+      },
+      "description": "Take a stadium tour behind the scenes at Ajax’s home, subject to the event schedule.",
+      "images": [],
+      "official_source": {
+        "title": "Arena Tours",
+        "publisher": "www.johancruijffarena.nl",
+        "url": "https://www.johancruijffarena.nl/en/tickets-visits/stadium-tours/",
+        "is_official": true,
+        "checked_at": "2026-11-16",
+        "status": "verified_opened"
+      },
+      "website": "https://www.johancruijffarena.nl/en/tickets-visits/stadium-tours/",
+      "related_entity_ids": [
+        "city.amsterdam"
+      ],
+      "last_checked": "2026-11-16",
+      "review_frequency_days": 7,
+      "verification_status": "needs_review",
+      "ai_summary": "Take a stadium tour behind the scenes at Ajax’s home, subject to the event schedule.",
+      "search_keywords": [
+        "Johan Cruijff ArenA",
+        "amsterdam",
+        "stadium"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "content_section": "EXPLORE",
+        "content_language": "en",
+        "title_nl": "Johan Cruijff ArenA",
+        "description_nl": "Neem een kijkje achter de schermen in het thuisstadion van Ajax, afhankelijk van de evenementenkalender.",
+        "field_review_status": "Human editorial approval pending",
+        "catalog_review_batch": "amsterdam-attractions-20261116",
+        "address": "Johan Cruijff Boulevard 1, 1101AX Amsterdam",
+        "address_source_url": "https://www.johancruijffarena.nl/privacyverklaring/",
+        "address_checked_at": "2026-11-16",
+        "website": "https://www.johancruijffarena.nl/en/tickets-visits/stadium-tours/",
+        "website_source_url": "https://www.johancruijffarena.nl/en/tickets-visits/stadium-tours/",
+        "website_checked_at": "2026-11-16",
+        "address_note": "BAG address point, not a surveyed entrance",
+        "media_status": "No new photo prepared in this text batch; historical unverified images are not reused",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-16\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.arena-tours\",\"title\":\"Arena Tours\",\"publisher\":\"www.johancruijffarena.nl\",\"url\":\"https://www.johancruijffarena.nl/en/tickets-visits/stadium-tours/\",\"is_official\":true,\"checked_at\":\"2026-11-16\",\"status\":\"verified_opened\"},{\"id\":\"source.arena-faq\",\"title\":\"Arena Faq\",\"publisher\":\"www.johancruijffarena.nl\",\"url\":\"https://www.johancruijffarena.nl/en/tickets-visits/stadium-tours/faq/\",\"is_official\":true,\"checked_at\":\"2026-11-16\",\"status\":\"verified_opened\"},{\"id\":\"source.arena-address\",\"title\":\"Arena Address\",\"publisher\":\"www.johancruijffarena.nl\",\"url\":\"https://www.johancruijffarena.nl/privacyverklaring/\",\"is_official\":true,\"checked_at\":\"2026-11-16\",\"status\":\"verified_opened\"},{\"id\":\"source.arena-geo\",\"title\":\"BAG address: Johan Cruijff Boulevard 1, 1101AX Amsterdam\",\"publisher\":\"PDOK / Kadaster\",\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Johan+Cruijff+Boulevard+1+Amsterdam&fq=type%3Aadres&rows=3\",\"is_official\":true,\"checked_at\":\"2026-11-16\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Johan+Cruijff+Boulevard+1+Amsterdam&fq=type%3Aadres&rows=3\",\"method\":\"BAG address point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.3137549,4.9405294\"},\"tickets\":{\"url\":\"https://www.johancruijffarena.nl/en/tickets-visits/stadium-tours/\",\"sourceId\":\"source.arena-tours\"},\"locales\":{\"en\":{\"alt\":\"\",\"blocks\":[{\"id\":\"setting\",\"title\":\"Choose a tour\",\"text\":\"The ArenA offers guided and self-guided tours. Available spaces depend on events and matches.\",\"source_ids\":[\"source.arena-tours\",\"source.arena-faq\"]},{\"id\":\"address\",\"title\":\"Tour entrance\",\"text\":\"Johan Cruijff Boulevard 1, Amsterdam. Stadium tours start at Entrance E, beside the Ajax fan shop.\",\"source_ids\":[\"source.arena-address\",\"source.arena-faq\"]},{\"id\":\"hours\",\"title\":\"Dates and times\",\"text\":\"Check the official booking calendar for your date; tours may be unavailable during events or when sold out.\",\"source_ids\":[\"source.arena-faq\"]},{\"id\":\"prices\",\"title\":\"Prices and payment\",\"text\":\"Prices depend on the tour selected and are shown in the official shop. The stadium is cashless.\",\"source_ids\":[\"source.arena-faq\"]},{\"id\":\"access\",\"title\":\"Bags and access needs\",\"text\":\"Bags larger than A4 and pushchairs are not allowed. Wheelchair users should contact the tour team to arrange assistance.\",\"source_ids\":[\"source.arena-faq\"]}]},\"nl\":{\"alt\":\"\",\"blocks\":[{\"id\":\"setting\",\"title\":\"Kies een tour\",\"text\":\"De ArenA biedt rondleidingen met gids en zelfstandige tours. Beschikbare ruimten hangen af van evenementen en wedstrijden.\",\"source_ids\":[\"source.arena-tours\",\"source.arena-faq\"]},{\"id\":\"address\",\"title\":\"Touringang\",\"text\":\"Johan Cruijff Boulevard 1, Amsterdam. Stadiontours beginnen bij ingang E, naast de Ajax-fanshop.\",\"source_ids\":[\"source.arena-address\",\"source.arena-faq\"]},{\"id\":\"hours\",\"title\":\"Data en tijden\",\"text\":\"Bekijk de officiële boekingskalender voor je datum; bij evenementen of uitverkochte tijdsloten zijn tours mogelijk niet beschikbaar.\",\"source_ids\":[\"source.arena-faq\"]},{\"id\":\"prices\",\"title\":\"Prijzen en betalen\",\"text\":\"Prijzen hangen af van de gekozen tour en staan in de officiële shop. Het stadion accepteert geen contant geld.\",\"source_ids\":[\"source.arena-faq\"]},{\"id\":\"access\",\"title\":\"Tassen en toegankelijkheid\",\"text\":\"Tassen groter dan A4 en kinderwagens zijn niet toegestaan. Rolstoelgebruikers moeten contact opnemen met het tourteam om begeleiding te regelen.\",\"source_ids\":[\"source.arena-faq\"]}]}}}"
+      }
+    },
+    {
+      "id": "place.de-hallen-amsterdam",
+      "entity_type": "place",
+      "category": "culture-shopping",
+      "city_id": "amsterdam",
+      "province_id": "noord-holland",
+      "title": "De Hallen Amsterdam",
+      "coordinates": {
+        "latitude": 52.3663947,
+        "longitude": 4.8680156
+      },
+      "description": "Explore independent food, film and cultural venues connected by De Passage at De Hallen Amsterdam.",
+      "images": [],
+      "official_source": {
+        "title": "Hallen Visit",
+        "publisher": "www.dehallen-amsterdam.nl",
+        "url": "https://www.dehallen-amsterdam.nl/en/visit",
+        "is_official": true,
+        "checked_at": "2026-11-16",
+        "status": "verified_opened"
+      },
+      "website": "https://www.dehallen-amsterdam.nl/en/visit",
+      "related_entity_ids": [
+        "city.amsterdam"
+      ],
+      "last_checked": "2026-11-16",
+      "review_frequency_days": 7,
+      "verification_status": "needs_review",
+      "ai_summary": "Explore independent food, film and cultural venues connected by De Passage at De Hallen Amsterdam.",
+      "search_keywords": [
+        "De Hallen Amsterdam",
+        "amsterdam",
+        "culture-shopping"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "content_section": "EXPLORE",
+        "content_language": "en",
+        "title_nl": "De Hallen Amsterdam",
+        "description_nl": "Ontdek zelfstandige eet-, film- en cultuurplekken rond De Passage in De Hallen Amsterdam.",
+        "field_review_status": "Human editorial approval pending",
+        "catalog_review_batch": "amsterdam-attractions-20261116",
+        "address": "Hannie Dankbaarpassage 47, 1053RT Amsterdam",
+        "address_source_url": "https://www.dehallen-amsterdam.nl/en/visit",
+        "address_checked_at": "2026-11-16",
+        "website": "https://www.dehallen-amsterdam.nl/en/visit",
+        "website_source_url": "https://www.dehallen-amsterdam.nl/en/visit",
+        "website_checked_at": "2026-11-16",
+        "address_note": "BAG address point, not a surveyed entrance",
+        "media_status": "No new photo prepared in this text batch; historical unverified images are not reused",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-16\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.hallen-visit\",\"title\":\"Hallen Visit\",\"publisher\":\"www.dehallen-amsterdam.nl\",\"url\":\"https://www.dehallen-amsterdam.nl/en/visit\",\"is_official\":true,\"checked_at\":\"2026-11-16\",\"status\":\"verified_opened\"},{\"id\":\"source.hallen-about\",\"title\":\"Hallen About\",\"publisher\":\"www.dehallen-amsterdam.nl\",\"url\":\"https://www.dehallen-amsterdam.nl/en/organisation\",\"is_official\":true,\"checked_at\":\"2026-11-16\",\"status\":\"verified_opened\"},{\"id\":\"source.hallen-contact\",\"title\":\"Hallen Contact\",\"publisher\":\"www.dehallen-amsterdam.nl\",\"url\":\"https://www.dehallen-amsterdam.nl/en/contact\",\"is_official\":true,\"checked_at\":\"2026-11-16\",\"status\":\"verified_opened\"},{\"id\":\"source.hallen-geo\",\"title\":\"BAG address: Hannie Dankbaarpassage 47, 1053RT Amsterdam\",\"publisher\":\"PDOK / Kadaster\",\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Hannie+Dankbaarpassage+47+Amsterdam&fq=type%3Aadres&rows=3\",\"is_official\":true,\"checked_at\":\"2026-11-16\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Hannie+Dankbaarpassage+47+Amsterdam&fq=type%3Aadres&rows=3\",\"method\":\"BAG address point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.3663947,4.8680156\"},\"tickets\":null,\"locales\":{\"en\":{\"alt\":\"\",\"blocks\":[{\"id\":\"setting\",\"title\":\"Several venues in one building\",\"text\":\"De Hallen brings together independent businesses and cultural initiatives; each has its own programme and contact point.\",\"source_ids\":[\"source.hallen-about\"]},{\"id\":\"address\",\"title\":\"Location\",\"text\":\"Hannie Dankbaarpassage 47, Amsterdam. De Passage connects the venues; check the specific venue before making a reservation.\",\"source_ids\":[\"source.hallen-visit\"]},{\"id\":\"hours\",\"title\":\"Passage opening hours\",\"text\":\"De Passage opens daily 07:00–01:00. These are not the opening hours of every shop, restaurant or cinema.\",\"source_ids\":[\"source.hallen-visit\"]},{\"id\":\"prices\",\"title\":\"Events and bookings\",\"text\":\"The passage hosts freely accessible events. Tickets, meals and venue bookings are handled separately by the individual operators.\",\"source_ids\":[\"source.hallen-visit\",\"source.hallen-contact\"]},{\"id\":\"practical\",\"title\":\"Arriving by bicycle\",\"text\":\"Use the bicycle parking; bikes must not be left in De Passage or against the building’s facades.\",\"source_ids\":[\"source.hallen-visit\"]}]},\"nl\":{\"alt\":\"\",\"blocks\":[{\"id\":\"setting\",\"title\":\"Meerdere locaties in één gebouw\",\"text\":\"De Hallen verenigt zelfstandige ondernemingen en culturele initiatieven; elk heeft een eigen programma en contactpunt.\",\"source_ids\":[\"source.hallen-about\"]},{\"id\":\"address\",\"title\":\"Locatie\",\"text\":\"Hannie Dankbaarpassage 47, Amsterdam. De Passage verbindt de locaties; controleer de betreffende locatie vóór een reservering.\",\"source_ids\":[\"source.hallen-visit\"]},{\"id\":\"hours\",\"title\":\"Openingstijden van de passage\",\"text\":\"De Passage is dagelijks open van 07:00–01:00. Dit zijn niet de openingstijden van elke winkel, horecazaak of bioscoop.\",\"source_ids\":[\"source.hallen-visit\"]},{\"id\":\"prices\",\"title\":\"Activiteiten en reserveringen\",\"text\":\"In de passage vinden vrij toegankelijke activiteiten plaats. Tickets, maaltijden en reserveringen lopen afzonderlijk via de betreffende aanbieder.\",\"source_ids\":[\"source.hallen-visit\",\"source.hallen-contact\"]},{\"id\":\"practical\",\"title\":\"Met de fiets\",\"text\":\"Gebruik de fietsenstalling; fietsen mogen niet in De Passage of tegen de gevels worden geplaatst.\",\"source_ids\":[\"source.hallen-visit\"]}]}}}"
+      }
+    },
+    {
+      "id": "place.oba-oosterdok",
+      "entity_type": "place",
+      "category": "public-library",
+      "city_id": "amsterdam",
+      "province_id": "noord-holland",
+      "title": "OBA Oosterdok",
+      "coordinates": {
+        "latitude": 52.3758244,
+        "longitude": 4.9083748
+      },
+      "description": "Browse books, read or explore the cultural programme at OBA Oosterdok.",
+      "images": [],
+      "official_source": {
+        "title": "Oba",
+        "publisher": "oba.nl",
+        "url": "https://oba.nl/nl/locaties/oba-oosterdok",
+        "is_official": true,
+        "checked_at": "2026-11-16",
+        "status": "verified_opened"
+      },
+      "website": "https://oba.nl/nl/locaties/oba-oosterdok",
+      "related_entity_ids": [
+        "city.amsterdam"
+      ],
+      "last_checked": "2026-11-16",
+      "review_frequency_days": 7,
+      "verification_status": "needs_review",
+      "ai_summary": "Browse books, read or explore the cultural programme at OBA Oosterdok.",
+      "search_keywords": [
+        "OBA Oosterdok",
+        "amsterdam",
+        "public-library"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "content_section": "EXPLORE",
+        "content_language": "en",
+        "title_nl": "OBA Oosterdok",
+        "description_nl": "Blader door boeken, lees of ontdek het culturele programma van OBA Oosterdok.",
+        "field_review_status": "Human editorial approval pending; live source clarification required",
+        "catalog_review_batch": "amsterdam-attractions-20261116",
+        "address": "Oosterdokskade 143, 1011DL Amsterdam",
+        "address_source_url": "https://oba.nl/nl/locaties/oba-oosterdok",
+        "address_checked_at": "2026-11-16",
+        "website": "https://oba.nl/nl/locaties/oba-oosterdok",
+        "website_source_url": "https://oba.nl/nl/locaties/oba-oosterdok",
+        "website_checked_at": "2026-11-16",
+        "address_note": "BAG address point, not a surveyed entrance",
+        "media_status": "No new photo prepared in this text batch; historical unverified images are not reused",
+        "place_enrichment": "{\"schemaVersion\":1,\"status\":\"needs_review\",\"preparedAt\":\"2026-11-16\",\"approvedAt\":null,\"reviewer\":null,\"sources\":[{\"id\":\"source.oba\",\"title\":\"Oba\",\"publisher\":\"oba.nl\",\"url\":\"https://oba.nl/nl/locaties/oba-oosterdok\",\"is_official\":true,\"checked_at\":\"2026-11-16\",\"status\":\"verified_opened\"},{\"id\":\"source.oba-geo\",\"title\":\"BAG address: Oosterdokskade 143, 1011DL Amsterdam\",\"publisher\":\"PDOK / Kadaster\",\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Oosterdokskade+143+Amsterdam&fq=type%3Aadres&rows=3\",\"is_official\":true,\"checked_at\":\"2026-11-16\",\"status\":\"verified_opened\"}],\"coordinateEvidence\":{\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Oosterdokskade+143+Amsterdam&fq=type%3Aadres&rows=3\",\"method\":\"BAG address point, not a surveyed entrance\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.3758244,4.9083748\"},\"tickets\":null,\"locales\":{\"en\":{\"alt\":\"\",\"blocks\":[{\"id\":\"setting\",\"title\":\"Library and cultural venue\",\"text\":\"The location page describes books, magazines, exhibitions and spaces for reading, studying or working.\",\"source_ids\":[\"source.oba\"]},{\"id\":\"address\",\"title\":\"Location\",\"text\":\"Oosterdokskade 143, Amsterdam. The map uses the registered BAG address point.\",\"source_ids\":[\"source.oba\",\"source.oba-geo\"]},{\"id\":\"hours\",\"title\":\"Plan your visit\",\"text\":\"Check the official location page for today’s opening hours and temporary notices before setting out.\",\"source_ids\":[\"source.oba\"]},{\"id\":\"family\",\"title\":\"Families and programmes\",\"text\":\"The library lists a children’s department and a theatre. Check individual activities for age limits, booking and any charge.\",\"source_ids\":[\"source.oba\"]},{\"id\":\"practical\",\"title\":\"Study and work\",\"text\":\"Study and work spaces are listed; this does not guarantee an available seat when you arrive.\",\"source_ids\":[\"source.oba\"]}]},\"nl\":{\"alt\":\"\",\"blocks\":[{\"id\":\"setting\",\"title\":\"Bibliotheek en cultuurplek\",\"text\":\"De locatiepagina beschrijft boeken, tijdschriften, tentoonstellingen en plekken om te lezen, studeren of werken.\",\"source_ids\":[\"source.oba\"]},{\"id\":\"address\",\"title\":\"Locatie\",\"text\":\"Oosterdokskade 143, Amsterdam. De kaart gebruikt het geregistreerde BAG-adrespunt.\",\"source_ids\":[\"source.oba\",\"source.oba-geo\"]},{\"id\":\"hours\",\"title\":\"Plan je bezoek\",\"text\":\"Controleer vóór vertrek de officiële locatiepagina voor de openingstijden van vandaag en tijdelijke meldingen.\",\"source_ids\":[\"source.oba\"]},{\"id\":\"family\",\"title\":\"Gezinnen en programma’s\",\"text\":\"De bibliotheek vermeldt een jeugdafdeling en een theater. Controleer per activiteit de leeftijdsgrens, reservering en eventuele kosten.\",\"source_ids\":[\"source.oba\"]},{\"id\":\"practical\",\"title\":\"Studeren en werken\",\"text\":\"Er zijn studie- en werkplekken vermeld; dit garandeert geen beschikbare plek bij aankomst.\",\"source_ids\":[\"source.oba\"]}]}}}"
+      }
+    }
+  ]
+}

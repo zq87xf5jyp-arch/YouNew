@@ -9,6 +9,7 @@ export const placeReviewBatch='leiden-places-20261115';
 export const expansionReviews={
   'leiden-stay-parks-20261115':{count:10,city:'leiden',bounds:[52.1,52.3,4.4,4.6]},
   'amsterdam-museums-20261115':{count:20,city:'amsterdam',bounds:[52.28,52.44,4.73,5.02],allowPrivateAdditions:true},
+  'amsterdam-attractions-20261116':{count:10,city:'amsterdam',bounds:[52.28,52.44,4.73,5.02],allowPrivateAdditions:true},
   'priority-cities-20261115':{count:14,cities:{utrecht:[52,52.2,5,5.25],rotterdam:[51.8,52,4.3,4.65],'den-haag':[52,52.2,4.2,4.4],eindhoven:[51.35,51.55,5.35,5.6]}},
   'missing-photos-20261116':{count:5,cities:{leiden:[52.1,52.3,4.4,4.6],eindhoven:[51.35,51.55,5.35,5.6],rotterdam:[51.8,52,4.3,4.65]},mediaOnlyBases:['leiden-stay-parks-20261115','priority-cities-20261115']},
 };

@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "batchId": "amsterdam-attractions-20261116",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "privateOnly": true,
+  "approvedAt": null,
+  "reviewerId": null,
+  "preparedAt": "2026-11-16",
+  "ids": [
+    "place.artis",
+    "place.hortus-botanicus-amsterdam",
+    "place.oude-kerk",
+    "place.de-nieuwe-kerk-amsterdam",
+    "place.westerkerk",
+    "place.adam-lookout",
+    "place.heineken-experience",
+    "place.johan-cruijff-arena",
+    "place.de-hallen-amsterdam",
+    "place.oba-oosterdok"
+  ],
+  "baseFiles": {
+    "place.artis": {
+      "file": "DataProject/batches/WP-06/M2-amsterdam-001.json",
+      "sha256": "a24f464c86e1880a542b23f1606f8622218cc0c7aa75464a9a19402847813b07"
+    },
+    "place.hortus-botanicus-amsterdam": {
+      "file": "DataProject/batches/WP-06/M2-amsterdam-001.json",
+      "sha256": "a24f464c86e1880a542b23f1606f8622218cc0c7aa75464a9a19402847813b07"
+    },
+    "place.oude-kerk": {
+      "file": "DataProject/batches/WP-06/M2-amsterdam-001.json",
+      "sha256": "a24f464c86e1880a542b23f1606f8622218cc0c7aa75464a9a19402847813b07"
+    },
+    "place.de-nieuwe-kerk-amsterdam": {
+      "file": "DataProject/batches/WP-06/M2-amsterdam-001.json",
+      "sha256": "a24f464c86e1880a542b23f1606f8622218cc0c7aa75464a9a19402847813b07"
+    },
+    "place.westerkerk": {
+      "file": "DataProject/batches/WP-06/M2-amsterdam-001.json",
+      "sha256": "a24f464c86e1880a542b23f1606f8622218cc0c7aa75464a9a19402847813b07"
+    },
+    "place.adam-lookout": {
+      "file": "DataProject/batches/WP-06/M2-amsterdam-001.json",
+      "sha256": "a24f464c86e1880a542b23f1606f8622218cc0c7aa75464a9a19402847813b07"
+    },
+    "place.heineken-experience": {
+      "file": "DataProject/batches/WP-06/M2-amsterdam-001.json",
+      "sha256": "a24f464c86e1880a542b23f1606f8622218cc0c7aa75464a9a19402847813b07"
+    },
+    "place.johan-cruijff-arena": {
+      "file": "DataProject/batches/WP-06/M2-amsterdam-001.json",
+      "sha256": "a24f464c86e1880a542b23f1606f8622218cc0c7aa75464a9a19402847813b07"
+    },
+    "place.de-hallen-amsterdam": {
+      "file": "DataProject/batches/WP-06/M2-amsterdam-001.json",
+      "sha256": "a24f464c86e1880a542b23f1606f8622218cc0c7aa75464a9a19402847813b07"
+    },
+    "place.oba-oosterdok": {
+      "file": "DataProject/batches/WP-06/M2-amsterdam-001.json",
+      "sha256": "a24f464c86e1880a542b23f1606f8622218cc0c7aa75464a9a19402847813b07"
+    }
+  },
+  "recordsSha256": "d70643991045d0f0c4b3a438a0aa1c4610a13eff5c7ab0f8a355be9b354c8a09",
+  "sourceChecksSha256": "808af319b5fdff6d359562a74a07d6dda7beeb34dafc24a5578fd07a52208d2c",
+  "mediaSourcesSha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+  "media": {},
+  "publicationScope": {
+    "type": "owner-approved-existing-ids",
+    "addedIds": [],
+    "supersedesHistoricalWithholding": false
+  }
+}

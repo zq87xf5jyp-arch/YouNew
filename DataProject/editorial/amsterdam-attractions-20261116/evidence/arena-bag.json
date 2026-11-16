@@ -1,0 +1,20 @@
+{
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Johan+Cruijff+Boulevard+1+Amsterdam&fq=type%3Aadres&rows=3",
+  "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Johan+Cruijff+Boulevard+1+Amsterdam&fq=type%3Aadres&rows=3",
+  "httpStatus": 200,
+  "contentType": "application/json;charset=utf-8",
+  "sha256": "30f2a8ae482de69cff40deeba9fd23d4464168e4b7a5497fea2fba562fec8b02",
+  "file": "117f3a39aabdee02.html",
+  "checkedAt": "2026-11-16",
+  "selectedAddress": {
+    "woonplaatsnaam": "Amsterdam",
+    "weergavenaam": "Johan Cruijff Boulevard 1, 1101AX Amsterdam",
+    "id": "adr-f6e03bba769c4b12c9b8e18e0c8cb0b3",
+    "postcode": "1101AX",
+    "centroide_ll": "POINT(4.94052942 52.31375494)",
+    "nummeraanduiding_id": "0363200000458139",
+    "huisnummer": 1,
+    "straatnaam": "Johan Cruijff Boulevard"
+  },
+  "method": "official BAG address geocoder; not an entrance survey"
+}
