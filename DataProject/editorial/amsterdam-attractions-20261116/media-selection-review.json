@@ -1,0 +1,45 @@
+{
+  "checkedAt": "2026-11-16",
+  "publicationAuthorized": false,
+  "inspectedCandidates": 13,
+  "selectedCandidates": 10,
+  "archiveOnly": [
+    "place.de-nieuwe-kerk-amsterdam"
+  ],
+  "rejectedCandidates": [
+    {
+      "title": "Prinsengracht and Westerkerk.jpg",
+      "author": "APK",
+      "date": "2023-09-15 21:09:02",
+      "license": "CC BY-SA 4.0",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sha256": "86ec9f0725cb7c227403cc97d7caa18f6f529d9807f36c0e5d245c7bf75797d3",
+      "sha1": "8754513abb258b6a1e807f5ae9fd4d3ce9072914",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Prinsengracht_and_Westerkerk.jpg",
+      "reason": "Tower covered by temporary scaffolding; replaced by the inspected 2024 interior."
+    },
+    {
+      "title": "Nieuwe Kerk, Amsterdam 124252.jpg",
+      "author": "Quahadi",
+      "date": "2024-06-09 12:42:52",
+      "license": "CC BY-SA 4.0",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sha256": "58c53fd101c4d71bc1fb3b3b7c8b8c343c047f05927ba7ad32298c6d34ee05df",
+      "sha1": "a4e3574abeaa91df9eb9e015347ae0613dc85f4f",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Nieuwe_Kerk,_Amsterdam_124252.jpg",
+      "reason": "Exhibition photographs and temporary display dominate this 2024 interior; no separate rights in those works established. Not selected."
+    },
+    {
+      "title": "Nieuwe Kerk Amsterdam.jpg",
+      "author": "Expatiatrix",
+      "date": "2012-05-31 09:44:25",
+      "license": "CC BY-SA 4.0",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sha256": "3eebcef1a532f38f88f936f796905c2d8efc27595880ecf704c1318132271433",
+      "sha1": "8bcc6cdbebca7ed4df3c5803fa55730a625b36b6",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Nieuwe_Kerk_Amsterdam.jpg",
+      "reason": "2012 exhibition banners and a dark, narrow facade view; no quality improvement over the clearly labelled 2018 archive candidate."
+    }
+  ],
+  "requestHandling": "429 responses stopped each download run. Retry-After: 600 was respected before the final two new downloads. No alternate identity, proxy or challenge bypass. Existing originals were read from cache and their SHA-1 checked."
+}

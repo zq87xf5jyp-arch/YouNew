@@ -1,0 +1,10 @@
+{
+  "url": "https://trompenburg.nl/voedselbos/",
+  "finalUrl": "https://trompenburg.nl/voedselbos/",
+  "httpStatus": 200,
+  "checkedAt": "2026-11-16",
+  "checkedAtUTC": "2026-11-16T15:50:58.948570+00:00",
+  "sha256": "8abba6e283bde3f5748fdd7b7031e2368d0a899d5867661db98760fea477c8e6",
+  "method": "direct curl after Python TLS negotiation error; normal certificate verification",
+  "rawEvidencePath": "/Users/ivan/YouNew-Expansion-20261116-Next-Evidence/sources/trompenburg-foodforest.html"
+}

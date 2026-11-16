@@ -15,6 +15,6 @@ export function EditorialPlaceContent({entity,locale}:{entity:ContentEntity;loca
       {block.title?<h2>{block.title}</h2>:null}<p>{block.text}</p>
       <span className="editorial-source-links">{block.sourceIds.map(id=>sources.find(s=>s.id===id)).filter(s=>!!s).map(s=><a href={s.url} target="_blank" rel="noreferrer" key={s.id}>{s.title} · <time dateTime={s.checkedAt}>{s.checkedAt}</time></a>)}</span>
     </section>)}
-    <p className="editorial-disclaimer">{nl?'Prijzen, openingstijden en tijdelijke beperkingen zijn gecontroleerd op':'Prices, hours and temporary restrictions checked on'} {entity.editorial!.placeReview?.preparedAt ?? entity.source.checkedAt}. {nl?'Controleer de officiële pagina voor vertrek; foto’s tonen de vermelde opnamedatum.':'Recheck the official page before travel; photographs show their stated capture dates.'}</p>
+    <p className="editorial-disclaimer">{nl?'Bij elk onderdeel staat de controledatum van de bijbehorende bron.':'Source check dates are shown beside each fact.'} {nl?'Controleer de officiële pagina voor vertrek; foto’s tonen de vermelde opnamedatum.':'Recheck the official page before travel; photographs show their stated capture dates.'}</p>
   </section>;
 }

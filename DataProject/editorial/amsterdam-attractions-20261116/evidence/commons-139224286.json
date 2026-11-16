@@ -1,0 +1,99 @@
+{
+  "pageid": 139224286,
+  "ns": 6,
+  "title": "File:Amsterdam Public Library (OBA).jpg",
+  "index": 5,
+  "imagerepository": "local",
+  "imageinfo": [
+    {
+      "size": 1792557,
+      "width": 4080,
+      "height": 3060,
+      "url": "https://upload.wikimedia.org/wikipedia/commons/9/92/Amsterdam_Public_Library_%28OBA%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "descriptionurl": "https://commons.wikimedia.org/wiki/File:Amsterdam_Public_Library_(OBA).jpg",
+      "descriptionshorturl": "https://commons.wikimedia.org/wiki/Special:Redirect/page/139224286",
+      "sha1": "6b8f07ec6eddcc0667be6de21a84177ec4026aae",
+      "extmetadata": {
+        "DateTime": {
+          "value": "2023-10-20 05:02:16",
+          "source": "mediawiki-metadata",
+          "hidden": ""
+        },
+        "ObjectName": {
+          "value": "Amsterdam Public Library (OBA)",
+          "source": "mediawiki-metadata"
+        },
+        "CommonsMetadataExtension": {
+          "value": 1.2,
+          "source": "extension",
+          "hidden": ""
+        },
+        "Categories": {
+          "value": "Openbare Bibliotheek Amsterdam - Centrale bibliotheek|Self-published work",
+          "source": "commons-categories",
+          "hidden": ""
+        },
+        "Assessments": {
+          "value": "",
+          "source": "commons-categories",
+          "hidden": ""
+        },
+        "ImageDescription": {
+          "value": "The largest library in the Netherlands, the Central Branch of the Amsterdam Public Library (Openbare Bibliotheek Amsterdam - OBA) is located on Oosterdokseiland.",
+          "source": "commons-desc-page"
+        },
+        "DateTimeOriginal": {
+          "value": "2023-08-15",
+          "source": "commons-desc-page"
+        },
+        "Credit": {
+          "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+          "source": "commons-desc-page"
+        },
+        "Artist": {
+          "value": "<a href=\"//commons.wikimedia.org/wiki/User:EstherWikipedian\" title=\"User:EstherWikipedian\">EstherWikipedian</a>",
+          "source": "commons-desc-page"
+        },
+        "LicenseShortName": {
+          "value": "CC BY-SA 4.0",
+          "source": "commons-desc-page",
+          "hidden": ""
+        },
+        "UsageTerms": {
+          "value": "Creative Commons Attribution-Share Alike 4.0",
+          "source": "commons-desc-page"
+        },
+        "AttributionRequired": {
+          "value": "true",
+          "source": "commons-desc-page",
+          "hidden": ""
+        },
+        "LicenseUrl": {
+          "value": "https://creativecommons.org/licenses/by-sa/4.0",
+          "source": "commons-desc-page"
+        },
+        "Copyrighted": {
+          "value": "True",
+          "source": "commons-desc-page",
+          "hidden": ""
+        },
+        "Restrictions": {
+          "value": "",
+          "source": "commons-desc-page",
+          "hidden": ""
+        },
+        "License": {
+          "value": "cc-by-sa-4.0",
+          "source": "commons-templates",
+          "hidden": ""
+        }
+      }
+    }
+  ],
+  "revisions": [
+    {
+      "revid": 1052861432,
+      "parentid": 813414768
+    }
+  ]
+}

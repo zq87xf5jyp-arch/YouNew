@@ -61,10 +61,191 @@
       "sha256": "a24f464c86e1880a542b23f1606f8622218cc0c7aa75464a9a19402847813b07"
     }
   },
-  "recordsSha256": "d70643991045d0f0c4b3a438a0aa1c4610a13eff5c7ab0f8a355be9b354c8a09",
-  "sourceChecksSha256": "808af319b5fdff6d359562a74a07d6dda7beeb34dafc24a5578fd07a52208d2c",
-  "mediaSourcesSha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
-  "media": {},
+  "recordsSha256": "8c1f4ca957a9ecfd7464d56db0ab8b05ca7a597ee37a0a865af1356c37977d8f",
+  "sourceChecksSha256": "4e30f3f18944b320c74c0ecaba0f68e1012a6fa889a078800fc3e662aa9b638c",
+  "mediaSourcesSha256": "2429ef0c5ea9834241a8366482e6c96cab6395c9133104eee59d25a9e33cf64d",
+  "media": {
+    "amsartis-480.webp": {
+      "width": 480,
+      "height": 318,
+      "bytes": 36534,
+      "sha256": "96982aa1592e9926348bcd76934d29d73cc1cc83d45761df620386c72fc2e3d4"
+    },
+    "amsartis-800.webp": {
+      "width": 800,
+      "height": 531,
+      "bytes": 90874,
+      "sha256": "dd4325f0faaca54f6f1502ea1c3dbc4226becc8dec5c0aa4ad8ffeda4e1c27d7"
+    },
+    "amsartis-1200.webp": {
+      "width": 1200,
+      "height": 796,
+      "bytes": 182688,
+      "sha256": "df3f8aa41738e7762d6e4fae2f09f1dfbfe9c1e221a5bbb720637fe1c461b56c"
+    },
+    "amshortus-480.webp": {
+      "width": 480,
+      "height": 640,
+      "bytes": 116952,
+      "sha256": "c3c41571d856ad0c0c1ac9800df63bfdced672e1ebc91d48085a0562cf1e1674"
+    },
+    "amshortus-800.webp": {
+      "width": 800,
+      "height": 1067,
+      "bytes": 302928,
+      "sha256": "935feceb9674538bcc17292f324c49cf8326ad3b55396f8218fa9f89d484be97"
+    },
+    "amshortus-1200.webp": {
+      "width": 1200,
+      "height": 1600,
+      "bytes": 633106,
+      "sha256": "ddab295de852ab09f6712a532caf0e2259c6d7f117d2c386257e7bed33342807"
+    },
+    "amsoude-480.webp": {
+      "width": 480,
+      "height": 720,
+      "bytes": 76816,
+      "sha256": "7e4384d47be4563092ef51f1e22456a8bf57b27449885e20d9f37d818267ba2b"
+    },
+    "amsoude-800.webp": {
+      "width": 800,
+      "height": 1200,
+      "bytes": 191612,
+      "sha256": "3dfc2bb6ac476c37c8757bb00755624fcfd9601b526b9fdf8ac4b2c8962a85f4"
+    },
+    "amsoude-1200.webp": {
+      "width": 1200,
+      "height": 1800,
+      "bytes": 388984,
+      "sha256": "a09a088f5204e2b910aff3115236ca00d6057ceff3994ebc3446001275d79cfc"
+    },
+    "amsnieuwe-480.webp": {
+      "width": 480,
+      "height": 320,
+      "bytes": 36042,
+      "sha256": "7faf9e02c1107e5e333600526fd13b60a594edae5e6ea57be52a1668937ced3f"
+    },
+    "amsnieuwe-800.webp": {
+      "width": 800,
+      "height": 533,
+      "bytes": 93664,
+      "sha256": "b119ade25be764fd1cf076f9e98b6f50ab1fe3eb96e0e6acfb00c98876d8003a"
+    },
+    "amsnieuwe-1200.webp": {
+      "width": 1200,
+      "height": 800,
+      "bytes": 198990,
+      "sha256": "0966aa4b6de577495a65dae2410d792896fea89f93f047764d808a76f2119dc7"
+    },
+    "amswester-480.webp": {
+      "width": 480,
+      "height": 360,
+      "bytes": 28076,
+      "sha256": "92df3b572d0f3b4287375881a3502f60c21d22c3d8f18cd46bd1f994ec589165"
+    },
+    "amswester-800.webp": {
+      "width": 800,
+      "height": 600,
+      "bytes": 57930,
+      "sha256": "9779c2a6b2bda0ab80182fe99fc5e63ff000414a036d49be822aa62394f0ef3d"
+    },
+    "amswester-1200.webp": {
+      "width": 1200,
+      "height": 900,
+      "bytes": 103180,
+      "sha256": "91611188f1b6d3130658dd6607576055dfbb9ddc85a26efb5b36c8c7d6897b87"
+    },
+    "amsadam-480.webp": {
+      "width": 480,
+      "height": 725,
+      "bytes": 41774,
+      "sha256": "da20c7fdfc310009820021f462ac2f3fea709216dc58c541a51749122e3a8418"
+    },
+    "amsadam-800.webp": {
+      "width": 800,
+      "height": 1208,
+      "bytes": 92264,
+      "sha256": "544bdb909effa4003c1583b5b54b98ae5403526379ddc7b7bf04f3eb54fcff29"
+    },
+    "amsadam-1200.webp": {
+      "width": 1200,
+      "height": 1812,
+      "bytes": 166486,
+      "sha256": "c32064d3230141a272814ec3f9453d150bea89456f102e0e798fa9a584e6282d"
+    },
+    "amsheineken-480.webp": {
+      "width": 480,
+      "height": 318,
+      "bytes": 29640,
+      "sha256": "d4cdc068597a6181f1f4fb44a13283addea1819d56d1d02cbbf9ef4f9896c5f0"
+    },
+    "amsheineken-800.webp": {
+      "width": 800,
+      "height": 530,
+      "bytes": 91682,
+      "sha256": "e0b93b2e8fa14ca831a242b25fa41c0a9bf812226db8156877db232d0f42587e"
+    },
+    "amsheineken-1200.webp": {
+      "width": 1200,
+      "height": 795,
+      "bytes": 206758,
+      "sha256": "3b58659d15d1116e3d699bb072a9912091d568e8481427da6a4718990de466f4"
+    },
+    "amsarena-480.webp": {
+      "width": 480,
+      "height": 320,
+      "bytes": 49594,
+      "sha256": "b7e83e7c41aff6d41316ff7970a3cf741926875e8f009479fda8804b771a6d82"
+    },
+    "amsarena-800.webp": {
+      "width": 800,
+      "height": 533,
+      "bytes": 123824,
+      "sha256": "6608ccdb412992781f48a2c4cc1c2ab3ba8f9bda982bc86d70650d6700ba8136"
+    },
+    "amsarena-1200.webp": {
+      "width": 1200,
+      "height": 800,
+      "bytes": 235000,
+      "sha256": "9b91db00f521bb2f05fcaae1b6cf84b55ff9cdcbb626aa4f4627d48f61e5e0a5"
+    },
+    "amshallen-480.webp": {
+      "width": 480,
+      "height": 854,
+      "bytes": 92226,
+      "sha256": "3c8faf4ee3b0398f0a82e8eee3b3436c92945d36f11fa23f65abd605f987046a"
+    },
+    "amshallen-800.webp": {
+      "width": 800,
+      "height": 1423,
+      "bytes": 240736,
+      "sha256": "3ae6f14c848b14a623df134295f9e3703f6052bec38a154860308f01164c92a8"
+    },
+    "amshallen-1200.webp": {
+      "width": 1200,
+      "height": 2134,
+      "bytes": 515012,
+      "sha256": "339b0078b02849dfaa5e4e75380d6e2e1cc51b6855fec5216a565f1aa3c49698"
+    },
+    "amsoba-480.webp": {
+      "width": 480,
+      "height": 360,
+      "bytes": 35580,
+      "sha256": "3c4d43d15570e8b7322ccb387e28416dd76d658dac649eb717d68607caa46cc1"
+    },
+    "amsoba-800.webp": {
+      "width": 800,
+      "height": 600,
+      "bytes": 81472,
+      "sha256": "33690ac78edcecd25a27f8336c389d7fa68f2d3727d74125e393c78e6d2615f2"
+    },
+    "amsoba-1200.webp": {
+      "width": 1200,
+      "height": 900,
+      "bytes": 166616,
+      "sha256": "3848c3197e2a2dacecd1ec2f7340579ce3d535c4a3b8513404d2043aa12caf32"
+    }
+  },
   "publicationScope": {
     "type": "owner-approved-existing-ids",
     "addedIds": [],

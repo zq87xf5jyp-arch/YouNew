@@ -1,0 +1,223 @@
+{
+  "baseBatch": "priority-cities-20261115",
+  "preparedAt": "2026-11-16",
+  "records": [
+    {
+      "id": "place.utrecht-neude",
+      "newBlockIds": [
+        "reservation",
+        "quiet-space"
+      ],
+      "newSourceKeys": [
+        "neude-booking"
+      ],
+      "retainedSourceDates": [
+        "2026-11-15"
+      ],
+      "relatedEntityIds": [
+        "museum.utrecht-sonnenborgh",
+        "cafe.utrecht-koffie-leute",
+        "nature.utrecht-oog-in-al"
+      ],
+      "relationBasis": "Utrecht heritage buildings and public landscapes",
+      "existingCoordinatesRetained": true,
+      "existingMediaRetained": true
+    },
+    {
+      "id": "museum.rotterdam-chabot",
+      "newBlockIds": [
+        "architecture",
+        "collection-route"
+      ],
+      "newSourceKeys": [
+        "chabot-villa",
+        "chabot-collection"
+      ],
+      "retainedSourceDates": [
+        "2026-11-15"
+      ],
+      "relatedEntityIds": [
+        "hotel.rotterdam-supernova",
+        "nature.rotterdam-trompenburg"
+      ],
+      "relationBasis": "Rotterdam architecture, a local stay and garden collections",
+      "existingCoordinatesRetained": true,
+      "existingMediaRetained": true
+    },
+    {
+      "id": "museum.den-haag-fotomuseum",
+      "newBlockIds": [
+        "exhibition-context",
+        "companion-project"
+      ],
+      "newSourceKeys": [
+        "fotomuseum-exhibition"
+      ],
+      "retainedSourceDates": [
+        "2026-11-15"
+      ],
+      "relatedEntityIds": [
+        "nature.den-haag-westbroekpark",
+        "cafe.den-haag-kaafi"
+      ],
+      "relationBasis": "The Hague: photography and a separate outdoor stop",
+      "existingCoordinatesRetained": true,
+      "existingMediaRetained": true
+    },
+    {
+      "id": "museum.eindhoven-inkijkmuseum",
+      "newBlockIds": [
+        "spoelhuis",
+        "programme"
+      ],
+      "newSourceKeys": [
+        "inkijk-owner"
+      ],
+      "retainedSourceDates": [
+        "2026-11-15"
+      ],
+      "relatedEntityIds": [
+        "restaurant.eindhoven-kazerne",
+        "city.eindhoven"
+      ],
+      "relationBasis": "Eindhoven art and design venues",
+      "existingCoordinatesRetained": true,
+      "existingMediaRetained": true
+    },
+    {
+      "id": "restaurant.eindhoven-kazerne",
+      "newBlockIds": [
+        "design-heritage",
+        "exhibition-entry"
+      ],
+      "newSourceKeys": [
+        "kazerne-design"
+      ],
+      "retainedSourceDates": [
+        "2026-11-15"
+      ],
+      "relatedEntityIds": [
+        "museum.eindhoven-inkijkmuseum",
+        "city.eindhoven"
+      ],
+      "relationBasis": "Eindhoven design and a small arts venue",
+      "existingCoordinatesRetained": true,
+      "existingMediaRetained": true
+    },
+    {
+      "id": "nature.utrecht-oog-in-al",
+      "newBlockIds": [
+        "landscape-history",
+        "family-stop"
+      ],
+      "newSourceKeys": [
+        "oog-municipality"
+      ],
+      "retainedSourceDates": [
+        "2026-11-15"
+      ],
+      "relatedEntityIds": [
+        "place.utrecht-neude",
+        "hotel.utrecht-nox",
+        "museum.utrecht-sonnenborgh"
+      ],
+      "relationBasis": "Utrecht history in parks and buildings",
+      "existingCoordinatesRetained": true,
+      "existingMediaRetained": true
+    },
+    {
+      "id": "museum.utrecht-sonnenborgh",
+      "newBlockIds": [
+        "bastion-science",
+        "weather-booking"
+      ],
+      "newSourceKeys": [
+        "sonnenborgh-discover",
+        "sonnenborgh-faq"
+      ],
+      "retainedSourceDates": [
+        "2026-11-15"
+      ],
+      "relatedEntityIds": [
+        "place.utrecht-neude",
+        "cafe.utrecht-koffie-leute",
+        "nature.utrecht-oog-in-al"
+      ],
+      "relationBasis": "Utrecht science, architecture and landscape",
+      "existingCoordinatesRetained": true,
+      "existingMediaRetained": true
+    },
+    {
+      "id": "hotel.rotterdam-supernova",
+      "newBlockIds": [
+        "library-lounge",
+        "cycling"
+      ],
+      "newSourceKeys": [
+        "supernova-bikes"
+      ],
+      "retainedSourceDates": [
+        "2026-11-15"
+      ],
+      "relatedEntityIds": [
+        "museum.rotterdam-chabot",
+        "city.rotterdam",
+        "nature.rotterdam-trompenburg"
+      ],
+      "relationBasis": "Rotterdam cultural and garden stops during a stay",
+      "existingCoordinatesRetained": true,
+      "existingMediaRetained": true
+    },
+    {
+      "id": "nature.rotterdam-trompenburg",
+      "newBlockIds": [
+        "foodforest",
+        "no-foraging"
+      ],
+      "newSourceKeys": [
+        "trompenburg-foodforest"
+      ],
+      "retainedSourceDates": [
+        "2026-11-15"
+      ],
+      "relatedEntityIds": [
+        "museum.rotterdam-chabot",
+        "city.rotterdam",
+        "hotel.rotterdam-supernova"
+      ],
+      "relationBasis": "Rotterdam plant collections, art and a local stay",
+      "existingCoordinatesRetained": true,
+      "existingMediaRetained": true
+    },
+    {
+      "id": "nature.den-haag-westbroekpark",
+      "newBlockIds": [
+        "landscape",
+        "park-history"
+      ],
+      "newSourceKeys": [],
+      "retainedSourceDates": [
+        "2026-11-15"
+      ],
+      "relatedEntityIds": [
+        "museum.den-haag-fotomuseum",
+        "city.den-haag"
+      ],
+      "relationBasis": "The Hague landscape and photography",
+      "existingCoordinatesRetained": true,
+      "existingMediaRetained": true
+    }
+  ],
+  "limitations": [
+    {
+      "id": "nature.den-haag-westbroekpark",
+      "status": "uses_prior_verified_source",
+      "detail": "New historical/landscape paragraphs use the preserved official EN page verified 2026-11-15. New municipal and NL tourism fetches returned 403 on 2026-11-16; no bypass or claim of a fresh source check."
+    },
+    {
+      "id": "hotel.rotterdam-supernova",
+      "status": "price_unconfirmed",
+      "detail": "Bike price and date-specific availability are not established."
+    }
+  ]
+}

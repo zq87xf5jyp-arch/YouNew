@@ -1,1 +1,392 @@
-{}
+{
+  "place.artis": {
+    "page": "https://commons.wikimedia.org/wiki/File:Artis_Toegang1.jpg",
+    "asset": "https://upload.wikimedia.org/wikipedia/commons/6/67/Artis_Toegang1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "author": "Zxempire",
+    "title": "Artis Toegang1.jpg",
+    "created": "2012-08-16 16:24:12",
+    "license": "CC BY-SA 3.0 nl",
+    "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/nl/deed.en",
+    "licenseEvidence": "DataProject/editorial/amsterdam-attractions-20261116/evidence/commons-21809472.json",
+    "licenseEvidenceSha256": "ffae9787ede88d82b39799ea678f6e8599d96e9a72925c7d4d5c0aea1f2c65ba",
+    "commonsRevisionId": 1216464079,
+    "originalSha256": "266ae31f0a3b3cd0611848392f534e472152fdc6815ad44ed30409100a0c97f3",
+    "originalSha1": "4792e05d66e0914db5867f6de8f93b3020d82414",
+    "originalBytes": 6048144,
+    "width": 3830,
+    "height": 2543,
+    "checkedAt": "2026-11-16",
+    "commercialReuse": true,
+    "adaptationAllowed": true,
+    "shareAlike": true,
+    "outputLicense": "CC BY-SA 3.0 nl",
+    "transformations": [
+      "EXIF orientation if present",
+      "proportional resize to 480/800/1200 pixels",
+      "WebP encoding; no crop, retouching or upscaling"
+    ],
+    "identityEvidence": {
+      "officialURL": "https://www.artis.nl/en/plan-your-visit",
+      "reason": "The two gate lodges and golden eagle entrance match ARTIS on Plantage Kerklaan. People are incidental to the entrance view."
+    },
+    "alt": {
+      "en": "ARTIS entrance gates and lodges, photographed in August 2012",
+      "nl": "Toegangspoort en portiershuizen van ARTIS, gefotografeerd in augustus 2012"
+    },
+    "historicalImage": true,
+    "recommendedPlacement": "dated_hero_candidate",
+    "publicationAuthorized": false,
+    "otherRights": "CC covers the photograph; no endorsement, model release, trademark rights or unrestricted rights in separately depicted artworks are asserted."
+  },
+  "place.hortus-botanicus-amsterdam": {
+    "page": "https://commons.wikimedia.org/wiki/File:The_interior_of_small_Greenhouse_in_Hortus_Botanicus_of_Amsterdam.jpg",
+    "asset": "https://upload.wikimedia.org/wikipedia/commons/1/1e/The_interior_of_small_Greenhouse_in_Hortus_Botanicus_of_Amsterdam.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "author": "Faust002",
+    "title": "The interior of small Greenhouse in Hortus Botanicus of Amsterdam.jpg",
+    "created": "2024-04-30 16:23:23",
+    "license": "CC0",
+    "licenseURL": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "licenseEvidence": "DataProject/editorial/amsterdam-attractions-20261116/evidence/commons-150724314.json",
+    "licenseEvidenceSha256": "1f5bdbc1593fafea02467c5147b55f97c48788d368878da78cd935774f12b0c9",
+    "commonsRevisionId": 1298684139,
+    "originalSha256": "a703360e5cb43f4e8ebd23785f950e4a13cb70d7c22ee7606ab633ce07c913da",
+    "originalSha1": "eb8d7454a5b3213abde37ccc64264587caeef212",
+    "originalBytes": 4453231,
+    "width": 3024,
+    "height": 4032,
+    "checkedAt": "2026-11-16",
+    "commercialReuse": true,
+    "adaptationAllowed": true,
+    "shareAlike": false,
+    "outputLicense": "CC0",
+    "transformations": [
+      "EXIF orientation if present",
+      "proportional resize to 480/800/1200 pixels",
+      "WebP encoding; no crop, retouching or upscaling"
+    ],
+    "identityEvidence": {
+      "officialURL": "https://www.dehortus.nl/en/",
+      "reason": "Commons explicitly locates this greenhouse at Hortus Amsterdam; glasshouse and plant collection visible. This predates the 2025 Climate House and does not document its current layout."
+    },
+    "alt": {
+      "en": "Interior of a small greenhouse at Hortus Amsterdam, April 2024; not the new Climate House",
+      "nl": "Interieur van een kleine kas in de Hortus Amsterdam, april 2024; niet de nieuwe Klimatenkas"
+    },
+    "historicalImage": true,
+    "recommendedPlacement": "dated_hero_candidate",
+    "publicationAuthorized": false,
+    "otherRights": "CC covers the photograph; no endorsement, model release, trademark rights or unrestricted rights in separately depicted artworks are asserted."
+  },
+  "place.oude-kerk": {
+    "page": "https://commons.wikimedia.org/wiki/File:Exterior_views_of_the_Oude_Kerk_(Amsterdam)_20180701.jpg",
+    "asset": "https://upload.wikimedia.org/wikipedia/commons/3/30/Exterior_views_of_the_Oude_Kerk_%28Amsterdam%29_20180701.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "author": "Suicasmo",
+    "title": "Exterior views of the Oude Kerk (Amsterdam) 20180701.jpg",
+    "created": "2018-07-01 17:06:14",
+    "license": "CC BY-SA 4.0",
+    "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0",
+    "licenseEvidence": "DataProject/editorial/amsterdam-attractions-20261116/evidence/commons-91441109.json",
+    "licenseEvidenceSha256": "619fc1e11fe2532c8b0e10b932e69cc9e85c6ce2b47f84a812e5dcd1d627d8e1",
+    "commonsRevisionId": 1238067894,
+    "originalSha256": "a4159de1821bf46fd1babb1c190ff3712ad43f37743e2bcf47b48f0430dd081d",
+    "originalSha1": "c5c2df13dfdb0ca2b4c5b14975bee0735aa160a5",
+    "originalBytes": 7736875,
+    "width": 3456,
+    "height": 5184,
+    "checkedAt": "2026-11-16",
+    "commercialReuse": true,
+    "adaptationAllowed": true,
+    "shareAlike": true,
+    "outputLicense": "CC BY-SA 4.0",
+    "transformations": [
+      "EXIF orientation if present",
+      "proportional resize to 480/800/1200 pixels",
+      "WebP encoding; no crop, retouching or upscaling"
+    ],
+    "identityEvidence": {
+      "officialURL": "https://www.oudekerk.nl/en/tickets-and-visit",
+      "reason": "Gothic church tower, clock and roof identify the Oude Kerk. Foreground buildings partly obscure the lower facade."
+    },
+    "alt": {
+      "en": "Oude Kerk tower and exterior in Amsterdam, July 2018",
+      "nl": "Toren en buitenzijde van de Oude Kerk in Amsterdam, juli 2018"
+    },
+    "historicalImage": true,
+    "recommendedPlacement": "dated_hero_candidate",
+    "publicationAuthorized": false,
+    "otherRights": "CC covers the photograph; no endorsement, model release, trademark rights or unrestricted rights in separately depicted artworks are asserted."
+  },
+  "place.de-nieuwe-kerk-amsterdam": {
+    "page": "https://commons.wikimedia.org/wiki/File:Nieuwe_Kerk_(Amsterdam)_20180701.jpg",
+    "asset": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Nieuwe_Kerk_%28Amsterdam%29_20180701.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "author": "Suicasmo",
+    "title": "Nieuwe Kerk (Amsterdam) 20180701.jpg",
+    "created": "2018-07-01 11:21:38",
+    "license": "CC BY-SA 4.0",
+    "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0",
+    "licenseEvidence": "DataProject/editorial/amsterdam-attractions-20261116/evidence/commons-91128392.json",
+    "licenseEvidenceSha256": "9ae0c2ee4cc1dafe6ee6f9f3c2fff018ed9383139f31fb667bb3de7da1267b12",
+    "commonsRevisionId": 1257763967,
+    "originalSha256": "6862470ff5a2d2585fd84d4e42135b72b6d810cc3f498db0a6d9dbd8eb47e857",
+    "originalSha1": "29b927c2ac923c697eef55aa040a75a34a30fb3d",
+    "originalBytes": 8211976,
+    "width": 5184,
+    "height": 3456,
+    "checkedAt": "2026-11-16",
+    "commercialReuse": true,
+    "adaptationAllowed": true,
+    "shareAlike": true,
+    "outputLicense": "CC BY-SA 4.0",
+    "transformations": [
+      "EXIF orientation if present",
+      "proportional resize to 480/800/1200 pixels",
+      "WebP encoding; no crop, retouching or upscaling"
+    ],
+    "identityEvidence": {
+      "officialURL": "https://www.nieuwekerk.nl/plan-je-bezoek/",
+      "reason": "The Nieuwe Kerk gable and Dam-facing facade are visible. Banners explicitly advertise World Press Photo 2018: archive gallery only, not the current exhibition."
+    },
+    "alt": {
+      "en": "Archive: Nieuwe Kerk facade with World Press Photo 2018 banners, July 2018",
+      "nl": "Archief: gevel van de Nieuwe Kerk met World Press Photo-banners uit 2018, juli 2018"
+    },
+    "historicalImage": true,
+    "recommendedPlacement": "archive_gallery_only",
+    "publicationAuthorized": false,
+    "otherRights": "CC covers the photograph; no endorsement, model release, trademark rights or unrestricted rights in separately depicted artworks are asserted."
+  },
+  "place.westerkerk": {
+    "page": "https://commons.wikimedia.org/wiki/File:Interior_of_Westerkerk_(Amsterdam)_114314.jpg",
+    "asset": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Interior_of_Westerkerk_%28Amsterdam%29_114314.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "author": "Quahadi",
+    "title": "Interior of Westerkerk (Amsterdam) 114314.jpg",
+    "created": "2024-02-28 11:43:14",
+    "license": "CC BY-SA 4.0",
+    "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0",
+    "licenseEvidence": "DataProject/editorial/amsterdam-attractions-20261116/evidence/commons-148346618.json",
+    "licenseEvidenceSha256": "6e868aa578979859a6f2da9f84e117cc0efa69e3cb3bd58cc0b0b2bfad272685",
+    "commonsRevisionId": 1275200790,
+    "originalSha256": "4ebc93ec407e7147d60cfad0d2b2a501c552946c745b7a79779116d2eb569e50",
+    "originalSha1": "730b194aff9765bfc97f96f4906e3b255974c40c",
+    "originalBytes": 10654426,
+    "width": 8000,
+    "height": 6000,
+    "checkedAt": "2026-11-16",
+    "commercialReuse": true,
+    "adaptationAllowed": true,
+    "shareAlike": true,
+    "outputLicense": "CC BY-SA 4.0",
+    "transformations": [
+      "EXIF orientation if present",
+      "proportional resize to 480/800/1200 pixels",
+      "WebP encoding; no crop, retouching or upscaling"
+    ],
+    "identityEvidence": {
+      "officialURL": "https://westerkerk.nl/bezoek-de-westerkerk-amsterdam/",
+      "reason": "Commons identifies Westerkerk in Amsterdam. The nave, white columns, wooden pulpit and chandeliers are visible; this dated interior avoids the temporary tower scaffolding in the rejected 2023 view."
+    },
+    "alt": {
+      "en": "Westerkerk interior with white columns, pulpit and chandeliers, February 2024",
+      "nl": "Interieur van de Westerkerk met witte zuilen, preekstoel en kroonluchters, februari 2024"
+    },
+    "historicalImage": true,
+    "recommendedPlacement": "dated_hero_candidate",
+    "publicationAuthorized": false,
+    "otherRights": "CC covers the photograph; no endorsement, model release, trademark rights or unrestricted rights in separately depicted artworks are asserted."
+  },
+  "place.adam-lookout": {
+    "page": "https://commons.wikimedia.org/wiki/File:Adam_Tower_Amsterdam_2019.jpg",
+    "asset": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Adam_Tower_Amsterdam_2019.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "author": "Steven Lek",
+    "title": "Adam Tower Amsterdam 2019.jpg",
+    "created": "2019-01-21 14:58:49",
+    "license": "CC BY-SA 4.0",
+    "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0",
+    "licenseEvidence": "DataProject/editorial/amsterdam-attractions-20261116/evidence/commons-76286301.json",
+    "licenseEvidenceSha256": "6f58db8cc07dc59da1af2eddc326714ed3cbe50107d13d6fcd4201e7a852be18",
+    "commonsRevisionId": 982287347,
+    "originalSha256": "f5677ed9d6767b20fc8ae92c8d45960dc7ed56d0f1435485ea37a9600583a841",
+    "originalSha1": "1484607279a77a3f347dcdabb7544ef26a3af759",
+    "originalBytes": 5961241,
+    "width": 3264,
+    "height": 4928,
+    "checkedAt": "2026-11-16",
+    "commercialReuse": true,
+    "adaptationAllowed": true,
+    "shareAlike": true,
+    "outputLicense": "CC BY-SA 4.0",
+    "transformations": [
+      "EXIF orientation if present",
+      "proportional resize to 480/800/1200 pixels",
+      "WebP encoding; no crop, retouching or upscaling"
+    ],
+    "identityEvidence": {
+      "officialURL": "https://www.adamlookout.com/en/contact/",
+      "reason": "Tower silhouette, cantilevered roof and A’DAM sign identify the building across the IJ. Exterior only: not evidence of current rooftop attractions or access."
+    },
+    "alt": {
+      "en": "A’DAM Tower and its rooftop observation structure, January 2019",
+      "nl": "A’DAM Toren met de uitkijkconstructie op het dak, januari 2019"
+    },
+    "historicalImage": true,
+    "recommendedPlacement": "dated_hero_candidate",
+    "publicationAuthorized": false,
+    "otherRights": "CC covers the photograph; no endorsement, model release, trademark rights or unrestricted rights in separately depicted artworks are asserted."
+  },
+  "place.heineken-experience": {
+    "page": "https://commons.wikimedia.org/wiki/File:Heineken_Experience_Amsterdam_2018_1.jpg",
+    "asset": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Heineken_Experience_Amsterdam_2018_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "author": "Steven Lek",
+    "title": "Heineken Experience Amsterdam 2018 1.jpg",
+    "created": "2018-12-18 15:22:19",
+    "license": "CC BY-SA 4.0",
+    "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0",
+    "licenseEvidence": "DataProject/editorial/amsterdam-attractions-20261116/evidence/commons-75233594.json",
+    "licenseEvidenceSha256": "59b00edfbf05b8d30e8b6c39c014a0f8c38a9f3c7bd3e218620a79669a5b5ae8",
+    "commonsRevisionId": 933224674,
+    "originalSha256": "095a953bcad26b93e25d8a5dab43d6a7e705b0241289d325329292e346d94c22",
+    "originalSha1": "979412d04d0f7fa6daa2130db83966ec7a8e4b52",
+    "originalBytes": 8181619,
+    "width": 4928,
+    "height": 3264,
+    "checkedAt": "2026-11-16",
+    "commercialReuse": true,
+    "adaptationAllowed": true,
+    "shareAlike": true,
+    "outputLicense": "CC BY-SA 4.0",
+    "transformations": [
+      "EXIF orientation if present",
+      "proportional resize to 480/800/1200 pixels",
+      "WebP encoding; no crop, retouching or upscaling"
+    ],
+    "identityEvidence": {
+      "officialURL": "https://www.heinekenexperience.com/en/discover-our-tours/heineken-tour",
+      "reason": "The brick facade and Heineken Brouwerij lettering identify the brewery complex. This exterior does not illustrate or promise the current indoor experience."
+    },
+    "alt": {
+      "en": "Heineken brewery facade at the Experience, December 2018",
+      "nl": "Brouwerijgevel bij de Heineken Experience, december 2018"
+    },
+    "historicalImage": true,
+    "recommendedPlacement": "dated_hero_candidate",
+    "publicationAuthorized": false,
+    "otherRights": "CC covers the photograph; no endorsement, model release, trademark rights or unrestricted rights in separately depicted artworks are asserted."
+  },
+  "place.johan-cruijff-arena": {
+    "page": "https://commons.wikimedia.org/wiki/File:Johan_Cruijff_ArenA_Tour_(40365193963).jpg",
+    "asset": "https://upload.wikimedia.org/wikipedia/commons/8/89/Johan_Cruijff_ArenA_Tour_%2840365193963%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "author": "Daniel from Glasgow, United Kingdom",
+    "title": "Johan Cruijff ArenA Tour (40365193963).jpg",
+    "created": "2019-03-09 16:51",
+    "license": "CC BY 2.0",
+    "licenseURL": "https://creativecommons.org/licenses/by/2.0",
+    "licenseEvidence": "DataProject/editorial/amsterdam-attractions-20261116/evidence/commons-141041752.json",
+    "licenseEvidenceSha256": "bb9124b1e8f58e1a0cd34d58841f00a1248464ecc97d12c82e2d986b887899d1",
+    "commonsRevisionId": 1088006001,
+    "originalSha256": "230ffc0cccff3394d958db90d74788c2ee3d3b98f470a0b72a06eb37529fcbef",
+    "originalSha1": "ab27796dadffb9d6a9e3733210bc137cf65c4ca4",
+    "originalBytes": 7217100,
+    "width": 4608,
+    "height": 3072,
+    "checkedAt": "2026-11-16",
+    "commercialReuse": true,
+    "adaptationAllowed": true,
+    "shareAlike": false,
+    "outputLicense": "CC BY 2.0",
+    "transformations": [
+      "EXIF orientation if present",
+      "proportional resize to 480/800/1200 pixels",
+      "WebP encoding; no crop, retouching or upscaling"
+    ],
+    "identityEvidence": {
+      "officialURL": "https://www.johancruijffarena.nl/en/tickets-visits/stadium-tours/",
+      "reason": "Commons stadium-tour provenance and visible Ajax arena stands/roof identify the location. Historical advertising and tour view are not a current seat or event guarantee."
+    },
+    "alt": {
+      "en": "Johan Cruijff ArenA stands and roof during a stadium tour, March 2019",
+      "nl": "Tribunes en dak van de Johan Cruijff ArenA tijdens een stadiontour, maart 2019"
+    },
+    "historicalImage": true,
+    "recommendedPlacement": "dated_hero_candidate",
+    "publicationAuthorized": false,
+    "otherRights": "CC covers the photograph; no endorsement, model release, trademark rights or unrestricted rights in separately depicted artworks are asserted."
+  },
+  "place.de-hallen-amsterdam": {
+    "page": "https://commons.wikimedia.org/wiki/File:De_Hallen_Amsterdam_2024_Entree_Tollensstraat.jpg",
+    "asset": "https://upload.wikimedia.org/wikipedia/commons/2/2e/De_Hallen_Amsterdam_2024_Entree_Tollensstraat.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "author": "SophieWikiAms",
+    "title": "De Hallen Amsterdam 2024 Entree Tollensstraat.jpg",
+    "created": "2024-01-27",
+    "license": "CC0",
+    "licenseURL": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "licenseEvidence": "DataProject/editorial/amsterdam-attractions-20261116/evidence/commons-169452699.json",
+    "licenseEvidenceSha256": "e2257aef9d48e049c25e7d771cf2d88bda4d60d70dc6888a3715c24ecc4fb801",
+    "commonsRevisionId": 1169032440,
+    "originalSha256": "8aa28293a98d0c6d5577e61e12ee5930f983d386960bc22bc83150c891d8dfdb",
+    "originalSha1": "bb1b169d38d2b532df2be1d5d5f972989ebb5281",
+    "originalBytes": 1471837,
+    "width": 1606,
+    "height": 2856,
+    "checkedAt": "2026-11-16",
+    "commercialReuse": true,
+    "adaptationAllowed": true,
+    "shareAlike": false,
+    "outputLicense": "CC0",
+    "transformations": [
+      "EXIF orientation if present",
+      "proportional resize to 480/800/1200 pixels",
+      "WebP encoding; no crop, retouching or upscaling"
+    ],
+    "identityEvidence": {
+      "officialURL": "https://www.dehallen-amsterdam.nl/en/visit",
+      "reason": "Entrance arch and De Hallen signage match the Tollensstraat entrance. Passing people are incidental; no model release or endorsement is claimed."
+    },
+    "alt": {
+      "en": "De Hallen entrance on Tollensstraat with passing visitors, January 2024",
+      "nl": "Ingang van De Hallen aan de Tollensstraat met passanten, januari 2024"
+    },
+    "historicalImage": true,
+    "recommendedPlacement": "dated_hero_candidate",
+    "publicationAuthorized": false,
+    "otherRights": "CC covers the photograph; no endorsement, model release, trademark rights or unrestricted rights in separately depicted artworks are asserted."
+  },
+  "place.oba-oosterdok": {
+    "page": "https://commons.wikimedia.org/wiki/File:Amsterdam_Public_Library_(OBA).jpg",
+    "asset": "https://upload.wikimedia.org/wikipedia/commons/9/92/Amsterdam_Public_Library_%28OBA%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "author": "EstherWikipedian",
+    "title": "Amsterdam Public Library (OBA).jpg",
+    "created": "2023-08-15",
+    "license": "CC BY-SA 4.0",
+    "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0",
+    "licenseEvidence": "DataProject/editorial/amsterdam-attractions-20261116/evidence/commons-139224286.json",
+    "licenseEvidenceSha256": "66e9b29bd740169bf10c255c329bbe01a60efeeea376ac8bc919ee768d0d8afe",
+    "commonsRevisionId": 1052861432,
+    "originalSha256": "4658c7bf133a30b5fac36e41c4b8bfabce040ee2c2e8c3841ef405b28ef930ff",
+    "originalSha1": "6b8f07ec6eddcc0667be6de21a84177ec4026aae",
+    "originalBytes": 1792557,
+    "width": 4080,
+    "height": 3060,
+    "checkedAt": "2026-11-16",
+    "commercialReuse": true,
+    "adaptationAllowed": true,
+    "shareAlike": true,
+    "outputLicense": "CC BY-SA 4.0",
+    "transformations": [
+      "EXIF orientation if present",
+      "proportional resize to 480/800/1200 pixels",
+      "WebP encoding; no crop, retouching or upscaling"
+    ],
+    "identityEvidence": {
+      "officialURL": "https://oba.nl/nl/locaties/oba-oosterdok",
+      "reason": "The central-library facade and Openbare Bibliotheek Amsterdam lettering match OBA Oosterdok; not a different branch."
+    },
+    "alt": {
+      "en": "OBA Oosterdok facade with library lettering, August 2023",
+      "nl": "Gevel van OBA Oosterdok met bibliotheekopschrift, augustus 2023"
+    },
+    "historicalImage": true,
+    "recommendedPlacement": "dated_hero_candidate",
+    "publicationAuthorized": false,
+    "otherRights": "CC covers the photograph; no endorsement, model release, trademark rights or unrestricted rights in separately depicted artworks are asserted."
+  }
+}

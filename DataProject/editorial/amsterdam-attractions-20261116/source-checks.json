@@ -148,18 +148,24 @@
     "finalUrl": "https://www.nieuwekerk.nl/plan-je-bezoek/",
     "httpStatus": 200,
     "contentType": "text/html; charset=UTF-8",
-    "sha256": "79b3b16b39c128ffc687912ad6bac6c44a1bfe9328e1ca86acc427a00a6f0927",
-    "file": "cb5447ab9f9db815.html",
-    "checkedAt": "2026-11-16"
+    "sha256": "40e9a6950efbacaed43a14efbde8397be4706625f18497a217138ddb8249d5bc",
+    "checkedAt": "2026-11-16",
+    "method": "visible standard Chrome page inspection",
+    "checkedAtUTC": "2026-11-16T15:36:39.955Z",
+    "evidenceFile": "evidence/nieuwe-visit-live-browser.json",
+    "verificationScope": "Current page loaded directly in a visible Chrome window; no bypass of access restrictions. Earlier indexed evidence retained separately."
   },
   "nieuwe-faq": {
     "url": "https://www.nieuwekerk.nl/vragen-over-je-bezoek/",
     "finalUrl": "https://www.nieuwekerk.nl/vragen-over-je-bezoek/",
     "httpStatus": 200,
     "contentType": "text/html; charset=UTF-8",
-    "sha256": "2f2cf120fc0c3ffc2a3731408c59b332b1a92358c6c9a1734952b7484065d045",
-    "file": "39f8ebc95050765b.html",
-    "checkedAt": "2026-11-16"
+    "sha256": "121ad8e6e942ca822d4f0d77fccdbc44e2fb497c19e0db366224a79da490fa6f",
+    "checkedAt": "2026-11-16",
+    "method": "visible standard Chrome page inspection",
+    "checkedAtUTC": "2026-11-16T15:36:40.237Z",
+    "evidenceFile": "evidence/nieuwe-faq-live-browser.json",
+    "verificationScope": "Current page loaded directly in a visible Chrome window; no bypass of access restrictions. Earlier indexed evidence retained separately."
   },
   "nieuwe-address": {
     "url": "https://monumentenregister.cultureelerfgoed.nl/monumenten/5940",
@@ -401,11 +407,12 @@
   "oba": {
     "url": "https://oba.nl/nl/locaties/oba-oosterdok",
     "finalUrl": "https://oba.nl/nl/locaties/oba-oosterdok",
-    "httpStatus": 429,
-    "method": "web.run",
+    "httpStatus": 200,
+    "method": "visible standard Chrome page inspection",
     "checkedAt": "2026-11-16",
-    "verificationScope": "Official indexed page retrieved by web search; direct page returned 403/429. Current hours and facilities require a manual live check.",
-    "evidenceFile": "evidence/oba-indexed.json",
-    "sha256": "c560e400217aaa94f78ad5e9fa8b6f74d2098186c2c55baaeee5d4ef90f64c84"
+    "verificationScope": "Current page loaded directly in a visible Chrome window; no bypass of access restrictions. Earlier indexed evidence retained separately.",
+    "evidenceFile": "evidence/oba-live-browser.json",
+    "sha256": "7340e249eee7060296ecab27750f9a37337ac5f230fb863a0de71ef52bcbf055",
+    "checkedAtUTC": "2026-11-16T15:36:39.233Z"
   }
 }

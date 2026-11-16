@@ -1,0 +1,99 @@
+{
+  "pageid": 169452699,
+  "ns": 6,
+  "title": "File:De Hallen Amsterdam 2024 Entree Tollensstraat.jpg",
+  "index": 6,
+  "imagerepository": "local",
+  "imageinfo": [
+    {
+      "size": 1471837,
+      "width": 1606,
+      "height": 2856,
+      "url": "https://upload.wikimedia.org/wikipedia/commons/2/2e/De_Hallen_Amsterdam_2024_Entree_Tollensstraat.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "descriptionurl": "https://commons.wikimedia.org/wiki/File:De_Hallen_Amsterdam_2024_Entree_Tollensstraat.jpg",
+      "descriptionshorturl": "https://commons.wikimedia.org/wiki/Special:Redirect/page/169452699",
+      "sha1": "bb1b169d38d2b532df2be1d5d5f972989ebb5281",
+      "extmetadata": {
+        "DateTime": {
+          "value": "2025-07-08 06:35:41",
+          "source": "mediawiki-metadata",
+          "hidden": ""
+        },
+        "ObjectName": {
+          "value": "De Hallen Amsterdam 2024 Entree Tollensstraat",
+          "source": "mediawiki-metadata"
+        },
+        "CommonsMetadataExtension": {
+          "value": 1.2,
+          "source": "extension",
+          "hidden": ""
+        },
+        "Categories": {
+          "value": "CC-Zero|Hannie Dankbaarpassage, Amsterdam|Self-published work|Tollensstraat, Amsterdam",
+          "source": "commons-categories",
+          "hidden": ""
+        },
+        "Assessments": {
+          "value": "",
+          "source": "commons-categories",
+          "hidden": ""
+        },
+        "ImageDescription": {
+          "value": "De Hallen Amsterdam, Entree Tollensstraat",
+          "source": "commons-desc-page"
+        },
+        "DateTimeOriginal": {
+          "value": "2024-01-27",
+          "source": "commons-desc-page"
+        },
+        "Credit": {
+          "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+          "source": "commons-desc-page"
+        },
+        "Artist": {
+          "value": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:SophieWikiAms&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:SophieWikiAms (page does not exist)\">SophieWikiAms</a>",
+          "source": "commons-desc-page"
+        },
+        "LicenseShortName": {
+          "value": "CC0",
+          "source": "commons-desc-page",
+          "hidden": ""
+        },
+        "UsageTerms": {
+          "value": "Creative Commons Zero, Public Domain Dedication",
+          "source": "commons-desc-page"
+        },
+        "AttributionRequired": {
+          "value": "false",
+          "source": "commons-desc-page",
+          "hidden": ""
+        },
+        "LicenseUrl": {
+          "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "source": "commons-desc-page"
+        },
+        "Copyrighted": {
+          "value": "True",
+          "source": "commons-desc-page",
+          "hidden": ""
+        },
+        "Restrictions": {
+          "value": "",
+          "source": "commons-desc-page",
+          "hidden": ""
+        },
+        "License": {
+          "value": "cc0",
+          "source": "commons-templates",
+          "hidden": ""
+        }
+      }
+    }
+  ],
+  "revisions": [
+    {
+      "revid": 1169032440,
+      "parentid": 1167633767
+    }
+  ]
+}

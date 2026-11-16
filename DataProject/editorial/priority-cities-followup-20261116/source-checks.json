@@ -1,0 +1,368 @@
+{
+  "neudevisit": {
+    "url": "https://www.bibliotheekutrecht.nl/bibliotheken/bibliotheek-neude.html",
+    "finalUrl": "https://www.bibliotheekutrecht.nl/bibliotheken/bibliotheek-neude.html",
+    "httpStatus": 200,
+    "sha256": "0aecd7c3f53cd76402b604c527833bb86298103172575a96642a2e87fceabd94",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8",
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json",
+    "recheckedThisBatch": false
+  },
+  "neudehours": {
+    "url": "https://www.bibliotheekutrecht.nl/klantenservice/vestigingen-openingstijden/vestiging.696013.html/bibliotheek-neude/",
+    "finalUrl": "https://www.bibliotheekutrecht.nl/klantenservice/vestigingen-openingstijden/vestiging.696013.html/bibliotheek-neude/",
+    "httpStatus": 200,
+    "sha256": "524c2745b9ddddf7e2a29f59ee3db9c81f3a730d4cc0c21c75382392fb75c2a5",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8",
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json",
+    "recheckedThisBatch": false
+  },
+  "utrechtneude": {
+    "url": "https://www.bibliotheekutrecht.nl/bereikbaarheid-neude.html",
+    "finalUrl": "https://www.bibliotheekutrecht.nl/bereikbaarheid-neude.html",
+    "httpStatus": 200,
+    "sha256": "a919f1329ff96d6b298e0f87d7d6538aaa5173fe8a69ddc71f8c44f9c09dc426",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8",
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json",
+    "recheckedThisBatch": false
+  },
+  "utrechtneude-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Neude+11+Utrecht&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Neude+11+Utrecht&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-15",
+    "sha256": "64dbf298afb1b886b100c9c6c1409cd104e60f3c347fe463f266079cc5d4d968",
+    "selectedAddress": {
+      "id": "adr-980e3ae16c736e1b9d7a90181d4398c3",
+      "weergavenaam": "Neude 11, 3512AE Utrecht",
+      "centroide_ll": "POINT(5.11817873 52.09312792)",
+      "nummeraanduiding_id": "0344200000141392",
+      "woonplaatsnaam": "Utrecht"
+    },
+    "method": "official address geocoder; not an entrance survey",
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json",
+    "recheckedThisBatch": false
+  },
+  "neude-booking": {
+    "url": "https://www.bibliotheekutrecht.nl/home/werkplekreservering.html",
+    "finalUrl": "https://www.bibliotheekutrecht.nl/home/werkplekreservering.html",
+    "httpStatus": 200,
+    "sha256": "6591e1024a1dc78f39c5f749796ac9fbd83f0560aebb80b81ce569e685e57e4d",
+    "checkedAt": "2026-11-16",
+    "checkedAtUTC": "2026-11-16T15:45:08.013250+00:00",
+    "contentType": "text/html; charset=UTF-8",
+    "method": "direct public page",
+    "rawEvidencePath": "/Users/ivan/YouNew-Expansion-20261116-Next-Evidence/sources/neude-booking.html",
+    "evidenceFile": "DataProject/editorial/priority-cities-followup-20261116/evidence/neude-booking.json"
+  },
+  "rotterdamchabot": {
+    "url": "https://chabotmuseum.nl/bezoekers/",
+    "finalUrl": "https://chabotmuseum.nl/bezoekers/",
+    "httpStatus": 200,
+    "sha256": "a7cc9d2d62dab5bb8d6e7d64de767cb5b326755e403a45079b10bc46151ce160",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8",
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json",
+    "recheckedThisBatch": false
+  },
+  "rotterdamchabot-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Museumpark+11+Rotterdam&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Museumpark+11+Rotterdam&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-15",
+    "sha256": "8ebf867c7906723ff840d13c3dd2b3648d2158c1408ee475a268e52f10eed772",
+    "selectedAddress": {
+      "id": "adr-00958a8b4a095e57b4660bcc0d2ff6c4",
+      "weergavenaam": "Museumpark 11, 3015CB Rotterdam",
+      "centroide_ll": "POINT(4.47238222 51.91468964)",
+      "nummeraanduiding_id": "0599200000376141",
+      "woonplaatsnaam": "Rotterdam"
+    },
+    "method": "official address geocoder; not an entrance survey",
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json",
+    "recheckedThisBatch": false
+  },
+  "chabot-villa": {
+    "url": "https://chabotmuseum.nl/the-villa/",
+    "finalUrl": "https://chabotmuseum.nl/the-villa/",
+    "httpStatus": 200,
+    "sha256": "cac57c5134283289ada627bf23a03eda61239c356d9e91ee682f839fbc56fa6e",
+    "checkedAt": "2026-11-16",
+    "checkedAtUTC": "2026-11-16T15:45:08.315563+00:00",
+    "contentType": "text/html; charset=UTF-8",
+    "method": "direct public page",
+    "rawEvidencePath": "/Users/ivan/YouNew-Expansion-20261116-Next-Evidence/sources/chabot-villa.html",
+    "evidenceFile": "DataProject/editorial/priority-cities-followup-20261116/evidence/chabot-villa.json"
+  },
+  "chabot-collection": {
+    "url": "https://chabotmuseum.nl/collectie/",
+    "finalUrl": "https://chabotmuseum.nl/collectie/",
+    "httpStatus": 200,
+    "sha256": "b70c192a2690c38fc5b80653bc4770a2c8c584ec3ec8f3fc48aeecc5464c7d9b",
+    "checkedAt": "2026-11-16",
+    "checkedAtUTC": "2026-11-16T15:45:08.323589+00:00",
+    "contentType": "text/html; charset=UTF-8",
+    "method": "direct public page",
+    "rawEvidencePath": "/Users/ivan/YouNew-Expansion-20261116-Next-Evidence/sources/chabot-collection.html",
+    "evidenceFile": "DataProject/editorial/priority-cities-followup-20261116/evidence/chabot-collection.json"
+  },
+  "fotomuseumvisit": {
+    "url": "https://www.fotomuseumdenhaag.nl/en/plan-your-visit",
+    "finalUrl": "https://www.fotomuseumdenhaag.nl/en/plan-your-visit",
+    "httpStatus": 200,
+    "sha256": "e30649a9250e5515e72bcfdd1f3e6d9dcdc855163a4dc7a50cf4834a3c716a19",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8",
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json",
+    "recheckedThisBatch": false
+  },
+  "denhaagfotomuseum": {
+    "url": "https://www.fotomuseumdenhaag.nl/en/contact",
+    "finalUrl": "https://www.fotomuseumdenhaag.nl/en/contact",
+    "httpStatus": 200,
+    "sha256": "f508bae4daef2ab382184a96ce8d445572504fafaccd0fa845a6d5a9afd98b7d",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8",
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json",
+    "recheckedThisBatch": false
+  },
+  "fotomuseum-exhibition": {
+    "url": "https://www.fotomuseumdenhaag.nl/en/exhibitions/liberated-camera",
+    "finalUrl": "https://www.fotomuseumdenhaag.nl/en/exhibitions/liberated-camera",
+    "httpStatus": 200,
+    "sha256": "20d33e2e54f905d196b49acf6f5bf6525d95fb19c70191704d348afb657b2b40",
+    "checkedAt": "2026-11-16",
+    "checkedAtUTC": "2026-11-16T15:45:26.912858+00:00",
+    "contentType": "text/html; charset=UTF-8",
+    "method": "direct public page",
+    "rawEvidencePath": "/Users/ivan/YouNew-Expansion-20261116-Next-Evidence/sources/fotomuseum-exhibition.html",
+    "evidenceFile": "DataProject/editorial/priority-cities-followup-20261116/evidence/fotomuseum-exhibition.json"
+  },
+  "eindhoveninkijkmuseum": {
+    "url": "https://www.thisiseindhoven.com/nl/locaties/inkijkmuseum",
+    "finalUrl": "https://www.thisiseindhoven.com/nl/locaties/inkijkmuseum",
+    "httpStatus": 200,
+    "sha256": "7c8fddf14b71b00f386bf8054baf81bd2f56f9e6c8daec2eb6f5ce81d770ece9",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=utf-8",
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json",
+    "recheckedThisBatch": false
+  },
+  "inkijk-owner": {
+    "url": "https://www.inkijkmuseum.nl/",
+    "finalUrl": "https://www.inkijkmuseum.nl/nl",
+    "httpStatus": 200,
+    "sha256": "566006883aa361384f29e305fb720f9fedfbe382ae281cf9569f4574a89ce8d6",
+    "checkedAt": "2026-11-16",
+    "checkedAtUTC": "2026-11-16T15:45:11.241789+00:00",
+    "contentType": "text/html; charset=utf-8",
+    "method": "direct public page",
+    "rawEvidencePath": "/Users/ivan/YouNew-Expansion-20261116-Next-Evidence/sources/inkijk-owner.html",
+    "evidenceFile": "DataProject/editorial/priority-cities-followup-20261116/evidence/inkijk-owner.json"
+  },
+  "eindhovenkazerne": {
+    "url": "https://www.kazerne.com/bar-bistro-kazerne",
+    "finalUrl": "https://www.kazerne.com/bar-bistro-kazerne",
+    "httpStatus": 200,
+    "sha256": "0f57bf08b9f1612f8883c4e282cc4027b5095be67cd6da75bd81245a4ddfacc6",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=utf-8",
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json",
+    "recheckedThisBatch": false
+  },
+  "eindhovenkazerne-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Paradijslaan+2+Eindhoven&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Paradijslaan+2+Eindhoven&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-15",
+    "sha256": "8be563e9ff04f101957fbe3f2a43c73b92d91919c70004915b6a57ad3f616082",
+    "selectedAddress": {
+      "id": "adr-e3230075a1bfa0920836bf387b7fce10",
+      "weergavenaam": "Paradijslaan 2, 5611KN Eindhoven",
+      "centroide_ll": "POINT(5.47737414 51.4360392)",
+      "nummeraanduiding_id": "0772200000098549",
+      "woonplaatsnaam": "Eindhoven"
+    },
+    "method": "official address geocoder; not an entrance survey",
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json",
+    "recheckedThisBatch": false
+  },
+  "kazerne-design": {
+    "url": "https://www.kazerne.com/",
+    "finalUrl": "https://www.kazerne.com/",
+    "httpStatus": 200,
+    "sha256": "2cf896519dd9e8427a18b8c896f7bddd1bbc7b6692b58f91fb529ff9179c5cd1",
+    "checkedAt": "2026-11-16",
+    "checkedAtUTC": "2026-11-16T15:45:08.527429+00:00",
+    "contentType": "text/html; charset=utf-8",
+    "method": "direct public page",
+    "rawEvidencePath": "/Users/ivan/YouNew-Expansion-20261116-Next-Evidence/sources/kazerne-design.html",
+    "evidenceFile": "DataProject/editorial/priority-cities-followup-20261116/evidence/kazerne-design.json"
+  },
+  "utrechtooginal": {
+    "url": "https://www.ontdek-utrecht.nl/locatie/park-oog-in-al/",
+    "finalUrl": "https://www.ontdek-utrecht.nl/locatie/park-oog-in-al/",
+    "httpStatus": 200,
+    "sha256": "b15ee6298d44bd472b7f96923bf1ed5f639e11884cfbce9913e467416689d6ae",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=utf-8",
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json",
+    "recheckedThisBatch": false
+  },
+  "oog-municipality": {
+    "url": "https://www.utrecht.nl/wonen-en-leven/parken-en-groen/parken-en-plantsoenen/park-oog-in-al",
+    "finalUrl": "https://www.utrecht.nl/wonen-en-leven/parken-en-groen/parken-en-plantsoenen/park-oog-in-al",
+    "httpStatus": 200,
+    "sha256": "3d065cd022f5edc488701eee9b13f503acf3b812460018860fe1ef641a4338c9",
+    "checkedAt": "2026-11-16",
+    "checkedAtUTC": "2026-11-16T15:45:08.695683+00:00",
+    "contentType": "text/html; charset=utf-8",
+    "method": "direct public page",
+    "rawEvidencePath": "/Users/ivan/YouNew-Expansion-20261116-Next-Evidence/sources/oog-municipality.html",
+    "evidenceFile": "DataProject/editorial/priority-cities-followup-20261116/evidence/oog-municipality.json"
+  },
+  "utrechtsonnenborgh": {
+    "url": "https://www.sonnenborgh.nl/english/address-contact-and-route",
+    "finalUrl": "https://www.sonnenborgh.nl/english/address-contact-and-route",
+    "httpStatus": 200,
+    "sha256": "cbfc3900ccdb04b18475db3f6ae7e314861ce6b12883a7422c49bd6a5dd6c5bb",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8",
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json",
+    "recheckedThisBatch": false
+  },
+  "sonnenborghvisit": {
+    "url": "https://www.sonnenborgh.nl/bezoekersinformatie",
+    "finalUrl": "https://www.sonnenborgh.nl/bezoekersinformatie",
+    "httpStatus": 200,
+    "sha256": "05fc6d758cfc1765c3281cd6afa90e3ecb66b1f1cc87196542e09996545acc1d",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8",
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json",
+    "recheckedThisBatch": false
+  },
+  "sonnenborghprices": {
+    "url": "https://www.sonnenborgh.nl/bezoekersinformatie/prijzen",
+    "finalUrl": "https://www.sonnenborgh.nl/bezoekersinformatie/prijzen",
+    "httpStatus": 200,
+    "sha256": "c5defb06ce97e4e3a05f6ceff426ada8c04f8d787ab010441ae1fae17449a42c",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=UTF-8",
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json",
+    "recheckedThisBatch": false
+  },
+  "utrechtsonnenborgh-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Zonnenburg+2+Utrecht&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Zonnenburg+2+Utrecht&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-15",
+    "sha256": "a2f08e598d06482618a43dfe3488e4e4b7dd6b0e0381de6e708d561184e1a36f",
+    "selectedAddress": {
+      "id": "adr-c0d609198ddc3ae7e86764835ec23c7e",
+      "weergavenaam": "Zonnenburg 2, 3512NL Utrecht",
+      "centroide_ll": "POINT(5.12928285 52.08541538)",
+      "nummeraanduiding_id": "0344200000083585",
+      "woonplaatsnaam": "Utrecht"
+    },
+    "method": "official address geocoder; not an entrance survey",
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json",
+    "recheckedThisBatch": false
+  },
+  "sonnenborgh-discover": {
+    "url": "https://www.sonnenborgh.nl/english/see-and-do",
+    "finalUrl": "https://www.sonnenborgh.nl/english/see-and-do",
+    "httpStatus": 200,
+    "sha256": "9ef3e2ef3ee5f7860d6f2278aeef671fce7cb75c45d8e8a71a0e32692f4227f7",
+    "checkedAt": "2026-11-16",
+    "checkedAtUTC": "2026-11-16T15:45:08.737124+00:00",
+    "contentType": "text/html; charset=UTF-8",
+    "method": "direct public page",
+    "rawEvidencePath": "/Users/ivan/YouNew-Expansion-20261116-Next-Evidence/sources/sonnenborgh-discover.html",
+    "evidenceFile": "DataProject/editorial/priority-cities-followup-20261116/evidence/sonnenborgh-discover.json"
+  },
+  "sonnenborgh-faq": {
+    "url": "https://www.sonnenborgh.nl/faq-2",
+    "finalUrl": "https://www.sonnenborgh.nl/faq-2",
+    "httpStatus": 200,
+    "sha256": "034a3fda940c3a0ab9a8c72abfd117f0422b27e75863af258060dd1289344c29",
+    "checkedAt": "2026-11-16",
+    "checkedAtUTC": "2026-11-16T15:45:08.972127+00:00",
+    "contentType": "text/html; charset=UTF-8",
+    "method": "direct public page",
+    "rawEvidencePath": "/Users/ivan/YouNew-Expansion-20261116-Next-Evidence/sources/sonnenborgh-faq.html",
+    "evidenceFile": "DataProject/editorial/priority-cities-followup-20261116/evidence/sonnenborgh-faq.json"
+  },
+  "rotterdamsupernova": {
+    "url": "https://supernovahotel.nl/en",
+    "finalUrl": "https://supernovahotel.nl/en",
+    "httpStatus": 200,
+    "sha256": "10d4967c24635a4c71bec6b35bb8c303cf2d8947345ed9a4a8e010fe0974b643",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=utf-8",
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json",
+    "recheckedThisBatch": false
+  },
+  "supernova-bikes": {
+    "url": "https://supernovahotel.nl/en/bikes",
+    "finalUrl": "https://supernovahotel.nl/en/bikes",
+    "httpStatus": 200,
+    "sha256": "381ca1ad474845b054736a5f8192389938fcdbb8f4772dc06645458c6c31519f",
+    "checkedAt": "2026-11-16",
+    "checkedAtUTC": "2026-11-16T15:45:09.008912+00:00",
+    "contentType": "text/html; charset=utf-8",
+    "method": "direct public page",
+    "rawEvidencePath": "/Users/ivan/YouNew-Expansion-20261116-Next-Evidence/sources/supernova-bikes.html",
+    "evidenceFile": "DataProject/editorial/priority-cities-followup-20261116/evidence/supernova-bikes.json"
+  },
+  "rotterdamtrompenburg": {
+    "url": "https://trompenburg.nl/plan-your-visit/",
+    "finalUrl": "https://trompenburg.nl/plan-your-visit/",
+    "httpStatus": 200,
+    "sha256": "30f44d7388f4c4d2b5e77e01cd5b143db2f830fc1cd9b52a7a000f6738955e1d",
+    "checkedAt": "2026-11-15",
+    "method": "curl HTTPS; urllib TLS failed",
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json",
+    "recheckedThisBatch": false
+  },
+  "rotterdamtrompenburg-geo": {
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Honingerdijk+86+Rotterdam&fq=type%3Aadres&rows=3",
+    "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Honingerdijk+86+Rotterdam&fq=type%3Aadres&rows=3",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-15",
+    "sha256": "b26b97ccce86d043699ac32cf0114ee47a3da074a59359f067729ef740d69031",
+    "selectedAddress": {
+      "id": "adr-0cab836e7e76309e944f57a7ea678a3b",
+      "weergavenaam": "Honingerdijk 86, 3062NX Rotterdam",
+      "centroide_ll": "POINT(4.51779613 51.91827172)",
+      "nummeraanduiding_id": "0599200000306105",
+      "woonplaatsnaam": "Rotterdam"
+    },
+    "method": "official address geocoder; not an entrance survey",
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json",
+    "recheckedThisBatch": false
+  },
+  "trompenburg-foodforest": {
+    "url": "https://trompenburg.nl/voedselbos/",
+    "finalUrl": "https://trompenburg.nl/voedselbos/",
+    "httpStatus": 200,
+    "checkedAt": "2026-11-16",
+    "checkedAtUTC": "2026-11-16T15:50:58.948570+00:00",
+    "sha256": "8abba6e283bde3f5748fdd7b7031e2368d0a899d5867661db98760fea477c8e6",
+    "method": "direct curl after Python TLS negotiation error; normal certificate verification",
+    "rawEvidencePath": "/Users/ivan/YouNew-Expansion-20261116-Next-Evidence/sources/trompenburg-foodforest.html",
+    "evidenceFile": "DataProject/editorial/priority-cities-followup-20261116/evidence/trompenburg-foodforest.json"
+  },
+  "denhaagwestbroekpark": {
+    "url": "https://denhaag.com/en/westbroekpark",
+    "finalUrl": "https://denhaag.com/en/westbroekpark",
+    "httpStatus": 200,
+    "sha256": "2a1b6efcb4ba980b8cd88d6b047785fe164af9c7be84bcfcc5366e7c80dc1d25",
+    "checkedAt": "2026-11-15",
+    "contentType": "text/html; charset=utf-8",
+    "reusedFrom": "DataProject/editorial/priority-cities-20261115/source-checks.json",
+    "recheckedThisBatch": false
+  }
+}
