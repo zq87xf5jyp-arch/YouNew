@@ -1,0 +1,38 @@
+{
+  "provider": "flickr",
+  "sourcePageURL": "https://www.flickr.com/photos/rotterdamsballonnenbedrijf/52366054870",
+  "retrievedAt": "2026-11-16",
+  "httpStatus": 200,
+  "htmlSha256": "87f93e9804c1f4974bf9c26d90f27c2a9c5cd20331db208df4197609aa97918f",
+  "imageObject": {
+    "@context": "https://schema.org/",
+    "@type": "ImageObject",
+    "contentUrl": "https://live.staticflickr.com/65535/52366054870_24a3e3e5f1_b.jpg",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "acquireLicensePage": "https://www.flickr.com/photos/rotterdamsballonnenbedrijf/52366054870",
+    "author": {
+      "@type": "Person",
+      "name": "Rotterdams Ballonnenbedrijf",
+      "url": "https://www.flickr.com/photos/rotterdamsballonnenbedrijf",
+      "image": "https://live.staticflickr.com/3914/buddyicons/57172540@N03.jpg?1411708880#57172540@N03"
+    },
+    "creator": {
+      "@type": "Person",
+      "name": "Rotterdams Ballonnenbedrijf",
+      "url": "https://www.flickr.com/photos/rotterdamsballonnenbedrijf",
+      "image": "https://live.staticflickr.com/3914/buddyicons/57172540@N03.jpg?1411708880#57172540@N03"
+    }
+  },
+  "photo": {
+    "id": "52366054870",
+    "title": "Heliumballonnen Super Deluxe Kamer Supernova Hotel Rotterdam",
+    "licenseCode": 4,
+    "owner": "Rotterdams Ballonnenbedrijf",
+    "dateTaken": "2022-09-03 13:01:41",
+    "downloadedAssetURL": "https://live.staticflickr.com/65535/52366054870_24a3e3e5f1_b.jpg",
+    "width": 1024,
+    "height": 768
+  },
+  "downloadedSourceSha256": "97f525b95730181f9533797318eea20ac3a68fca4e076c45809c879a7cffb5ef",
+  "verification": "License confirmed in public Flickr ImageObject and photo model; 1024-pixel source downloaded from the licensed ImageObject contentUrl; original-size download returned HTTP 429 and was not used. This SHA-256 is locally computed, not supplied by Flickr."
+}

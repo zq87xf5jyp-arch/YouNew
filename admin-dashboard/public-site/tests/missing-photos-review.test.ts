@@ -21,17 +21,17 @@ test('media follow-up remains draft; ordinary release keeps all nine empty slots
  const normal=buildPublicDataset(JSON.parse(await readFile(paths.source,'utf8')),{editorialRelease:release}).content;
  assert.equal(normal.entities.length,96);assert.equal(normal.entities.filter(e=>e.type==='place'&&e.images.length).length,50);
  const gaps=JSON.parse(await readFile(`${root}/${reviewPath(batch)}/research.json`,'utf8')).cards;
- assert.equal(gaps.length,9);assert.equal(gaps.filter((g:{status:string})=>g.status==='candidate_ready').length,4);
+ assert.equal(gaps.length,9);assert.equal(gaps.filter((g:{status:string})=>g.status==='candidate_ready').length,5);
  for(const gap of gaps)assert.equal(normal.entities.find(e=>e.id===gap.id)?.images.length,0);
  assert.ok(!JSON.stringify(normal).includes('/images/place-review/'));
 });
 
-test('private preview adds only four media slots and preserves catalogue IDs, routes and facts',async()=>{
+test('private preview adds only five media slots and preserves catalogue IDs, routes and facts',async()=>{
  const release=await loadEditorialRelease(),runtime=JSON.parse(await readFile(paths.source,'utf8'));
  const normal=buildPublicDataset(runtime,{editorialRelease:release}).content;
  const preview=buildPublicDataset(runtime,{editorialRelease:await applyPlaceReview(release,root,env)}).content;
  assert.deepEqual(preview.entities.map(e=>[e.id,e.route]),normal.entities.map(e=>[e.id,e.route]));
- assert.equal(preview.entities.filter(e=>e.type==='place'&&e.images.length).length,54);
+ assert.equal(preview.entities.filter(e=>e.type==='place'&&e.images.length).length,55);
  assert.deepEqual(preview.entities.filter(e=>e.editorial?.placeReview).map(e=>e.id).sort(),[...manifest.ids].sort());
  validateMediaOnlyRecords(records,bases);
  for(const r of records) {
@@ -56,7 +56,7 @@ test('private media cannot be layered over an unapproved content base',async()=>
  try {const release=await loadEditorialRelease(fixture.root);await assert.rejects(applyPlaceReview(release,fixture.root,env),/approved base in the release/);}finally{await fixture.cleanup();}
 });
 
-test('four photo records conform to the existing entity schema',()=>{
+test('five photo records conform to the existing entity schema',()=>{
  const check=spawnSync('python3',['-c',`
 import sys,pathlib,json,importlib.util
 root=pathlib.Path(sys.argv[1]);sys.path.insert(0,str(root/'scripts'))

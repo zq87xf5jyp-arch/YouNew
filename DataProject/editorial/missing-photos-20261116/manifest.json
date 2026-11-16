@@ -12,7 +12,8 @@
     "nature.leiden-rembrandtpark",
     "hotel.leiden-ibis",
     "hotel.leiden-rembrandt-hotel",
-    "restaurant.eindhoven-kazerne"
+    "restaurant.eindhoven-kazerne",
+    "hotel.rotterdam-supernova"
   ],
   "baseFiles": {
     "nature.leiden-rembrandtpark": {
@@ -30,9 +31,13 @@
     "restaurant.eindhoven-kazerne": {
       "file": "DataProject/editorial/priority-cities-20261115/records.json",
       "sha256": "8a808c99acf914a36e7e84f18198f32243badc55fe92e06be4c605903c98dab3"
+    },
+    "hotel.rotterdam-supernova": {
+      "file": "DataProject/editorial/priority-cities-20261115/records.json",
+      "sha256": "8a808c99acf914a36e7e84f18198f32243badc55fe92e06be4c605903c98dab3"
     }
   },
-  "recordsSha256": "540c99ead78d7a41aeae61244c04efc8a3cf363068ef42438dd5f314aa0a479a",
+  "recordsSha256": "6c18f8f98f773f4e437bb31b56aa6d5bb240c8d17234cd93ed935ae35a0319e2",
   "media": {
     "rembrandtpark-480.webp": {
       "width": 480,
@@ -105,14 +110,32 @@
       "height": 800,
       "bytes": 224164,
       "sha256": "6423398ec6c729222fa3a884ab5b8904ec79c0124e697396b1318373b56fd010"
+    },
+    "supernova-480.webp": {
+      "width": 480,
+      "height": 360,
+      "bytes": 19790,
+      "sha256": "41a8cb789e574b8af78ae893892b3e1297e731dcc6c924be69187804aca91f01"
+    },
+    "supernova-800.webp": {
+      "width": 800,
+      "height": 600,
+      "bytes": 46574,
+      "sha256": "dd0064a100f0b4c5bda5e306eea615751bbd6bd36d7bb826b77f98d10fd8aec9"
+    },
+    "supernova-1200.webp": {
+      "width": 1200,
+      "height": 900,
+      "bytes": 82082,
+      "sha256": "c30304fb5e136b531bf616684ea10624e736f016994ccf103ac9588437ef2aa8"
     }
   },
-  "sourceChecksSha256": "4ee720d56c9c8042d8d2295c9266780e47e9e14e526a417639e54d0787fbe1b1",
-  "mediaSourcesSha256": "21f6ce0148a3c3c42fd8265f5344594d797ee0bf73d308906fe19a2fa8cc7097",
+  "sourceChecksSha256": "225bcaa7b9b84137c27be35edc4ee7e1e79b40f91324f0222a07fcbd38dfe6dc",
+  "mediaSourcesSha256": "50c5bb9fbb083fdb0538c7f76337e148a6d568acae722475ca9333a7f5934512",
   "publicationScope": {
     "type": "owner-approved-existing-ids",
     "addedIds": [],
     "supersedesHistoricalWithholding": false
   },
-  "scope": "Media-only candidates: four of nine gaps. New approval required; no production publication."
+  "scope": "Media-only candidates: five of nine gaps. New approval required; no production publication."
 }

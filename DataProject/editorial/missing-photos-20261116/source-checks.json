@@ -30,5 +30,13 @@
     "status": "verified_opened",
     "scope": "identity/address only; approved text, prices, hours and fact-check dates are unchanged",
     "identityEvidence": "Commons records Paradijslaan 4, 4a, 6, 6a (municipal monument WN176), within the official Kazerne address 2–8. The complex facade and former Benz sign are visible. Not Constant Rebecque Kazerne; not a current BarBistro interior photograph."
+  },
+  {
+    "id": "hotel.rotterdam-supernova",
+    "url": "https://supernovahotel.nl/en",
+    "checkedAt": "2026-11-16",
+    "status": "verified_opened",
+    "scope": "identity only; approved prices, hours and text remain unchanged",
+    "identityEvidence": "The photographer identifies a Super Deluxe room at Supernova Hotel Rotterdam, and links its own Supernova installation page. Temporary balloon decorations are visible. Photograph taken 2022-09-03; not a promise that decorations are included in a hotel booking or that every room has this layout."
   }
 ]

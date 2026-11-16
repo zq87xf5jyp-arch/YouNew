@@ -142,5 +142,41 @@
       "nl": "Straatgevel van het Kazernecomplex aan de Paradijslaan in Eindhoven, met de toenmalige Benz-aanduiding; maart 2020"
     },
     "historicalImage": true
+  },
+  "hotel.rotterdam-supernova": {
+    "page": "https://www.flickr.com/photos/rotterdamsballonnenbedrijf/52366054870",
+    "asset": "https://live.staticflickr.com/65535/52366054870_24a3e3e5f1_b.jpg",
+    "author": "Rotterdams Ballonnenbedrijf",
+    "title": "Heliumballonnen Super Deluxe Kamer Supernova Hotel Rotterdam",
+    "created": "2022-09-03",
+    "license": "CC BY 2.0",
+    "licenseURL": "https://creativecommons.org/licenses/by/2.0/",
+    "licenseEvidence": "DataProject/editorial/missing-photos-20261116/evidence/flickr-52366054870.json",
+    "licenseEvidenceSha256": "d77436a2278e63f27cb9dd2f28eab7710f0ca0f0107dca8cfb2ab68ccc804889",
+    "sourceSha256": "97f525b95730181f9533797318eea20ac3a68fca4e076c45809c879a7cffb5ef",
+    "sourceSha1": "5d426b12f517e6faa35d99e91b7d64223483d415",
+    "sourceBytes": 147734,
+    "width": 1024,
+    "height": 768,
+    "checkedAt": "2026-11-16",
+    "commercialReuse": true,
+    "adaptationAllowed": true,
+    "shareAlike": false,
+    "outputLicense": "CC BY 2.0",
+    "transformations": [
+      "EXIF orientation if present",
+      "proportional resize to 480/800/1200 pixels; 1200-pixel variant upscaled from 1024-pixel source for existing responsive pipeline",
+      "WebP encoding; original aspect ratio retained; no retouching"
+    ],
+    "identityEvidence": {
+      "officialURL": "https://supernovahotel.nl/en",
+      "photographerURL": "https://www.rotterdamsballonnenbedrijf.nl/plaatsen/supernova-hotel",
+      "reason": "The photographer identifies a Super Deluxe room at Supernova Hotel Rotterdam, and links its own Supernova installation page. Temporary balloon decorations are visible. Photograph taken 2022-09-03; not a promise that decorations are included in a hotel booking or that every room has this layout."
+    },
+    "alt": {
+      "en": "Super Deluxe room at Supernova Hotel, with temporary pink balloon decorations by Rotterdams Ballonnenbedrijf; September 2022",
+      "nl": "Super Deluxe-kamer in Supernova Hotel, tijdelijk versierd met roze ballonnen door Rotterdams Ballonnenbedrijf; september 2022"
+    },
+    "historicalImage": true
   }
 }

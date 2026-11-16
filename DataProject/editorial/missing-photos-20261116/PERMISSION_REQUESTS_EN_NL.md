@@ -2,6 +2,8 @@
 
 Prepared 2026-11-16. Not sent. Sending requires separate owner approval. A reply alone is insufficient unless the sender controls the photo rights and specifies permitted use; keep the actual permission evidence with the chosen file.
 
+Four gaps still need a photo. The Supernova draft is retained only as an optional request for a newer, undecorated replacement; its CC BY 2.0 candidate does not depend on sending this message.
+
 These drafts request a free license; do not accept paid terms or purchase stock. No iOS distribution is requested.
 
 ## Kaafi
@@ -60,7 +62,7 @@ Wilt u het exacte bestand, de fotograaf en de gewenste naamsvermelding aangeven?
 Met vriendelijke groet,
 YouNew
 
-## Supernova Hotel
+## Supernova Hotel — optional replacement only; a licensed candidate is now available
 
 Official contact source: https://supernovahotel.nl/en
 

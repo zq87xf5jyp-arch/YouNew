@@ -10,7 +10,7 @@ export const expansionReviews={
   'leiden-stay-parks-20261115':{count:10,city:'leiden',bounds:[52.1,52.3,4.4,4.6]},
   'amsterdam-museums-20261115':{count:20,city:'amsterdam',bounds:[52.28,52.44,4.73,5.02],allowPrivateAdditions:true},
   'priority-cities-20261115':{count:14,cities:{utrecht:[52,52.2,5,5.25],rotterdam:[51.8,52,4.3,4.65],'den-haag':[52,52.2,4.2,4.4],eindhoven:[51.35,51.55,5.35,5.6]}},
-  'missing-photos-20261116':{count:4,cities:{leiden:[52.1,52.3,4.4,4.6],eindhoven:[51.35,51.55,5.35,5.6]},mediaOnlyBases:['leiden-stay-parks-20261115','priority-cities-20261115']},
+  'missing-photos-20261116':{count:5,cities:{leiden:[52.1,52.3,4.4,4.6],eindhoven:[51.35,51.55,5.35,5.6],rotterdam:[51.8,52,4.3,4.65]},mediaOnlyBases:['leiden-stay-parks-20261115','priority-cities-20261115']},
 };
 export const placeReviewBatches=[placeReviewBatch,'leiden-nature-culture-20261115','leiden-food-20261115',...Object.keys(expansionReviews)];
 export function selectedPlaceReviews(env=process.env) {
@@ -79,15 +79,32 @@ export async function readPlaceReview(root,batchId=placeReviewBatch) {
     assert.deepEqual(Object.keys(sources).sort(),[...manifest.ids].sort(),'incomplete media provenance');
     for(const record of batch.records) {
       const proof=sources[record.id],photo=record.images[0];
-      assert.match(proof.licenseEvidence,new RegExp(`^${reviewPath(batchId)}/evidence/commons-[0-9]+\\.json$`));
+      assert.match(proof.licenseEvidence,new RegExp(`^${reviewPath(batchId)}/evidence/(commons|flickr)-[0-9]+\\.json$`));
       const bytes=await readFile(resolve(root,proof.licenseEvidence));
       assert.equal(sha256(bytes),proof.licenseEvidenceSha256,'changed license evidence');
-      const info=JSON.parse(bytes).imageinfo[0];
-      assert.equal(photo.source_page_url,info.descriptionurl);
-      assert.equal(photo.asset_url,info.url);
-      assert.equal(photo.license,info.extmetadata.LicenseShortName.value);
-      assert.equal(photo.license_url,info.extmetadata.LicenseUrl.value.replace(/^http:/,'https:'));
-      assert.equal(proof.originalSha1,info.sha1);
+      const evidence=JSON.parse(bytes);
+      if(proof.licenseEvidence.includes('/flickr-')) {
+        assert.equal(evidence.provider,'flickr');
+        assert.equal(evidence.httpStatus,200);
+        assert.equal(photo.source_page_url,evidence.imageObject.acquireLicensePage);
+        assert.equal(photo.asset_url,evidence.photo.downloadedAssetURL);
+        assert.equal(photo.asset_url,evidence.imageObject.contentUrl);
+        assert.equal(evidence.photo.licenseCode,4);
+        assert.equal(photo.license,'CC BY 2.0');
+        assert.equal(photo.license_url,'https://creativecommons.org/licenses/by/2.0/');
+        assert.equal(photo.license_url,evidence.imageObject.license);
+        assert.equal(proof.author,evidence.imageObject.creator.name);
+        assert.equal(proof.title,evidence.photo.title);
+        assert.equal(proof.created,evidence.photo.dateTaken.slice(0,10));
+        assert.equal(proof.sourceSha256,evidence.downloadedSourceSha256);
+      } else {
+        const info=evidence.imageinfo[0];
+        assert.equal(photo.source_page_url,info.descriptionurl);
+        assert.equal(photo.asset_url,info.url);
+        assert.equal(photo.license,info.extmetadata.LicenseShortName.value);
+        assert.equal(photo.license_url,info.extmetadata.LicenseUrl.value.replace(/^http:/,'https:'));
+        assert.equal(proof.originalSha1,info.sha1);
+      }
       assert.equal(proof.outputLicense,photo.license);
       assert.equal(proof.commercialReuse,true);assert.equal(proof.adaptationAllowed,true);
       for(const credit of [proof.author,proof.title,proof.created])assert.ok(photo.attribution.includes(credit),'missing photo credit');

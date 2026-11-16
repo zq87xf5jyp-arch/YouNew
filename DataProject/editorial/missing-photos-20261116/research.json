@@ -1,6 +1,6 @@
 {
   "checkedAt": "2026-11-16",
-  "scope": "Nine photo gaps from the approved 49-card release; four exact licensed candidates and five unresolved gaps. No publication or outreach authorized.",
+  "scope": "Nine photo gaps from the approved 49-card release; five exact licensed candidates and four unresolved gaps. No publication or outreach authorized.",
   "cards": [
     {
       "id": "nature.leiden-rembrandtpark",
@@ -65,12 +65,13 @@
     {
       "id": "hotel.rotterdam-supernova",
       "title": "Supernova Hotel",
-      "status": "permission_or_original_needed",
+      "status": "candidate_ready",
       "publicationAuthorized": false,
-      "source": "https://supernovahotel.nl/en",
-      "contact": "sup@supernovahotel.nl",
-      "reason": "No exact licensed photo found in Commons by name, address or coordinates. The architect credits PION, but no reuse permission was established. Booking/Leonardo images were not copied.",
-      "outreachSent": false
+      "source": "https://www.flickr.com/photos/rotterdamsballonnenbedrijf/52366054870",
+      "license": "CC BY 2.0",
+      "created": "2022-09-03",
+      "caveat": "The photographer identifies a Super Deluxe room at Supernova Hotel Rotterdam, and links its own Supernova installation page. Temporary balloon decorations are visible. Photograph taken 2022-09-03; not a promise that decorations are included in a hotel booking or that every room has this layout.",
+      "previousSearchLimitation": "Commons and official-gallery checks did not locate reusable media; Openverse led to this Flickr original, whose explicit license was independently confirmed."
     },
     {
       "id": "hotel.den-haag-collector",
@@ -773,5 +774,96 @@
       "file": "File:Exterieur OVERZICHT VOORGEVELS - Utrecht - 20306199 - RCE.jpg",
       "reason": "Metadata identifies Keistraat 4. The Nox is number 8; no substitute facade."
     }
-  ]
+  ],
+  "openverseFollowup": [
+    {
+      "query": "Koffieleute",
+      "count": 0,
+      "results": []
+    },
+    {
+      "query": "Kaafi",
+      "count": 6,
+      "results": [
+        {
+          "title": "Kaafi And Maddur Wada",
+          "creator": "Water Lemon",
+          "license": "by-nc-nd",
+          "license_url": "https://creativecommons.org/licenses/by-nc-nd/2.0/",
+          "foreign_landing_url": "https://www.flickr.com/photos/61894835@N00/564917317",
+          "url": "https://live.staticflickr.com/1128/564917317_4127e1659e_b.jpg"
+        },
+        {
+          "title": "SIONE KAAFI",
+          "creator": "NAPARAZZI",
+          "license": "by-sa",
+          "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+          "foreign_landing_url": "https://www.flickr.com/photos/28990363@N05/3652898886",
+          "url": "https://live.staticflickr.com/3346/3652898886_4d95622681_b.jpg"
+        },
+        {
+          "title": "Turkish Kaafi",
+          "creator": "Sudharsan.Narayanan",
+          "license": "by-nc",
+          "license_url": "https://creativecommons.org/licenses/by-nc/2.0/",
+          "foreign_landing_url": "https://www.flickr.com/photos/42119274@N08/9619570513",
+          "url": "https://live.staticflickr.com/5496/9619570513_f8c8b00911_b.jpg"
+        },
+        {
+          "title": "SIONE KAAFI",
+          "creator": "NAPARAZZI",
+          "license": "by-sa",
+          "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+          "foreign_landing_url": "https://www.flickr.com/photos/28990363@N05/3652898956",
+          "url": "https://live.staticflickr.com/3392/3652898956_591c03272f_b.jpg"
+        },
+        {
+          "title": "ATMIS launches construction of solar-powered water project in Jowhar",
+          "creator": "atmis.somalia",
+          "license": "cc0",
+          "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "foreign_landing_url": "https://www.flickr.com/photos/195242906@N08/53956045040",
+          "url": "https://live.staticflickr.com/65535/53956045040_366ee4fcbb_b.jpg"
+        },
+        {
+          "title": "ATMIS to construct solar-powered water project in Jowhar",
+          "creator": "atmis.somalia",
+          "license": "cc0",
+          "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "foreign_landing_url": "https://www.flickr.com/photos/195242906@N08/53954703647",
+          "url": "https://live.staticflickr.com/65535/53954703647_8374eb64e2_b.jpg"
+        }
+      ]
+    },
+    {
+      "query": "Supernova Hotel Rotterdam",
+      "count": 1,
+      "results": [
+        {
+          "title": "Heliumballonnen Super Deluxe Kamer Supernova Hotel Rotterdam",
+          "creator": "Rotterdams Ballonnenbedrijf",
+          "license": "by",
+          "license_url": "https://creativecommons.org/licenses/by/2.0/",
+          "foreign_landing_url": "https://www.flickr.com/photos/57172540@N03/52366054870",
+          "url": "https://live.staticflickr.com/65535/52366054870_24a3e3e5f1_b.jpg"
+        }
+      ]
+    },
+    {
+      "query": "Collector Hotel Hague",
+      "count": 0,
+      "results": []
+    },
+    {
+      "query": "Nox Hotel Utrecht",
+      "count": 0,
+      "results": []
+    }
+  ],
+  "additionalSearchNotes": {
+    "checkedAt": "2026-11-16",
+    "openverse": "Queried joined/spaced names and addresses. Supernova Flickr asset independently licensed on its original page. Koffie Leute results with NC/ND are excluded; a BY-SA image mentioning coffee with Koffie Leute does not establish the Westerkade premises. Nox Utrecht and Keistraat 8 results refer to unrelated art or another town. Haagsche Bluf results alone do not establish the Collector facade.",
+    "press": "BWH 2022 Collector press picture found, but public-repository redistribution rights not established; current press terms restrict passing images to third parties.",
+    "sent": false
+  }
 }
