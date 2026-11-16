@@ -1,4 +1,5 @@
-import test from 'node:test';
+import {pendingReviewRoot} from './place-review-fixture.ts';
+import test, {after} from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {fileURLToPath} from 'node:url';
@@ -8,12 +9,15 @@ import {loadEditorialRelease} from '../scripts/editorial-release.mjs';
 import {buildPublicDataset,paths} from '../scripts/generate-public-content.mjs';
 import type {PlaceRevision,PlaceManifest} from '../scripts/place-review.mjs';
 const root=fileURLToPath(new URL('../../../',import.meta.url));
+// Freeze this suite's historical publication boundary; current approval is tested separately.
+const history=await pendingReviewRoot(root,['pr75-integration-20261116']);
+after(()=>history.cleanup());
 const read=async(path:string)=>JSON.parse(await readFile(path,'utf8'));
 const {manifest,records}=await readPlaceReview(root);
 const bases=new Map(await Promise.all(Object.entries(manifest.baseFiles).map(async([id,b])=>[id,(await read(`${root}/${b.file}`)).records.find((r:PlaceRevision)=>r.id===id) as PlaceRevision] as const)));
 const env={YOUNEW_PLACE_REVIEW:placeReviewBatch,YOUNEW_PRIVATE_REVIEW_BUILD:'1'};
 test('ordinary release publishes exactly the five explicitly approved revisions within the explicitly approved editorial release',async()=>{
-  const release=await loadEditorialRelease();
+  const release=await loadEditorialRelease(history.root);
   assert.equal(release.entities.length,91);assert.ok(release.entities.every((e)=>!e.editorial.placeReview&&e.editorial.batchSha256===release.batchSha256));
   const published=release.entities.filter(e=>manifest.ids.includes(e.id));
   assert.deepEqual(published.map(e=>e.id).sort(),[...manifest.ids].sort());
@@ -22,10 +26,10 @@ test('ordinary release publishes exactly the five explicitly approved revisions 
   for(const e of data.entities.filter(e=>manifest.ids.includes(e.id))) {assert.ok(e.images.every(i=>i.url.startsWith('/images/places/leiden-places-20261115/')));assert.ok(!JSON.stringify(e).includes('/images/place-review/'));}
 });
 test('review is opt-in, existing IDs and URLs survive, and both languages share dated sources',async()=>{
-  const release=await loadEditorialRelease();
-  await assert.rejects(applyPlaceReview(release,root,{YOUNEW_PLACE_REVIEW:placeReviewBatch}),/private review/);
-  await assert.rejects(applyPlaceReview(release,root,{...env,YOUNEW_PLACE_REVIEW:'unknown'}),/unknown review/);
-  const review=await applyPlaceReview(release,root,env);
+  const release=await loadEditorialRelease(history.root);
+  await assert.rejects(applyPlaceReview(release,history.root,{YOUNEW_PLACE_REVIEW:placeReviewBatch}),/private review/);
+  await assert.rejects(applyPlaceReview(release,history.root,{...env,YOUNEW_PLACE_REVIEW:'unknown'}),/unknown review/);
+  const review=await applyPlaceReview(release,history.root,env);
   const runtime=await read(paths.source);
   const normal=buildPublicDataset(runtime,{editorialRelease:release}).content;
   const preview=buildPublicDataset(runtime,{editorialRelease:review}).content;

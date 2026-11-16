@@ -1,4 +1,5 @@
-import test from 'node:test';
+import {pendingReviewRoot} from './place-review-fixture.ts';
+import test, {after} from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {fileURLToPath} from 'node:url';
@@ -9,6 +10,9 @@ import type {PlaceRevision} from '../scripts/place-review.mjs';
 import {loadEditorialRelease} from '../scripts/editorial-release.mjs';
 import {buildPublicDataset,paths} from '../scripts/generate-public-content.mjs';
 const root=fileURLToPath(new URL('../../../',import.meta.url));
+// Freeze this suite's historical publication boundary; current approval is tested separately.
+const history=await pendingReviewRoot(root,['pr75-integration-20261116']);
+after(()=>history.cleanup());
 const batch='amsterdam-attractions-20261116',dir=`${root}/DataProject/editorial/${batch}`;
 const proof=await readPlaceReview(root,batch);
 // These fields are checked against the DataProject JSON schema below; the
@@ -20,7 +24,7 @@ type PairedText={locales:Record<'en'|'nl',{blocks:{id:string;text:string}[]}>};
 const sha256=(bytes:Uint8Array)=>createHash('sha256').update(bytes).digest('hex');
 
 test('ten historical Amsterdam IDs remain excluded from the ordinary public release',async()=>{
- const release=await loadEditorialRelease();assert.strictEqual(await applyPlaceReview(release,root,{}),release);
+ const release=await loadEditorialRelease(history.root);assert.strictEqual(await applyPlaceReview(release,history.root,{}),release);
  assert.equal(proof.reviewer,null);assert.equal(proof.manifest.status,'needs_review');assert.equal(proof.manifest.privateOnly,true);assert.equal(proof.manifest.publicationAuthorized,false);
  const data=buildPublicDataset(JSON.parse(await readFile(paths.source,'utf8')),{editorialRelease:release}).content;
  assert.equal(data.entities.length,96);assert.equal(data.entities.filter(e=>e.type==='place'&&e.images.length).length,50);
@@ -29,8 +33,8 @@ test('ten historical Amsterdam IDs remain excluded from the ordinary public rele
 });
 
 test('explicit private preview adds ten draft cards and retains five photo candidates',async()=>{
- const release=await loadEditorialRelease(),runtime=JSON.parse(await readFile(paths.source,'utf8')),before=JSON.stringify(release);
- const selected=await applyPlaceReview(release,root,{YOUNEW_PLACE_REVIEW:`${batch},missing-photos-20261116`,YOUNEW_PRIVATE_REVIEW_BUILD:'1'});
+ const release=await loadEditorialRelease(history.root),runtime=JSON.parse(await readFile(paths.source,'utf8')),before=JSON.stringify(release);
+ const selected=await applyPlaceReview(release,history.root,{YOUNEW_PLACE_REVIEW:`${batch},missing-photos-20261116`,YOUNEW_PRIVATE_REVIEW_BUILD:'1'});
  assert.equal(JSON.stringify(release),before);assert.throws(()=>buildPublicDataset(runtime,{editorialRelease:selected}),/withheld/);
  const old=process.env.YOUNEW_PRIVATE_REVIEW_BUILD;
  try {

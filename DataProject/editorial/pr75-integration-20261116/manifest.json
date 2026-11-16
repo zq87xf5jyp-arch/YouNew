@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "batchId": "pr75-integration-20261116",
-  "status": "needs_review",
-  "publicationAuthorized": false,
-  "privateOnly": true,
-  "approvedAt": null,
-  "reviewerId": null,
+  "status": "approved",
+  "publicationAuthorized": true,
+  "privateOnly": false,
+  "approvedAt": "2026-11-16",
+  "reviewerId": "owner.ivan",
   "preparedAt": "2026-11-16",
   "ids": [
     "cafe.den-haag-kaafi",
@@ -778,5 +778,6 @@
     ],
     "supersedesHistoricalWithholding": true
   },
-  "integrationReviewSha256": "58bc2fefa694ac31b4f3558a283e8d2b3c7b5997f7bb4598d278e52b2fbf6e11"
+  "integrationReviewSha256": "58bc2fefa694ac31b4f3558a283e8d2b3c7b5997f7bb4598d278e52b2fbf6e11",
+  "approvalSha256": "a9e9d34978d86bfc5570953e9eb0394bbad8d80e095eb95ce0a6110633628b95"
 }

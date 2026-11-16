@@ -1,25 +1,27 @@
-import test from 'node:test';
+import {pendingReviewRoot} from './place-review-fixture.ts';
+import test, {after} from 'node:test';
 import assert from 'node:assert/strict';
-import {readFile,mkdtemp,mkdir,symlink,writeFile,rm} from 'node:fs/promises';
-import {tmpdir} from 'node:os';
-import {join} from 'node:path';
+import {readFile} from 'node:fs/promises';
 import {fileURLToPath} from 'node:url';
 import {spawnSync} from 'node:child_process';
-import {readPlaceReview,applyPlaceReview,validatePlaceRecords,reviewPath,placeReviewBatches} from '../scripts/place-review.mjs';
+import {readPlaceReview,applyPlaceReview,validatePlaceRecords,reviewPath} from '../scripts/place-review.mjs';
 import {buildPublicDataset,paths} from '../scripts/generate-public-content.mjs';
-import {loadEditorialRelease,approvalPath} from '../scripts/editorial-release.mjs';
+import {loadEditorialRelease} from '../scripts/editorial-release.mjs';
 import type {PlaceRevision} from '../scripts/place-review.mjs';
 const root=fileURLToPath(new URL('../../../',import.meta.url));
+// Freeze this suite's historical publication boundary; current approval is tested separately.
+const history=await pendingReviewRoot(root,['pr75-integration-20261116']);
+after(()=>history.cleanup());
 const batch='leiden-nature-culture-20261115';
 const {manifest,records}=await readPlaceReview(root,batch);
 const env={YOUNEW_PLACE_REVIEW:batch,YOUNEW_PRIVATE_REVIEW_BUILD:'1'};
 const bases=new Map(await Promise.all(Object.entries(manifest.baseFiles).map(async([id,b])=>[id,JSON.parse(await readFile(`${root}/${b.file}`,'utf8')).records.find((r:PlaceRevision)=>r.id===id)] as const)));
 test('five existing IDs gain bilingual private text without changing the approved release',async()=>{
- const release=await loadEditorialRelease();const before=JSON.stringify(release);
- assert.strictEqual(await applyPlaceReview(release,root,{}),release);
- await assert.rejects(applyPlaceReview(release,root,{YOUNEW_PLACE_REVIEW:batch}),/private review/);
+ const release=await loadEditorialRelease(history.root);const before=JSON.stringify(release);
+ assert.strictEqual(await applyPlaceReview(release,history.root,{}),release);
+ await assert.rejects(applyPlaceReview(release,history.root,{YOUNEW_PLACE_REVIEW:batch}),/private review/);
  assert.throws(()=>reviewPath('../unregistered'),/unknown review/);
- const preview=await applyPlaceReview(release,root,env);
+ const preview=await applyPlaceReview(release,history.root,env);
  const runtime=JSON.parse(await readFile(paths.source,'utf8'));
  const publicPreview=buildPublicDataset(runtime,{editorialRelease:preview}).content;
  assert.equal(publicPreview.entities.length,96);
@@ -59,7 +61,7 @@ for r in json.loads((root/'${reviewPath(batch)}/records.json').read_text())['rec
 });
 
 test('owner-approved nature batch publishes five stable IDs and preserves the first batch',async()=>{
- const release=await loadEditorialRelease();
+ const release=await loadEditorialRelease(history.root);
  assert.equal(manifest.status,'approved');assert.equal(manifest.publicationAuthorized,true);
  assert.equal(manifest.approvedAt,'2026-11-15');assert.equal(manifest.reviewerId,'owner.ivan');
  const revised=release.entities.filter(e=>manifest.ids.includes(e.id));assert.equal(revised.length,5);
@@ -67,20 +69,16 @@ test('owner-approved nature batch publishes five stable IDs and preserves the fi
  const data=buildPublicDataset(JSON.parse(await readFile(paths.source,'utf8')),{editorialRelease:release}).content;
  assert.ok(data.entities.filter(e=>manifest.ids.includes(e.id)).every(e=>e.images.every(i=>i.url.startsWith(`/images/places/${batch}/`))&&!JSON.stringify(e).includes('/images/place-review/')));
  const published=release.entities.filter(e=>e.images.length&&!manifest.ids.includes(e.id));
- const preview=await applyPlaceReview(release,root,env);
+ const preview=await applyPlaceReview(release,history.root,env);
  for(const e of published){const after=preview.entities.find(x=>x.id===e.id)!;assert.deepEqual(after.images,e.images);assert.deepEqual(after.editorial.place,e.editorial.place);assert.equal(after.editorial.reviewedAt,e.editorial.reviewedAt);}
 });
 
 
 test('pending nature manifest still stays out of an ordinary release',async()=>{
- const temp=await mkdtemp(join(tmpdir(),'younew-nature-gate-'));
+ const fixture=await pendingReviewRoot(history.root,[batch]);
  try {
-  await mkdir(`${temp}/DataProject/editorial/${batch}`,{recursive:true});
-  for(const path of ['DataProject/staging','DataProject/batches','DataProject/operations',...placeReviewBatches.filter(b=>b!==batch).map(b=>reviewPath(b)),approvalPath,'DataProject/editorial/expansion-prepublication-20261115.json','DataProject/editorial/selections','DataProject/editorial/hospitality-release-review-20261116'])await symlink(`${root}/${path}`,`${temp}/${path}`);
-  for(const path of ['records.json','media'])await symlink(`${root}/${reviewPath(batch)}/${path}`,`${temp}/${reviewPath(batch)}/${path}`);
-  await writeFile(`${temp}/${reviewPath(batch)}/manifest.json`,JSON.stringify({...manifest,status:'needs_review',publicationAuthorized:false,approvedAt:null,reviewerId:null}));
-  const release=await loadEditorialRelease(temp);
+  const release=await loadEditorialRelease(fixture.root);
   assert.equal(release.entities.filter(e=>e.images.length).length,45);
   assert.ok(release.entities.filter(e=>manifest.ids.includes(e.id)).every(e=>!e.images.length&&!e.editorial.place&&!e.editorial.placeReview));
- } finally {await rm(temp,{recursive:true,force:true});}
+ } finally {await fixture.cleanup();}
 });

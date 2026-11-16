@@ -2,20 +2,20 @@
   "schemaVersion": "release-truth-compatibility-v1",
   "deprecated": true,
   "replacement": "release-truth.json",
-  "generatedAt": "2026-11-15T14:52:43.000Z",
-  "snapshotID": "release-truth.8964b1925263d017",
-  "snapshotDigest": "8964b1925263d0170a5194025f4be5e43669c2965ee3c4f870b794db29bc6029",
+  "generatedAt": "2026-11-15T20:20:43.000Z",
+  "snapshotID": "release-truth.de58064a4b1a7a7f",
+  "snapshotDigest": "de58064a4b1a7a7f8a74b0fc313e31f4e0b9a6f3ebf03a45a9a45a404e9c6c9d",
   "release_identity": {
-    "candidate_commit": "06cd2e915597600f32de62d63f315f6d41a9ab7e",
+    "candidate_commit": "986a2e4afb7780943eec21a1ec7a06225e992e22",
     "source_tree_state": "dirty",
-    "packaged_fingerprint": "87c6b9743ecfc2eec0b3dc665d9af8f7a65e5d0830dff3b7439a26715a13a303"
+    "packaged_fingerprint": "fdfd13771b62dc527141161a6a23b2c5cd01cf1f9923868dbe4d07e372b46de4"
   },
   "posture": "PARTIAL",
   "release_status_label": "PARTIAL",
   "release_summary": "Packaged content is measured, while link health, exact-candidate CI, and full deployed-payload verification are not established.",
   "proven": {
     "inventory_records": 525,
-    "packaged_published_records": 96,
+    "packaged_published_records": 106,
     "packaged_release_ids": [
       "amsterdam-v0.1.10",
       "cities-v0.1.0",

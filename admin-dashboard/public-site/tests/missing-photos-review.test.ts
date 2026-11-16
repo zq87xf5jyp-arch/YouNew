@@ -1,4 +1,4 @@
-import test from 'node:test';
+import test, {after} from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {fileURLToPath} from 'node:url';
@@ -9,6 +9,9 @@ import {loadEditorialRelease} from '../scripts/editorial-release.mjs';
 import {buildPublicDataset,paths} from '../scripts/generate-public-content.mjs';
 import {pendingReviewRoot} from './place-review-fixture.ts';
 const root=fileURLToPath(new URL('../../../',import.meta.url));
+// Freeze this suite's historical publication boundary; current approval is tested separately.
+const history=await pendingReviewRoot(root,['pr75-integration-20261116']);
+after(()=>history.cleanup());
 const batch='missing-photos-20261116';
 const {manifest,records}=await readPlaceReview(root,batch);
 const bases=new Map(await Promise.all(Object.entries(manifest.baseFiles).map(async([id,b])=>[id,JSON.parse(await readFile(`${root}/${b.file}`,'utf8')).records.find((r:PlaceRevision)=>r.id===id)] as const)));
@@ -16,8 +19,8 @@ const env={YOUNEW_PLACE_REVIEW:batch,YOUNEW_PRIVATE_REVIEW_BUILD:'1'};
 
 test('media follow-up remains draft; ordinary release keeps all nine empty slots',async()=>{
  assert.equal(manifest.status,'needs_review');assert.equal(manifest.publicationAuthorized,false);assert.equal(manifest.approvedAt,null);assert.equal(manifest.reviewerId,null);
- const release=await loadEditorialRelease();
- assert.strictEqual(await applyPlaceReview(release,root,{}),release);
+ const release=await loadEditorialRelease(history.root);
+ assert.strictEqual(await applyPlaceReview(release,history.root,{}),release);
  const normal=buildPublicDataset(JSON.parse(await readFile(paths.source,'utf8')),{editorialRelease:release}).content;
  assert.equal(normal.entities.length,96);assert.equal(normal.entities.filter(e=>e.type==='place'&&e.images.length).length,50);
  const gaps=JSON.parse(await readFile(`${root}/${reviewPath(batch)}/research.json`,'utf8')).cards;
@@ -27,9 +30,9 @@ test('media follow-up remains draft; ordinary release keeps all nine empty slots
 });
 
 test('private preview adds only five media slots and preserves catalogue IDs, routes and facts',async()=>{
- const release=await loadEditorialRelease(),runtime=JSON.parse(await readFile(paths.source,'utf8'));
+ const release=await loadEditorialRelease(history.root),runtime=JSON.parse(await readFile(paths.source,'utf8'));
  const normal=buildPublicDataset(runtime,{editorialRelease:release}).content;
- const preview=buildPublicDataset(runtime,{editorialRelease:await applyPlaceReview(release,root,env)}).content;
+ const preview=buildPublicDataset(runtime,{editorialRelease:await applyPlaceReview(release,history.root,env)}).content;
  assert.deepEqual(preview.entities.map(e=>[e.id,e.route]),normal.entities.map(e=>[e.id,e.route]));
  assert.equal(preview.entities.filter(e=>e.type==='place'&&e.images.length).length,55);
  assert.deepEqual(preview.entities.filter(e=>e.editorial?.placeReview).map(e=>e.id).sort(),[...manifest.ids].sort());
@@ -52,7 +55,7 @@ test('media-only guard rejects changed prices, dates, URLs, source text and repl
 });
 
 test('private media cannot be layered over an unapproved content base',async()=>{
- const fixture=await pendingReviewRoot(root,['leiden-stay-parks-20261115']);
+ const fixture=await pendingReviewRoot(history.root,['leiden-stay-parks-20261115']);
  try {const release=await loadEditorialRelease(fixture.root);await assert.rejects(applyPlaceReview(release,fixture.root,env),/approved base in the release/);}finally{await fixture.cleanup();}
 });
 

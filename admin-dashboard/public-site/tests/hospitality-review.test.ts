@@ -1,4 +1,5 @@
-import test from 'node:test';
+import {pendingReviewRoot} from './place-review-fixture.ts';
+import test, {after} from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile,mkdtemp,writeFile,rm} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
@@ -10,6 +11,9 @@ import {verifyReviewSelection,composeTextAndPhotoReview} from '../scripts/review
 import {loadEditorialRelease} from '../scripts/editorial-release.mjs';
 import {buildPublicDataset,paths} from '../scripts/generate-public-content.mjs';
 const root=fileURLToPath(new URL('../../../',import.meta.url));
+// Freeze this suite's historical publication boundary; current approval is tested separately.
+const history=await pendingReviewRoot(root,['pr75-integration-20261116']);
+after(()=>history.cleanup());
 const selectionPath='DataProject/editorial/selections/pr75-fea2401-20261116/selection.json';
 const selectionDigest='defc64135bfe6c273f5d70a04ecec61714301778278e3634af2cb449ce38267a';
 const batches=['leiden-hospitality-20261116','hospitality-followup-20261116'];
@@ -90,9 +94,9 @@ test('address matching excludes neighbouring units; re-used photos keep exact by
 });
 
 test('twenty revisions never add IDs, inherit approval or enter ordinary output',async()=>{
- const release=await loadEditorialRelease(),runtime=JSON.parse(await readFile(paths.source,'utf8'));assert.strictEqual(await applyPlaceReview(release,root,{}),release);
+ const release=await loadEditorialRelease(history.root),runtime=JSON.parse(await readFile(paths.source,'utf8'));assert.strictEqual(await applyPlaceReview(release,history.root,{}),release);
  const ordinary=buildPublicDataset(runtime,{editorialRelease:release}).content;assert.equal(ordinary.entities.length,96);
- const changed=await applyPlaceReview(release,root,{YOUNEW_PLACE_REVIEW:batches.join(','),YOUNEW_PRIVATE_REVIEW_BUILD:'1'});const old=process.env.YOUNEW_PRIVATE_REVIEW_BUILD;
+ const changed=await applyPlaceReview(release,history.root,{YOUNEW_PLACE_REVIEW:batches.join(','),YOUNEW_PRIVATE_REVIEW_BUILD:'1'});const old=process.env.YOUNEW_PRIVATE_REVIEW_BUILD;
  try{process.env.YOUNEW_PRIVATE_REVIEW_BUILD='1';const preview=buildPublicDataset(runtime,{editorialRelease:changed,privateReview:true}).content;assert.deepEqual(preview.entities.map(e=>e.id).sort(),ordinary.entities.map(e=>e.id).sort());
   for(const batch of batches){const p=await readPlaceReview(root,batch);for(const id of p.manifest.ids){const e=preview.entities.find(e=>e.id===id)!;assert.equal(e.status,'draft');assert.equal(e.indexable,false);assert.equal(e.editorial?.reviewer,null);assert.equal(e.editorial?.reviewedAt,null);}}
  }finally{if(old===undefined)delete process.env.YOUNEW_PRIVATE_REVIEW_BUILD;else process.env.YOUNEW_PRIVATE_REVIEW_BUILD=old;}
@@ -114,6 +118,6 @@ test('new archival photos remain separate, attributed, checksum-bound and never 
   const food=await readPlaceReview(root,batches[0]);assert.deepEqual(food.records.find(r=>r.id===m.entityId)!.images,[]);
  }
  const collection=await json(`${dir}/collections.json`);assert.equal(collection.publicationAuthorized,false);assert.equal(collection.collections.length,4);
- const runtime=JSON.parse(await readFile(paths.source,'utf8')),release=await loadEditorialRelease();const content=buildPublicDataset(runtime,{editorialRelease:release}).content;
+ const runtime=JSON.parse(await readFile(paths.source,'utf8')),release=await loadEditorialRelease(history.root);const content=buildPublicDataset(runtime,{editorialRelease:release}).content;
  const ids=new Set(content.entities.map(e=>e.id));for(const c of collection.collections)for(const id of c.entityIds)assert.ok(ids.has(id),id);
 });
