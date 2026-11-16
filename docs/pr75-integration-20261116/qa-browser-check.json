@@ -1,0 +1,408 @@
+{
+  "mode": "qa",
+  "status": "PASS",
+  "origin": "https://qa-catalog.younew.nl",
+  "viewports": [
+    "390x844 (iPhone-sized Chrome)",
+    "412x844 (Android-sized Chrome)",
+    "1280x1000 desktop"
+  ],
+  "environment": "existing Playwright + Chrome; Browser plugin not available; no real-device Safari test",
+  "cardChecks": 258,
+  "overview": [
+    {
+      "route": "/",
+      "width": 390,
+      "h1": 1,
+      "overflow": false,
+      "lab": {
+        "lcp": 84,
+        "cls": 0
+      }
+    },
+    {
+      "route": "/leiden/",
+      "width": 390,
+      "h1": 1,
+      "overflow": false,
+      "lab": {
+        "lcp": 76,
+        "cls": 0
+      }
+    },
+    {
+      "route": "/cities/",
+      "width": 390,
+      "h1": 1,
+      "overflow": false,
+      "lab": {
+        "lcp": 136,
+        "cls": 0
+      }
+    },
+    {
+      "route": "/cities/amsterdam/",
+      "width": 390,
+      "h1": 1,
+      "overflow": false,
+      "lab": {
+        "lcp": 88,
+        "cls": 0
+      }
+    },
+    {
+      "route": "/categories/",
+      "width": 390,
+      "h1": 1,
+      "overflow": false,
+      "lab": {
+        "lcp": 68,
+        "cls": 0
+      }
+    },
+    {
+      "route": "/categories/food-drink/",
+      "width": 390,
+      "h1": 1,
+      "overflow": false,
+      "lab": {
+        "lcp": 112,
+        "cls": 0.0011709618343461081
+      }
+    },
+    {
+      "route": "/categories/culture/",
+      "width": 390,
+      "h1": 1,
+      "overflow": false,
+      "lab": {
+        "lcp": 64,
+        "cls": 0
+      }
+    },
+    {
+      "route": "/search/",
+      "width": 390,
+      "h1": 1,
+      "overflow": false,
+      "lab": {
+        "lcp": 56,
+        "cls": 0
+      }
+    },
+    {
+      "route": "/map/",
+      "width": 390,
+      "h1": 1,
+      "overflow": false,
+      "lab": {
+        "lcp": 104,
+        "cls": 0
+      }
+    },
+    {
+      "route": "/saved/",
+      "width": 390,
+      "h1": 1,
+      "overflow": false,
+      "lab": {
+        "lcp": 84,
+        "cls": 0.05435362929151411
+      }
+    },
+    {
+      "route": "/guides/",
+      "width": 390,
+      "h1": 1,
+      "overflow": false,
+      "lab": {
+        "lcp": 52,
+        "cls": 0
+      }
+    },
+    {
+      "route": "/for-business/",
+      "width": 390,
+      "h1": 1,
+      "overflow": false,
+      "lab": {
+        "lcp": 72,
+        "cls": 0
+      }
+    },
+    {
+      "route": "/status/",
+      "width": 390,
+      "h1": 1,
+      "overflow": false,
+      "lab": {
+        "lcp": 76,
+        "cls": 0
+      }
+    },
+    {
+      "route": "/",
+      "width": 412,
+      "h1": 1,
+      "overflow": false,
+      "lab": {
+        "lcp": 64,
+        "cls": 0
+      }
+    },
+    {
+      "route": "/leiden/",
+      "width": 412,
+      "h1": 1,
+      "overflow": false,
+      "lab": {
+        "lcp": 72,
+        "cls": 0
+      }
+    },
+    {
+      "route": "/cities/",
+      "width": 412,
+      "h1": 1,
+      "overflow": false,
+      "lab": {
+        "lcp": 76,
+        "cls": 0
+      }
+    },
+    {
+      "route": "/cities/amsterdam/",
+      "width": 412,
+      "h1": 1,
+      "overflow": false,
+      "lab": {
+        "lcp": 72,
+        "cls": 0
+      }
+    },
+    {
+      "route": "/categories/",
+      "width": 412,
+      "h1": 1,
+      "overflow": false,
+      "lab": {
+        "lcp": 76,
+        "cls": 0
+      }
+    },
+    {
+      "route": "/categories/food-drink/",
+      "width": 412,
+      "h1": 1,
+      "overflow": false,
+      "lab": {
+        "lcp": 76,
+        "cls": 0
+      }
+    },
+    {
+      "route": "/categories/culture/",
+      "width": 412,
+      "h1": 1,
+      "overflow": false,
+      "lab": {
+        "lcp": 72,
+        "cls": 0
+      }
+    },
+    {
+      "route": "/search/",
+      "width": 412,
+      "h1": 1,
+      "overflow": false,
+      "lab": {
+        "lcp": 48,
+        "cls": 0
+      }
+    },
+    {
+      "route": "/map/",
+      "width": 412,
+      "h1": 1,
+      "overflow": false,
+      "lab": {
+        "lcp": 104,
+        "cls": 0
+      }
+    },
+    {
+      "route": "/saved/",
+      "width": 412,
+      "h1": 1,
+      "overflow": false,
+      "lab": {
+        "lcp": 76,
+        "cls": 0.04572144500628916
+      }
+    },
+    {
+      "route": "/guides/",
+      "width": 412,
+      "h1": 1,
+      "overflow": false,
+      "lab": {
+        "lcp": 72,
+        "cls": 0
+      }
+    },
+    {
+      "route": "/for-business/",
+      "width": 412,
+      "h1": 1,
+      "overflow": false,
+      "lab": {
+        "lcp": 64,
+        "cls": 0
+      }
+    },
+    {
+      "route": "/status/",
+      "width": 412,
+      "h1": 1,
+      "overflow": false,
+      "lab": {
+        "lcp": 84,
+        "cls": 0
+      }
+    },
+    {
+      "route": "/",
+      "width": 1280,
+      "h1": 1,
+      "overflow": false,
+      "lab": {
+        "lcp": 176,
+        "cls": 0
+      }
+    },
+    {
+      "route": "/leiden/",
+      "width": 1280,
+      "h1": 1,
+      "overflow": false,
+      "lab": {
+        "lcp": 180,
+        "cls": 0
+      }
+    },
+    {
+      "route": "/cities/",
+      "width": 1280,
+      "h1": 1,
+      "overflow": false,
+      "lab": {
+        "lcp": 80,
+        "cls": 0
+      }
+    },
+    {
+      "route": "/cities/amsterdam/",
+      "width": 1280,
+      "h1": 1,
+      "overflow": false,
+      "lab": {
+        "lcp": 368,
+        "cls": 0
+      }
+    },
+    {
+      "route": "/categories/",
+      "width": 1280,
+      "h1": 1,
+      "overflow": false,
+      "lab": {
+        "lcp": 84,
+        "cls": 0
+      }
+    },
+    {
+      "route": "/categories/food-drink/",
+      "width": 1280,
+      "h1": 1,
+      "overflow": false,
+      "lab": {
+        "lcp": 128,
+        "cls": 0
+      }
+    },
+    {
+      "route": "/categories/culture/",
+      "width": 1280,
+      "h1": 1,
+      "overflow": false,
+      "lab": {
+        "lcp": 120,
+        "cls": 0.0067251749420166014
+      }
+    },
+    {
+      "route": "/search/",
+      "width": 1280,
+      "h1": 1,
+      "overflow": false,
+      "lab": {
+        "lcp": 84,
+        "cls": 0.02559375
+      }
+    },
+    {
+      "route": "/map/",
+      "width": 1280,
+      "h1": 1,
+      "overflow": false,
+      "lab": {
+        "lcp": 116,
+        "cls": 0
+      }
+    },
+    {
+      "route": "/saved/",
+      "width": 1280,
+      "h1": 1,
+      "overflow": false,
+      "lab": {
+        "lcp": 84,
+        "cls": 0.032523711547851566
+      }
+    },
+    {
+      "route": "/guides/",
+      "width": 1280,
+      "h1": 1,
+      "overflow": false,
+      "lab": {
+        "lcp": 68,
+        "cls": 0
+      }
+    },
+    {
+      "route": "/for-business/",
+      "width": 1280,
+      "h1": 1,
+      "overflow": false,
+      "lab": {
+        "lcp": 84,
+        "cls": 0
+      }
+    },
+    {
+      "route": "/status/",
+      "width": 1280,
+      "h1": 1,
+      "overflow": false,
+      "lab": {
+        "lcp": 56,
+        "cls": 0
+      }
+    }
+  ],
+  "interaction": "ARTIS, Kazerne, Supernova: Save/reload/Saved/open/remove; Rijksmuseum: Save, EN/NL, Share clipboard, map/category/global search",
+  "errors": [],
+  "labLimit": "Unthrottled hosted LCP/CLS observations only; no field CWV, no measured INP, no accessibility certification",
+  "archiveSha256": "2b617cbf5b825e7d760df311418c109e2cd265563511f8d95ac755c1c14426a7"
+}

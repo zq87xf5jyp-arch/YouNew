@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "width": 390,
+      "locale": "en",
+      "collectionCards": 4,
+      "sourceDates": true,
+      "detailLink": "https://qa-catalog.younew.nl/places/leiden-lakenhal/"
+    },
+    {
+      "width": 390,
+      "locale": "nl",
+      "collectionCards": 4,
+      "sourceDates": true,
+      "detailLink": "https://qa-catalog.younew.nl/nl/plaatsen/leiden-lakenhal/"
+    },
+    {
+      "width": 1280,
+      "locale": "en",
+      "collectionCards": 4,
+      "sourceDates": true,
+      "detailLink": "https://qa-catalog.younew.nl/places/leiden-lakenhal/"
+    },
+    {
+      "width": 1280,
+      "locale": "nl",
+      "collectionCards": 4,
+      "sourceDates": true,
+      "detailLink": "https://qa-catalog.younew.nl/nl/plaatsen/leiden-lakenhal/"
+    }
+  ]
+}

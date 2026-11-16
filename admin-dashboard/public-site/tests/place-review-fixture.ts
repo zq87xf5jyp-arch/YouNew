@@ -6,7 +6,7 @@ import {approvalPath} from '../scripts/editorial-release.mjs';
 export async function pendingReviewRoot(root:string,batches:string[]) {
  const temp=await mkdtemp(join(tmpdir(),'younew-review-gate-'));
  await mkdir(`${temp}/DataProject/editorial`,{recursive:true});
- for(const path of ['DataProject/staging','DataProject/batches','DataProject/operations',approvalPath,'DataProject/editorial/expansion-prepublication-20261115.json'])await symlink(`${root}/${path}`,`${temp}/${path}`);
+ for(const path of ['DataProject/staging','DataProject/batches','DataProject/operations',approvalPath,'DataProject/editorial/expansion-prepublication-20261115.json','DataProject/editorial/selections','DataProject/editorial/hospitality-release-review-20261116'])await symlink(`${root}/${path}`,`${temp}/${path}`);
  for(const batch of placeReviewBatches){
   const path=reviewPath(batch);if(!batches.includes(batch)){await symlink(`${root}/${path}`,`${temp}/${path}`);continue;}
   await mkdir(`${temp}/${path}`);

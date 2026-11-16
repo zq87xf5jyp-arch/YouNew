@@ -3,6 +3,8 @@ export type ContentEntityType = "city" | "guide" | "organization" | "place";
 export type PublishedStatus = "published";
 
 export interface PublicMediaAsset {
+  readonly placement?: "archive_gallery_only";
+  readonly captions?: Readonly<{en:string;nl:string}>;
   readonly id: string;
   readonly role: "hero" | "thumbnail" | "gallery" | "map_preview";
   readonly url: string;
@@ -314,6 +316,7 @@ export interface ContentProvince {
 }
 
 export interface PublicContentDataset {
+  readonly editorialCollections?: readonly {key:string;city:string;title:Readonly<{en:string;nl:string}>;description:Readonly<{en:string;nl:string}>;entityIds:readonly string[];sources:readonly EditorialSource[]}[];
   readonly schemaVersion: 1;
   readonly privateReview?: {readonly publicationAuthorized:false; readonly draftIds:readonly string[]};
   readonly generatedAt: string;

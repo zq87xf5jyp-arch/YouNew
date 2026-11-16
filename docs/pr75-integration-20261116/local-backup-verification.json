@@ -1,0 +1,7 @@
+{
+  "publicArchive": "PASS",
+  "consistentDatabaseDump": "PASS",
+  "localPrivatePermissions": "0600",
+  "remoteHashesMatch": true,
+  "productionChanged": false
+}

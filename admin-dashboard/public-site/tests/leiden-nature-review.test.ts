@@ -76,7 +76,7 @@ test('pending nature manifest still stays out of an ordinary release',async()=>{
  const temp=await mkdtemp(join(tmpdir(),'younew-nature-gate-'));
  try {
   await mkdir(`${temp}/DataProject/editorial/${batch}`,{recursive:true});
-  for(const path of ['DataProject/staging','DataProject/batches','DataProject/operations',...placeReviewBatches.filter(b=>b!==batch).map(b=>reviewPath(b)),approvalPath,'DataProject/editorial/expansion-prepublication-20261115.json'])await symlink(`${root}/${path}`,`${temp}/${path}`);
+  for(const path of ['DataProject/staging','DataProject/batches','DataProject/operations',...placeReviewBatches.filter(b=>b!==batch).map(b=>reviewPath(b)),approvalPath,'DataProject/editorial/expansion-prepublication-20261115.json','DataProject/editorial/selections','DataProject/editorial/hospitality-release-review-20261116'])await symlink(`${root}/${path}`,`${temp}/${path}`);
   for(const path of ['records.json','media'])await symlink(`${root}/${reviewPath(batch)}/${path}`,`${temp}/${reviewPath(batch)}/${path}`);
   await writeFile(`${temp}/${reviewPath(batch)}/manifest.json`,JSON.stringify({...manifest,status:'needs_review',publicationAuthorized:false,approvedAt:null,reviewerId:null}));
   const release=await loadEditorialRelease(temp);
